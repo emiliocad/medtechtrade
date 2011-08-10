@@ -1,18 +1,18 @@
 <?php
 
 class IndexController extends Zend_Controller_Action
-{
+    {
 
     public function init()
-    {
+        {
         /* Initialize action controller here */
-    }
+        }
 
     public function indexAction()
-    {
-        // action body
+        {
+        Zend_Layout::getMvcInstance()->setContentKey( 'detailsleft' );
+        $this->view->assign("prueba", "esto es una prueba");
+        }
+
     }
-
-
-}
 

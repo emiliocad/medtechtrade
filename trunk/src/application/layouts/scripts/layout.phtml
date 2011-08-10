@@ -6,29 +6,35 @@
         <?= $this->headLink() ?>        
         <?= $this->headScript() ?>        
     </head>
-    <body<?=$this->attribs($this->layout()->bodyAttr)?>>
-        <?= $this->render('_cabecera.phtml'); ?>
-        <?= $this->render('_menu.phtml'); ?>
-        <div id="contenido">
-            <?= $this->render('_mensajes.phtml'); ?>
-            <?= $this->layout()->content ?>
-        </div>
-        <?= $this->render('_pie.phtml'); ?>
-        
-        <div class="debug" style="background: #E8E8E8; border-top: 1px black solid; display: none">
-            Bienvenido <?=Zend_Auth::getInstance()->hasIdentity()?$this->authUser:'Visitante'?><br />
-            <? if(Zend_Auth::getInstance()->hasIdentity()): ?>
-                <a href="<?=$this->url(array('action'=>'logout', 'controller'=>'test'),null,true)?>">Logout</a>
-            <?php else: ?>
-                <a href="<?=$this->url(array('action'=>'login', 'controller'=>'test'),null,true)?>">Login</a> |
-            <? endif; ?>
+    <body>
+        <?= $this->render( '_header.phtml' ); ?>
+        <?= $this->render( '_navegacion.phtml' ); ?>
 
-            <pre>
-                <?=$this->authData?>
-            </pre>
-            <?=My_Tools::puedo('vender','productos')?'SI':'NO'?> puedes vender productos<br />
-            <?=My_Tools::puedo('ver','reportes')?'SI':'NO'?> puedes ver reportes<br />
+        <div id="content" class="container_16">
+            <div id="details-left" class="grid_4 alpha">
+                
+                <?= $this->layout()->detailsleft ?>
+                
+            </div>
+            <div id="contenido" class="grid_8 omega">
+                
+                <?= $this->render( '_messages.phtml' ); ?>
+                
+                <?= $this->layout()->content ?>
+                
+                
+            </div>
+            <div id="details-right" class="grid_4 omega">
+                
+                <?= $this->layout()->detailsright ?>
+                
+            </div>
+            <div class="clear">  
+            </div>
+
         </div>
         
+        <?= $this->render( '_footer.phtml' ); ?>
+
     </body>
 </html>
