@@ -42,6 +42,7 @@ body {
 
 #navegacion{
     height: 25px;
+    width: 960px;
     background-image: url('/images/top_menu_bg1.png');
     background-repeat: repeat-x;
     font-size: 15px;
@@ -72,3 +73,22 @@ body {
     border-right: none;
 }
 /*FOOTER*/
+
+#details-left li{
+    display: block;
+    height: 33px;
+    width: 188px;
+    color: #000000;
+    border-bottom-style: dashed;
+    border-bottom-color: #878787;
+    border-bottom-width: 1px;
+    padding: 0;
+    text-align: center;
+}
+#details-left li a{
+    color: #4e4e4e;
+}
+#details-left li:hover{
+    background-color: #4E4E4E;
+    color: #000000;
+}
