@@ -11,7 +11,10 @@ class IndexController extends Zend_Controller_Action
     public function indexAction()
         {
         Zend_Layout::getMvcInstance()->setContentKey( 'detailsleft' );
-        $this->view->assign("prueba", "esto es una prueba");
+        $this->view->assign("prueba", "detailsleft");
+        Zend_Layout::getMvcInstance()->setContentKey( 'content' );
+        $this->view->assign("prueba", "content");
+        
         }
 
     }
