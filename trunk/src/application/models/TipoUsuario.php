@@ -8,9 +8,9 @@
  * Description of Usuario
  *
  */
-class Application_Model_Usuario extends Zend_Db_Table_Abstract {
+class Application_Model_TipoUsuario extends Zend_Db_Table_Abstract {
     
-    protected $_name = 'usuario';
+    protected $_name = 'tiposusuario';
     //protected $_dependentTables = array('Application_Model_Tag');    
     
     const DNI = 'dni';

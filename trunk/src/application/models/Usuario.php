@@ -17,7 +17,6 @@ class Application_Model_Usuario extends Zend_Db_Table_Abstract
 
     const PASSWPRD_SALT = "asdw452112355";
 
-
     public function disponibleLogin( $login )
         {
         $v = new Zend_Validate_Db_NoRecordExists( array(
@@ -32,7 +31,7 @@ class Application_Model_Usuario extends Zend_Db_Table_Abstract
 
         $db = Zend_Db_Table_Abstract::getDefaultAdapter();
         $authAdapter = new Zend_Auth_Adapter_DbTable( $db );
-        $authAdapter->setTableName( 'usuario' );
+        $authAdapter->setTableName( 'usuarios' );
         $authAdapter->setIdentityColumn( 'login' );
         $authAdapter->setCredentialColumn( 'pwd' );
         $authAdapter->setIdentity( $login );
