@@ -1,24 +1,18 @@
 <?php
 
-class UserController extends Zend_Controller_Action
+class CategoriaController extends Zend_Controller_Action
     {
 
     public function init()
         {
         parent::init();
-        //$this->_usuario = new Application_Model_User();
+        $this->_usuario = new Application_Model_Usuario();
         //$this->_tag = new Application_Model_Tag();
         }
 
     public function indexAction()
         {
-        
-        }
-
-    public function loginAction()
-        {
-        $frmlogin = new Application_Form_Login();
-        $this->view->assign( 'formlogin' , $frmlogin );
+       
         }
 
     public function paginadoAction()
@@ -28,11 +22,19 @@ class UserController extends Zend_Controller_Action
         $this->view->usuarios = $p;
         }
 
-    public function signUpAction()
+    public function registrarAction()
         {
         $this->view->headScript()->appendFile( '/js/user.sigunp.js' );
         $form = new Application_Form_Registrar();
-        $this->view->assign( 'form' , $form );
+        $this->view->form = $form;
+        }
+
+    
+    public function verAction()
+        {
+        $id = $this->_getParam( 'id' , null );
+        $this->view->id = $id;
+        $this->view->u = $this->_usuario->fetchRow( 'id=' . $id )->toArray();
         }
 
     }

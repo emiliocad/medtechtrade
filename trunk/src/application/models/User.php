@@ -17,15 +17,6 @@ class Application_Model_Usuario extends Zend_Db_Table_Abstract
 
     const PASSWPRD_SALT = "asdw452112355";
 
-    public function disponibleLogin( $login )
-        {
-        $v = new Zend_Validate_Db_NoRecordExists( array(
-                    'table' => $this->_name ,
-                    'field' => 'usuario'
-                ) );
-        return $v->isValid( $login );
-        }
-
     public function auth( $login , $pwd )
         {
 
