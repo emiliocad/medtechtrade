@@ -1,0 +1,116 @@
+<?php if (isset($_REQUEST['save'])) $r = $_REQUEST;
+    if(isset($this->errors)) $e = $this->errors;
+?>
+<h1>Ads [New]</h1>
+<br /><br /><br />
+<form method="post" action="admin/ads/add-ad" enctype="multipart/form-data">
+    <fieldset>
+        <legend>Basic Information</legend>
+        <div class="field">
+        	<label>Ad type</label>
+        	<select name="ad_type">
+                <option value="1">Banner</option>
+                <option value="2">Coupon</option>
+            </select>
+        	<span class="explanation"></span>
+        </div>
+        <div class="field">
+        	<label>Target Country</label>
+        	<select name="country_id">
+               <?php foreach ($this->countries as $key=>$c): ?>
+               <option value="<?php echo $key;?>" <?php if(isset($r['country_id'])&& $r['country_id']==$key) echo 'selected=="selected"';?>><?php echo $c;?></option>
+               <?php endforeach;?>
+            </select>
+        	<span class="explanation"></span>
+        </div>
+        <div class="field">
+        	<label>Advertiser Name</label>
+            <select name="dentist_id">
+        	<option value="0">System</option> 
+               <?php foreach ($this->dentists as $key=>$d): ?>
+               <option value="<?php echo $key;?>" <?php if(isset($r['dentist_id'])&& $r['dentist_id']==$key) echo 'selected=="selected"';?>><?php echo $d;?></option>
+               <?php endforeach;?>
+            </select>
+        	<span class="explanation"></span>
+        </div>
+        <div class="field">
+        	<label>Select Page</label>
+            <select id="page" name="page">
+        	<option value="0">Please select...</option> 
+               <?php foreach ($this->pages as $p): ?>
+               <option value="<?php echo $p['code'];?>" <?php if(isset($r['page'])&& $r['page']==$p['code']) echo 'selected=="selected"';?>><?php echo $p['title'];?></option>
+               <?php endforeach;?>
+            </select>
+        	<span class="explanation"><?php if(isset($e['page'])) echo $e['page'];?></span>
+        </div>
+        <div class="field">
+        	<label>Select Position</label>
+            <select id="position" name="position" disabled="disabled"> 
+               <?php if(isset($r['position'])):?>
+                <option value="<?php echo $r['position']?>"><?php echo $r['page'].$r['position'];?></option>
+               <?php endif;?>
+            </select>
+        	<span class="explanation"><?php if(isset($e['position'])) echo $e['position'];?></span>
+        </div>
+        <div class="field">
+            <label>&nbsp;</label>
+            <a href="admin/ads/placement-map" target="_blank">Placement Map</a>
+        </div>
+    </fieldset>
+    
+    <fieldset>
+        <legend>Banner/Coupon</legend>
+        <div class="field">
+            <label>Upload image</label>
+            <input type="file" name="ad_image" value=""/>
+            <span class="explanation"><?php if(isset($e['ad_image'])) echo $e['ad_image'];?></span>
+        </div>
+        <div class="field">
+            <label>Advertiser URL</label>
+            <input type="text" name="url" value="<?php echo (isset($r['url'])) ? $r['url']:"";?>"/>
+            <span class="explanation"></span>
+        </div>
+        <div class="field">
+            <label>Anchor text</label>
+            <input type="text" name="anchor_text" value="<?php echo (isset($r['anchor_text'])) ? $r['anchor_text']:"";?>"/>
+            <span class="explanation"></span>
+        </div>
+        <div class="field">
+            <label>Alternative text</label>
+            <input type="text" name="alt_text" value="<?php echo (isset($r['alt_text'])) ? $r['alt_text']:"";?>"/>
+            <span class="explanation"></span>
+        </div>
+    </fieldset>
+        
+    <fieldset>
+        <legend>Delivery limitations</legend>
+        <div class="field">
+            <label>Number of clicks</label>
+            <input type="text" name="click_limit" value="<?php echo (isset($r['click_limit'])) ? $r['click_limit']:"";?>"/>
+            <span class="explanation"><?php if(isset($e['click_limit'])) echo $e['click_limit'];?></span>
+        </div>
+        <div class="field">
+            <label>Number of impressions</label>
+            <input type="text" name="impression_limit" value="<?php echo (isset($r['impression_limit'])) ? $r['impression_limit']:"";?>"/>
+            <span class="explanation"><?php if(isset($e['impression_limit'])) echo $e['impression_limit'];?></span>
+        </div>
+        <div class="field">
+            <label>Price</label>
+            <input type="text" name="price" value="<?php echo (isset($r['price'])) ? $r['price']:'';?>"/>
+            <span class="explanation"></span>
+        </div>        
+        <div class="field">
+        	<label>Display from</label>
+        	<input type="text" class="date-picker" name="date_from" value="<?php echo (isset($r['date_from']))? $r['date_from'] : ""?>" />
+        	<span class="explanation"></span>
+        </div>
+        <div class="clear"></div>
+        <div class="field">
+        	<label>Display to</label>
+        	<input type="text" class="date-picker" name="date_to" value="<?php echo (isset($r['date_to']))? $r['date_to'] : ""?>" />
+        	<span class="explanation"></span>
+        </div>
+    </fieldset> 
+    <div class="clear"></div>
+    <input type="submit" name="save" value="Save"/>
+</form>

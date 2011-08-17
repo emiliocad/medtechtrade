@@ -1,0 +1,73 @@
+<?php $s = isset($_REQUEST['save'])? $_REQUEST : $this->state;?>
+<h1>Manage State: <?php echo $s['name'];?></h1>
+<a href="admin/country/manage-country-areas?id=<?php echo $s['country_id'];?>">Manage Country: <?php echo $this->countries[$s['country_id']];?></a>
+<br /><br /><br />
+<div class="clear"></div>
+<form method="post" action="admin/country/manage-state">
+    <input type="hidden" name="id" value="<?php echo $s['id'];?>"/>
+    <div class="field">
+    	<label>Country</label>
+    	<select name="country_id">
+            <?php foreach ($this->countries as $key => $country):?>
+                <option value="<?php echo $key;?>" <?php if($key==$s['country_id']) echo 'selected="selected"';?>><?php echo $country;?></option>
+            <?php endforeach;?>
+        </select>
+    	<span class="explanation"></span>
+    </div>
+    <div class="field">
+    	<label>Area name</label>
+    	<input type="text" name="name" value="<?php echo $s['name'];?>" />
+    	<span class="explanation"></span>
+    </div>
+    <div class="field">
+    	<label>Enable this area</label>
+    	<input type="checkbox" name="hidden" value="0" <?php if(isset($s['hidden']) && $s['hidden']==0) echo 'checked="checked"'?>/>
+    	<span class="explanation"></span>
+    </div>
+    <input type="submit" name="save" value="Save" />
+</form>
+<div class="clear"></div>
+
+<form method="post" action="admin/country/manage-state">   
+    <input type="hidden" name="id" value="<?php echo $s['id'];?>"/>
+    <div class="field">
+    	<label>City name</label>
+    	<input type="text" name="name" value="" />
+    	<span class="explanation"></span>
+    </div>
+    <div class="field">
+    	<label>Enable this city</label>
+    	<input type="checkbox" name="hidden" value="0" checked="checked"/>
+    	<span class="explanation"></span>
+    </div>
+    <input type="submit" name="add_city" value="Add City" />
+</form>
+
+<div class="clear"></div>
+<?php if(!empty($this->cities)):?>
+<form>
+<table>
+    <tr class="gray">
+        <td>City</td>
+        <td>Status</td>
+        <td>Operations</td>
+    </tr>
+    <?php foreach ($this->cities as $city):?>
+    <tr>
+        <td><?php echo $city['name'];?></td>
+        <td><?php echo $city['hidden'] ? "Hidden":"Visible";?></td>
+        <td>
+            <a href="admin/country/switch-city?id=<?php echo $city['id'];?>"><?php echo $city['hidden'] ? "Show" : "Hide";?></a>
+        </td>
+    </tr>    
+    <?php endforeach;?>
+    <tr class="gray">
+        <td>City</td>
+        <td>Status</td>
+        <td>Operations</td>
+    </tr>
+</table>
+</form>
+<?php else:?>
+<p>No city has been added for this state/province.</p>
+<?php endif;?>

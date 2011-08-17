@@ -1,0 +1,121 @@
+<?php 
+    $arrow_up = '<img class="arrow" src="images/arrow_up.png" alt="ASC" title="ASC"/>';
+    $arrow_down = '<img class="arrow" src="images/arrow_down.png" alt="DESC" title="DESC"/>';
+?>
+<h1>Patients</h1>
+<a href="admin/users/add-patient" class="button">Add New</a>
+<br /><br /><br />
+<?php if (isset($this->errors)):?>
+    <div id="errors">
+        <ul>
+        <?php foreach ($this->errors as $error):?>
+            <li><?php echo $error;?></li>
+        <?php endforeach?>
+        </ul>
+    </div>
+<?php endif;?>
+<form method="post" id="search" action="admin/users/patients">
+    <div class="field">
+    	<label></label>
+    	<input type="text" name="text" value="<?php if (isset($this->session->search_patient)) echo $this->session->search_patient;?>" />
+    	<span class="explanation"></span>
+    </div>
+    <input type="submit" name="search" value="Search Patients" />
+</form>
+
+<form method="post" action="admin/users/patients">
+<select name="status">
+    <option value="0">Activate</option>
+    <option value="1">Inactivate</option>
+</select>
+<input type="submit" name="apply" value="Apply" class="small_button"/>
+<?php 
+if(!empty($this->patients)) : 
+$count = count($this->patients);
+$page= @$_REQUEST['p'];
+$size=8;
+$pages = $count/$size + ($count%$size>0?1:0);
+if (!$page || $page>$pages) $page=1;
+$aux = array_chunk($this->patients,$size);
+$this->patients = $aux[$page-1];
+?>
+<br />
+<a href="admin/users/patients/?p=all">Reset Filters</a>&nbsp;
+<?php for($i=1;$i<=$pages;$i++): if ($i!=$page):?>
+<a href="admin/users/patients/?p=<?php echo $i?>&amp;f=<?php echo isset($_REQUEST['f'])?$_REQUEST['f']:"creation_date";?>&amp;o=<?php echo isset($_REQUEST['o'])?$_REQUEST['o']:"ASC";?>"><?php echo $i?></a> &nbsp;
+<?php else:?>
+<b><?php echo $i?></b> &nbsp;
+<?php endif;endfor;?>
+<br /><br />
+<?php endif;?>
+<table>
+    <tr class="gray">
+        <td class="check"><input type="checkbox" id="all" /></td>
+        <td>
+            Username
+            <span class="links">
+            <a href="admin/users/patients/?p=1&f=username&o=asc"><?php echo $arrow_up;?></a>
+            <a href="admin/users/patients/?p=1&f=username&o=desc"><?php echo $arrow_down;?></a>
+            </span>
+        </td>
+        <td>
+            First Name
+            <span class="links">
+            <a href="admin/users/patients/?p=1&f=first_name&o=asc"><?php echo $arrow_up;?></a>
+            <a href="admin/users/patients/?p=1&f=first_name&o=desc"><?php echo $arrow_down;?></a>
+            </span>
+        </td>
+        <td>
+            Last Name
+            <span class="links">
+            <a href="admin/users/patients/?p=1&f=last_name&o=asc"><?php echo $arrow_up;?></a>
+            <a href="admin/users/patients/?p=1&f=last_name&o=desc"><?php echo $arrow_down;?></a>
+            </span>
+        </td>
+        <td>
+            Email Address
+            <span class="links">
+            <a href="admin/users/patients/?p=1&f=email&o=asc"><?php echo $arrow_up;?></a>
+            <a href="admin/users/patients/?p=1&f=email&o=desc"><?php echo $arrow_down;?></a>
+            </span>
+        </td>
+        <td>
+            Status
+            <span class="links">
+            <a href="admin/users/patients/?p=1&f=hidden&o=asc"><?php echo $arrow_up;?></a>
+            <a href="admin/users/patients/?p=1&f=hidden&o=desc"><?php echo $arrow_down;?></a>
+            </span>
+        </td>
+    </tr>
+    <?php foreach($this->patients as $p):?>
+    <tr>
+        <td class="check"><input type="checkbox" name="patients[]" value="<?php echo $p['id'];?>" /></td>
+        <td>
+            <img src="images/avatar.jpg" alt=""/><?php echo $p['username']?><br />
+            <a href="admin/users/edit-patient?id=<?php echo $p['id'];?>">Edit</a>|<a href="admin/users/switch-patient?id=<?php echo $p['id'];?>"><?php echo ($p['hidden'])?"Activate":"Inactivate";?></a>
+        </td>
+        <td><?php echo $p['first_name']?></td>
+        <td><?php echo $p['last_name']?></td>
+        <td><?php echo $p['email']?></td>
+        <td><?php echo ($p['hidden']) ? "Inactive" : "Active";?></td>
+    </tr>
+    <?php endforeach;?>
+    <tr class="gray">
+        <td class="check"><input type="checkbox" id="all_bottom" /></td>
+        <td>Username</td>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Email Address</td>
+        <td>Status</td>
+    </tr>
+</table>
+<br />
+<?php if (!empty($this->patients)):?>
+<a href="admin/users/patients/?p=all">Reset Filters</a>&nbsp;
+<?php for($i=1;$i<=$pages;$i++): if ($i!=$page):?>
+<a href="admin/users/patients/?p=<?php echo $i?>&amp;f=<?php echo isset($_REQUEST['f'])?$_REQUEST['f']:"creation_date";?>&amp;o=<?php echo isset($_REQUEST['o'])?$_REQUEST['o']:"ASC";?>"><?php echo $i?></a> &nbsp;
+<?php else:?>
+<b><?php echo $i?></b> &nbsp;
+<?php endif;endfor;?>
+<?php endif;?>
+</form>

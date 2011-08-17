@@ -1,0 +1,423 @@
+
+<?php
+    $st = $this->section_titles;
+    $q  = $this->questions;
+    $l  = $this->labels;
+    $pr = $this->price_ranges;
+    if(!isset($_REQUEST['save'])) {
+        $_REQUEST = array_merge(
+            $_REQUEST,
+            $this->user_account->toArray(),
+            $this->dentist->toArray()
+        );
+        $_REQUEST['services'] = $this->dentist_services; 
+        $_REQUEST['dental_specialties'] = $this->dentist_dental_specialties; 
+        $_REQUEST['dental_procedures'] = $this->dentist_dental_procedures;  
+        $_REQUEST['facilities'] = $this->dentist_facilities;
+        $_REQUEST['spoken_languages'] = $this->dentist_spoken_languages;
+        $_REQUEST['schedule'] = $this->dentist_schedule;
+        $_REQUEST['discount_plans'] = $this->dentist_discount_plans;
+        $_REQUEST['brands'] = $this->dentist_brands;
+        $_REQUEST['credit_cards'] = $this->dentist_credit_cards;
+        $_REQUEST['payment_options'] = $this->dentist_payment_options;
+        $_REQUEST['additional_services'] = $this->dentist_additional_services;
+    }
+    $r  = $_REQUEST;
+    $pi = array();
+    if(count($this->pending_images))
+        $pi = $this->pending_images[0];
+?>
+<h1>Dentist [Edit]</h1>
+<br /><br /><br />
+<?php if (isset($this->errors)):?>
+    <?php $e = $this->errors;?>
+    <div id="errors">
+        Please correct all the errors:
+    </div>
+<?php endif;?>
+<form method="post" action="admin/users/edit-dentist" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="<?php echo $this->user_account['id'];?>" />
+        <!--Pending Images-->
+        <fieldset> 
+            <legend>Profile Images</legend>   
+                <div class="images">
+                    <?php if($this->dentist['headshot_image'] && file_exists('images/dentists/'.$this->dentist['id'].'/'.$this->dentist['headshot_image'])):?>
+                    <label>Current Headshot</label><br />
+                    <img src="images/dentists/<?php echo $this->dentist['id'].'/'.$this->dentist['headshot_image'];?>" alt="" title="" />
+                    <input type="checkbox" id="enable_headshot" name="enable" value="<?php echo $this->dentist['id'];?>" <?php if($this->dentist['enabled_headshot']) echo 'checked="checked"';?>/>
+                    <label>Enable picture</label>
+                    <?php else:?>
+                    <img src="images/empty_image.png" alt="" title="" />
+                    <?php endif;?>
+                </div>          
+                <?php if(!empty($pi)):?>
+                <div class="images">
+                    <label>Pending Headshot</label><br />
+                    <img src="images/dentists/<?php echo $this->dentist['id'].'/'.$pi['name'];?>" alt="" title="" />
+                </div>
+                <?php endif;?>     
+            <div class="clear"></div>
+            <br />
+            <?php if(!empty($pi)):?>
+            <input type="submit" name="change_headshot" value="Apply" />
+            <?php endif; ?>
+        </fieldset>
+        <!--Section 01-->
+        <fieldset>
+            <legend><?php echo strip_tags($st['register_section_01_title']);?></legend>
+            <div class="field">
+                <label><?php echo $l['label_username'];?>(*)</label>
+                <input type="text" name="username" value="<?php echo isset($r['username'])?$r['username']:"";?>"/>
+                <span class="explanation"><?php echo isset($e['username'])?$e['username']:"";?></span>
+            </div>
+            <div class="field">
+                <label><?php echo $l['label_email'];?>(*)</label>
+                <input type="text" name="email" value="<?php echo isset($r['email'])?$r['email']:"";?>"/>
+                <span class="explanation"><?php echo isset($e['email'])?$e['email']:"";?></span>
+            </div>
+            <div class="field">
+                <label><?php echo $l['label_password'];?>(*)</label>
+                <input type="password" name="password" value="" maxlength="20"/>
+                <span class="explanation"><?php echo isset($e['password'])?$e['password']:$l['label_password_explanation'];?></span>
+            </div>
+            <div class="field">
+                <label><?php echo $l['label_retype_password'];?>(*)</label>
+                <input type="password" name="retype_password" value="" maxlength="20"/>
+                <span class="explanation"><?php echo isset($e['retype_password'])?$e['retype_password']:$l['label_retype_password_explanation'];?></span>
+            </div>
+        </fieldset>
+        <!--Section 02-->
+        <fieldset>
+            <legend><?php echo strip_tags($st['register_section_02_title']);?></legend>
+            <div class="clear"></div>
+            <div class="field">
+                <label><?php echo $l['label_firstname'];?>(*)</label>
+                <input type="text" name="first_name" value="<?php echo isset($r['first_name'])?$r['first_name']:"";?>"/>
+                <span class="explanation"><?php echo isset($e['first_name'])?$e['first_name']:"";?></span>
+            </div>
+            <div class="field">
+                <label><?php echo $l['label_lastname'];?>(*)</label>
+                <input type="text" name="last_name" value="<?php echo isset($r['last_name'])?$r['last_name']:"";?>"/>
+                <span class="explanation"><?php echo isset($e['last_name'])?$e['last_name']:"";?></span>
+            </div>
+            <div class="field">
+                <label><?php echo $l['label_business_name'];?>(*)</label>
+                <input type="text" name="business_name" value="<?php echo isset($r['business_name'])?$r['business_name']:"";?>"/>
+                <span class="explanation"><?php echo isset($e['business_name'])?$e['business_name']:$l['label_business_name_explanation'];?></span>
+            </div>
+            <div class="clear"></div>
+            <div class="field">
+                <label><?php echo $l['label_business_address'];?>(*)</label>
+                <input type="text" name="business_address" value="<?php echo isset($r['business_address'])?$r['business_address']:"";?>"/>
+                <span class="explanation"><?php echo isset($e['business_address'])?$e['business_address']:"";?></span>
+            </div>
+            <div class="field">
+                <label><?php echo $l['label_zip_code'];?>(*)</label>
+                <input type="text" name="zip_code" value="<?php echo isset($r['zip_code'])?$r['zip_code']:"";?>"/>
+                <span class="explanation"><?php echo isset($e['zip_code'])?$e['zip_code']:"";?></span>
+            </div>
+            <div class="clear"></div>
+            <div class="field">
+                <label><?php echo $l['label_district_city'];?>(*)</label>
+                <input type="text" name="city" value="<?php echo isset($r['city'])?$r['city']:"";?>"/>
+                <span class="explanation"><?php echo isset($e['city'])?$e['city']:"";?></span>
+            </div>
+            <div class="field">
+                <label><?php echo $l['label_province_state'];?>(*)</label>
+                <input type="text" name="state" value="<?php echo isset($r['state'])?$r['state']:"";?>"/>
+                <span class="explanation"><?php echo isset($e['state'])?$e['state']:"";?></span>
+            </div>
+            <div class="field">
+                <label><?php echo $l['label_country'];?>(*)</label>
+                <input type="text" name="country" value="<?php echo isset($r['country'])?$r['country']:"";?>"/>
+                <span class="explanation"><?php echo isset($e['country'])?$e['country']:"";?></span>
+            </div>
+            <div class="field">
+                <label><?php echo $l['label_phone'];?>(*)</label>
+                <input type="text" name="phone_number" value="<?php echo isset($r['phone_number'])?$r['phone_number']:"";?>"/>
+                <span class="explanation"><?php echo isset($e['phone_number'])?$e['phone_number']:"";?></span>
+            </div>
+        </fieldset>
+        <!--Section 03-->
+        <fieldset>
+            <legend><?php echo strip_tags($st['register_section_03_title']);?></legend>
+            <div class="field">
+                <label><?php echo $l['label_dental_degree'];?>(*)</label>
+                <input type="text" name="dental_degree" value="<?php echo isset($r['dental_degree'])?$r['dental_degree']:"";?>"/>
+                <span class="explanation"><?php echo isset($e['dental_degree'])?$e['dental_degree']:"";?></span>
+            </div>
+            <div class="field">
+                <label><?php echo $l['label_specialty'];?>(*)</label>
+                <input type="text" name="specialty" value="<?php echo isset($r['specialty'])?$r['specialty']:"";?>"/>
+                <span class="explanation"><?php echo isset($e['specialty'])?$e['specialty']:"";?></span>
+            </div>
+            <div class="field">
+                <label><?php echo $l['label_additional_training'];?></label>
+                <input type="text" name="additional_training" value="<?php echo isset($r['additional_training'])?$r['additional_training']:"";?>"/>
+                <span class="explanation"></span>
+            </div>
+            <div class="field">
+                <label><?php echo $l['label_school_name'];?>(*)</label>
+                <input type="text" name="school_1" value="<?php echo isset($r['school_1'])?$r['school_1']:"";?>"/>
+                <span class="explanation"><?php echo isset($e['school_1'])?$e['school_1']:"";?></span>
+            </div>
+            <div class="field">
+                <label><?php echo $l['label_school_name'];?>(*)</label>
+                <input type="text" name="school_2" value="<?php echo isset($r['school_2'])?$r['school_2']:"";?>"/>
+                <span class="explanation"><?php echo isset($e['school_2'])?$e['school_2']:"";?></span>
+            </div>
+            <div class="field">
+                <label><?php echo $l['label_school_name'];?></label>
+                <input type="text" name="school_3" value="<?php echo isset($r['school_3'])?$r['school_3']:"";?>"/>
+                <span class="explanation"></span>
+            </div>
+            <div class="field">
+                <label><?php echo $l['label_associated_to'];?></label>
+                <input type="text" name="associated_to" value="<?php echo isset($r['associated_to'])?$r['associated_to']:"";?>"/>
+                <span class="explanation"></span>
+            </div>
+            <div class="clear"></div>
+            <div class="field">
+                <label><?php echo $l['label_license_number'];?>(*)</label>
+                <input type="text" name="license_number" value="<?php echo isset($r['license_number'])?$r['license_number']:"";?>"/>
+                <span class="explanation"><?php echo isset($e['license_number'])?$e['license_number']:"";?></span>
+            </div>
+            <div class="clear"></div>
+            <div class="field">
+                <label><?php echo $l['label_years_of_experience'];?>(*)</label>
+                <select name="years_of_experience">
+                    <?php for ($i=1;$i<=50;++$i):?>
+                        <option <?php echo isset($r['years_of_experience']) && $r['years_of_experience']==$i?'selected=="selected"':"";?>><?php echo $i;?></option>
+                    <?php endfor;?>
+                </select>
+                <span class="explanation"><?php echo isset($e['years_of_experience'])?$e['years_of_experience']:"";?></span>
+            </div>       
+        </fieldset>
+        <!--Section 04-->
+        <fieldset">
+            <legend><?php echo ($st['register_section_04_title']);?></legend>
+        </fieldset>
+        <!--Section 04 - Question 01-->
+        <fieldset>
+            <legend><?php echo strip_tags($q['register_question_01']);?></legend>
+            <div class="field">
+                <textarea rows="4" cols="40" name="general_information"><?php echo isset($r['general_information'])?$r['general_information']:"";?></textarea>
+            </div>
+        </fieldset>
+        <!--Section 04 - Question 02-->
+        <fieldset>
+            <legend><?php echo strip_tags($q['register_question_02']);?></legend>
+            <div class="clear"></div>
+            <?php $i=0; $a = isset($r['services']) ? $r['services'] : array();
+                  foreach ($this->services as $s): ?>
+                <div class="field check">
+                    <input type="checkbox" name="services[]" value="<?php echo $s['id'];?>" <?php if(in_array($s['id'],$a)) echo 'checked="checked"';?>/>
+                    <label><?php echo $s['definition'];?></label>
+                </div>
+                <?php $i++; if($i%4==0):?>
+                <div class="clear"></div>
+                <?php endif;?>
+            <?php endforeach;?>
+            <div class="field">
+                <label><?php echo $l['label_price_range'];?></label><span class="required">:*</span>
+                <select name="price_range">
+                    <option value="0">Select one...</option>
+                    <?php foreach($pr as $p):?>
+                        <option <?php if(isset($r['price_range']) && $r['price_range']==$p['range']) echo 'selected="selected"';?>><?php echo $p['range'];?></option>
+                    <?php endforeach;?>
+                </select>
+                <span class="explanation"></span>
+            </div>
+            <div class="clear"></div>
+        </fieldset>
+        <!--Section 04 - Question 03-->
+        <fieldset>
+            <legend><?php echo strip_tags($q['register_question_03']);?></legend>
+            <div class="clear"></div>
+            <?php $i=0; $a = isset($r['dental_specialties']) ? $r['dental_specialties'] : array();
+                  foreach ($this->dental_specialties as $s): ?>
+                <div class="field check">
+                    <input type="checkbox" name="dental_specialties[]" value="<?php echo $s['id'];?>" <?php if(in_array($s['id'],$a)) echo 'checked="checked"';?>/>
+                    <label><?php echo $s['definition'];?></label>
+                </div>
+                <?php $i++; if($i%4==0):?>
+                <div class="clear"></div>
+                <?php endif;?>
+            <?php endforeach;?>
+            <div class="clear"></div>
+        </fieldset>
+        <!--Section 04 - Question 04-->
+        <fieldset>
+            <legend><?php echo strip_tags($q['register_question_04']);?></legend>
+            <div class="clear"></div>
+            <?php $i=0; $a = isset($r['dental_procedures']) ? $r['dental_procedures'] : array();
+                  foreach ($this->dental_procedures as $s): ?>
+                <div class="field check">
+                    <input type="checkbox" name="dental_procedures[]" value="<?php echo $s['id'];?>" <?php if(in_array($s['id'],$a)) echo 'checked="checked"';?>/>
+                    <label><?php echo $s['definition'];?></label>
+                </div>
+                <?php $i++; if($i%4==0):?>
+                <div class="clear"></div>
+                <?php endif;?>
+            <?php endforeach;?>
+            <div class="clear"></div>
+        </fieldset>
+        <!--Section 04 - Question 05-->
+        <fieldset>
+            <legend><?php echo strip_tags($q['register_question_05']);?></legend>
+            <div class="clear"></div>
+            <?php $i=0; $a = isset($r['facilities']) ? $r['facilities'] : array();
+                  foreach ($this->facilities as $s): ?>
+                <div class="field check">
+                    <input type="checkbox" name="facilities[]" value="<?php echo $s['id'];?>" <?php if(in_array($s['id'],$a)) echo 'checked="checked"';?>/>
+                    <label><?php echo $s['definition'];?></label>
+                </div>
+                <?php $i++; if($i%4==0):?>
+                <div class="clear"></div>
+                <?php endif;?>
+            <?php endforeach;?>
+            <div class="clear"></div>
+        </fieldset>
+        <!--Section 04 - Question 06-->
+        <fieldset>
+            <legend><?php echo strip_tags($q['register_question_06']);?></legend>
+            <div class="clear"></div>
+            <?php $i=0; $a = isset($r['spoken_languages']) ? $r['spoken_languages'] : array();
+                  foreach ($this->spoken_languages as $s): ?>
+                <div class="field check">
+                    <input type="checkbox" name="spoken_languages[]" value="<?php echo $s['id'];?>" <?php if(in_array($s['id'],$a)) echo 'checked="checked"';?>/>
+                    <label><?php echo $s['definition'];?></label>
+                </div>
+                <?php $i++; if($i%4==0):?>
+                <div class="clear"></div>
+                <?php endif;?>
+            <?php endforeach;?>
+            <div class="clear"></div>
+        </fieldset>
+        <!--Section 04 - Question 07-->
+        <fieldset>
+            <legend><?php echo strip_tags($q['register_question_07']);?></legend>
+            <div class="clear"></div>
+            <?php $sl = $this->schedule_labels;?>
+            <table>
+                <thead>
+                    <tr><th><?php echo $sl['day_word'];?></th><th colspan="2"><?php echo $sl['day_am'];?></th><th colspan="2"><?php echo $sl['day_pm'];?></th></tr>
+                </thead>
+                <tbody>
+                    <tr><td class="first"></td><td><?php echo $sl['day_from'];?></td><td><?php echo $sl['day_to'];?></td><td><?php echo $sl['day_from'];?></td><td><?php echo $sl['day_to'];?></td></tr>
+                    <?php for($i=1;$i<=7;$i++): ?>
+                    <?php $a = isset($r['schedule']) ? $r['schedule'][$i] : array(); ?>
+                    <tr>
+                        <td class="first">
+                            <div class="field check">
+                                <input type="checkbox" name="schedule[<?php echo $i?>][checked]"  value="1" <?php if($a['checked']) echo 'checked="checked"';?>/>
+                                <label><?php echo $sl['day_0'.$i];?></label>
+                            </div>
+                        </td>
+                        <td><input type="text" name="schedule[<?php echo $i?>][am_h_from]" value="<?php echo isset($a['am_h_from'])?$a['am_h_from']:""?>" class="small" maxlength="2"
+                            />:<input type="text" name="schedule[<?php echo $i?>][am_m_from]" value="<?php echo isset($a['am_m_from'])?$a['am_m_from']:""?>" class="small" maxlength="2"/> 
+                        </td>
+                        <td><input type="text" name="schedule[<?php echo $i?>][am_h_to]" value="<?php echo isset($a['am_h_to'])?$a['am_h_to']:""?>" class="small" maxlength="2"
+                            />:<input type="text" name="schedule[<?php echo $i?>][am_m_to]" value="<?php echo isset($a['am_m_to'])?$a['am_m_to']:""?>" class="small" maxlength="2"/>    
+                        </td>
+                        <td><input type="text" name="schedule[<?php echo $i?>][pm_h_from]" value="<?php echo isset($a['pm_h_from'])?$a['pm_h_from']:""?>" class="small" maxlength="2"
+                            />:<input type="text" name="schedule[<?php echo $i?>][pm_m_from]" value="<?php echo isset($a['pm_m_from'])?$a['pm_m_from']:""?>" class="small" maxlength="2"/> 
+                        </td>
+                        <td><input type="text" name="schedule[<?php echo $i?>][pm_h_to]" value="<?php echo isset($a['pm_h_to'])?$a['pm_h_to']:""?>" class="small" maxlength="2"
+                            />:<input type="text" name="schedule[<?php echo $i?>][pm_m_to]" value="<?php echo isset($a['pm_m_to'])?$a['pm_m_to']:""?>" class="small" maxlength="2"/>    
+                        </td>
+                    </tr>
+                    <?php endfor;?>
+                </tbody>
+            </table>
+        </fieldset>
+        <!--Section 04 - Question 08-->
+        <fieldset>
+            <legend><?php echo strip_tags($q['register_question_08']);?></legend>
+            <div class="clear"></div>
+            <?php $i=0; $a = isset($r['discount_plans']) ? $r['discount_plans'] : array();
+                  foreach ($this->discount_plans as $s): ?>
+                <div class="field check">
+                    <input type="checkbox" name="discount_plans[]" value="<?php echo $s['id'];?>" <?php if(in_array($s['id'],$a)) echo 'checked="checked"';?>/>
+                    <label><?php echo $s['definition'];?></label>
+                </div>
+                <?php $i++; if($i%4==0):?>
+                <div class="clear"></div>
+                <?php endif;?>
+            <?php endforeach;?>
+            <div class="clear"></div>
+        </fieldset>
+        <!--Section 04 - Question 09-->
+        <fieldset>
+            <legend><?php echo strip_tags($q['register_question_09']);?></legend>
+            <div class="clear"></div>
+            <?php $i=0; $a = isset($r['brands']) ? $r['brands'] : array();
+                  foreach ($this->brands as $s): ?>
+                <div class="field check">
+                    <input type="checkbox" name="brands[]" value="<?php echo $s['id'];?>" <?php if(in_array($s['id'],$a)) echo 'checked="checked"';?>/>
+                    <label><?php echo $s['name'];?></label>
+                </div>
+                <?php $i++; if($i%4==0):?>
+                <div class="clear"></div>
+                <?php endif;?>
+            <?php endforeach;?>
+            <div class="clear"></div>
+        </fieldset>
+        <!--Section 04 - Question 10-->
+        <fieldset>
+            <legend><?php echo strip_tags($q['register_question_10']);?></legend>
+            <div class="clear"></div>
+            <?php $i=0; $a = isset($r['payment_options']) ? $r['payment_options'] : array();
+                  foreach ($this->payment_options as $s): ?>
+                <div class="field check">
+                    <input type="checkbox" name="payment_options[]" value="<?php echo $s['id'];?>" <?php if(in_array($s['id'],$a)) echo 'checked="checked"';?>/>
+                    <label><?php echo $s['definition'];?></label>
+                </div>
+                <?php $i++; if($i%4==0):?>
+                <div class="clear"></div>
+                <?php endif;?>
+            <?php endforeach;?>
+            <div class="clear"></div>
+        </fieldset>
+        <!--Section 04 - Question 11-->
+        <fieldset>
+            <legend><?php echo strip_tags($q['register_question_11']);?></legend>
+            <div class="clear"></div>
+            <?php $i=0; $a = isset($r['credit_cards']) ? $r['credit_cards'] : array();
+                  foreach ($this->credit_cards as $s): ?>
+                <div class="field check">
+                    <input type="checkbox" name="credit_cards[]" value="<?php echo $s['id'];?>" <?php if(in_array($s['id'],$a)) echo 'checked="checked"';?>/>
+                    <label><?php echo $s['name'];?></label>
+                </div>
+                <?php $i++; if($i%4==0):?>
+                <div class="clear"></div>
+                <?php endif;?>
+            <?php endforeach;?>
+            <div class="clear"></div>
+        </fieldset>
+        <!--Section 04 - Question 12-->
+        <fieldset>
+            <legend><?php echo strip_tags($q['register_question_12']);?></legend>
+            <div class="clear"></div>
+            <?php $i=0; $a = isset($r['additional_services']) ? $r['additional_services'] : array();
+                  foreach ($this->additional_services as $s): ?>
+                <div class="field check">
+                    <input type="checkbox" name="additional_services[]" value="<?php echo $s['id'];?>" <?php if(in_array($s['id'],$a)) echo 'checked="checked"';?>/>
+                    <label><?php echo $s['definition'];?></label>
+                </div>
+                <?php $i++; if($i%4==0):?>
+                <div class="clear"></div>
+                <?php endif;?>
+            <?php endforeach;?>
+            <div class="clear"></div>
+        </fieldset>
+        <!--Section 04 - Question 13-->
+        <fieldset>
+            <legend><?php echo strip_tags($q['register_question_13']);?></legend>
+            <div class="field tall">
+                <textarea rows="4" cols="40" name="additional_information"><?php echo isset($r['additional_information'])?$r['additional_information']:"";?></textarea>
+            </div>
+            <div class="clear"></div>
+        </fieldset>
+        <input type="submit" name="save" value="Save" />
+    </form>

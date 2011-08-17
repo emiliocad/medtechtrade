@@ -1,0 +1,46 @@
+<h1>States/Provinces for <?php echo $this->country['country'];?></h1>
+<br /><br /><br />
+<div class="clear"></div>
+<form method="post" action="admin/country/add-state">
+    <input type="hidden" name="country_id" value="<?php echo $this->country['id'];?>"/>
+    <div class="field">
+    	<label>Area name</label>
+    	<input type="text" name="name" value="" />
+    	<span class="explanation"></span>
+    </div>
+    <div class="field">
+    	<label>Enable this area</label>
+    	<input type="checkbox" name="hidden" value="0" />
+    	<span class="explanation"></span>
+    </div>
+    <input type="submit" name="save" value="Save" />
+</form>
+<div class="clear"></div>
+<?php if(!empty($this->areas)):?>
+<form>
+<table>
+    <tr class="gray">
+        <td>Region Name</td>
+        <td>Status</td>
+        <td>Operations</td>
+    </tr>
+    <?php foreach ($this->areas as $state):?>
+    <tr>
+        <td><?php echo $state['name'];?></td>
+        <td><?php echo $state['hidden'] ? "Hidden":"Visible";?></td>
+        <td>
+            <a href="admin/country/manage-state?id=<?php echo $state['id'];?>">Manage</a> |
+            <a href="admin/country/switch-state?id=<?php echo $state['id'];?>"><?php echo $state['hidden'] ? "Show" : "Hide";?></a>
+        </td>
+    </tr>    
+    <?php endforeach;?>
+    <tr class="gray">
+        <td>Region Name</td>
+        <td>Status</td>
+        <td>Operations</td>
+    </tr>
+</table>
+</form>
+<?php else:?>
+<p>No area has been added for this country.</p>
+<?php endif;?>

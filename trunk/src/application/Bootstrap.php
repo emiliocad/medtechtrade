@@ -11,7 +11,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $view = $layout->getView();
         $view->headTitle('Medtechtrade')->headTitle('Desarrollo')->setSeparator(' - ');
         $view->headLink()->prependStylesheet('/css/template_css.css');
-        
+        $view->headLink()->prependStylesheet('/css/base.css');
         $view->headLink()->prependStylesheet('/css/reset.css');
         $view->headLink()->prependStylesheet('/css/960.css');
         $view->headScript()->appendFile('/js/jquery.min.js');

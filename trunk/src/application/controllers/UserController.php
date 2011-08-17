@@ -1,15 +1,6 @@
 <?php
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- * Description of UserController
- *
- */
-class UsuarioController extends Zend_Controller_Action
+class UserController extends Zend_Controller_Action
     {
 
     public function init()
@@ -21,9 +12,7 @@ class UsuarioController extends Zend_Controller_Action
 
     public function indexAction()
         {
-        $this->view->usuarios_unidos = $this->_usuario->unido();
-        $this->view->usuarios = $this->_usuario->fetchAll();
-        $this->view->tags = $this->_tag->fetchAll();
+       
         }
 
     public function paginadoAction()
@@ -35,7 +24,7 @@ class UsuarioController extends Zend_Controller_Action
 
     public function registrarAction()
         {
-        $this->view->headScript()->appendFile( '/js/usuario.registrar.js' );
+        $this->view->headScript()->appendFile( '/js/user.sigunp.js' );
         $form = new Application_Form_Registrar();
         $this->view->form = $form;
         }

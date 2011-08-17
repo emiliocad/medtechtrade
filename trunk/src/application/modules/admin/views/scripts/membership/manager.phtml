@@ -1,0 +1,84 @@
+<?php 
+    $mp = $this->membership_plans;
+    $l = $this->membership_labels;
+    $r = $_REQUEST;
+?>
+<h1>Membership Manager</h1>
+<div class="clear"></div>
+<?php foreach ($mp as $p):?>
+    <?php 
+        $errors = isset($r['id']) && isset($this->errors) && $r['id'] == $p['id'];
+        if($errors) $e = $this->errors;
+    ?>
+    <form method="post" action="admin/membership/manager">
+        <h2><?php echo $l[$p['name']];?></h2>
+        <input type="hidden" name="id" value="<?php echo $p['id'];?>"/>
+        <div class="field">
+        	<label>Saving:</label>
+        	<input type="text" name="saving" value="<?php echo $p['saving'];?>" />
+        	<span class="explanation"><?php if($errors && isset($e['saving'])) echo $e['saving'];?></span>
+        </div> 
+        <div class="field">
+        	<label>Price per month:</label>
+        	<input type="text" name="price_month" value="<?php echo $p['price_month'];?>" />
+        	<span class="explanation"><?php if($errors && isset($e['price_month'])) echo $e['price_month'];?></span>
+        </div>
+        <div class="field">
+        	<label>Price for six months:</label>
+        	<input type="text" name="price_half_year" value="<?php echo $p['price_half_year'];?>" />
+        	<span class="explanation"><?php if($errors && isset($e['price_half_year'])) echo $e['price_half_year'];?></span>
+        </div>
+        <div class="field">
+        	<label>Price for year (regular):</label>
+        	<input type="text" name="price_year_old" value="<?php echo $p['price_year_old'];?>" />
+        	<span class="explanation"><?php if($errors && isset($e['price_year_old'])) echo $e['price_year_old'];?></span>
+        </div>
+        <div class="field">
+        	<label>Price for year (promotional):</label>
+        	<input type="text" name="price_year_new" value="<?php echo $p['price_year_new'];?>" />
+        	<span class="explanation"><?php if($errors && isset($e['price_year_new'])) echo $e['price_year_new'];?></span>
+        </div>
+        <div class="field">
+        	<label>Profile Creation</label>
+        	<input type="text" name="create_profile" value="<?php echo ($p['create_profile'])? "Allowed": "Not allowed" ;?>" readonly="readonly"/>
+        	<span class="explanation">Read-only field</span>
+        </div>
+        <div class="field">
+        	<label>Upload headshot</label>
+        	<input type="text" name="upload_headshot" value="<?php echo ($p['upload_headshot'])? "Allowed": "Not allowed" ;?>" readonly="readonly"/>
+        	<span class="explanation">Read-only field</span>
+        </div>
+        <div class="field">
+        	<label>Other pictures</label>
+        	<input type="text" name="upload_other_pictures" value="<?php echo $p['upload_other_pictures']?>" />
+        	<span class="explanation"><?php if($errors && isset($e['upload_other_pictures'])) echo $e['upload_other_pictures'];?></span>
+        </div>
+        <div class="field">
+        	<label>Patient Database Access</label>
+        	<input type="text" name="access_patient_database" value="<?php echo ($p['access_patient_database']=="")? "-": $l[$p['access_patient_database']] ;?>" readonly="readonly"/>
+        	<span class="explanation">Read-only field</span>
+        </div>
+        <div class="field">
+        	<label>Coupons</label>
+        	<input type="text" name="coupons" value="<?php echo $p['coupons']?>" />
+        	<span class="explanation"><?php if($errors && isset($e['coupons'])) echo $e['coupons'];?></span>
+        </div>
+        <div class="field">
+        	<label>Banners</label>
+        	<input type="text" name="banners" value="<?php echo $p['banners']?>" />
+        	<span class="explanation"><?php if($errors && isset($e['banners'])) echo $e['banners'];?></span>
+        </div>
+        <div class="field">
+        	<label>Mass emails</label>
+        	<input type="text" name="mass_emails" value="<?php echo $p['mass_emails']?>" />
+        	<span class="explanation"><?php if($errors && isset($e['mass_emails'])) echo $e['mass_emails'];?></span>
+        </div>
+        <div class="field">
+        	<label>Order in list</label>
+        	<input type="text" name="listed_above" value="<?php echo ($p['listed_above']=="")? "-": $l[$p['listed_above']] ;?>" readonly="readonly"/>
+        	<span class="explanation">Read-only field</span>
+        </div>
+        <input type="submit" name="save" value="Save Changes"/>   
+    </form>
+    <?php unset($errors);?>
+<?php endforeach;?>

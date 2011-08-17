@@ -1,0 +1,33 @@
+<h1>Countries Manager</h1>
+<br /><br /><br />
+<form>
+<table>
+    <tr class="gray">
+        <td>Region</td>
+        <td>Country Name</td>
+        <td>Flag</td>
+        <td>Status</td>
+        <td>Operations</td>
+    </tr>
+    <?php foreach ($this->countries as $country):?>
+    <tr>
+        <td><?php echo $country['region'];?></td>
+        <td><?php echo $country['country'];?></td>
+        <td><img class="flag" src="images/<?php echo $country['flag'] ? "countries/".$country['id']."/".$country['flag']:"earth.png";?>"/></td>
+        <td><?php echo $country['hidden'] ? "Hidden":"Visible";?></td>
+        <td>
+            <a href="admin/country/edit-country?id=<?php echo $country['id'];?>">Edit</a> |
+            <a href="admin/country/switch-country?id=<?php echo $country['id'];?>"><?php echo $country['hidden'] ? "Show" : "Hide";?></a> |
+            <a href="admin/country/manage-country-areas?id=<?php echo $country['id'];?>">Areas</a>
+        </td>
+    </tr>    
+    <?php endforeach;?>
+    <tr class="gray">
+        <td>Region</td>
+        <td>Country Name</td>
+        <td>Flag</td>
+        <td>Status</td>
+        <td>Operations</td>
+    </tr>
+</table>
+</form>

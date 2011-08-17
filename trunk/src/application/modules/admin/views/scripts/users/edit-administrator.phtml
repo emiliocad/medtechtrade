@@ -1,0 +1,68 @@
+<?php $r=isset($_REQUEST['save'])? $_REQUEST : $this->administrator;?>
+<h1>Administrator [Edit]</h1>
+<br /><br /><br />
+<?php if(isset($this->errors)):?>
+    <?php $errors = $this->errors;?>
+<div id="errors">
+    Please correct the errors. 
+</div>
+<?php endif;?>
+<form method="post" action="admin/users/edit-administrator">
+    <input type="hidden" name="id" value="<?php echo $r['id'];?>" />
+    <fieldset>
+        <legend>Personal Information</legend>
+        <div class="field">
+        	<label>User Name (*)</label>
+        	<input type="text" name="username" value="<?php echo isset($r['username']) ? $r['username'] : "";?>" />
+        	<span class="explanation"><?php if(isset($errors['username'])) echo $errors['username'];?></span>
+        </div>
+        <div class="field">
+        	<label>First Name (*)</label>
+        	<input type="text" name="first_name" value="<?php echo isset($r['first_name']) ? $r['first_name'] : "";?>" />
+        	<span class="explanation"><?php if(isset($errors['first_name'])) echo $errors['first_name'];?></span>
+        </div>
+        <div class="field">
+        	<label>Last Name (*)</label>
+        	<input type="text" name="last_name" value="<?php echo isset($r['last_name']) ? $r['last_name'] : "";?>" />
+        	<span class="explanation"><?php if(isset($errors['last_name'])) echo $errors['last_name'];?></span>
+        </div>
+        <div class="field">
+        	<label>Alias (*)</label>
+        	<input type="text" name="alias" value="<?php echo isset($r['alias']) ? $r['alias'] : "";?>" />
+        	<span class="explanation"><?php if(isset($errors['alias'])) echo $errors['alias'];?></span>
+        </div>
+        <div class="field">
+        	<label>Publicly display this name</label>
+        	<select name="display">
+                <option value="1">User Name</option>
+                <option value="2">Alias</option>
+            </select>
+        	<span class="explanation"></span>
+        </div>
+        <div class="field">
+        	<label>E-mail (*)</label>
+        	<input type="text" name="email" value="<?php echo isset($r['email']) ? $r['email'] : "";?>" />
+        	<span class="explanation"><?php if(isset($errors['email'])) echo $errors['email'];?></span>
+        </div>
+        <div class="field">
+        	<label>Work E-mail</label>
+        	<input type="text" name="work_email" value="<?php echo isset($r['work_email']) ? $r['work_email'] : "";?>" />
+        	<span class="explanation"><?php if(isset($errors['work_email'])) echo $errors['work_email'];?></span>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Security</legend>
+        Leave these fields empty if you don't want to change the password.<br /><br />
+        <div class="field">
+        	<label>Password (*)</label>
+        	<input type="password" name="password" value="" />
+        	<span class="explanation"><?php if(isset($errors['password'])) echo $errors['password'];?></span>
+        </div>
+        <div class="field">
+        	<label>Re-type password (*)</label>
+        	<input type="password" name="retype_password" value="" />
+        	<span class="explanation"><?php if(isset($errors['retype_password'])) echo $errors['retype_password'];?></span>
+        </div>
+    </fieldset>
+    <input type="submit" name="save" value="Save" />
+</form>

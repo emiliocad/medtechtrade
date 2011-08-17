@@ -1,0 +1,24 @@
+<?php $r = $_REQUEST;?>
+<form method="post">
+    <div class="field">
+        <label>Username</label><br />
+        <input type="text" name="username" value="<?php echo isset($r['username'])? $r['username']:''?>" />
+    </div>
+    <div class="field">
+        <label>Password</label><br />
+        <input type="password" name="password" value="" />
+    </div>
+    <div class="button">
+        <input type="submit" name="login" value="Login"/>
+    </div>
+</form>
+<a href="admin/index/forgot-password">Lost your password?</a>
+<?php if(isset($this->errors)):?>
+    <div id="errors">
+        <ul>
+        <?php foreach($this->errors as $error):?>
+            <li><?php echo $error;?></li>
+        <?php endforeach;?>
+        </ul>
+    </div>
+<?php endif;?>

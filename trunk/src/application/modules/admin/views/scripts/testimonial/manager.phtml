@@ -1,0 +1,155 @@
+<?php 
+    if(isset($_REQUEST['search'])) $s = $_REQUEST;
+    else if (isset($this->session->search_data)) {$s=$this->session->search_data;}
+    $arrow_up = '<img class="arrow" src="images/arrow_up.png" alt="ASC" title="ASC"/>';
+    $arrow_down = '<img class="arrow" src="images/arrow_down.png" alt="DESC" title="DESC"/>';
+?>
+<h1>Testimonials Manager </h1>
+<br /><br /><br />
+<form method="post" action="admin/testimonial/manager">
+    <div class="field">
+    	<label>Business Name</label>
+    	<select name="dentist_id">
+            <option value="0">Select a name...</option>
+        <?php foreach($this->business_names as $key=>$business):?>
+            <option value="<?php echo $key?>" <?php if(isset($s['dentist_id']) && $s['dentist_id']==$key) echo 'selected="selected"'?>><?php echo $business;?></option>
+        <?php endforeach;?>
+        </select>
+    	<span class="explanation"></span>
+    </div>
+    <div class="field">
+    	<label>Patient Name</label>
+    	<input type="text" name="author" value="<?php echo (isset($s['author']))? $s['author'] : ""?>" />
+    	<span class="explanation"></span>
+    </div>
+    <div class="field">
+    	<label>Status</label>
+    	<select name="status">
+            <option value="0">Select a status...</option>
+            <option value="1" <?php if(isset($s['status']) && $s['status']==1) echo 'selected="selected"';?>>Pending</option>
+            <option value="3" <?php if(isset($s['status']) && $s['status']==3) echo 'selected="selected"';?>>Active</option>
+            <option value="4" <?php if(isset($s['status']) && $s['status']==4) echo 'selected="selected"';?>>Inactive</option>
+        </select>
+    	<span class="explanation"></span>
+    </div>
+    <div class="field">
+    	<label>Start Date</label>
+    	<input type="text" class="date-picker" name="date_from" value="<?php echo (isset($s['date_from']))? $s['date_from'] : ""?>" />
+    	<span class="explanation"></span>
+    </div>
+    <div class="clear"></div>
+    <div class="field">
+    	<label>End Date</label>
+    	<input type="text" class="date-picker" name="date_to" value="<?php echo (isset($s['date_to']))? $s['date_to'] : ""?>" />
+    	<span class="explanation"></span>
+    </div>
+    <div class="clear"></div>
+    <input type="submit" name="search" value="Search"/>
+</form>
+<form method="post" action="admin/testimonial/manager">
+<select name="status">
+    <option value="0">Activate</option>
+    <option value="1">Inactivate</option>
+</select>
+<input type="submit" name="apply" value="Apply" class="small_button"/>
+<?php 
+if(!empty($this->testimonials)) : 
+$count = count($this->testimonials);
+$page= @$_REQUEST['p'];
+$size=8;
+$pages = $count/$size + ($count%$size>0?1:0);
+if (!$page || $page>$pages) $page=1;
+$aux = array_chunk($this->testimonials,$size);
+$this->testimonials = $aux[$page-1];
+?>
+<br />
+<a href="admin/testimonial/manager/?p=all">Reset Filters</a>&nbsp;
+<?php for($i=1;$i<=$pages;$i++): if ($i!=$page):?>
+<a href="admin/testimonial/manager/?p=<?php echo $i?>&amp;f=<?php echo isset($_REQUEST['f'])?$_REQUEST['f']:"creation_date";?>&amp;o=<?php echo isset($_REQUEST['o'])?$_REQUEST['o']:"ASC";?>"><?php echo $i?></a> &nbsp;
+<?php else:?>
+<b><?php echo $i?></b> &nbsp;
+<?php endif;endfor;?>
+<br /><br />
+<?php endif;?>
+<table>
+    <thead>
+    <tr class="gray">
+        <td class="check"><input type="checkbox" id="all" /></td>
+        <td>
+            Business Name
+            <span class="links">
+            <a href="admin/testimonial/manager/?p=1&f=business&o=asc"><?php echo $arrow_up;?></a>
+            <a href="admin/testimonial/manager/?p=1&f=business&o=desc"><?php echo $arrow_down;?></a>
+            </span>
+        </td>
+        <td>
+            Patient Name
+            <span class="links">
+            <a href="admin/testimonial/manager/?p=1&f=author&o=asc"><?php echo $arrow_up;?></a>
+            <a href="admin/testimonial/manager/?p=1&f=author&o=desc"><?php echo $arrow_down;?></a>
+            </span>
+        </td>
+        <td>
+            Date
+            <span class="links">
+            <a href="admin/testimonial/manager/?p=1&f=creation_date&o=asc"><?php echo $arrow_up;?></a>
+            <a href="admin/testimonial/manager/?p=1&f=creation_date&o=desc"><?php echo $arrow_down;?></a>
+            </span>
+        </td>
+        <td>
+            Status
+        </td>
+        <td>Operations</td>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach($this->testimonials as $t):?>
+    <tr>
+        <td class="check"><input type="checkbox" name="testimonials[]" value="<?php echo $t['id'];?>" /></td>
+        <td><?php echo $t['business'];?></td>
+        <td><?php echo $t['author'];?></td>
+        <td><?php echo $t['creation_date'];?></td>
+        <td>
+            <?php 
+                $status="";
+                if($t['hidden']==-1) $status="Pending";
+                if($t['hidden']==0) $status="Active";
+                if($t['hidden']==1) $status="Inactive";
+                echo $status;
+            ?>
+        </td>
+        <td>
+            <a href="admin/testimonial/edit-testimonial?id=<?php echo $t['id'];?>">Edit</a> 
+            <?php if($t['deleted']!=-1):?>
+                <?php if($status =="Disapproved"):?>
+                | <a href="admin/testimonial/approve-testimonial?id=<?php echo $t['id'];?>">Approve</a>
+                <?php else:?>
+                | <a href="admin/testimonial/switch-testimonial?id=<?php echo $t['id'];?>"><?php echo ($t['hidden'])? "Activate":"Inactivate";?></a>
+                <?php endif;?>
+            <?php else: ?>
+                | <a href="admin/testimonial/approve-testimonial?id=<?php echo $t['id'];?>">Approve</a> / <a href="admin/testimonial/disapprove-testimonial?id=<?php echo $t['id'];?>">Disapprove</a>    
+            <?php endif;?>
+            
+        </td>
+    </tr>
+    <?php endforeach;?>
+    </tbody>
+    <tr class="gray">
+        <td class="check"><input type="checkbox" id="all_bottom" /></td>
+        <td>Business Name</td>
+        <td>Patient Name</td>
+        <td>Date</td>
+        <td>Status</td>
+        <td>Operations</td>
+    </tr>
+</table>
+<br />
+<?php if (!empty($this->testimonials)):?>
+<a href="admin/testimonial/manager/?p=all">Reset Filters</a>&nbsp;
+<?php for($i=1;$i<=$pages;$i++): if ($i!=$page):?>
+<a href="admin/testimonial/manager/?p=<?php echo $i?>&amp;f=<?php echo isset($_REQUEST['f'])?$_REQUEST['f']:"creation_date";?>&amp;o=<?php echo isset($_REQUEST['o'])?$_REQUEST['o']:"ASC";?>"><?php echo $i?></a> &nbsp;
+<?php else:?>
+<b><?php echo $i?></b> &nbsp;
+<?php endif;endfor;?>
+<?php endif;?>
+</form>

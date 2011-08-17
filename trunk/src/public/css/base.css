@@ -1,0 +1,76 @@
+h1, h2, h3, h4, h5, h6 {
+font-size: 100%;
+font-weight: normal;
+}
+
+h2{
+   font-size: 2em;
+margin-bottom: 5px;
+ 
+}
+
+
+
+
+p label {
+    display: block;
+    padding-bottom: 3px;
+}
+
+p input {
+    width: 300px;
+    display: block;
+    padding: 8px 8px;
+    border: solid 1px #ccc;
+    font-size: 1.3em;
+    font-family: Helvetica, Arial, Verdana, sans-serif;
+    color: #7E7E7E;
+    outline: none;
+    margin-bottom: 3px;
+
+    box-shadow: 0 1px 2px #E3E3E3;
+    -moz-box-shadow: 0 1px 2px #E3E3E3;
+    -webkit-box-shadow: 0 1px 2px #E3E3E3;
+    -webkit-transition: all 0.3s;
+}
+
+p input:focus {
+    border: solid 1px #598C28;
+    color: #434343;
+
+    box-shadow: 0 0 4px #7FC666;
+    -moz-box-shadow: 0 0 4px #7FC666;
+    -webkit-box-shadow: 0 0 4px #7FC666;
+}
+.actionButton span, .actionButton input {
+display: block;
+padding: 10px;
+background: none;
+border: none;
+text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+color: white;
+font-weight: bold;
+font-family: 'Lucida Grande';
+font-size: 12px;
+}
+
+.errorlist li {
+    padding-top: 3px;
+    color: #b41;
+    font-weight: bold;
+}
+
+/* paragraph after an error */
+/*
+#common-form .errorlist + p {
+    background-color: #FFFADB;
+    margin-bottom: 6px;
+    padding-bottom: 3px;
+}
+*/
+.errorlist + p input {
+    background-color: #fffbec;
+}
+
+/* 
+ ================================================================ */
