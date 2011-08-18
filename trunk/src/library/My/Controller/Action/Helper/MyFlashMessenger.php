@@ -2,7 +2,7 @@
 
 /**
  * Personalización de Flash Messenger para que soporte tipo de mensaje
- * @author jodicio
+ * @author Luis Mayta
  */
 
 class My_Controller_Action_Helper_MyFlashMessenger

@@ -4,7 +4,7 @@
  * Personalizacion del DbTable Adapter de Zend_Auth
  * @author jodicio
  */
-class My_Auth_Adapter_DbTable_Ventas extends Zend_Auth_Adapter_DbTable
+class My_Auth_Adapter_DbTable_Mtt extends Zend_Auth_Adapter_DbTable
 {
     
     protected $_identityColumn = 'login';
