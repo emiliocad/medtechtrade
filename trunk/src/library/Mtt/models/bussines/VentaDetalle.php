@@ -8,7 +8,7 @@
  * Description of Venta
  *
  */
-class Application_Model_VentaDetalle extends Zend_Db_Table_Abstract
+class Mtt_Models_Bussines_VentaDetalle extends Mtt_Models_Table_VentaDetalle
 {
 
     protected $_name = 'venta_detalle';

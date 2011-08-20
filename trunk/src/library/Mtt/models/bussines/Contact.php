@@ -9,10 +9,10 @@
  * Description of Categoria
  *
  */
-class Application_Model_Contact extends Zend_Db_Table_Abstract
+class Mtt_Models_Bussines_Contact extends Zend_Db_Table_Abstract
     {
 
-    protected $_name = 'contact';
+
 
     public function listar()
         {

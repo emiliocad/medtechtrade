@@ -11,10 +11,11 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $layout = $this->getResource( 'layout' );
         $view = $layout->getView();
         $view->headTitle( 'Medtechtrade' )->headTitle( 'Desarrollo' )->setSeparator( ' - ' );
+        
         $view->headLink()->prependStylesheet( '/css/template_css.css' );
-        $view->headLink()->prependStylesheet( '/css/base.css' );
-        $view->headLink()->prependStylesheet( '/css/reset.css' );
-        $view->headLink()->prependStylesheet( '/css/960.css' );
+        $view->headLink()->prependStylesheet( '/css/grid-960/styles/base.css' );
+        $view->headLink()->prependStylesheet( '/css/grid-960/styles/reset.css' );
+        $view->headLink()->prependStylesheet( '/css/grid-960/styles/960.css' );
         $view->headScript()->appendFile( '/js/jquery.min.js' );
         $view->headMeta()->appendHttpEquiv( 'Content-Type' , 'text/html; charset=UTF-8' );
         $view->headMeta()->appendHttpEquiv( 'Content-Language' , 'en-US' );

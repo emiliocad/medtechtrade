@@ -8,9 +8,8 @@
  * Description of Categoria
  *
  */
-class Application_Model_Producto extends Zend_Db_Table_Abstract {
-    protected $_name = 'producto';
-
+class Mtt_Models_Bussines_Producto extends Mtt_Models_Table_Producto {
+    
     public function listar() {
         $db = $this->getAdapter();
         $filas = $db->select()

@@ -8,9 +8,8 @@
  * Description of Categoria
  *
  */
-class Application_Model_Fabricante extends Zend_Db_Table_Abstract {
-    protected $_name = 'fabricante';
-
+class Mtt_Models_Bussines_Fabricante extends Zend_Db_Table_Abstract {
+ 
     public function getComboValues(){
         $filas = $this->fetchAll('activo=1')->toArray();
         $values = array();
