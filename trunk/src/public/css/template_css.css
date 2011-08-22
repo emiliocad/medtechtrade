@@ -88,6 +88,6 @@ body {
     color: #4e4e4e;
 }
 #details-left li:hover{
-    background-color: #4E4E4E;
-    color: #000000;
+    background-color: #DBDBDB;
+    font-weight: bold;
 }

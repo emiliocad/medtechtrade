@@ -30,10 +30,10 @@ class Mtt_Form_Login extends Zend_Form {
         $this->addElement( $e );
 
         //Submit
-        //$decorator = new My_Decorator_SimpleButton();
+        $decorator = new My_Decorator_SimpleButton();
         $e = new Zend_Form_Element_Submit( 'submit' );
         $e->setValue('Login');
-        //$e->setDecorators( array( $decorator ) );
+        $e->setDecorators( array( $decorator ) );
         $this->addElement( $e );
         }
 

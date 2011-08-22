@@ -1,16 +1,13 @@
 h1, h2, h3, h4, h5, h6 {
-font-size: 100%;
-font-weight: normal;
+    font-size: 100%;
+    font-weight: normal;
 }
 
 h2{
-   font-size: 2em;
-margin-bottom: 5px;
- 
+    font-size: 2em;
+    margin-bottom: 5px;
+
 }
-
-
-
 
 p label {
     display: block;
@@ -43,15 +40,15 @@ p input:focus {
     -webkit-box-shadow: 0 0 4px #7FC666;
 }
 .actionButton span, .actionButton input {
-display: block;
-padding: 10px;
-background: none;
-border: none;
-text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
-color: white;
-font-weight: bold;
-font-family: 'Lucida Grande';
-font-size: 12px;
+    display: block;
+    padding: 10px;
+    background: none;
+    border: none;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    color: white;
+    font-weight: bold;
+    font-family: 'Lucida Grande';
+    font-size: 12px;
 }
 
 .errorlist li {

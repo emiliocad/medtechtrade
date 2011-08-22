@@ -3,16 +3,17 @@
 class CategoriaController extends Zend_Controller_Action
     {
 
+    protected $_categoria;
+
     public function init()
         {
         parent::init();
-        $this->_usuario = new Application_Model_Usuario();
-        //$this->_tag = new Application_Model_Tag();
+        $this->_categoria = new Mtt_Models_Bussines_Categoria();
         }
 
     public function indexAction()
         {
-       
+        
         }
 
     public function paginadoAction()
@@ -24,17 +25,14 @@ class CategoriaController extends Zend_Controller_Action
 
     public function registrarAction()
         {
-        $this->view->headScript()->appendFile( '/js/usuario.sigunp.js' );
-        $form = new Mtt_Form_Registrar();
-        $this->view->form = $form;
+        
         }
 
-    
     public function verAction()
         {
         $id = $this->_getParam( 'id' , null );
-        $this->view->id = $id;
-        $this->view->u = $this->_usuario->fetchRow( 'id=' . $id )->toArray();
+        $stmt = $this->_categoria->getCategoria( $id );
+        $this->view->assign( 'categoria' , $stmt );
         }
 
     }

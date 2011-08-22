@@ -12,6 +12,11 @@
 class Mtt_Models_Bussines_Categoria extends Mtt_Models_Table_Categoria
     {
 
+    public function __construct( $config = array( ) )
+        {
+        parent::__construct( $config );
+        }
+
     public function listarProductos( $id )
         {
         $_producto = new Application_Model_Producto();
@@ -30,9 +35,16 @@ class Mtt_Models_Bussines_Categoria extends Mtt_Models_Table_Categoria
         return $values;
         }
 
-    public function funcCostosaCached()
+    public function getCategoria( $id )
         {
-        $data = $this->fetchAll();
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from( $this->_name )
+                ->where( 'id IN (?)' , $id )
+                ->where( 'active = ?' , '1' )
+                ->query()
+        ;
+        return $query->fetchObject();
         }
 
     }
