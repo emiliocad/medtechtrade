@@ -1,0 +1,17 @@
+<ul>
+    <?
+    $objcategorias = new Mtt_Models_Bussines_Categoria();
+    foreach ( $objcategorias->listar() as $categoria )
+        {
+        ?>
+        <li>
+            <a href="
+            <?= $this->url( array( 'controller' => 'categoria' ,
+                'action' => 'ver' , 'id' => $this->escape( $categoria->id ) ) , null , true ) ?>">
+                   <?= $this->escape( $categoria->title ) ?>
+            </a>
+        </li>
+        <?
+        }
+    ?>
+</ul>

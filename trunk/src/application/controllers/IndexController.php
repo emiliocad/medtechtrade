@@ -1,18 +1,22 @@
 <?php
 
 class IndexController extends Zend_Controller_Action
-{
+    {
 
     public function init()
-    {
+        {
         /* Initialize action controller here */
-    }
+        }
 
     public function indexAction()
-    {
-        // action body
+        {
+//        Zend_Layout::getMvcInstance()->setContentKey( 'detailsleft' );
+//        $this->view->assign( "prueba" , "detailsleft" );
+//        Zend_Layout::getMvcInstance()->setContentKey( 'content' );
+//        $this->view->assign( "prueba" , "content" );
+//        $locale = new Zend_Locale();
+//        $this->view->assign( "locale" , var_dump( $locale ) );
+        }
+
     }
-
-
-}
 

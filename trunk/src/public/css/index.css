@@ -1,0 +1,22 @@
+#login{
+    margin-bottom: 5px;
+}
+
+#login-element span.valida_msg{
+    border: 1px solid grey;
+    margin: 5px;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+#login-element span.valida_msg.VALID{
+    color:darkgreen;
+    background: palegreen;
+}
+
+#login-element span.valida_msg.INVALID,
+#login-element span.valida_msg.ERROR{
+    color: red;
+    background: darksalmon;
+}

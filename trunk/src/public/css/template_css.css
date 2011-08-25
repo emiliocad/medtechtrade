@@ -1,0 +1,112 @@
+a{
+    color: #ffffff;
+    text-decoration: none;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: normal;
+    color: #4e4e4e;
+    text-align: left;
+    background-image: url('/images/bgwebpage.png');
+    background-repeat: repeat-x;   
+}
+/*HEADER*/
+#header{
+    margin-top: 11px;
+    padding-left: 0px;
+}
+#logo {
+    background-image: url('/images/logo.png');
+    background-repeat: no-repeat;
+    height: 46px;
+    width: 195px;
+    display: block;
+}
+#slogan{
+    font-size: 15px;
+    margin-top: 15px;
+}
+#language {
+    margin: 11px 10px 0px 0px;
+    font-size: 11px;
+    color: #878787;
+}
+#language li{
+    float: left;
+}
+/*HEADER*/
+
+/*NAVEGACION*/
+
+#navegacion{
+    height: 25px;
+    width: 960px;
+    background-image: url('/images/top_menu_bg1.png');
+    background-repeat: repeat-x;
+    font-size: 15px;
+    color: #ffffff;
+    padding: 10px 0px 0px 15px;
+    /*font-weight: bold;*/
+}
+#navegacion li{
+    display: block;
+    float: left;
+    margin-left: 30px;
+}
+/*NAVEGACION*/
+
+
+/*FOOTER*/
+#footer a{
+    color: #4E4E4E;
+}
+#footer #menu li{
+    float: left;
+    margin-left: 10px;
+    padding-right: 10px;
+    border-right: 1px solid;
+
+}
+#footer #menu li:last-child{
+    border-right: none;
+}
+/*FOOTER*/
+
+#details-left li{
+    display: block;
+    padding: 15px;
+    width: 188px;
+    color: #000000;
+    border-bottom-style: dashed;
+    border-bottom-color: #878787;
+    border-bottom-width: 1px;
+    text-align: center;
+}
+#details-left li a{
+    color: #4e4e4e;
+}
+#details-left li:hover{
+    background-color: #DBDBDB;
+    font-weight: bold;
+}
+
+
+
+/* messages */
+
+ul#mensajes{
+    width: 480px;
+    border: 1px solid orange;
+    margin: 0px auto;
+    list-style: none;
+    padding: 0px;
+    background: #F2EDDD;
+    color: #54382F;
+}
+ul#mensajes li{
+    text-align: center;
+    padding: 3px 0;
+    font-size: 13px;
+}
