@@ -110,3 +110,13 @@ ul#mensajes li{
     padding: 3px 0;
     font-size: 13px;
 }
+
+p.Chile	{
+    background: url("/images/flags/24/contact_chile.png") no-repeat scroll 0 0 transparent;
+}
+p.Peru	{
+    background: url("/images/flags/24/contact_peru.png") no-repeat scroll 0 0 transparent;
+}
+p.Suiza	{
+    background: url("/images/flags/24/contact_suiza.png") no-repeat scroll 0 0 transparent;
+}
