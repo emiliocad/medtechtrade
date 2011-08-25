@@ -5,29 +5,22 @@
  * and open the template in the editor.
  */
 
-/**
- * Description of Usuario
- *
- */
-class Application_Model_Usuario extends Zend_Db_Table_Abstract
+class Mtt_Models_Bussines_Usuario extends Mtt_Models_Table_Usuario
     {
-
-    protected $_name = 'usuario';
-    
-
     const PASSWPRD_SALT = "asdw452112355";
 
     public function auth( $login , $pwd )
         {
-
-        $db = Zend_Db_Table_Abstract::getDefaultAdapter();
+        //$db = Zend_Db_Table_Abstract::getDefaultAdapter();
+        $db = $this->getAdapter();
         $authAdapter = new Zend_Auth_Adapter_DbTable( $db );
-        $authAdapter->setTableName( 'usuarios' );
+        $authAdapter->setTableName( 'usuario' );
         $authAdapter->setIdentityColumn( 'login' );
-        $authAdapter->setCredentialColumn( 'pwd' );
+        $authAdapter->setCredentialColumn( "clave" );
         $authAdapter->setIdentity( $login );
         $authAdapter->setCredentialTreatment( 'MD5(?)' );
         $authAdapter->setCredential( $pwd );
+        
         $auth = Zend_Auth::getInstance();
         $result = $auth->authenticate( $authAdapter );
         $isValid = $result->isValid();
@@ -36,30 +29,13 @@ class Application_Model_Usuario extends Zend_Db_Table_Abstract
             {
             $authStorage = $auth->getStorage();
             $authStorage->write( array(
-                'usuario' => $authAdapter->getResultRowObject( null , 'pwd' ) ,
+                'usuario' => $authAdapter->getResultRowObject( null , 'clave' ) ,
                 'loginAt' => date( 'Y-m-d H:i:s' )
             ) );
             }
 
 
         return $isValid;
-        }
-
-    public function autenticar( array $values )
-        {
-        $db = $this->getAdapter();
-        $filas = $db->select()
-                        ->from( $this->_name )
-                        ->where( 'login = ?' , $values['login'] )
-                        ->where( 'pwd = ?' , md5( $values['pwd'] ) )
-                        ->query()->fetchAll();
-        $loginValido = count( $filas ) === 1;
-        if ( $loginValido )
-            {
-            $S = new Zend_Session_Namespace( 'ventas' );
-            $S->usuario = $filas[0];
-            }
-        return $loginValido;
         }
 
     public function getPaginator()

@@ -8,9 +8,9 @@
  * Description of Usuario
  *
  */
-class Application_Model_TipoUsuario extends Zend_Db_Table_Abstract {
+class Mtt_Models_Table_TipoUsuario extends Zend_Db_Table_Abstract {
     
-    protected $_name = 'tiposUsuario';
+    protected $_name = 'tiposusuario';
         
   
 

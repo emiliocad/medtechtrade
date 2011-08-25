@@ -1,6 +1,6 @@
 <?php
 
-class Admin_LoginController extends Mtt_Controller_Action
+class User_LoginController extends Mtt_Controller_Action
     {
 
     public function indexAction()
@@ -12,14 +12,13 @@ class Admin_LoginController extends Mtt_Controller_Action
         if ( $this->_request->isPost() && $form->isValid( $this->_request->getPost() ) )
             {
             $login = $this->_request->getPost();
-            $_usuario = new Mtt_Auth_Adapter_DbTable_Mtt();
+            $_usuario = new Mtt_Models_Bussines_Usuario();
 
-            $loginValido = $_usuario->authenticate( $login["login"] , $login["clave"] );
+            $loginValido = $_usuario->auth( $login["login"] , $login["clave"] );
             if ( $loginValido )
                 {
-                $this->isAuth = true;
                 $this->_redirect( '/admin/index' );
-                
+                $this->isAuth = true;
                 } else
                 {
                 $this->_helper->FlashMessenger( 'Usuario o contraseña invalido' );

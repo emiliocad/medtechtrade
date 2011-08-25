@@ -9,9 +9,9 @@
  * Description of Categoria
  *
  */
-class Mtt_Models_Table_Categoria extends Zend_Db_Table_Abstract
+class Mtt_Models_Table_Producto extends Zend_Db_Table_Abstract
     {
 
-    protected $_name = 'categoria';
+    protected $_name = 'producto';
 
     }

@@ -15,7 +15,9 @@ class CategoriaController extends Zend_Controller_Action
 
     public function indexAction()
         {
-        
+        $id = $this->_getParam( 'id' , null );
+        $stmt = $this->_categoria->getCategoria( $id );
+        $this->view->assign( 'categoria' , $stmt );
         }
 
     public function paginadoAction()
@@ -25,15 +27,7 @@ class CategoriaController extends Zend_Controller_Action
         $this->view->usuarios = $p;
         }
 
-   
-
-    public function verAction()
-        {
-        $id = $this->_getParam( 'id' , null );
-        $stmt = $this->_categoria->getCategoria( $id );
-        $this->view->assign( 'categoria' , $stmt );
-        }
-
+    
     }
 
 ?>
