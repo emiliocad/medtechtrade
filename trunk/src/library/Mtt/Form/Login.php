@@ -23,7 +23,7 @@ class Mtt_Form_Login extends Zend_Form {
         //$e->setDecorators( array( $decorator ) );
         $this->addElement( $e );
 
-        $e = new Zend_Form_Element_Password( 'pwd' );
+        $e = new Zend_Form_Element_Password( 'clave' );
         $e->setRequired();
         $e->setLabel( 'Password' );
         //$e->setDecorators( array( $decorator ) );
@@ -33,7 +33,7 @@ class Mtt_Form_Login extends Zend_Form {
         $decorator = new Mtt_Form_Decorator_SimpleButton();
         $e = new Zend_Form_Element_Submit( 'submit' );
         $e->setValue('Login');
-        $e->setDecorators( array( $decorator ) );
+        //$e->setDecorators( array( $decorator ) );
         $this->addElement( $e );
         }
 

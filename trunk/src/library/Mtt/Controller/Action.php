@@ -8,6 +8,9 @@
 class Mtt_Controller_Action extends Zend_Controller_Action
     {
 
+    protected $isAuth;
+
+
     public function init()
         {
         // inicializando logger

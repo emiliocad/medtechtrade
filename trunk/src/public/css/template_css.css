@@ -91,3 +91,22 @@ body {
     background-color: #DBDBDB;
     font-weight: bold;
 }
+
+
+
+/* messages */
+
+ul#mensajes{
+    width: 480px;
+    border: 1px solid orange;
+    margin: 0px auto;
+    list-style: none;
+    padding: 0px;
+    background: #F2EDDD;
+    color: #54382F;
+}
+ul#mensajes li{
+    text-align: center;
+    padding: 3px 0;
+    font-size: 13px;
+}
