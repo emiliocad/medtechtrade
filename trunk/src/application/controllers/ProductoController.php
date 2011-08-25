@@ -7,12 +7,11 @@ class ProductoController extends Zend_Controller_Action
         {
         parent::init();
         $this->_producto = new Mtt_Models_Bussines_Producto();
-        //$this->_tag = new Application_Model_Tag();
         }
 
     public function indexAction()
         {
-       
+        
         }
 
     public function paginadoAction()
@@ -22,9 +21,6 @@ class ProductoController extends Zend_Controller_Action
         $this->view->usuarios = $p;
         }
 
-   
-
-    
     public function verAction()
         {
         $id = $this->_getParam( 'id' , null );

@@ -1,0 +1,13 @@
+<?= $this->query; ?>
+<?
+
+foreach ( $this->videoFeed as $videoEntry )
+    {
+    echo "---------VIDEO----------\n";
+    echo "Title: " . $videoEntry->getVideoTitle() . "\n";
+    echo "\nDescription:\n";
+    echo $videoEntry->getVideoDescription();
+    echo "\n\n\n";
+    }
+?>
+

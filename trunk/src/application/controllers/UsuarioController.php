@@ -3,8 +3,14 @@
 class UsuarioController extends Zend_Controller_Action
     {
 
+    protected $_usuario;
+    protected $URL;
+
     public function init()
         {
+
+        $this->_usuario = new Mtt_Models_Bussines_Usuario();
+        $this->URL = '/' . $this->getRequest()->getControllerName();
         parent::init();
         }
 
@@ -26,27 +32,32 @@ class UsuarioController extends Zend_Controller_Action
         $this->view->usuarios = $p;
         }
 
-    public function signUpAction()
+    public function registroAction()
         {
         $this->view->headScript()->appendFile( '/js/user.sigunp.js' );
         $form = new Mtt_Form_Registrar();
-        $values = $this->_request->getPost();
-        if($this->_request->isPost() && $form->isValid($values) ){
-            $categoria = $form->getValues();
-            $categoria['activo'] = 1;
-            $slugger = new My_Filter_Slug(array(
-                'field' => 'slug',
-                'model' => $this->_categoria
-            ));
-            $categoria['slug'] = $slugger->filter($form->getValue('nombre'));
-            unset($categoria['token']);
-            $this->_categoria->insert($categoria);
-            $this->_helper->FlashMessenger('Se agregó una categoría');
-            $this->_redirect($this->URL);
-        }
-        $this->view->form = $form;
-        
-        
+
+        if ( $this->_request->isPost() && $form->isValid( $this->_request->getPost() ) )
+            {
+            
+            $usuario = $form->getValues();
+            
+            unset( $usuario["clave_2"] );
+
+            $valuesDefault = array(
+                "tipousuario_id" => '1' ,
+                "fecharegistro" => Zend_Date::now() ,
+                "ultimavisita" => Zend_Date::now()
+            );
+            
+            $usuario = array_merge( $valuesDefault , $usuario );
+            
+            $this->_usuario->insert( $usuario );
+            
+            $this->_helper->FlashMessenger( 'Se Registro el Usuario' );
+            $this->_redirect( $this->URL );
+            }
+        $this->view->assign( 'frmRegistrar' , $form );
         }
 
     }

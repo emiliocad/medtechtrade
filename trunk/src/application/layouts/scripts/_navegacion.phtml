@@ -1,22 +1,38 @@
 <div id="navegacion" class="container_16"> 
-		<ul id="mainlevel">
-            <li>
-                <a href="#">Home</a>
-            </li>
-            <li>
-                <a href="#">Buy Equipment</a>
-            </li>
-            <li>
-                <a href="#">Sell / Trade-in Equipment</a>
-            </li>
-            <li>
-                <a href="#">Services</a>
-            </li>
-            <li>
-                <a href="#">Contact Us</a>
-            </li>
-            <li>
-                <a href="#">My Account</a>
-            </li>
-        </ul> 
-	</div> 
+    <ul id="mainlevel">
+        <li>
+            <a href="
+            <?= $this->url( array( 'controller' => 'index' ,
+                'action' => 'index' ) , null , true ) ?>">
+
+                Home
+            </a>    
+
+        </li>
+        <li>
+            <a href="#">Buy Equipment</a>
+        </li>
+        <li>
+            <a href="#">Sell / Trade-in Equipment</a>
+        </li>
+        <li>
+            <a href="#">Services</a>
+        </li>
+        <li>
+            <a href="
+            <?= $this->url( array( 'controller' => 'contacto' ,
+                'action' => 'index' ) , null , true ) ?>">
+
+                Contact Us
+            </a>    
+        </li>
+        <li>
+            <a href="
+            <?= $this->url( array( 'controller' => 'usuario' ,
+                'action' => 'login' ) , null , true ) ?>">
+
+                My Account
+            </a>    
+        </li>
+    </ul> 
+</div> 

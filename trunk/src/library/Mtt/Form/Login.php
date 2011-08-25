@@ -14,23 +14,23 @@ class Mtt_Form_Login extends Zend_Form {
             ->setMethod('post')
             ->setAttrib('id','frmLogin')
         ;
-        $decorator = new My_Decorator_SimpleInput();
+        $decorator = new Mtt_Form_Decorator_SimpleInput();
 
         $e = new Zend_Form_Element_Text('login');
         $e->setLabel('Username');
         $e->setRequired();
         $e->addValidator( new Zend_Validate_StringLength( array( 'min' => 5 , 'max' => 20 ) ) );
-        $e->setDecorators( array( $decorator ) );
+        //$e->setDecorators( array( $decorator ) );
         $this->addElement( $e );
 
         $e = new Zend_Form_Element_Password( 'pwd' );
         $e->setRequired();
         $e->setLabel( 'Password' );
-        $e->setDecorators( array( $decorator ) );
+        //$e->setDecorators( array( $decorator ) );
         $this->addElement( $e );
 
         //Submit
-        $decorator = new My_Decorator_SimpleButton();
+        $decorator = new Mtt_Form_Decorator_SimpleButton();
         $e = new Zend_Form_Element_Submit( 'submit' );
         $e->setValue('Login');
         $e->setDecorators( array( $decorator ) );
