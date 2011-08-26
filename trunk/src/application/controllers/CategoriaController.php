@@ -1,6 +1,6 @@
 <?php
 
-class CategoriaController extends Zend_Controller_Action
+class CategoriaController extends Mtt_Controller_Action
     {
 
     protected $_categoria;

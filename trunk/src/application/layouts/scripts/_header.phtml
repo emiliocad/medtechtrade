@@ -9,6 +9,9 @@
     <div id="language" class="grid_5 omega" >
         <ul>
             <li>
+                Bienvenido <?= $this->isAuth ? $this->authData['usuario']->nombre : 'visitante' ?>
+            </li>
+            <li>
                 <a href="#">
                     <img src="/images/flags/16/en.gif" alt="Eng | " title="Eng | " />
                 </a>
@@ -27,5 +30,5 @@
     </div>
     <div class="clear">
     </div>
-    
+
 </div>

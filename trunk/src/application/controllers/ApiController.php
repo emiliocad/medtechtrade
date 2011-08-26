@@ -14,7 +14,7 @@
  *
  * @author Consultoria
  */
-class ApiController extends My_Controller_Action
+class ApiController extends Mtt_Controller_Action
     {
 
     public function init()

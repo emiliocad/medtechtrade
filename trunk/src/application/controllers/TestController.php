@@ -1,6 +1,6 @@
 <?php
 
-class TestController extends Zend_Controller_Action
+class TestController extends Mtt_Controller_Action
     {
 
     public function init()
@@ -46,6 +46,14 @@ class TestController extends Zend_Controller_Action
        
         
         $this->view->assign( 'fecha' , Zend_Date::now( 'us') );
+        
+        }
+   
+    public function generateClaveAction()
+        {
+       
+        
+        $this->view->assign( 'password' , Mtt_Auth_Adapter_DbTable_Mtt::generatePassword( '123456' ) );
         
         }
    
