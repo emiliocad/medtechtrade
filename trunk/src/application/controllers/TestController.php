@@ -34,31 +34,34 @@ class TestController extends Mtt_Controller_Action
         $this->view->assign( 'query' , $query->queryUrl );
         $this->view->assign( 'videoFeed' , $yt->getVideoFeed( $query ) );
         }
+
     public function comboPaisAction()
         {
         $pais = new Mtt_Models_Bussines_Paises();
-        
+
         $this->view->assign( 'combos' , $pais->getComboValues() );
-        
         }
+
     public function fechaAction()
         {
-       
-        
-        $this->view->assign( 'fecha' , Zend_Date::now( 'us') );
-        
+
+
+        $this->view->assign( 'fecha' , Zend_Date::now( 'us' ) );
         }
-   
+
     public function generateClaveAction()
         {
-       
-        
+
+
         $this->view->assign( 'password' , Mtt_Auth_Adapter_DbTable_Mtt::generatePassword( '123456' ) );
-        
         }
-   
-        
-        
+
+    public function fabricanteAction()
+        {
+
+        $frmFabricante = new Mtt_Form_Fabricante();
+        $this->view->assign( 'frmFabricante' , $frmFabricante );
+        }
 
     }
 

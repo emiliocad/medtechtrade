@@ -38,7 +38,6 @@ class UsuarioController extends Mtt_Controller_Action
         $this->view->assign( 'formlogin' , $form );
         }
 
-
     public function registroAction()
         {
         $this->view->headScript()->appendFile( '/js/user.sigunp.js' );
@@ -67,6 +66,12 @@ class UsuarioController extends Mtt_Controller_Action
             $this->_redirect( $this->URL );
             }
         $this->view->assign( 'frmRegistrar' , $form );
+        }
+
+    public function logoutAction()
+        {
+        Zend_Auth::getInstance()->clearIdentity();
+        $this->_redirect( '/' );
         }
 
     }

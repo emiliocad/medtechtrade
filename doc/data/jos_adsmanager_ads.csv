@@ -1,0 +1,844 @@
+"114","155","0","100","","","0","","following","2010-10-22","0000-00-00","0","210","1","Storz","Cold Light Source","450 BV","","CH","","114","20040630","10","","","","","","","","1941","OK","1","4100","1","","","","","",""
+"115","154","0","100","","","0","","following","2010-10-22","0000-00-00","0","93","0","Hamilton","Respirator Amadeus","Amadeus 153000","","CH","","115","19900101","","","","","","","","","699","OK, working","1","33000","1","","","","","",""
+"116","155","0","100","","","0","","following","2010-10-22","0000-00-00","0","127","1","Olympus","cold Light source","CLE-F10","","CH","","116","19910101","10","52.7","50","20.5","","","","","465","OK, working","1","20000","1","","","","","",""
+"117","155","0","100","","","0","","following","2010-10-22","0000-00-00","0","158","1","Olympus","Cold Light source","CLV-U20","","CH","","117","19931020","20","53.3","58.4","17.8","","","","","348","OK, working","1","8000","1","","","","","",""
+"118","157","0","100","","","0","","Manual in DE, EN, SP","2010-10-25","0000-00-00","0","69","0","Sony","Videoprinter","UP-895 MDW","","CH","","118","20010101","3.4","26","15.4","10.5","","","","","462","OK, working","1","2130","1","","","","","","1"
+"119","160","0","100","","","0","","Rate parameters:1-500 ml/hr. in 1 ml increments /Volume & Dose Limits: Off-9999 ml in 1 ml increments /Occlusion Pressure: Occludes at  rate: 5 ml/hr or selected rate if lower. /Alarms:Flo, Door, Hold, Bat., Batt., Err X.\
+Accuracy:	? 10 %\
+Flow Sensor:	Model 182","2010-10-25","0000-00-00","0","168","1","Carbamed","Infusion Pump","IVAC Star Flow 581","","CH","","119","19900501","10","","","","","","","","200","OK, working","1","3000","1","","","","","",""
+"120","160","0","100","","","0","","Manual in EN as PDF","2010-10-25","0000-00-00","0","228","1","BBraun","Needle Pump Perfusor Compact","Perfusor Compact","","CH","","120","20000224","1.5","12","19","10","","","","","448","Very Good","1","2499","1","120.Perfusor Compact.pdf","","","","","3"
+"123","160","0","100","","","0","","Manual in EN as PDF","2010-10-25","0000-00-00","0","115","0","BBraun","Needle Pump Perfusor Compact","Perfusor Compact","","CH","","123","20010417","1.5","12","19","10","","","","","602","Very Good","1","2600","1","123.Perfusor Compact.pdf","","","","",""
+"124","157","0","100","","","0","","following","2010-10-25","0000-00-00","0","198","1","Sony","Videoprinter","UP-890 CE","","CH","","124","20040401","3.7","30.3","15.4","10.06","","","","","1344","OK, working","1","3000","1","","","","","","1"
+"125","154","0","100","","","0","","following","2010-10-25","0000-00-00","0","111","0","Hamilton","Respirator Veclar-FT","Veolar 1500028","","CH","","125","19940301","20","","","","","","","","2472","OK, working","1","52458","1","","","","","",""
+"177","160","0","100",\N,\N,"0",\N,"Manual in DE as PDF\
+\
+Infusion rate range: 0.1-99.9 ml/h\
+\
+Network connection: 220-240 V~, 50/60 Hz\
+Battery: rechargable\
+\
+The Model 770 has been developed to process small quantities of drugs with high accuracy.","2010-11-15",\N,"0","189","1","Carbamed","Needle Pump","IVAC 770","","CH","","177","20000101","3.6","16.5","31.8","12","","","","","on request","OK, working","1","0","1","177.IVAC770 Manual_D.pdf","","","","",""
+"84","160","0","100","","","0","","Manual in DE,EN,SP + Medikamentenbibliotek","2010-09-27","0000-00-00","0","98","0","Alaris","Syringe Pump Alaris","Alaris Asena TM CC","","CH","Syringe Pump Alaris Asena TM CC","84","20000101","","","","","","","","","300","OK, working","1","0","1","","","","","","1"
+"85","159","0","100","","","0","","Manual in DE,SP","2010-09-27","0000-00-00","0","180","0","Schiller","Blood Pressure","BR-102","","CH","Blodd Pressure","85","20000101","0.31","2.1","7.1","12","","","","","on request","OK, working","1","0","1","","","","","",""
+"86","151","0","100","","","0","","ECG Accesories, Manual in DE","2010-09-27","0000-00-00","0","114","0","Schiller","ECG Cardiovit","CS-100","","CH","ECG Cardiovit","86","19930302","15","38.7","48","16.9","","","","","693","OK, working","1","18363","1","","","","","",""
+"87","159","0","100","","","0","","Sleeves\
+Manual in EN and DE as PDF","2010-09-27","0000-00-00","0","90","0","GE Healthcare","Blood Pressure Monitor","DINAMAP 8100","","CH","Blood Pressure Monitor","87","19910319","3.9","17","17","22.4","","","","","200","OK, working","1","6765","1","87.Dinamap 8100 Crikiton Manual_E.pdf","","","","",""
+"88","159","0","100","","","0","","Manual in DE","2010-09-27","0000-00-00","0","69","0","Schiller","Cardiovit","CS-6/12","","CH","Cardiovit","88","20000101","6.5","33","41","12","","","","","on request","OK, working","1","0","1","","","","","",""
+"137","154","0","100","","","0","","Manual in EN as PDF\
+Manual in DE","2010-11-01","0000-00-00","0","63","0","Fisher & Paykel Healthcare","Respiratory humidifier","MR410","","CH","","137","19950101","1.3","15.6","13.5","17","","","","","200","Good","1","1987","1","137.MR410 Operators Manual_E.pdf","","","","",""
+"138","154","0","100","","","0","","Manual in EN as PDF\
+Manual in DE","2010-11-01","0000-00-00","0","59","0","Fisher & Paykel Healthcare","Respiratory humidifier","MR411","","CH","","138","20001101","1.3","15.6","13.5","17","","","","","1031","Good","1","4931","1","138.MR410 Operators Manual_E.pdf","","","","",""
+"139","154","0","100","","","0","","Manual in EN as PDF\
+Manual in DE","2010-11-01","0000-00-00","0","52","0","GE Healthcare","Respiratory humidifier","MR412","","CH","","139","19960401","1.3","15.6","13.5","17","","","","","370","Good","1","4931","1","139.MR410 Operators Manual_E.pdf","","","","",""
+"140","154","0","100","","","0","","Manual in EN as PDF\
+Manual in DE","2010-11-01","0000-00-00","0","69","0","GE Healthcare","Respiratory humidifier","MR413","","CH","","140","19980722","1.3","15.6","13.5","17","","","","","619","Good","1","4931","1","140.MR410 Operators Manual_E.pdf","","","","",""
+"141","154","0","100","","","0","","Manual in EN as PDF\
+Manual in DE","2010-11-01","0000-00-00","0","60","0","GE Healthcare","Respiratory humidifier","MR414","","CH","","141","19980722","1.3","15.6","13.5","17","","","","","619","Good","1","4931","1","141.MR410 Operators Manual_E.pdf","","","","",""
+"142","154","0","100","","","0","","Manual in EN as PDF\
+Manual in DE","2010-11-01","0000-00-00","0","71","0","GE Healthcare","Respiratory humidifier","MR415","","CH","","142","19980722","1.3","15.6","13.5","17","","","","","619","Good","1","4931","1","142.MR410 Operators Manual_E.pdf","","","","",""
+"143","154","0","100","","","0","","Manual in EN as PDF\
+Manual in DE","2010-11-01","0000-00-00","0","65","0","GE Healthcare","Respiratory humidifier","MR416","","CH","","143","19980722","1.3","15.6","13.5","17","","","","","619","Good","1","4931","1","143.MR410 Operators Manual_E.pdf","","","","",""
+"144","154","0","100","","","0","","Manual in EN as PDF\
+Manual in DE","2010-11-01","0000-00-00","0","77","0","GE Healthcare","Respiratory humidifier","MR417","","CH","","144","19980721","1.3","15.6","13.5","17","","","","","619","Good","1","4931","1","144.MR410 Operators Manual_E.pdf","","","","",""
+"135","159","0","100","","","0","","Manual in DE / Sleeves","2010-11-01","0000-00-00","0","70","0","GE Healthcare","Blood Pressure Monitor","DINAMAP 8102","","CH","","135","19900501","3.9","17","17","22.4","","","","","200","OK, working","1","7173","1","","","","","",""
+"100","160","0","100","","","0","","Manual in DE as PDF","2010-09-27","0000-00-00","0","150","1","Bbraun","Needle Pump Perfusor","Perfusor SECURA FT","","CH","Needle Pumpe Perfusor FT","100","19920301","2.2","15.5","31","15.5","","","","","200","OK, working","1","3200","1","100.MR410 Operators Manual_E.pdf","","","","","1"
+"101","160","0","100","","","0","","Manual in DE as PDF","2010-09-27","0000-00-00","0","166","1","Bbraun","Needle Pump Perfusor","Perfusor SECURA FT","","CH","","101","19900605","5","15.5","31","15.5","","","","","200","OK, working","1","3050","1","101.MR410 Operators Manual_E.pdf","","","","","1"
+"171","157","0","100","","","0","","Manual in DE,EN","2010-11-01","0000-00-00","0","156","1","Sony","Video Recorder","SVO-9500MDP","","CH","","171","20040123","10","36.6","27","13.2","","","","","2153","OK, working","1","4400","1","","","","","",""
+"172","161","0","100","","","0","","- powerful sector / Convex and Linearapplikatoren 2.0 to 7.5 MHz \
+- Endo probe\
+- four applicator ports The unit can be placed in 5.0MHz Convex probe, such as a 5.0/7.5 MHz\
+Sector / micro sector probe and a 7.5 MHz linear transducer connected.\
+- 16 pre-programmed basic settings\
+- 256 shades of gray\
+- extensive measurements and protocols \
+- floppy drive","2010-11-01","0000-00-00","0","383","1","Siemens","Ultrasound Diagnostic, Sonoline","SI-400 E","","CH","","172","19940103","50","","","","","","","","3572","Good","1","78500","1","","","","","","1"
+"105","157","0","100","","","0","","Manual in DE,EN,SP","2010-09-27","0000-00-00","0","186","0","Mitsubishi","Video Copy Processor","P91W, P91E","","CH","","105","20000101","3.3","30","15.4","9.7","","","","","on request","OK, working","1","0","1","","","","","","1"
+"106","157","0","100","","","0","","Manual in DE,EN,SP","2010-09-27","0000-00-00","0","66","0","Mitsubishi","Video Copy Processor","P93W, P93E","","CH","","106","20000101","2.8","25.6","15.4","8.9","","","","","on request","OK, working","1","0","1","","","","","","1"
+"108","157","0","100","","","0","","Manual in DE;EN,SP","2010-09-28","0000-00-00","0","72","0","Sony","Video Color Printer","UP-20 / UP-21MD","","CH","Color Video Printer","108","20000101","6.5","39.5","21.2","12.5","","","","","700","OK, working","1","0","1","","","","","","1"
+"109","157","0","100","","","0","","Manuarl in DE,EN,SP","2010-09-28","0000-00-00","0","80","0","Sony","Digital color Printer","UP-D21MD","","CH","Digital color Printer","109","20000101","6.5","39.5","21.2","12.5","","","","","on request","OK, working","1","0","1","","","","","","1"
+"110","157","0","100","","","0","","Manual in DE,EN,SP","2010-09-28","0000-00-00","0","177","0","Sony","Digital Graphic Printer","UP-D897","","CH","Digital Grafic Printer","110","20000101","2.6","24","15.4","8.8","","","","","on request","OK, working","1","0","1","","","","","","1"
+"126","161","0","100","","","0","","Aloka SSD-500 PORTABLE B&W ultrasound, OB/Gyn calcs, electronic convex and linear, B and M-mode, B/M-mode simultaneous disply, movable M-cursor, B-mode single/dual frame, M-mode single frame moving bar, .75/1.0/1.5 magnification, 1B/2B focusing, Body Mark-18 formats, 7 inch monitor display.","2010-10-26","0000-00-00","0","271","0","Aloca","Ultrasound Diagnostic","SSD-500","","CH","","126","19911121","10","29","29","32","","","","","1522","Good","1","53674","1","126.aloka ssd 500.pdf","","","","",""
+"174","162","0","100","","","0","","Manual in DE,EN,SP","2010-11-01","0000-00-00","0","281","1","Hill-Rom","Isolette Infant Incubator","C2000","","CH","","174","20000101","96","75","120.6","140","","","","","1590","OK, working","1","955","1","","Spital Chur","3000","Chur","","1"
+"178","160","0","100",\N,\N,"0",\N,"The Perfusor fm is a transportable infusion\
+syringe pump in accordance with IEC/EN\
+60601-2-24 that is suitable for dispensing\
+liquids in nutritional and infusion therapy. The medical specialist must decide on suitability for application on the basis of the warranted properties and the technical data.The Perfusor fm is used primarily for the highly precise, reproducible infusion of medication in large and small quantities. The device permits extremely exacting delivery rate settings, and thus optimal adaptation to any given\
+requirements.","2010-11-15",\N,"0","230","1","BBraun","Syringe pump","Perfusor fm","","CH","","178","20000101","3.5","17","36","11","","","","","on request","OK, working","1","0","1","178.Perfusor fm Manual_E.pdf","","","","","1"
+"173","159","0","100","","","0","","Manual in EN","2010-11-01","0000-00-00","0","114","0","Siemens","Patient Monitors","SC 6002","","CH","","173","20000101","","","","","","","","","900","OK, working","1","0","1","","","","","",""
+"130","155","0","100","","","0","","following","2010-10-27","0000-00-00","0","169","1","Olympus","Video Endoskope Bronchoskop","BF-200","","CH","","130","19941019","10","","","","","","","","1540","OK, working","1","28357","1","","","","","",""
+"131","155","0","100","","","0","","following","2010-10-27","0000-00-00","0","216","1","Olympus","Video Endoskope Bronchoskop","BF-200","","CH","","131","19960715","10","","","","","","","","2318","OK, working","1","28950","1","","","","","",""
+"132","159","0","100","","","0","","following","2010-10-27","0000-00-00","0","78","0","Ohmeda","Puls OXY Meter","BIOX 3740","","CH","","132","19950101","3.15","23.5","20.5","8","","","","","257","Good","1","4526","1","","","","","","1"
+"133","159","0","100","","","0","","following","2010-10-27","0000-00-00","0","75","0","Ohmeda","Puls OXY Meter","BIOX 3740","","CH","","133","19950130","3.15","23.5","20.5","8","","","","","298","Good","1","4526","1","","","","","","1"
+"134","154","0","100","","","0","","Manual in EN as PDF\
+Manual in DE","2010-11-01","0000-00-00","0","74","0","Fisher & Paykel Healthcare","Respiratory humidifier","MR418","","CH","","134","19950401","1.3","15.6","13.5","17","","","","","200","Good","1","1987","1","134.MR410 Operators Manual_E.pdf","","","","",""
+"145","160","0","100","","","0","","following","2010-11-01","0000-00-00","0","139","1","Medela","Breast Pump","Classic 015","","CH","","145","19930527","5","","","","","","","","200","Good","1","2421","1","","","","","",""
+"146","160","0","100","","","0","","following","2010-11-01","0000-00-00","0","177","1","Medela","Breast Pump","Classic 015","","CH","","146","19940530","5","","","","","","","","200","Good","1","2421","1","","","","","",""
+"147","160","0","100","","","0","","following","2010-11-01","0000-00-00","0","145","1","Medela","Breast Pump","Classic 015","","CH","","147","19980117","5","","","","","","","","339","Good","1","2655","1","","","","","",""
+"148","159","0","100","","","0","","Manual in DE","2010-11-01","0000-00-00","0","176","1","Johnson & Johnson","Dinamap XL Monitor","Dimamap XL 9302","","CH","","148","20000101","3.9","17","17","22.4","","","","","200","OK, working","1","0","1","148.Dinamap XL 9302 Manual_D.pdf","","","","",""
+"149","148","0","100","","","0","","following","2010-11-01","0000-00-00","0","125","1","Agfa","X-Ray Film Developer","Drystar 2000","","CH","","149","20000101","5","","","","","","","","2797","OK, working","1","16125","1","","","","","",""
+"150","157","0","100","","","0","","following","2010-11-01","0000-00-00","0","69","0","Hellige","Monitor","SMK 211","","CH","","150","19911103","10","","","","","","","","200","OK, working","1","3280","1","","","","","",""
+"151","160","0","100","","","0","","Manual in EN\
+\
+The IMED 800 infusion pump is a semi-automatic, electrically operated syringe pump. It is designed to monitor and control delivery low volumens of I.V. fluides at high accuracy levels utilising 20 ml and 50 ml syringes from most major manufacturers.\
+\
+Flow rate is determined by the operator using the rate switches mounted on the front panel of the instrument. The internal program regeatedly monitorx the microprossors, switch setting and stepper motor operation.","2010-11-01","0000-00-00","0","95","0","Imed","Syring Pump","Imed800","","CH","","151","20000101","4","17.5","41.3","11.5","","","","","on request","OK, working","1","0","1","","","","","",""
+"152","160","0","100","","","0","","following","2010-11-01","0000-00-00","0","68","0","Laerdal","Pump","LPSU LA770000","","CH","","152","19991206","5","","","","","","","","282","OK, working","1","1650","1","","","","","",""
+"153","160","0","100","","","0","","following","2010-11-01","0000-00-00","0","66","0","Laerdal","Pump","LPSU LA770000","","CH","","153","19991206","5","","","","","","","","282","OK, working","1","1650","1","","","","","",""
+"154","160","0","100","","","0","","Specifications\
+Fast Occlusion Alarm\
+The 3100’s internal occlusion pressure detector has a time to alarm response which makes it suitable for neonatal risk infusions.\
+Adjustable Occlusion Pressure\
+The Graseby® 3100 is suitable for a range of applications from routine ward use to neonatal infusions.\
+Excellent Flow-Rate Accuracy\
+The high level of short and long-term flow-rate accuracy makes the 3100 suitable for neonatal and high risk infusions.\
+0.1 – 199.9ml/hr Infusion Rate allows a wide range of drug therapies.\
+The internal battery provides more than two and a half hours’ power for patient transportation, or in the event of AC power failure.\
+The totaliser allows volume infused to be recorded.\
+Automatic Syringe Size-Sensing\
+Automatic sensing of 20ml, 30ml and 50/60ml size syringes.\
+The Graseby®3100 accepts syringes from all major manufacturers.","2010-11-01","0000-00-00","0","91","0","Graseby Medical","Needle Pump","Graseby 3100","","CH","","154","20000101","2.4","13","32","19","","","","","250","OK, working","1","0","1","","","","","",""
+"155","159","0","100","","","0","","Manual in EN","2010-11-01","0000-00-00","0","78","0","Kontron Medical","Oxygen Monitor","810","","CH","","155","20000101","0.75","14","18","77","","","","","on request","OK, working","1","0","1","","","","","",""
+"156","160","0","100","","","0","","Manual in EN\
+\
+Specifications:\
+- Compatible syringes: Refer to the label attached to the front of the pump for permitted syringe manufacturers and sizes.\
+- Continuous infusion rate: 0.1 to 200 ml/h\
+- infusion rate increments 0.1 to 19.9 ml/h in increments of 0.1 ml/h - 20 to 200 ml/h  in increments of 1 ml/h","2010-11-01","0000-00-00","0","52","0","Ohmeda","Syringe Pump","9000","","CH","","156","20000101","1.4","","","","","","","","on request","OK, working","1","0","1","","","","","",""
+"157","159","0","100","","","0","","following","2010-11-01","0000-00-00","0","59","0","Hellige","Monitor","Oxycardio-Respirogra","","CH","","157","19951015","10","","","","","","","","1370","OK, working","1","20230","1","","","","","",""
+"158","159","0","100","","","0","","following","2010-11-01","0000-00-00","0","70","0","Masimo","Puls OXY Meter","RAD-9","","CH","","158","20040115","10","","","","","","","","1197","Very Good","1","2800","1","","","","","","1"
+"159","155","0","100","","","0","","following","2010-11-01","0000-00-00","0","60","0","Storz","Video-Endoscopy Control Unit","Telecam","","CH","","159","19941027","10","","","","","","","","1176","OK, working","1","21558","1","","","","","","1"
+"160","155","0","100","","","0","","following","2010-11-01","0000-00-00","0","198","0","Storz","Video Camera Endoscopy Tricam","Tray 39301ACT","","CH","","160","20070121","10","","","","","","","","15401","OK, working","1","17532","1","","","","","",""
+"161","157","0","100","","","0","","following","2010-11-01","0000-00-00","0","77","0","Sony","Video Recorder","TV-Norm CCIR SXR","","CH","","161","19910701","10","","","","","","","","1043","OK, working","1","39980","1","","","","","",""
+"162","154","0","100","","","0","","Manual in DE as PDF","2010-11-01","0000-00-00","0","78","0","Lambrecht","Inhaler","Saluta Super 2","","CH","","162","20000101","","","","","","","","","on request","OK, working","1","0","1","162.Saluta Super 2 Manual_D.pdf","","","","",""
+"163","159","0","100","","","0","","Manual in DE","2010-11-01","0000-00-00","0","77","0","Dräger","Infinity Configured Monitoring Systems","SC600sXL/SC 6802XL","","CH","","163","20000101","3.87","14.5","26.7","19.6","","","","","on request","OK, working","1","0","1","","","","","",""
+"164","160","0","100","","","0","","following","2010-11-01","0000-00-00","0","76","0","BBraun","Needle Pump Perfusor","Perfusor Secura FM D. 2.Versio","","CH","","164","19971205","5","","","","","","","","324","Good","1","2965","1","","","","","","1"
+"165","160","0","100","","","0","","following","2010-11-01","0000-00-00","0","85","0","BBraun","Syringe pump","Secura FM d. 2.Versio","","CH","","165","20000501","5","","","","","","","","556","Good","1","2965","1","","","","","","1"
+"167","159","0","100","","","0","","Manual in EN","2010-11-01","0000-00-00","0","78","0","Siemens","Patient Monitors","SC 7000","","CH","","167","20000101","","","","","","","","","on request","OK, working","1","0","1","","","","","",""
+"168","159","0","100","","","0","","Manual in EN","2010-11-01","0000-00-00","0","72","0","Siemens","Patient Monitors","SC 9000XL","","CH","","168","20000101","","","","","","","","","on request","OK, working","1","0","1","","","","","",""
+"169","159","0","100","","","0","","Manual in EN","2010-11-01","0000-00-00","0","62","0","Siemens","Patient Monitors","SC 6000","","CH","","169","20000101","","","","","","","","","on request","OK, working","1","0","1","","","","","",""
+"170","159","0","100","","","0","","Manual in EN","2010-11-01","0000-00-00","0","76","0","Siemens","Patient monitoring","SC 9000","","CH","","170","20000101","","","","","","","","","on request","OK, working","1","0","1","","","","","",""
+"179","159","0","100",\N,\N,"0",\N,"Key Features of the Solar 8000 Monitor are:\
+Solar 8000 with Tram Rac, C.S.and Recorder\
+The Monitor includes the following parameters:\
+• ECG\
+• NIBP\
+• SpO2\
+• Temperature\
+• 2 IBP\
+• Flat Screen view panel VP150, 15” Resolution: 1024 x 514 pixels \
+\
+Tram rac 4A, 1 module Tram 250sl\
+\
+Mounting frame included in the price.","2010-11-19",\N,"0","422","1","GE Healthcare","Critical Care Monitoring","Solar 8000","","CH","","179","19990101","30","","","","","","","","567","Good","1","0","1","179.Offer - Solar 8000 CPU Modell - MedTechTrade.pdf","","","","Solar 8000 CPU Modell - MedTechTrade.pdf","1"
+"182","160","0","100",\N,\N,"0",\N,"- Continuous Infusion and TCI (Target Controlled Infusion) Modes\
+- Preset (hands-free) and Manual (hands-on) Bolus\
+- High Bolus Infusion Rate\
+- Volume (ml/hr) and Mass Units Infusion Programming\
+- Accepts and automatically senses the size of syringes from the major manufactures\
+- Occlusion Alarm\
+- Volume and Mass and Totalizers\
+- Pump History\
+- Communications Interface\
+- AC Powered with backup battery operation\
+TCI Features\
+- Incorporates the AstraZeneca DiprifusorTM TCI Module\
+- Compatible with AstraZeneca Diprivan PFS\
+- TCI Target Titrate\
+Battery condition: as is.","2010-11-26",\N,"0","186","1","Graseby Medical","Syringe Pump","3500 D TCI","","CH","","182","19990101","","","","","","","","","493","OK, working","1","3550","1","","","","","","1"
+"183","160","0","100",\N,\N,"0",\N,"- Continuous Infusion and TCI (Target Controlled Infusion) Modes\
+- Preset (hands-free) and Manual (hands-on) Bolus\
+- High Bolus Infusion Rate\
+- Volume (ml/hr) and Mass Units Infusion Programming\
+- Accepts and automatically senses the size of syringes from the major manufactures\
+- Occlusion Alarm\
+- Volume and Mass and Totalizers\
+- Pump History\
+- Communications Interface\
+- AC Powered with backup battery operation\
+TCI Features\
+- Incorporates the AstraZeneca DiprifusorTM TCI Module\
+- Compatible with AstraZeneca Diprivan PFS\
+- TCI Target Titrate\
+Battery condition: as is.","2010-11-26",\N,"0","178","0","Graseby Medical","Syringe Pump","3500 D TCI","","CH","","183","19990101","","","","","","","","","493","OK, working","1","3550","1","","","","","","1"
+"185","155","0","100",\N,\N,"0",\N,"following","2010-11-26",\N,"0","60","0","Wisap","INSUFFLATION Device CO2","7050E","","CH","","185","19950101","","","","","","","","","400","OK, working","1","10000","1","","","","","",""
+"186","159","0","100",\N,\N,"0",\N,"following","2010-11-26",\N,"0","153","1","HP","Surveillance MONITOR","78351A","","CH","","186","19990101","","","","","","","","","200","OK, working","1","0","1","","","","","",""
+"187","159","0","100",\N,\N,"0",\N,"following","2010-11-26",\N,"0","63","0","HP","Surveillance MONITOR","78353A","","CH","","187","19990101","","","","","","","","","200","OK, working","1","0","1","","","","","",""
+"188","159","0","100",\N,\N,"0",\N,"following","2010-11-26",\N,"0","66","0","Kontron Medical","Oxygen Monitor","810","","CH","","188","19990101","","","","","","","","","260","OK, working","1","1870","1","","","","","",""
+"189","159","0","100",\N,\N,"0",\N,"following","2010-11-26",\N,"0","60","0","Kontron Medical","Oxygen Monitor","810","","CH","","189","19990101","","","","","","","","","260","OK, working","1","1870","1","","","","","",""
+"190","159","0","100",\N,\N,"0",\N,"following","2010-11-26",\N,"0","85","0","Kontron Medical","Oxygen Monitor","810","","CH","","190","19990101","","","","","","","","","260","OK, working","1","1870","1","","","","","",""
+"191","155","0","100",\N,\N,"0",\N,"Endoscopy camera\
+\
+Camera unit available Linvatec 8172\
+(search Linvatec 8172 in our webpage)","2010-11-26",\N,"0","196","1","Linvatec","Control Unit Video Endoskop","8180A","","CH","","191","19990101","","","","","","","","","1735","OK, working","1","1000","1","","KSGR","3000","Chur","","1"
+"192","150","0","100",\N,\N,"0",\N,"following","2010-11-26",\N,"0","70","0","Bipolar","Coagolatoin device","Comp/M 900625-1","","CH","","192","19990101","","","","","","","","","278","Very Good","1","2000","1","","","","","",""
+"193","155","0","100",\N,\N,"0",\N,"following","2010-11-26",\N,"0","67","0","Olympus","Control Unit Video Endoskop","CV-200","","CH","","193","19990101","","","","","","","","","2082","OK, working","1","15000","1","","","","","",""
+"194","148","0","100",\N,\N,"0",\N,"following","2010-11-26",\N,"0","45","0","Dürr","X-Ray Film Developer","Dental XR04","","CH","","194","19990101","","","","","","","","","1388","OK, working","1","10000","1","","","","","",""
+"195","151","0","100",\N,\N,"0",\N,"following","2010-11-26",\N,"0","59","0","Lifepak","Defibrillator","Lifepak 7","","CH","","195","20000101","","","","","","","","","3058","OK, working","1","17625","1","","","","","",""
+"196","150","0","100",\N,\N,"0",\N,"Without Sensor\
+Service-Manual in EN as PDF\
+\
+Linde Medical Sensors MicroGas 7650 is a blood gas monitor equipped with an integrated calibrator.\
+The device provides reliable, continuous measurement of transcutaneous oxygen and carbon\
+dioxide tensions by using a combined PO2/PCO2 sensor (type COMBI•M). The sensor is calibrated\
+fully automatically when it is placed into the built-in calibration chamber. When not in use, the sensor\
+is stored within the calibration chamber and the system is ready to use at any time. The monitor\
+detects and gives warning when the oxygen and/or the carbon dioxide tensions exceeds the alarm\
+limits, the values of which are adjustable by the operator.","2010-11-26",\N,"0","164","0","Linde Medical Sensors","Blood Gas Monitor TCp02 / CO2","Micro GAS 7650","","CH","","196","19941212","5.6","30","26.6","13.5","","","","","1196","OK, working","1","21307","1","196.MicroGas 7650 Service manual Feb 05.pdf","","","","","1"
+"197","159","0","100",\N,\N,"0",\N,"following","2010-11-26",\N,"0","69","0","Roche","Oxygen Monitor","Mono2","","CH","","197","19990101","","","","","","","","","278","OK, working","1","2000","1","","","","","",""
+"198","159","0","100",\N,\N,"0",\N,"following","2010-11-26",\N,"0","61","0","Roche","Oxygen Monitor","Mono2","","CH","","198","19990101","","","","","","","","","278","OK, working","1","2000","1","","","","","",""
+"199","159","0","100",\N,\N,"0",\N,"following","2010-11-26",\N,"0","66","0","Roche","Oxygen Monitor","Mono2","","CH","","199","19990101","","","","","","","","","278","OK, working","1","2000","1","","","","","",""
+"200","150","0","100",\N,\N,"0",\N,"following","2010-11-26",\N,"0","102","0","Biotrans","Blood Balance","MW5001","","CH","","200","19990101","","","","","","","","","on request","OK, working","1","0","1","","","","","",""
+"201","159","0","100",\N,\N,"0",\N,"following","2010-11-26",\N,"0","74","0","Datex-Ohmeda GE Healthcare","Capno Meter Datex 200","Normocap CD 200-33-0","","CH","","201","19930506","10","","","","","","","","353","OK, working","1","9000","1","","","","","",""
+"202","159","0","100",\N,\N,"0",\N,"following","2010-11-26",\N,"0","76","0","Datex-Ohmeda GE Healthcare","Capno Meter Datex 200","Normocap CD 200-33-0","","CH","","202","19930506","10","","","","","","","","353","OK, working","1","9000","1","","","","","",""
+"203","159","0","100",\N,\N,"0",\N,"following","2010-11-26",\N,"0","68","0","Datex-Ohmeda GE Healthcare","Capno Meter Datex 200","Normocap CD 200-33-0","","CH","","203","19901219","10","","","","","","","","233","Good","1","10110","1","","","","","",""
+"204","160","0","100",\N,\N,"0",\N,"following","2010-11-26",\N,"0","87","0","IVAC","Needle Pump IVAC TIVA","P6000 TIVA","","CH","","204","19990624","5","","","","","","","","386","Very Good","1","2500","1","","","","","",""
+"205","160","0","100",\N,\N,"0",\N,"following","2010-11-26",\N,"0","96","0","IVAC","Needle Pump IVAC TIVA","P6000 TIVA","","CH","","205","19980101","5","","","","","","","","322","Very Good","1","2500","1","","","","","",""
+"206","155","0","100",\N,\N,"0",\N,"following","2010-11-26",\N,"0","66","0","Sony","Monitor-Endoskopie","PVM-1453MD","","CH","","206","20000101","","","","","","","","","255","OK, working","1","1470","1","","","","","",""
+"207","155","0","100",\N,\N,"0",\N,"following","2010-11-26",\N,"0","123","0","Anklin","Monitor-Endoskopie","PVM-20M2MDE","","CH","","207","19990101","","","","","","","","","on request","OK, working","1","0","1","","","","","",""
+"208","165","0","100",\N,\N,"0",\N,"following","2010-11-26",\N,"0","151","1","Hess","Bath Lift Scuba","Scuba","","CH","","208","19980301","","","","","","","","","1468","OK, working","1","12700","1","","","","","",""
+"209","148","0","100",\N,\N,"0",\N,"following","2010-11-26",\N,"0","190","1","Topcon Japan","Spalt lamp with Mobile Wagon","SL-2F for Eye-Check","","CH","","209","20030418","","","","","","","","","3620","OK, working","1","10000","1","","","","","",""
+"210","157","0","100",\N,\N,"0",\N,"following","2010-11-26",\N,"0","44","0","Sony","Videoprinter","SSZ-300S","","CH","","210","19990101","","","","","","","","","400","OK, working","1","3000","1","","","","","",""
+"211","164","0","100",\N,\N,"0",\N,"following","2010-11-26",\N,"0","214","1","New Brunswick Scientific","Deep Freezer -40°C","U 67 - 45","","CH","","211","19970501","","","","","","","","","478","OK, working","1","5000","1","","","","","",""
+"212","157","0","100",\N,\N,"0",\N,"following","2010-11-26",\N,"0","153","1","Sony","Videoprinter","UP-20","","CH","","212","19990101","","","","","","","","","451","OK, working","1","3250","1","","","","","",""
+"213","157","0","100",\N,\N,"0",\N,"following","2010-11-26",\N,"0","185","1","Sony","Videoprinter","UP2800P","","CH","","213","19990101","","","","","","","","","833","OK, working","1","6000","1","","","","","",""
+"214","157","0","100",\N,\N,"0",\N,"following","2010-11-26",\N,"0","144","1","Sony","Videoprinter","UP3000P","","CH","","214","19990101","","","","","","","","","833","OK, working","1","6000","1","","","","","",""
+"215","157","0","100",\N,\N,"0",\N,"following","2010-11-26",\N,"0","133","1","Sony","Videoprinter","UP51MDP","","CH","","215","19990101","","","","","","","","","625","OK, working","1","4500","1","","","","","",""
+"216","157","0","100",\N,\N,"0",\N,"following","2010-11-26",\N,"0","149","0","Sony","Videoprinter","UP895CE/UP-895MD","","CH","","216","19990101","","","","","","","","","296","OK, working","1","2130","1","","","","","",""
+"218","148","0","100",\N,\N,"0",\N,"following","2010-11-26",\N,"0","120","0","Warm-Air","Hyperthermie Device","Warm-Air 135","","CH","","218","19990101","","","","","","","","","315","OK, working","1","2270","1","","","","","",""
+"219","148","0","100",\N,\N,"0",\N,"following","2010-11-26",\N,"0","244","1","Schaerer Medical","Heating Cabinet","WS 60/30/30","","CH","","219","19980501","","","","","","","","","215","OK, working","1","1800","1","","","","","",""
+"220","154","0","100",\N,\N,"0",\N,"Manual in EN als PDF\
+Manual in DE","2010-11-29",\N,"0","174","0","Fisher & Paykel Healthcare","Respiratory humidifier","MR410","","CH","","220","19990101","1.3","15.6","13.5","17","","","","","684","OK, working","1","4931","1","220.MR410 Operators Manual_E.pdf","","","","MR410 Operators Manual_E","1"
+"221","159","0","100",\N,\N,"0",\N,"following","2010-11-29",\N,"0","155","0","Datex-Ohmeda GE Healthcare","Capno Meter Datex 200","Normocap CD 200-33-0","","CH","","221","19920701","10","","","","","","","","306","OK, working","1","9403","1","","","","","",""
+"222","150","0","100",\N,\N,"0",\N,"Referenzhandbuch:\
+1.	Gasversorgungssystem\
+ a.	Verdampfer\
+2.	Ventilator\
+ a.	Ventilator Balgeneinheit\
+ b.	Bag-in-Bottle Prinzip\
+3.	Ventilator mit Compact Patientenkreisteil\
+ a.	Compact Block\
+4.	Ventilator mit Standard-Patientenkreisteil\
+5.	Verdampfer \
+ a.	Aladin Kassette\
+6.	Monitoring\
+ a.	Vitalmonitor\
+ b.	Beatmungsmonitor\
+7.	Backup-Systeme\
+ a.	Batterie Backup\
+ b.	Batteriekapazität\
+ c.	Laden\
+ d.	Gasversorgung Backup\
+ e.	Antriebsgas\
+8.	Zubehör\
+ a.	Compact Absorber 12 Stück \
+ b.	Spirometry Kit","2010-12-07",\N,"0","432","0","Datex-Engstrom (Ohmeda)","Anästhesiesystem ADU","AS/3","","CH","","222","19981231","","","","","","","","","12476","gut","1","90000","1","222.Datex - Anästhesiesystem - MedTechTrade.pdf","","","","","1"
+"223","156","0","100",\N,\N,"0",\N,"Manual in DE","2010-12-09",\N,"0","305","1","Zeiss","Microscop","Universal S3","","CH","","223","19981019","","","","","","","","","on request","OK,working","1","on request","1","","","","","",""
+"228","158","0",\N,\N,\N,"0",\N,"Ear surgery set (Box 2)\
+Karl Storz 222605\
+Karl Storz 222604\
+Karl Storz 222602\
+Karl Storz 222710\
+Karl Storz 222720\
+Karl Storz 221200\
+Karl Storz 221100\
+Karl Storz 227401\
+Magnetik inox Case Karl Storz 239000 (included)","2011-01-17",\N,"0","305","1","Karl Storz","Ear surgery set","please read description in Download document PDF","","CH","","228","19970101","","","","","","","","","2400","very good","1","1500","1","228.Offer - Ear Surgery set Karl Storz - MedTechTrade.pdf","","","","Ear surgery set Karl Storz - MedTechTrade.pdf","1"
+"229","158","0",\N,\N,\N,"0",\N,"Item list module 1\
+Karl Storz 225205\
+Karl Storz 225210\
+Karl Storz 225215\
+Karl Storz 225230\
+Karl Storz 226101\
+Karl Storz 225405\
+Karl Storz 225410 \
+Karl Storz 225415\
+\
+Item list module 2\
+Karl Storz 226600\
+Karl Storz 226604\
+Karl Storz 226606*\
+Karl Storz 226820\
+Karl Storz 224802\
+Karl Storz 226504\
+Karl Storz 226506\
+Karl Storz 226500\
+\
+Item list module 3\
+Karl Storz 224001\
+*mirror\
+Karl Storz 226810\
+Karl Storz 226102\
+Karl Storz 162020 MU\
+Karl Storz 221406 MU\
+Karl Storz 222800 E","2011-01-17",\N,"0","550","1","Karl Storz","Surgery Stapedectomie set Karl Storz","please read description in Download document PDF","","CH","","229","19970101","","","","","","","","","1600","good","1","1000","1","229.Offer -Surgery Stapedectomie set Karl Storz - MedTechTrade.pdf","","","","Surgery Stapedectomie set Karl Storz - MedTechTrade.pdf","1"
+"231","151","0",\N,\N,\N,"0",\N,"This rugged, portable AED is built tough to withstand the most abusive field requirements.\
+A patented motion detection system reduces the possibility of faulty rhythm analysis.\
+Features include simple operation with optional voice prompts and user-friendly\
+display with backlit screen. CODE SUMMARY critical event record recaps critical events\
+from the moment of “power on.” The option to select manual mode allows smooth transfer\
+from first responder to ALS personnel resulting in saved time and continuous patient record.\
+\
+Defibrillation electrodes are compatible with all other LIFEPAK defibrillator/monitors.\
+Select from either FAST-PATCH ® disposable defibrillation/ECG electrodes or QUIK-COMBO™\
+pacing/defibrillation/ECG electrodes.\
+\
+ECG MONITOR\
+Display type: Backlit liquid crystal\
+INTEGRAL ECG/VOICE RECORDER\
+ECG printer:\
+Printer type: Thermal array","2011-01-20",\N,"0","205","1","Physio Control","Defibrilator","LIFEPAK 300","","CH","","231","19980101","","","","","","","","","on request","good","1","on request","1","231.Offer - Life Pak 300 Physio Control - MedTechTrade.pdf","","","","Life Pak 300 Physio Control - MedTechTrade.pdf","1"
+"234","154","0",\N,\N,\N,"0",\N,"ultrasound nebulizer from Carbamed with transport frame (stainless steel)\
+5 systems available.","2011-01-24",\N,"0","131","1","Carbamed","Ultrasound nebulizer","Vario Sonic","","CH","","234","19940101","","","","","","","","","on Request","very good","","on Request","1","","","","","","5"
+"235","164","0",\N,\N,\N,"0",\N,"Thermo Scientific Revco Ultima PLUS \
+Ultra-Low Temperature Upright Freezers\
+Model No. ULT2586-10-V\
+\
+Beginning of operation: December 2008\
+Placing out of operation: March 2010\
+Condition of device: Excellent\
+\
+Specifications:\
+Temperature range: from -50°C until -86°C\
+Capacity Cu: 691(L)\
+Interior Dimensions H x W x D (mm) (1283 x 876 x 616) \
+Exterior Dimensions H x W x D (mm) (1975 x 1219 x 922) \
+Shipping Weight: 376Kg\
+Power Tension 230v Freq: 50Hz Phase: 1 Amps:12","2011-01-24",\N,"0","166","1","Thermo Fisher Scientific","Ultra-Low Temperature Upright Freezers","ULT2586-10-V","","CH","","235","20081201","","","","","","","","","14300","Excellent","1","10000","1","235.Offer -Ultra-Low Temperature Upright Freezers ULT2586-10-V - MedTechTrade.pdf","","","","Ultra-Low Temperature Upright Freezers ULT2586-10-V - MedTechTrade.pdf","1"
+"236","164","0",\N,\N,\N,"0",\N,"Thermo Scientific Revco Ultima PLUS \
+Ultra-Low Temperature Upright Freezers\
+Model No. ULT2586-10-V\
+\
+Beginning of operation: December 2008\
+Placing out of operation: March 2010\
+Condition of device: Excellent\
+\
+Specifications:\
+Temperature range: from -50°C until -86°C\
+Capacity Cu: 691(L)\
+Electrical Amps/Breaker 230V/60 Hz 1Ø\
+Interior Dimensions H x W x D (mm) (1283 x 876 x 616) \
+Exterior Dimensions H x W x D (mm) (1975 x 1219 x 922) \
+Shipping Weight: 376Kg\
+Power Tension 230v Freq: 50Power Tension 230v Freq: 50Hz Phase: 1 Amps: 12A","2011-01-24",\N,"0","470","1","Thermo Fisher Scientific","Ultra-Low Temperature Upright Freezers","ULT2586-10-V","","CH","","236","20081201","","","","","","","","","14300","Excellent","1","10000","1","236.Offer -Ultra-Low Temperature Upright Freezers ULT2586-10-V - MedTechTrade.pdf","","","","Ultra-Low Temperature Upright Freezers ULT2586-10-V - MedTechTrade.pdf","1"
+"237","150","0",\N,\N,\N,"0",\N,"Large Size Ductless Fume Hoods\
+Model: Filtair XL 1646\
+\
+    * In compliance with AFNOR NF X 15-211 Standard, Class I\
+    * For large-scale equipment\
+    * Hour counter linked to alarm (reminder for every 60 working hours) to check filter saturation)\
+    * Very Low Sound Level (50dba)\
+    * Size: 999mm, 1314mm, 1599mm","2011-01-24",\N,"0","455","1","Erlab","Large Size Ductless Fume Hoods","Filtair XL 1646","","CH","","237","20060101","","","","","","","","","on request","very good","","on request","1","237.XL brochure.pdf","","","","Brochure Filtair XL 1646","1"
+"240","165","0",\N,\N,\N,"0",\N,"Patient Lifter\
+\
+min height: 46cm\
+max height: 94cm\
+max weight: 150kg\
+\
+lift system: hydraulic\
+\
+2 foldable arm holder\
+\
+Made in Sweden","2011-01-25",\N,"0","204","1","Arjo Sweden","Patient Lifter","type 210081-01","","CH","","240","20040401","","","","","","","","","on request","very good","","on request","1","","","","","","1"
+"241","158","0",\N,\N,\N,"0",\N,"Diverse surgery instrumental:\
+Karl Storz number 26173 EK LT, 26173 LS HT, 26173 MS GT, 26176 BG KT2, 33123 + 33310G, \
+USA ACCESS 32-5201,38-5201 (in bag),38-5100 RF (in original bag), 38-5201RF (in original bag), 38-5100\
+3x instruments without number or description, similar to the above mentioned\
+cable martin\
+cable Karl Storz 26001 M\
+manual drill machine\
+diverse item without number (see picture)\
+\
+Aluminum box 59x28x10.5cm (condition regular)","2011-01-25",\N,"0","258","1","Karl Storz, Access","Surgical Instruments 3","see description","","CH","","241","19970101","","","","","","","","","on request","very good","","on request","1","241.Offer -Surgery 3 - MedTechTrade.pdf","","","","PDF Surgery 3 - MedTechTrade","1"
+"242","158","0",\N,\N,\N,"0",\N,"Please see PDF with pictures","2011-01-25",\N,"0","235","1","Leibinger, Ulrich","Surgical Instruments 4","diverse","","CH","","242","19970101","","","","","","","","","on request","very good","","on request","1","242.Offer -Surgery 4 - MedTechTrade -.pdf","","","","Surgery 4 - MedTechTrade PDF","1"
+"243","158","0",\N,\N,\N,"0",\N,"Please see PDF with pictures","2011-01-26",\N,"0","198","1","Karl Storz, Ulrich","Surgical Instruments 5","diverse","","CH","","243","19970101","","","","","","","","","on request","very good","","on request","1","243.Offer -Surgery 5 - MedTechTrade - .pdf","","","","PDF Surgery 5 - MedTechTrade","1"
+"244","148","0",\N,\N,\N,"0",\N,"in process","2011-01-26",\N,"0","150","1","Wolf System AG","Photo therapy, light therapy","Medilux 800","","CH","","244","19940101","","","","","","","","","on request","good","","on request","1","","","","","","1"
+"246","163","0",\N,\N,\N,"0",\N,"dummy","2011-01-26",\N,"0","38","0","Manufacturer Dummy","Dummy","Dummy Model 0000","","CL","","246","20050101","","","","","","","","","","Good","","5000","1","246.Antecedentes KM.docx","name of","023456","city of","Descargar documento22",""
+"247","158","0",\N,\N,\N,"0",\N,"Handpieces Shaver, No-Button C9820\
+\
+Balance, sealed and lightweight.\
+Sealed motor assembly. Up to 6000rpm in forward. Up to 1500rpm in oscillate\
+Suction control valve.\
+For use with Large Hub Shaver Blades and Burs\
+Cutting modes are controlled by footswitch or from the drive console.\
+\
+Weight: 450g","2011-01-31",\N,"0","181","1","Linvatec","Shaver Hand Piece","Apex C9820","","CH","","247","19970101","","","","","","","","","200","very good","1","200","1","","","","","","1"
+"248","150","0","103",\N,\N,"0",\N,"aha asd fasdfa qwer aasdf","2011-02-02",\N,"0","11","0","wqer","Device of Daniel","A380","","DE","","248","19800101","500","200","200","200","","","","","","Poor","","100000","3","248.Stocker Group confidentiality.pdf","","","","funktioniert er?",""
+"249","154","0",\N,\N,\N,"0",\N,"time-cycled\
+volume-constant ventilator for controlled \
+use: ventilation in the emergency medicine","2011-02-04",\N,"0","145","1","Dräger","Oxylog","D 8404440","","CH","","249","19880101","","","","","","","","","368","ok, working","1","190","1","","","","","","1"
+"250","150","0",\N,\N,\N,"0",\N,"Rigid Latham Bowl Processing\
+\
+Flow Through Processing Continuous \
+- concentration of RBC´s during fill cycle\
+- Wash cycle \
+- End product volume constant \
+- End product hematocrit variable\
+\
+accesories: Bowls 125ml and 225ml","2011-02-04",\N,"0","221","1","Haemonetics","Cell-Saver","CS5","","CH","","250","19940101","","","","","","","","","2841","ok, working","1","1700","1","","","","","","1"
+"251","159","0",\N,\N,\N,"0",\N,"Datex pulsoximeter, without sensors","2011-02-04",\N,"0","125","1","Datex","Pulse Oxymeter","SATLITE Trans OSP-200","","CH","","251","19870101","","","","","","","","","634","ok, working","1","340","1","","","","","","1"
+"252","160","0",\N,\N,\N,"0",\N,"The IVAC TIVA functions with a range of standard, single use, disposable luer-lock syringes of various types and accepts sizes from 5ml to 50ml\
+\
+-Two modes of operation\
+-Simple to set up and easy to operate\
+-Drug Protocols for anesthesia enviroment\
+-Rate range from 0.1 to 1200ml/h\
+-event logging records operatio of pump","2011-02-04",\N,"0","137","1","Alaris Medical","Syringe Pump","Ivac TIVA","","CH","","252","20020501","","","","","","","","","311","ok, working","","159","1","","","","","","1"
+"253","151","0",\N,\N,\N,"0",\N,"Patient monitor: ECG, NIBP, SpO2, Temperature, Presure.\
+Without presure measurements accesories and finger sensor (please see pictures)\
+mouting arm included\
+with External power supply","2011-02-04",\N,"0","158","1","Dräger Medical","Patient monitor inkl. Arm","Vitara 8060, Parameterbox PB8800","","CH","","253","19950101","","","","","","","","","1078","ok, working","1","600","1","","","","","","9"
+"254","156","0",\N,\N,\N,"0",\N,"ORL-Mikroskop\
+Light Source Zeiss NAG2\
+Base Contraves CMK BK001","2011-02-04",\N,"0","171","0","Zeiss","ORL-Mikroskop","OPMI 19 FC","","CH","","254","19900101","","","","","","","","","4810","ok, working","1","3000","1","254.Offer - Zeiss ORL Microscop - MedTechTrade.pdf","","","","Zeiss ORL Microscop - MedTechTrade.pdf","1"
+"255","159","0",\N,\N,\N,"0",\N,"Datex AS/3 with 3 Modules (Plug-in) for NIBD, IBD, SpO2, EKG, temp. Thermal Printer.\
+with Printer and some cables and sensors (see picture)\
+G-AiOV Airway Gases Spirometer\
+\
+D/VHC/14/23/02\
+Datex AS/3 CPU and monitor Hitachi\
+14” color video CRT display","2011-02-04",\N,"0","130","1","Datex","Patientenmonitor","AS/3 F/CU8/23/02","","CH","","255","19940101","","","","","","","","","1409","ok, working","1","800","1","","","","","","1"
+"256","159","0",\N,\N,\N,"0",\N,"Datex AS/3 CPU and monitor Hitachi\
+14” color video CRT display","2011-02-04",\N,"0","82","0","Datex","Patientenmonitor","AS/3 D/VHC/14/23/02","","CH","","256","19940101","","","","","","","","","on request","ok, working","","e","2","","","","","","1"
+"257","154","0",\N,\N,\N,"0",\N,"Anaesthesia Device CATO\
+Adult Patient Circuit (NEO mode, Pressure Limited Ventilation, 20 ml volume).\
+Flowtubes: Air, N2O and O2, \
+Man. /Spontan., IPPV and SIMV modes,\
+Volume Controlled min. 50 ml.","2011-02-04",\N,"0","165","1","Dräger Medical","Respirator","Cato","","CH","","257","19950101","","","","","","","","","3365","ok, working","1","2040","1","257.Offer - Respirator Cato - MedTechTrade.pdf","","","","Respirator Cato - MedTechTrade.pdf","1"
+"258","160","0",\N,\N,\N,"0",\N,"The Perfusor fm is a transportable infusion\
+syringe pump in accordance with IEC/EN\
+60601-2-24 that is suitable for dispensing\
+liquids in nutritional and infusion therapy.\
+\
+Accuracy of set delivery rate ± 2 %, measuring time > 1 h, min. 2 ml\
+(including disposables approved by\
+manufacturer)\
+Delivery range 0.1 - 200.0 ml/h\
+Delivery pre-selection 1 - 999.9 ml (in 1 ml increments)\
+Occlusion alarm pressure 9-stage (approx. 0.2 bar...1.0 bar ± 0.2 bar)\
+Settings for bolus function Rate 1 ml/h to 1800 ml/h\
+Volume 0.1 ml to 50.0 ml\
+Interval time 1 min. to 99 h 59 min.\
+Alarm in case of incorrect delivery In case of incorrect delivery","2011-02-07",\N,"0","100","1","BBraun","NEEDLE PUMP Perfusor","Perfusor SECURA FM D 2.VERSIO","","CH","","258","20070705","","","","","","","","","3101","ok, working","1","0","1","","","","","","1"
+"259","160","0",\N,\N,\N,"0",\N,"The Perfusor fm is a transportable infusion\
+syringe pump in accordance with IEC/EN\
+60601-2-24 that is suitable for dispensing\
+liquids in nutritional and infusion therapy.\
+\
+Accuracy of set delivery rate Â± 2 %, measuring time > 1 h, min. 2 ml\
+(including disposables approved by\
+manufacturer)\
+Delivery range 0.1 - 200.0 ml/h\
+Delivery pre-selection 1 - 999.9 ml (in 1 ml increments)\
+Occlusion alarm pressure 9-stage (approx. 0.2 bar...1.0 bar Â± 0.2 bar)\
+Settings for bolus function Rate 1 ml/h to 1800 ml/h\
+Volume 0.1 ml to 50.0 ml\
+Interval time 1 min. to 99 h 59 min.\
+Alarm in case of incorrect delivery In case of incorrect delivery","2011-02-07",\N,"0","98","1","BBraun","NEEDLE PUMP Perfusor","Perfusor SECURA FM D 2.VERSIO","","CH","","259","19970401","","","","","","","","","300","ok, working","1","0","1","","","","","","4"
+"260","160","0",\N,\N,\N,"0",\N,"The Perfusor fm is a transportable infusion\
+syringe pump in accordance with IEC/EN\
+60601-2-24 that is suitable for dispensing\
+liquids in nutritional and infusion therapy.\
+\
+Accuracy of set delivery rate ± 2 %, measuring time > 1 h, min. 2 ml\
+(including disposables approved by\
+manufacturer)\
+Delivery range 0.1 - 200.0 ml/h\
+Delivery pre-selection 1 - 999.9 ml (in 1 ml increments)\
+Occlusion alarm pressure 9-stage (approx. 0.2 bar...1.0 bar ± 0.2 bar)\
+Settings for bolus function Rate 1 ml/h to 1800 ml/h\
+Volume 0.1 ml to 50.0 ml\
+Interval time 1 min. to 99 h 59 min.\
+Alarm in case of incorrect delivery In case of incorrect delivery","2011-02-07",\N,"0","102","1","BBraun","NEEDLE PUMP Perfusor","Perfusor SECURA FM D 2.VERSIO","","CH","","260","19921001","","","","","","","","","200","ok, working","1","0","1","","","","","","1"
+"261","160","0",\N,\N,\N,"0",\N,"in process","2011-02-08",\N,"0","99","1","Schmid","Breastpump","Brustpumpe Schmid","","CH","","261","19880617","","","","","","","","","200","ok, working","1","0","1","","","","","","1"
+"262","160","0",\N,\N,\N,"0",\N,"in process","2011-02-08",\N,"0","96","1","Carbamed","Needle Pump","IVAC 770D","","CH","","262","19951003","","","","","","","","","272","ok, working","1","0","1","","","","","","1"
+"263","160","0",\N,\N,\N,"0",\N,"in process","2011-02-08",\N,"0","99","1","Carbamed","Needle Pump","IVAC 770D","","CH","","263","19950630","","","","","","","","","272","ok, working","1","e","1","","","","","","1"
+"264","160","0",\N,\N,\N,"0",\N,"in process","2011-02-08",\N,"0","144","1","BBraun","Syringe pump","SECURA FT","","CH","","264","19930126","","","","","","","","","200","ok, working","1","0","1","","","","","","1"
+"265","160","0",\N,\N,\N,"0",\N,"in process","2011-02-08",\N,"0","112","1","Carbamed","INFUSION PUMP","Star Flow 581","","CH","","265","19900105","","","","","","","","","200","ok, working","1","0","1","","","","","","1"
+"266","157","0",\N,\N,\N,"0",\N,"in process","2011-02-08",\N,"0","81","1","Toshiba","Videorecorder","AG 6200","","CH","","266","19861213","","","","","","","","","200","ok, working","1","0","1","","","","","","1"
+"267","157","0",\N,\N,\N,"0",\N,"in process","2011-02-08",\N,"0","82","1","Sony","Videorecorder","FERNSEHNORM CCIR SXR","","CH","","267","19910701","","","","","","","","","895","ok, working","1","0","1","","","","","","1"
+"268","157","0",\N,\N,\N,"0",\N,"in process","2011-02-08",\N,"0","90","1","Mitsubishi","Videoprinter","P66E","","CH","","268","19940103","","","","","","","","","200","ok, working","1","0","1","","","","","","1"
+"269","157","0",\N,\N,\N,"0",\N,"in process","2011-02-08",\N,"0","113","1","Mitsubishi","Videoprinter","P67E","","CH","","269","19800101","","","","","","","","","on request","ok, working","1","0","1","","","","","","1"
+"270","157","0",\N,\N,\N,"0",\N,"in process","2011-02-08",\N,"0","118","1","Sony","Videoprinter","UP-1200","","CH","","270","19941027","","","","","","","","","262","ok, working","1","0","1","","","","","","1"
+"271","157","0",\N,\N,\N,"0",\N,"in process","2011-02-08",\N,"0","119","1","Sony","Videoprinter","UP-3030P","","CH","","271","19840101","","","","","","","","","200","ok, working","1","0","1","","","","","","1"
+"272","157","0",\N,\N,\N,"0",\N,"in process","2011-02-08",\N,"0","109","1","Sony","Videorecorder","U-MATIK VO 2630","","CH","","272","19840101","","","","","","","","","200","ok, working","1","0","1","","","","","","1"
+"273","157","0",\N,\N,\N,"0",\N,"in process","2011-02-08",\N,"0","97","0","Sony","Videoprinter","UP-895CE","","CH","","273","20010101","","","","","","","","","on request","ok, working","","0","1","","","","","","1"
+"274","157","0",\N,\N,\N,"0",\N,"in process","2011-02-08",\N,"0","152","1","Sony","Videoprinter","UP-895MD","","CH","","274","20010101","","","","","","","","","399","ok","1","280","1","","Spital Chur","3000","Chur","","3"
+"275","159","0",\N,\N,\N,"0",\N,"with one cuff, Size:for adults\
+\
+The device is with auscultatory measuring Method","2011-02-08",\N,"0","128","1","Schiller","Blood Pressure Monitor 24h","BR-102","","CH","","275","20020301","0.31","2.1","7.1","12","","","","12","692","ok, working","1","350","1","","Spital Chur","7000","Chur","","1"
+"276","151","0",\N,\N,\N,"0",\N,"in process","2011-02-08",\N,"0","131","1","Schiller","EKG-monitor","Cardiovit CS-12 C","","CH","","276","19890101","","","","","","","","","208","ok, working","1","0","1","","","","","","1"
+"277","155","0",\N,\N,\N,"0",\N,"Camera endoscopy\
+\
+Control unit available Linvatec 8180A\
+(search Linvatec 8180A in our webpage)","2011-02-08",\N,"0","152","1","Linvatec","Video camera Endoskopie","8172","","CH","","277","19990101","","","","","","","","","386","ok, working","1","200","1","","KSGR","3000","Chur","","1"
+"278","155","0",\N,\N,\N,"0",\N,"in process","2011-02-08",\N,"0","128","1","Storz","Cold Light Source","482 B","","CH","","278","19840101","","","","","","","","","200","ok, working","1","0","1","","","","","","1"
+"279","155","0",\N,\N,\N,"0",\N,"in process","2011-02-08",\N,"0","105","1","Olympus","Cold Light Source","CLV","","CH","","279","19840101","","","","","","","","","200","ok, working","1","0","1","","","","","","1"
+"280","155","0",\N,\N,\N,"0",\N,"in process","2011-02-08",\N,"0","120","1","Olympus","Cold Light Source","ILK-CLK 3-4(BF-1T30)","","CH","","280","19880615","","","","","","","","","200","ok, working","1","0","1","","","","","","1"
+"281","155","0",\N,\N,\N,"0",\N,"Olympus MU Leakage Tester\
+Maintenance Unit","2011-02-09",\N,"0","106","1","Olympus","Leak Tester for endoscop","MU-1","","CH","","281","20051114","","","","","","","","","525","ok, working","1","0","1","","","","","","1"
+"282","163","0",\N,\N,\N,"0",\N,"Features\
+Capacity: 28,0 litres\
+Filling volume for cleaning: 19,0 litres\
+RK 1028 H: built-in heating 30 – 80 °C 1300 W, thermostatically adjustable\
+Tank: stainless steel AISI 304\
+Outlet: ball valve, left side\
+Tank: stainless steel AISI 304\
+\
+Technical data\
+HF generator: overload protected, constant power\
+Operating mode: double half-wave\
+Frequency: 35 kHz automatic frequency control\
+Ultrasonic peak output: 1200 W\
+HF power: 300 W\
+RK 1028 H: 230 V – 7,0 A; 115 V – 14,0 A\
+Dimensions 50 × 30 × 20 cm","2011-02-09",\N,"0","169","1","Sonorex Super","Ultrasound cleaner","RK 1028 H","","CH","","282","20010101","","","","","","","","","626","ok, working","1","0","1","282.rk1028h.pdf","","","","Sonorex Super RK 1028 H","1"
+"283","154","0",\N,\N,\N,"0",\N,"in process","2011-02-09",\N,"0","143","1","Fisher & Paykel","respiratory humidifier","MR730","","CH","","283","20010101","","","","","","","","","756","ok, working","1","0","1","","","","","","1"
+"284","154","0",\N,\N,\N,"0",\N,"Der Dampfinhalator Saluta-Super vereinigt die therapeutische Wirksamkeit des alten ,,Bronchitiskessel’’ mit\
+moderner Gerätetechnik. Saluta-Super kann zur reinen Dampfinhalation angewendet werden und garantiert\
+eine wirksame Therapie durch optimale Feuchtigkeitssättigung, physiologisch richtiger Wärme und\
+bakterienfreiem Nebel für die oberen Atemwege. Dadurch wird jede Schleimhautreizung vermieden.","2011-02-09",\N,"0","190","1","Lamprecht","Warm Humifider SALUTA","SALUTA SUPER 19","","CH","","284","19930117","","","","","","","","","200","ok, working","1","0","1","","","","","","1"
+"285","151","0",\N,\N,\N,"0",\N,"The Physio Control Lifepak 9 Defibrillator includes high and low energy select, display annotating recorder that prints out time, date, leads, gain, and CODE SUMMARY critical event record.Designed for ease of maintenance with on-screen diagnostics for simple test and calibration.\
+The LifePak 9P includes pacing.\
+\
+The Physio Control LifePak 9P comes with the following features:\
+• 3 Lead ECG Cable\
+• Pacing Cable\
+• Power Cord\
+• Printer\
+\
+Weight: 12.7 kg \
+Dimensions: 35.2cm x 29.7cm x 31cm","2011-02-09",\N,"0","125","1","Physio-Control","Defibrillator","LIFEPAK LP 9P","","CH","","285","19980324","","","","","","","","","1883","ok, working","1","939","1","","","","","","1"
+"286","156","0",\N,\N,\N,"0",\N,"in process","2011-02-10",\N,"0","112","1","Zeiss","Microscop","Standard 14","","CH","","286","19840701","","","","","","","","","200","ok, working","1","42","1","","","","","","1"
+"287","156","0",\N,\N,\N,"0",\N,"in process","2011-02-10",\N,"0","138","1","Zeiss","Microscop","Standard 14","","CH","10287","287","19840701","","","","","","","","","200","ok, working","1","37","1","","","","","","1"
+"288","159","0",\N,\N,\N,"0",\N,"in process","2011-02-10",\N,"0","120","1","Kips","Polysomnographie System","Smart Monitor 900S","","CH","","288","20040115","","","","","","","","","693","ok, working","1","0","1","","","","","","1"
+"290","159","0",\N,\N,\N,"0",\N,"The pulse oximeter is a non-invasive clinical monitor that measures the oxygen saturation of blood.","2011-02-18",\N,"0","130","1","Radiometer A/S","Puls-Oximeter","OXI3","","CH","","290","19920428","","","","","","","","","200","very good","1","92","1","","","","","","1"
+"291","159","0",\N,\N,\N,"0",\N,"The pulse oximeter is a non-invasive clinical monitor that measures the oxygen saturation of blood.","2011-02-18",\N,"0","134","1","Radiometer A/S","Puls-Oximeter","OXI3","","CH","","291","19940531","","","","","","","","","298","very good","1","149","1","","","","","","1"
+"292","159","0",\N,\N,\N,"0",\N,"The pulse oximeter is a non-invasive clinical monitor that measures the oxygen saturation of blood.","2011-02-18",\N,"0","160","1","Radiometer A/S","Puls-Oximeter","OXI3","","CH","","292","19950522","","","","","","","","","391","very good","1","195","1","","","","","","1"
+"293","160","0",\N,\N,\N,"0",\N,"The IVAC TIVA functions with a range of standard, single use, disposable luer-lock syringes of various types and accepts sizes from 5ml to 50ml\
+\
+-Two modes of operation\
+-Simple to set up and easy to operate\
+-Drug Protocols for anesthesia enviroment\
+-Rate range from 0.1 to 1200ml/h\
+-event logging records operatio of pump","2011-03-08",\N,"0","106","1","Alaris Medical","Syringe Pump","Ivac TIVA","","CH","","293","19990101","","","","","","","","","276","ok, working","1","140","1","","","","","","1"
+"294","160","0",\N,\N,\N,"0",\N,"The IVAC TIVA functions with a range of standard, single use, disposable luer-lock syringes of various types and accepts sizes from 5ml to 50ml\
+\
+-Two modes of operation\
+-Simple to set up and easy to operate\
+-Drug Protocols for anesthesia enviroment\
+-Rate range from 0.1 to 1200ml/h\
+-event logging records operatio of pump rom 5ml to 100ml","2011-03-08",\N,"0","152","1","Alaris Medical","Syringe Pump","Ivac TIVA","","CH","","294","19980101","","","","","","","","","276","ok, working","1","140","1","","","","","","1"
+"295","161","0",\N,\N,\N,"0",\N,"Ultrasound System Mindray DP6600\
+\
+Imaging mode: B, B+B, B+M, M\
+Grey scale: 256\
+Display 10\" non interlaced\
+Transducer frequency 2.0~10MHz\
+Transducer connector 2\
+Scanning angle: from 40 to 120 degree (depends on transducers)\
+Scanning deep from 21.6 to 248mm\
+Pre processing: dinamic range, frame correlation, edge enhancement, smooth, line correlation, AGC,6 segment TGC adjustment, Image Process\
+Post processing: gray map, y correction, rejection, left-right reverse, up-down-reverse.\
+Cine loop 256-frame cine loop memory\
+Storage media: internal flash & ext USB\
+Peripheralports: 2x video output, 2x usb DICOM3.0 1 (optional) \
+Dimensions: 26.5 x 41 x 33cm\
+Weight 10Kg","2011-03-09",\N,"0","235","1","Mindray","Ultrasound System","DP6600","","CN","","295","20101101","10","28.6","38.5","30.6","","","","","on request","new","2","on request","3","295.MindRay-DP-6600-Brochure.pdf","","","","Prospecto DP6600 (EN)","6"
+"303","154","0",\N,\N,\N,"0",\N,"anesthesia machine with integrated anesthetic ventilator.\
+monitor anesthetic gas \
+O2 measurement","2011-05-19",\N,"0","158","1","Heinen + Löwenstein","Anesthesia machine","Sinus MAV 3","","CH","","303","20040101","","","","","","","","","4063","good","1","2500","1","","","","","","1"
+"297","163","0",\N,\N,\N,"0",\N,"Service log book","2011-03-18",\N,"0","180","1","Schaerer","Autoclave","AS6 6-6-6 Ecomatic","","CH","","297","19950101","","","","","","","","","on request","very good","","make an offer","1","297.Offer - Schaerer Autoclave - MedTechTrade.pdf","","","","Schaerer Autoclave - MedTechTrade.pdf","1"
+"298","163","0",\N,\N,\N,"0",\N,"Service log book\
+Heating power 30kW\
+Printer\
+User manual DE","2011-03-18",\N,"0","202","1","Schaerer","Autoclave","AS6 3-3-6 Ecomatic","","CH","","298","19950101","","","","","","","","","on request","very good","","make an offer","1","","","","","","1"
+"299","168","0",\N,\N,\N,"0",\N,"New X-ray tube installed in 2006\
+Equipment still installed and full operative\
+Service and reparation book available\
+Manuals in DE\
+Console and accessories (please see pictures)","2011-03-18",\N,"0","169","0","Siemens","X-Ray system","Siregraf CF","","CH","","299","19960101","","","","","","","","","on rquest","very good","","10000","1","299.Offer - Siemens Siregraf CF - MedTechTrade.pdf","","","","Siemens Siregraf CF - MedTechTrade.pdf","1"
+"300","159","0",\N,\N,\N,"0",\N,"with one cuff, Size: for adults\
+\
+The device is with auscultatory measuring Method","2011-05-04",\N,"0","98","1","Schiller","Blood Pressure Monitor 24h","BR-102","","CH","","300","19940101","0.31","2.1","7.1","12","","","","12","386","OK, working","1","200","1","","Spital Chur","7000","Chur","","1"
+"301","159","0",\N,\N,\N,"0",\N,"with one cuff, Size: for adults\
+\
+The device is with auscultatory measuring Method","2011-05-04",\N,"0","102","1","Schiller","Blood Pressure Monitor 24h","BR-102","","CH","","301","20071101","0.31","2.1","7.1","12","","","","12","1245","OK, working","1","700","1","","Spital Chur","7000","Chur","","1"
+"302","161","0",\N,\N,\N,"0",\N,"M5\
+Diagnostic Ultrasound System\
+\
+Imaging modes \
+• B mode\
+• M mode\
+• CDFI (Color Doppler Flow Imaging, Color)\
+• Power (Power Doppler Flow Imaging, including DirPower, directional power\
+Doppler)\
+• Pulse Wave Doppler (PW)\
+• Continuous Wave Doppler (CW, option)*\
+\
+Special imaging features\
+• Tissue harmonic imaging\
+• Steer scanning for linear transducers (B, color/power, PW independent)\
+• Trapezoid imaging for linear transducers\
+• HPRF for PW\
+• Multi-frequency in both 2D and Doppler imaging\
+\
+Caracteristics\
+• Soft keys for rapid and convenient control\
+• Diagonal dimension: 15 inch\
+• Resolution: 1024X768\
+• Exchangeable li-ion batteries: 11.1VDC, 4500mAh\
+• Continuous scanning for more than 1h (normal condition\
+• Weight (main unit, without battery): less than 6 kg\
+\
+Application: Abdomen, Cardiology, Gynecology, Obstetrics, Urology, Small Part, Pediatrics, Musculoskeletal, Orthopaedics, Intraoperative, Peripheral Vascular, Transcranial Doppler\
+\
+Tranducers Models (NOT included)\
+• Convex array transducer 3C5s (2.5/3.5/5.0/T5.0/T6.0MHz)\
+• Linear array transducer 7L4s (5.0/7.5/10.0MHz)\
+• Linear array transducer 10L4s (8.0/10.0/12.0MHz)\
+• Linear array transducer 7L6s (5.0/7.5/10.0MHz)\
+• Biplanar transducer 6LB7s (5.0/6.5/8.0MHz)\
+• Convex array transducer 6CV1s (5.0/6.5/8.0MHz)\
+• Endorectal array transducer 6LE7s (5.0/6.5/8.0MHz)\
+• Convex array transducer 6C1s (5.0/6.5/8.0MHz)","2011-05-12",\N,"0","160","1","Mindray","Ultrasound System","M5","","CN","","302","20100101","6","35.7","36.1","7.5","","","","","16330","new","1","8832","3","302.Mindray-M5-DataSheet.pdf","Mindray","","China","Mindray-M5-DataSheet.pdf","1"
+"304","161","0",\N,\N,\N,"0",\N,"Ultrasound ob/gyn \
+\
+Pure HD\
+1 x Transducer UST 9126\
+1 x Transducer UST 9115\
+1 x Transducer UST 9118\
+Aloka DMS5500 Data Management System\
+Sony UP-895CE video printer\
+Sony DSR-20MDP digital VCR","2011-06-21",\N,"0","40","1","Aloca","Ultrasound ob/gyn","SSD-5500SV","","NL","","304","20040101","","","","","","","","","19'709","good","1","13'550","3","","Medi-Trade - EXT 88","","","","1"
+"305","168","0",\N,\N,\N,"0",\N,"Scanner has 3 Consoles. One for Acquisition, one Anet & one Vitrea.,Mainconsole : Windows.,Number of slices on Gantry 1.266.279. 15223684 Revolutions.,X-ray tube model 7.5 MHU.Replaced by new one august 2008.,Number of slices on X-ray tube:482.715.,Software release level : V5,Options included on Vitrea workstation.,Cardiac incl ECG, Colon, Lung, Cardio 2, vessel probe, adv lung, CFA,CACS.,Options included on CT:Alato Dental.CBP. DIM EXP. D PRT BW. D PRT Color. EHCT SCU. PLaquview. Print SCU. DQ scan. QP SCP. QP SCU. Realec.Real Prep. Real View. Registool. Scan64Row. Strage SCP.Innervision.\
+Options inclued on Anet Workstation:Fluoroscopy.Orbit Sync. Scan64 Row. MWM.Cardiac.,Hardware info:All monitors are 18 \" Flatscreen.Video Distribution. Proxi TV Monitor ( small one).Trolley for TV monitor.Fluoro Paddle.UPS = 10 KVA. ECG Life Pulse HME.System had full maintenance contract OEM.System is in excellent good status.Gantry and couch are completely repainted.System has been deinstalled recently by Toshiba authorized technician.System is immediately available.","2011-06-21",\N,"0","40","1","Toshiba","Computed tomograph","Aquillion 64 slice","","BE","","305","20050101","","","","","","","","","301'038","very good","1","235'000","3","305.Prospect - Aquilion 64 - from Toshiba.pdf","Medi-Trade - EXT 110","","","Prospect - Aquilion 64 - from Toshiba.pdf","1"
+"306","168","0",\N,\N,\N,"0",\N,"• Tungsten technology: high image quality at a\
+reduced dose by up to 50 %\
+• Direct-to-digital technology: FFDM amorphous\
+selenium detector with excellent absorption rate,\
+resolution, and DQE (Detective Quantum\
+Efficiency)\
+• Advanced image processing: for better\
+visualization of breast borders as well as structures\
+in dense tissue\
+• Large format detector: 24 cm x 29 cm\
+\
+• Full DICOM capabilities\
+• Dedicated Acquisition Workstation (AWS)\
+• Digital screening and diagnostics\
+• Digital and geometrical magnification\
+• Digital spot imaging\
+• Digital needle localization\
+• Digital galactopgrahy","2011-06-21",\N,"0","47","1","Siemens","Mammography system","Novation DR","","DE","","306","20060101","","","","","","","","","53'252","very good","1","49000","3","306.Novation DR.GIF","Panamedical - EXT 142","","","Picture for reference only","1"
+"307","168","0",\N,\N,\N,"0",\N,"Manual in DE, EN available\
+\
+Calibration: automatic","2011-06-30",\N,"0","63","1","Alara","Bone Densitometer","MetriScan Dual Energy","","NL","","307","20090101","19","40.6","40.6","40.6","","","","","14'250","never used","1","9'500","2","","Micro-Med - EXT 1","","","","1"
+"308","151","0",\N,\N,\N,"0",\N,"Full automatic Defibrillator Lifepak CR Plus, as new, Refurbished 2010, Manual available","2011-06-30",\N,"0","42","1","Medtronic","Defibrillator Automated","LIFEPAK CR Plus ADAPTIV Biphasic","","DE","","308","20040101","2.6","25","20","10","","","","","2'494","major parts replacement","1","1'400","3","","De Candia - EXT 29","","","","1"
+"310","154","0",\N,\N,\N,"0",\N,"Complete System\
+nearly new narcosis and respiratoins-unit","2011-06-30",\N,"0","63","1","Dräger Medical","Anesthesia Machine","Pallas","","DE","","310","20070101","120","137","80","80","","","","","50'354","good","1","27'500","3","","JecoNet - EXT 32","","","","1"
+"311","161","0",\N,\N,\N,"0",\N,"Ultrasound System Philips\
+iU22 High-End, Women's Healthcare\
+\
+Software: Vision 2011\
+Application: Perinatology Package (OB/GYN, Small Parts)\
+20” Flat Panel Monitor\
+\
+SonoCT Real-Time Compounding\
+XRes Adaptive Image processing, iScan Intelligent One-Button Optimization, iFocus Intelligent Focusing, iOptimize Intelligent, Optimization, High-Q Automativ Doppler, Analysis, Color Power, Angio, Tissue, armonic\
+Pulse Inversion Harmonic, 2D, M-Mode, Pulsed, HPRF, Color Flow Doppler, Cineloop, Elastography, \
+\
+Transducers:\
+Philips C5-2 Curved Array ,transducer,New\
+Philips L12-5 Linear Array Transducer,New\
+Philips C8-4v Endo-Vaginal Transducer,New\
+Delivery in 2-4 weeks\
+\
+*Picture for reference only","2011-07-06",\N,"0","1","0","Philips","Ultrasound System","IU22","","DE","","311","20110101","","","","","","","","","80'050","Very good","1","53'500","3","","Medi-Trade - Ext 144","","","","1"
+"312","168","0",\N,\N,\N,"0",\N,"C-Arm system Libra R.1.1 Philips\
+\
+Date of installation May 2001\
+9\" Image intensifier\
+DFI software BV R 3.2\
+Stand ( application ) software BV libra R.4.3 Level 2\
+Monitor cart/ trolley\
+2 Monitors.SG 17 HLR-D)\
+Memory:extension 50\
+System lock\
+Processing BV libra\
+Laser alignm tool BV 300\
+System has been hardly used and is in excellent ( new ) status\
+System is immeditaly available\
+\
+*Picture for reference only","2011-07-06",\N,"0","1","0","Philips","C-Arm","Libra R.1.1","","DE","","312","20010101","","","","","","","","","60'846","Very good","1","39'500","3","","Medi-Trade - Ext143","","","","1"
+"315","168","0",\N,\N,\N,"0",\N,"Mammography system Novation DR Siemens\
+			\
+Bucky 18 x 24 & 24 x 30 cm \
+24 x 30 Hologic selenium detector and DR with 18 x 24 detector for biopsy.\
+Software release: latest possible (recently upgraded).\
+Options included: Biopsy module.\
+Aquisition station with leadglass.\
+Detector & X-ray tube are one year old.( number of patient examinations per year: 4.000.)\
+System has full maintenance contract OEM.\
+System is in good status.\
+System is still in use.\
+\
+*Picture for reference only","2011-07-06",\N,"0","6","0","Siemens","Mammography system","Novation DR","","BE","","315","20040101","","","","","","","","","65'360","good","1","42'750","3","","Medi-Trade - Ext111","","","","1"
+"314","161","0",\N,\N,\N,"0",\N,"Ultrasound System Antares Premium Acuson\
+											\
+Options included: OS antares (German)\
+Acuson Antares SW.Foursight View tool\
+3 shape real time 3 D imaging\
+\
+Transducers:\
+1 x CH6-2 Curved array transducer\
+1 x VFX13-5 Sector array transducer\
+1 x EC9-4 Endocavity array\
+1 x SG 4 needle Guide kit\
+\
+Recording systems:\
+1 x Mitsubishi P 93DW-s/w\
+1 x Sony UPD23MD color\
+\
+System is in very good status and immediately available\
+\
+*Picture for reference only","2011-07-06",\N,"0","9","0","Siemens Acuson","Ultrasound System","Antares Premium","","DE","","314","20070101","","","","","","","","","49'202","Very good","1","31'250","3","","Medi-Trade - Ext139","","","","1"
+"316","161","0",\N,\N,\N,"0",\N,"Ultrasound System Aloca SSD-4000 Prosound\
+												\"\
+Pure HD\
+1 x Transducer UST 9123 curved array.\
+1 x Transducer UST 9124 convex endovaginal\
+Sony UP-895CE video printer\
+\
+*Picture for reference only","2011-07-06",\N,"0","6","0","Aloca","Ultrasound System","SSD-4000 Prosound","","GB","","316","20030101","","","","","","","","","18582","good","1","10'950","3","","Medi-Trade - Ext82","","","","1"
+"317","168","0",\N,\N,\N,"0",\N,"Mammography system Senograph DS GE Healthcare\
+\
+System still in use\
+It is complete system including AWS and RWS workstations.\
+CAD is included.\
+\
+System has full maintenance contract of OEM.\
+System is still in use.\
+\
+*Picture for reference only","2011-07-06",\N,"0","6","0","GE Healthcare","Mammography system","Senograph DS","","GB","","317","20050101","","","","","","","","","101'091","good","1","69'500","3","","Medi-Trade - Ext81","","","","1"
+"318","168","0",\N,\N,\N,"0",\N,"Mobile mammography trailer CSC 11.5 metre trailer (manufactured 2003).\
+\
+Siemens Mammomat 3000 Nova analogue mammography system\
+Year of manufacture 2002\
+18x24 and 24x30 rotating,buckies\
+2 foot switches,\
+2 compression paddles\
+X-ray generator/control panel with lead glass screen\
+Kodak Miniloader 2000\
+Kodak Network ID camera\
+System is still in use and immediately available","2011-07-06",\N,"0","0","0","Siemens","Mammography system","Mammomat 3000 Nova","","DE","","318","20030101","","","","","","","","","32'655","Good","1","22'450","3","","Medi-Trade - Ext72","","","","1"
+"319","168","0",\N,\N,\N,"0",\N,"Mammography System GE Healthcare DMR +\
+Accessories: \
+Leadglass\
+Compression paddle\
+Stereotactic device model Stereotix 2 S/n 382915BU7 from September 2003\
+Dataflash S/n, 9635VE4 from September 2003.\
+Agfa Compact E.O.S. S/n 5120/400 daylight developing processor from September 2003.\
+Agfa Chemix mix device S/n 5280/100 from September 2003.\
+System had full maintenance contract OEM\
+\
+*Picture for reference only","2011-07-07",\N,"0","0","0","GE Healthcare","Mammography system","DMR +","","DE","","319","20030101","","","","","","","","","21'976","very good","1","12'950","3","","Medi-Trade - Ext26","","","","1"
+"320","168","0",\N,\N,\N,"0",\N,"Bone Densitometer, Dual Energy\
+QDR-4500C ELITE	Hologic\
+Compact table version 200 cm.\
+Software: Spine,Femur & fore-arm.\
+Including computer and printer.\
+System has full maintenance contract Hologic subsidiary.\
+System is in excellent status.\
+System has been deinstalled by authorized technician.\
+System is immediately available.\
+\
+*Picture for reference only","2011-07-07",\N,"0","0","0","Hologic","Bone Densitometer","QDR-4500C ELITE","","BE","","320","20030101","","","","","","","","","16'202","very good","1","9'250","3","","Medi-Trade - Ext45","","","","1"
+"321","161","0",\N,\N,\N,"0",\N,"Ultrasound system Vivid 5 GE Healthcare\
+\
+Mainframe S/N 2954 installed October 2001\
+Software revision level 204\
+Options included:Masic,Anatomical M Mode,TVI,Compound imaging,Inter operative support,Tissue tracking,LV contrast.\
+\
+Mainframe Including: \
+1 x ECG Cables\
+1 x Pedoff transducer 2Mhz\
+1 x FPA 1 C 2,5 Mhx transducer \
+1 x VCR model SV 09500MDP\
+1 x Sony color printer. ( Front cover is missing). \
+Note:System accepts Multiplane TEE transducer MPTE\
+System had full maintenance contract OEM\
+System is in good condition. Checked and Tuned by GE Subsidiary.\
+\
+*Picture for reference only","2011-07-07",\N,"0","0","0","GE Healthcare","Ultrasound system","Vivid 5","","NL","","321","20010101","","","","","","","","","13'182","Good","1","10'875","3","","Medi-Trade - Ext73","","","","1"
+"322","168","0",\N,\N,\N,"0",\N,"X ray digital system Axiom Multis MP	Siemens\
+								\"\
+Polydoros IT generator.\
+Including Full digital Canon DR system.\
+Patient table.\
+Tomography.\
+Detector tray.\
+Workstation.\
+Dicom.\
+Vertix MT wall Bucky.\
+X-ray tube is: Optilix 150/30/50 HC 100.\
+The Canon CXDI system has:\
+Portable flat Panel detector.\
+35 x 43 cm imaging area.\
+160 Micron pixed pitch.\
+Detachable grid.\
+X-ray In just a few seconds.\
+User friendly touch screen operation.\
+\
+*Picture for reference only","2011-07-07",\N,"0","0","0","Siemens","X ray digital","Axiom Multix MP","","DE","","322","20060101","","","","","","","","","82'909","very good","1","57'000","3","","Medi-Trade - Ext87","","","","1"
+"323","161","0",\N,\N,\N,"0",\N,"Sonos 5500 Ultrasound System HP\
+\
+Software rev B 24 \
+Mainframe s/n 3728A1419. DOM 1998 \
+S 3 transducer \
+Pedoff transducer \
+ECG cable \
+B/w printer UP 890\
+VHS panasonic MD 830 \
+220 Volt/50 Hz\
+video Pal system\
+\
+*Picture for reference only","2011-07-07",\N,"0","0","0","Philips","Ultrasound system","Sonos 5500 HP","","DE","","323","19980101","","","","","","","","","7'000","good","1","3'850","3","","Medi-Trade - Ext 27","","","","1"
+"324","161","0",\N,\N,\N,"0",\N,"Ultrasound System HD11XE WHC Philips\
+\
+OB/GYN with 4D Imaging\
+2 Transducers (1x 3D, 1x 2D)\
+\
+High-definition imaging \
+\
+Ready to expand with your clinical needs, the HD11 XE is a complete, digital imaging system that delivers high-definition imaging and ease-of-use in a compact, ergonomic and reliable package.\
+\
+In this full-featured performer, Philips has combined broadband beamforming, automated image optimization tools, and clinically proven technologies.\
+\
+The HD11 XE is ideal for pubUltrasound System HD11XE WHC Philips\
+\
+OB/GYN with 4D Imaging\
+2 Transducers (1x 3D, 1x 2D)\
+\
+High-definition imaging \
+\
+Ready to expand with your clinical needs, the HD11 XE is a complete, digital imaging system that delivers high-definition imaging and ease-of-use in a compact, ergonomic and reliable package.\
+\
+In this full-featured performer, Philips has combined broadband beamforming, automated image optimization tools, and clinically proven technologies.\
+\
+The HD11 XE is ideal for public and private hospitals, satellite clinics or specialized practices.\
+\
+Full cardiac and stress echo capability\
+The HD11 XE has the versatility to expand into a complete, digital cardiovascular imaging system for further clinical utility and value.\
+\
+You can also add powerful options like QLAB advanced quantification, stress echo, contrast imaging and transesophageal echo to further enhance your cardiovascular imaging capabilities.\
+\
+Standard advanced features\
+SonoCT\
+XRES\
+2D with Pulse Inversion Harmonic Imaging\
+3D imaging\
+Adaptive Color Doppler\
+Pulsed wave and continuous wave Doppler\
+DICOM Networking option\
+\
+*Picture for reference only","2011-07-08",\N,"0","0","0","Philips","Ultrasound System","HD11XE WHC","","DE","","324","20080101","","","","","","","","","45'254","very good","1","28'500","3","","Kmt - Ext131","","","","1"
