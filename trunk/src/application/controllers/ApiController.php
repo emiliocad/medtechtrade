@@ -68,24 +68,6 @@ class ApiController extends Mtt_Controller_Action
         
         }
 
-    public function jsonAction()
-        {
-        $server = new Zend_Json_Server();
-
-        $server->setClass( 'My_Server_Ventas' );
-
-        if ( 'GET' == $_SERVER['REQUEST_METHOD'] )
-            {
-            $server->setEnvelope( Zend_Json_Server_Smd::ENV_JSONRPC_2 );
-            $smd = $server->getServiceMap();
-            //header('Content-Type: application/json');
-            echo $smd;
-            return;
-            }
-
-        $server->handle();
-        }
-
     }
 
 ?>

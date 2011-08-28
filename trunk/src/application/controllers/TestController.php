@@ -15,13 +15,6 @@ class TestController extends Mtt_Controller_Action
         $this->view->assign( "locale" , $locale->getLanguage() );
         }
 
-    public function translateGoogleAction()
-        {
-        $translate = new My_Translate_Adapter_Google();
-
-        $this->view->assign( "google" , $translate->translate( 'hello' , 'es' ) );
-        }
-
     public function testGoogleAction()
         {
         $yt = new Zend_Gdata_YouTube();

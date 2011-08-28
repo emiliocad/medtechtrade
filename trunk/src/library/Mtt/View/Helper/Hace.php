@@ -11,7 +11,7 @@ class Mtt_View_Helper_Hace extends Zend_View_Helper_HtmlElement
      */
     public function Hace($t)
     {
-        return My_Tools::hace($t,'%s');
+        return Mtt_Tools::hace($t,'%s');
     }
 
 }

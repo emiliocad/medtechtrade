@@ -5,7 +5,7 @@
  *
  * @author eanaya
  */
-class My_Controller_Plugin_Acl extends Zend_Controller_Plugin_Abstract
+class Mtt_Controller_Plugin_Acl extends Zend_Controller_Plugin_Abstract
 {
     public function preDispatch(Zend_Controller_Request_Abstract $request) {
         $acl = new Zend_Acl();

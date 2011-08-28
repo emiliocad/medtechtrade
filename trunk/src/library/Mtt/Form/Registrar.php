@@ -63,7 +63,7 @@ class Mtt_Form_Registrar extends Zend_Form
         $e->setRequired();
         //$e->setDecorators( array( $decorator ) );
         $e->setLabel( 'Confirmación Password:' );
-        $e->addValidator( new My_Validate_PasswordConfirmation() );
+        $e->addValidator( new Mtt_Validate_PasswordConfirmation() );
         $this->addElement( $e );
 
 

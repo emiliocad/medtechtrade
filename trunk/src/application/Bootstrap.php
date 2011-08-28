@@ -1,7 +1,9 @@
 <?php
 
-class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
+class Bootstrap
+        extends Zend_Application_Bootstrap_Bootstrap
     {
+
 
     public function _initView()
         {
@@ -10,17 +12,42 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $this->bootstrap( 'layout' );
         $layout = $this->getResource( 'layout' );
         $view = $layout->getView();
-        $view->headTitle( 'Medtechtrade' )->headTitle( 'Desarrollo' )->setSeparator( ' - ' );
 
-        $view->headLink()->prependStylesheet( '/css/template_css.css' );
-        $view->headLink()->prependStylesheet( '/css/base.css' );
-        $view->headLink()->prependStylesheet( '/css/grid-960/styles/reset.css' );
-        $view->headLink()->prependStylesheet( '/css/grid-960/styles/960.css' );
-        $view->headScript()->appendFile( '/js/jquery.min.js' );
-        $view->headMeta()->appendHttpEquiv( 'Content-Type' , 'text/html; charset=UTF-8' );
+        $view->headTitle( 'Medtechtrade' )
+                ->headTitle( 'Desarrollo' )
+                ->setSeparator( ' - ' );
+
+        $view->headLink()->prependStylesheet( '/css/grid-960/styles/reset.css' )
+                ->headLink()->appendStylesheet( '/css/grid-960/styles/960.css' )
+                ->headLink()->appendStylesheet( '/css/base.css' )
+                ->appendStylesheet( '/css/template_css.css' );
+
+
+        $view->headMeta()->appendHttpEquiv( 'Content-Type' ,
+                                            'text/html; charset=UTF-8' );
+
         $view->headMeta()->appendHttpEquiv( 'Content-Language' , 'en-US' );
         $view->addHelperPath( 'Mtt/View/Helper' , 'Mtt_View_Helper' );
+
         }
+
+
+    public function _initJquery()
+        {
+        $this->bootstrap( 'layout' );
+        $layout = $this->getResource( 'layout' );
+        $view = $layout->getView();
+        $view->addHelperPath(
+                'ZendX/JQuery/View/Helper'
+                , 'ZendX_JQuery_View_Helper' );
+
+        $view->jQuery()->setVersion( '1.4.2' )
+                ->setUiVersion( '1.8.2' )
+                ->enable()
+                ->uiEnable();
+
+        }
+
 
     protected function _initActionHelpers()
         {
@@ -28,10 +55,51 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
                 new Mtt_Controller_Action_Helper_Auth()
         );
 
-        Zend_Controller_Action_HelperBroker::addHelper(
-                new Mtt_Controller_Action_Helper_MyFlashMessenger()
-        );
+//        Zend_Controller_Action_HelperBroker::addHelper(
+//                new Mtt_Controller_Action_Helper_MyFlashMessenger()
+//        );
 
         }
+
+
+    protected function _initZFDebug()
+        {
+        if( 'development' == APPLICATION_ENV )
+            {
+//            $autoloader = Zend_Loader_Autoloader::getInstance();
+//            $autoloader->registerNamespace( 'ZFDebug' );
+
+            $options = array(
+                'plugins' => array( 'Variables' ,
+                    'File' => array( 'base_path' => APPLICATION_PATH ) ,
+                    'Memory' ,
+                    'Time' ,
+                    'Registry' ,
+                    'Exception' )
+            );
+
+            if( $this->hasPluginResource( 'db' ) )
+                {
+                $this->bootstrap( 'db' );
+                $db = $this->getPluginResource( 'db' )->getDbAdapter();
+                $options['plugins']['Database']['adapter'] = $db;
+                }
+
+            if( $this->hasPluginResource( 'cache' ) )
+                {
+                $this->bootstrap( 'cache' );
+                $cache = $this - getPluginResource( 'cache' )->getDbAdapter();
+                $options['plugins']['Cache']['backend'] = $cache->getBackend();
+                }
+
+            $debug = new ZFDebug_Controller_Plugin_Debug( $options );
+
+            $this->bootstrap( 'frontController' );
+            $frontController = $this->getResource( 'frontController' );
+            $frontController->registerPlugin( $debug );
+            }
+
+        }
+
 
     }
