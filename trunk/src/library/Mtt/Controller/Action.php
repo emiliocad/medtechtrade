@@ -52,7 +52,7 @@ class Mtt_Controller_Action extends Zend_Controller_Action
                     if ( !in_array( $current_action , $no_require_login_actions ) )
                         {
                         $this->_helper->FlashMessenger( 'Debes Logearte' );
-                        $this->_redirect( 'default/login/index' );
+                        $this->_redirect( 'default/usuario/index' );
                         }
                     }
                 }

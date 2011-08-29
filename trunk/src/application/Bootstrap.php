@@ -9,14 +9,18 @@ class Bootstrap
         {
         $docTypeHelper = new Zend_View_Helper_Doctype();
         $docTypeHelper->doctype( 'XHTML1_STRICT' );
+        
+        
         $this->bootstrap( 'layout' );
         $layout = $this->getResource( 'layout' );
         $view = $layout->getView();
 
+        
         $view->headTitle( 'Medtechtrade' )
                 ->headTitle( 'Desarrollo' )
                 ->setSeparator( ' - ' );
 
+        
         $view->headLink()->prependStylesheet( '/css/grid-960/styles/reset.css' )
                 ->headLink()->appendStylesheet( '/css/grid-960/styles/960.css' )
                 ->headLink()->appendStylesheet( '/css/base.css' )
@@ -28,7 +32,6 @@ class Bootstrap
 
         $view->headMeta()->appendHttpEquiv( 'Content-Language' , 'en-US' );
         $view->addHelperPath( 'Mtt/View/Helper' , 'Mtt_View_Helper' );
-
         }
 
 

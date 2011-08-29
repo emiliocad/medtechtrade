@@ -13,10 +13,23 @@
             <a href="#">Buy Equipment</a>
         </li>
         <li>
-            <a href="#">Sell / Trade-in Equipment</a>
+
+            <a href="
+            <?= $this->url( array( 'controller' => 'vender' ,
+                'action' => 'index' ) , null , true ) ?>">
+
+                Vender/Comerciar Equipos
+            </a>    
+
         </li>
         <li>
-            <a href="#">Services</a>
+            <a href="
+            <?= $this->url( array( 'controller' => 'Servicios' ,
+                'action' => 'index' ) , null , true ) ?>">
+                Servicios
+            </a>  
+
+
         </li>
         <li>
             <a href="
@@ -31,7 +44,7 @@
             <?= $this->url( array( 'controller' => 'usuario' ,
                 'action' => 'index' ) , null , true ) ?>">
 
-                My Account
+                Mi Cuenta
             </a>    
         </li>
     </ul> 

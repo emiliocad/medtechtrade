@@ -22,13 +22,13 @@ class UsuarioController extends Mtt_Controller_Action
         if ( $this->_request->isPost() && $form->isValid( $this->_request->getPost() ) )
             {
             $login = $this->_request->getPost();
+            
             $_usuario = new Mtt_Models_Bussines_Usuario();
 
-            $loginValido = $_usuario->auth( $login["login"] , $login["clave"] );
+            $loginValido = $_usuario->auth( $form->getValue( "login" ) , $form->getValue( "clave" ) );
             if ( $loginValido )
                 {
                 $this->_redirect( '/admin/index' );
-                $this->isAuth = true;
                 } else
                 {
                 $this->_helper->FlashMessenger( 'Usuario o contraseña invalido' );
