@@ -1,19 +1,5 @@
 <?php
 
-/**
- * 
- * 
- * 
- * @author
- * @license
- * 
- */
-
-/**
- * Description of ApiController
- *
- * @author Consultoria
- */
 class ApiController extends Mtt_Controller_Action
     {
 
@@ -24,12 +10,7 @@ class ApiController extends Mtt_Controller_Action
         $this->_helper->viewRenderer->setNoRender();
         }
 
-    /**
-     * @param $nombre   Nombre del usuario
-     * @param $nombre   Nombre del usuario
-     * @param $nombre   Nombre del usuario
-     * @return          lnsdlk
-     */
+   
     public function validarLoginAction()
         {
 

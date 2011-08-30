@@ -4,6 +4,7 @@
         <?= $this->headMeta() ?>        
         <?= $this->headTitle() ?>        
         <?= $this->headLink() ?>        
+        <?= $this->jQuery() ?>        
         <?= $this->headScript() ?>        
     </head>
     <body>
@@ -28,6 +29,7 @@
             <div id="details-right" class="grid_4 omega" style="padding: 0px 0px 0px;">
 
                 <?= $this->layout()->detailsright ?>
+                <?= $this->render( '_contact.phtml' ); ?>
 
             </div>
             <div class="clear">  
