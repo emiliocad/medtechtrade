@@ -1,11 +1,6 @@
 <?php
 
-/**
- * Description of Routes
- *
- * @author eanaya
- */
-class My_Controller_Plugin_Routes extends Zend_Controller_Plugin_Abstract
+class Mtt_Controller_Plugin_Routes extends Zend_Controller_Plugin_Abstract
 {
 
     public function routeStartup(Zend_Controller_Request_Abstract $request) {

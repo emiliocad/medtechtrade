@@ -1,6 +1,6 @@
 <?php
 
-class ProductoController extends Zend_Controller_Action
+class ProductoController extends Mtt_Controller_Action
     {
 
     public function init()

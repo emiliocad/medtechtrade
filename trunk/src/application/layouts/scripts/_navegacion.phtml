@@ -1,38 +1,65 @@
-<div id="navegacion" class="container_16"> 
-    <ul id="mainlevel">
-        <li>
-            <a href="
-            <?= $this->url( array( 'controller' => 'index' ,
-                'action' => 'index' ) , null , true ) ?>">
+<div id="sections-buttons-top">
+    <ul>
+        <li class="selected">
+            <span>
+                <a href="
+                <?= $this->url( array( 'controller' => 'index' ,
+                    'action' => 'index' ) , null , true ) ?>">
 
-                Home
-            </a>    
+                    Home
+                </a>  
+            </span>
+
 
         </li>
         <li>
-            <a href="#">Buy Equipment</a>
+            <span>
+                <a href="#">Buy Equipment</a>
+            </span>
         </li>
         <li>
-            <a href="#">Sell / Trade-in Equipment</a>
-        </li>
-        <li>
-            <a href="#">Services</a>
-        </li>
-        <li>
-            <a href="
-            <?= $this->url( array( 'controller' => 'contacto' ,
-                'action' => 'index' ) , null , true ) ?>">
+            <span>
 
-                Contact Us
-            </a>    
+                <a href="
+                <?= $this->url( array( 'controller' => 'vender' ,
+                    'action' => 'index' ) , null , true ) ?>">
+
+                    Vender/Comerciar Equipos
+                </a>  
+            </span>
+
         </li>
         <li>
-            <a href="
-            <?= $this->url( array( 'controller' => 'usuario' ,
-                'action' => 'login' ) , null , true ) ?>">
+            <span>
+                <a href="
+                <?= $this->url( array( 'controller' => 'Servicios' ,
+                    'action' => 'index' ) , null , true ) ?>">
+                    Servicios
+                </a>  
+            </span>
 
-                My Account
-            </a>    
+
+        </li>
+        <li>
+            <span>
+                <a href="
+                <?= $this->url( array( 'controller' => 'contacto' ,
+                    'action' => 'index' ) , null , true ) ?>">
+
+                    Contact Us
+                </a>  
+            </span>
+        </li>
+        <li>
+            <span>
+                <a href="
+                <?= $this->url( array( 'controller' => 'usuario' ,
+                    'action' => 'index' ) , null , true ) ?>">
+
+                    Mi Cuenta
+                </a> 
+            </span>
         </li>
     </ul> 
-</div> 
+    
+</div>

@@ -8,9 +8,6 @@
 class Mtt_Controller_Action extends Zend_Controller_Action
     {
 
-    protected $isAuth;
-
-
     public function init()
         {
         // inicializando logger
@@ -39,8 +36,8 @@ class Mtt_Controller_Action extends Zend_Controller_Action
                 'api'
             );
             $no_require_login_actions = array(
-                'default/index/registrar' ,
-                'admin/login/index'
+                'default/usuario/registrar' ,
+                'default/usuario/index'
             );
 
             $current_module = $this->_request->getModuleName();
@@ -55,7 +52,7 @@ class Mtt_Controller_Action extends Zend_Controller_Action
                     if ( !in_array( $current_action , $no_require_login_actions ) )
                         {
                         $this->_helper->FlashMessenger( 'Debes Logearte' );
-                        $this->_redirect( 'admin/login/index' );
+                        $this->_redirect( 'default/usuario/index' );
                         }
                     }
                 }

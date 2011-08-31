@@ -1,20 +1,6 @@
 <?php
 
-/**
- * 
- * 
- * 
- * @author
- * @license
- * 
- */
-
-/**
- * Description of ApiController
- *
- * @author Consultoria
- */
-class ApiController extends My_Controller_Action
+class ApiController extends Mtt_Controller_Action
     {
 
     public function init()
@@ -24,12 +10,7 @@ class ApiController extends My_Controller_Action
         $this->_helper->viewRenderer->setNoRender();
         }
 
-    /**
-     * @param $nombre   Nombre del usuario
-     * @param $nombre   Nombre del usuario
-     * @param $nombre   Nombre del usuario
-     * @return          lnsdlk
-     */
+   
     public function validarLoginAction()
         {
 
@@ -66,24 +47,6 @@ class ApiController extends My_Controller_Action
     public function validarRucAction()
         {
         
-        }
-
-    public function jsonAction()
-        {
-        $server = new Zend_Json_Server();
-
-        $server->setClass( 'My_Server_Ventas' );
-
-        if ( 'GET' == $_SERVER['REQUEST_METHOD'] )
-            {
-            $server->setEnvelope( Zend_Json_Server_Smd::ENV_JSONRPC_2 );
-            $smd = $server->getServiceMap();
-            //header('Content-Type: application/json');
-            echo $smd;
-            return;
-            }
-
-        $server->handle();
         }
 
     }

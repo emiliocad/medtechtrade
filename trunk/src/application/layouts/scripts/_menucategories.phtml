@@ -7,8 +7,11 @@
         <li>
             <a href="
             <?= $this->url( array( 'controller' => 'categoria' ,
-                'action' => 'ver' , 'id' => $this->escape( $categoria->id ) ) , null , true ) ?>">
-                   <?= $this->escape( $categoria->title ) ?>
+                'action' => 'index' , 'id' => $this->escape( $categoria->id ) ) , null , true ) ?>">
+                <span>
+                    <?= $this->escape( $categoria->title ) ?>
+                </span>
+
             </a>
         </li>
         <?

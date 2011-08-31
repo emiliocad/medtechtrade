@@ -3,7 +3,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-class Mtt_Form_Fabricante extends Zend_Form
+class Mtt_Form_Fabricante extends Mtt_Form
 {
 
     public function init()
@@ -15,7 +15,7 @@ class Mtt_Form_Fabricante extends Zend_Form
 
         // Elemento: Nombre
         $e = new Zend_Form_Element_Text('nombre');
-        $e->setLabel('Nombre');
+        $e->setLabel('Nombre :');
         $e->setAttrib('maxlength', '50');
         $e->setRequired(true);
         $v = new Zend_Validate_StringLength(
@@ -30,8 +30,9 @@ class Mtt_Form_Fabricante extends Zend_Form
         
 
         // Elemento: RUC
-        $e = new Zend_Form_Element_Text('ruc');
-        $e->setLabel('RUC');
+        
+        $e = new Mtt_Form_Element_Ckeditor('descripcion');
+        $e->setLabel('Descripcion :');
         $e->setRequired(true);
         $e->addValidator(new Zend_Validate_Digits());
         $v = new Zend_Validate_StringLength();

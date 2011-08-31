@@ -25,7 +25,7 @@ class Admin_UserController extends Mtt_Controller_Action
         $this->view->usuarios = $p;
         }
 
-    public function registrarAction()
+    public function almacenarAction()
         {
         $form = new Mtt_Form_Categoria();
         if ( $this->_request->isPost() && $form->isValid( $this->_request->getPost() ) )

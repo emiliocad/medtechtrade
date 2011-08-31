@@ -1,6 +1,6 @@
 <?php
 
-class IndexController extends Zend_Controller_Action
+class IndexController extends Mtt_Controller_Action
     {
 
     public function init()
@@ -10,12 +10,7 @@ class IndexController extends Zend_Controller_Action
 
     public function indexAction()
         {
-//        Zend_Layout::getMvcInstance()->setContentKey( 'detailsleft' );
-//        $this->view->assign( "prueba" , "detailsleft" );
-//        Zend_Layout::getMvcInstance()->setContentKey( 'content' );
-//        $this->view->assign( "prueba" , "content" );
-//        $locale = new Zend_Locale();
-//        $this->view->assign( "locale" , var_dump( $locale ) );
+
         }
 
     }

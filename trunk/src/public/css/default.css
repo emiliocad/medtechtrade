@@ -1,0 +1,307 @@
+body	{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	letter-spacing: 0px;
+	/* for design only */
+	/*background-image: url(../img/home.bg.01.png);
+	background-repeat: no-repeat;
+	background-position: center top;*/
+}
+
+h1	{
+	font-size: 26px;
+	font-weight: bold;
+}
+h2	{
+	font-size: 24px;
+	font-weight: bold;
+}
+h3	{
+	font-size: 20px;
+}
+p	{
+	font-size: 14px;
+	line-height: 1.5em;
+}	
+
+p, h1, h2, h3	{
+	margin: 6px 0 0 20px;
+}
+
+a, p, span, h1, h2, h3, h4 {
+	text-decoration: none;
+	color: #666;
+}
+a:hover	{
+	text-decoration: underline;
+}
+
+.wrap	{
+	width: 100%;
+	text-align: center;
+}
+.section	{
+	margin: auto;
+	width: 960px;
+}
+
+#wrap-top	{
+	background-image: url(../img/top-background.png);
+	background-repeat: repeat-x;
+	background-position: bottom;
+}
+#section-top	{
+	height: 100px;
+}
+	#logo-top	{
+		float: left;
+		margin: 13px 0 0 1px;
+		width: 256px;
+		height: 61px;
+	}
+	#lang-selection-top	{
+		float: right;
+		margin: 13px 1px 0 0;
+	}
+	#sections-buttons-top	{
+		width: 700px;
+		float: right;
+		margin: 35px 0 0 0;
+		height: 30px;
+		text-align: right;
+	}
+		#sections-buttons-top li	{
+			background-image: url(../img/top-button-background.png);
+			background-repeat: no-repeat;
+			background-position: left bottom;
+			
+			list-style-type: none;
+			display: inline-block;
+			height: 30px;
+		}
+		#sections-buttons-top .selected	{
+			font-weight: bold;
+			letter-spacing: -1px;
+		}
+		#sections-buttons-top li:hover, #sections-buttons-top li.selected	{
+			background-image: url(../img/top-button-background-hover.png);
+		}
+		#sections-buttons-top li span	{
+			background-image: url(../img/top-button-right.png);
+			background-repeat: no-repeat;
+			background-position: right bottom;
+			
+			position: relative; 
+			display: block; 
+			white-space: nowrap; 
+			padding: 0 10px 0 10px;
+			height: 30px;
+			
+			text-align: center;
+		}
+		#sections-buttons-top li span:hover, #sections-buttons-top li.selected span	{
+			background-image: url(../img/top-button-right-hover.png);
+		}
+		#sections-buttons-top li a	{
+			font-size: 14px;
+			color: white;
+			display: inline-block;
+			margin: 10px 0 0 0px;
+		}
+#wrap-middle	{
+	background-image: url(../img/middle-background.png);
+	background-repeat: repeat-x;
+	background-position: center top;
+	
+	/* border-bottom: 1px solid #CCC; */
+}
+	#section-middle	{
+		/*background-color: RGBA(224,64,64,0.3);*/
+		padding: 45px 0 0 0;
+		/* height: 710px;	/* 760px; */
+	}
+		#section-middle-categories	{
+			/*background-color: RGBA(64,64,224,0.3);*/
+			width: 210px;
+			/* padding: 10px 0 0 0; */
+			display: block;
+			float: left;
+		}
+			#section-middle-categories li span	{
+				padding: 10px 0 10px 15px;
+				display: block;
+				border-bottom: dotted 1px #666;
+			}
+			/*#section-middle-categories li:last-child span	{
+				border-bottom: dotted 1px #666;
+			}*/
+			#section-middle-categories li span:hover	{
+				background-color: #DBDBDB;
+			}
+			#section-middle-categories li span:hover a	{
+				color: #4E4E4E;
+			}
+		#section-middle-list	{
+			margin: 10px 0 0 0;
+			background-image: url(../img/middle-lookinglist-background.png);
+			background-repeat: no-repeat;
+			background-position: center;
+			
+			display: block;
+			padding: 15px 10px;
+			width: 190px;
+			height: 76px;
+			
+			text-align: right;
+		}
+			#section-middle-list-advice	{
+				font-size: 12px;
+				font-weight: bold;
+				margin: 10px 5px 0 0;
+				width: 100%;
+				text-align: right;
+			}
+			#section-middle-list a	{
+				display: inline;
+			}
+			#section-middle-list a span	{
+				background-image: url(../img/middle-link-button.png);
+				background-repeat: no-repeat;
+				background-position: center;
+				
+				display: inline-block;
+				font-size: 12px;
+				font-weight: bold;
+				text-align: center;
+				width: 97px;
+				padding: 4px 0;
+				
+				color: white;
+			}
+		#section-middle-body	{
+			padding: 0 0 0 10px;
+			width: 740px;
+			float: right;
+		}
+			/*#section-middle-body p,	#section-middle-body h1	{
+				margin: 6px 0 0 18px;
+			}*/
+#wrap-bottom	{
+	border-top: 1px solid #666;
+	
+	clear:both;
+	
+	background-image: url(../img/bottom-background.png);
+	background-repeat: repeat-x;
+	background-position: center top;
+}
+	#section-bottom	{
+		height: 150px;
+	}
+		#section-bottom p	{
+			font-size: 11px;
+			margin: 0;
+		}
+		#section-bottom-footer	{
+			display: inline-block;
+			width: 290px;
+			height: 140px;
+		}
+			#section-bottom-buttons	{
+				margin: 0 0 0 3px;
+			}
+			#section-bottom-buttons li	{
+				margin: 8px 0 0 0;
+				list-style-type: none;
+				display: inline-block;
+			}
+			#section-botttom-copyright	{
+				margin: 12px 0 0 2px;
+			}
+			
+	.bottom-country	{
+		float: right;
+		padding: 7px 0px 0 40px;
+		width: 175px;
+		height: 140px;
+	}
+	.bottom-country h4	{
+		font-weight: bold;
+	}
+	#section-bottom-country-chile	{
+		background-image: url(../img/bottom-flag-chile.png);
+		background-repeat: no-repeat;
+		background-position: 4px 11px;
+	}
+	#section-bottom-country-peru	{
+		background-image: url(../img/bottom-flag-peru.png);
+		background-repeat: no-repeat;
+		background-position: 4px 11px;
+	}
+	#section-bottom-country-switzerland	{
+		background-image: url(../img/bottom-flag-switzerland.png);
+		background-repeat: no-repeat;
+		background-position: 4px 11px;
+	}
+
+
+/* Device List */
+.device-horizontal-list	{
+	padding: 0 0 0 15px;
+	border-top: dotted 1px #666;
+}
+.device-horizontal-list	div	{
+	margin: 5px 0 0 4px;
+	display: inline-block;
+	text-align: center;
+	width: 175px;
+}
+.device-horizontal-list	div .manufacturer	{
+	display: block;
+	font-weight: bold;
+	color: #3F3F3F;
+}
+.device-horizontal-list	div .name	{
+	display: block;
+}
+.device-horizontal-list	div a span	{
+	background-image: url(../img/middle-link-button.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	
+	display: inline-block;
+	font-size: 12px;
+	font-weight: bold;
+	text-align: center;
+	width: 97px;
+	padding: 4px 0;
+	margin: 4px 0 0 0;
+	color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

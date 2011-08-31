@@ -1,0 +1,41 @@
+<?= $this->doctype(); ?>
+<html>
+    <head>
+        <?= $this->headMeta() ?>        
+        <?= $this->headTitle() ?>        
+        <?= $this->headLink() ?>        
+        <?= $this->headScript() ?>        
+    </head>
+    <body>
+        <?= $this->render( '_header.phtml' ); ?>
+        <?= $this->render( 'admin/_navegacion.phtml' ); ?>
+
+        <div id="content" class="container_16" style="padding: 0px 0px 0px;">
+            <div id="details-left" class="grid_4 alpha">
+                <?= $this->render( '_menucategories.phtml' ); ?>
+                <?= $this->layout()->detailsleft ?>
+
+
+            </div>
+            <div id="contenido" class="grid_8 omega">
+
+                <?= $this->render( '_messages.phtml' ); ?>
+
+                <?= $this->layout()->content ?>
+
+
+            </div>
+            <div id="details-right" class="grid_4 omega" style="padding: 0px 0px 0px;">
+
+                <?= $this->layout()->detailsright ?>
+
+            </div>
+            <div class="clear">  
+            </div>
+
+        </div>
+
+        <?= $this->render( '_footer.phtml' ); ?>
+
+    </body>
+</html>
