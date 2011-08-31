@@ -1,12 +1,33 @@
 body	{
-	font-family: sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
-	letter-spacing: 0px;	/* set for FF: letter-spacing: -1px; */ 
+	letter-spacing: 0px;
 	/* for design only */
-	/*background-image: url(../img/home.bg.01.png);*/
+	/*background-image: url(../img/home.bg.01.png);
 	background-repeat: no-repeat;
-	background-position: center top;
+	background-position: center top;*/
 }
+
+h1	{
+	font-size: 26px;
+	font-weight: bold;
+}
+h2	{
+	font-size: 24px;
+	font-weight: bold;
+}
+h3	{
+	font-size: 20px;
+}
+p	{
+	font-size: 14px;
+	line-height: 1.5em;
+}	
+
+p, h1, h2, h3	{
+	margin: 6px 0 0 20px;
+}
+
 a, p, span, h1, h2, h3, h4 {
 	text-decoration: none;
 	color: #666;
@@ -92,26 +113,28 @@ a:hover	{
 	background-repeat: repeat-x;
 	background-position: center top;
 	
-	border-bottom: 1px solid #CCC;
+	/* border-bottom: 1px solid #CCC; */
 }
 	#section-middle	{
 		/*background-color: RGBA(224,64,64,0.3);*/
 		padding: 45px 0 0 0;
-		height: 710px;	/* 760px; */
+		/* height: 710px;	/* 760px; */
 	}
 		#section-middle-categories	{
 			/*background-color: RGBA(64,64,224,0.3);*/
 			width: 210px;
-			padding: 10px 0 0 0;
+			/* padding: 10px 0 0 0; */
+			display: block;
+			float: left;
 		}
 			#section-middle-categories li span	{
 				padding: 10px 0 10px 15px;
 				display: block;
-				border-top: dotted 1px #666;
-			}
-			#section-middle-categories li:last-child span	{
 				border-bottom: dotted 1px #666;
 			}
+			/*#section-middle-categories li:last-child span	{
+				border-bottom: dotted 1px #666;
+			}*/
 			#section-middle-categories li span:hover	{
 				background-color: #DBDBDB;
 			}
@@ -155,8 +178,18 @@ a:hover	{
 				
 				color: white;
 			}
+		#section-middle-body	{
+			padding: 0 0 0 10px;
+			width: 740px;
+			float: right;
+		}
+			/*#section-middle-body p,	#section-middle-body h1	{
+				margin: 6px 0 0 18px;
+			}*/
 #wrap-bottom	{
 	border-top: 1px solid #666;
+	
+	clear:both;
 	
 	background-image: url(../img/bottom-background.png);
 	background-repeat: repeat-x;
@@ -165,6 +198,10 @@ a:hover	{
 	#section-bottom	{
 		height: 150px;
 	}
+		#section-bottom p	{
+			font-size: 11px;
+			margin: 0;
+		}
 		#section-bottom-footer	{
 			display: inline-block;
 			width: 290px;
@@ -191,9 +228,6 @@ a:hover	{
 	.bottom-country h4	{
 		font-weight: bold;
 	}
-	.bottom-country p	{
-		font-size: 11px;
-	}
 	#section-bottom-country-chile	{
 		background-image: url(../img/bottom-flag-chile.png);
 		background-repeat: no-repeat;
@@ -211,11 +245,39 @@ a:hover	{
 	}
 
 
-
-
-
-
-
+/* Device List */
+.device-horizontal-list	{
+	padding: 0 0 0 15px;
+	border-top: dotted 1px #666;
+}
+.device-horizontal-list	div	{
+	margin: 5px 0 0 4px;
+	display: inline-block;
+	text-align: center;
+	width: 175px;
+}
+.device-horizontal-list	div .manufacturer	{
+	display: block;
+	font-weight: bold;
+	color: #3F3F3F;
+}
+.device-horizontal-list	div .name	{
+	display: block;
+}
+.device-horizontal-list	div a span	{
+	background-image: url(../img/middle-link-button.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	
+	display: inline-block;
+	font-size: 12px;
+	font-weight: bold;
+	text-align: center;
+	width: 97px;
+	padding: 4px 0;
+	margin: 4px 0 0 0;
+	color: white;
+}
 
 
 

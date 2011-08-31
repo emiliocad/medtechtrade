@@ -8,8 +8,6 @@
         <?= $this->headScript() ?> 
     </head>
     <body>
-
-
         <div id="wrap-top" class="wrapper">
             <div id="section-top" class="section">
                 <?= $this->render( '_header.phtml' ); ?>
@@ -28,11 +26,10 @@
                     </div>
                 </div>
                 <div id="section-middle-body">
+
                     <?= $this->render( '_messages.phtml' ); ?>
 
-                    <?//= $this->layout()->content ?>
-                    esto es una prueba
-
+                    <?= $this->layout()->content ?>
 
                 </div>
             </div>
