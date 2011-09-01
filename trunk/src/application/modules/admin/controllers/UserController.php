@@ -4,13 +4,13 @@ class Admin_UserController extends Mtt_Controller_Action
     {
 
     protected $_user;
-    protected $URL;
+    
 
     public function init()
         {
         parent::init();
         $this->_user = new Mtt_Models_Bussines_Usuario();
-        $this->URL = '/' . $this->getRequest()->getControllerName();
+        
         }
 
     public function indexAction()
@@ -25,12 +25,27 @@ class Admin_UserController extends Mtt_Controller_Action
         $this->view->usuarios = $p;
         }
 
-    public function almacenarAction()
+    public function editarAction()
+        {
+        $p = $this->_usuario->getPaginator();
+        $p->setCurrentPageNumber( $this->_getParam( 'page' , 1 ) );
+        $this->view->usuarios = $p;
+        }
+
+    public function borrarAction()
+        {
+        $p = $this->_usuario->getPaginator();
+        $p->setCurrentPageNumber( $this->_getParam( 'page' , 1 ) );
+        $this->view->usuarios = $p;
+        }
+
+   
+
+    public function nuevoAction()
         {
         $form = new Mtt_Form_Categoria();
         if ( $this->_request->isPost() && $form->isValid( $this->_request->getPost() ) )
             {
-
             $categoria = $form->getValues();
 
             $this->_user->insert( $categoria );

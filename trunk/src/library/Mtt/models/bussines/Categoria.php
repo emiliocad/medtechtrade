@@ -19,8 +19,10 @@ class Mtt_Models_Bussines_Categoria extends Mtt_Models_Table_Categoria
 
     public function listarProductos( $id )
         {
-        $_producto = new Application_Model_Producto();
+        $_producto = new Mtt_Models_Bussines_Producto();
+        
         $productos = $_producto->fetchAll( "id_categoria=$id AND activo=1" );
+        
         return $productos->toArray();
         }
 

@@ -8,6 +8,8 @@
 class Mtt_Controller_Action extends Zend_Controller_Action
     {
 
+    protected $URL;
+
     public function init()
         {
         // inicializando logger
@@ -15,6 +17,8 @@ class Mtt_Controller_Action extends Zend_Controller_Action
         $writer = new Zend_Log_Writer_Stream( APPLICATION_PATH . '/../logs/log.txt' );
         $this->logger->addWriter( $writer );
         $this->view->messages = $this->_helper->flashMessenger->getMessages();
+        
+        $this->URL = $this->getRequest()->getModuleName()  . '/' . $this->getRequest()->getControllerName();
         }
 
     public function preDispatch()

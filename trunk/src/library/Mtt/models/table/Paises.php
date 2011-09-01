@@ -9,7 +9,7 @@
  * Description of Categoria
  *
  */
-class Mtt_Models_Table_Paises extends Zend_Db_Table_Abstract
+class Mtt_Models_Table_Paises extends Mtt_Db_Table_Abstract
     {
 
     protected $_name = 'paises';

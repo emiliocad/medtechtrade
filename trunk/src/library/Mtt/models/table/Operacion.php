@@ -9,7 +9,7 @@
  * Description of Venta
  *
  */
-class Mtt_Models_Table_Operacion extends Zend_Db_Table_Abstract
+class Mtt_Models_Table_Operacion extends Mtt_Db_Table_Abstract
     {
 
     protected $_name = 'operacion';

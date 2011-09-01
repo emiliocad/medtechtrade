@@ -4,13 +4,13 @@ class Admin_CategoriaController extends Mtt_Controller_Action
     {
 
     protected $_categoria;
-    protected $URL;
+    
 
     public function init()
         {
         parent::init();
         $this->_categoria = new Mtt_Models_Bussines_Categoria();
-        $this->URL = '/' . $this->getRequest()->getControllerName();
+        
         }
 
     public function indexAction()

@@ -4,13 +4,13 @@ class Admin_ProductoController extends Mtt_Controller_Action
     {
 
     protected $_producto;
-    protected $URL;
+    
 
     public function init()
         {
         parent::init();
         $this->_producto = new Mtt_Models_Bussines_Producto();
-        $this->URL = '/' . $this->getRequest()->getControllerName();
+        
         }
 
     public function indexAction()
