@@ -23,9 +23,9 @@ class ProductoController extends Mtt_Controller_Action
 
     public function verAction()
         {
-        $id = $this->_getParam( 'id' , null );
-        $this->view->id = $id;
-        $this->view->u = $this->_producto->fetchRow( 'id=' . $id )->toArray();
+//        $id = $this->_getParam( 'id' , null );
+//        $this->view->id = $id;
+//        $this->view->u = $this->_producto->fetchRow( 'id=' . $id )->toArray();
         }
 
     }

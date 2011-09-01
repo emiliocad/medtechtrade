@@ -17,6 +17,7 @@ class ApiController extends Mtt_Controller_Action
         if ( $this->_request->isPost() )
             {
             $_usuario = new Mtt_Models_Bussines_Usuario();
+            
             $form = new Mtt_Form_Registrar();
             $elementLogin = $form->getElement( 'login' );
             if ( $elementLogin->isValid( $this->_getParam( 'login' ) ) )
