@@ -9,8 +9,10 @@
  * Description of Registrar
  *
  */
-class Mtt_Form_Usuario extends Zend_Form
+class Mtt_Form_Usuario
+        extends Zend_Form
     {
+
 
     public function init()
         {
@@ -20,93 +22,123 @@ class Mtt_Form_Usuario extends Zend_Form
         ;
 
         $decorator = new Mtt_Form_Decorator_SimpleInput();
-        $e = new Zend_Form_Element_Text( 'nombre' );
-        $e->setRequired();
+        $nombre = new Zend_Form_Element_Text( 'nombre' );
+        $nombre->setRequired();
         //$e->setDecorators( array( $decorator ) );
-        $e->setLabel( 'Nombre:' );
-        $e->addValidator( new Zend_Validate_StringLength( array( 'min' => 5 , 'max' => 25 ) ) );
-        $this->addElement( $e );
+        $nombre->setLabel( 'Nombre:' );
+        $nombre->addValidator( new Zend_Validate_StringLength( array( 'min' => 5 , 'max' => 25 ) ) );
+        //$this->addElement( $e );
 
-        $e = new Zend_Form_Element_Text( 'apellido' );
-        $e->setRequired();
+        $apellido = new Zend_Form_Element_Text( 'apellido' );
+        $apellido->setRequired();
         //$e->setDecorators( array( $decorator ) );
-        $e->setLabel( 'Apellido:' );
-        $e->addValidator( new Zend_Validate_StringLength( array( 'min' => 5 , 'max' => 25 ) ) );
-        $this->addElement( $e );
+        $apellido->setLabel( 'Apellido:' );
+        $apellido->addValidator( new Zend_Validate_StringLength( array( 'min' => 5 , 'max' => 25 ) ) );
+        //$this->addElement( $e );
 
-        $e = new Zend_Form_Element_Text( 'email' );
-        $e->setRequired();
+        $email = new Zend_Form_Element_Text( 'email' );
+        $email->setRequired();
         //$e->setDecorators( array( $decorator ) );
-        $e->setLabel( 'Email:' );
-        $e->addValidator( new Zend_Validate_EmailAddress() );
-        $this->addElement( $e );
+        $email->setLabel( 'Email:' );
+        $email->addValidator( new Zend_Validate_EmailAddress() );
+        //$this->addElement( $e );
 
-        $e = new Zend_Form_Element_Text( 'login' );
-        $e->setRequired();
+        $login = new Zend_Form_Element_Text( 'login' );
+        $login->setRequired();
         //$e->setDecorators( array( $decorator ) );
-        $e->setLabel( 'Login:' );
-        $e->addValidator( new Zend_Validate_Alnum() );
-        $e->addValidator( new Zend_Validate_Db_NoRecordExists( array(
+        $login->setLabel( 'Login:' );
+        $login->addValidator( new Zend_Validate_Alnum() );
+        $login->addValidator( new Zend_Validate_Db_NoRecordExists( array(
                     'table' => 'usuario' ,
                     'field' => 'login' ,
                         ) ) );
-        $e->addValidator( new Zend_Validate_StringLength( array( 'min' => 5 , 'max' => 25 ) ) );
-        $this->addElement( $e );
+        $login->addValidator( new Zend_Validate_StringLength( array( 'min' => 5 , 'max' => 25 ) ) );
+        //$this->addElement( $e );
 
-        $e = new Zend_Form_Element_Password( 'clave' );
-        $e->setRequired();
+        $clave = new Zend_Form_Element_Password( 'clave' );
+        $clave->setRequired();
         //$e->setDecorators( array( $decorator ) );
-        $e->setLabel( 'Password:' );
-        $this->addElement( $e );
+        $clave->setLabel( 'Password:' );
+        //$this->addElement( $e );
 
-        $e = new Zend_Form_Element_Password( 'clave_2' );
-        $e->setRequired();
+        $clave2 = new Zend_Form_Element_Password( 'clave_2' );
+        $clave2->setRequired();
         //$e->setDecorators( array( $decorator ) );
-        $e->setLabel( 'Confirmación Password:' );
-        $e->addValidator( new Mtt_Validate_PasswordConfirmation() );
-        $this->addElement( $e );
+        $clave2->setLabel( 'Confirmación Password:' );
+        $clave2->addValidator( new Mtt_Validate_PasswordConfirmation() );
+        //$this->addElement( $e );
 
 
-        $e = new Zend_Form_Element_Text( 'direccion' );
-        $e->setRequired();
+        $direccion = new Zend_Form_Element_Text( 'direccion' );
+        $direccion->setRequired();
         //$e->setDecorators( array( $decorator ) );
-        $e->setLabel( 'Direccion:' );
-        $this->addElement( $e );
+        $direccion->setLabel( 'Direccion:' );
+        //$this->addElement( $e );
 
 
-        $e = new Zend_Form_Element_Text( 'codpostal' );
-        $e->setRequired();
+        $codPostal = new Zend_Form_Element_Text( 'codpostal' );
+        $codPostal->setRequired();
         //$e->setDecorators( array( $decorator ) );
-        $e->setLabel( 'Cod. Postal:' );
-        $this->addElement( $e );
+        $codPostal->setLabel( 'Cod. Postal:' );
+        //$this->addElement( $e );
 
 
-        $e = new Zend_Form_Element_Text( 'ciudad' );
-        $e->setRequired();
+        $ciudad = new Zend_Form_Element_Text( 'ciudad' );
+        $ciudad->setRequired();
         //$e->setDecorators( array( $decorator ) );
-        $e->setLabel( 'Ciudad:' );
-        $this->addElement( $e );
+        $ciudad->setLabel( 'Ciudad:' );
+        //$this->addElement( $e );
 
 
-        $e = new Zend_Form_Element_Select( 'paises_id' );
-        $e->setLabel( 'Pais' );
+        $paises = new Zend_Form_Element_Select( 'paises_id' );
+        $paises->setLabel( '* Escoger Pais' );
         $_pais = new Mtt_Models_Bussines_Paises();
         $values = $_pais->getComboValues();
-        $e->addMultiOption( -1 , '--- Paises ---' );
-        $e->addMultiOptions( $values );
-        $this->addElement( $e );
-        $e->addValidator( new Zend_Validate_InArray( array_keys( $values ) ) );
+        $paises->addMultiOption( -1 , '--- Paises ---' );
+        $paises->addMultiOptions( $values );
+        //$this->addElement( $e );
+        $paises->addValidator( new Zend_Validate_InArray( array_keys( $values ) ) );
+
+        $rol = new Zend_Form_Element_Select( 'tipousuario_id' );
+        $rol->setLabel( '* Rol de Usuario :' );
+        $_tipoUsuario = new Mtt_Models_Bussines_TipoUsuario();
+        $values = $_tipoUsuario->getComboValues();
+        $rol->addMultiOption( -1 , '--- Rol de Usario ---' );
+        $rol->addMultiOptions( $values );
+        //$this->addElement( $e );
+        $rol->addValidator( new Zend_Validate_InArray( array_keys( $values ) ) );
 
 
 
-        $e = new Zend_Form_Element_Text( 'institucion' );
-        $e->setRequired();
+        $institucion = new Zend_Form_Element_Text( 'institucion' );
+        $institucion->setRequired();
         //$e->setDecorators( array( $decorator ) );
-        $e->setLabel( 'Institucion:' );
-        $this->addElement( $e );
+        $institucion->setLabel( 'Institucion:' );
+        //$this->addElement( $e );
 
-        $this->addElement( 'submit' , 'Enviar' );
+        $submit = new Zend_Form_Element_Submit( 'submit' );
+        $submit->setLabel( 'Enviar' );
+
+        $this->addElements(
+                array(
+                    $nombre ,
+                    $apellido ,
+                    $email ,
+                    $login ,
+                    $clave ,
+                    $clave2 ,
+                    $direccion ,
+                    $codPostal ,
+                    $ciudad ,
+                    $paises ,
+                    $rol ,
+                    $institucion ,
+                    $submit
+                )
+        );
+
         }
+
 
     }
 

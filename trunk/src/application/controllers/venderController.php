@@ -18,4 +18,3 @@ class VenderController extends Mtt_Controller_Action
     
     }
 
-?>

@@ -1,9 +1,18 @@
 <span class="breadcrumb">
-    <a href="#">Buy Equipment</a> >
+    <a href="
+    <?=
+    $this->url( array( 'module' => 'default' ,
+        'controller' => 'producto' ,
+        'action' => 'index' ) , null , true )
+
+    ?>">
+           <?= $this->translate( 'Buy Equipment' ) ?>
+    </a>
     <a href="#">Microscopes</a> >
-    <a href="#">Ultra-Low Temperaure Upright Freezers</a>
+    <a href="#"><?= $this->producto->nombre ?></a>
 </span>
-<h2>Manufacturer: Thermo Fisher Scientific</h2>
+
+<h2>Manufacturer: <?= $this->producto->fabricante ?></h2>
 <div id="device-foto-galery">
     <!--Producto -->
 
@@ -19,44 +28,64 @@
     <a href="#"><img src="/images/arrow-right.png" alt=""></a>
 </div>
 <div id="device-description">
-    <a href="#"><span class="advanced-search-tab">Advanced Search</span></a>
-    <span class="device-description-field">Product name</span>
-    <span>Ultra-Low Temperaure Upright Freezers</span>
-    <span class="device-description-field">Model</span>
-    <span>ULT2586-10-V</span>
-    <span class="device-description-field">Origin</span>
-    <span>Switzerland</span>
-    <span class="device-description-field">Article ID</span>
-    <span>236</span>
-    <span class="device-description-field">Date/Year of manufacture</span>
-    <span>2008-12-01</span>
-    <span class="device-description-field">Estimated weight (KG)</span>
-    <span>Not Available</span>
-    <span class="device-description-field">Quality/Condition</span>
-    <span>Excelent</span>
-    <span class="device-description-field">Mode Amount of equipment</span>
-    <span>1</span>
-    <span class="device-description-field">Description</span>
+    <a href="#">
+        <span class="advanced-search-tab">
+            <?= $this->translate( 'Advanced Search' ) ?>
+        </span>
+    </a>
+    <span class="device-description-field"><?= $this->translate( 'Product name' ) ?></span>
+    <span>
+        <?= $this->producto->nombre ?>
+    </span>
+    <span class="device-description-field"><?= $this->translate( 'Model' ) ?></span>
+    <span>
+        <?= $this->producto->modelo ?>
+    </span>
+    <span class="device-description-field"><?= $this->translate( 'Origin' ) ?></span>
+    <span>
+        <?= $this->producto->pais ?>
+    </span>
+    <span class="device-description-field"><?= $this->translate( 'Article ID' ) ?></span>
+    <span>
+        <?= $this->producto->id ?>
+    </span>
+    <span class="device-description-field"><?= $this->translate( 'Date/Year of manufacture' ) ?></span>
+    <span>
+        <?= $this->producto->fechafabricacion ?>
+    </span>
+    <span class="device-description-field"><?= $this->translate( 'Estimated weight (KG)' ) ?></span>
+    <span>
+        <?= $this->producto->pesoEstimado ?>
+    </span>
+    <span class="device-description-field"><?= $this->translate( 'Quality/Condition' ) ?></span>
+    <span>
+        <?= $this->producto->calidad ?>
+    </span>
+    <span class="device-description-field"><?= $this->translate( 'Mode Amount of equipment' ) ?></span>
+    <span>
+        <?= $this->producto->cantidad ?>
+    </span>
+    <span class="device-description-field"><?= $this->translate( 'Description' ) ?></span>
     <span>
         Thermo Scientifig Revco. Ultima Plus<br/>
         Placing out of operation: March 2010
     </span>
-    <span class="device-description-field">Specifications</span>
+    <span class="device-description-field"><?= $this->translate( 'Specifications' ) ?></span>
     <span>
-        Temperature Range: from -50&deg; until 86&deg;<br/>
-        Capacity Cu.: 691 (L)<br/>
+        <?= $this->translate( 'Temperature Range' ) ?>: from -50&deg; until 86&deg;<br/>
+        <?= $this->translate( 'Capacity Cu.' ) ?>: 691 (L)<br/>
         Electrical Amps/Breaker 230V/60 Hz 1&empty;<br/>
-        Interior dimensions: HxWxD (mm) (1283 x  876 x 616)<br/>
-        Exterior dimensions: HxWxD (mm) (1283 x  876 x 616)<br/>
-        Shipping weight: 376 Kg.<br/>
+        <?= $this->translate( 'Interior dimensions' ) ?>: HxWxD (mm) (1283 x  876 x 616)<br/>
+        <?= $this->translate( 'Exterior dimensions' ) ?>: HxWxD (mm) (1283 x  876 x 616)<br/>
+        <?= $this->translate( 'Shipping weight' ) ?>: 376 Kg.<br/>
         Power Tension 230v freq. 50 Phase: 1<br/>
-        Amps: 12A
+        <?= $this->translate( 'Amps' ) ?>: 12A
     </span>
 </div>
 <div id="device-actions">
-    <a href="#"><span class="device-action-pdf">Download PDF</span></a>
-    <a href="#"><span class="device-action-print">Print</span></a>
-    <a href="#"><span class="device-action-question">Ask a Question</span></a>
-    <a href="#"><span class="device-action-help">I Need Help</span></a>
-    <a href="#"><span class="device-action-friend">Tell a Friend</span></a>
+    <a href="#"><span class="device-action-pdf"><?= $this->translate( 'Download PDF' ) ?></span></a>
+    <a href="#"><span class="device-action-print"><?= $this->translate( 'Print' ) ?></span></a>
+    <a href="#"><span class="device-action-question"><?= $this->translate( 'Ask a Question' ) ?></span></a>
+    <a href="#"><span class="device-action-help"><?= $this->translate( 'I Need Help' ) ?></span></a>
+    <a href="#"><span class="device-action-friend"><?= $this->translate( 'Tell a Friend' ) ?></span></a>
 </div>

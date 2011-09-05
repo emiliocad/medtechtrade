@@ -1,148 +1,88 @@
 <?php
-/* 
+
+/*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 
-/**
- * Description of Categoria
- *
- */
-class Mtt_Models_Bussines_Producto extends Mtt_Models_Table_Producto {
-    
-    public function listar() {
-        $db = $this->getAdapter();
-        $filas = $db->select()
-            ->from($this->_name)
-            ->join(
-                'categoria',
-                'producto.id_categoria=categoria.id',
-                array('categoria'=>'nombre')
-            )
-            ->join(
-                'fabricante',
-                'producto.id_fabricante=fabricante.id',
-                array('fabricante'=>'nombre')
-            )
-            ->query();
-        return $filas;
-    }
+class Mtt_Models_Bussines_Producto
+        extends Mtt_Models_Table_Producto
+    {
 
-    public function listarPorCategoria(){
-        $_categoria = new Application_Model_Categoria();
-        $categorias = $_categoria->fetchAll('activo=1');
-        $listado = array();
-        foreach($categorias as $categoria){
-            $productos = $_categoria->listarProductos($categoria['id']);
-            if(count($productos)){
-                $listado[] = array(
-                    'id' => $categoria['id'],
-                    'nombre' => $categoria['nombre'],
-                    'Productos' => $productos
-                );
-            }
-        }
-        return $listado;
-    }
 
-    public function getComboValues(){
-        $_categoria = new Application_Model_Categoria();
-        $categorias = $_categoria->fetchAll('activo=1');
-        $listado = array();
-        foreach($categorias as $categoria){
-            $productos = $_categoria->listarProductos($categoria['id']);
-            $productos2 = array();
-            foreach($productos as $producto){
-                $productos2[$producto['id']] = $producto['nombre'];
-            }
-            if(count($productos)){
-                $listado[$categoria['nombre']] = $productos2;
-            }
-        }
-        return $listado;
-    }
-
-    public function getComboValidValues(){
-        $_categoria = new Application_Model_Categoria();
-        $categorias = $_categoria->fetchAll('activo=1');
-        $listado = array();
-        foreach($categorias as $categoria){
-            $productos = $_categoria->listarProductos($categoria['id']);
-            $productos2 = array();
-            foreach($productos as $producto){
-                $productos2[] = $producto['id'];
-            }
-            if(count($productos)){
-                foreach($productos2 as $productoId){
-                    $listado[] = $productoId;
-                }
-            }
-        }
-        return $listado;
-    }
-
-    public function getDetalles(Array $producto_ids){
+    public function getProduct( $id )
+        {
         $db = $this->getAdapter();
         $query = $db->select()
-            ->from(
-                $this->_name,
-                array(
-                    'id_producto'=>'id',
-                    'producto'=>'nombre',
-                    'precio'
+                ->from( $this->_name ,
+                        array( 'id' , 'nombre' , 'precioventa' ,
+                    'preciocompra' , 'tag' , 'calidad' ,
+                    'cantidad' , 'modelo' , 'fechafabricacion' ,
+                    'documento' , 'sourceDocumento' , 'pesoEstimado' , 'size' ,
+                    'ancho' , 'alto' , 'sizeCaja' )
                 )
-            )
-            ->joinLeft(
-                'categoria',
-                'producto.id_categoria=categoria.id',
-                array(
-                    'categoria' => 'nombre'
-                )
-            )
-            ->joinLeft(
-                'fabricante',
-                'producto.id_fabricante=fabricante.id',
-                array(
-                    'fabricante' => 'nombre'
-                )
-            )
-            ->where('producto.id IN (?) ',$producto_ids)
-        ;
+                ->joinInner( 'categoria' ,
+                             'categoria.id = equipo.categoria_id' ,
+                             array( 'categoria.nombre as categoria' ) )
+                ->joinInner( 'estadoequipo' ,
+                             'estadoequipo.id = equipo.estadoequipo_id' ,
+                             array( 'estadoequipo.nombre as estadoequipo' ) )
+                ->joinInner( 'publicacionEquipo' ,
+                             'publicacionEquipo.id = equipo.publicacionEquipo_id' ,
+                             array( 'publicacionEquipo.nombre as publicacionequipo' ) )
+                ->joinInner( 'moneda' , 'moneda.id = equipo.moneda_id' ,
+                             array( 'moneda.nombre as moneda' ) )
+                ->joinInner( 'fabricantes' ,
+                             'fabricantes.id = equipo.fabricantes_id' ,
+                             array( 'fabricantes.nombre as fabricante' ) )
+                ->joinInner( 'paises' , 'paises.id = equipo.paises_id' ,
+                             array( 'paises.nombre as pais' ) )
+                ->where( 'equipo.active IN (?)' , self::ACTIVE )
+                ->query();
 
-        return $db->fetchAll($query);
+        return $query->fetchObject();
 
-    }
+        }
 
-    public function getDetalle($producto_id){
+
+    public function getImagenes( $id )
+        {
         $db = $this->getAdapter();
         $query = $db->select()
-            ->from(
-                $this->_name,
-                array(
-                    'id_producto'=>'id',
-                    'producto'=>'nombre',
-                    'precio'
-                )
-            )
-            ->joinLeft(
-                'categoria',
-                'producto.id_categoria=categoria.id',
-                array(
-                    'categoria' => 'nombre'
-                )
-            )
-            ->joinLeft(
-                'fabricante',
-                'producto.id_fabricante=fabricante.id',
-                array(
-                    'fabricante' => 'nombre'
-                )
-            )
-            ->where('producto.id = ? ',$producto_id)
-        ;
+                ->from( $this->_name , array( 'id' , 'nombre' ) )
+                ->joinInner( 'categoria' , 'categoria.id = ' . $id ,
+                             array( 'categoria.nombre as categoria' ) )
+                ->joinInner( 'fabricantes' ,
+                             'fabricantes.id = equipo.fabricantes_id' ,
+                             array( 'fabricantes.nombre as fabricante' ) )
+                ->joinLeft( 'imagen' , 'imagen.equipo_id = equipo.id' ,
+                            array( 'imagen.nombre as imagen' ) )
+                ->where( 'equipo.active IN (?)' , self::ACTIVE )
+                ->query();
 
-        return $db->fetchRow($query);
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+
+        }
+
+
+    public function getImage( $id )
+        {
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from( $this->_name , array( 'id' , 'nombre' ) )
+                ->joinInner( 'categoria' , 'categoria.id = ' . $id ,
+                             array( 'categoria.nombre as categoria' ) )
+                ->joinInner( 'fabricantes' ,
+                             'fabricantes.id = equipo.fabricantes_id' ,
+                             array( 'fabricantes.nombre as fabricante' ) )
+                ->joinLeft( 'imagen' , 'imagen.equipo_id = equipo.id' ,
+                            array( 'imagen.nombre as imagen' ) )
+                ->where( 'equipo.active IN (?)' , self::ACTIVE )
+                ->query();
+
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+
+        }
+
 
     }
-
-}

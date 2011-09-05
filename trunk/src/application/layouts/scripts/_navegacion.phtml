@@ -6,24 +6,24 @@
                 <?= $this->url( array( 'controller' => 'index' ,
                     'action' => 'index' ) , null , true ) ?>">
 
-                    Inicio
+                    <?= $this->translate( 'home' ); ?>
                 </a>  
             </span>
 
 
         </li>
         <li>
-             <span>
+            <span>
 
                 <a href="
                 <?= $this->url( array( 'controller' => 'producto' ,
                     'action' => 'index' ) , null , true ) ?>">
 
-                    Comprar Equipos
+                    <?= $this->translate( 'buy equipment' ); ?>
                 </a>  
             </span>
-            
-           
+
+
         </li>
         <li>
             <span>
@@ -31,8 +31,8 @@
                 <a href="
                 <?= $this->url( array( 'controller' => 'vender' ,
                     'action' => 'index' ) , null , true ) ?>">
+                       <?= $this->translate( 'sell/trade-in Equipment' ); ?>
 
-                    Vender/Comerciar Equipos
                 </a>  
             </span>
 
@@ -42,7 +42,7 @@
                 <a href="
                 <?= $this->url( array( 'controller' => 'Servicios' ,
                     'action' => 'index' ) , null , true ) ?>">
-                    Servicios
+                   <?= $this->translate('services'); ?>
                 </a>  
             </span>
 
@@ -53,8 +53,8 @@
                 <a href="
                 <?= $this->url( array( 'controller' => 'contacto' ,
                     'action' => 'index' ) , null , true ) ?>">
-
-                    Contactenos
+<?= $this->translate('contact us'); ?>
+                    
                 </a>  
             </span>
         </li>
@@ -63,11 +63,11 @@
                 <a href="
                 <?= $this->url( array( 'controller' => 'usuario' ,
                     'action' => 'index' ) , null , true ) ?>">
-
-                    Mi Cuenta
+<?= $this->translate('my account'); ?>
+                    
                 </a> 
             </span>
         </li>
     </ul> 
-    
+
 </div>

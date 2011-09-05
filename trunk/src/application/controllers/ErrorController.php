@@ -52,6 +52,9 @@ class ErrorController extends Zend_Controller_Action
         $log = $bootstrap->getResource('Log');
         return $log;
     }
+    public function noauthAction(){
+
+    }
 
 
 }

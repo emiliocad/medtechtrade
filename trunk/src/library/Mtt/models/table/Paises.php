@@ -13,5 +13,5 @@ class Mtt_Models_Table_Paises extends Mtt_Db_Table_Abstract
     {
 
     protected $_name = 'paises';
-
+ protected $_primary = 'id';
     }

@@ -23,17 +23,17 @@ class Mtt_Models_Bussines_Fabricante extends Mtt_Models_Table_Fabricante
         return $values;
         }
 
-    public function getFindId( $id )
-        {
-//        $db = $this->getAdapter();
-//        $query = $db->select()
-//                ->from( $this->_name )
-//                ->where( 'id = ?' , $id )
-//                ->where( 'active = ?' , '1' )
-//                ->query()
-//        ;
-        return $this->fetchRow( 'id = ' . $id );
-        }
+//    public function getFindId( $id )
+//        {
+////        $db = $this->getAdapter();
+////        $query = $db->select()
+////                ->from( $this->_name )
+////                ->where( 'id = ?' , $id )
+////                ->where( 'active = ?' , '1' )
+////                ->query()
+////        ;
+//        return $this->fetchRow( 'id = ' . $id );
+//        }
 
     public function listar()
         {

@@ -13,5 +13,6 @@ class Mtt_Models_Table_Equipo extends Mtt_Db_Table_Abstract
     {
 
     protected $_name = 'equipo';
+     protected $_primary = 'id';
 
     }

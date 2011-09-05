@@ -10,8 +10,8 @@
  */
 class Mtt_Models_Table_TipoUsuario extends Mtt_Db_Table_Abstract {
     
-    protected $_name = 'tiposusuario';
-        
+    protected $_name = 'tipousuario';
+         protected $_primary = 'id';
   
 
 }

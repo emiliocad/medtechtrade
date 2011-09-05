@@ -4,53 +4,73 @@ class Admin_UserController extends Mtt_Controller_Action
     {
 
     protected $_user;
-    
 
     public function init()
         {
         parent::init();
         $this->_user = new Mtt_Models_Bussines_Usuario();
-        
         }
 
     public function indexAction()
         {
-        
+        $this->view->assign(
+                'usuarios' , $this->_user->listar()
+        );
         }
 
     public function paginadoAction()
         {
-        $p = $this->_usuario->getPaginator();
+        $p = $this->_user->getPaginator();
+
         $p->setCurrentPageNumber( $this->_getParam( 'page' , 1 ) );
-        $this->view->usuarios = $p;
+        $this->view->assign( 'usuarios' , $p );
         }
 
     public function editarAction()
         {
-        $p = $this->_usuario->getPaginator();
-        $p->setCurrentPageNumber( $this->_getParam( 'page' , 1 ) );
-        $this->view->usuarios = $p;
+        $id = intval( $this->_getParam( 'id' ) );
+
+        $form = new Mtt_Form_Usuario();
+        $form->removeElement( 'clave_2' );
+        $form->submit->setLabel( 'Actualizar' );
+        $usuario = $this->_user->getFindId( $id );
+
+        if ( !is_null( $usuario ) )
+            {
+            if ( $this->_request->isPost() && $form->isValid( $this->_request->getPost() ) )
+                {
+                $this->_fabricante->updateFabricante( $form->getValues() , $id );
+                $this->_helper->FlashMessenger( 'Se modificó un Usuario' );
+                $this->_redirect( $this->URL );
+                }
+            $form->setDefaults( $usuario->toArray() );
+            $this->view->assign( 'form' , $form );
+            } else
+            {
+            $this->_helper->FlashMessenger( 'No existe el Usuario' );
+            $this->_redirect( $this->URL );
+            }
         }
 
     public function borrarAction()
         {
-        $p = $this->_usuario->getPaginator();
-        $p->setCurrentPageNumber( $this->_getParam( 'page' , 1 ) );
-        $this->view->usuarios = $p;
+        $id = intval( $this->_request->getParam( 'id' ) );
+        $this->_user->deleteUsuario( $id );
+        $this->_helper->FlashMessenger( 'Usuario Desactivado' );
+        $this->_redirect( $this->URL );
         }
-
-   
 
     public function nuevoAction()
         {
-        $form = new Mtt_Form_Categoria();
-        if ( $this->_request->isPost() && $form->isValid( $this->_request->getPost() ) )
+        $form = new Mtt_Form_Usuario();
+        if ( $this->_request->isPost() &&
+                $form->isValid( $this->_request->getPost() ) )
             {
-            $categoria = $form->getValues();
+            $user = $form->getValues();
 
-            $this->_user->insert( $categoria );
+            $this->_user->saveUsuario( $user );
 
-            $this->_helper->FlashMessenger( 'Se Registro La Categoria' );
+            $this->_helper->FlashMessenger( 'Se Registro el Usuario' );
             $this->_redirect( $this->URL );
             }
         $this->view->assign( 'frmRegistrar' , $form );
@@ -58,11 +78,10 @@ class Admin_UserController extends Mtt_Controller_Action
 
     public function verAction()
         {
-        $id = $this->_getParam( 'id' , null );
+        $id = intval( $this->_getParam( 'id' , null ) );
         $stmt = $this->_user->getCategoria( $id );
         $this->view->assign( 'categoria' , $stmt );
         }
 
     }
 
-?>

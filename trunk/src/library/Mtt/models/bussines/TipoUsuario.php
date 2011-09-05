@@ -7,7 +7,7 @@
 
 class Mtt_Models_Bussines_TipoUsuario extends Mtt_Models_Table_TipoUsuario
     {
-
+    
     public function getComboValues()
         {
         $filas = $this->fetchAll( 'active=1' )->toArray();

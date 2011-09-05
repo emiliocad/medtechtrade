@@ -4,13 +4,11 @@ class Admin_ProductoController extends Mtt_Controller_Action
     {
 
     protected $_producto;
-    
 
     public function init()
         {
         parent::init();
         $this->_producto = new Mtt_Models_Bussines_Producto();
-        
         }
 
     public function indexAction()
@@ -43,11 +41,10 @@ class Admin_ProductoController extends Mtt_Controller_Action
 
     public function verAction()
         {
-        $id = $this->_getParam( 'id' , null );
+        $id = intval( $this->_getParam( 'id' , null ) );
         $stmt = $this->_producto->getCategoria( $id );
         $this->view->assign( 'categoria' , $stmt );
         }
 
     }
 
-?>

@@ -30,7 +30,7 @@ class Admin_FabricanteController extends Mtt_Controller_Action
 
             $fabricante = $form->getValues();
 
-            $this->_fabricante->insert( $fabricante );
+            $this->_fabricante->saveFabricante( $fabricante );
 
             $this->_helper->FlashMessenger( 'Se Registro El Fabricante' );
             $this->_redirect( $this->URL );
@@ -40,13 +40,13 @@ class Admin_FabricanteController extends Mtt_Controller_Action
 
     public function editarAction()
         {
-        
-        $id = $this->_getParam( 'id' );
+
+        $id = intval( $this->_getParam( 'id' ) );
 
         $form = new Mtt_Form_Fabricante();
-        
+
         $fabricante = $this->_fabricante->getFindId( $id );
-        
+
         if ( !is_null( $fabricante ) )
             {
             if ( $this->_request->isPost() && $form->isValid( $this->_request->getPost() ) )
@@ -66,15 +66,15 @@ class Admin_FabricanteController extends Mtt_Controller_Action
 
     public function borrarAction()
         {
-        $id = $this->_request->getParam( 'id' );
-        $this->_fabricante->delete( 'id=' . $id );
+        $id = intval( $this->_request->getParam( 'id' ) );
+        $this->_fabricante->deleteFabricate( $id );
         $this->_helper->FlashMessenger( 'Fabricante borrado' );
         $this->_redirect( $this->URL );
         }
 
     public function activarAction()
         {
-        $id = $this->_request->getParam( 'id' );
+        $id = intval( $this->_request->getParam( 'id' ) );
         $this->_fabricante->update( array( 'active' => 1 ) , 'id=' . $id );
         $this->_helper->FlashMessenger( 'Fabricante activado' );
         $this->_redirect( $this->URL );
@@ -82,7 +82,7 @@ class Admin_FabricanteController extends Mtt_Controller_Action
 
     public function desactivarAction()
         {
-        $id = $this->_request->getParam( 'id' );
+        $id = intval( $this->_request->getParam( 'id' ) );
         $this->_fabricante->update( array( 'active' => 0 ) , 'id=' . $id );
         $this->_helper->FlashMessenger( 'Fabricante desactivado' );
         $this->_redirect( $this->URL );
@@ -90,4 +90,3 @@ class Admin_FabricanteController extends Mtt_Controller_Action
 
     }
 
-?>

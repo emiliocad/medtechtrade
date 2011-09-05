@@ -1,20 +1,18 @@
 <?php
 
-class Mtt_Models_Bussines_Usuario extends Mtt_Models_Table_Usuario
+class Mtt_Models_Bussines_Usuario
+        extends Mtt_Models_Table_Usuario
     {
     const PASSWPRD_SALT = "asdw452112355";
+
 
     public function auth( $login , $pwd )
         {
 
         $db = Zend_Db_Table_Abstract::getDefaultAdapter();
-        //$authAdapter = new Zend_Auth_Adapter_DbTable($db);
         $authAdapter = new Mtt_Auth_Adapter_DbTable_Mtt( $db );
-        //$authAdapter->setTableName('usuario');
-        //$authAdapter->setIdentityColumn('login');
-        //$authAdapter->setCredentialColumn('pwd');
+
         $authAdapter->setIdentity( $login );
-        //$authAdapter->setCredentialTreatment('MD5(?)');
         $authAdapter->setCredential( $pwd );
 
         $auth = Zend_Auth::getInstance();
@@ -23,32 +21,112 @@ class Mtt_Models_Bussines_Usuario extends Mtt_Models_Table_Usuario
 
         $isValid = $result->isValid();
 
-        if ( $isValid )
+        if( $isValid )
             {
             $authStorage = $auth->getStorage();
 
             $authStorage->write( array(
                 'usuario' => $authAdapter->getResultRowObject( null , 'clave' ) ,
-                'loginAt' => date( 'Y-m-d H:i:s' )
+                'loginAt' => date( 'Y-m-d H:i:s' ) ,
+                'rol' => 'admin'
             ) );
             }
 
 
         return $isValid;
+
         }
+
 
     public function getPaginator()
         {
         $p = Zend_Paginator::factory( $this->fetchAll() );
         $p->setItemCountPerPage( 3 );
         return $p;
+
         }
 
-    public function fetchs()
+
+    public function listar()
         {
+
+//        $select = new Zend_Db_Select( Zend_Registry::get( 'default' ) );
+//        $select->from( 'users' ,
+//                       array( 'id' , 'name' , 'lastname' , 'username' , 'mail' ) );
+//        $select->joinInner( 'type' , 'type.id=users.type_id' ,
+//                            array( 'type.description as types' ) );
+//        $result = $select->query()->fetchAll();
+//
+//        return $result;
+
         $db = $this->getAdapter();
-        $db->select()->from();
-        return $db->fetchPairs();
+        $query = $db->select()
+                ->from( $this->_name ,
+                        array(
+                    'id' ,
+                    'nombre' ,
+                    'apellido' ,
+                    'email' ,
+                    'login' ,
+                    'fecharegistro' ,
+                    'direccion' ,
+                    'codpostal' ,
+                    'ciudad' ,
+                    'institucion' ,
+                    'active'
+                ) )
+                ->joinInner( 'tipousuario' ,
+                             'tipousuario.id = usuario.tipousuario_id' ,
+                             array( 'tipousuario.nombre as rol' ) )
+                ->joinInner( 'paises' , 'paises.id = usuario.paises_id' ,
+                             array( 'paises.nombre as pais' ) )
+                ->where( 'usuario.active = ?' , '1' )
+                ->query()
+        ;
+
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+
         }
+
+
+    public function updateUsuario( array $data , $id )
+        {
+
+        $this->update( $data , 'id = ' . $id );
+
+        }
+
+
+    public function saveUsuario( array $data )
+        {
+
+        $this->insert( $data );
+
+        }
+
+
+    public function deleteUsuario( $id )
+        {
+
+        $this->delete( 'id = ?' , $id );
+
+        }
+
+
+    public function activarUsuario( $id )
+        {
+
+        $this->update( array( "active" => self::ACTIVE ) , 'id = ' . $id );
+
+        }
+
+
+    public function desactivarUsuario( $id )
+        {
+
+        $this->update( array( "active" => self::DESACTIVATE ) , 'id = ' . $id );
+
+        }
+
 
     }

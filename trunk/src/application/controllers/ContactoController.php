@@ -18,4 +18,3 @@ class ContactoController extends Mtt_Controller_Action
     
     }
 
-?>

@@ -43,26 +43,33 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
                 ->uiEnable();
         }
 
+    public function _initJs()
+        {
+        $this->bootstrap( 'layout' );
+        $layout = $this->getResource( 'layout' );
+        $view = $layout->getView();
+        $view->headScript()->appendFile( 'https://apis.google.com/js/plusone.js' );
+        }
+
     protected function _initActionHelpers()
         {
         Zend_Controller_Action_HelperBroker::addHelper(
                 new Mtt_Controller_Action_Helper_Auth()
         );
 
-//        Zend_Controller_Action_HelperBroker::addHelper(
-//                new Mtt_Controller_Action_Helper_MyFlashMessenger()
-//        );
+        Zend_Controller_Action_HelperBroker::addHelper(
+                new Mtt_Controller_Action_Helper_MyFlashMessenger()
+        );
         }
 
-    protected function _initPlugins()
-        {
-        /*Revisar Informacion*/
-        $this->bootstrap( 'frontController' );
-
-        $plugin = new Mtt_Controller_Plugin_Layout();
-        $this->frontController->registerPlugin( $plugin );
-        
-        }
+//    protected function _initPlugins()
+//        {
+//        /* Revisar Informacion */
+//        $this->bootstrap( 'frontController' );
+//
+//        $plugin = new Mtt_Controller_Plugin_Layout();
+//        $this->frontController->registerPlugin( $plugin );
+//        }
 
     protected function _initZFDebug()
         {

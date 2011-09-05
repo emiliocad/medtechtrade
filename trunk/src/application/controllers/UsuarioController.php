@@ -76,4 +76,3 @@ class UsuarioController extends Mtt_Controller_Action
 
     }
 
-?>

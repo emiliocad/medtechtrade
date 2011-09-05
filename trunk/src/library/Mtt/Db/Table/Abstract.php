@@ -5,9 +5,18 @@
  * and open the template in the editor.
  */
 
-class Mtt_Db_Table_Abstract extends Zend_Db_Table_Abstract
+class Mtt_Db_Table_Abstract
+        extends Zend_Db_Table_Abstract
     {
     const ACTIVE = 1;
     const DESACTIVATE = 0;
-    
+
+ public function getFindId( $id )
+        {
+        return $this->fetchRow( $this->_primary .  ' = ' . $id );
+
+        }
+   
+
+
     }

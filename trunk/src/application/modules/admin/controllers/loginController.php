@@ -31,4 +31,10 @@ class Admin_LoginController extends Mtt_Controller_Action
         $this->view->assign( 'form' , $form );
         }
 
+    public function logoutAction()
+        {
+        Zend_Auth::getInstance()->clearIdentity();
+        $this->_redirect( '/' );
+        }
+
     }

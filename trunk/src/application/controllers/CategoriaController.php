@@ -15,9 +15,14 @@ class CategoriaController extends Mtt_Controller_Action
 
     public function indexAction()
         {
-        $id = $this->_getParam( 'id' , null );
-        $stmt = $this->_categoria->getCategoria( $id );
-        $this->view->assign( 'categoria' , $stmt );
+        $id = intval( $this->_getParam( 'id' , null ) );
+
+        $stmt = $this->_categoria->getProducts( $id );
+
+        $this->view->assign( 'productos' , $stmt );
+
+        $stmtCategoria = $this->_categoria->getCategoria( $id );
+        $this->view->assign( 'categoria' , $stmtCategoria );
         }
 
     public function paginadoAction()
@@ -27,4 +32,3 @@ class CategoriaController extends Mtt_Controller_Action
 
     }
 
-?>

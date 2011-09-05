@@ -52,4 +52,3 @@ class ApiController extends Mtt_Controller_Action
 
     }
 
-?>
