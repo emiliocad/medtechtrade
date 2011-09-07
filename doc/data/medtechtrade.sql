@@ -199,9 +199,11 @@ CREATE TABLE `fabricantes` (
   `nombre` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
   `active` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `fabricantes` */
+
+insert  into `fabricantes`(`id`,`nombre`,`active`) values (2,'Samsung',1),(4,'fabricante',0);
 
 /*Table structure for table `formaenvio` */
 
