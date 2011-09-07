@@ -1,86 +1,92 @@
-<?= $this->doctype(); ?>
-<html>
+<!doctype html>
+<html lang="en">
+
     <head>
-        <?= $this->headMeta() ?>        
+
+        <meta charset="utf-8" />
+
         <?= $this->headTitle() ?> 
         <link href="/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- 1140px Grid styles for IE -->
+        <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/theme/admin/css/ie.css" type="text/css" media="screen" />
+        <![endif]-->
+        <?
+        $this->headLink()->appendStylesheet( '/theme/admin/css/1140.css' )
+                ->appendStylesheet( '/theme/admin/css/styles.css' );
+        ?>
         <?= $this->headLink() ?>        
-        <?= $this->jQuery() ?>        
-        <?= $this->headScript() ?> 
+        <?= $this->jQuery() ?>  
+        <?= $this->headScript()
+                ->appendFile( '/theme/admin/js/css3-mediaqueries.js' ); ?> 
+
+
+        <!--Delete embedded styles, just for example.-->
+        <style type="text/css">
+
+            body {
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            }
+
+            .container p {
+                color: #fff;
+                line-height: 100px;
+                background: #000;
+                text-align: center;
+                margin: 20px 0 0 0;
+            }
+
+        </style>
+
     </head>
+
+
     <body>
-        <div id="wrap-top" class="wrapper">
-            <div id="section-top" class="section">
-                <?= $this->render( '_header.phtml' ); ?>
-                <?= $this->render( '_navegacion.phtml' ); ?>
-            </div>
+
+        <div class="container header">
+            <?= $this->render( '_header.phtml' ) ?>
         </div>
-        <div id="wrap-middle" class="wrapper">
-            <div id="section-middle" class="section">
-                <div id="section-middle-categories">
-                    <?= $this->render( '_menucategories.phtml' ); ?>
-                    <div id="section-middle-list">
-                        <span id="section-middle-list-advice">
-                            We are looking<br/>for this used<br/>medical<br/>equipment:<br/></span>
-                        <br/>
-                        <a href="#"><span>Link to the list</span></a>
+
+        <div class="container nav">
+            <div class="row">
+                <div id="dolphincontainer">
+                    <div id="dolphinnav">
+                        <?= $this->render( '_navegacion.phtml' ); ?>
                     </div>
-                </div>
-                <div id="section-middle-body">
-
-                    <?= $this->render( '_messages.phtml' ); ?>
-
-                    <?= $this->layout()->content ?>
-
                 </div>
             </div>
         </div>
-        <div id="wrap-bottom" class="wrapper">
-            <div id="section-bottom" class="section">
-                <div id="section-bottom-footer">
-                    <div id="section-bottom-buttons">
-                        <ul>
-                            <li><span><a href="#">Home</a></span></li>
-                            <li><span>|</span></li>
-                            <li><span><a href="#">GTC</a></span></li>
-                            <li><span>|</span></li>
-                            <li><span><a href="#">About Us</a></span></li>
-                        </ul>
-                    </div>
-                    <div id="section-botttom-copyright">
-                        <p>&copy; 2011 MedTechTrade AG, All Rights Reserved</p>
-                        <p>Powered by Stocker Group S.A.</p>
-                    </div>
+
+        <div class="container body">
+            <div class="row">
+
+
+                <div class="eightcol">
+                    <?=
+                    $this->render( '_messages.phtml' );
+                    ?>
+
+                    <?=
+                    $this->layout()->content
+                    ?>
                 </div>
-                <div id="section-bottom-country-chile" class="bottom-country">
-                    <h4>Oficinas Chile:</h4>
-                    <p>MedTechTrade Chile</p>
-                    <p>Monte Carmelo 37</p>
-                    <p>Providencia</p>
-                    <p>Santiago, Chile</p>
-                    <p>Fono: +56-2 710 5560</p>
-                    <p>contact-chile@medtechtrade.com</p>
+
+
+                <div class="fourcol last">
+                    Funciones de Mas solicitados
                 </div>
-                <div id="section-bottom-country-peru" class="bottom-country">
-                    <h4>Oficinas Per&uacute;:</h4>
-                    <p>MedTechTrade Per&uacute; S.A.C.</p>
-                    <p>Calle Juan Fanning 219</p>
-                    <p>Miraflores (Lima)</p>
-                    <p>Per&uacute;</p>
-                    <p>Tel: +51-1 446 6807</p>
-                    <p>contact-peru@medtechtrade.com</p>
-                </div>
-                <div id="section-bottom-country-switzerland" class="bottom-country">
-                    <h4>Office Schweiz:</h4>
-                    <p>MedTechTrade AG</p>
-                    <p>Bankstrasse 4</p>
-                    <p>CH-8610 Uster</p>
-                    <p>Switzerland</p>
-                    <p>Phone +41 43 399 01 11</p>
-                    <p>Fax: +41 44 905 19 29</p>
-                    <p>contact@medtechtrade.com</p>
-                </div>
+
             </div>
         </div>
+
+        <div class="container footer">
+            <div class="row">
+                <?= $this->render( '_footer.phtml' ); ?>
+            </div>
+        </div>
+
     </body>
+
 </html>
+

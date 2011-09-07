@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Medtechtrade\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-05 10:33-0500\n"
-"PO-Revision-Date: 2011-09-05 10:33-0500\n"
+"POT-Creation-Date: 2011-09-07 12:19-0500\n"
+"PO-Revision-Date: 2011-09-07 12:22-0500\n"
 "Last-Translator: Luis Mayta <slovacus@gmail.com>\n"
 "Language-Team: Stockergroup Peru\n"
 "MIME-Version: 1.0\n"
@@ -16,9 +16,18 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-SearchPath-0: .\n"
 
+#: layouts/scripts/_footer.phtml:9
 #: layouts/scripts/_navegacion.phtml:9
 msgid "home"
 msgstr "Inicio"
+
+#: layouts/scripts/_footer.phtml:26
+msgid "About Us"
+msgstr "Acerca de Nosotros"
+
+#: layouts/scripts/_footer.phtml:35
+msgid "Powered by Stocker Group S.A."
+msgstr "Desarrollado por Stocker Group S.A"
 
 #: layouts/scripts/_navegacion.phtml:22
 msgid "buy equipment"
@@ -40,12 +49,57 @@ msgstr "Contactenos"
 msgid "my account"
 msgstr "Mi Cuenta"
 
+#: modules/admin/layouts/scripts/_header.phtml:14
+msgid "Welcome"
+msgstr "Bienvenido"
+
+#: modules/admin/layouts/scripts/_header.phtml:17
+msgid "Date"
+msgstr "Fecha"
+
+#: modules/admin/layouts/scripts/_header.phtml:27
+#: modules/admin/layouts/scripts/old/layout.phtml:33
+msgid "Logout"
+msgstr "Salir"
+
+#: modules/admin/layouts/scripts/_navegacion.phtml:12
+msgid "Config"
+msgstr "Configuracion"
+
+#: modules/admin/layouts/scripts/_navegacion.phtml:29
+msgid "Manufacturers"
+msgstr "Fabricante"
+
+#: modules/admin/layouts/scripts/_navegacion.phtml:45
+msgid "Category"
+msgstr "Categoria"
+
+#: modules/admin/layouts/scripts/_navegacion.phtml:61
+msgid "Currency"
+msgstr "Moneda"
+
+#: modules/admin/layouts/scripts/_navegacion.phtml:77
+msgid "User"
+msgstr "Usuario"
+
+#: modules/admin/layouts/scripts/_navegacion.phtml:93
+msgid "Equipment"
+msgstr "Equipos"
+
+#: modules/admin/layouts/scripts/old/_menu_options.phtml:3
+msgid "Go to"
+msgstr "Ir a"
+
+#: modules/admin/layouts/scripts/old/_navegacion.phtml:12
+#: modules/admin/layouts/scripts/old/_navegacion.phtml:23
+msgid "Administration"
+msgstr "Administracion"
+
 #: views/scripts/categoria/index.phtml:19
 msgid "Manufacturer"
 msgstr "Fabricante"
 
 #: views/scripts/categoria/index.phtml:23
-#: views/scripts/producto/ver.phtml:36
 msgid "Product name"
 msgstr "Nombre Equipo"
 
@@ -57,6 +111,10 @@ msgstr "Ver Detalles"
 msgid "welcome"
 msgstr "Bienvenido"
 
+#: views/scripts/index/index.phtml:13
+msgid "Top Offers"
+msgstr ""
+
 #: views/scripts/producto/ver.phtml:9
 #, fuzzy
 msgid "Buy Equipment"
@@ -64,11 +122,11 @@ msgstr "Comprar Equipos"
 
 #: views/scripts/producto/ver.phtml:33
 msgid "Advanced Search"
-msgstr ""
+msgstr "Busqueda Avanzada"
 
 #: views/scripts/producto/ver.phtml:40
 msgid "Model"
-msgstr ""
+msgstr "Modelo"
 
 #: views/scripts/producto/ver.phtml:44
 msgid "Origin"
@@ -76,7 +134,7 @@ msgstr ""
 
 #: views/scripts/producto/ver.phtml:48
 msgid "Article ID"
-msgstr ""
+msgstr "Articulo ID"
 
 #: views/scripts/producto/ver.phtml:52
 msgid "Date/Year of manufacture"
@@ -96,11 +154,11 @@ msgstr ""
 
 #: views/scripts/producto/ver.phtml:68
 msgid "Description"
-msgstr ""
+msgstr "Descripcion"
 
 #: views/scripts/producto/ver.phtml:73
 msgid "Specifications"
-msgstr ""
+msgstr "Especificaciones"
 
 #: views/scripts/producto/ver.phtml:75
 msgid "Temperature Range"
@@ -128,11 +186,11 @@ msgstr ""
 
 #: views/scripts/producto/ver.phtml:86
 msgid "Download PDF"
-msgstr ""
+msgstr "Desacargar Como PDF"
 
 #: views/scripts/producto/ver.phtml:87
 msgid "Print"
-msgstr ""
+msgstr "Imprimir"
 
 #: views/scripts/producto/ver.phtml:88
 msgid "Ask a Question"
@@ -140,9 +198,12 @@ msgstr ""
 
 #: views/scripts/producto/ver.phtml:89
 msgid "I Need Help"
-msgstr ""
+msgstr "Necesitas Ayuda"
 
 #: views/scripts/producto/ver.phtml:90
 msgid "Tell a Friend"
 msgstr ""
 
+#, fuzzy
+#~ msgid "logout"
+#~ msgstr "Salir"

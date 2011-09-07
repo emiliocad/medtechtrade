@@ -4,10 +4,14 @@
         <?= $this->headMeta() ?>        
         <?= $this->headTitle() ?> 
         <link href="/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        <?= $this->headLink() ?>        
-        <?= $this->jQuery() ?>
-         <?= $this->headScript() ?> 
+        <?= $this->headLink()->prependStylesheet( '/theme/default/css/reset.css' )
+                ->headLink()->appendStylesheet( '/theme/default/css/default.css' ) ?> 
         
+        <?= $this->headLink(); ?>
+        <?= $this->jQuery() ?>
+        <?= $this->headScript()->appendFile( 'https://apis.google.com/js/plusone.js' ); ?> 
+        <?= $this->headScript() ?> 
+
     </head>
     <body>
         <?= $this->render( '_redes.phtml' ); ?>
@@ -37,52 +41,6 @@
                 </div>
             </div>
         </div>
-        <div id="wrap-bottom" class="wrapper">
-            <div id="section-bottom" class="section">
-                <div id="section-bottom-footer">
-                    <div id="section-bottom-buttons">
-                        <ul>
-                            <li><span><a href="#">Home</a></span></li>
-                            <li><span>|</span></li>
-                            <li><span><a href="#">GTC</a></span></li>
-                            <li><span>|</span></li>
-                            <li><span><a href="#">About Us</a></span></li>
-                        </ul>
-                    </div>
-                    <div id="section-botttom-copyright">
-                        <p>&copy; 2011 MedTechTrade AG, All Rights Reserved</p>
-                        <p>Powered by Stocker Group S.A.</p>
-                    </div>
-                </div>
-                <div id="section-bottom-country-chile" class="bottom-country">
-                    <h4>Oficinas Chile:</h4>
-                    <p>MedTechTrade Chile</p>
-                    <p>Monte Carmelo 37</p>
-                    <p>Providencia</p>
-                    <p>Santiago, Chile</p>
-                    <p>Fono: +56-2 710 5560</p>
-                    <p>contact-chile@medtechtrade.com</p>
-                </div>
-                <div id="section-bottom-country-peru" class="bottom-country">
-                    <h4>Oficinas Per&uacute;:</h4>
-                    <p>MedTechTrade Per&uacute; S.A.C.</p>
-                    <p>Calle Juan Fanning 219</p>
-                    <p>Miraflores (Lima)</p>
-                    <p>Per&uacute;</p>
-                    <p>Tel: +51-1 446 6807</p>
-                    <p>contact-peru@medtechtrade.com</p>
-                </div>
-                <div id="section-bottom-country-switzerland" class="bottom-country">
-                    <h4>Office Schweiz:</h4>
-                    <p>MedTechTrade AG</p>
-                    <p>Bankstrasse 4</p>
-                    <p>CH-8610 Uster</p>
-                    <p>Switzerland</p>
-                    <p>Phone +41 43 399 01 11</p>
-                    <p>Fax: +41 44 905 19 29</p>
-                    <p>contact@medtechtrade.com</p>
-                </div>
-            </div>
-        </div>
+        <?= $this->render( '_footer.phtml' ) ?>
     </body>
 </html>

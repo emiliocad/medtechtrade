@@ -1,27 +1,35 @@
-<div id="logo-top">
-    <img src="/images/logo-top.png">
-</div>
-<div id="lang-selection-top">
-    <!-- Get by PHP function -->
-    <a href="#">English</a> |
-    <a href="#">Espa&ntilde;ol</a> |
-    <a href="#">Deutsch</a>
-</div>
-<div>
-    Bienvenido <?= Zend_Auth::getInstance()->hasIdentity()
-                    ? $this->authUser : 'Visitante' ?>
+<div class="row">
+    <div class="fourcol">
 
-    <? if( Zend_Auth::getInstance()->hasIdentity() ): ?>
-        <a href="<?=
-    $this->url( array( 'action' => 'logout' , 'controller' => 'test' ) , null ,
-                true )
+        <img src="/theme/default/image/logo-top.png" alt="Medtechtrade" />
 
-        ?>">Logout</a>
-       <?php else: ?>
-        <a href="<?=
-       $this->url( array( 'action' => 'index' , 'controller' => 'usuario' ) ,
-                   null , true )
+    </div>   
+    <div class="eightcol last">
 
-           ?>">Login</a> |
-       <? endif; ?>
+        <ul id="nav-admin">
+            <li>
+                Buscar: "Caja de Busqueda"
+            </li>
+            <li>
+                <?= $this->translate( 'Welcome' ) ?>  :  <?= $this->authUser ?>
+            </li>
+            <li>
+                <?= $this->translate( 'Date' ) ?>:  <?= Zend_Date::now() ?>
+            </li>
+            <li>
+                <a href="<?=
+                $this->Url(
+                        array( 'module' => 'admin' ,
+                            'controller' => 'login' ,
+                            'action' => 'logout' )
+                )
+                ?>">
+                       <?= $this->translate( 'Logout' ) ?>
+                </a>
+            </li>
+
+        </ul>
+
+    </div>   
+
 </div>

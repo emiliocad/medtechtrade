@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: medtechtrade\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-05 10:32-0500\n"
-"PO-Revision-Date: 2011-09-05 10:32-0500\n"
+"POT-Creation-Date: 2011-09-07 12:19-0500\n"
+"PO-Revision-Date: 2011-09-07 12:19-0500\n"
 "Last-Translator: Luis Mayta <slovacus@gmail.com>\n"
 "Language-Team: Stockergroup Peru <slovacus@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -16,9 +16,18 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-SearchPath-0: .\n"
 
+#: layouts/scripts/_footer.phtml:9
 #: layouts/scripts/_navegacion.phtml:9
 msgid "home"
 msgstr "Home"
+
+#: layouts/scripts/_footer.phtml:26
+msgid "About Us"
+msgstr ""
+
+#: layouts/scripts/_footer.phtml:35
+msgid "Powered by Stocker Group S.A."
+msgstr ""
 
 #: layouts/scripts/_navegacion.phtml:22
 msgid "buy equipment"
@@ -40,12 +49,58 @@ msgstr "Kontakt"
 msgid "my account"
 msgstr "Mein Account"
 
+#: modules/admin/layouts/scripts/_header.phtml:14
+msgid "Welcome"
+msgstr ""
+
+#: modules/admin/layouts/scripts/_header.phtml:17
+msgid "Date"
+msgstr ""
+
+#: modules/admin/layouts/scripts/_header.phtml:27
+#: modules/admin/layouts/scripts/old/layout.phtml:33
+msgid "Logout"
+msgstr ""
+
+#: modules/admin/layouts/scripts/_navegacion.phtml:12
+msgid "Config"
+msgstr ""
+
+#: modules/admin/layouts/scripts/_navegacion.phtml:29
+msgid "Manufacturers"
+msgstr ""
+
+#: modules/admin/layouts/scripts/_navegacion.phtml:45
+msgid "Category"
+msgstr ""
+
+#: modules/admin/layouts/scripts/_navegacion.phtml:61
+msgid "Currency"
+msgstr ""
+
+#: modules/admin/layouts/scripts/_navegacion.phtml:77
+msgid "User"
+msgstr ""
+
+#: modules/admin/layouts/scripts/_navegacion.phtml:93
+#, fuzzy
+msgid "Equipment"
+msgstr "Medizintechnik kaufen"
+
+#: modules/admin/layouts/scripts/old/_menu_options.phtml:3
+msgid "Go to"
+msgstr ""
+
+#: modules/admin/layouts/scripts/old/_navegacion.phtml:12
+#: modules/admin/layouts/scripts/old/_navegacion.phtml:23
+msgid "Administration"
+msgstr ""
+
 #: views/scripts/categoria/index.phtml:19
 msgid "Manufacturer"
 msgstr ""
 
 #: views/scripts/categoria/index.phtml:23
-#: views/scripts/producto/ver.phtml:36
 msgid "Product name"
 msgstr ""
 
@@ -55,6 +110,10 @@ msgstr ""
 
 #: views/scripts/index/index.phtml:2
 msgid "welcome"
+msgstr ""
+
+#: views/scripts/index/index.phtml:13
+msgid "Top Offers"
 msgstr ""
 
 #: views/scripts/producto/ver.phtml:9

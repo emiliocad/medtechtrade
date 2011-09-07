@@ -18,9 +18,15 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
                 ->headTitle( 'Desarrollo' )
                 ->setSeparator( ' - ' );
 
-        $view->headLink()->prependStylesheet( '/css/reset.css' )
-                ->headLink()->appendStylesheet( '/css/default.css' );
-
+        /* solo para el Modulo Default */
+        $this->bootstrap( 'frontController' );
+        $frontController = $this->getResource( 'frontController' );
+        //TODO
+//        $view->assign('frontController',$frontController);
+        
+//        $view->headLink()->prependStylesheet( '/theme/default/css/reset.css' )
+//                ->headLink()->appendStylesheet( '/theme/default/css/default.css' );
+//        /* end Deafult */
 
         $view->headMeta()->appendHttpEquiv( 'Content-Type' , 'text/html; charset=UTF-8' );
 
@@ -43,13 +49,13 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
                 ->uiEnable();
         }
 
-    public function _initJs()
-        {
-        $this->bootstrap( 'layout' );
-        $layout = $this->getResource( 'layout' );
-        $view = $layout->getView();
-        $view->headScript()->appendFile( 'https://apis.google.com/js/plusone.js' );
-        }
+//    public function _initJs()
+//        {
+//        $this->bootstrap( 'layout' );
+//        $layout = $this->getResource( 'layout' );
+//        $view = $layout->getView();
+//        $view->headScript()->appendFile( 'https://apis.google.com/js/plusone.js' );
+//        }
 
     protected function _initActionHelpers()
         {
@@ -62,22 +68,10 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         );
         }
 
-//    protected function _initPlugins()
-//        {
-//        /* Revisar Informacion */
-//        $this->bootstrap( 'frontController' );
-//
-//        $plugin = new Mtt_Controller_Plugin_Layout();
-//        $this->frontController->registerPlugin( $plugin );
-//        }
-
     protected function _initZFDebug()
         {
         if ( 'development' == APPLICATION_ENV )
             {
-//            $autoloader = Zend_Loader_Autoloader::getInstance();
-//            $autoloader->registerNamespace( 'ZFDebug' );
-
             $options = array(
                 'plugins' => array( 'Variables' ,
                     'File' => array( 'base_path' => APPLICATION_PATH ) ,
