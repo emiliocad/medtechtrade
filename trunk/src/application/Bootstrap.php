@@ -23,7 +23,6 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $frontController = $this->getResource( 'frontController' );
         //TODO
 //        $view->assign('frontController',$frontController);
-        
 //        $view->headLink()->prependStylesheet( '/theme/default/css/reset.css' )
 //                ->headLink()->appendStylesheet( '/theme/default/css/default.css' );
 //        /* end Deafult */
@@ -66,6 +65,11 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         Zend_Controller_Action_HelperBroker::addHelper(
                 new Mtt_Controller_Action_Helper_MyFlashMessenger()
         );
+        }
+
+    protected function _initSession()
+        {
+        Zend_Session::start();
         }
 
     protected function _initZFDebug()

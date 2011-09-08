@@ -1,38 +1,36 @@
 <?php
 
-class Mtt_Controller_Plugin_LangSelector
-        extends Zend_Controller_Plugin_Abstract
+class Mtt_Controller_Plugin_LangSelector extends Zend_Controller_Plugin_Abstract
     {
-
 
     public function preDispatch( Zend_Controller_Request_Abstract $request )
         {
-        $zl = new Zend_Locale();
-
-        $lang = $zl->getLanguage();
+        parent::preDispatch( $request );
         
-        if( $lang !== 'en' && $lang !== 'de' && $lang !== 'es' )
-               $lang = 'en';
+        $mtt = new Zend_Session_Namespace( 'MTT' );
 
-//        //$lang = $request->getParam( 'lang' );
-//        if( $lang == 'en' ) $locale = 'en';
-//        else $locale = 'fr';
-
-
-        $zl->setLocale( $lang );
         
-        Zend_Registry::set( 'Zend_Locale' , $zl );
+        
+        if ( !isset( $mtt->lang ) && $mtt->lang === NULL )
+            {
+            $zl = new Zend_Locale();
+            $mtt->lang = $zl->getLanguage();
+            }
+
+        if ( $mtt->lang !== 'en' && $mtt->lang !== 'de' && $mtt->lang !== 'es' )
+            {
+            $mtt->lang = 'en';
+            }
+
 
         $translate = new Zend_Translate(
                         Zend_Translate::AN_GETTEXT ,
                         APPLICATION_PATH . '/configs/locale/' ,
-                        null ,
+                        $mtt->lang ,
                         array( 'scan' => Zend_Translate::LOCALE_FILENAME ) ,
-                        $lang );
-        
+                        $mtt->lang );
+
         Zend_Registry::set( 'Zend_Translate' , $translate );
-
         }
-
 
     }

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Medtechtrade\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-07 12:19-0500\n"
-"PO-Revision-Date: 2011-09-07 12:22-0500\n"
+"POT-Creation-Date: 2011-09-07 19:54-0500\n"
+"PO-Revision-Date: 2011-09-07 19:54-0500\n"
 "Last-Translator: Luis Mayta <slovacus@gmail.com>\n"
 "Language-Team: Stockergroup Peru\n"
 "MIME-Version: 1.0\n"
@@ -28,6 +28,18 @@ msgstr "Acerca de Nosotros"
 #: layouts/scripts/_footer.phtml:35
 msgid "Powered by Stocker Group S.A."
 msgstr "Desarrollado por Stocker Group S.A"
+
+#: layouts/scripts/_header.phtml:15
+msgid "English"
+msgstr ""
+
+#: layouts/scripts/_header.phtml:25
+msgid "Español"
+msgstr ""
+
+#: layouts/scripts/_header.phtml:34
+msgid "Deuths"
+msgstr ""
 
 #: layouts/scripts/_navegacion.phtml:22
 msgid "buy equipment"
@@ -100,10 +112,15 @@ msgid "Manufacturer"
 msgstr "Fabricante"
 
 #: views/scripts/categoria/index.phtml:23
+#: views/scripts/producto/ver.phtml:36
 msgid "Product name"
 msgstr "Nombre Equipo"
 
 #: views/scripts/categoria/index.phtml:33
+#: views/scripts/index/index.phtml:23
+#: views/scripts/index/index.phtml:33
+#: views/scripts/index/index.phtml:43
+#: views/scripts/index/index.phtml:53
 msgid "View details"
 msgstr "Ver Detalles"
 

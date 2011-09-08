@@ -8,7 +8,7 @@ class UsuarioController extends Mtt_Controller_Action
 
     public function init()
         {
-
+        parent::init();
         $this->_usuario = new Mtt_Models_Bussines_Usuario();
         $this->URL = '/' . $this->getRequest()->getControllerName();
         parent::init();
@@ -22,7 +22,7 @@ class UsuarioController extends Mtt_Controller_Action
         if ( $this->_request->isPost() && $form->isValid( $this->_request->getPost() ) )
             {
             $login = $this->_request->getPost();
-            
+
             $_usuario = new Mtt_Models_Bussines_Usuario();
 
             $loginValido = $_usuario->auth( $form->getValue( "login" ) , $form->getValue( "clave" ) );

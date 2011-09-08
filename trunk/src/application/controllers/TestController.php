@@ -5,6 +5,7 @@ class TestController extends Mtt_Controller_Action
 
     public function init()
         {
+        parent::init();
         /* Initialize action controller here */
         }
 
