@@ -8,7 +8,7 @@ class Admin_FabricanteController extends Mtt_Controller_Action
     public function init()
         {
         parent::init();
-        $this->_fabricante = new Mtt_Models_Bussines_Fabricante();
+        $this->_fabricante = new Mtt_Models_Bussines_PublicacionEquipo();
         }
 
     public function indexAction()

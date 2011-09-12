@@ -1,26 +1,32 @@
 <?php
 
-class Mtt_View_Helper_Attribs extends Zend_View_Helper_HtmlElement
-{
 
-    public function attribs($attribs)
+class Mtt_View_Helper_Attribs
+        extends Zend_View_Helper_HtmlElement
     {
 
-        if (!is_array($attribs)) {
+
+    public function attribs( $attribs )
+        {
+
+        if ( !is_array( $attribs ) )
+            {
             return '';
-        }
+            }
 
         $attr = array_map(
-            function ($item) {
-                if (is_array($item)) {
-                    return implode(' ', $item);
-                }
-                return $item;
-            },
-            $attribs
+                function ($item)
+                    {
+                    if ( is_array( $item ) )
+                        {
+                        return implode( ' ' , $item );
+                        }
+                    return $item;
+                    } , $attribs
         );
 
-        return $this->_htmlAttribs($attr);
-    }
+        return $this->_htmlAttribs( $attr );
+        }
 
-}
+
+    }

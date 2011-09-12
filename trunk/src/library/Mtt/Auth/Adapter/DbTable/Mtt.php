@@ -1,16 +1,15 @@
 <?php
 
-/**
- * Personalizacion del DbTable Adapter de Zend_Auth
- * @author jodicio
- */
-class Mtt_Auth_Adapter_DbTable_Mtt extends Zend_Auth_Adapter_DbTable
+
+class Mtt_Auth_Adapter_DbTable_Mtt
+        extends Zend_Auth_Adapter_DbTable
     {
 
     protected $_identityColumn = 'login';
     protected $_credentialColumn = 'clave';
     protected $_where = 'active = 1';
     protected $_tableName = 'usuario';
+
 
     public function authenticate()
         {
@@ -35,6 +34,7 @@ class Mtt_Auth_Adapter_DbTable_Mtt extends Zend_Auth_Adapter_DbTable
         return $this->_authenticateValidateResult( $row );
         }
 
+
     /**
      * Genera contraseña
      * 
@@ -50,13 +50,15 @@ class Mtt_Auth_Adapter_DbTable_Mtt extends Zend_Auth_Adapter_DbTable
         if ( $algo == 'sha1' )
             {
             $passw = $algo . '$' . $salt . '$' . sha1( $salt . $rawPassword );
-            } else
+            }
+        else
             {
             $passw = $algo . '$' . $salt . '$' . md5( $salt . $rawPassword );
             }
 
         return $passw;
         }
+
 
     /**
      * Retorna true si el password es correcto
@@ -82,13 +84,15 @@ class Mtt_Auth_Adapter_DbTable_Mtt extends Zend_Auth_Adapter_DbTable
         if ( $algo == 'sha1' )
             {
             $credentialEnc = sha1( $salt . $rawPassword , false );
-            } else
+            }
+        else
             {
             $credentialEnc = md5( $salt . $rawPassword , false );
             }
 
         return $credentialEnc == $encPass;
         }
+
 
     }
 

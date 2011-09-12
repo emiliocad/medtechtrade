@@ -18,9 +18,7 @@ class Admin_CategoriaController extends Mtt_Controller_Action
 
     public function paginadoAction()
         {
-        $p = $this->_usuario->getPaginator();
-        $p->setCurrentPageNumber( $this->_getParam( 'page' , 1 ) );
-        $this->view->usuarios = $p;
+        
         }
 
     public function registrarAction()

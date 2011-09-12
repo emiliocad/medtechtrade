@@ -5,8 +5,11 @@
  * and open the template in the editor.
  */
 
-class Mtt_Models_Bussines_Moneda extends Mtt_Models_Table_Moneda
+
+class Mtt_Models_Bussines_Moneda
+        extends Mtt_Models_Table_Moneda
     {
+
 
     public function getComboValues()
         {
@@ -18,6 +21,7 @@ class Mtt_Models_Bussines_Moneda extends Mtt_Models_Table_Moneda
             }
         return $values;
         }
+
 
     public function getFindId( $id )
         {
@@ -31,6 +35,7 @@ class Mtt_Models_Bussines_Moneda extends Mtt_Models_Table_Moneda
         return $this->fetchRow( 'id = ' . $id );
         }
 
+
     public function listar()
         {
         $db = $this->getAdapter();
@@ -43,11 +48,13 @@ class Mtt_Models_Bussines_Moneda extends Mtt_Models_Table_Moneda
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
 
+
     public function updateFabricante( array $data , $id )
         {
 
         $this->update( $data , 'id = ' . $id );
         }
+
 
     public function saveFabricante( array $data )
         {
@@ -55,11 +62,13 @@ class Mtt_Models_Bussines_Moneda extends Mtt_Models_Table_Moneda
         $this->insert( $data );
         }
 
+
     public function deleteFabricante( $id )
         {
 
         $this->delete( 'id = ?' , $id );
         }
+
 
     public function activarFabricante( $id )
         {
@@ -67,10 +76,12 @@ class Mtt_Models_Bussines_Moneda extends Mtt_Models_Table_Moneda
         $this->update( array( "active" => self::ACTIVE ) , 'id = ' . $id );
         }
 
+
     public function desactivarFabricante( $id )
         {
 
         $this->update( array( "active" => self::DESACTIVATE ) , 'id = ' . $id );
         }
+
 
     }

@@ -1,12 +1,12 @@
-<ul>
+<ul id="topnav">
     <li>
         <a class="current" href="
-        <?=
-        $this->url( array(
-            'module' => 'admin' ,
-            'controller' => 'index' ,
-            'action' => 'index' ) , null , true )
-        ?>">
+           <?=
+           $this->url( array(
+               'module' => 'admin' ,
+               'controller' => 'index' ,
+               'action' => 'index' ) , null , true )
+           ?>">
             <span>
 
                 <?= $this->translate( 'Config' ); ?>
@@ -14,7 +14,25 @@
             </span>
 
         </a>
+        <?= $this->render( 'navegacion/_config.phtml' ); ?>
 
+    </li>
+    <li>
+        <a  href="
+        <?=
+        $this->url( array(
+            'module' => 'admin' ,
+            'controller' => 'equipo' ,
+            'action' => 'index' ) , null , true )
+        ?>">
+            <span>
+
+                <?= $this->translate( 'Equipment' ); ?>
+
+            </span>
+
+        </a>
+        <?= $this->render( 'navegacion/_equipment.phtml' ); ?>
     </li>
     <li>
         <a href="
@@ -75,22 +93,6 @@
             <span>
 
                 <?= $this->translate( 'User' ); ?>
-
-            </span>
-
-        </a>
-    </li>
-    <li>
-        <a  href="
-           <?=
-           $this->url( array(
-               'module' => 'admin' ,
-               'controller' => 'producto' ,
-               'action' => 'index' ) , null , true )
-           ?>">
-            <span>
-
-                <?= $this->translate( 'Equipment' ); ?>
 
             </span>
 

@@ -1,16 +1,19 @@
 <?php
 
-class Mtt_Controller_Plugin_LangSelector extends Zend_Controller_Plugin_Abstract
+
+class Mtt_Controller_Plugin_LangSelector
+        extends Zend_Controller_Plugin_Abstract
     {
+
 
     public function preDispatch( Zend_Controller_Request_Abstract $request )
         {
         parent::preDispatch( $request );
-        
+
         $mtt = new Zend_Session_Namespace( 'MTT' );
 
-        
-        
+
+
         if ( !isset( $mtt->lang ) && $mtt->lang === NULL )
             {
             $zl = new Zend_Locale();
@@ -32,5 +35,6 @@ class Mtt_Controller_Plugin_LangSelector extends Zend_Controller_Plugin_Abstract
 
         Zend_Registry::set( 'Zend_Translate' , $translate );
         }
+
 
     }

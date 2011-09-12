@@ -1,30 +1,34 @@
 <?php
-/* 
+
+/*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 
+
 /**
  *
  */
-class Mtt_Form_LoginCaptcha extends Mtt_Form_Login {
+class Mtt_Form_LoginCaptcha
+        extends Mtt_Form_Login
+    {
 
-    public function init(){
+
+    public function init()
+        {
         $this
-            ->setMethod('post')
-            ->setAttrib('id','frmLogin')
+                ->setMethod( 'post' )
+                ->setAttrib( 'id' , 'frmLogin' )
         ;
-        
+
         $e = new Zend_Form_Element_Captcha();
-        $this->addElement($e);
-        
-        
-        $e = $this->getElement('username');
+        $this->addElement( $e );
+
+
+        $e = $this->getElement( 'username' );
         $e->addValidator();
-        
-        
+        }
+
 
     }
 
-}
-?>

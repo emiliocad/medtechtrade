@@ -4,11 +4,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
-/**
- * Description of Categoria
- *
- */
+//TODO Crear Translate para Zend Form
 class Mtt_Form_Categoria
         extends Zend_Form
     {
@@ -27,7 +23,11 @@ class Mtt_Form_Categoria
         $nombre = new Zend_Form_Element_Text( 'nombre' );
         $nombre->setLabel( 'Nombre *:' );
         $nombre->setRequired();
-        $nombre->addValidator( new Zend_Validate_StringLength( array( 'min' => 2 , 'max' => 50 ) ) );
+        $nombre->addValidator(
+                new Zend_Validate_StringLength(
+                        array( 'min' => 2 ,
+                            'max' => 50 ) )
+        );
         $nombre->addValidator( new Zend_Validate_Alnum( true ) );
         $nombre->addValidator(
                 new Zend_Validate_Db_NoRecordExists(
@@ -47,7 +47,8 @@ class Mtt_Form_Categoria
 
         $thumbnail = new Zend_Form_Element_File( 'thumbnail' );
         $thumbnail->setLabel( 'Upload an image:' );
-        $thumbnail->setDestination( APPLICATION_PATH . '/../public/uploads/' );
+        $thumbnail->setDestination(
+                APPLICATION_PATH . '/../public/uploads/' );
         $f = new Zend_Filter_File_Rename( array( 'target' => '123.jpg' ) ); // Renombrar archivo
         $thumbnail->addFilter( $f );
         $thumbnail->addValidator( 'Count' , false , 1 ); // Solo 1 archivo
@@ -67,10 +68,7 @@ class Mtt_Form_Categoria
         $submit = new Zend_Form_Element_Submit( 'submit' );
         $submit->setAttrib( 'value' , 'Registrar' );
         $this->addElement( $submit );
-
         }
 
 
     }
-
-?>

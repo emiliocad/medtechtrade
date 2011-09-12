@@ -1,10 +1,13 @@
 <?php
 
-class CategoriaController extends Mtt_Controller_Action
+
+class CategoriaController
+        extends Mtt_Controller_Action
     {
 
     protected $_categoria;
     protected $URL;
+
 
     public function init()
         {
@@ -13,22 +16,32 @@ class CategoriaController extends Mtt_Controller_Action
         $this->URL = '/' . $this->getRequest()->getControllerName();
         }
 
+
     public function indexAction()
         {
         $id = intval( $this->_getParam( 'id' , null ) );
 
-        $stmt = $this->_categoria->getProducts( $id );
-
+        $stmt = $this->_categoria->getPaginator( $id );
+        //$stmt = $this->_categoria->getProducts( $id );
+        $stmt->setCurrentPageNumber( $this->_getParam( 'page' , 1 ) );
         $this->view->assign( 'productos' , $stmt );
 
         $stmtCategoria = $this->_categoria->getCategoria( $id );
         $this->view->assign( 'categoria' , $stmtCategoria );
+
+        $formOrder = new Mtt_Form_OrderEquipo();
+        $this->view->assign( 'formOrder' , $formOrder);
         }
+
 
     public function paginadoAction()
         {
-        
+        $id = intval( $this->_getParam( 'id' , null ) );
+        $p = $this->_categoria->getPaginator( $id );
+        $p->setCurrentPageNumber( $this->_getParam( 'page' , 1 ) );
+        $this->view->assign( 'equipos' , $p );
         }
+
 
     }
 

@@ -5,6 +5,7 @@
  * and open the template in the editor.
  */
 
+
 /**
  * Description of Acl
  *
@@ -30,7 +31,7 @@ class Mtt_Controller_Plugin_Acl
         $acl->add( new Zend_Acl_Resource( "default" ) )
                 ->add( new Zend_Acl_Resource( "admin" ) )
                 ->add( new Zend_Acl_Resource( "user" ) )
-                ->add( new Zend_Acl_Resource( "error" ));
+                ->add( new Zend_Acl_Resource( "error" ) );
 
         //set up access a roles
         $acl->allow( null , array( "error" , "error" ) );
@@ -43,9 +44,9 @@ class Mtt_Controller_Plugin_Acl
         $acl->allow( "guest" , "default" );
 
         //access a user
-        $acl->allow( "user" , "default"  );
-        $acl->allow( 'user' , 'user'  );
-       
+        $acl->allow( "user" , "default" );
+        $acl->allow( 'user' , 'user' );
+
 
         //access of admistrator
         $acl->allow( 'admin' , null );
@@ -53,7 +54,7 @@ class Mtt_Controller_Plugin_Acl
 
         $auth = Zend_Auth::getInstance();
 
-        if( $auth->hasIdentity() )
+        if ( $auth->hasIdentity() )
             {
             $identity = $auth->getIdentity();
             $role = strtolower( $identity->role );
@@ -67,9 +68,9 @@ class Mtt_Controller_Plugin_Acl
         $controller = $request->controller;
         $action = $request->action;
 
-        if( !$acl->isAllowed( $role , $module , $controller , $action ) )
+        if ( !$acl->isAllowed( $role , $module , $controller , $action ) )
             {
-            if( $role == 'guest' or $role === "" )
+            if ( $role == 'guest' or $role === "" )
                 {
                 $request->setModuleName( 'default' );
                 $request->setControllerName( 'usuario' );
@@ -82,7 +83,6 @@ class Mtt_Controller_Plugin_Acl
                 $request->setActionName( "noauth" );
                 }
             }
-
         }
 
 

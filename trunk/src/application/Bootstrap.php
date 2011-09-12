@@ -1,12 +1,17 @@
 <?php
 
-class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
+
+class Bootstrap
+        extends Zend_Application_Bootstrap_Bootstrap
     {
+
 
     public function _initView()
         {
         $docTypeHelper = new Zend_View_Helper_Doctype();
-        $docTypeHelper->doctype( 'XHTML1_STRICT' );
+        $docTypeHelper->doctype(
+                Zend_View_Helper_Doctype::HTML5
+        );
 
 
         $this->bootstrap( 'layout' );
@@ -21,17 +26,20 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         /* solo para el Modulo Default */
         $this->bootstrap( 'frontController' );
         $frontController = $this->getResource( 'frontController' );
-        //TODO
+        //TODO Agregar codigo para mostrar CSS y JS para todos los layout
 //        $view->assign('frontController',$frontController);
 //        $view->headLink()->prependStylesheet( '/theme/default/css/reset.css' )
 //                ->headLink()->appendStylesheet( '/theme/default/css/default.css' );
 //        /* end Deafult */
 
-        $view->headMeta()->appendHttpEquiv( 'Content-Type' , 'text/html; charset=UTF-8' );
+        $view->headMeta()->appendHttpEquiv(
+                'Content-Type' , 'text/html; charset=UTF-8'
+        );
 
         $view->headMeta()->appendHttpEquiv( 'Content-Language' , 'en-US' );
         $view->addHelperPath( 'Mtt/View/Helper' , 'Mtt_View_Helper' );
         }
+
 
     public function _initJquery()
         {
@@ -48,12 +56,14 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
                 ->uiEnable();
         }
 
+
 //    public function _initJs()
 //        {
 //        $this->bootstrap( 'layout' );
 //        $layout = $this->getResource( 'layout' );
 //        $view = $layout->getView();
-//        $view->headScript()->appendFile( 'https://apis.google.com/js/plusone.js' );
+//        $view->headScript()->appendFile(
+//         'https://apis.google.com/js/plusone.js' );
 //        }
 
     protected function _initActionHelpers()
@@ -67,10 +77,12 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         );
         }
 
+
     protected function _initSession()
         {
         Zend_Session::start();
         }
+
 
     protected function _initZFDebug()
         {
@@ -106,5 +118,6 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
             $frontController->registerPlugin( $debug );
             }
         }
+
 
     }

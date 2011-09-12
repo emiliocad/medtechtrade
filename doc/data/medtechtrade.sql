@@ -92,6 +92,7 @@ CREATE TABLE `equipo` (
   `ancho` int(11) DEFAULT NULL,
   `alto` int(11) DEFAULT NULL,
   `sizeCaja` int(11) DEFAULT NULL,
+  `active` int(11) DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `fk_equipo_categoria` (`categoria_id`),
   KEY `fk_equipo_estadoequipo1` (`estadoequipo_id`),
@@ -173,9 +174,11 @@ CREATE TABLE `estadoequipo` (
   `nombre` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `acive` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `estadoequipo` */
+
+insert  into `estadoequipo`(`id`,`nombre`,`acive`) values (1,'Usado',1),(2,'Nuevo',1);
 
 /*Table structure for table `estadooperacion` */
 

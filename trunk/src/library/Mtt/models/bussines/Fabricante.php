@@ -5,12 +5,11 @@
  * and open the template in the editor.
  */
 
-/**
- * Description of Categoria
- *
- */
-class Mtt_Models_Bussines_Fabricante extends Mtt_Models_Table_Fabricante
+
+class Mtt_Models_Bussines_Fabricante
+        extends Mtt_Models_Table_Fabricante
     {
+
 
     public function getComboValues()
         {
@@ -22,6 +21,7 @@ class Mtt_Models_Bussines_Fabricante extends Mtt_Models_Table_Fabricante
             }
         return $values;
         }
+
 
 //    public function getFindId( $id )
 //        {
@@ -47,11 +47,13 @@ class Mtt_Models_Bussines_Fabricante extends Mtt_Models_Table_Fabricante
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
 
+
     public function updateFabricante( array $data , $id )
         {
 
         $this->update( $data , 'id = ' . $id );
         }
+
 
     public function saveFabricante( array $data )
         {
@@ -59,11 +61,13 @@ class Mtt_Models_Bussines_Fabricante extends Mtt_Models_Table_Fabricante
         $this->insert( $data );
         }
 
+
     public function deleteFabricante( $id )
         {
 
         $this->delete( 'id = ?' , $id );
         }
+
 
     public function activarFabricante( $id )
         {
@@ -71,10 +75,12 @@ class Mtt_Models_Bussines_Fabricante extends Mtt_Models_Table_Fabricante
         $this->update( array( "active" => self::ACTIVE ) , 'id = ' . $id );
         }
 
+
     public function desactivarFabricante( $id )
         {
 
         $this->update( array( "active" => self::DESACTIVATE ) , 'id = ' . $id );
         }
+
 
     }

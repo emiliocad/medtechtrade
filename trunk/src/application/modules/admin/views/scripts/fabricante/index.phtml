@@ -1,6 +1,4 @@
 <h2>Fabricantes:</h2>
-
-
 <table border="1" class="listado">
     <thead>
         <tr>
@@ -9,7 +7,7 @@
         </tr>
     </thead>
     <tbody>
-        <?php foreach( $this->fabricantes as $fabricante ): ?>
+        <?php foreach ( $this->fabricantes as $fabricante ): ?>
             <?php $id = $fabricante->id; ?>
             <tr class="<?= $fabricante->active
                             ? 'activo' : 'inactivo' ?>">
@@ -17,27 +15,33 @@
                 <td><?= $this->escape( $fabricante->nombre ) ?></td>
                 <td>
 
-    <?php $link = $this->url( array( 'module' => 'admin' , 'controller' => 'fabricante' , 'action' => 'editar' , 'id' => $id ) ) ?>
+                    <?php $link = $this->url( array( 'module' => 'admin' , 'controller' => 'fabricante' , 'action' => 'editar' , 'id' => $id ) ) ?>
                     <a href="<?= $link ?>">[Editar]</a>
 
-    <?php $link = $this->url( array( 'module' => 'admin' , 'controller' => 'fabricante' , 'action' => 'borrar' , 'id' => $id ) ) ?>
+                    <?php $link = $this->url( array( 'module' => 'admin' , 'controller' => 'fabricante' , 'action' => 'borrar' , 'id' => $id ) ) ?>
                     <a href="<?= $link ?>" onclick="return confirm('¿Estás seguro?')">[Borrar]</a>
 
-                    <?php if( $fabricante->active ): ?>
+                    <?php if ( $fabricante->active ): ?>
                         <?php $link = $this->url( array( 'module' => 'admin' , 'controller' => 'fabricante' , 'action' => 'desactivar' , 'id' => $id ) ) ?>
                         <a href="<?= $link ?>">[Desactivar]</a>
                     <?php else: ?>
                         <?php $link = $this->url( array( 'module' => 'admin' , 'controller' => 'fabricante' , 'action' => 'activar' , 'id' => $id ) ) ?>
                         <a href="<?= $link ?>">[Activar]</a>
-    <?php endif; ?>
+                    <?php endif; ?>
 
                 </td>
             </tr>
-<?php endforeach; ?>
+        <?php endforeach; ?>
     </tbody>
 </table>
 <br />
 
-<a href="<?= $this->url( array( 'module' => 'admin' , 'controller' => 'fabricante' , 'action' => 'nuevo' , 'controller' => 'fabricante' ) ,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    null ,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    true ) ?>">Nuevo</a>
+<a href="<?=
+        $this->url( array(
+            'module' => 'admin' ,
+            'controller' => 'fabricante' ,
+            'action' => 'nuevo'
+                ) , null , true )
+        ?>">
+        <? $this->translate( 'New' ) ?>
+</a>

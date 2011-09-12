@@ -5,6 +5,7 @@
  * and open the template in the editor.
  */
 
+
 /**
  * Description of Collection
  *
@@ -12,7 +13,9 @@
  */
 abstract class Mtt_Store_Cart_Factory
     {
+
     const ADAPTER_NAMESPACE = 'Mtt_Store_Cart_Abstract_';
+
 
     static public function createInstance( $adapterName )
         {
@@ -26,7 +29,8 @@ abstract class Mtt_Store_Cart_Factory
         if ( Zend_Registry::isRegistered( 'coreSession' ) )
             {
             $sessionData = Zend_Registry::get( 'coreSession' );
-            } else
+            }
+        else
             {
             $sessionData = new Zend_Session_Namespace( 'coreSession' );
             Zend_Registry::set( 'coreSession' , $sessionData );
@@ -36,12 +40,14 @@ abstract class Mtt_Store_Cart_Factory
         if ( isset( $sessionData->cart ) && ($sessionData->cart !== NULL) )
             {
             $cartObject = $sessionData->cart;
-            } else
+            }
+        else
             {
             if ( class_exists( $classEngine , FALSE ) )
                 {
                 $cartObject = call_user_func( array( $classEngine , 'getInstance' ) );
-                } else
+                }
+            else
                 {
                 throw new Exception( "Adapter '$classEngine' not found " );
                 }
@@ -56,5 +62,6 @@ abstract class Mtt_Store_Cart_Factory
 
         return $cartObject;
         }
+
 
     }

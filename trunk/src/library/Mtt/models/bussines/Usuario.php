@@ -1,8 +1,10 @@
 <?php
 
+
 class Mtt_Models_Bussines_Usuario
         extends Mtt_Models_Table_Usuario
     {
+
     const PASSWPRD_SALT = "asdw452112355";
 
 
@@ -21,20 +23,19 @@ class Mtt_Models_Bussines_Usuario
 
         $isValid = $result->isValid();
 
-        if( $isValid )
+        if ( $isValid )
             {
             $authStorage = $auth->getStorage();
 
             $authStorage->write( array(
                 'usuario' => $authAdapter->getResultRowObject( null , 'clave' ) ,
                 'loginAt' => date( 'Y-m-d H:i:s' ) ,
-                'rol' => 'admin'
+                'role' => 'admin'
             ) );
             }
 
 
         return $isValid;
-
         }
 
 
@@ -43,7 +44,6 @@ class Mtt_Models_Bussines_Usuario
         $p = Zend_Paginator::factory( $this->fetchAll() );
         $p->setItemCountPerPage( 3 );
         return $p;
-
         }
 
 
@@ -85,7 +85,6 @@ class Mtt_Models_Bussines_Usuario
         ;
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
-
         }
 
 
@@ -93,7 +92,6 @@ class Mtt_Models_Bussines_Usuario
         {
 
         $this->update( $data , 'id = ' . $id );
-
         }
 
 
@@ -101,7 +99,6 @@ class Mtt_Models_Bussines_Usuario
         {
 
         $this->insert( $data );
-
         }
 
 
@@ -109,7 +106,6 @@ class Mtt_Models_Bussines_Usuario
         {
 
         $this->delete( 'id = ?' , $id );
-
         }
 
 
@@ -117,7 +113,6 @@ class Mtt_Models_Bussines_Usuario
         {
 
         $this->update( array( "active" => self::ACTIVE ) , 'id = ' . $id );
-
         }
 
 
@@ -125,7 +120,6 @@ class Mtt_Models_Bussines_Usuario
         {
 
         $this->update( array( "active" => self::DESACTIVATE ) , 'id = ' . $id );
-
         }
 
 

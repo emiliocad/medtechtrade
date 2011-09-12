@@ -1,10 +1,13 @@
 <?php
 
-class UsuarioController extends Mtt_Controller_Action
+
+class UsuarioController
+        extends Mtt_Controller_Action
     {
 
     protected $_usuario;
     protected $URL;
+
 
     public function init()
         {
@@ -14,36 +17,66 @@ class UsuarioController extends Mtt_Controller_Action
         parent::init();
         }
 
+
     public function indexAction()
         {
+        if ( Zend_Auth::getInstance()->hasIdentity() )
+            {
 
+            switch ( $this->authData["role"] )
+                {
+                case self::ADMIN :
+                    $this->_redirect(
+                            '/admin/index/index'
+                    );
+                    break;
+                case self::USUARIO:
+                    $this->_redirect(
+                            '/user/index/index'
+                    );
+                    break;
+                }
+            }
         $form = new Mtt_Form_Login();
 
-        if ( $this->_request->isPost() && $form->isValid( $this->_request->getPost() ) )
+        if ( $this->_request->isPost()
+                &&
+                $form->isValid(
+                        $this->_request->getPost() )
+        )
             {
             $login = $this->_request->getPost();
 
             $_usuario = new Mtt_Models_Bussines_Usuario();
 
-            $loginValido = $_usuario->auth( $form->getValue( "login" ) , $form->getValue( "clave" ) );
+            $loginValido = $_usuario->auth(
+                    $form->getValue( "login" )
+                    , $form->getValue( "clave" )
+            );
+
             if ( $loginValido )
                 {
                 $this->_redirect( '/admin/index' );
-                } else
+                }
+            else
                 {
-                $this->_helper->FlashMessenger( 'Usuario o contraseña invalido' );
+                $this->_helper->FlashMessenger(
+                        'Usuario o contraseña invalido'
+                );
                 $this->_redirect( '/usuario/index' );
                 }
             }
         $this->view->assign( 'formlogin' , $form );
         }
 
+
     public function registroAction()
         {
         $this->view->headScript()->appendFile( '/js/user.sigunp.js' );
         $form = new Mtt_Form_Registrar();
 
-        if ( $this->_request->isPost() && $form->isValid( $this->_request->getPost() ) )
+        if ( $this->_request->isPost() &&
+                $form->isValid( $this->_request->getPost() ) )
             {
 
             $usuario = $form->getValues();
@@ -68,11 +101,13 @@ class UsuarioController extends Mtt_Controller_Action
         $this->view->assign( 'frmRegistrar' , $form );
         }
 
+
     public function logoutAction()
         {
         Zend_Auth::getInstance()->clearIdentity();
         $this->_redirect( '/' );
         }
+
 
     }
 

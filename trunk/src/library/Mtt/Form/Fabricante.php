@@ -5,8 +5,11 @@
  * and open the template in the editor.
  */
 
-class Mtt_Form_Fabricante extends Mtt_Form
+
+class Mtt_Form_Fabricante
+        extends Mtt_Form
     {
+
 
     public function init()
         {
@@ -31,6 +34,5 @@ class Mtt_Form_Fabricante extends Mtt_Form
         $this->addElement( 'submit' , 'Enviar' );
         }
 
-    }
 
-?>
+    }

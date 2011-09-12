@@ -2,225 +2,292 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Medtchtrade\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-07 19:54-0500\n"
-"PO-Revision-Date: 2011-09-07 19:54-0500\n"
+"POT-Creation-Date: 2011-09-08 19:11-0500\n"
+"PO-Revision-Date: 2011-09-08 19:11-0500\n"
 "Last-Translator: Luis Mayta <slovacus@gmail.com>\n"
 "Language-Team: Stocker Group Peru <Slovacus@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop;translate\n"
-"X-Poedit-Basepath: E:\\Project\\Zend\\medtechtrade.zend.local\\trunk\\src\\application\n"
+"X-Poedit-Basepath: E:\\Project\\Zend\\medtechtrade.zend.local\\trunk\\src\n"
 "X-Poedit-Language: English\n"
 "X-Poedit-Country: UNITED STATES\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: layouts/scripts/_footer.phtml:9
-#: layouts/scripts/_navegacion.phtml:9
+#: application/modules/admin/controllers/UserController.php:48
+msgid "Changed a User"
+msgstr ""
+
+#: application/modules/admin/controllers/UserController.php:56
+msgid "No User"
+msgstr ""
+
+#: application/modules/admin/controllers/UserController.php:66
+msgid "Usuario Desactivado"
+msgstr ""
+
+#: application/modules/admin/controllers/UserController.php:83
+msgid "Se Registro el Usuario"
+msgstr ""
+
+#: library/Mtt/Form/Login.php:23
+msgid "Username"
+msgstr ""
+
+#: library/Mtt/Form/Login.php:35
+msgid "Password"
+msgstr ""
+
+#: library/Mtt/Form/Login.php:42
+msgid "Login"
+msgstr ""
+
+#: library/Mtt/Form/Pais.php:21
+msgid "Name *:"
+msgstr ""
+
+#: library/Mtt/Form/Pais.php:44
+msgid "Code:"
+msgstr ""
+
+#: library/Mtt/Form/Pais.php:51
+msgid "Register"
+msgstr ""
+
+#: application/layouts/scripts/_footer.phtml:9
 msgid "home"
 msgstr "Home"
 
-#: layouts/scripts/_footer.phtml:26
+#: application/layouts/scripts/_footer.phtml:26
 msgid "About Us"
 msgstr ""
 
-#: layouts/scripts/_footer.phtml:35
+#: application/layouts/scripts/_footer.phtml:35
 msgid "Powered by Stocker Group S.A."
 msgstr ""
 
-#: layouts/scripts/_header.phtml:15
+#: application/layouts/scripts/_header.phtml:15
 msgid "English"
 msgstr ""
 
-#: layouts/scripts/_header.phtml:25
+#: application/layouts/scripts/_header.phtml:25
 msgid "Español"
 msgstr ""
 
-#: layouts/scripts/_header.phtml:34
+#: application/layouts/scripts/_header.phtml:34
 msgid "Deuths"
 msgstr ""
 
-#: layouts/scripts/_navegacion.phtml:22
+#: application/layouts/scripts/_navegacion.phtml:22
 #, fuzzy
 msgid "buy equipment"
 msgstr "Buy Equipment"
 
-#: layouts/scripts/_navegacion.phtml:34
+#: application/layouts/scripts/_navegacion.phtml:34
 msgid "sell/trade-in Equipment"
 msgstr "Sell/Trade-in Equipment"
 
-#: layouts/scripts/_navegacion.phtml:45
+#: application/layouts/scripts/_navegacion.phtml:45
 msgid "services"
 msgstr "Services"
 
-#: layouts/scripts/_navegacion.phtml:56
+#: application/layouts/scripts/_navegacion.phtml:56
 msgid "contact us"
 msgstr "Contact Us"
 
-#: layouts/scripts/_navegacion.phtml:66
+#: application/layouts/scripts/_navegacion.phtml:66
 msgid "my account"
 msgstr "My Account"
 
-#: modules/admin/layouts/scripts/_header.phtml:14
+#: application/modules/admin/layouts/scripts/_header.phtml:14
 #, fuzzy
 msgid "Welcome"
 msgstr "Welcome"
 
-#: modules/admin/layouts/scripts/_header.phtml:17
+#: application/modules/admin/layouts/scripts/_header.phtml:17
 msgid "Date"
 msgstr ""
 
-#: modules/admin/layouts/scripts/_header.phtml:27
-#: modules/admin/layouts/scripts/old/layout.phtml:33
+#: application/modules/admin/layouts/scripts/_header.phtml:27
 msgid "Logout"
 msgstr ""
 
-#: modules/admin/layouts/scripts/_navegacion.phtml:12
+#: application/modules/admin/layouts/scripts/_navegacion.phtml:12
 msgid "Config"
 msgstr ""
 
-#: modules/admin/layouts/scripts/_navegacion.phtml:29
-msgid "Manufacturers"
-msgstr ""
-
-#: modules/admin/layouts/scripts/_navegacion.phtml:45
-msgid "Category"
-msgstr ""
-
-#: modules/admin/layouts/scripts/_navegacion.phtml:61
-msgid "Currency"
-msgstr ""
-
-#: modules/admin/layouts/scripts/_navegacion.phtml:77
-msgid "User"
-msgstr ""
-
-#: modules/admin/layouts/scripts/_navegacion.phtml:93
+#: application/modules/admin/layouts/scripts/_navegacion.phtml:30
+#: application/modules/admin/layouts/scripts/navegacion/_equipment.phtml:6
+#: application/modules/admin/layouts/scripts/navegacion/_equipment.phtml:18
 #, fuzzy
 msgid "Equipment"
 msgstr "Buy Equipment"
 
-#: modules/admin/layouts/scripts/old/_menu_options.phtml:3
-msgid "Go to"
+#: application/modules/admin/layouts/scripts/_navegacion.phtml:47
+msgid "Manufacturers"
 msgstr ""
 
-#: modules/admin/layouts/scripts/old/_navegacion.phtml:12
-#: modules/admin/layouts/scripts/old/_navegacion.phtml:23
-msgid "Administration"
+#: application/modules/admin/layouts/scripts/_navegacion.phtml:63
+msgid "Category"
 msgstr ""
 
-#: views/scripts/categoria/index.phtml:19
+#: application/modules/admin/layouts/scripts/_navegacion.phtml:79
+msgid "Currency"
+msgstr ""
+
+#: application/modules/admin/layouts/scripts/_navegacion.phtml:95
+msgid "User"
+msgstr ""
+
+#: application/modules/admin/layouts/scripts/navegacion/_compras.phtml:6
+#: application/modules/admin/layouts/scripts/navegacion/_config.phtml:6
+msgid "Configuration"
+msgstr ""
+
+#: application/modules/admin/layouts/scripts/navegacion/_compras.phtml:18
+#: application/modules/admin/layouts/scripts/navegacion/_config.phtml:18
+msgid "Type User"
+msgstr ""
+
+#: application/modules/admin/layouts/scripts/navegacion/_compras.phtml:29
+#: application/modules/admin/layouts/scripts/navegacion/_config.phtml:29
+#, fuzzy
+msgid "Equipment State"
+msgstr "Buy Equipment"
+
+#: application/modules/admin/layouts/scripts/navegacion/_compras.phtml:40
+#: application/modules/admin/layouts/scripts/navegacion/_config.phtml:40
+msgid "Country"
+msgstr ""
+
+#: application/modules/admin/layouts/scripts/navegacion/_compras.phtml:51
+#: application/modules/admin/layouts/scripts/navegacion/_config.phtml:51
+msgid "Pagos"
+msgstr ""
+
+#: application/modules/admin/layouts/scripts/navegacion/_compras.phtml:63
+#: application/modules/admin/layouts/scripts/navegacion/_config.phtml:63
+msgid "Moneda"
+msgstr ""
+
+#: application/modules/admin/layouts/scripts/navegacion/_equipment.phtml:29
 msgid "Manufacturer"
 msgstr ""
 
-#: views/scripts/categoria/index.phtml:23
-#: views/scripts/producto/ver.phtml:36
+#: application/views/scripts/categoria/index.phtml:15
+#: application/views/scripts/categoria/index.phtml:58
+msgid "Click to see all"
+msgstr ""
+
+#: application/views/scripts/categoria/index.phtml:29
+#: application/views/scripts/producto/ver.phtml:36
 msgid "Product name"
 msgstr ""
 
-#: views/scripts/categoria/index.phtml:33
-#: views/scripts/index/index.phtml:23
-#: views/scripts/index/index.phtml:33
-#: views/scripts/index/index.phtml:43
-#: views/scripts/index/index.phtml:53
+#: application/views/scripts/categoria/index.phtml:43
+#: application/views/scripts/index/index.phtml:23
+#: application/views/scripts/index/index.phtml:33
+#: application/views/scripts/index/index.phtml:43
+#: application/views/scripts/index/index.phtml:53
 msgid "View details"
 msgstr ""
 
-#: views/scripts/index/index.phtml:2
+#: application/views/scripts/index/index.phtml:2
 msgid "welcome"
 msgstr "Welcome"
 
-#: views/scripts/index/index.phtml:13
+#: application/views/scripts/index/index.phtml:13
 msgid "Top Offers"
 msgstr ""
 
-#: views/scripts/producto/ver.phtml:9
+#: application/views/scripts/producto/ver.phtml:9
 #, fuzzy
 msgid "Buy Equipment"
 msgstr "Buy Equipment"
 
-#: views/scripts/producto/ver.phtml:33
+#: application/views/scripts/producto/ver.phtml:33
 msgid "Advanced Search"
 msgstr ""
 
-#: views/scripts/producto/ver.phtml:40
+#: application/views/scripts/producto/ver.phtml:40
 msgid "Model"
 msgstr ""
 
-#: views/scripts/producto/ver.phtml:44
+#: application/views/scripts/producto/ver.phtml:44
 msgid "Origin"
 msgstr ""
 
-#: views/scripts/producto/ver.phtml:48
+#: application/views/scripts/producto/ver.phtml:48
 msgid "Article ID"
 msgstr ""
 
-#: views/scripts/producto/ver.phtml:52
+#: application/views/scripts/producto/ver.phtml:52
 msgid "Date/Year of manufacture"
 msgstr ""
 
-#: views/scripts/producto/ver.phtml:56
+#: application/views/scripts/producto/ver.phtml:56
 msgid "Estimated weight (KG)"
 msgstr ""
 
-#: views/scripts/producto/ver.phtml:60
+#: application/views/scripts/producto/ver.phtml:60
 msgid "Quality/Condition"
 msgstr ""
 
-#: views/scripts/producto/ver.phtml:64
+#: application/views/scripts/producto/ver.phtml:64
 msgid "Mode Amount of equipment"
 msgstr ""
 
-#: views/scripts/producto/ver.phtml:68
+#: application/views/scripts/producto/ver.phtml:68
 msgid "Description"
 msgstr ""
 
-#: views/scripts/producto/ver.phtml:73
+#: application/views/scripts/producto/ver.phtml:73
 msgid "Specifications"
 msgstr ""
 
-#: views/scripts/producto/ver.phtml:75
+#: application/views/scripts/producto/ver.phtml:75
 msgid "Temperature Range"
 msgstr ""
 
-#: views/scripts/producto/ver.phtml:76
+#: application/views/scripts/producto/ver.phtml:76
 msgid "Capacity Cu."
 msgstr ""
 
-#: views/scripts/producto/ver.phtml:78
+#: application/views/scripts/producto/ver.phtml:78
 msgid "Interior dimensions"
 msgstr ""
 
-#: views/scripts/producto/ver.phtml:79
+#: application/views/scripts/producto/ver.phtml:79
 msgid "Exterior dimensions"
 msgstr ""
 
-#: views/scripts/producto/ver.phtml:80
+#: application/views/scripts/producto/ver.phtml:80
 msgid "Shipping weight"
 msgstr ""
 
-#: views/scripts/producto/ver.phtml:82
+#: application/views/scripts/producto/ver.phtml:82
 msgid "Amps"
 msgstr ""
 
-#: views/scripts/producto/ver.phtml:86
+#: application/views/scripts/producto/ver.phtml:86
 msgid "Download PDF"
 msgstr ""
 
-#: views/scripts/producto/ver.phtml:87
+#: application/views/scripts/producto/ver.phtml:87
 msgid "Print"
 msgstr ""
 
-#: views/scripts/producto/ver.phtml:88
+#: application/views/scripts/producto/ver.phtml:88
 msgid "Ask a Question"
 msgstr ""
 
-#: views/scripts/producto/ver.phtml:89
+#: application/views/scripts/producto/ver.phtml:89
 msgid "I Need Help"
 msgstr ""
 
-#: views/scripts/producto/ver.phtml:90
+#: application/views/scripts/producto/ver.phtml:90
 msgid "Tell a Friend"
 msgstr ""
 

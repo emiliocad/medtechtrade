@@ -37,17 +37,23 @@ class Admin_UserController extends Mtt_Controller_Action
 
         if ( !is_null( $usuario ) )
             {
-            if ( $this->_request->isPost() && $form->isValid( $this->_request->getPost() ) )
+            if ( $this->_request->isPost()
+                    &&
+                    $form->isValid( $this->_request->getPost() ) )
                 {
-                $this->_fabricante->updateFabricante( $form->getValues() , $id );
-                $this->_helper->FlashMessenger( 'Se modificó un Usuario' );
+                $this->_fabricante->updateFabricante(
+                        $form->getValues() , $id
+                );
+                $this->_helper->FlashMessenger(
+                        $this->translate( 'Changed a User' )
+                );
                 $this->_redirect( $this->URL );
                 }
             $form->setDefaults( $usuario->toArray() );
             $this->view->assign( 'form' , $form );
             } else
             {
-            $this->_helper->FlashMessenger( 'No existe el Usuario' );
+            $this->_helper->FlashMessenger( $this->translate( 'No User' ) );
             $this->_redirect( $this->URL );
             }
         }
@@ -56,10 +62,13 @@ class Admin_UserController extends Mtt_Controller_Action
         {
         $id = intval( $this->_request->getParam( 'id' ) );
         $this->_user->deleteUsuario( $id );
-        $this->_helper->FlashMessenger( 'Usuario Desactivado' );
+        $this->_helper->FlashMessenger(
+                $this->translate( 'Usuario Desactivado' )
+        );
         $this->_redirect( $this->URL );
         }
 
+//FIXME -verificar codigo para traducion
     public function nuevoAction()
         {
         $form = new Mtt_Form_Usuario();
@@ -70,12 +79,15 @@ class Admin_UserController extends Mtt_Controller_Action
 
             $this->_user->saveUsuario( $user );
 
-            $this->_helper->FlashMessenger( 'Se Registro el Usuario' );
+            $this->_helper->FlashMessenger(
+                    $this->translate( 'Se Registro el Usuario' )
+            );
             $this->_redirect( $this->URL );
             }
         $this->view->assign( 'frmRegistrar' , $form );
         }
 
+    //FIXME cambiar codigo de ver
     public function verAction()
         {
         $id = intval( $this->_getParam( 'id' , null ) );

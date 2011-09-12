@@ -5,10 +5,7 @@
  * and open the template in the editor.
  */
 
-/**
- * Description of Registrar
- *
- */
+//TODO crear decoradores para este formulario
 class Mtt_Form_Usuario
         extends Zend_Form
     {
@@ -136,7 +133,6 @@ class Mtt_Form_Usuario
                     $submit
                 )
         );
-
         }
 
 

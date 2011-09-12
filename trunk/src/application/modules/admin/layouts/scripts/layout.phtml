@@ -14,12 +14,22 @@
         <![endif]-->
         <?
         $this->headLink()->appendStylesheet( '/theme/admin/css/1140.css' )
-                ->appendStylesheet( '/theme/admin/css/styles.css' );
+                ->appendStylesheet( '/theme/admin/css/styles.css' )
+                ->appendStylesheet( '/theme/admin/css/style.css' )
+//                ->appendStylesheet(
+//                        '/theme/admin/css/redmond/jquery-ui-1.8.16.custom.css'
+//                )
+        ;
         ?>
         <?= $this->headLink() ?>        
         <?= $this->jQuery() ?>  
-        <?= $this->headScript()
-                ->appendFile( '/theme/admin/js/css3-mediaqueries.js' ); ?> 
+        <?=
+        $this->headScript()
+                ->appendFile( '/theme/admin/js/css3-mediaqueries.js' )
+                ->appendFile( '/theme/admin/js/jquery.hoverIntent.minified.js' )
+                ->appendFile( '/theme/admin/js/menu.js' )
+        ;
+        ?> 
 
 
         <!--Delete embedded styles, just for example.-->
@@ -43,48 +53,58 @@
 
 
     <body>
+        <header>
+            <div class="container header">
+                <?= $this->render( '_header.phtml' ) ?>
+            </div>
 
-        <div class="container header">
-            <?= $this->render( '_header.phtml' ) ?>
-        </div>
-
-        <div class="container nav">
-            <div class="row">
-                <div id="dolphincontainer">
-                    <div id="dolphinnav">
-                        <?= $this->render( '_navegacion.phtml' ); ?>
+            <nav>
+                <div class="container nav">
+                    <!--            <div class="row">-->
+                    <div id="dolphincontainer">
+                        <div id="dolphinnav">
+                            <?= $this->render( '_navegacion.phtml' ); ?>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="container body">
-            <div class="row">
-
-
-                <div class="eightcol">
-                    <?=
-                    $this->render( '_messages.phtml' );
-                    ?>
-
-                    <?=
-                    $this->layout()->content
-                    ?>
+                    <!--            </div>-->
                 </div>
 
+            </nav>
+        </header>
 
-                <div class="fourcol last">
-                    Funciones de Mas solicitados
+
+        <section>
+            <div class="container body">
+                <div class="row">
+
+
+                    <div class="eightcol">
+                        <?=
+                        $this->render( '_messages.phtml' );
+                        ?>
+
+                        <?=
+                        $this->layout()->content
+                        ?>
+                    </div>
+
+
+                    <div class="fourcol last">
+                        Funciones de Mas solicitados
+                    </div>
+
                 </div>
-
             </div>
-        </div>
+        </section>
 
-        <div class="container footer">
-            <div class="row">
-                <?= $this->render( '_footer.phtml' ); ?>
+        <footer>
+            <div class="container footer">
+                <div class="row">
+                    <?= $this->render( '_footer.phtml' ); ?>
+                </div>
             </div>
-        </div>
+        </footer>
+
 
     </body>
 

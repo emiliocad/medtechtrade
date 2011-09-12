@@ -5,9 +5,12 @@
  * and open the template in the editor.
  */
 
-class Mtt_Models_Bussines_TipoUsuario extends Mtt_Models_Table_TipoUsuario
+
+class Mtt_Models_Bussines_TipoUsuario
+        extends Mtt_Models_Table_TipoUsuario
     {
-    
+
+
     public function getComboValues()
         {
         $filas = $this->fetchAll( 'active=1' )->toArray();
@@ -18,6 +21,7 @@ class Mtt_Models_Bussines_TipoUsuario extends Mtt_Models_Table_TipoUsuario
             }
         return $values;
         }
+
 
     public function getFindId( $id )
         {
@@ -31,6 +35,7 @@ class Mtt_Models_Bussines_TipoUsuario extends Mtt_Models_Table_TipoUsuario
         return $this->fetchRow( 'id = ' . $id );
         }
 
+
     public function listar()
         {
         $db = $this->getAdapter();
@@ -43,11 +48,13 @@ class Mtt_Models_Bussines_TipoUsuario extends Mtt_Models_Table_TipoUsuario
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
 
+
     public function updateTipoUsuario( array $data , $id )
         {
 
         $this->update( $data , 'id = ' . $id );
         }
+
 
     public function saveTipoUsuario( array $data )
         {
@@ -55,11 +62,13 @@ class Mtt_Models_Bussines_TipoUsuario extends Mtt_Models_Table_TipoUsuario
         $this->insert( $data );
         }
 
+
     public function deleteTipoUsuario( $id )
         {
 
         $this->delete( 'id = ?' , $id );
         }
+
 
     public function activarTipoUsuario( $id )
         {
@@ -67,10 +76,12 @@ class Mtt_Models_Bussines_TipoUsuario extends Mtt_Models_Table_TipoUsuario
         $this->update( array( "active" => self::ACTIVE ) , 'id = ' . $id );
         }
 
+
     public function desactivarTipoUsuario( $id )
         {
 
         $this->update( array( "active" => self::DESACTIVATE ) , 'id = ' . $id );
         }
+
 
     }

@@ -1,20 +1,35 @@
-<h2>Welcome</h2>
-<select class="order-by">
-    <option>Order by</option>
-    <option>Manufacturer, A-Z</option>
-    <option>Model, A-Z</option>
-</select>
-<br/>
+<header>
+    <h2>
+        <?= $this->translate( 'Welcome' ) ?>
+    </h2>
 
-<h3>
-    <?= $this->categoria->title ?>
-</h3>
-<span class="see-more"><a href="#">Click to see all</a></span>
+<?=$this->formOrder ?>
+<!--    <select class="order-by">
+        <option>Order by</option>
+        <option>Manufacturer, A-Z</option>
+        <option>Model, A-Z</option>
+    </select>-->
+    <br/>
+
+    <h3>
+        <?= $this->categoria->title ?>
+    </h3>
+</header>
+
+<span class="see-more">
+    <a href="#">
+        <?=
+        $this->translate( 'Click to see all' )
+        ?>
+    </a>
+</span>
 <div class="device-horizontal-list">
-    <?php foreach( $this->productos as $producto ): ?>
+    <?php foreach ( $this->productos as $producto ): ?>
 
         <div>
-            <img src="/media/catalog/product/device-00.png" alt="Device 00">
+            <img src="/media/catalog/product/device-00.png" 
+                 alt="<?= $producto->nombre ?>">
+
             <span class="manufacturer">
                 <?= $this->translate( 'Manufacturer' ) ?> : 
                 <?= $producto->fabricante ?>
@@ -24,26 +39,41 @@
                 <?= $producto->nombre ?>
             </span>
 
-
             <a href="
-            <?= $this->url( array( 'module' => 'default' , 'controller' => 'producto' ,
-                'action' => 'ver' , 'id' => $producto->id ) , null , true ) ?>
+            <?=
+            $this->url( array( 'module' => 'default' ,
+                'controller' => 'equipo' ,
+                'action' => 'ver' ,
+                'id' => $producto->id ) , null , true )
+            ?>
                ">
                 <span>
                     <?= $this->translate( 'View details' ) ?>
-                </span></a>
+                </span>
+            </a>
         </div>
-
 
     <?php endforeach; ?>
 </div>
 <br/>
-<br/>
+
+<?=
+$this->paginationControl(
+        $this->productos , 'Sliding' , 'categoria/_pag.phtml'
+);
+?>
 <br/>
 <h3>
-    Top Seller in <?= $this->categoria->title ?>
+    <?= $this->translate( 'Top Seller in' ) ?> 
+    <?= $this->categoria->title ?>
 </h3>
-<span class="see-more"><a href="#">Click to see all</a></span>
+<span class="see-more">
+    <a href="#">
+        <?=
+        $this->translate( 'Click to see all' )
+        ?></a>
+</span>
+
 <div class="device-horizontal-list">
     <div>
         <img src="/media/catalog/product/device-00.png" alt="Device 00">
