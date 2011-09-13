@@ -57,7 +57,9 @@ abstract class Mtt_Store_Cart_Factory
 
         if ( !$cartObject instanceof Mtt_Store_Cart_Abstract )
             {
-            throw new Exception( "Adapter class '$classEngine' does not extend Mtt_Store_Cart_Abstract " );
+            throw new Exception(
+                    "Adapter class '$classEngine' does not extend Mtt_Store_Cart_Abstract "
+            );
             }
 
         return $cartObject;

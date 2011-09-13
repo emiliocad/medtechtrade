@@ -26,7 +26,9 @@
     <a href="#"><?= $this->producto->nombre ?></a>
 </span>
 
-<h2>Manufacturer: <?= $this->producto->fabricante ?></h2>
+<h2>
+    <?= $this->translate( 'Manufacturer' ) ?>: <?= $this->producto->fabricante ?>
+</h2>
 <div id="device-foto-galery">
     <!--Producto -->
 
@@ -116,10 +118,6 @@
         <?= $this->translate( 'Amps' ) ?>: 12A
     </span>
 </div>
-<div id="device-actions">
-    <a href="#"><span class="device-action-pdf"><?= $this->translate( 'Download PDF' ) ?></span></a>
-    <a href="#"><span class="device-action-print"><?= $this->translate( 'Print' ) ?></span></a>
-    <a href="#"><span class="device-action-question"><?= $this->translate( 'Ask a Question' ) ?></span></a>
-    <a href="#"><span class="device-action-help"><?= $this->translate( 'I Need Help' ) ?></span></a>
-    <a href="#"><span class="device-action-friend"><?= $this->translate( 'Tell a Friend' ) ?></span></a>
-</div>
+<!---->
+<?= $this->render('equipo/render/deviceActions.phtml'); ?>
+<!---->

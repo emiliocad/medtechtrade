@@ -5,7 +5,6 @@
  * and open the template in the editor.
  */
 
-
 class Mtt_Models_Bussines_Equipo
         extends Mtt_Models_Table_Equipo
     {
@@ -45,9 +44,9 @@ class Mtt_Models_Bussines_Equipo
                 ->joinInner( 'estadoequipo' ,
                              'estadoequipo.id = equipo.estadoequipo_id' ,
                              array( 'estadoequipo.nombre as estadoequipo' ) )
-                ->joinInner( 'publicacionEquipo' ,
-                             'publicacionEquipo.id = equipo.publicacionEquipo_id' ,
-                             array( 'publicacionEquipo.nombre as publicacionequipo' ) )
+                ->joinInner( 'publicacionequipo' ,
+                             'publicacionequipo.id = equipo.publicacionEquipo_id' ,
+                             array( 'publicacionequipo.nombre as publicacionequipo' ) )
                 ->joinInner( 'moneda' , 'moneda.id = equipo.moneda_id' ,
                              array( 'moneda.nombre as moneda' ) )
                 ->joinInner( 'fabricantes' ,

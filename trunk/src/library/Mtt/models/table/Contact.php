@@ -14,7 +14,7 @@ class Mtt_Models_Table_Contact
         extends Mtt_Db_Table_Abstract
     {
 
-    protected $_name = 'contact';
+    protected $_name = 'contacto';
     protected $_primary = 'id';
 
 

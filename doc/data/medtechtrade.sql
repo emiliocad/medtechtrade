@@ -108,9 +108,11 @@ CREATE TABLE `equipo` (
   CONSTRAINT `fk_equipo_paises1` FOREIGN KEY (`paises_id`) REFERENCES `paises` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_equipo_publicacionEquipo1` FOREIGN KEY (`publicacionEquipo_id`) REFERENCES `publicacionequipo` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_equipo_usuario1` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `equipo` */
+
+insert  into `equipo`(`id`,`nombre`,`precioventa`,`preciocompra`,`categoria_id`,`estadoequipo_id`,`publicacionEquipo_id`,`usuario_id`,`fabricantes_id`,`tag`,`moneda_id`,`paises_id`,`calidad`,`cantidad`,`modelo`,`fechafabricacion`,`documento`,`sourceDocumento`,`pesoEstimado`,`size`,`ancho`,`alto`,`sizeCaja`,`active`) values (2,'producto 1',12,12,148,1,2,3,2,'sas',1,1,'buena',122,'23123','0000-00-00 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1),(3,'equipo 2',123,111,148,2,1,3,2,'kusa,kusa',1,1,'muy mala',123,'123we','0000-00-00 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1);
 
 /*Table structure for table `equipo_has_formapago` */
 
@@ -172,13 +174,13 @@ DROP TABLE IF EXISTS `estadoequipo`;
 CREATE TABLE `estadoequipo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `acive` int(11) NOT NULL DEFAULT '1',
+  `active` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `estadoequipo` */
 
-insert  into `estadoequipo`(`id`,`nombre`,`acive`) values (1,'Usado',1),(2,'Nuevo',1);
+insert  into `estadoequipo`(`id`,`nombre`,`active`) values (1,'Usado',1),(2,'Nuevo',1);
 
 /*Table structure for table `estadooperacion` */
 
@@ -312,9 +314,11 @@ CREATE TABLE `moneda` (
   `prefijo` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `active` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `moneda` */
+
+insert  into `moneda`(`id`,`nombre`,`simbolo`,`prefijo`,`active`) values (1,'franco suizo',NULL,NULL,1);
 
 /*Table structure for table `operacion` */
 
@@ -402,9 +406,11 @@ CREATE TABLE `publicacionequipo` (
   `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `active` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `publicacionequipo` */
+
+insert  into `publicacionequipo`(`id`,`nombre`,`active`) values (1,'Pendiente',1),(2,'Activada',1),(3,'Eliminada',1);
 
 /*Table structure for table `tipousuario` */
 

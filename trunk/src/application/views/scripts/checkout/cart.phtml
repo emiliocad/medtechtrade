@@ -1,0 +1,95 @@
+<h1>
+    <?= $this->translate( 'Lo que tienes en tu Carro' ); ?>
+</h1>
+
+
+<form action="/checkout/cart/updatePost/" method="post">
+    <fieldset>
+        <table id="shopping-cart-table" class="data-table cart-table">
+            <colgroup><col width="1">
+                <col width="1">
+                <col>
+                <col width="1">
+                <col width="1">
+                <col width="1">
+
+            </colgroup><thead>
+                <tr class="first last">
+                    <th rowspan="1" class="a-center">
+                        &nbsp;
+                    </th>
+                    <th rowspan="1">
+                        &nbsp;
+                    </th>
+                    <th rowspan="1">
+                        <span class="nobr">Produktname</span>
+                    </th>
+                    <th class="a-center" colspan="1">
+                        <span class="nobr">
+                            Stückpreis
+                        </span>
+                    
+                    </th>
+                    <th rowspan="1" class="a-center">
+                        Stk.
+                    </th>
+                    <th class="a-center" colspan="1">
+                        Zwischensumme
+                    </th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr class="first last">
+                    <td colspan="50" class="a-right last">
+                        <button type="button" title="Weiter einkaufen" class="button btn-continue" onclick="setLocation('http://souvenir.magento.local/index.php/prominent/glaner-tueechli.html')"><span><span>Weiter einkaufen</span></span></button>
+                        <button type="submit" title="Warenkorb aktualisieren" class="button btn-update"><span><span>Warenkorb aktualisieren</span></span></button>
+                    </td>
+                </tr>
+            </tfoot>
+            <tbody>
+                <tr class="first last odd">
+                    <td>
+                        <a href="http://souvenir.magento.local/index.php/glaner-tueechli.html" 
+                           title="Glarner-Tüechli" class="product-image">
+                            <img src="http://souvenir.magento.local/media/catalog/product/cache/1/thumbnail/75x/9df78eab33525d08d6e5fb8d27136e95/g/l/glarnerfoulard.jpg" 
+                                 width="75" height="75" alt="Glarner-Tüechli">
+                        </a>
+                    </td>
+                    <td>
+                        <h2 class="product-name">
+                            <a href="http://souvenir.magento.local/index.php/glaner-tueechli.html">
+                                Glarner-Tüechli
+                            </a>
+                        </h2>
+                        <dl class="item-options">
+                            <dt>Farbe</dt>
+                            <dd>Orange 43                            </dd>
+                        </dl>
+                    </td>
+                    <td class="a-center">
+                        <a href="http://souvenir.magento.local/index.php/checkout/cart/configure/id/49/" title="Edit item parameters">Bearbeiten</a>
+                    </td>
+                    <td class="a-right">
+                        <span class="cart-price">
+
+                            <span class="price">Fr.&nbsp;14.50</span>            
+                        </span>
+
+
+                    </td>
+                    <td class="a-center">
+                        <input name="cart[49][qty]" value="3" size="4" title="Stk." class="input-text qty" maxlength="12" id="acpro_inp2">
+                    </td>
+                    <td class="a-right">
+                        <span class="cart-price">
+
+                            <span class="price">Fr.&nbsp;43.50</span>            
+                        </span>
+                    </td>
+                    <td class="a-center last"><a href="http://souvenir.magento.local/index.php/checkout/cart/delete/id/49/uenc/aHR0cDovL3NvdXZlbmlyLm1hZ2VudG8ubG9jYWwvaW5kZXgucGhwL2NoZWNrb3V0L2NhcnQv/" title="Artikel entfernen" class="btn-remove btn-remove2">Artikel entfernen</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <script type="text/javascript">decorateTable('shopping-cart-table')</script>
+    </fieldset>
+</form>

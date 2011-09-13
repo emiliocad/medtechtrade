@@ -85,7 +85,9 @@ class UsuarioController
             unset( $usuario["clave"] );
 
             $valuesDefault = array(
-                "clave" => Mtt_Auth_Adapter_DbTable_Mtt::generatePassword( $form->getValue( 'clave' ) ) ,
+                "clave" => Mtt_Auth_Adapter_DbTable_Mtt::generatePassword(
+                        $form->getValue( 'clave' )
+                ) ,
                 "tipousuario_id" => '1' ,
                 "fecharegistro" => Zend_Date::now() ,
                 "ultimavisita" => Zend_Date::now()
@@ -95,7 +97,7 @@ class UsuarioController
 
             $this->_usuario->insert( $usuario );
 
-            $this->_helper->FlashMessenger( 'Se Registro el Usuario' );
+            $this->_helper->FlashMessenger( 'There has been registered a new user' );
             $this->_redirect( $this->URL );
             }
         $this->view->assign( 'frmRegistrar' , $form );

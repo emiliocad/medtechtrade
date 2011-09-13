@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Medtchtrade\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-08 19:11-0500\n"
-"PO-Revision-Date: 2011-09-08 19:11-0500\n"
+"POT-Creation-Date: 2011-09-13 12:40-0500\n"
+"PO-Revision-Date: 2011-09-13 12:41-0500\n"
 "Last-Translator: Luis Mayta <slovacus@gmail.com>\n"
 "Language-Team: Stocker Group Peru <Slovacus@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -18,43 +18,31 @@ msgstr ""
 
 #: application/modules/admin/controllers/UserController.php:48
 msgid "Changed a User"
-msgstr ""
+msgstr "Changed a User"
 
 #: application/modules/admin/controllers/UserController.php:56
 msgid "No User"
-msgstr ""
+msgstr "No User"
 
 #: application/modules/admin/controllers/UserController.php:66
 msgid "Usuario Desactivado"
-msgstr ""
+msgstr "Disabled Users"
 
 #: application/modules/admin/controllers/UserController.php:83
 msgid "Se Registro el Usuario"
 msgstr ""
 
-#: library/Mtt/Form/Login.php:23
-msgid "Username"
-msgstr ""
-
-#: library/Mtt/Form/Login.php:35
-msgid "Password"
-msgstr ""
-
-#: library/Mtt/Form/Login.php:42
-msgid "Login"
-msgstr ""
-
-#: library/Mtt/Form/Pais.php:21
+#: library/Mtt/Form/Pais.php:24
 msgid "Name *:"
-msgstr ""
+msgstr "Name *:"
 
-#: library/Mtt/Form/Pais.php:44
+#: library/Mtt/Form/Pais.php:47
 msgid "Code:"
-msgstr ""
+msgstr "Code:"
 
-#: library/Mtt/Form/Pais.php:51
+#: library/Mtt/Form/Pais.php:54
 msgid "Register"
-msgstr ""
+msgstr "Register"
 
 #: application/layouts/scripts/_footer.phtml:9
 msgid "home"
@@ -62,42 +50,54 @@ msgstr "Home"
 
 #: application/layouts/scripts/_footer.phtml:26
 msgid "About Us"
-msgstr ""
+msgstr "About Us"
 
 #: application/layouts/scripts/_footer.phtml:35
 msgid "Powered by Stocker Group S.A."
-msgstr ""
+msgstr "Powered by Stocker Group"
 
 #: application/layouts/scripts/_header.phtml:15
 msgid "English"
-msgstr ""
+msgstr "English"
 
 #: application/layouts/scripts/_header.phtml:25
-msgid "Español"
-msgstr ""
+msgid "Spanish"
+msgstr "Spanish"
 
 #: application/layouts/scripts/_header.phtml:34
-msgid "Deuths"
-msgstr ""
+msgid "Deutsch"
+msgstr "Deutsch"
 
-#: application/layouts/scripts/_navegacion.phtml:22
+#: application/layouts/scripts/_header.phtml:41
+msgid "Visitante"
+msgstr "Visitor"
+
+#: application/layouts/scripts/_navegacion.phtml:9
 #, fuzzy
-msgid "buy equipment"
+msgid "Home"
+msgstr "Home"
+
+#: application/layouts/scripts/_navegacion.phtml:20
+#, fuzzy
+msgid "Buy equipment"
 msgstr "Buy Equipment"
 
-#: application/layouts/scripts/_navegacion.phtml:34
-msgid "sell/trade-in Equipment"
+#: application/layouts/scripts/_navegacion.phtml:31
+#, fuzzy
+msgid "Sell/trade-in Equipment"
 msgstr "Sell/Trade-in Equipment"
 
-#: application/layouts/scripts/_navegacion.phtml:45
-msgid "services"
+#: application/layouts/scripts/_navegacion.phtml:42
+#, fuzzy
+msgid "Services"
 msgstr "Services"
 
-#: application/layouts/scripts/_navegacion.phtml:56
-msgid "contact us"
+#: application/layouts/scripts/_navegacion.phtml:52
+#, fuzzy
+msgid "Contact us"
 msgstr "Contact Us"
 
-#: application/layouts/scripts/_navegacion.phtml:66
+#: application/layouts/scripts/_navegacion.phtml:62
 msgid "my account"
 msgstr "My Account"
 
@@ -108,48 +108,51 @@ msgstr "Welcome"
 
 #: application/modules/admin/layouts/scripts/_header.phtml:17
 msgid "Date"
-msgstr ""
+msgstr "Date"
 
 #: application/modules/admin/layouts/scripts/_header.phtml:27
 msgid "Logout"
-msgstr ""
+msgstr "Logout"
 
 #: application/modules/admin/layouts/scripts/_navegacion.phtml:12
 msgid "Config"
-msgstr ""
+msgstr "Config"
 
 #: application/modules/admin/layouts/scripts/_navegacion.phtml:30
 #: application/modules/admin/layouts/scripts/navegacion/_equipment.phtml:6
 #: application/modules/admin/layouts/scripts/navegacion/_equipment.phtml:18
+#: application/modules/admin/views/scripts/equipo/editar.phtml:1
+#: application/modules/admin/views/scripts/equipo/index.phtml:1
+#: application/modules/admin/views/scripts/equipo/nuevo.phtml:1
 #, fuzzy
 msgid "Equipment"
 msgstr "Buy Equipment"
 
 #: application/modules/admin/layouts/scripts/_navegacion.phtml:47
 msgid "Manufacturers"
-msgstr ""
+msgstr "Manufacturers"
 
 #: application/modules/admin/layouts/scripts/_navegacion.phtml:63
 msgid "Category"
-msgstr ""
+msgstr "Category"
 
 #: application/modules/admin/layouts/scripts/_navegacion.phtml:79
 msgid "Currency"
-msgstr ""
+msgstr "Category"
 
 #: application/modules/admin/layouts/scripts/_navegacion.phtml:95
 msgid "User"
-msgstr ""
+msgstr "User"
 
 #: application/modules/admin/layouts/scripts/navegacion/_compras.phtml:6
 #: application/modules/admin/layouts/scripts/navegacion/_config.phtml:6
 msgid "Configuration"
-msgstr ""
+msgstr "Configuration"
 
 #: application/modules/admin/layouts/scripts/navegacion/_compras.phtml:18
 #: application/modules/admin/layouts/scripts/navegacion/_config.phtml:18
 msgid "Type User"
-msgstr ""
+msgstr "Type User"
 
 #: application/modules/admin/layouts/scripts/navegacion/_compras.phtml:29
 #: application/modules/admin/layouts/scripts/navegacion/_config.phtml:29
@@ -160,134 +163,189 @@ msgstr "Buy Equipment"
 #: application/modules/admin/layouts/scripts/navegacion/_compras.phtml:40
 #: application/modules/admin/layouts/scripts/navegacion/_config.phtml:40
 msgid "Country"
-msgstr ""
+msgstr "Country"
 
 #: application/modules/admin/layouts/scripts/navegacion/_compras.phtml:51
 #: application/modules/admin/layouts/scripts/navegacion/_config.phtml:51
 msgid "Pagos"
-msgstr ""
+msgstr "Payments"
 
 #: application/modules/admin/layouts/scripts/navegacion/_compras.phtml:63
 #: application/modules/admin/layouts/scripts/navegacion/_config.phtml:63
 msgid "Moneda"
-msgstr ""
+msgstr "Currency"
 
 #: application/modules/admin/layouts/scripts/navegacion/_equipment.phtml:29
 msgid "Manufacturer"
-msgstr ""
+msgstr "Manufacturer"
 
-#: application/views/scripts/categoria/index.phtml:15
-#: application/views/scripts/categoria/index.phtml:58
+#: application/modules/admin/views/scripts/equipo/index.phtml:6
+#: application/modules/admin/views/scripts/equipo/index.phtml:7
+#: application/modules/admin/views/scripts/equipo/index.phtml:8
+#: application/modules/admin/views/scripts/equipo/index.phtml:9
+#: application/modules/admin/views/scripts/equipo/index.phtml:10
+#: application/modules/admin/views/scripts/equipo/index.phtml:11
+#: application/modules/admin/views/scripts/equipo/index.phtml:12
+msgid "Name"
+msgstr "Name"
+
+#: application/modules/admin/views/scripts/equipo/index.phtml:13
+msgid "Operations"
+msgstr "Operations"
+
+#: application/modules/admin/views/scripts/fabricante/index.phtml:46
+msgid "New"
+msgstr "New"
+
+#: application/views/scripts/categoria/index.phtml:22
+#: application/views/scripts/categoria/index.phtml:73
 msgid "Click to see all"
-msgstr ""
+msgstr "Click to see all"
 
-#: application/views/scripts/categoria/index.phtml:29
-#: application/views/scripts/producto/ver.phtml:36
+#: application/views/scripts/categoria/index.phtml:38
+#: application/views/scripts/equipo/ver.phtml:53
 msgid "Product name"
-msgstr ""
+msgstr "Product name"
 
-#: application/views/scripts/categoria/index.phtml:43
-#: application/views/scripts/index/index.phtml:23
-#: application/views/scripts/index/index.phtml:33
-#: application/views/scripts/index/index.phtml:43
-#: application/views/scripts/index/index.phtml:53
+#: application/views/scripts/categoria/index.phtml:51
+#: application/views/scripts/index/index.phtml:30
+#: application/views/scripts/index/index.phtml:40
+#: application/views/scripts/index/index.phtml:50
+#: application/views/scripts/index/index.phtml:60
 msgid "View details"
-msgstr ""
+msgstr "View details"
 
-#: application/views/scripts/index/index.phtml:2
-msgid "welcome"
-msgstr "Welcome"
+#: application/views/scripts/categoria/index.phtml:67
+msgid "Top Seller in"
+msgstr "Top Seller in"
 
-#: application/views/scripts/index/index.phtml:13
-msgid "Top Offers"
-msgstr ""
+#: application/views/scripts/contacto/index.phtml:4
+#, fuzzy
+msgid "Contactenos"
+msgstr "Contact Us"
 
-#: application/views/scripts/producto/ver.phtml:9
+#: application/views/scripts/equipo/index.phtml:2
+#, fuzzy
+msgid "Purchase of equipment"
+msgstr "Buy Equipment"
+
+#: application/views/scripts/equipo/index.phtml:11
+#, fuzzy
+msgid "Our Equipment"
+msgstr "Buy Equipment"
+
+#: application/views/scripts/equipo/ver.phtml:10
 #, fuzzy
 msgid "Buy Equipment"
 msgstr "Buy Equipment"
 
-#: application/views/scripts/producto/ver.phtml:33
+#: application/views/scripts/equipo/ver.phtml:49
 msgid "Advanced Search"
-msgstr ""
+msgstr "Advanced Search"
 
-#: application/views/scripts/producto/ver.phtml:40
+#: application/views/scripts/equipo/ver.phtml:59
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
-#: application/views/scripts/producto/ver.phtml:44
+#: application/views/scripts/equipo/ver.phtml:65
 msgid "Origin"
-msgstr ""
+msgstr "Origin"
 
-#: application/views/scripts/producto/ver.phtml:48
+#: application/views/scripts/equipo/ver.phtml:71
 msgid "Article ID"
-msgstr ""
+msgstr "Article ID"
 
-#: application/views/scripts/producto/ver.phtml:52
+#: application/views/scripts/equipo/ver.phtml:77
 msgid "Date/Year of manufacture"
-msgstr ""
+msgstr "Date/Year of manufacture"
 
-#: application/views/scripts/producto/ver.phtml:56
+#: application/views/scripts/equipo/ver.phtml:83
 msgid "Estimated weight (KG)"
-msgstr ""
+msgstr "Date/Year of manufacture"
 
-#: application/views/scripts/producto/ver.phtml:60
+#: application/views/scripts/equipo/ver.phtml:89
 msgid "Quality/Condition"
-msgstr ""
+msgstr "Quality/Condition"
 
-#: application/views/scripts/producto/ver.phtml:64
+#: application/views/scripts/equipo/ver.phtml:95
 msgid "Mode Amount of equipment"
-msgstr ""
+msgstr "Mode Amount of equipment"
 
-#: application/views/scripts/producto/ver.phtml:68
+#: application/views/scripts/equipo/ver.phtml:101
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
-#: application/views/scripts/producto/ver.phtml:73
+#: application/views/scripts/equipo/ver.phtml:108
 msgid "Specifications"
-msgstr ""
+msgstr "Specifications"
 
-#: application/views/scripts/producto/ver.phtml:75
+#: application/views/scripts/equipo/ver.phtml:111
 msgid "Temperature Range"
-msgstr ""
+msgstr "Temperature Range"
 
-#: application/views/scripts/producto/ver.phtml:76
+#: application/views/scripts/equipo/ver.phtml:112
 msgid "Capacity Cu."
-msgstr ""
+msgstr "Capacity Cu."
 
-#: application/views/scripts/producto/ver.phtml:78
+#: application/views/scripts/equipo/ver.phtml:114
 msgid "Interior dimensions"
-msgstr ""
+msgstr "Interior dimensions"
 
-#: application/views/scripts/producto/ver.phtml:79
+#: application/views/scripts/equipo/ver.phtml:115
 msgid "Exterior dimensions"
-msgstr ""
+msgstr "Exterior dimensions"
 
-#: application/views/scripts/producto/ver.phtml:80
+#: application/views/scripts/equipo/ver.phtml:116
 msgid "Shipping weight"
-msgstr ""
+msgstr "Shipping weight"
 
-#: application/views/scripts/producto/ver.phtml:82
+#: application/views/scripts/equipo/ver.phtml:118
 msgid "Amps"
-msgstr ""
+msgstr "Amps"
 
-#: application/views/scripts/producto/ver.phtml:86
+#: application/views/scripts/equipo/ver.phtml:122
 msgid "Download PDF"
-msgstr ""
+msgstr "Download PDF"
 
-#: application/views/scripts/producto/ver.phtml:87
+#: application/views/scripts/equipo/ver.phtml:123
 msgid "Print"
-msgstr ""
+msgstr "Print"
 
-#: application/views/scripts/producto/ver.phtml:88
+#: application/views/scripts/equipo/ver.phtml:124
 msgid "Ask a Question"
-msgstr ""
+msgstr "Ask a Question"
 
-#: application/views/scripts/producto/ver.phtml:89
+#: application/views/scripts/equipo/ver.phtml:125
 msgid "I Need Help"
-msgstr ""
+msgstr "I Need Help"
 
-#: application/views/scripts/producto/ver.phtml:90
+#: application/views/scripts/equipo/ver.phtml:126
 msgid "Tell a Friend"
+msgstr "Tell a Friend"
+
+#: application/views/scripts/equipo/ver.phtml:135
+msgid "Agregar A CartCar"
 msgstr ""
 
+#: application/views/scripts/index/index.phtml:4
+msgid "Welcome to Medtechtrade"
+msgstr "Welcome to MedTechTrade"
+
+#: application/views/scripts/index/index.phtml:19
+msgid "Top Offers"
+msgstr "Top Offers"
+
+#~ msgid "Español"
+#~ msgstr "Español"
+
+#~ msgid "Deactivated User"
+#~ msgstr "Deactivated User"
+
+#~ msgid "There has been registered a new user"
+#~ msgstr "There has been registered a new user"
+
+#~ msgid "Payments"
+#~ msgstr "Payments"
+
+#~ msgid "welcome"
+#~ msgstr "Welcome"

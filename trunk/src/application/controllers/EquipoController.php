@@ -19,12 +19,6 @@ class EquipoController
         }
 
 
-    public function paginadoAction()
-        {
-        
-        }
-
-
     public function verAction()
         {
         $id = intval( $this->_getParam( 'id' , null ) );

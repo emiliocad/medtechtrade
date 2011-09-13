@@ -1,7 +1,7 @@
 /* TEAM */
 	
-	Team Lider: Matias
-	Twitter: @slovacus
+	Team Lider: Matias Franci
+	Twitter: @franci
 	From:Peru,Lima, Los Olivos
 
 	UI developer , Web developer: Luis Alberto Mayta Mamani
