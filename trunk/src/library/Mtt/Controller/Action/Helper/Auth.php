@@ -5,12 +5,14 @@
  * and open the template in the editor.
  */
 
+
 /**
  * Description of Auth
  *
  * @author Luis Mayta
  */
-class Mtt_Controller_Action_Helper_Auth extends Zend_Controller_Action_Helper_Abstract
+class Mtt_Controller_Action_Helper_Auth
+        extends Zend_Controller_Action_Helper_Abstract
     {
 
     protected $view;
@@ -20,7 +22,7 @@ class Mtt_Controller_Action_Helper_Auth extends Zend_Controller_Action_Helper_Ab
         {
         $view = $this->getView();
         $controller = $this->getActionController();
-        if( Zend_Auth::getInstance()->hasIdentity() )
+        if ( Zend_Auth::getInstance()->hasIdentity() )
             {
             $view->isAuth = $controller->isAuth = true;
             $authData = Zend_Auth::getInstance()->getStorage()->read();
@@ -31,23 +33,19 @@ class Mtt_Controller_Action_Helper_Auth extends Zend_Controller_Action_Helper_Ab
             $view->isAuth = $controller->isAuth = false;
             }
         parent::preDispatch();
-
         }
 
 
     public function getView()
         {
-        if( $this->view !== null )
+        if ( $this->view !== null )
             {
             return $this->view;
             }
         $controller = $this->getActionController();
         $this->view = $controller->view;
         return $this->view;
-
         }
 
 
     }
-
-?>

@@ -1,7 +1,10 @@
 <?php
 
-class Mtt_Controller_Plugin_Layout extends Zend_Controller_Plugin_Abstract
+
+class Mtt_Controller_Plugin_Layout
+        extends Zend_Controller_Plugin_Abstract
     {
+
 
     public function preDispatch( Zend_Controller_Request_Abstract $request )
         {
@@ -25,6 +28,7 @@ class Mtt_Controller_Plugin_Layout extends Zend_Controller_Plugin_Abstract
             Zend_Layout::getMvcInstance()->setLayoutPath( $layoutPath );
             }
         }
+
 
     }
 

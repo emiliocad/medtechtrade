@@ -1,44 +1,103 @@
-<div id="navegacion" class="container_16"> 
-    <ul id="mainlevel">
-        <li>
-            <a href="
-            <?= $this->url( array( 'controller' => 'index' ,
-                'action' => 'index' ) , null , true ) ?>">
+<ul id="topnav">
+    <li>
+        <a class="current" href="
+           <?=
+           $this->url( array(
+               'module' => 'admin' ,
+               'controller' => 'index' ,
+               'action' => 'index' ) , null , true )
+           ?>">
+            <span>
 
-                Home
-            </a>    
+                <?= $this->translate( 'Config' ); ?>
 
-        </li>
-        <li>
-            <a href="#">Plattform Settings</a>
-        </li>
-        <li>
+            </span>
 
-            <a href="
-            <?= $this->url( array( 'controller' => 'vender' ,
-                'action' => 'index' ) , null , true ) ?>">
+        </a>
+        <?= $this->render( 'navegacion/_config.phtml' ); ?>
 
-                Users
-            </a>    
+    </li>
+    <li>
+        <a  href="
+        <?=
+        $this->url( array(
+            'module' => 'admin' ,
+            'controller' => 'equipo' ,
+            'action' => 'index' ) , null , true )
+        ?>">
+            <span>
 
-        </li>
-        <li>
-            <a href="
-            <?= $this->url( array( 'controller' => 'Servicios' ,
-                'action' => 'index' ) , null , true ) ?>">
-                Manage Devices
-            </a>  
+                <?= $this->translate( 'Equipment' ); ?>
 
+            </span>
 
-        </li>
-        <li>
-            <a href="
-            <?= $this->url( array( 'controller' => 'contacto' ,
-                'action' => 'index' ) , null , true ) ?>">
+        </a>
+        <?= $this->render( 'navegacion/_equipment.phtml' ); ?>
+    </li>
+    <li>
+        <a href="
+        <?=
+        $this->url( array(
+            'module' => 'admin' ,
+            'controller' => 'fabricante' ,
+            'action' => 'index' ) , null , true )
+        ?>">
+            <span>
 
-                Logout
-            </a>    
-        </li>
-        
-    </ul> 
-</div> 
+                <?= $this->translate( 'Manufacturers' ); ?>
+
+            </span>
+
+        </a>
+    </li>
+    <li>
+        <a  href="
+        <?=
+        $this->url( array(
+            'module' => 'admin' ,
+            'controller' => 'categoria' ,
+            'action' => 'index' ) , null , true )
+        ?>">
+            <span>
+
+                <?= $this->translate( 'Category' ); ?>
+
+            </span>
+
+        </a>
+    </li>
+    <li>
+        <a href="
+        <?=
+        $this->url( array(
+            'module' => 'admin' ,
+            'controller' => 'moneda' ,
+            'action' => 'index' ) , null , true )
+        ?>">
+            <span>
+
+                <?= $this->translate( 'Currency' ); ?>
+
+            </span>
+
+        </a>
+    </li>
+    <li>
+        <a  href="
+        <?=
+        $this->url( array(
+            'module' => 'admin' ,
+            'controller' => 'user' ,
+            'action' => 'index' ) , null , true )
+        ?>">
+            <span>
+
+                <?= $this->translate( 'User' ); ?>
+
+            </span>
+
+        </a>
+    </li>
+
+</ul>
+

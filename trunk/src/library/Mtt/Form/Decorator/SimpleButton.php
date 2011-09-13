@@ -1,6 +1,8 @@
 <?php
 
-class Mtt_Form_Decorator_SimpleButton extends Zend_Form_Decorator_Abstract
+
+class Mtt_Form_Decorator_SimpleButton
+        extends Zend_Form_Decorator_Abstract
     {
 
 //    protected $_format = '<p><label for="%s">%s</label>
@@ -8,6 +10,7 @@ class Mtt_Form_Decorator_SimpleButton extends Zend_Form_Decorator_Abstract
     protected $_format = '<div class="actionButton submit">
 					<input id="%s" name="%s" value="%s">
 				</div>';
+
 
     public function render( $content )
         {
@@ -23,6 +26,5 @@ class Mtt_Form_Decorator_SimpleButton extends Zend_Form_Decorator_Abstract
         return $markup;
         }
 
-    }
 
-?>
+    }

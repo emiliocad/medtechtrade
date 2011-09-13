@@ -1,0 +1,85 @@
+<h2>Usuario:</h2>
+
+
+<table border="1" class="listado">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Login</th>
+            <th>Rol</th>
+            <th>Fecha de Registro</th>
+            <th>Ciudad</th>
+            <th>cod. Postal</th>
+            <th>Pais</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach( $this->usuarios as $usuario ): ?>
+            <?php $id = $usuario->id; ?>
+            <tr class="<?= $usuario->active
+                            ? 'activo' : 'inactivo' ?>">
+
+                <td><?= $this->escape( $usuario->nombre ) ?></td>
+                <td><?= $this->escape( $usuario->apellido ) ?></td>
+                <td><?= $this->escape( $usuario->email ) ?></td>
+                <td><?= $this->escape( $usuario->login ) ?></td>
+                <td><?= $this->escape( $usuario->rol ) ?></td>
+                <td><?= $this->escape( $usuario->fecharegistro ) ?></td>
+                <td><?= $this->escape( $usuario->ciudad ) ?></td>
+                <td><?= $this->escape( $usuario->codpostal ) ?></td>
+                <td><?= $this->escape( $usuario->pais ) ?></td>
+                <td>
+
+                    <?php
+                    $link = $this->url( array( 'module' => 'admin' ,
+                                'controller' => 'user' ,
+                                'action' => 'editar' ,
+                                'id' => $id ) )
+
+                    ?>
+                    <a href="<?= $link ?>">[Editar]</a>
+
+                    <?php
+                    $link = $this->url( array( 'module' => 'admin' ,
+                                'controller' => 'user' ,
+                                'action' => 'borrar' ,
+                                'id' => $id ) )
+
+                    ?>
+                    <a href="<?= $link ?>" onclick="return confirm('¿Estás seguro?')">[Borrar]</a>
+
+                    <?php if( $usuario->active ): ?>
+                        <?php
+                        $link = $this->url( array( 'module' => 'admin' ,
+                                    'controller' => 'user' ,
+                                    'action' => 'desactivar' ,
+                                    'id' => $id ) )
+
+                        ?>
+                        <a href="<?= $link ?>">[Desactivar]</a>
+                    <?php else: ?>
+                        <?php
+                        $link = $this->url( array( 'module' => 'admin' ,
+                                    'controller' => 'user' ,
+                                    'action' => 'activar' ,
+                                    'id' => $id ) )
+
+                        ?>
+                        <a href="<?= $link ?>">[Activar]</a>
+                    <?php endif; ?>
+
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+<br />
+
+<a href="<?=
+        $this->url( array( 'module' => 'admin' ,
+            'controller' => 'user' ,
+            'action' => 'nuevo' ) , null , true )
+
+        ?>">Nuevo</a>

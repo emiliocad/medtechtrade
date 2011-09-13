@@ -1,0 +1,52 @@
+/* TEAM */
+	
+	Team Lider: Matias Franci
+	Twitter: @franci
+	From:Peru,Lima, Los Olivos
+
+	UI developer , Web developer: Luis Alberto Mayta Mamani
+	Twitter: @slovacus
+	From:Peru,Lima, Los Olivos
+
+	One eyed illustrator: vicente
+	Twitter: @oneeyedman
+	From:Madrid, Spain
+
+	Web designer: Luis Alberto Mayta M.
+	Twitter: @slovacus
+	From:Sevilla, Andalucia, Spain
+
+/* THANKS */
+
+	(First) EN Translator: Renzo
+	Twitter: @prosciuttos
+	From: Barcelona, Catalonia, Spain
+
+	CA Translator: Eva AC
+	Twitter: @evaac
+	From:Barcelona, Catalonia, Spain
+
+	EN Translator: Marta Armada
+	Twitter: @martuishere
+	From: Barcelona, Catalonia, Spain
+	
+	RU Translator: Alexey Bass
+	Twitter: @alexey_bass
+	Location: Israel, Netanya
+	
+	RU Translator: Vladimir Epifanov
+	Twitter: @voldmar
+	Location: Moscow, Russia
+	
+	NL Translator: Rowdy Rabouw
+	Twitter: @rowdyrabouw
+	Location: Gouda, The Netherlands
+	
+	Media Queries by: Marta Armada (@martuishere) and Javier Usobiaga (@htmlboy)
+		
+
+/* SITE */
+	Last update:2011/09/12
+	Language:English / Castellano / Catal�
+	Doctype:HTML5
+	IDE:Netbeans, Notepad++, Dreamweaver, Photoshop

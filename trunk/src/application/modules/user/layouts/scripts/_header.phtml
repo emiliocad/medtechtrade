@@ -1,34 +1,35 @@
-<div id="header" class="container_16">
+<div class="row">
+    <div class="fourcol">
 
-    <div id="logo" class="grid_4 alpha">
+        <img src="/theme/default/image/logo-top.png" alt="Medtechtrade" />
 
-    </div>
-    <div id="slogan" class="grid_7 omega">
-        We manage your equipment...
-    </div>
-    <div id="language" class="grid_5 omega" >
-        <ul>
+    </div>   
+    <div class="eightcol last">
+
+        <ul id="nav-admin">
             <li>
-                Bienvenido <?= $this->isAuth ? $this->authData['usuario']->nombre : 'visitante' ?>
+                Buscar: "Caja de Busqueda"
             </li>
             <li>
-                <a href="#">
-                    <img src="/images/flags/16/en.gif" alt="Eng | " title="Eng | " />
+                <?= $this->translate( 'Welcome' ) ?>  :  <?= $this->authUser ?>
+            </li>
+            <li>
+                <?= $this->translate( 'Date' ) ?>:  <?= Zend_Date::now() ?>
+            </li>
+            <li>
+                <a href="<?=
+                $this->Url(
+                        array( 'module' => 'admin' ,
+                            'controller' => 'login' ,
+                            'action' => 'logout' )
+                )
+                ?>">
+                       <?= $this->translate( 'Logout' ) ?>
                 </a>
             </li>
-            <li>
-                <a href="#">
-                    <img src="/images/flags/16/es.gif" alt="Spa |" title="Spa |" />
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="/images/flags/16/de.gif" alt="Deutsch" title="Deutsch" />
-                </a>
-            </li>
+
         </ul>
-    </div>
-    <div class="clear">
-    </div>
+
+    </div>   
 
 </div>

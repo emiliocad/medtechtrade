@@ -5,7 +5,7 @@ class Admin_LoginController extends Mtt_Controller_Action
 
     public function indexAction()
         {
-        $this->_helper->layout->setLayout( 'layout_login' );
+
 
         $form = new Mtt_Form_Login();
 
@@ -13,10 +13,12 @@ class Admin_LoginController extends Mtt_Controller_Action
             {
 
             $login = $this->_request->getPost();
-            
+
             $_usuario = new Mtt_Models_Bussines_Usuario();
 
-            $loginValido = $_usuario->auth( $form->getValue( "login" ) , $form->getValue( "clave" ) );
+            $loginValido = $_usuario->auth(
+                    $form->getValue( "login" ) , $form->getValue( "clave" )
+            );
             if ( $loginValido )
                 {
                 $this->_redirect( '/admin/index' );
@@ -27,6 +29,12 @@ class Admin_LoginController extends Mtt_Controller_Action
                 }
             }
         $this->view->assign( 'form' , $form );
+        }
+
+    public function logoutAction()
+        {
+        Zend_Auth::getInstance()->clearIdentity();
+        $this->_redirect( '/' );
         }
 
     }

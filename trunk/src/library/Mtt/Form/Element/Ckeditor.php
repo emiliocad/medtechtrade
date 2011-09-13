@@ -1,13 +1,17 @@
 <?php
 
-class Mtt_Form_Element_Ckeditor extends Zend_Form_Element_Textarea
+//TODO Agregar Elemento CKEditor
+class Mtt_Form_Element_Ckeditor
+        extends Zend_Form_Element_Textarea
     {
 
-   public function init()
-    {
-        $this->setAttrib('class', 'ckeditor');
-        $this->setDecorators(array('Composite'));
-    }
+
+    public function init()
+        {
+        $this->setAttrib( 'class' , 'ckeditor' );
+        $this->setDecorators( array( 'Composite' ) );
+        }
+
 
     }
 

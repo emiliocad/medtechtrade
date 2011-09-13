@@ -1,9 +1,59 @@
 <div id="logo-top">
-    <img src="/img/logo-top.png">
+    <img src="/theme/default/image/logo-top.png">
 </div>
+
 <div id="lang-selection-top">
     <!-- Get by PHP function -->
-    <a href="#">English</a> |
-    <a href="#">Espa&ntilde;ol</a> |
-    <a href="#">Deutsch</a>
+    <a href="
+    <?=
+    $this->url( array(
+        'module' => 'default' ,
+        'controller' => 'idioma' ,
+        'action' => 'english' ) , null , true )
+    ?>
+       ">
+           <?= $this->translate( 'English' ) ?>
+    </a> |
+    <a href="
+    <?=
+    $this->url( array(
+        'module' => 'default' ,
+        'controller' => 'idioma' ,
+        'action' => 'spanish' ) , null , true )
+    ?>
+       ">
+           <?= $this->translate( 'Spanish' ) ?>
+    </a> |
+    <a href="<?=
+           $this->url( array(
+               'module' => 'default' ,
+               'controller' => 'idioma' ,
+               'action' => 'aleman' ) , null , true )
+           ?>
+       ">
+           <?= $this->translate( 'Deutsch' ) ?>
+    </a>
+</div>
+
+<div>
+    Bienvenido 
+    <?=
+    Zend_Auth::getInstance()->hasIdentity() ? $this->authUser : $this->translate( 'Visitante' )
+    ?>
+
+    <? if ( Zend_Auth::getInstance()->hasIdentity() ): ?>
+        <a href="<?=
+    $this->url( array(
+        'module' => 'default' ,
+        'controller' => 'usuario' ,
+        'action' => 'logout' ) , null , true )
+        ?>">Logout</a>
+       <?php else: ?>
+        <a href="<?=
+       $this->url( array(
+           'module' => 'default' ,
+           'controller' => 'usuario' ,
+           'action' => 'index' ) , null , true )
+           ?>">Login</a> |
+       <? endif; ?>
 </div>

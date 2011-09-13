@@ -4,13 +4,11 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
-/**
- * Description of Categoria
- *
- */
-class Mtt_Form_Categoria extends Zend_Form
+//TODO Crear Translate para Zend Form
+class Mtt_Form_Categoria
+        extends Zend_Form
     {
+
 
     public function init()
         {
@@ -22,12 +20,16 @@ class Mtt_Form_Categoria extends Zend_Form
 
         $decorator = new Mtt_Form_Decorator_SimpleInput();
 
-        $e = new Zend_Form_Element_Text( 'nombre' );
-        $e->setLabel( 'Nombre *:' );
-        $e->setRequired();
-        $e->addValidator( new Zend_Validate_StringLength( array( 'min' => 2 , 'max' => 50 ) ) );
-        $e->addValidator( new Zend_Validate_Alnum( true ) );
-        $e->addValidator(
+        $nombre = new Zend_Form_Element_Text( 'nombre' );
+        $nombre->setLabel( 'Nombre *:' );
+        $nombre->setRequired();
+        $nombre->addValidator(
+                new Zend_Validate_StringLength(
+                        array( 'min' => 2 ,
+                            'max' => 50 ) )
+        );
+        $nombre->addValidator( new Zend_Validate_Alnum( true ) );
+        $nombre->addValidator(
                 new Zend_Validate_Db_NoRecordExists(
                         array(
                             'table' => 'categoria' ,
@@ -36,36 +38,37 @@ class Mtt_Form_Categoria extends Zend_Form
                 )
         );
         //$e->setDecorators( array( $decorator ) );
-        $this->addElement( $e );
+        $this->addElement( $nombre );
 
-        $e = new Zend_Form_Element_Text( 'title' );
-        $e->setLabel( 'Title:' );
+        $title = new Zend_Form_Element_Text( 'title' );
+        $title->setLabel( 'Title:' );
         //$e->setDecorators( array( $decorator ) );
-        $this->addElement( $e );
+        $this->addElement( $title );
 
-        $e = new Zend_Form_Element_File( 'thumbnail' );
-        $e->setLabel( 'Upload an image:' );
-        $e->setDestination( APPLICATION_PATH . '/../public/uploads/' );
+        $thumbnail = new Zend_Form_Element_File( 'thumbnail' );
+        $thumbnail->setLabel( 'Upload an image:' );
+        $thumbnail->setDestination(
+                APPLICATION_PATH . '/../public/uploads/' );
         $f = new Zend_Filter_File_Rename( array( 'target' => '123.jpg' ) ); // Renombrar archivo
-        $e->addFilter( $f );
-        $e->addValidator( 'Count' , false , 1 ); // Solo 1 archivo
-        $e->addValidator( 'Size' , false , 1024000 ); // limite de 1000K
-        $e->addValidator( 'Extension' , false , 'jpg,png,gif' ); // solo JPEG, PNG, and GIFs
-        $this->addElement( $e );
+        $thumbnail->addFilter( $f );
+        $thumbnail->addValidator( 'Count' , false , 1 ); // Solo 1 archivo
+        $thumbnail->addValidator( 'Size' , false , 1024000 ); // limite de 1000K
+        $thumbnail->addValidator( 'Extension' , false , 'jpg,png,gif' ); // solo JPEG, PNG, and GIFs
+        $this->addElement( $thumbnail
+        );
 
 
 
-        $e = new Zend_Form_Element_Textarea( 'descripcion' );
-        $e->setLabel( 'Descripcion *:' );
-        $this->addElement( $e );
+        $descripcion = new Zend_Form_Element_Textarea( 'descripcion' );
+        $descripcion->setLabel( 'Descripcion *:' );
+        $this->addElement( $descripcion );
 
 
         //Submit
-        $e = new Zend_Form_Element_Submit( 'submit' );
-        $e->setAttrib( 'value' , 'Registrar' );
-        $this->addElement( $e );
+        $submit = new Zend_Form_Element_Submit( 'submit' );
+        $submit->setAttrib( 'value' , 'Registrar' );
+        $this->addElement( $submit );
         }
 
-    }
 
-?>
+    }

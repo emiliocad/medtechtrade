@@ -5,12 +5,11 @@
  * and open the template in the editor.
  */
 
-/**
- * Description of Registrar
- *
- */
-class Mtt_Form_Registrar extends Zend_Form
+
+class Mtt_Form_Registrar
+        extends Zend_Form
     {
+
 
     public function init()
         {
@@ -24,14 +23,24 @@ class Mtt_Form_Registrar extends Zend_Form
         $e->setRequired();
         //$e->setDecorators( array( $decorator ) );
         $e->setLabel( 'Nombre:' );
-        $e->addValidator( new Zend_Validate_StringLength( array( 'min' => 5 , 'max' => 25 ) ) );
+        $e->addValidator( new Zend_Validate_StringLength(
+                        array(
+                            'min' => 5
+                            ,
+                            'max' => 25 )
+                )
+        );
         $this->addElement( $e );
 
         $e = new Zend_Form_Element_Text( 'apellido' );
         $e->setRequired();
         //$e->setDecorators( array( $decorator ) );
         $e->setLabel( 'Apellido:' );
-        $e->addValidator( new Zend_Validate_StringLength( array( 'min' => 5 , 'max' => 25 ) ) );
+        $e->addValidator( new Zend_Validate_StringLength(
+                        array(
+                            'min' => 5 , 'max' => 25 )
+                )
+        );
         $this->addElement( $e );
 
         $e = new Zend_Form_Element_Text( 'email' );
@@ -50,7 +59,8 @@ class Mtt_Form_Registrar extends Zend_Form
                     'table' => 'usuario' ,
                     'field' => 'login' ,
                         ) ) );
-        $e->addValidator( new Zend_Validate_StringLength( array( 'min' => 5 , 'max' => 25 ) ) );
+        $e->addValidator( new Zend_Validate_StringLength(
+                        array( 'min' => 5 , 'max' => 25 ) ) );
         $this->addElement( $e );
 
         $e = new Zend_Form_Element_Password( 'clave' );
@@ -108,6 +118,6 @@ class Mtt_Form_Registrar extends Zend_Form
         $this->addElement( 'submit' , 'Enviar' );
         }
 
+
     }
 
-?>
