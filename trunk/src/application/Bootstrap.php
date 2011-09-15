@@ -6,31 +6,28 @@ class Bootstrap
     {
 
 
-    public function _initView()
+    protected function _initAutoload()
         {
+        
+        }
+
+
+    protected function _initView()
+        {
+
         $docTypeHelper = new Zend_View_Helper_Doctype();
         $docTypeHelper->doctype(
                 Zend_View_Helper_Doctype::HTML5
         );
 
-
-        $this->bootstrap( 'layout' );
-        $layout = $this->getResource( 'layout' );
-        $view = $layout->getView();
+        $view = new Zend_View();
 
 
         $view->headTitle( 'Medtechtrade' )
                 ->headTitle( 'Desarrollo' )
                 ->setSeparator( ' - ' );
 
-        /* solo para el Modulo Default */
-        $this->bootstrap( 'frontController' );
-        $frontController = $this->getResource( 'frontController' );
-        //TODO Agregar codigo para mostrar CSS y JS para todos los layout
-//        $view->assign('frontController',$frontController);
-//        $view->headLink()->prependStylesheet( '/theme/default/css/reset.css' )
-//                ->headLink()->appendStylesheet( '/theme/default/css/default.css' );
-//        /* end Deafult */
+
 
         $view->headMeta()->appendHttpEquiv(
                 'Content-Type' , 'text/html; charset=UTF-8'
@@ -38,25 +35,56 @@ class Bootstrap
 
         $view->headMeta()->appendHttpEquiv( 'Content-Language' , 'en-US' );
         $view->addHelperPath( 'Mtt/View/Helper' , 'Mtt_View_Helper' );
-        }
 
-
-    public function _initJquery()
-        {
-        $this->bootstrap( 'layout' );
-        $layout = $this->getResource( 'layout' );
-        $view = $layout->getView();
         $view->addHelperPath(
                 'ZendX/JQuery/View/Helper'
                 , 'ZendX_JQuery_View_Helper' );
 
         $view->jQuery()->setVersion( '1.4.2' )
-                ->setUiVersion( '1.8.2' )
+                ->setUiVersion( '1.8.16' )
+                ->addStylesheet( '/theme/admin/css/redmond/jquery-ui-1.8.16.custom.css' )
                 ->enable()
                 ->uiEnable();
+
+        $viewRenderer = Zend_Controller_Action_HelperBroker::getStaticHelper(
+                        'ViewRenderer'
+        );
+        $viewRenderer->setView( $view );
+
+        return $view;
         }
 
 
+//    public function _initJquery()
+//        {
+////        $this->bootstrap( 'layout' );
+////        $layout = $this->getResource( 'layout' );
+////        $view = $layout->getView();
+//        // Initialize view
+//        // Add it to the ViewRenderer
+//       
+//
+//        // Return it, so that it can be stored by the bootstrap
+//
+//
+//
+//
+//        $view = new Zend_View();
+//        $view->addHelperPath(
+//                'ZendX/JQuery/View/Helper'
+//                , 'ZendX_JQuery_View_Helper' );
+//
+//        $view->jQuery()->setVersion( '1.4.2' )
+//                ->setUiVersion( '1.8.2' )
+//                ->enable()
+//                ->uiEnable();
+//        
+//         $viewRenderer = Zend_Controller_Action_HelperBroker::getStaticHelper(
+//                        'ViewRenderer'
+//        );
+//        $viewRenderer->setView( $view );
+//        return $view;
+//        }
 //    public function _initJs()
 //        {
 //        $this->bootstrap( 'layout' );
@@ -81,6 +109,13 @@ class Bootstrap
     protected function _initSession()
         {
         Zend_Session::start();
+        }
+
+
+//TODO Investigar mas De Zend Registry
+    protected function _initMail()
+        {
+        
         }
 
 

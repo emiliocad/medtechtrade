@@ -5,6 +5,10 @@ class UsuarioController
         extends Mtt_Controller_Action
     {
 
+    const MODULE_ADMIN = '/admin/index/index';
+    const MODULE_USER ='/user/index/index';
+
+
     protected $_usuario;
     protected $URL;
 
@@ -20,19 +24,22 @@ class UsuarioController
 
     public function indexAction()
         {
+
         if ( Zend_Auth::getInstance()->hasIdentity() )
             {
 
-            switch ( $this->authData["role"] )
+            switch (
+            ( int ) $this->authData['usuario']->tipousuario_id
+            )
                 {
-                case self::ADMIN :
+                case 1 :
                     $this->_redirect(
-                            '/admin/index/index'
+                            self::MODULE_ADMIN
                     );
                     break;
-                case self::USUARIO:
+                case 3:
                     $this->_redirect(
-                            '/user/index/index'
+                            self::MODULE_USER
                     );
                     break;
                 }
@@ -54,14 +61,32 @@ class UsuarioController
                     , $form->getValue( "clave" )
             );
 
+            $this->view->assign( 'loginValido' , $loginValido );
+
             if ( $loginValido )
                 {
-                $this->_redirect( '/admin/index' );
+
+                $user = $this->_usuario->findLogin( $form->getValue( "login" ) );
+                switch (
+                ( int ) $user->tipousuario_id
+                )
+                    {
+                    case Mtt_Models_Bussines_TipoUsuario::MANAGER :
+                        $this->_redirect(
+                                self::MODULE_ADMIN
+                        );
+                        break;
+                    case Mtt_Models_Bussines_TipoUsuario::USER :
+                        $this->_redirect(
+                                self::MODULE_USER
+                        );
+                        break;
+                    }
                 }
             else
                 {
                 $this->_helper->FlashMessenger(
-                        'Usuario o contraseña invalido'
+                        'User or Password Invalido'
                 );
                 $this->_redirect( '/usuario/index' );
                 }
@@ -72,6 +97,8 @@ class UsuarioController
 
     public function registroAction()
         {
+
+        //TODO Revisar el Jquery
         $this->view->headScript()->appendFile( '/js/user.sigunp.js' );
         $form = new Mtt_Form_Registrar();
 
@@ -88,7 +115,7 @@ class UsuarioController
                 "clave" => Mtt_Auth_Adapter_DbTable_Mtt::generatePassword(
                         $form->getValue( 'clave' )
                 ) ,
-                "tipousuario_id" => '1' ,
+                "tipousuario_id" => Mtt_Models_Bussines_TipoUsuario::REGISTERED ,
                 "fecharegistro" => Zend_Date::now() ,
                 "ultimavisita" => Zend_Date::now()
             );
@@ -97,7 +124,8 @@ class UsuarioController
 
             $this->_usuario->insert( $usuario );
 
-            $this->_helper->FlashMessenger( 'There has been registered a new user' );
+            $this->_helper->FlashMessenger(
+                    'There has been registered a new user' );
             $this->_redirect( $this->URL );
             }
         $this->view->assign( 'frmRegistrar' , $form );

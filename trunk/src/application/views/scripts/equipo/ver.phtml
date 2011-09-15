@@ -29,6 +29,7 @@
 <h2>
     <?= $this->translate( 'Manufacturer' ) ?>: <?= $this->producto->fabricante ?>
 </h2>
+
 <div id="device-foto-galery">
     <!--Producto -->
 
@@ -119,5 +120,15 @@
     </span>
 </div>
 <!---->
-<?= $this->render('equipo/render/deviceActions.phtml'); ?>
+<?
+if ( Zend_Auth::getInstance()->hasIdentity() )
+    {
+
+    echo $this->render( 'equipo/user/deviceActions.phtml' );
+    }
+else
+    {
+    echo $this->render( 'equipo/guest/deviceActions.phtml' );
+    }
+?>
 <!---->

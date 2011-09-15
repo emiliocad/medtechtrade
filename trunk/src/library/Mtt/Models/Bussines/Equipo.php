@@ -5,6 +5,7 @@
  * and open the template in the editor.
  */
 
+
 class Mtt_Models_Bussines_Equipo
         extends Mtt_Models_Table_Equipo
     {
@@ -214,6 +215,17 @@ class Mtt_Models_Bussines_Equipo
         $this->update( array(
             "active" => self::DESACTIVATE )
                 , 'id = ' . $id );
+        }
+
+
+    public function updateView( $id )
+        {
+        $equipo = $this->getFindId( $id );
+        $equipo = $equipo->toArray();
+        $newView = ( int ) $equipo['views'] + 1;
+        $data = array( 'views' => $newView );
+
+        $this->update( $data , 'id = ' . $id );
         }
 
 

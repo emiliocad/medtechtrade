@@ -1,7 +1,10 @@
 <?php
 
-class TestController extends Mtt_Controller_Action
+
+class TestController
+        extends Mtt_Controller_Action
     {
+
 
     public function init()
         {
@@ -9,12 +12,14 @@ class TestController extends Mtt_Controller_Action
         /* Initialize action controller here */
         }
 
+
     public function indexAction()
         {
         $locale = new Zend_Locale();
 
         $this->view->assign( "locale" , $locale->getLanguage() );
         }
+
 
     public function testGoogleAction()
         {
@@ -29,12 +34,14 @@ class TestController extends Mtt_Controller_Action
         $this->view->assign( 'videoFeed' , $yt->getVideoFeed( $query ) );
         }
 
+
     public function comboPaisAction()
         {
         $pais = new Mtt_Models_Bussines_Paises();
 
         $this->view->assign( 'combos' , $pais->getComboValues() );
         }
+
 
     public function fechaAction()
         {
@@ -43,12 +50,15 @@ class TestController extends Mtt_Controller_Action
         $this->view->assign( 'fecha' , Zend_Date::now( 'us' ) );
         }
 
+
     public function generateClaveAction()
         {
 
 
-        $this->view->assign( 'password' , Mtt_Auth_Adapter_DbTable_Mtt::generatePassword( '123456' ) );
+        $this->view->assign( 'password' ,
+                             Mtt_Auth_Adapter_DbTable_Mtt::generatePassword( '123456' ) );
         }
+
 
     public function fabricanteAction()
         {
@@ -56,6 +66,52 @@ class TestController extends Mtt_Controller_Action
         $frmFabricante = new Mtt_Form_Fabricante();
         $this->view->assign( 'frmFabricante' , $frmFabricante );
         }
+
+
+    public function dateAction()
+        {
+        
+        }
+
+
+    public function mailAction()
+        {
+        //TODO falta transformarlo a todo
+        $_conf = new Zend_Config_Ini( APPLICATION_PATH . '/configs/mail.ini' );
+
+//        $config = array(
+//            'auth' => 'login' ,
+//            'username' => 'checklist@pl-group.biz' ,
+//            'password' => '12345678' ,
+//            'port' => 25 );
+//        $this->mailTransport = new Zend_Mail_Transport_Smtp( 'smtp.1and1.com' ,
+//                        $config
+//        );
+//        
+//        Mtt_Html_Mail_Mailer::setDefaultFrom();
+//        Zend_Mail::setDefaultFrom(
+//                'checklist@pl-group.biz' , 'Zend GData'
+//        );
+//        Zend_Mail::setDefaultTransport( $this->mailTransport );
+//        Zend_Mail::setDefaultFrom(
+//                'checklist@pl-group.biz' , 'Zend GData'
+//        );
+//        Zend_Mail::setDefaultReplyTo(
+//                'checklist@pl-group.biz' , 'Zend GData'
+//        );
+//        
+//        $m = new Mtt_Html_Mail_Mailer();
+//        $m->setSubject( "Hello!" );
+//        $m->addTo( "slovacus@gmail.com" );
+//        $m->setViewParam( 'name' , 'Luis Alberto Mayta' );
+//        $m->sendHtmlTemplate( "index.phtml" );
+
+        $confMail = $_conf->toArray();
+
+
+        $this->view->assign( 'conf' , $confMail['auth'] );
+        }
+
 
     }
 

@@ -1,0 +1,1 @@
+c:\wamp\bin\php\php5.3.4\pear\phpcs.bat --standard=D:\eanaya\_projects\ventas.osc\trunk\util\CodingStandard\Ventas\ --extensions=php --ignore=delta*.php D:\eanaya\_projects\ventas.osc\trunk\src\ventas

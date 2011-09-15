@@ -16,13 +16,11 @@
         $this->headLink()->appendStylesheet( '/theme/admin/css/1140.css' )
                 ->appendStylesheet( '/theme/admin/css/styles.css' )
                 ->appendStylesheet( '/theme/admin/css/style.css' )
-//                ->appendStylesheet(
-//                        '/theme/admin/css/redmond/jquery-ui-1.8.16.custom.css'
-//                )
+                
         ;
         ?>
-        <?= $this->headLink() ?>        
-        <?= $this->jQuery() ?>  
+        <?= $this->headLink(); ?>        
+        <?= $this->jQuery(); ?>  
         <?=
         $this->headScript()
                 ->appendFile( '/theme/admin/js/css3-mediaqueries.js' )
@@ -90,7 +88,13 @@
 
 
                     <div class="fourcol last">
-                        Funciones de Mas solicitados
+
+                        <h3>
+                            <?= $this->translate( 'Most Requested Operations' ) ?>
+                        </h3>
+                        
+                        <?=  $this->partial('operations/_function.phtml'); ?>
+                        
                     </div>
 
                 </div>

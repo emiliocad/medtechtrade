@@ -4,11 +4,7 @@
     </h2>
 
 <?=$this->formOrder ?>
-<!--    <select class="order-by">
-        <option>Order by</option>
-        <option>Manufacturer, A-Z</option>
-        <option>Model, A-Z</option>
-    </select>-->
+
     <br/>
 
     <h3>
@@ -57,11 +53,6 @@
 </div>
 <br/>
 
-<?=
-$this->paginationControl(
-        $this->productos , 'Sliding' , 'categoria/_pag.phtml'
-);
-?>
 <br/>
 <h3>
     <?= $this->translate( 'Top Seller in' ) ?> 

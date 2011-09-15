@@ -1,0 +1,93 @@
+Estructura del panel del usuario de MTT
+
+PANEL DEL ADMINISTRADOR MTT
+- TAB 1) ESCRITORIO:
+	En el escritorio el administrador podrá ver las principales alertas que el sistema requiera intervención del Admin.
+	Entre sus principales alertas:
+	1) Cantidad de usuarios pendientes de autorización
+	2) Cantidad de equipos pendientes de autorización
+	3) Cantidad de preguntas para responder
+	4) Cantidad de nuevas ventas realizadas
+	5) Cantidad de equipos reservados
+
+- TAB 2) USUARIOS:
+	En esta sección el administrador podrá ver el listado de todos los usuarios del sistema
+	Sub TABS:
+	1) Listado de usuarios: Listado con buscador de usuarios con iconos que representan distintas alertas de usuarios.
+
+	SUBMODULO DE USUARIO
+	El submodulo de usuario, será utilizado como FICHA del usuario, esto quiere decir que tendra toda la información y acciones que el admin puede hacer a un usuario.
+	Entre sus TABS.
+	A) DATOS: el admin podrá ver y editar toda la información del usuario.
+	B) EQUIPOS: El admin podrá ver los equipos que el usuario vende.
+	C) PREGUNTAS: El admin podrá ver todas las preguntas que el usuario realizó.
+	D) RESERVAS: listado de reservas de equipos que realizó un usuario.
+	E) OPERACIONES: listado de compras que realizó el usuario.
+	F) ESTADISTICAS: estadísticas del usuario. (visitas/favoritos/reservas
+	G) ACCIONES: listado de acciones que el admin puede hacer a un usuario, x ejemplo: enviar un email, realizar una reserva de equipo, etc.
+
+	2) Sección alta de nuevo usuario: El administrador MTT podrá registrar un nuevo usuario en el sistema.
+
+- TAB 3) EQUIPOS
+	Esta sección el admin podrá ver listado de todos los equipos que maneja MTT
+	SUB TABS:
+	1) Listado y buscador de equipos: el admin podrá realizar busquedas de todos los equipos que maneja MTT.
+
+	SUBMODULO DE EQUIPO
+	El submodulo de equipo será utilizado como FICHA del equipo, esto quiere decir que tendra toda la información y acciones que el admin puede hacer a un usuario.
+	Entre sus TABS.
+	A) DATOS: el admin podrá ver y editar toda la información del equipo.
+	B) PREGUNTAS: El admin podrá ver todas las preguntas que obtuvo el equipo.
+	D) RESERVAS: listado de reservas de equipos: y que en qué fechas se realizaron.
+	E) OPERACIONES: detalle de la operación de compra del equipo.
+	F) ESTADISTICAS: estadísticas del equipo. (visitas/favoritos/reservas
+	G) ENVIO: información de la actividad de envio del equipo
+
+	H) ACCIONES: listado de acciones que el admin puede hacer a un equipo
+		Ejemplo de acciones
+		- Borrar equipo
+		- Cambiar de estado
+		- Asignar una reserva.
+
+
+- TAB 4)PREGUNTAS.
+	Este submodulo el administrador podrá ver todas las preguntas que recibió	MTT
+
+- TAB 5 OPERACIONES
+	Listado de todas las compras realizadas.
+
+- TAB 6 ESTADISTICAS
+	Se podrá ver estadisticas de cantidad de visitas en un equipo/ cantidad de favoritos, reservas, etc
+
+- TAB 7 CONFIGURACION
+	Se podrá tener acceso a la configuración del sistema
+	- TIPO DE MONEDAS
+	- CATEGORIAS
+	- OTROS...
+
+---------------------------------------------------------------
+PANEL DEL USUARIO
+Pestañas (TABS)
+- ESCRITORIO: el usuario tendrá el escritorio para poder recibir las alertas del sistema
+- MIS DATOS: datos del usuario, donde podrá modificarlos
+- MIS VENTAS
+	SUBTABS:
+	A) PUBLICAR: podrá publicar un nuevo equipo para la venta
+	B) PENDIENTES: listado de equipos pendientes de autorización
+	C) ACTIVOS: list de equipos activos
+	D) VENDIDOS: List de equipos vendidos
+	E) NO VENDIDOS: List de equipos que no se envieron.
+
+- MIS COMPRAS
+	SUBTABS
+	A) FAVORITOS: list de equipos que el usuario puso como favoritos.
+	B) RESERVAS: list de equipos que el usuario solicitó para reservar.
+	C) COMPRAS ACTIVAS: list de equipos que están activos
+	D) MIS PREGUNTAS: list de preguntas realizdas.
+	E) MIS PAGOS: List de pagos segun cada equipo.
+	F) ENVIOS: listado de equipos y situacion de envio.
+---------------------------------------------------------------
+
+
+
+

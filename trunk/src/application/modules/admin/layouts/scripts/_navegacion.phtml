@@ -9,12 +9,12 @@
            ?>">
             <span>
 
-                <?= $this->translate( 'Config' ); ?>
+                <?= $this->translate( 'Desk' ); ?>
 
             </span>
 
         </a>
-        <?= $this->render( 'navegacion/_config.phtml' ); ?>
+        <?= $this->render( 'navegacion/_desk.phtml' ); ?>
 
     </li>
     <li>
@@ -27,12 +27,12 @@
         ?>">
             <span>
 
-                <?= $this->translate( 'Equipment' ); ?>
+                <?= $this->translate( 'Users' ); ?>
 
             </span>
 
         </a>
-        <?= $this->render( 'navegacion/_equipment.phtml' ); ?>
+        
     </li>
     <li>
         <a href="
@@ -44,7 +44,7 @@
         ?>">
             <span>
 
-                <?= $this->translate( 'Manufacturers' ); ?>
+                <?= $this->translate( 'Equipment' ); ?>
 
             </span>
 
@@ -60,7 +60,7 @@
         ?>">
             <span>
 
-                <?= $this->translate( 'Category' ); ?>
+                <?= $this->translate( 'Questions' ); ?>
 
             </span>
 
@@ -76,7 +76,7 @@
         ?>">
             <span>
 
-                <?= $this->translate( 'Currency' ); ?>
+                <?= $this->translate( 'Operations' ); ?>
 
             </span>
 
@@ -92,11 +92,28 @@
         ?>">
             <span>
 
-                <?= $this->translate( 'User' ); ?>
+                <?= $this->translate( 'Statistics' ); ?>
 
             </span>
 
         </a>
+    </li>
+    <li>
+        <a  href="
+        <?=
+        $this->url( array(
+            'module' => 'admin' ,
+            'controller' => 'user' ,
+            'action' => 'index' ) , null , true )
+        ?>">
+            <span>
+
+                <?= $this->translate( 'Configuration' ); ?>
+
+            </span>
+
+        </a>
+         <?= $this->render( 'navegacion/_configuration.phtml' ); ?>
     </li>
 
 </ul>

@@ -10,7 +10,7 @@ class Mtt_Models_Bussines_Usuario
 
     public function auth( $login , $pwd )
         {
-
+//TODO Consulta para el tipo de usuario
         $db = Zend_Db_Table_Abstract::getDefaultAdapter();
         $authAdapter = new Mtt_Auth_Adapter_DbTable_Mtt( $db );
 
@@ -29,13 +29,29 @@ class Mtt_Models_Bussines_Usuario
 
             $authStorage->write( array(
                 'usuario' => $authAdapter->getResultRowObject( null , 'clave' ) ,
-                'loginAt' => date( 'Y-m-d H:i:s' ) ,
-                'role' => 'admin'
+                'loginAt' => date( 'Y-m-d H:i:s' )
             ) );
             }
 
 
         return $isValid;
+        }
+
+
+    public function findLogin( $login )
+        {
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from(
+                        $this->_name ,
+                        array(
+                    'login' , 'tipousuario_id' )
+                )
+                ->where( 'usuario.active = ?' , self::ACTIVE )
+                ->where( 'usuario.login = ?' , $login )
+                ->query();
+        ;
+        return $query->fetchObject();
         }
 
 
@@ -49,15 +65,6 @@ class Mtt_Models_Bussines_Usuario
 
     public function listar()
         {
-
-//        $select = new Zend_Db_Select( Zend_Registry::get( 'default' ) );
-//        $select->from( 'users' ,
-//                       array( 'id' , 'name' , 'lastname' , 'username' , 'mail' ) );
-//        $select->joinInner( 'type' , 'type.id=users.type_id' ,
-//                            array( 'type.description as types' ) );
-//        $result = $select->query()->fetchAll();
-//
-//        return $result;
 
         $db = $this->getAdapter();
         $query = $db->select()
@@ -80,7 +87,7 @@ class Mtt_Models_Bussines_Usuario
                              array( 'tipousuario.nombre as rol' ) )
                 ->joinInner( 'paises' , 'paises.id = usuario.paises_id' ,
                              array( 'paises.nombre as pais' ) )
-                ->where( 'usuario.active = ?' , '1' )
+                ->where( 'usuario.active = ?' , self::ACTIVE )
                 ->query()
         ;
 

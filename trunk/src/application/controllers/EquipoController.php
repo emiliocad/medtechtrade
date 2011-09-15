@@ -21,7 +21,9 @@ class EquipoController
 
     public function verAction()
         {
-        $id = intval( $this->_getParam( 'id' , null ) );
+        $id = ( int ) ( $this->_getParam( 'id' , null ) );
+
+        $this->_equipo->updateView( $id );
 
         $this->view->assign(
                 'producto' , $this->_equipo->getProduct( $id )

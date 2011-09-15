@@ -1,3 +1,9 @@
+<?= $this->datePicker( "dp1" , '' ,
+                        array(
+    'defaultDate' =>
+    date( 'Y/m/d' , time() ) ) );
+?>
+
 <ul>
     <?
     $objcategorias = new Mtt_Models_Bussines_Categoria();
