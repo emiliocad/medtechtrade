@@ -6,9 +6,27 @@ class Bootstrap
     {
 
 
-    protected function _initAutoload()
+    protected function _initViewHelpers()
         {
-        
+
+        $this->bootstrap( 'layout' );
+        $layout = $this->getResource( 'layout' );
+        $view = $layout->getView();
+
+        //ZendX_JQuery_View_Helper_JQuery::enableNoConflictMode();
+        $view->addHelperPath( 'ZendX/JQuery/View/Helper/' ,
+                              'ZendX_JQuery_View_Helper' );
+        $view->addHelperPath( 'ZendX/JQuery/View/Helper/JQuery' ,
+                              'ZendX_JQuery_View_Helper_JQuery' );
+        $view->addHelperPath( 'Mtt/View/Helper/' , 'Mtt_View_Helper' );
+
+
+        $view->headTitle( 'Medtechtrade' )
+                ->headTitle( 'Desarrollo' )
+                ->setSeparator( ' - ' );
+        $view->headMeta()->appendHttpEquiv(
+                'Content-Type' , 'text/html; charset=UTF-8'
+        );
         }
 
 
@@ -20,38 +38,38 @@ class Bootstrap
                 Zend_View_Helper_Doctype::HTML5
         );
 
-        $view = new Zend_View();
-
-
-        $view->headTitle( 'Medtechtrade' )
-                ->headTitle( 'Desarrollo' )
-                ->setSeparator( ' - ' );
-
-
-
-        $view->headMeta()->appendHttpEquiv(
-                'Content-Type' , 'text/html; charset=UTF-8'
-        );
-
-        $view->headMeta()->appendHttpEquiv( 'Content-Language' , 'en-US' );
-        $view->addHelperPath( 'Mtt/View/Helper' , 'Mtt_View_Helper' );
-
-        $view->addHelperPath(
-                'ZendX/JQuery/View/Helper'
-                , 'ZendX_JQuery_View_Helper' );
-
-        $view->jQuery()->setVersion( '1.4.2' )
-                ->setUiVersion( '1.8.16' )
-                ->addStylesheet( '/theme/admin/css/redmond/jquery-ui-1.8.16.custom.css' )
-                ->enable()
-                ->uiEnable();
-
-        $viewRenderer = Zend_Controller_Action_HelperBroker::getStaticHelper(
-                        'ViewRenderer'
-        );
-        $viewRenderer->setView( $view );
-
-        return $view;
+//        $view = new Zend_View();
+//
+//
+//        $view->headTitle( 'Medtechtrade' )
+//                ->headTitle( 'Desarrollo' )
+//                ->setSeparator( ' - ' );
+//
+//
+//
+//        $view->headMeta()->appendHttpEquiv(
+//                'Content-Type' , 'text/html; charset=UTF-8'
+//        );
+//
+//        $view->headMeta()->appendHttpEquiv( 'Content-Language' , 'en-US' );
+//        $view->addHelperPath( 'Mtt/View/Helper' , 'Mtt_View_Helper' );
+//
+//        $view->addHelperPath(
+//                'ZendX/JQuery/View/Helper'
+//                , 'ZendX_JQuery_View_Helper' );
+//
+//        $view->jQuery()->setVersion( '1.4.2' )
+//                ->setUiVersion( '1.8.16' )
+//                ->addStylesheet( '/theme/admin/css/redmond/jquery-ui-1.8.16.custom.css' )
+//                ->enable()
+//                ->uiEnable();
+//
+//        $viewRenderer = Zend_Controller_Action_HelperBroker::getStaticHelper(
+//                        'ViewRenderer'
+//        );
+//        $viewRenderer->setView( $view );
+//
+//        return $view;
         }
 
 

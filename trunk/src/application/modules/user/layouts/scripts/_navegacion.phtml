@@ -3,36 +3,36 @@
         <a class="current" href="
            <?=
            $this->url( array(
-               'module' => 'admin' ,
+               'module' => 'user' ,
                'controller' => 'index' ,
                'action' => 'index' ) , null , true )
            ?>">
             <span>
 
-                <?= $this->translate( 'Config' ); ?>
+                <?= $this->translate( 'Desktop' ); ?>
 
             </span>
 
         </a>
-        <?= $this->render( 'navegacion/_config.phtml' ); ?>
+        <?= $this->render( 'navegacion/_desktop.phtml' ); ?>
 
     </li>
     <li>
         <a  href="
         <?=
         $this->url( array(
-            'module' => 'admin' ,
+            'module' => 'user' ,
             'controller' => 'equipo' ,
             'action' => 'index' ) , null , true )
         ?>">
             <span>
 
-                <?= $this->translate( 'Equipment' ); ?>
+                <?= $this->translate( 'My data' ); ?>
 
             </span>
 
         </a>
-        <?= $this->render( 'navegacion/_equipment.phtml' ); ?>
+
     </li>
     <li>
         <a href="
@@ -44,11 +44,12 @@
         ?>">
             <span>
 
-                <?= $this->translate( 'Manufacturers' ); ?>
+                <?= $this->translate( 'My Sales' ); ?>
 
             </span>
 
         </a>
+        <?= $this->render( 'navegacion/_sales.phtml' ); ?>
     </li>
     <li>
         <a  href="
@@ -60,44 +61,14 @@
         ?>">
             <span>
 
-                <?= $this->translate( 'Category' ); ?>
+                <?= $this->translate( 'My Purchases' ); ?>
 
             </span>
 
         </a>
+        <?= $this->render( 'navegacion/_purchases.phtml' ); ?>
     </li>
-    <li>
-        <a href="
-        <?=
-        $this->url( array(
-            'module' => 'admin' ,
-            'controller' => 'moneda' ,
-            'action' => 'index' ) , null , true )
-        ?>">
-            <span>
-
-                <?= $this->translate( 'Currency' ); ?>
-
-            </span>
-
-        </a>
-    </li>
-    <li>
-        <a  href="
-        <?=
-        $this->url( array(
-            'module' => 'admin' ,
-            'controller' => 'user' ,
-            'action' => 'index' ) , null , true )
-        ?>">
-            <span>
-
-                <?= $this->translate( 'User' ); ?>
-
-            </span>
-
-        </a>
-    </li>
+    
 
 </ul>
 

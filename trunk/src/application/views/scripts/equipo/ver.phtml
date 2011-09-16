@@ -27,7 +27,8 @@
 </span>
 
 <h2>
-    <?= $this->translate( 'Manufacturer' ) ?>: <?= $this->producto->fabricante ?>
+    <?= $this->translate( 'Manufacturer' ) ?>: <?= $this->producto->fabricante
+    ?>
 </h2>
 
 <div id="device-foto-galery">
@@ -56,68 +57,19 @@
     <span>
         <?= $this->producto->nombre ?>
     </span>
-    <span class="device-description-field">
-        <?= $this->translate( 'Model' ) ?>
-    </span>
-    <span>
-        <?= $this->producto->modelo ?>
-    </span>
-    <span class="device-description-field">
-        <?= $this->translate( 'Origin' ) ?>
-    </span>
-    <span>
-        <?= $this->producto->pais ?>
-    </span>
-    <span class="device-description-field">
-        <?= $this->translate( 'Article ID' ) ?>
-    </span>
-    <span>
-        <?= $this->producto->id ?>
-    </span>
-    <span class="device-description-field">
-        <?= $this->translate( 'Date/Year of manufacture' ) ?>
-    </span>
-    <span>
-        <?= $this->producto->fechafabricacion ?>
-    </span>
-    <span class="device-description-field">
-        <?= $this->translate( 'Estimated weight (KG)' ) ?>
-    </span>
-    <span>
-        <?= $this->producto->pesoEstimado ?>
-    </span>
-    <span class="device-description-field">
-        <?= $this->translate( 'Quality/Condition' ) ?>
-    </span>
-    <span>
-        <?= $this->producto->calidad ?>
-    </span>
-    <span class="device-description-field">
-        <?= $this->translate( 'Mode Amount of equipment' ) ?>
-    </span>
-    <span>
-        <?= $this->producto->cantidad ?>
-    </span>
-    <span class="device-description-field">
-        <?= $this->translate( 'Description' ) ?>
-    </span>
-    <span>
-        Thermo Scientifig Revco. Ultima Plus<br/>
-        Placing out of operation: March 2010
-    </span>
-    <span class="device-description-field">
-        <?= $this->translate( 'Specifications' ) ?>
-    </span>
-    <span>
-        <?= $this->translate( 'Temperature Range' ) ?>: from -50&deg; until 86&deg;<br/>
-        <?= $this->translate( 'Capacity Cu.' ) ?>: 691 (L)<br/>
-        Electrical Amps/Breaker 230V/60 Hz 1&empty;<br/>
-        <?= $this->translate( 'Interior dimensions' ) ?>: HxWxD (mm) (1283 x  876 x 616)<br/>
-        <?= $this->translate( 'Exterior dimensions' ) ?>: HxWxD (mm) (1283 x  876 x 616)<br/>
-        <?= $this->translate( 'Shipping weight' ) ?>: 376 Kg.<br/>
-        Power Tension 230v freq. 50 Phase: 1<br/>
-        <?= $this->translate( 'Amps' ) ?>: 12A
-    </span>
+
+    <?
+    if ( Zend_Auth::getInstance()->hasIdentity() )
+        {
+
+        echo $this->render( 'equipo/user/deviceDescription.phtml' );
+        }
+    else
+        {
+        echo $this->render( 'equipo/guest/deviceDescription.phtml' );
+        }
+    ?>
+
 </div>
 <!---->
 <?

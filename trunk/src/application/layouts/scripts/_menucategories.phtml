@@ -1,9 +1,3 @@
-<?= $this->datePicker( "dp1" , '' ,
-                        array(
-    'defaultDate' =>
-    date( 'Y/m/d' , time() ) ) );
-?>
-
 <ul>
     <?
     $objcategorias = new Mtt_Models_Bussines_Categoria();
@@ -20,12 +14,12 @@
             )
             ?>">
                 <span>
-               <?= $this->escape( $categoria->title ) ?>
+    <?= $this->escape( $categoria->title ) ?>
                 </span>
 
             </a>
         </li>
-    <?
-    }
-?>
+        <?
+        }
+    ?>
 </ul>
