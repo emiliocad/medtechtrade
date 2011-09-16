@@ -22,8 +22,7 @@ class CategoriaController
         $id = intval( $this->_getParam( 'id' , null ) );
 
         $stmt = $this->_categoria->getProducts( $id );
-        //$stmt = $this->_categoria->getProducts( $id );
-//        $stmt->setCurrentPageNumber( $this->_getParam( 'page' , 1 ) );
+
         $this->view->assign( 'productos' , $stmt );
 
         $stmtCategoria = $this->_categoria->getCategoria( $id );

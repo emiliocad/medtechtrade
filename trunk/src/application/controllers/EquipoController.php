@@ -15,12 +15,16 @@ class EquipoController
 
     public function indexAction()
         {
-        
+        $this->view->assign(
+                'productos' , $this->_equipo->getProducts()
+        );
         }
 
 
     public function verAction()
         {
+        //$this->_helper->layout->disableLayout();
+        //$this->_helper->viewRenderer->setNoRender();
         $id = ( int ) ( $this->_getParam( 'id' , null ) );
 
         $this->_equipo->updateView( $id );
@@ -28,6 +32,30 @@ class EquipoController
         $this->view->assign(
                 'producto' , $this->_equipo->getProduct( $id )
         );
+        }
+
+
+    public function pdfAction()
+        {
+        $this->_helper->layout->disableLayout();
+        $this->_helper->viewRenderer->setNoRender();
+
+
+        $id = $this->_request->getParam( 'id' );
+
+        $this->view->assign(
+                'producto' , $this->_equipo->getProduct( $id )
+        );
+
+        //$this->view->venta = $this->_venta->fetchRow( 'id = ' . $id )->toArray();
+        $html = $this->view->render( 'equipo/ver.phtml' );
+
+        require_once(APPLICATION_PATH . "/../library/Dompdf/dompdf_config.inc.php");
+        $pdf = new DOMPDF();
+        $pdf->set_paper( 'A4' , 'portrait' );
+        $pdf->load_html( $html );
+        $pdf->render();
+        $pdf->stream( 'Medtechtrade.pdf' ); //->output()
         }
 
 

@@ -1,40 +1,18 @@
-<div id="device-actions">
-    <a href="#">
-        <span class="device-action-pdf">
-            <?= $this->translate( 'Download PDF' ) ?>
-        </span>
-    </a>
-    <a href="#">
-        <span class="device-action-print">
-            <?= $this->translate( 'Print' ) ?>
-        </span>
-    </a>
-    <a href="#">
-        <span class="device-action-question">
-            <?= $this->translate( 'Ask a Question' ) ?>
-        </span>
-    </a>
-    <a href="#">
-        <span class="device-action-help">
-            <?= $this->translate( 'I Need Help' ) ?>
-        </span>
-    </a>
-    <a href="#">
-        <span class="device-action-friend">
-            <?= $this->translate( 'Tell a Friend' ) ?>
-        </span>
-    </a>
-    <a href="
-    <?=
-    $this->url(
-            array( 'module' => 'default' , 'controller' => 'checkout' ,
-        'action' => 'index' ,
-        'id' => $this->producto->id ) , null , true
-    )
-    ?> 
-       ">
-        <span class="device-action-friend">
-            <?= $this->translate( 'Add Cart' ) ?>
-        </span>
-    </a>
-</div>
+<a href="#">
+    <span class="device-action-question">
+        <?= $this->translate( 'Ask a Question' ) ?>
+    </span>
+</a>
+<a href="
+<?=
+$this->url(
+        array( 'module' => 'default' , 'controller' => 'checkout' ,
+    'action' => 'index' ,
+    'id' => $this->producto->id ) , null , true
+ )
+?> 
+   ">
+    <span class="device-action-friend">
+        <?= $this->translate( 'Add Cart' ) ?>
+    </span>
+</a>
