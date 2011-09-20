@@ -15,9 +15,9 @@ class Mtt_Models_Bussines_Categoria
     {
 
 
-    public function __construct( $config = array( ) )
+    public function __construct()
         {
-        parent::__construct( $config );
+        parent::__construct();
         }
 
 
@@ -72,12 +72,7 @@ class Mtt_Models_Bussines_Categoria
         }
 
 
-    public function getPaginator( $id )
-        {
-        $p = Zend_Paginator::factory( $this->getProducts( $id ) );
-        $p->setItemCountPerPage( 1 );
-        return $p;
-        }
+   
 
 
     }

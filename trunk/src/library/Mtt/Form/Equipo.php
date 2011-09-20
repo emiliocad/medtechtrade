@@ -50,11 +50,12 @@ class Mtt_Form_Equipo
         $precioVenta = new Zend_Form_Element_Text( 'precioventa' );
         $precioVenta->setLabel( 'Precio de venta: ' );
         $precioVenta->setRequired( true );
-        $v = new Zend_Validate_Between( array( 'min' => 0.1 , 'max' => 9999 ) );
+        $v = new Zend_Validate_Between( array( 'min' => 0.1 ,
+                    'max' => 9999999999 ) );
         $precioVenta->addValidator( $v );
         $v = new Zend_Validate_Float( new Zend_Locale( 'US' ) );
         $precioVenta->addValidator( $v );
-        $precioVenta->setAttrib( 'maxlength' , '7' );
+        $precioVenta->setAttrib( 'maxlength' , '10' );
         $this->addElement( $precioVenta );
 
         // Elemento: PrecioCompra
@@ -140,7 +141,7 @@ class Mtt_Form_Equipo
                         array( 'min' => 5 , 'max' => 50 )
         );
         $v->setMessage(
-                "El nombre del producto debe tener debe tener al menos
+                "La Calidad del producto debe tener debe tener al menos
             %min% characters. '%value%' no cumple ese requisito" ,
                 Zend_Validate_StringLength::TOO_SHORT
         );
@@ -171,8 +172,8 @@ class Mtt_Form_Equipo
         $fechaFabricacion->setLabel( 'fecha de Fabricacion' );
         $fechaFabricacion->setRequired( true );
         $this->addElement( $fechaFabricacion );
-        
-        
+
+
 
         $this->addElement( 'submit' , 'Enviar' );
         }

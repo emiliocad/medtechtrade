@@ -21,13 +21,13 @@ class Admin_EquipoController
                 'equipos' , $this->_equipo->listEquip()
         );
         }
-
-
-    public function paginadoAction()
+    public function questionAction()
         {
-        $p = $this->_usuario->getPaginator();
-        $p->setCurrentPageNumber( $this->_getParam( 'page' , 1 ) );
-        $this->view->usuarios = $p;
+        
+        }
+    public function addtopofersAction()
+        {
+        
         }
 
 
@@ -74,9 +74,11 @@ class Admin_EquipoController
 
         if ( !is_null( $equipo ) )
             {
-            if ( $this->_request->isPost() && $form->isValid( $this->_request->getPost() ) )
+            if ( $this->_request->isPost() && $form->isValid(
+                            $this->_request->getPost() )
+            )
                 {
-                $this->_equipo->updateFabricante( $form->getValues() , $id );
+                $this->_equipo->updateEquipo( $form->getValues() , $id );
                 $this->_helper->FlashMessenger( 'Se modificó un fabricante' );
                 $this->_redirect( $this->URL );
                 }
@@ -94,7 +96,7 @@ class Admin_EquipoController
     public function borrarAction()
         {
         $id = intval( $this->_request->getParam( 'id' ) );
-        $this->_equipo->deleteFabricate( $id );
+        $this->_equipo->deleteEquipo( $id );
         $this->_helper->FlashMessenger( 'Equipo Borrado' );
         $this->_redirect( $this->URL );
         }
@@ -103,7 +105,7 @@ class Admin_EquipoController
     public function activarAction()
         {
         $id = intval( $this->_request->getParam( 'id' ) );
-        $this->_equipo->update( array( 'active' => 1 ) , 'id=' . $id );
+        $this->_equipo->activarEquipo( $id );
         $this->_helper->FlashMessenger( 'Equipo Activado' );
         $this->_redirect( $this->URL );
         }
@@ -112,7 +114,7 @@ class Admin_EquipoController
     public function desactivarAction()
         {
         $id = intval( $this->_request->getParam( 'id' ) );
-        $this->_equipo->update( array( 'active' => 0 ) , 'id=' . $id );
+        $this->_equipo->desactivarEquipo( $id );
         $this->_helper->FlashMessenger( 'Equipo desactivado' );
         $this->_redirect( $this->URL );
         }

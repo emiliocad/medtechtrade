@@ -5,18 +5,25 @@ class EquipoController
         extends Mtt_Controller_Action
     {
 
+    protected $_equipo;
+
 
     public function init()
         {
         parent::init();
-        $this->_equipo = new Mtt_Models_Bussines_Equipo();
+        $this->_equipo = new Mtt_Models_Catalog_Equipo();
         }
 
 
     public function indexAction()
         {
+
+        $productos = $this->_equipo->showEquipos();
+        $productos->setCurrentPageNumber(
+                $this->_getParam( 'page' , 1 )
+        );
         $this->view->assign(
-                'productos' , $this->_equipo->getProducts()
+                'productos' , $productos
         );
         }
 

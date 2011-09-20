@@ -22,7 +22,7 @@
         <?=
         $this->url( array(
             'module' => 'admin' ,
-            'controller' => 'equipo' ,
+            'controller' => 'user' ,
             'action' => 'index' ) , null , true )
         ?>">
             <span>
@@ -32,14 +32,14 @@
             </span>
 
         </a>
-        
+
     </li>
     <li>
         <a href="
         <?=
         $this->url( array(
             'module' => 'admin' ,
-            'controller' => 'fabricante' ,
+            'controller' => 'equipo' ,
             'action' => 'index' ) , null , true )
         ?>">
             <span>
@@ -55,7 +55,7 @@
         <?=
         $this->url( array(
             'module' => 'admin' ,
-            'controller' => 'categoria' ,
+            'controller' => 'equipo' ,
             'action' => 'index' ) , null , true )
         ?>">
             <span>
@@ -113,7 +113,7 @@
             </span>
 
         </a>
-         <?= $this->render( 'navegacion/_configuration.phtml' ); ?>
+        <?= $this->render( 'navegacion/_configuration.phtml' ); ?>
     </li>
 
 </ul>

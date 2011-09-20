@@ -93,6 +93,9 @@ CREATE TABLE `equipo` (
   `alto` int(11) DEFAULT NULL,
   `sizeCaja` int(11) DEFAULT NULL,
   `active` int(11) DEFAULT '1',
+  `views` int(11) DEFAULT NULL COMMENT 'es para la parte de productos mas visitados',
+  `topofers` int(2) DEFAULT '0' COMMENT 'si es un producto top offers',
+  `publishdate` date DEFAULT NULL COMMENT 'fecha de publicacion',
   PRIMARY KEY (`id`),
   KEY `fk_equipo_categoria` (`categoria_id`),
   KEY `fk_equipo_estadoequipo1` (`estadoequipo_id`),
@@ -108,11 +111,11 @@ CREATE TABLE `equipo` (
   CONSTRAINT `fk_equipo_paises1` FOREIGN KEY (`paises_id`) REFERENCES `paises` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_equipo_publicacionEquipo1` FOREIGN KEY (`publicacionEquipo_id`) REFERENCES `publicacionequipo` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_equipo_usuario1` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `equipo` */
 
-insert  into `equipo`(`id`,`nombre`,`precioventa`,`preciocompra`,`categoria_id`,`estadoequipo_id`,`publicacionEquipo_id`,`usuario_id`,`fabricantes_id`,`tag`,`moneda_id`,`paises_id`,`calidad`,`cantidad`,`modelo`,`fechafabricacion`,`documento`,`sourceDocumento`,`pesoEstimado`,`size`,`ancho`,`alto`,`sizeCaja`,`active`) values (2,'producto 1',12,12,148,1,2,3,2,'sas',1,1,'buena',122,'23123','0000-00-00 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1),(3,'equipo 2',123,111,148,2,1,3,2,'kusa,kusa',1,1,'muy mala',123,'123we','0000-00-00 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1),(4,'equipo 3',125,140,151,1,2,5,2,'1245',1,1,'buena',145,'1455214','0000-00-00 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1);
+insert  into `equipo`(`id`,`nombre`,`precioventa`,`preciocompra`,`categoria_id`,`estadoequipo_id`,`publicacionEquipo_id`,`usuario_id`,`fabricantes_id`,`tag`,`moneda_id`,`paises_id`,`calidad`,`cantidad`,`modelo`,`fechafabricacion`,`documento`,`sourceDocumento`,`pesoEstimado`,`size`,`ancho`,`alto`,`sizeCaja`,`active`,`views`,`topofers`,`publishdate`) values (2,'Equipo 1',12,12,148,1,2,3,2,'sas',1,1,'buena',122,'23123','0000-00-00 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,79,0,NULL),(3,'equipo 2',123,111,148,2,1,3,2,'kusa,kusa',1,1,'muy mala',123,'123we','0000-00-00 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,1,0,NULL),(4,'equipo 3',125,140,151,1,2,5,2,'1245',1,1,'buena',145,'1455214','0000-00-00 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,0,NULL),(5,'equipo 4',1234,12,162,1,2,3,2,'qwq',1,1,'muy buena',12,'2122','0000-00-00 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,0,NULL);
 
 /*Table structure for table `equipo_has_formapago` */
 

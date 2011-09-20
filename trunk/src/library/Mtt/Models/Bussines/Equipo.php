@@ -11,6 +11,12 @@ class Mtt_Models_Bussines_Equipo
     {
 
 
+    public function __construct( $config = array( ) )
+        {
+        parent::__construct( $config );
+        }
+
+
 //TODO reparar este codigo
     public function getComboValues()
         {
@@ -102,24 +108,18 @@ class Mtt_Models_Bussines_Equipo
 
     public function getFindId( $id )
         {
-//        $db = $this->getAdapter();
-//        $query = $db->select()
-//                ->from( $this->_name )
-//                ->where( 'id = ?' , $id )
-//                ->where( 'active = ?' , '1' )
-//                ->query()
-//        ;
+
         return $this->fetchRow( 'id = ' . $id );
         }
 
-  
+
     public function getProducts()
         {
 
         $db = $this->getAdapter();
 
         $query = $db->select()
-                ->from( $this->_name, array( 'id' , 'nombre' ) )
+                ->from( $this->_name , array( 'id' , 'nombre' ) )
                 ->joinInner( 'categoria' ,
                              'categoria.id = equipo.categoria_id ' ,
                              array( 'categoria.nombre as categoria' )
@@ -138,6 +138,10 @@ class Mtt_Models_Bussines_Equipo
         }
 
 
+    /**
+     * 
+     * 
+     */
     public function listEquip()
         {
         $db = $this->getAdapter();
@@ -145,7 +149,9 @@ class Mtt_Models_Bussines_Equipo
                 ->from(
                         $this->_name ,
                         array(
-                    'id' , 'nombre as equipo' , 'precioventa' ,
+                    'id' ,
+                    'nombre as equipo' ,
+                    'precioventa' ,
                     'preciocompra' ,
                     'calidad' ,
                     'modelo' ,
@@ -156,23 +162,26 @@ class Mtt_Models_Bussines_Equipo
                     'size' ,
                     'ancho' ,
                     'alto' ,
-                    'sizeCaja' )
+                    'sizeCaja' ,
+                    'topofers' ,
+                    'publishdate',
+                        'active')
                 )
                 ->joinInner(
                         'categoria' , 'categoria.id = equipo.categoria_id' ,
                         array( 'categoria.nombre as categoria' )
                 )
                 ->joinInner(
-                        'publicacionEquipo' ,
-                        'publicacionEquipo.id = equipo.publicacionEquipo_id' ,
-                        array( 'publicacionEquipo.nombre as publicacionEquipo' )
+                        'publicacionequipo' ,
+                        'publicacionequipo.id = equipo.publicacionEquipo_id' ,
+                        array( 'publicacionequipo.nombre as publicacionequipo' )
                 )
                 ->joinInner( 'usuario' , 'usuario.id = equipo.usuario_id' ,
                              array( 'usuario.nombre as usuario' )
                 )
                 ->joinInner( 'fabricantes' ,
-                             'fabricantes.id = equipo.usuario_id' ,
-                             array( 'usuario.login as usuario' )
+                             'fabricantes.id = equipo.fabricantes_id' ,
+                             array( 'fabricantes.nombre as fabricante' )
                 )
                 ->joinInner( 'moneda' , 'moneda.id = equipo.moneda_id' ,
                              array( 'moneda.nombre as moneda' )
@@ -180,6 +189,14 @@ class Mtt_Models_Bussines_Equipo
                 ->joinInner( 'paises' ,
                              'paises.id = equipo.paises_id'
                         , array( 'paises.nombre as paises' ) )
+                ->joinInner( 'estadoequipo', 
+                        'estadoequipo.id = equipo.estadoequipo_id',
+                        array('estadoequipo.nombre as estadoequipo') )
+                ->joinLeft( 'imagen' , 'imagen.equipo_id = equipo.id' ,
+                            array( 'imagen.nombre as imageNombre' ,
+                    'imagen.thumb as imageThumb' ,
+                    'imagen.imagen as image' )
+                )
                 ->where( 'equipo.active = ?' , '1' )
                 ->query()
         ;

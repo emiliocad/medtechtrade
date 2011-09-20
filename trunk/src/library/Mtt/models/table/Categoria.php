@@ -14,6 +14,12 @@ class Mtt_Models_Table_Categoria
     protected $_primary = 'id';
 
 
+    public function __construct()
+        {
+        parent::__construct();
+        }
+
+
     public function listar()
         {
         $db = $this->getAdapter();

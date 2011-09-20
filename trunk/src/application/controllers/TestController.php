@@ -108,7 +108,6 @@ class TestController
 
         $confMail = $_conf->toArray();
 
-
         $this->view->assign( 'conf' , $confMail['auth'] );
         }
 

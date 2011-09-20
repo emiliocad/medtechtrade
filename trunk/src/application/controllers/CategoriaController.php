@@ -29,7 +29,7 @@ class CategoriaController
         $this->view->assign( 'categoria' , $stmtCategoria );
 
         $formOrder = new Mtt_Form_OrderEquipo();
-        $this->view->assign( 'formOrder' , $formOrder);
+        $this->view->assign( 'formOrder' , $formOrder );
         }
 
 
