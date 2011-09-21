@@ -8,12 +8,18 @@
         $this->headLink()->prependStylesheet( '/theme/default/css/reset.css' )
                 ->headLink()->appendStylesheet( '/theme/default/css/default.css' )
                 ->headLink()->appendAlternate( '/humans.txt' , 'text/plain' ,
-                                               'author' , '' )
+                                               'author' , '' );
+        ?>
+        <?=
+        $this->jQuery()->setVersion( '1.4.2' )
+                ->setUiVersion( '1.8.16' )
+                ->addStylesheet( '/theme/admin/css/redmond/jquery-ui-1.8.16.custom.css' )
+                ->enable()
+                ->uiEnable();
+        ?>
+        <?=
+        $this->headScript()->appendFile( 'https://apis.google.com/js/plusone.js' );
         ?> 
-
-        <?= $this->headLink(); ?>
-        <?= $this->jQuery() ?>
-        <?= $this->headScript()->appendFile( 'https://apis.google.com/js/plusone.js' ); ?> 
 
     </head>
     <body>
@@ -36,6 +42,8 @@
                 <div id="section-middle" class="section">
                     <aside>
                         <div id="section-middle-categories">
+
+
                             <?= $this->render( '_menucategories.phtml' ); ?>
                             <div id="section-middle-list">
                                 <span id="section-middle-list-advice">

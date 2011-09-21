@@ -1,1 +1,94 @@
 <h2>Moneda:</h2>
+<h2> <?= $this->translate( 'Coins' ) ?>:</h2>
+
+<table border="1" class="listado">
+    <thead>
+        <tr>
+            <th><?= $this->translate( 'Name' ) ?></th>
+            <th><?= $this->translate( 'Symbol' ) ?></th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ( $this->monedas as $moneda ): ?>
+
+            <?php $id = $moneda->id; ?>
+            <tr class="<?= $moneda->active
+                            ? 'activo' : 'inactivo' ?>">
+
+                <td>
+                    <?= $this->escape( $moneda->nombre ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $moneda->simbolo ) ?>
+                </td>
+                <td>
+
+                    <?php
+                    $link = $this->url(
+                            array(
+                                'module' => 'admin' ,
+                                'controller' => 'moneda' ,
+                                'action' => 'editar' ,
+                                'id' => $id ) )
+                    ?>
+                    <a href="<?= $link ?>">
+                        [Editar]
+                    </a>
+
+                    <?php
+                    $link = $this->url(
+                            array(
+                                'module' => 'admin' ,
+                                'controller' => 'moneda' ,
+                                'action' => 'borrar' ,
+                                'id' => $id )
+                            )
+                    ?>
+                    <a href="<?= $link ?>" onclick="return confirm(
+                       <?= $this->translate( '¿Estás seguro?' ); ?>
+                           )">
+                           <?= $this->translate( 'Borrar' ); ?>
+                    </a>
+
+                    <? if ( $moneda->active ): ?>
+                        <?
+                        $link = $this->url(
+                                array(
+                                    'module' => 'admin' ,
+                                    'controller' => 'moneda' ,
+                                    'action' => 'desactivar' ,
+                                    'id' => $id ) )
+                        ?>
+                        <a href="<?= $link ?>">
+                            <?= $this->translate( 'Desactivar' ); ?>
+                        </a>
+                    <? else: ?>
+                        <?
+                        $link = $this->url(
+                                array( 'module' => 'admin' ,
+                                    'controller' => 'moneda' ,
+                                    'action' => 'activar' ,
+                                    'id' => $id ) )
+                        ?>
+                        <a href="<?= $link ?>">
+                            <?= $this->translate( 'Activar' ); ?>
+                        </a>
+                    <? endif; ?>
+
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+<br />
+
+<a href="<?=
+        $this->url(
+                array(
+            'module' => 'admin' ,
+            'controller' => 'moneda' ,
+            'action' => 'nuevo' ) , null , true
+        )
+        ?>">Nuevo</a>
+

@@ -11,6 +11,12 @@ class Mtt_Models_Bussines_Contact
     {
 
 
+    public function __construct()
+        {
+        parent::__construct();
+        }
+
+
     public function getComboValues()
         {
         $filas = $this->fetchAll( 'active=1' )->toArray();

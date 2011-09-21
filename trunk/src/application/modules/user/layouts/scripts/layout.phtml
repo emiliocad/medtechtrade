@@ -12,14 +12,29 @@
         <!--[if lte IE 9]>
         <link rel="stylesheet" href="/theme/admin/css/ie.css" type="text/css" media="screen" />
         <![endif]-->
-        <?
+        <?=
         $this->headLink()->appendStylesheet( '/theme/admin/css/1140.css' )
-                ->appendStylesheet( '/theme/admin/css/styles.css' );
+                ->appendStylesheet( '/theme/admin/css/styles.css' )
+                ->appendStylesheet( '/theme/admin/css/style.css' )
+        ;
+
         ?>
-        <?= $this->headLink() ?>        
-        <?= $this->jQuery() ?>  
-        <?= $this->headScript()
-                ->appendFile( '/theme/admin/js/css3-mediaqueries.js' ); ?> 
+        <?=
+        $this->jQuery()->setVersion( '1.4.2' )
+                ->setUiVersion( '1.8.16' )
+                ->addStylesheet(
+                        '/theme/admin/css/redmond/jquery-ui-1.8.16.custom.css'
+                )
+                ->enable()
+                ->uiEnable();
+        ?>      
+        <?=
+        $this->headScript()
+                ->appendFile( '/theme/admin/js/css3-mediaqueries.js' )
+                ->appendFile( '/theme/admin/js/jquery.hoverIntent.minified.js' )
+                ->appendFile( '/theme/admin/js/menu.js' )
+        ;
+        ?> 
 
 
         <!--Delete embedded styles, just for example.-->
@@ -43,48 +58,64 @@
 
 
     <body>
+        <header>
+            <div class="container header">
+                <?= $this->render( '_header.phtml' ) ?>
+            </div>
 
-        <div class="container header">
-            <?= $this->render( '_header.phtml' ) ?>
-        </div>
-
-        <div class="container nav">
-            <div class="row">
-                <div id="dolphincontainer">
-                    <div id="dolphinnav">
-                        <?= $this->render( '_navegacion.phtml' ); ?>
+            <nav>
+                <div class="container nav">
+                    <!--            <div class="row">-->
+                    <div id="dolphincontainer">
+                        <div id="dolphinnav">
+                            <?= $this->render( '_navegacion.phtml' ); ?>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="container body">
-            <div class="row">
-
-
-                <div class="eightcol">
-                    <?=
-                    $this->render( '_messages.phtml' );
-                    ?>
-
-                    <?=
-                    $this->layout()->content
-                    ?>
+                    <!--            </div>-->
                 </div>
 
+            </nav>
+        </header>
 
-                <div class="fourcol last">
-                    Funciones de Mas solicitados
+
+        <section>
+            <div class="container body">
+                <div class="row">
+
+
+                    <div class="eightcol">
+                        <?=
+                        $this->render( '_messages.phtml' );
+                        ?>
+
+                        <?=
+                        $this->layout()->content
+                        ?>
+                    </div>
+
+
+                    <div class="fourcol last">
+
+                        <h3>
+                            <?= $this->translate( 'Most Requested Operations' ) ?>
+                        </h3>
+
+                        <?= $this->render( 'operations/_function.phtml' ); ?>
+
+                    </div>
+
                 </div>
-
             </div>
-        </div>
+        </section>
 
-        <div class="container footer">
-            <div class="row">
-                <?= $this->render( '_footer.phtml' ); ?>
+        <footer>
+            <div class="container footer">
+                <div class="row">
+                    <?= $this->render( '_footer.phtml' ); ?>
+                </div>
             </div>
-        </div>
+        </footer>
+
 
     </body>
 

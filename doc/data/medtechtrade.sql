@@ -93,6 +93,9 @@ CREATE TABLE `equipo` (
   `alto` int(11) DEFAULT NULL,
   `sizeCaja` int(11) DEFAULT NULL,
   `active` int(11) DEFAULT '1',
+  `views` int(11) DEFAULT NULL COMMENT 'es para la parte de productos mas visitados',
+  `topofers` int(2) DEFAULT '0' COMMENT 'si es un producto top offers',
+  `publishdate` date DEFAULT NULL COMMENT 'fecha de publicacion',
   PRIMARY KEY (`id`),
   KEY `fk_equipo_categoria` (`categoria_id`),
   KEY `fk_equipo_estadoequipo1` (`estadoequipo_id`),
@@ -108,11 +111,11 @@ CREATE TABLE `equipo` (
   CONSTRAINT `fk_equipo_paises1` FOREIGN KEY (`paises_id`) REFERENCES `paises` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_equipo_publicacionEquipo1` FOREIGN KEY (`publicacionEquipo_id`) REFERENCES `publicacionequipo` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_equipo_usuario1` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `equipo` */
 
-insert  into `equipo`(`id`,`nombre`,`precioventa`,`preciocompra`,`categoria_id`,`estadoequipo_id`,`publicacionEquipo_id`,`usuario_id`,`fabricantes_id`,`tag`,`moneda_id`,`paises_id`,`calidad`,`cantidad`,`modelo`,`fechafabricacion`,`documento`,`sourceDocumento`,`pesoEstimado`,`size`,`ancho`,`alto`,`sizeCaja`,`active`) values (2,'producto 1',12,12,148,1,2,3,2,'sas',1,1,'buena',122,'23123','0000-00-00 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1),(3,'equipo 2',123,111,148,2,1,3,2,'kusa,kusa',1,1,'muy mala',123,'123we','0000-00-00 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1);
+insert  into `equipo`(`id`,`nombre`,`precioventa`,`preciocompra`,`categoria_id`,`estadoequipo_id`,`publicacionEquipo_id`,`usuario_id`,`fabricantes_id`,`tag`,`moneda_id`,`paises_id`,`calidad`,`cantidad`,`modelo`,`fechafabricacion`,`documento`,`sourceDocumento`,`pesoEstimado`,`size`,`ancho`,`alto`,`sizeCaja`,`active`,`views`,`topofers`,`publishdate`) values (2,'Equipo 1',12,12,148,1,2,3,2,'sas',1,1,'buena',122,'23123','0000-00-00 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,79,0,NULL),(3,'equipo 2',123,111,148,2,1,3,2,'kusa,kusa',1,1,'muy mala',123,'123we','0000-00-00 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,1,0,NULL),(4,'equipo 3',125,140,151,1,2,5,2,'1245',1,1,'buena',145,'1455214','0000-00-00 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,0,NULL),(5,'equipo 4',1234,12,162,1,2,3,2,'qwq',1,1,'muy buena',12,'2122','0000-00-00 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,0,NULL);
 
 /*Table structure for table `equipo_has_formapago` */
 
@@ -421,11 +424,11 @@ CREATE TABLE `tipousuario` (
   `nombre` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `active` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `tipousuario` */
 
-insert  into `tipousuario`(`id`,`nombre`,`active`) values (1,'Manager',1),(2,'Registered',1);
+insert  into `tipousuario`(`id`,`nombre`,`active`) values (1,'Manager',1),(2,'Registered',1),(3,'User',1);
 
 /*Table structure for table `traducciones` */
 
@@ -471,11 +474,11 @@ CREATE TABLE `usuario` (
   KEY `fk_usuario_paises1` (`paises_id`),
   CONSTRAINT `fk_usuario_paises1` FOREIGN KEY (`paises_id`) REFERENCES `paises` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_usuario_tipousuario1` FOREIGN KEY (`tipousuario_id`) REFERENCES `tipousuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `usuario` */
 
-insert  into `usuario`(`id`,`nombre`,`apellido`,`email`,`login`,`clave`,`tipousuario_id`,`sendemail`,`fecharegistro`,`ultimavisita`,`activacion`,`active`,`direccion`,`codpostal`,`ciudad`,`institucion`,`paises_id`) values (3,'Luis alberto','mayta mamani','slovacus@gmail.com','admin','sha1$87711$488758631b7e41e578f9b4b95d96cecfa288f696',1,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00',NULL,1,'mi casa','1414','Lima','master',1);
+insert  into `usuario`(`id`,`nombre`,`apellido`,`email`,`login`,`clave`,`tipousuario_id`,`sendemail`,`fecharegistro`,`ultimavisita`,`activacion`,`active`,`direccion`,`codpostal`,`ciudad`,`institucion`,`paises_id`) values (3,'Luis alberto','mayta mamani','slovacus@gmail.com','admin','sha1$87711$488758631b7e41e578f9b4b95d96cecfa288f696',1,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00',NULL,1,'mi casa','1414','Lima','master',1),(4,'Luis alberto','mayta mamani','slovacus@gmail.com','kusanagi','sha1$21ee2$9be1a234e6a93bcb218c56189d70b6a0be2d7d8b',2,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00',NULL,0,'mi casa','1414','Lima','dsdfsd',1),(5,'matias','franci','mfranci@gmail.com','mfranci','sha1$9d02a$de595b6b2d2bd7d9f3a8ece6f9813e7553fc8aa6',3,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00',NULL,1,'mi casa','1414','lima','dsfsdfs',1),(6,'Luis alberto','mayta mamani','slovacus@gmail.com','usuario','sha1$26ed9$d4d326810481bbb910ae03540f94775b72f2e5e6',3,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00',NULL,1,'mi casa','1414','Lima','fsfsd',1);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

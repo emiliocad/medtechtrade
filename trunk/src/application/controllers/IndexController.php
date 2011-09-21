@@ -1,7 +1,10 @@
 <?php
 
-class IndexController extends Mtt_Controller_Action
+
+class IndexController
+        extends Mtt_Controller_Action
     {
+
 
     public function init()
         {
@@ -9,10 +12,12 @@ class IndexController extends Mtt_Controller_Action
         /* Initialize action controller here */
         }
 
+
     public function indexAction()
         {
-        
+
         }
+
 
     }
 

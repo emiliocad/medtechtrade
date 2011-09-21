@@ -9,16 +9,33 @@
            ?>">
             <span>
 
-                <?= $this->translate( 'Config' ); ?>
+                <?= $this->translate( 'Desk' ); ?>
 
             </span>
 
         </a>
-        <?= $this->render( 'navegacion/_config.phtml' ); ?>
+        <?= $this->render( 'navegacion/_desk.phtml' ); ?>
 
     </li>
     <li>
         <a  href="
+        <?=
+        $this->url( array(
+            'module' => 'admin' ,
+            'controller' => 'user' ,
+            'action' => 'index' ) , null , true )
+        ?>">
+            <span>
+
+                <?= $this->translate( 'Users' ); ?>
+
+            </span>
+
+        </a>
+
+    </li>
+    <li>
+        <a href="
         <?=
         $this->url( array(
             'module' => 'admin' ,
@@ -32,35 +49,18 @@
             </span>
 
         </a>
-        <?= $this->render( 'navegacion/_equipment.phtml' ); ?>
-    </li>
-    <li>
-        <a href="
-        <?=
-        $this->url( array(
-            'module' => 'admin' ,
-            'controller' => 'fabricante' ,
-            'action' => 'index' ) , null , true )
-        ?>">
-            <span>
-
-                <?= $this->translate( 'Manufacturers' ); ?>
-
-            </span>
-
-        </a>
     </li>
     <li>
         <a  href="
         <?=
         $this->url( array(
             'module' => 'admin' ,
-            'controller' => 'categoria' ,
+            'controller' => 'equipo' ,
             'action' => 'index' ) , null , true )
         ?>">
             <span>
 
-                <?= $this->translate( 'Category' ); ?>
+                <?= $this->translate( 'Questions' ); ?>
 
             </span>
 
@@ -76,7 +76,7 @@
         ?>">
             <span>
 
-                <?= $this->translate( 'Currency' ); ?>
+                <?= $this->translate( 'Operations' ); ?>
 
             </span>
 
@@ -92,11 +92,28 @@
         ?>">
             <span>
 
-                <?= $this->translate( 'User' ); ?>
+                <?= $this->translate( 'Statistics' ); ?>
 
             </span>
 
         </a>
+    </li>
+    <li>
+        <a  href="
+        <?=
+        $this->url( array(
+            'module' => 'admin' ,
+            'controller' => 'user' ,
+            'action' => 'index' ) , null , true )
+        ?>">
+            <span>
+
+                <?= $this->translate( 'Configuration' ); ?>
+
+            </span>
+
+        </a>
+        <?= $this->render( 'navegacion/_configuration.phtml' ); ?>
     </li>
 
 </ul>

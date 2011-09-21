@@ -11,8 +11,12 @@ class Mtt_Controller_Action
     {
 
     protected $URL;
-    const ADMIN = "admin";
-    const USUARIO = "usuario";
+
+//TODO crear la Herramienta para Traducir en los controladores
+    protected function translate()
+        {
+        
+        }
 
 
     public function init()
@@ -38,7 +42,7 @@ class Mtt_Controller_Action
             $this->authData = Zend_Auth::getInstance()->getStorage()->read();
             $this->view->assign( 'authData' , $this->authData );
             $this->view->assign( 'authUser' , $this->authData['usuario']->nombre );
-            $this->view->assign( 'authRole' , $this->authData["role"] );
+
             }
         else
             {

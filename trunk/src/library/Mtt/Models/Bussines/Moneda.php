@@ -49,35 +49,35 @@ class Mtt_Models_Bussines_Moneda
         }
 
 
-    public function updateFabricante( array $data , $id )
+    public function updateMoneda( array $data , $id )
         {
 
         $this->update( $data , 'id = ' . $id );
         }
 
 
-    public function saveFabricante( array $data )
+    public function saveMoneda( array $data )
         {
 
         $this->insert( $data );
         }
 
 
-    public function deleteFabricante( $id )
+    public function deleteMoneda( $id )
         {
 
         $this->delete( 'id = ?' , $id );
         }
 
 
-    public function activarFabricante( $id )
+    public function activarMoneda( $id )
         {
 
         $this->update( array( "active" => self::ACTIVE ) , 'id = ' . $id );
         }
 
 
-    public function desactivarFabricante( $id )
+    public function desactivarMoneda( $id )
         {
 
         $this->update( array( "active" => self::DESACTIVATE ) , 'id = ' . $id );

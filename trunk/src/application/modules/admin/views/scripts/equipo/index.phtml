@@ -4,23 +4,52 @@
     <thead>
         <tr>
             <th><?= $this->translate( 'Name' ) ?></th>
-            <th><?= $this->translate( 'Name' ) ?></th>
-            <th><?= $this->translate( 'Name' ) ?></th>
-            <th><?= $this->translate( 'Name' ) ?></th>
-            <th><?= $this->translate( 'Name' ) ?></th>
-            <th><?= $this->translate( 'Name' ) ?></th>
-            <th><?= $this->translate( 'Name' ) ?></th>
+            <th><?= $this->translate( 'Modelo' ) ?></th>
+            <th><?= $this->translate( 'Categoria' ) ?></th>
+            <th><?= $this->translate( 'Estado Equipo' ) ?></th>
+            <th><?= $this->translate( 'Usuario' ) ?></th>
+            <th><?= $this->translate( 'Fecha de Fabricacion' ) ?></th>
+            <th><?= $this->translate( 'Fecha de Publicacion' ) ?></th>
+            <th><?= $this->translate( 'Fabricante' ) ?></th>
+            <th><?= $this->translate( 'Pais' ) ?></th>
             <th><?= $this->translate( 'Operations' ) ?></th>
 
         </tr>
     </thead>
     <tbody>
-        <?php foreach ( $this->equipos as $equipos ): ?>
-            <?php $id = $equipos->id; ?>
-            <tr class="<?= $equipos->active
+        <?php foreach ( $this->equipos as $equipo ): ?>
+
+            <?php $id = $equipo->id; ?>
+            <tr class="<?= $equipo->active
                             ? 'activo' : 'inactivo' ?>">
 
-                <td><?= $this->escape( $equipos->nombre ) ?></td>
+                <td>
+                    <?= $this->escape( $equipo->equipo ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $equipo->modelo ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $equipo->categoria ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $equipo->estadoequipo ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $equipo->usuario ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $equipo->fechafabricacion ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $equipo->publishdate ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $equipo->publicacionequipo ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $equipo->paises ) ?>
+                </td>
                 <td>
 
                     <?php
@@ -31,7 +60,9 @@
                                 'action' => 'editar' ,
                                 'id' => $id ) )
                     ?>
-                    <a href="<?= $link ?>">[Editar]</a>
+                    <a href="<?= $link ?>">
+                        [Editar]
+                    </a>
 
                     <?php
                     $link = $this->url(
@@ -42,29 +73,50 @@
                                 'id' => $id )
                             )
                     ?>
-                    <a href="<?= $link ?>" onclick="return confirm('¿Estás seguro?')">[Borrar]</a>
+                    <a href="<?= $link ?>" onclick="return confirm(
+                       <?= $this->translate( '¿Estás seguro?' ); ?>
+                           )">
+                           <?= $this->translate( 'Borrar' ); ?>
+                    </a>
 
-                    <?php if ( $equipos->active ): ?>
-                        <?php $link = $this->url( array( 'module' => 'admin' , 'controller' => 'equipo' , 'action' => 'desactivar' , 'id' => $id ) ) ?>
-                        <a href="<?= $link ?>">[Desactivar]</a>
-                    <?php else: ?>
-                        <?php $link = $this->url( array( 'module' => 'admin' , 'controller' => 'equipo' , 'action' => 'activar' , 'id' => $id ) ) ?>
-                        <a href="<?= $link ?>">[Activar]</a>
-    <?php endif; ?>
+                    <? if ( $equipo->active ): ?>
+                        <?
+                        $link = $this->url(
+                                array(
+                                    'module' => 'admin' ,
+                                    'controller' => 'equipo' ,
+                                    'action' => 'desactivar' ,
+                                    'id' => $id ) )
+                        ?>
+                        <a href="<?= $link ?>">
+                            <?= $this->translate( 'Desactivar' ); ?>
+                        </a>
+                    <? else: ?>
+                        <?
+                        $link = $this->url(
+                                array( 'module' => 'admin' ,
+                                    'controller' => 'equipo' ,
+                                    'action' => 'activar' ,
+                                    'id' => $id ) )
+                        ?>
+                        <a href="<?= $link ?>">
+                            <?= $this->translate( 'Activar' ); ?>
+                        </a>
+                    <? endif; ?>
 
                 </td>
             </tr>
-<?php endforeach; ?>
+        <?php endforeach; ?>
     </tbody>
 </table>
 <br />
 
 <a href="<?=
-$this->url(
-        array(
-    'module' => 'admin' ,
-    'controller' => 'equipo' ,
-    'action' => 'nuevo' ) , null , true
- )
-?>">Nuevo</a>
+        $this->url(
+                array(
+            'module' => 'admin' ,
+            'controller' => 'equipo' ,
+            'action' => 'nuevo' ) , null , true
+        )
+        ?>">Nuevo</a>
 

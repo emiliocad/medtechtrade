@@ -21,16 +21,15 @@ class CategoriaController
         {
         $id = intval( $this->_getParam( 'id' , null ) );
 
-        $stmt = $this->_categoria->getPaginator( $id );
-        //$stmt = $this->_categoria->getProducts( $id );
-        $stmt->setCurrentPageNumber( $this->_getParam( 'page' , 1 ) );
+        $stmt = $this->_categoria->getProducts( $id );
+
         $this->view->assign( 'productos' , $stmt );
 
         $stmtCategoria = $this->_categoria->getCategoria( $id );
         $this->view->assign( 'categoria' , $stmtCategoria );
 
         $formOrder = new Mtt_Form_OrderEquipo();
-        $this->view->assign( 'formOrder' , $formOrder);
+        $this->view->assign( 'formOrder' , $formOrder );
         }
 
 
