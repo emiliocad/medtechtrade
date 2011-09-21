@@ -1,0 +1,19 @@
+<h2>
+ sdfssssssss
+</h2>
+<?= var_dump($this->monedas); ?>
+<div class="">
+    <?php foreach ( $this->monedas as $moneda ): ?>
+         <span class="">
+               
+                <?= $moneda->id ?>
+            </span>
+
+    <?php endforeach; ?>
+</div>
+
+ <?=$this->paginationControl(
+                        $this->monedas,
+                        'Sliding',
+                        'moneda/_pag.phtml'
+                );?>

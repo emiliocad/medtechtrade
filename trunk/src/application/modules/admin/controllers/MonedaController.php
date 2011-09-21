@@ -13,7 +13,9 @@ class Admin_MonedaController extends Mtt_Controller_Action
 
     public function indexAction()
         {
-        
+        $this->view->assign(
+                'monedas', $this->_moneda->listar()
+        );
         }
 
     public function paginadoAction()
@@ -23,17 +25,17 @@ class Admin_MonedaController extends Mtt_Controller_Action
         $this->view->usuarios = $p;
         }
 
-    public function registrarAction()
+    public function nuevoAction()
         {
-        $form = new Mtt_Form_Equipo();
+        $form = new Mtt_Form_Moneda();
         if ( $this->_request->isPost() && $form->isValid( $this->_request->getPost() ) )
             {
 
-            $producto = $form->getValues();
+            $moneda = $form->getValues();
 
-            $this->_moneda->insert( $producto );
+            $this->_moneda->saveMoneda( $moneda );
 
-            $this->_helper->FlashMessenger( 'Se Registro La Categoria' );
+            $this->_helper->FlashMessenger( 'Se Registro La Moneda' );
             $this->_redirect( $this->URL );
             }
         $this->view->assign( 'frmRegistrar' , $form );
@@ -45,6 +47,63 @@ class Admin_MonedaController extends Mtt_Controller_Action
         $stmt = $this->_moneda->getCategoria( $id );
         $this->view->assign( 'categoria' , $stmt );
         }
+        
+    public function editarAction()
+        {
+        $id = intval( $this->_getParam( 'id' ) );
+
+        $form = new Mtt_Form_Moneda();
+
+        $moneda = $this->_moneda->getFindId( $id );
+
+        if ( !is_null( $moneda ) )
+            {
+            if ( $this->_request->isPost() && $form->isValid(
+                            $this->_request->getPost() )
+            )
+                {
+                $this->_moneda->updateMoneda( $form->getValues() , $id );
+                $this->_helper->FlashMessenger( 'Se modificó moneda' );
+                $this->_redirect( $this->URL );
+                }
+            $form->setDefaults( $moneda->toArray() );
+            $this->view->assign( 'form' , $form );
+            }
+        else
+            {
+            $this->_helper->FlashMessenger( 'No existe esa moneda' );
+            $this->_redirect( $this->URL );
+            }    
+        }
+        
+   
+    public function borrarAction()
+        {
+        $id = intval( $this->_request->getParam( 'id' ) );
+        $this->_moneda->desactivarMoneda( $id );
+        $this->_helper->FlashMessenger( 'Moneda Borrada' );
+        $this->_redirect( $this->URL );
+        }
+
+
+    public function activarAction()
+        {
+        $id = intval( $this->_request->getParam( 'id' ) );
+        $this->_moneda->activarMoneda( $id );
+        $this->_helper->FlashMessenger( 'Moneda Activado' );
+        $this->_redirect( $this->URL );
+        }
+
+
+    public function desactivarAction()
+        {
+        $id = intval( $this->_request->getParam( 'id' ) );
+        $this->_moneda->desactivarMoneda( $id );
+        $this->_helper->FlashMessenger( 'Moneda desactivado' );
+        $this->_redirect( $this->URL );
+        }
+
 
     }
-
+    
+    

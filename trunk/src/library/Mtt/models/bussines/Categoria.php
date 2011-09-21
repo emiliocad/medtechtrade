@@ -59,6 +59,23 @@ class Mtt_Models_Bussines_Categoria
         }
 
 
+    public function listCategory()
+        {
+        
+        $db = $this->getAdapter();
+
+        $query = $db->select()
+                ->from( $this->_name)
+                ->where( 'active IN (?)' , self::ACTIVE )
+ 
+                ->query();
+
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        
+        }
+
+
+        
     public function getCategoria( $id )
         {
         $db = $this->getAdapter();
@@ -69,6 +86,45 @@ class Mtt_Models_Bussines_Categoria
                 ->query()
         ;
         return $query->fetchObject();
+        }
+
+
+    public function updateCategoria( array $data , $id )
+        {
+
+        $this->update( $data , 'id = ' . $id );
+        }
+
+
+    public function saveCategoria( array $data )
+        {
+
+        $this->insert( $data );
+        }
+
+
+    public function deleteCategoria( $id )
+        {
+
+        $this->delete( 'id = ?' , $id );
+        }
+
+
+    public function activarCategoria( $id )
+        {
+
+        $this->update( array(
+            "active" => self::ACTIVE )
+                , 'id = ' . $id );
+        }
+
+
+    public function desactivarCategoria( $id )
+        {
+
+        $this->update( array(
+            "active" => self::DESACTIVATE )
+                , 'id = ' . $id );
         }
 
 
