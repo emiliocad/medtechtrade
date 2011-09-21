@@ -39,10 +39,28 @@ class User_EquipoController
         
     public function verpendientesAction()
         {
+        $this->view->assign(
+                'equipos' , 
+                $this->_equipo->listEquipByUserStatus(
+                        $this->authData['usuario']->id, 1 
+                )
+        );
+        }        
+
         
+    public function veractivosAction()
+        {
+        $this->view->assign(
+                'equipos' , 
+                $this->_equipo->listEquipByUserStatus(
+                        $this->authData['usuario']->id, 2 
+                )
+        );
         }        
 
 
+        
+        
     public function nuevoAction()
         {
              

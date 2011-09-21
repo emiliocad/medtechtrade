@@ -172,7 +172,7 @@ class Mtt_Form_Equipo
                                 'changeYear'=> 'true'))
         );
         $fechaFabricacion->setLabel( 'fecha de Fabricacion' );
-        $fechaFabricacion->setJQueryParam( 'dateFormat' , 'dd.mm.yy' );
+        $fechaFabricacion->setJQueryParam( 'dateFormat' , 'yy.mm.dd' );
         $fechaFabricacion->setRequired( true );
         $this->addElement( $fechaFabricacion );
 
