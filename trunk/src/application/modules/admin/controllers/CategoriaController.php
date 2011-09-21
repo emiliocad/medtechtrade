@@ -94,7 +94,7 @@ class Admin_CategoriaController
     public function borrarAction()
         {
         $id = intval( $this->_request->getParam( 'id' ) );
-        $this->_moneda->desactivarCategoria( $id );
+        $this->_categoria->desactivarCategoria( $id );
         $this->_helper->FlashMessenger( 'Categoria Borrada' );
         $this->_redirect( $this->URL );
         }
@@ -103,7 +103,7 @@ class Admin_CategoriaController
     public function activarAction()
         {
         $id = intval( $this->_request->getParam( 'id' ) );
-        $this->_moneda->activarCategoria( $id );
+        $this->_categoria->activarCategoria( $id );
         $this->_helper->FlashMessenger( 'Categoria Activado' );
         $this->_redirect( $this->URL );
         }
@@ -112,7 +112,7 @@ class Admin_CategoriaController
     public function desactivarAction()
         {
         $id = intval( $this->_request->getParam( 'id' ) );
-        $this->_moneda->desactivarCategoria( $id );
+        $this->_categoria->desactivarCategoria( $id );
         $this->_helper->FlashMessenger( 'Categoria desactivado' );
         $this->_redirect( $this->URL );
         }

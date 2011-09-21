@@ -167,9 +167,12 @@ class Mtt_Form_Equipo
 
         // Elemento: fecha de Fabricacion
         $fechaFabricacion = new ZendX_JQuery_Form_Element_DatePicker(
-                        'fechafabricacion'
+                        'fechafabricacion',
+                        array('jQueryParams' => array('defaultDate' => date('Y-m-D'),
+                                'changeYear'=> 'true'))
         );
         $fechaFabricacion->setLabel( 'fecha de Fabricacion' );
+        $fechaFabricacion->setJQueryParam( 'dateFormat' , 'dd.mm.yy' );
         $fechaFabricacion->setRequired( true );
         $this->addElement( $fechaFabricacion );
 

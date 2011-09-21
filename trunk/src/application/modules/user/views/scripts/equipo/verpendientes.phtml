@@ -1,0 +1,96 @@
+<h2>Pendientes</h2>
+<table border="1" class="listado">
+    <thead>
+        <tr>
+            <th><?= $this->translate( 'Name' ) ?></th>
+            <th><?= $this->translate( 'Price' ) ?></th>
+            <th><?= $this->translate( 'Thumbnail' ) ?></th>
+            <th><?= $this->translate( 'Description' ) ?></th>
+            <th><?= $this->translate( 'Published' ) ?></th>
+            <th><?= $this->translate( 'Order' ) ?></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ( $this->categorias as $categoria ): ?>
+
+            <tr class="<?= $categoria->active
+                            ? 'activo' : 'inactivo' ?>">
+
+                <td>
+                    <?= $this->escape( $categoria->nombre ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $categoria->title ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $categoria->descripcion ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $categoria->thumbnail ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $categoria->published ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $categoria->order ) ?>
+                </td>
+                
+                <td>
+
+                    <?php
+                    $link = $this->url(
+                            array(
+                                'module' => 'admin' ,
+                                'controller' => 'categoria' ,
+                                'action' => 'editar' ,
+                                'id' => $categoria->id ) )
+                    ?>
+                    <a href="<?= $link ?>">
+                        [Editar]
+                    </a>
+
+                    <?php
+                    $link = $this->url(
+                            array(
+                                'module' => 'admin' ,
+                                'controller' => 'categoria' ,
+                                'action' => 'borrar' ,
+                                'id' => $categoria->id )
+                            )
+                    ?>
+                    <a href="<?= $link ?>" onclick="return confirm(
+                       <?= $this->translate( '¿Estás seguro?' ); ?>
+                           )">
+                           <?= $this->translate( 'Borrar' ); ?>
+                    </a>
+
+                    <? if ( $categoria->active ): ?>
+                        <?
+                        $link = $this->url(
+                                array(
+                                    'module' => 'admin' ,
+                                    'controller' => 'categoria' ,
+                                    'action' => 'desactivar' ,
+                                    'id' => $categoria->id ) )
+                        ?>
+                        <a href="<?= $link ?>">
+                            <?= $this->translate( 'Desactivar' ); ?>
+                        </a>
+                    <? else: ?>
+                        <?
+                        $link = $this->url(
+                                array( 'module' => 'admin' ,
+                                    'controller' => 'categoria' ,
+                                    'action' => 'activar' ,
+                                    'id' => $id ) )
+                        ?>
+                        <a href="<?= $link ?>">
+                            <?= $this->translate( 'Activar' ); ?>
+                        </a>
+                    <? endif; ?>
+
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
