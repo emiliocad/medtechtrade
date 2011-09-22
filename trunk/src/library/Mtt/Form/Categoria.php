@@ -14,6 +14,12 @@ class Mtt_Form_Categoria
 
     public function init()
         {
+        $_conf = new Zend_Config_Ini(
+                        APPLICATION_PATH . '/configs/myConfig.ini' , 'upload'
+                )
+        ;
+        $data = $_conf->toArray();
+
         $this
                 ->setMethod( 'post' )
                 ->setAttrib( 'id' , 'frmCategoria' )
@@ -53,20 +59,23 @@ class Mtt_Form_Categoria
         $thumbnail = new Zend_Form_Element_File( 'thumbnail' );
         $thumbnail->setValue( 'thumbnail' );
         $thumbnail->setLabel( 'Upload an image:' );
+
+        $target = $nombre->getValue();
         $thumbnail->setDestination(
-                APPLICATION_PATH . '/../public/media/catalog/product/' );
-        $f = new Zend_Filter_File_Rename( array( 'target' => '123.jpg' ) );
-        // // Renombrar archivo
-        $thumbnail->addFilter( $f );
-        $thumbnail->addValidator( 'Count' , false , 1 ); // Solo 1 archivo
+                APPLICATION_PATH . '/../public/media/category/'
+        );
+        $thumbnail->addValidator( 'Count' , false , 1 );
         $thumbnail->addValidator( 'Size' , false , 1024000 )
                 ->setValueDisabled( true );
-        // limite de 1000K
-        $thumbnail->addValidator( 'Extension' , false , 'jpg,png,gif' );
-        //// solo JPEG, PNG, and GIFs
+        $thumbnail->addValidator(
+                'Extension' , false , $data['extension']
+        );
+
         $this->addElement(
                 $thumbnail
         );
+
+
 
         $descripcion = new Zend_Form_Element_Textarea(
                         'descripcion'

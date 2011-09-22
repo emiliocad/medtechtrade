@@ -52,6 +52,35 @@
                 </td>
                 <td>
 
+
+                    <? if ( !$equipo->topofers ): ?>
+
+                        <?php
+                        $link = $this->url(
+                                array(
+                                    'module' => 'admin' ,
+                                    'controller' => 'equipo' ,
+                                    'action' => 'addtopofers' ,
+                                    'id' => $id ) )
+                        ?>
+                        <a href="<?= $link ?>">
+                            <?= $this->translate( 'Add Ofers' ); ?> 
+                        </a>
+                    <? else: ?>
+                        <?php
+                        $link = $this->url(
+                                array(
+                                    'module' => 'admin' ,
+                                    'controller' => 'equipo' ,
+                                    'action' => 'quittopofers' ,
+                                    'id' => $id ) )
+                        ?>
+                        <a href="<?= $link ?>">
+                            <?= $this->translate( 'Quit Ofers' ); ?> 
+                        </a>
+
+                    <? endif; ?>
+
                     <?php
                     $link = $this->url(
                             array(
@@ -61,7 +90,7 @@
                                 'id' => $id ) )
                     ?>
                     <a href="<?= $link ?>">
-                        [Editar]
+                        <?= $this->translate( 'Editar' ); ?> 
                     </a>
 
                     <?php
