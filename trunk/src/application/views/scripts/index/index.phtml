@@ -15,50 +15,38 @@
     for companies and institutional organisation.</p>
 
 <header>
-    
+
     <h3><?= $this->translate( 'Top Offers' ) ?></h3>
 </header>
 <p>Our goal is to enable and accelerate trading of medical devices
     form companies and institutional organisation</p>
 <div class="device-horizontal-list">
-    <div>
-        <img src="/media/catalog/product/device-00.png" alt="Device 00">
-        <span class="manufacturer">Manufacturer: Zeiss</span>
-        <span class="name">Product name: Microscop</span>
-        <a href="#">
-            <span>
-                <?= $this->translate( 'View details' ) ?>
+    <?php foreach ( $this->oferEquipo as $producto ): ?>
+        <div>
+            <img src="/media/catalog/product/device-00.png" alt="Device 00">
+            <span class="manufacturer">
+                <?= $this->translate( 'Manufacturer' ) ?>
+                : <?= $producto->fabricante ?>
             </span>
-        </a>
-    </div>
-    <div>
-        <img src="/media/catalog/product/device-01.png" alt="Device 01">
-        <span class="manufacturer">Manufacturer: Zeiss</span>
-        <span class="name">Product name: Microscop</span>
-        <a href="#">
-            <span>
-                <?= $this->translate( 'View details' ) ?>
+            <span class="name">
+                <?= $this->translate( 'Product name' ) ?>
+                : 
+                <?= $producto->nombre ?>
             </span>
-        </a>
-    </div>
-    <div>
-        <img src="/media/catalog/product/device-00.png" alt="Device 00">
-        <span class="manufacturer">Manufacturer: Zeiss</span>
-        <span class="name">Product name: Microscop</span>
-        <a href="#">
-            <span>
-                <?= $this->translate( 'View details' ) ?>
-            </span>
-        </a>
-    </div>
-    <div>
-        <img src="/media/catalog/product/device-01.png" alt="Device 01">
-        <span class="manufacturer">Manufacturer: Zeiss</span>
-        <span class="name">Product name: Microscop</span>
-        <a href="#">
-            <span>
-                <?= $this->translate( 'View details' ) ?>
-            </span>
-        </a>
-    </div>
+            <a href="
+            <?=
+            $this->url(
+                    array(
+                'controller' => 'equipo' ,
+                'action' => 'ver' , 'id' => $producto->id
+                    ) , null , true
+            )
+            ?>">
+                <span>
+                    <?= $this->translate( 'View details' ) ?>
+                </span>
+            </a>
+        </div>
+    <?php endforeach; ?>
+
 </div>
