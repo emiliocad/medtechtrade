@@ -351,6 +351,30 @@ class Mtt_Models_Bussines_Equipo
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
 
+    /**
+     * 
+     * 
+     */
+    public function listEquipMoreVisited( $limit )
+        {
+
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from(
+                        $this->_name ,
+                        array(
+                        'nombre as equipo' ,
+                        'views'      
+                        )
+                )
+                ->where( 'equipo.active = ?' , '1' )
+                ->limit($limit)
+                ->query()
+        ;
+
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }
+
 
     public function listEquipbyUser( $userId )
         {
