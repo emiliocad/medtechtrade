@@ -11,7 +11,7 @@ class Admin_EquipoController
     public function init()
         {
         parent::init();
-        $this->_equipo = new Mtt_Models_Bussines_Equipo();
+        $this->_equipo = new Mtt_Models_Catalog_Equipo();
         }
 
 
@@ -21,13 +21,29 @@ class Admin_EquipoController
                 'equipos' , $this->_equipo->listEquip()
         );
         }
+
+
     public function questionAction()
         {
         
         }
+
+
     public function addtopofersAction()
         {
-        
+        $id = intval( $this->_getParam( 'id' , null ) );
+        $this->_equipo->addTopOfers( $id );
+        $this->_helper->FlashMessenger( 'se Agrego como Top Ofers  ' . $id );
+        $this->_redirect( $_SERVER['HTTP_REFERER'] );
+        }
+
+
+    public function quittopofersAction()
+        {
+        $id = intval( $this->_getParam( 'id' , null ) );
+        $this->_equipo->quitTopOfers( $id );
+        $this->_helper->FlashMessenger( 'se a quitado de Top Ofers  ' . $id );
+        $this->_redirect( $_SERVER['HTTP_REFERER'] );
         }
 
 

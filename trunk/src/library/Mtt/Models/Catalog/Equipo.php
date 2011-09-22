@@ -41,4 +41,26 @@ class Mtt_Models_Catalog_Equipo
         }
 
 
+    /**
+     *
+     * @param type $id 
+     */
+    public function addTopOfers( $id )
+        {
+        $data = array( 'topofers' => self::ACTIVE );
+        $this->updateEquipo( $data , $id );
+        }
+
+
+    /**
+     *
+     * @param type $id 
+     */
+    public function quitTopOfers( $id )
+        {
+        $data = array( 'topofers' => self::DESACTIVATE );
+        $this->updateEquipo( $data , $id );
+        }
+
+
     }
