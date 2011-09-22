@@ -1,5 +1,14 @@
 <h2> <?= $this->translate( 'Equipment' ) ?>:</h2>
 
+
+<!-- Filtrado -->
+<?= $this->render( 'equipo/comp/_filter.phtml' ); ?>
+<!-- fin del Filtrado -->
+
+<!-- Aca Ira La Barra de Navegacion -->
+<?= $this->render( 'equipo/comp/_nav.phtml' ); ?>
+<!-- fin de la Barra de Navegacion -->
+
 <table border="1" class="listado">
     <thead>
         <tr>

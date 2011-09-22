@@ -19,8 +19,20 @@
     <?php foreach ( $this->productos as $producto ): ?>
 
         <div>
-            <img src="/media/catalog/product/device-00.png" 
-                 alt="<?= $producto->nombre ?>">
+            <a href="
+            <?=
+            $this->url( array( 'module' => 'default' ,
+                'controller' => 'equipo' ,
+                'action' => 'ver' ,
+                'id' => $producto->id ) , null , true )
+            ?>
+               ">
+
+                <img src="/media/catalog/product/device-00.png" 
+
+
+                     alt="<?= $producto->nombre ?>">
+            </a>
 
             <span class="manufacturer">
                 <?= $this->translate( 'Manufacturer' ) ?> : 
@@ -48,9 +60,9 @@
     <?php endforeach; ?>
 </div>
 
- <?=$this->paginationControl(
-                        $this->productos,
-                        'Sliding',
-                        'equipo/_pag.phtml'
-                );?>
+<?=
+$this->paginationControl(
+        $this->productos , 'Sliding' , 'equipo/_pag.phtml'
+);
+?>
 

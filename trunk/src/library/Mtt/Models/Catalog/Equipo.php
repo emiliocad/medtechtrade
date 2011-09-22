@@ -46,4 +46,11 @@ class Mtt_Models_Catalog_Equipo
         return $this->getProductsOfersAll();
         }
 
+
+    public function showEquiposOfersByCategory( $category_id )
+        {
+        return $this->getProductsOfersAllByCategory( $category_id );
+        }
+
+
     }

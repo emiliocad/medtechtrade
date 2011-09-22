@@ -190,6 +190,38 @@ class Mtt_Models_Bussines_Equipo
         }
 
 
+    /**
+     *
+     * @param type $category_id
+     * @return type object
+     */
+    public function getProductsOfersAllByCategory( $category_id )
+        {
+
+        $db = $this->getAdapter();
+
+        $query = $db->select()
+                ->from( $this->_name , array( 'id' , 'nombre' , 'topofers' ) )
+                ->joinInner( 'categoria' ,
+                             'categoria.id = equipo.categoria_id ' ,
+                             array( 'categoria.nombre as categoria' )
+                )
+                ->joinInner( 'fabricantes' ,
+                             'fabricantes.id = equipo.fabricantes_id' ,
+                             array( 'fabricantes.nombre as fabricante' )
+                )
+                ->joinLeft( 'imagen' , 'imagen.equipo_id = equipo.id' ,
+                            array( 'imagen.nombre as imagen' )
+                )
+                ->where( 'equipo.topofers IN (?)' , self::ACTIVE )
+                ->where( 'equipo.categoria_id IN (?)' , $category_id )
+                ->where( 'equipo.active IN (?)' , self::ACTIVE )
+                ->query();
+
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }
+
+
     public function listEquip()
         {
         $db = $this->getAdapter();

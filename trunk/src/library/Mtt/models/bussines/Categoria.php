@@ -47,6 +47,8 @@ class Mtt_Models_Bussines_Categoria
         }
 
 
+
+
     public function getComboValues()
         {
         $filas = $this->fetchAll( 'active=1' )->toArray();
@@ -61,21 +63,18 @@ class Mtt_Models_Bussines_Categoria
 
     public function listCategory()
         {
-        
+
         $db = $this->getAdapter();
 
         $query = $db->select()
-                ->from( $this->_name)
+                ->from( $this->_name )
                 ->where( 'active IN (?)' , self::ACTIVE )
- 
                 ->query();
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
-        
         }
 
 
-        
     public function getCategoria( $id )
         {
         $db = $this->getAdapter();
@@ -126,9 +125,6 @@ class Mtt_Models_Bussines_Categoria
             "active" => self::DESACTIVATE )
                 , 'id = ' . $id );
         }
-
-
-   
 
 
     }
