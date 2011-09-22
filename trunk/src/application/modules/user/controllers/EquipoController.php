@@ -28,6 +28,7 @@ class User_EquipoController
         {
         
         }
+   
 
 
     public function verAction()

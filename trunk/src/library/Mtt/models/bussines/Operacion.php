@@ -77,6 +77,55 @@ class Mtt_Models_Bussines_Operacion
         }
 
 /**
+ *
+ * @param type $estado_operacion
+ * @return type 
+ */
+    public function listByOperation( $status)
+        {
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from(
+                        $this->_name ,
+                        array(
+                        'operacion.id' ,
+                        'fecha' ,
+                        'fechainicio' ,
+                        'fechapago'
+                        )
+                )
+                ->join(
+                        'operacion_has_equipo' , 
+                        'operacion.id = operacion_has_equipo.operacion_id' ,
+                        array(
+                        'precio' ,
+                        'cantidad',
+                        'nitems' => 'count(operacion_has_equipo.id)'
+                        )
+                     
+                )
+                ->joinInner('estadooperacion', 
+                            'operacion.estadooperacion_id = estadooperacion.id',
+                            array(
+                            'estadooperacion' => 'nombre'           
+                            )
+                )
+                ->joinInner('usuario', 
+                            'operacion.usuario_id = usuario.id',
+                            array(
+                            'usuario' => 'nombre'    
+                            )
+                )
+                ->where( 'operacion.estadooperacion_id = ?' , $status)
+                ->group( 'operacion_has_equipo.operacion_id' )
+                ->query()
+                ;
+
+        return $query->fetchAll(Zend_Db::FETCH_OBJ);
+        }
+        
+        
+/**
  * 
  * @param type $n
  * @return type 

@@ -46,6 +46,19 @@ class Admin_EquipoController
         $this->_redirect( $_SERVER['HTTP_REFERER'] );
         }
 
+        
+    public function stadisticsequipoAction()
+        {
+         $this->view->headScript()->appendFile(
+                 $this->view->baseUrl()."/js/statistic/js/jquery.js");
+         $this->view->headScript()->appendFile(
+                 $this->view->baseUrl()."/js/statistic/js/highcharts.js");
+         $this->view->headScript()->appendFile(
+                 $this->view->baseUrl().
+                 "/js/statistic/js/modules/exporting.js");
+         $this->view->headScript()->appendFile(
+                 $this->view->baseUrl()."/js/stadistic.equipo.js");
+        }        
 
     public function verAction()
         {

@@ -3,7 +3,7 @@
         <li>
             <h2>
                 <a href="#">
-                    <?= $this->translate( 'Configuration' ); ?>
+                    <?= $this->translate( 'Statistics' ); ?>
                 </a>
             </h2>
         </li>
@@ -12,10 +12,10 @@
             <?=
             $this->url( array(
                 'module' => 'admin' ,
-                'controller' => 'moneda' ,
-                'action' => 'index' ) , null , true )
+                'controller' => 'equipo' ,
+                'action' => 'stadisticequipo' ) , null , true )
             ?>">
-                   <?= $this->translate( 'Tipo de Monedas' ) ?>
+                   <?= $this->translate( 'Equipos' ) ?>
             </a>
         </li>
         <li>
@@ -23,10 +23,10 @@
             <?=
             $this->url( array(
                 'module' => 'admin' ,
-                'controller' => 'fabricante' ,
-                'action' => 'index' ) , null , true )
+                'controller' => 'equipos' ,
+                'action' => '' ) , null , true )
             ?>">
-                   <?= $this->translate( 'Manufacturer' ) ?>
+                   <?= $this->translate( 'Favoritos' ) ?>
             </a>
         </li>
         <li>
@@ -37,7 +37,8 @@
                 'controller' => 'categoria' ,
                 'action' => 'index' ) , null , true )
             ?>">
-                   <?= $this->translate( 'Category' ) ?>
+                   <?= $this->translate( '
+                       Reservas' ) ?>
             </a>
         </li>
         

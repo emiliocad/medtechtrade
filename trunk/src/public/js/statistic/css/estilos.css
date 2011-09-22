@@ -1,0 +1,2662 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* ################################################################################# */
+/* ####                        ESTILOS DEL MARCO                               ##### */
+/* ################################################################################# */
+
+body{
+	background-color:#eaebec;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;	
+}
+
+/* ----------------------------  Cabecera, login, menu ---------------------------------- */
+.containerHead{	
+	background-image:url(../images/bg-cabecera.jpg);
+	height:142px;
+	background-repeat:repeat-x;
+}
+.header{
+	width:960px;
+	margin:0 auto;
+	padding-top:1px;
+	position:relative;
+}
+a.logo{
+	margin-top:14px;
+	margin-left:15px;	
+	float:left;
+	display:block;
+}
+.publiTop{
+	width:441px;
+	height:58px;
+	float:right;
+	margin-right:20px;
+	margin-top:9px;	
+}
+.loginBox{
+	float:right;
+	height:25px;
+	margin-right:10px;
+	margin-top:10px;
+	width:618px;	
+}
+
+.loginBox li{
+	list-style:none;
+	float:left;
+	background-image:url(../images/bg-user2.jpg);
+	height:25px;
+	background-repeat:repeat-x;
+}
+.loginBox li a.registrate:link, .loginBox li a.registrate:visited{
+	background-image:url("../images/bg-user1.jpg");
+	background-repeat:repeat-x;
+	color:#FFFFFF;
+	font-size:14px;
+	font-weight:bold;
+	height:25px;
+	line-height:25px;
+	padding:0 4px;
+	text-align:center;
+	text-decoration:none;
+}
+.loginBox li label{
+	
+	color:#666;
+	font-size:13px;
+	font-weight:bold;
+	height:25px;
+	line-height:25px;
+	padding:0 4px;
+	text-align:center;
+	display:block;
+}
+.loginBox input{
+	background-color:#FFFFFF;
+	border:1px solid #AAAAAA;
+	margin-top:4px;
+	padding:0 3px;
+	width:98px;	
+}
+.loginBox input.btnEntrar{
+	background-image:url("../images/btn-user.jpg");
+	background-repeat:no-repeat;
+	border:medium none;
+	color:#FFFFFF;
+	height:17px;
+	margin-left:5px;
+	margin-right:5px;
+	margin-top:5px;
+	width:55px;
+}
+.loginBox li a:link, .loginBox li a:hover{	
+	color:#4d4d4d;
+	font-size:13px;
+	font-weight:normal;
+	height:25px;
+	line-height:25px;
+	padding:0 4px;
+	text-align:center;
+	display:block;
+}	
+.loginBox li a:hover, .loginBox li a.registrate:hover{
+	color:#ff9800;	
+}
+
+.userMini label{
+    background-image: url("../images/user-mini.png");
+    background-position: left 5px;
+    background-repeat: no-repeat;
+    margin-left: 10px;
+    padding-left: 20px !important;
+    text-align: left !important;
+    width: 340px !important;
+		
+}
+.userMini span{
+    color:#29abe2;
+		
+}
+.nemuUsuarioLink a{
+    background-image: url("../images/menu-user_mini.png");
+    background-position: left 6px;
+    background-repeat: no-repeat;
+    color: #496E88 !important;
+    font-weight: bold !important;
+    margin-left: 10px;
+    padding-left: 20px !important;
+}
+.desconectar a{
+	background-image:url(../images/salir-user-mini.png);
+    background-position: left 6px;
+    background-repeat: no-repeat;
+    color: #496E88 !important;
+    font-weight: bold !important;
+    margin-left: 10px;
+    padding-left: 20px !important;
+}
+                       
+                       
+
+.menuTop{
+    clear: both;
+    float: left;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 7px;
+    position: absolute;
+    top: 103px;
+    width: 615px;
+}
+.menuTop li{
+	float:left;
+	background-image:url(../images/separador-menu-top.jpg);
+	background-repeat:no-repeat;
+	background-position:right center;
+	height:25px;
+	position:relative;	
+}
+.menuTop li a:link, .menuTop li a:visited {
+	color:#fff;
+	text-decoration:none;
+	text-align:center;
+	padding:0 8px;
+	line-height:25px;
+	height:25px;
+	display:block;
+}
+.menuTop li a.activeOp{
+	background-image:url(../images/menutop-active.png);	
+}
+
+.menuTop li a:hover{
+	background-image:url(../images/menutop-hover.png);	
+}
+.menuTop li ul{
+	
+	background-image:url(../images/bg-desplegable-menutop.png);
+	border:1px solid #043a5a;
+	border-bottom:none;
+	left:0px;
+	position:absolute;
+	top:25px;
+	width:150px;
+	display:none;
+	z-index:9999;	
+	
+}
+.menuTop li ul li{
+	width:150px;
+	border-bottom:1px solid #043a5a;	
+}
+.menuTop li ul li a{
+	text-align:left !important;
+		
+}
+.buscadorBox{
+    float: right;
+    left: 629px;
+    margin-top: 8px;
+    position: absolute;
+    top: 105px;
+    width: 320px;	
+}
+.buscadorBox li{
+	float:left;	
+}
+.buscadorBox input{
+	border:1px solid #AAAAAA;
+	height:15px;
+	margin:0 2px;
+	width:132px;
+}
+.buscadorBox input.btnLupa{
+	background-image:url(../images/lupa.png);
+	background-repeat:no-repeat;
+	width:20px;
+	height:19px;
+	border:none;
+	background-color:transparent;
+}
+.buscadorBox a:link, .buscadorBox a:visited{
+	color:#FFFFFF;
+	display:block;
+	font-weight:bold;
+	margin-left:5px;
+	margin-top:1px;	
+}
+.buscadorBox a:hover{
+	color:#ff9800;	
+}
+/* ------------------------------ Cuerpo ----------------------------------*/
+
+.cuerpo{
+	margin:0 auto;
+	padding:0 9px;
+	width:960px;		
+}
+.contenido{
+	width:724px;
+	float:left;
+	padding-top:2px;
+	
+}
+
+/* ------------------------------ Lateral derecho ----------------------------------*/
+
+.panelRight{
+	width:232px;
+	float:left;
+	background-image:url(../images/margen-panel-right.png);
+	background-repeat:no-repeat;
+}
+.contenedorLeft{
+	background-color:#F2F2F2;
+	border:1px solid #E8E8E8;
+	margin:17px 5px 5px 14px;
+	padding:5px;
+}
+.rightBox{
+	padding:5px;
+	background-color:#fafafa;
+	border:1px solid #ececec;
+	margin-bottom:10px;
+	overflow:auto;
+}
+.rightBox h2{
+	background-image:url(../images/bg-titulo-box-pright.png);
+	background-repeat:repeat-x;	
+	height:29px;
+	color:#fff;
+	font-size:15px;
+	line-height:29px;
+	text-align:center;
+	margin-bottom:5px;	
+}
+.rightBox h2 a:link, .rightBox h2 a:visited{	
+	color:#fff;
+	text-decoration:none;
+}
+.rightBox h2 a:hover{	
+	text-decoration:underline;
+}
+.rightBox p{	
+	color:#4d4d4d;
+	margin:0 5px 5px 5px;	
+	line-height:16px;
+}
+a.leerMas:link, a.leerMas:visited{
+	background-image:url(../images/btn-naranja.png);
+	width:67px;
+	height:18px;
+	float:right;
+	line-height:18px;
+	text-align:center;	
+	color:#fff;
+	text-decoration:none;
+	font-weight:bold;
+	font-size:12px;
+}
+a.leerMas:hover{
+	background-image:url(../images/btn-naranja-hover.png);
+	
+}
+.rightBox ul.miniListado{
+	border:1px solid #e7eff5;
+	padding:0;
+	margin-top:5px;	
+}
+.rightBox ul.miniListado li{
+	height:21px;
+	color:#4d4d4d;
+	line-height:21px;	
+	
+}
+.rightBox ul.miniListado li.even{
+	background-color:#f2f6f9;	
+}
+.rightBox  ul.miniListado li a:link, .rightBox ul.miniListado li a:visited{
+	display:block;
+	height:21px;
+	color:#4d4d4d;
+	line-height:21px;
+	text-decoration:none;
+	padding-left:25px;		
+}
+.rightBox  ul.miniListado li a:hover{
+	text-decoration:underline;	
+}
+a.verListado:link, a.verListado:visited{
+	color:#496E88;
+	display:block;
+	font-weight:bold;
+	height:21px;
+	line-height:21px;
+	text-align:center;
+	text-decoration:none;	
+}
+a.verListado:hover{
+	color:#ff9800;	
+}
+
+.menuRight{
+	padding:0;
+	margin-top:5px;		
+}
+.menuRight li{
+	height:21px;
+}
+.menuRight li a:link, .menuRight li a:visited{
+	background-image:url("../images/bullet-menu-right.png");
+	background-position:left center;
+	background-repeat:no-repeat;
+	color:#003356;
+	display:block;
+	font-weight:bold;
+	height:21px;
+	line-height:21px;
+	margin-left:25px;
+	padding-left:15px;
+	text-decoration:none;		
+}
+.menuRight li a:hover{
+	color:#496e88;
+	text-decoration:underline;	
+}
+.menuRight li a span{
+	color:#90a4bb;	
+	
+}
+
+/* ------------------------------ Footer ----------------------------------*/
+
+.contenedorFooter{
+	background-image:url(../images/bg-pie.jpg);
+	height:329px;
+	background-repeat:repeat-x;
+	clear:both;
+}
+.footer{
+	width:960px;
+	margin:0 auto;	
+	padding-top:40px;
+	padding-left:0px;
+}
+.footerBox{
+	background-image:url(../images/box-pie.png);
+	width:215px;
+	height:251px;
+	float:left;
+	margin-right:13px;
+}
+.footerBox h2{
+	color:#FFFFFF;
+	font-size:20px;
+	font-weight:bold;
+	margin-bottom:10px;
+	margin-top:10px;
+	text-align:center;
+}
+.footerBox h2 span{
+	color:#b0b1b5;
+}
+.footerBox li{
+	height:16px;	
+	font-size:14px;	
+	margin:0 auto;
+}
+.tematica li{
+	margin-left:67px;	
+}
+.deInteres{
+	margin-left:14px;	
+}
+.deInteres li{
+	margin-left:55px;
+}
+.servicios li{
+	margin-left:50px;
+}
+.webAmigas li{
+	margin-left:20px;
+}
+.webAmigas li a:link, .webAmigas li a:visited{
+	background-image:none !important;
+	
+}
+.webAmigas li a:hover{
+	color:#7e8aa2 !important;	
+}
+.footerBox li a:link, .footerBox li a:visited{
+	background-image:url("../images/bullet-menu-footer.png");
+	background-position:left center;
+	background-repeat:no-repeat;
+	color:#FFFFFF;
+	padding-left:13px;
+	text-decoration:none;
+}
+.footerBox li a:hover{
+	text-decoration:underline;	
+}
+.copy{
+	float:left;
+	margin-top:10px;
+	color:#7e8aa2;	
+}
+.copy a:link, .copy a:visited{
+	text-decoration:none;
+	color:#7e8aa2;	
+}
+.copy a:hover{
+	text-decoration:underline;	
+}
+.ezero{
+	float:right;
+	margin-top:10px;
+	color:#7e8aa2;	
+}
+.ezero a:link, .ezero a:visited{
+	text-decoration:none;
+}
+.ezero a:hover{
+	text-decoration:underline;	
+}
+.ezero a{
+	color:#7e8aa2;	
+}
+
+/* ################################################################################# */
+/* ####             FIN DE LOS ESTILOS DEL MARCO                               ##### */
+/* ################################################################################# */
+
+
+
+/* ################################################################################# */
+/* ####             ESTILOS GENERALES                                          ##### */
+/* ################################################################################# */
+.limpia{
+	height:1px;
+	clear:both;	
+}
+.granBoxTop{
+background-image:url(../images/box-larga-top.png);
+width:719px;
+height:16px;
+
+}
+.granBoxBody{
+	background-image:url("../images/box-larga-center.png");
+	background-repeat:repeat-y;
+	overflow:auto;
+	*overflow:visible;
+	padding:0 5px 0 10px;
+	width:709px;
+}
+.granBoxBottom{
+	background-image:url(../images/box-larga-bottom.png);
+	height:16px;
+	width:719px;
+	margin-bottom:10px;
+}
+h2.titGranBox{
+	color:#496e88;
+	font-size:20px;
+	float:left;	
+}
+h2.titGranBox a:link, h2.titGranBox a:visited{
+	color:#496e88;
+	text-decoration:none;
+}
+h2.titGranBox a:hover{
+	text-decoration:underline;	
+}
+a.btnNaranja:link, a.btnNaranja:visited{
+	background-image:url(../images/btn-right-naranja.png);
+	background-repeat:no-repeat;
+	background-position:right;
+	display:block;
+	height:20px;
+	float:right;	
+	color:#fff;
+	font-weight:bold;
+	text-decoration:none;
+	margin-right:17px;
+	width:130px;
+  
+}
+
+a.btnNaranja:link span, a.btnNaranja:visited span{
+	background-image:url(../images/btn-left-naranja.png);
+	background-repeat:no-repeat;
+	background-position:left;
+	display:block;
+	float:right;
+	height:20px;
+	text-align:center;
+	line-height:20px;
+	padding:0 5px;
+	 
+}
+ 
+a.btnNaranja:hover{
+  background-image:url(../images/btn-right-naranja_hover.png);
+}
+a.btnNaranja:hover span{
+  background-image:url(../images/btn-left-naranja_hover.png);
+}
+
+p.migas{
+	color:#7e8aa2;
+	font-weight:bold;
+	font-size:11px;	
+	margin-bottom:5px;
+}
+p.migas span{
+	color:#29abe2;
+		
+}
+p.migas a:link, p.migas a:visited{
+	color:#496e88;
+	text-decoration:none;
+		
+}
+p.migas a:hover{
+	color:#ff9800;
+}
+.tituloListado{
+	color:#003356;
+	font-size:20px;
+	margin-bottom:10px;
+		
+}
+.tituloListado span.nombreCategoria{
+	color:#ff9800;
+	
+		
+}
+.tituloListado span{
+	color:#29abe2;
+}
+/* ################################################################################# */
+/* ####             ESTILOS PAGINA PRINCIPAL                                   ##### */
+/* ################################################################################# */
+
+h3.menPublicado{
+	margin:0;
+	color:#90A4BB;
+	float:left;
+	font-size:14px;
+	margin-left:44px;
+	margin-top:2px;	
+	font-weight:normal;
+}
+.mensajeEditor a.leerMas{
+	margin-right:20px;	
+}
+.mensajeEditor p{
+	color:#666666;
+	padding:5px 10px;
+	clear:both;	
+	line-height: 16px;	
+}
+.boxRelatoMes{
+	background-image:url("../images/box-225x166.png");
+	float:left;
+	height:146px;
+	margin-left:6px;
+	padding:10px;
+	width:205px;
+}
+.RMCorto{
+	clear:both;	
+}
+.boxRelatoMes h2{
+	color:#003356;
+	font-weight:bold;
+	font-size:18px;
+	float:left;	
+	margin-top:2px;
+}
+.boxRelatoMes h3{
+	background-position:right center;
+	background-repeat:no-repeat;
+	color:#90A4BB;
+	float:right;
+	font-size:15px;
+	height:23px;
+	line-height:23px;
+	margin-left:51px;
+	margin-top:0;
+	padding-right:26px;
+	width:57px;
+}
+.RMCorto h3{
+	background-image:url(../images/reloj-corto.png);
+}
+.RMMedio h3{
+	background-image:url(../images/reloj-medio.png);
+}
+.RMLargo h3{
+	background-image:url(../images/reloj-largo.png);
+}
+a.RMTitulo:link, a.RMTitulo:visited{
+	color:#003356;
+	text-decoration:underline;
+	display:block;
+	clear:both;
+	font-weight:bold;
+	font-size:12px;
+	
+}
+a.RMTitulo:hover{
+	color:#496e88;
+}
+p.RMAutor{
+	color:#29abe2;
+	font-size:12px;
+	margin:3px 0 10px 0;
+	*margin:3px 0 5px 0;	
+}p.RMIntro{
+	color:#666666;
+	font-size:12px;
+	height:65px;
+	line-height:16px;
+	margin:0 0 6px;
+	overflow:hidden;
+	*margin:0 0 0px;
+	*line-height:14px;
+}
+.containerBoxRelatoMes{
+	clear:both;
+	padding-top:10px;	
+}
+
+.novedades table{
+	
+	
+}
+.containerTable{
+	clear:both;
+	padding-top:10px;
+	*padding-top:5px;
+}
+.novedades th{
+	background-image:url(../images/bg-top-list.png);
+	height:25px;
+	vertical-align:middle;
+	color:#fff;
+	border-right:1px solid #003356;	
+}
+.novedades td{
+	height:25px;
+	vertical-align:middle;
+	font-size:11px;
+	padding-left:4px;
+}
+.novedades tr.even{
+	background-color:#f2f6f9;	
+}
+.novedades tr{
+	border-left:1px solid #f0f5f9;
+	border-right:1px solid #f0f5f9;
+}
+.novedades .col1{
+	width:272px;
+}
+.novedades .col1 a:link, .novedades .col1 a:visited{
+	color:#003356;
+	font-weight:bold;	
+	text-decoration:none;
+}
+.novedades .col1 a:hover{
+	color:#496e88;
+	text-decoration:underline;
+	
+}
+
+
+.novedades .col2{
+	width:170px;
+}
+.novedades .col2 a:link, .novedades .col2 a:visited{
+	color:#29abe2;
+	text-decoration:none;
+}	
+.novedades .col2 a:hover{
+	color:#ff9800;
+	text-decoration:underline;
+}
+
+.novedades .col3{
+	width:75px;
+}
+.novedades .col3 a:link, .novedades .col3 a:visited{
+	color:#003356;
+	text-decoration:none;
+		
+}	
+.novedades .col3 a:hover{
+	text-decoration:underline;
+	
+}
+
+.novedades .col4{
+	width:50px;
+	text-align:right;
+	padding-right:4px;
+}
+.novedades .col4 a:link, .novedades .col4 a:visited{
+	color:#666;
+	text-decoration:none;
+		
+}	
+.novedades .col4 a:hover{
+	text-decoration:underline;	
+}
+
+.novedades .col5{
+	width:34px;
+	color:#003356;
+	text-align:right;
+	padding-right:4px;
+}
+.novedades .col6{
+	width:60px;
+	color:#666;
+	text-align:right;
+	padding-right:4px;
+}
+.containerCategorias{
+	clear:both;
+	margin-top:10px;
+	padding-left:5px;	
+	
+}
+
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+.containerCategorias a:link, .containerCategorias a:visited{
+	background-image:url("../images/box-categoria.png");
+	display:block;
+	float:left;
+	height:93px;
+	margin-right:13px;
+	margin-top:10px;
+	padding-top:8px;
+	text-align:left;
+	text-decoration:none;
+	width:101px;
+}
+.containerCategorias a div{
+	margin-left:9px;
+	height:80px;
+	width:84px;
+	background-position:left top;
+	background-repeat:no-repeat;
+}
+
+a.catAmor:link div, a.catAmor:visited div{
+	background-image:url(../images/tematicas/amor_link.png);
+}
+a.catAmor:hover div{
+	background-image:url(../images/tematicas/amor_over.png);
+}
+a.catAmor div.activeOp{
+	background-image:url(../images/tematicas/amor_active.png) !important;
+}
+
+a.catHumor:link div, a.catHumor:visited div{
+	background-image:url(../images/tematicas/humor_link.png);
+}
+a.catHumor:hover div{
+	background-image:url(../images/tematicas/humor_over.png);
+}
+a.catHumor div.activeOp{
+	background-image:url(../images/tematicas/humor_active.png) !important;
+}
+
+a.catTerror:link div, a.catTerror:visited div{
+	background-image:url(../images/tematicas/terror_link.png);
+}
+a.catTerror:hover div{
+	background-image:url(../images/tematicas/terror_over.png);
+}
+a.catTerror div.activeOp{
+	background-image:url(../images/tematicas/terror_active.png) !important;
+}
+
+a.catHistoricos:link div, a.catHistoricos:visited div{
+	background-image:url(../images/tematicas/historico_link.png);
+}
+a.catHistoricos:hover div{
+	background-image:url(../images/tematicas/historico_over.png);
+}
+a.catHistoricos div.activeOp{
+	background-image:url(../images/tematicas/historico_active.png) !important;
+}
+
+a.catInfantiles:link div, a.catInfantiles:visited div{
+	background-image:url(../images/tematicas/infantil_link.png);
+}
+a.catInfantiles:hover div{
+	background-image:url(../images/tematicas/infantil_over.png);
+}
+a.catInfantiles div.activeOp{
+	background-image:url(../images/tematicas/infantil_active.png) !important;
+}
+
+a.catReflexiones:link div, a.catReflexiones:visited div{
+	background-image:url(../images/tematicas/reflexiones_link.png);
+}
+a.catReflexiones:hover div{
+	background-image:url(../images/tematicas/reflexiones_over.png);
+}
+a.catReflexiones div.activeOp{
+	background-image:url(../images/tematicas/reflexiones_active.png) !important;
+}
+
+a.catReales:link div, a.catReales:visited div{
+	background-image:url(../images/tematicas/reales_link.png);
+}
+a.catReales:hover div{
+	background-image:url(../images/tematicas/reales_over.png);
+}
+a.catReales div.activeOp{
+	background-image:url(../images/tematicas/reales_active.png) !important;
+}
+
+a.catDrama:link div, a.catDrama:visited div{
+	background-image:url(../images/tematicas/drama_link.png);
+}
+a.catDrama:hover div{
+	background-image:url(../images/tematicas/drama_over.png);
+}
+a.catDrama div.activeOp{
+	background-image:url(../images/tematicas/drama_active.png) !important;
+}
+                  
+a.catSuspense:link div, a.catSuspense:visited div{
+	background-image:url(../images/tematicas/suspense_link.png);
+}
+a.catSuspense:hover div{
+	background-image:url(../images/tematicas/suspense_over.png);
+}
+a.catSuspense div.activeOp{
+	background-image:url(../images/tematicas/suspense_active.png) !important;
+}
+a.catPoesia:link div, a.catPoesia:visited div{
+	background-image:url(../images/tematicas/poesia_link.png);
+}
+a.catPoesia:hover div{
+	background-image:url(../images/tematicas/poesia_over.png);
+}
+a.catPoesia div.activeOp{
+	background-image:url(../images/tematicas/poesia_active.png) !important;
+}
+
+a.catFantasia:link div, a.catFantasia:visited div{
+	background-image:url(../images/tematicas/fantasia_link.png);
+}
+a.catFantasia:hover div{
+	background-image:url(../images/tematicas/fantasia_over.png);
+}
+a.catFantasia div.activeOp{
+	background-image:url(../images/tematicas/fantasia_active.png) !important;
+}
+
+a.catVarios:link div, a.catVarios:visited div{
+	background-image:url(../images/tematicas/varios_link.png);
+}
+a.catVarios:hover div{
+	background-image:url(../images/tematicas/varios_over.png);
+}
+a.catVarios div.activeOp{
+	background-image:url(../images/tematicas/varios_active.png) !important;
+}
+                   
+                   
+
+.containerCategorias a:link span, .containerCategorias a:visited span{
+	color:#003356;
+	display:block;
+	text-align:center;
+	font-size:11px;
+	font-weight:bold;
+	*margin-top:0px;
+}
+.containerCategorias a:hover{
+	background-image:url(../images/box-categoria-hover.png);
+	
+}
+.containerCategorias a:hover span{
+	color:#ff9800;
+	
+	
+}
+
+
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+
+
+/* ################################################################################# */
+/* ####             ESTILOS PAGINA LISTADO CATEGORIAS                          ##### */
+/* ################################################################################# */
+
+.cabeceraListadoCategorias{
+	width:100%;
+	height:25px;
+	margin-bottom:10px;	
+}
+
+.cabeceraListadoCategorias li{
+	background-image:url(../images/bg-top-list.png);
+	height:25px;
+	float:left;
+		
+}
+.cabeceraListadoCategorias li a:link, .cabeceraListadoCategorias li a:visited{
+	color:#fff;
+	font-weight:bold;
+	line-height:25px;
+	text-decoration:none;
+	display:block;
+	height:25px;
+	background-image:url(../images/separador-menu-top.jpg);
+	background-repeat:no-repeat;
+	background-position:right;
+	font-size:11px;
+	text-align:center;
+
+}
+.cabeceraListadoCategorias li a:hover{
+	
+	text-decoration:underline;
+
+}
+.itemListadoCategorias li{
+	float:left;
+	
+}
+
+.cabeceraListadoCategorias .cTitulo{
+	width:241px;
+}
+.cabeceraListadoCategorias .cAutor{
+	width:111px;
+}
+.cabeceraListadoCategorias .cTematica{
+	width:79px;
+}
+.cabeceraListadoCategorias .cValoracion{
+	width:83px;
+}
+.cabeceraListadoCategorias .cFecha{
+	width:70px;
+}
+.cabeceraListadoCategorias .cDuracion{
+	width:65px;
+}
+.cabeceraListadoCategorias .cLecturas{
+	width:65px;
+}
+.itemListadoCategorias .cTitulo{
+	width:233px;
+	color:#496e88;
+	font-size:18px;
+	font-weight:bold;
+}
+.itemListadoCategorias .cAutor{
+	color:#29ABE2;
+	font-size:12px;
+	padding-left:4px;
+	width:107px;
+}
+.itemListadoCategorias .cTematica{
+	width:75px;
+	padding-left:4px;
+	color:#263248;
+	text-align:center;
+	font-size:12px;
+}
+
+.itemListadoCategorias .cValoracion{
+	background-image:url(../images/btn-right-naranja.png);
+	background-repeat:no-repeat;
+		
+	width:77px;
+	height:14px;
+	
+}
+.itemListadoCategorias .cFecha{
+	width:70px;
+	color:#4d4d4d;
+	padding-left:4px;
+	text-align:center;
+	font-size:12px;
+}
+.itemListadoCategorias .cDuracion{
+    color: #003356;
+    font-size: 12px;
+    height: 1px;
+    padding-left: 4px;
+    text-align: center;
+    width: 61px;
+
+}
+.itemListadoCategorias .cLecturas{
+	width:52px;
+	color:#4d4d4d;
+	padding-left:4px;
+	text-align:right;
+	font-size:12px;
+}
+.resumenRelatoCategoria{
+	clear:both;
+	padding:10px 0px;
+	color:#666666;
+	font-size:11px;	
+}
+.boxItemListadoCategoria a.leerMas{
+	margin-right:10px;	
+}
+.paginas ul{
+	float:right;
+}
+.paginas li{
+	float:left;
+	padding:0 5px;
+	color:#496e88;	
+	font-size:14px;
+	font-weight:bold;
+}
+.paginas li a:link, .paginas li a:visited{
+	color:#496e88;
+	text-decoration:none;	
+}
+.paginas li a:hover{
+	color:#ff9800;	
+}
+.paginas li.activePage{
+	color:#496e88;
+	text-decoration:underline;	
+}
+.paginas li.activePage a:link, .paginas li.activePage a:visited{
+	color:#496e88;
+	text-decoration:underline;	
+}
+/* ################################################################################# */
+/* ####             ESTILOS PAGINA LISTADO AUTORES                             ##### */
+/* ################################################################################# */
+           
+		   
+.cabeceraListadoAutores{
+	width:100%;
+	height:25px;
+	margin-bottom:10px;	
+}
+.cabeceraListadoAutores li{
+	background-image:url(../images/bg-top-list.png);
+	height:25px;
+	float:left;
+}
+
+.cabeceraListadoAutores li a:link, .cabeceraListadoAutores li a:visited{
+	color:#fff;
+	font-weight:bold;
+	line-height:25px;
+	text-decoration:none;
+	display:block;
+	height:25px;
+	background-image:url(../images/separador-menu-top.jpg);
+	background-repeat:no-repeat;
+	background-position:right;
+	font-size:11px;
+	text-align:center;
+
+}
+.cabeceraListadoAutores li a:hover{
+	
+	text-decoration:underline;
+
+}
+.cabeceraListadoAutores .aAutor{
+	width:231px;
+}
+.cabeceraListadoAutores .aNotaMedia{
+	width:91px;
+}
+.cabeceraListadoAutores .aFechaAlta{
+	width:93px;
+}
+.cabeceraListadoAutores .aNValor{
+	width:116px;
+}
+.cabeceraListadoAutores .aNRelatos{
+	width:85px;
+}
+.cabeceraListadoAutores .aNLecturas{
+	width:102px;
+}
+.itemListadoAutores .aAutor{
+	width:221px;
+
+	overflow:hidden;
+}
+.itemListadoAutores .aAutor a{
+	
+	color:#496e88;
+	font-size:16px;
+	font-weight:bold;
+	
+	
+}
+.itemListadoAutores .aNotaMedia{
+	width:91px;
+	text-align:center;
+	color:#003356;
+}
+.itemListadoAutores .aFechaAlta{
+	width:91px;
+	text-align:center;
+	color:#666666;
+}
+.itemListadoAutores .aNValor{
+	width:116px;
+	text-align:center;
+	color:#496e88;
+}
+.itemListadoAutores .aNRelatos{
+	width:85px;
+	text-align:center;
+	color:#263248;
+}
+.itemListadoAutores .aNLecturas{
+	width:102px;
+	text-align:center;
+	color:#666666;
+}
+.itemListadoAutores li{
+	float:left;
+	
+}
+.otrosDatosAutor{
+	clear:both;	
+}
+.otrosDatosAutorLeft{
+	float:left;
+	width:388px;
+}
+.otrosDatosAutorLeft p{
+	color:#496e88;
+	margin:10px 0;
+}
+.otrosDatosAutorLeft a{
+	color:#29abe2;
+	text-decoration:none;
+}
+.otrosDatosAutorRight{
+	float:left;
+	width:313px;
+}
+.otrosDatosAutorRight li{
+	float:left;
+	width:100px;
+	text-align:center;
+	border:1px solid #bcc2cf;
+	margin-right:2px;	
+}
+.otrosDatosAutorRight h3{
+	background-image:url(../images/bg-table-autor.png);
+	height:25px;
+	line-height:25px;
+	background-repeat:repeat-x;
+	color:#fff;
+}
+.otrosDatosAutorRight p{
+	color:#ff9800;
+	padding:5px 0;
+	font-weight:bold;
+	
+}
+/* ################################################################################# */
+/* ####             ESTILOS PAGINA FICHA RELATO                                ##### */
+/* ################################################################################# */
+
+
+.datosRelato h2{
+	color:#496e88;
+	font-size:20px;
+	text-align:center;
+
+}
+
+.datosRelato ul{
+	overflow:auto;
+	margin:10px 10px 10px 40px;
+}
+.datosRelato li{
+	color: #808080;
+    float: left;
+    width: 204px;
+	font-weight:bold;
+	margin-bottom:10px;
+	background-image:url(../images/bullet-menu-right.png);
+	background-repeat:no-repeat;
+	background-position:left center;
+	padding-left:12px;	
+}
+.datosRelato li span{
+	color:#4d4d4d;	
+}
+.datosRelato li a{
+	color:#29ABE2;	
+}
+.datosRelatoValoracion{
+	background-image:url(../images/btn-right-naranja.png);
+	background-repeat:no-repeat;
+	float:right;
+	margin-right:47px;
+	width:77px;
+	height:14px;
+}
+.accionesRelato{
+	padding-left:11px;
+}
+.accionesRelato li{
+	float:left;
+	height:21px;
+	margin-left:20px;	
+}
+
+.accionesRelato a:link, a:visited{
+	text-decoration:none;
+	color:#4d4d4d;
+	font-weight:bold;
+	display:block;
+	float:left;
+	height:21px;
+	line-height:21px;
+}
+.accionesRelato span{
+	text-decoration:none;
+	color:#4d4d4d;
+	font-weight:bold;
+	display:block;
+	float:left;
+	height:21px;
+	line-height:21px;
+	background-image:url(../images/bullet-menu-right.png);
+	background-repeat:no-repeat;
+	background-position:left center;
+	padding-left:12px;
+}
+.accionesRelato p{
+	color:#808080;	
+	display:block;
+	float:left;
+	height:21px;
+	line-height:21px;
+	font-size:11px;
+}
+.imprimir{
+	background-image:url(../images/print.png);
+	background-repeat:no-repeat;
+	height:21px;
+	padding-left:24px;
+}
+.imprimir a:link, .imprimir a:visited{
+	color:#4d4d4d;
+	text-decoration:none;
+	background-image:url(../images/bullet-menu-right.png);
+	background-repeat:no-repeat;
+	background-position:left center;
+	padding-left:10px;
+}
+.imprimir a:hover{
+	text-decoration:underline;
+	color:#496e88;	
+}
+.guardar{
+	background-image:url(../images/pdf.png);
+	background-repeat:no-repeat;
+	height:21px;
+	padding-left:24px;
+}
+.guardar a:link, .guardar a:visited{
+	color:#4d4d4d;
+	text-decoration:none;
+	background-image:url(../images/bullet-menu-right.png);
+	background-repeat:no-repeat;
+	background-position:left center;
+	padding-left:10px;
+}
+.guardar a:hover{
+	text-decoration:underline;
+	color:#496e88;	
+}
+.aMenos{
+	width:21px;
+	background-image:url(../images/amenos.png);
+	margin-right:5px;
+}
+.aIgual{
+	width:21px;
+	background-image:url(../images/aigual.png);
+	margin-right:5px;
+}
+.aMas{
+	width:21px;
+	background-image:url(../images/amas.png);
+	margin-right:5px;
+}
+
+.hojaTop{
+	background-image:url(../images/relato-top.png);
+	height:16px;
+	width:609px;
+	margin: 0 auto;	
+	clear:both;
+}
+.hojaBottom{
+	background-image:url(../images/relato-bottom.png);
+	height:63px;
+	width:609px;
+	margin: 0 auto;
+}
+.hojaCenter{
+ 	background-image: url("../images/relato-center.png");
+    background-repeat: repeat-y;
+    margin: 0 auto;
+    padding: 0 25px;
+    width: 559px;
+	color:#48494d;
+	line-height:130%;
+	font-size:12px;
+	padding-bottom:10px;
+	
+}
+.hojaCenter p{
+	margin-bottom:8px;	
+}
+
+.creaComentario{
+	
+}
+.creaComentario label{
+    background-image: url("../images/bullet-menu-right.png");
+    background-position: right center;
+    background-repeat: no-repeat;
+    color: #496E88;
+    display: block;
+    float: left;
+    font-weight: bold;
+    height: 21px;
+    line-height: 20px;
+    margin-left: 5px;
+    padding-right: 12px;
+}
+.creaComentario select{
+    background-color: #DBDBDB;
+    border: 1px solid #6D6D6D;
+    color: #000000;
+    display: block;
+    float: left;
+    font-size: 11px;
+    height: 18px;
+    margin-left: 5px;
+    width: 145px;
+}
+.creaComentario textarea{
+	display:block;
+	float:left;
+	margin-left:5px;
+	border:1px solid #6d6d6d;
+	color:#000;
+	width:350px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	height:60px;
+	
+}
+
+.creaComentario a.btnNaranja{
+    line-height: 20px;
+    margin-top: 7px;
+    text-align: center;
+}
+.creaComentario a.btnNaranja:hover{
+	background-image:url(../images/btn-right-naranja_hover.png);
+
+}
+.comparteRelato{
+	position:relative;
+	height:92px;
+	overflow:visible !important;
+}
+.compartirRelato{
+	left: 10px;
+    position: absolute;
+    top: 35px;
+	width:310px;
+}
+.compartirRelato li{
+	float:left;
+	
+}
+.compartirRelato ul{
+    
+}
+.compartirRelato a:link, .compartirRelato a:visited {
+ 	background-position: center 5px;
+    background-repeat: no-repeat;
+    color: #4D4D4D;
+    display: block;
+    font-size: 11px;
+    height: 15px;
+    padding: 32px 5px 0;
+    text-decoration: none;
+}
+.compartirRelato a:hover{
+	color:#ff9800;
+}
+.compartirRelato p{
+    color: #496E88;
+    display: block;
+    float: left;
+    font-weight: bold;
+    height: 21px;
+    line-height: 20px;
+    margin-left: 5px;
+    margin-top: 5px;
+    padding-right: 2px;	
+}
+.facebook{
+	background-image:url(../images/facebook.png);
+}
+.twitter{
+	background-image:url(../images/twitter.png);	
+}
+
+.delicious{
+	background-image:url(../images/delisius.png);	
+}
+.tuenti{
+	background-image:url(../images/tuenti.png);
+}
+
+
+.listaComentariosRelato ul{
+	overflow:auto;
+	margin:0px 10px 0px 5px;
+}
+.listaComentariosRelato li{
+    background-image: url("../images/bullet-menu-right.png");
+    background-position: left center;
+    background-repeat: no-repeat;
+    color: #808080;
+    float: left;
+    font-weight: bold;
+    margin-bottom: 10px;
+    overflow: hidden;
+    padding-left: 12px;
+    width: 203px;
+	margin-top:3px;
+}
+.listaComentariosRelato li span{
+	color:#4d4d4d;	
+}
+.datosRelatoValoracion{
+	background-image:url(../images/btn-right-naranja.png);
+	background-repeat:no-repeat;
+	float:right;
+	margin-right:47px;
+	width:77px;
+	height:14px;
+}
+.listaComentariosRelato{
+	overflow:visible !important;	
+}
+.listaComentariosRelato li.numeroComentario{
+    background-color: #496E88;
+    background-image: none;
+    color: #FFFFFF;
+    font-size: 18px;
+    margin-right: 5px;
+    margin-top: 0;
+    padding: 2px 0;
+    text-align: center;
+    width: 43px;	
+}
+
+.textoComentario{
+    clear: both;
+    color: #666666;
+    font-size: 11px;
+    padding: 1px 10px 1px 1px;
+
+	
+}
+
+/* ################################################################################# */
+/* ####             ESTILOS PAGINA FICHA RELATO                                ##### */
+/* ################################################################################# */
+
+.gris{
+	color:#999;	
+}
+
+
+.titGranBox span{
+	color:#29abe2;	
+}
+.imagenAutor{
+	clear:both;
+	margin:10px;	
+	float:left;
+}
+
+.boxFichaAutor .titGranBox{
+	float:none;
+	
+}
+
+.datosFichaAutor{
+	overflow:auto;
+	margin:10px 10px 0px 5px;
+	float:left;
+	width:571px;
+	
+}
+.datosFichaAutor li{
+    background-image: url("../images/bullet-menu-right.png");
+    background-position: left center;
+    background-repeat: no-repeat;
+    color: #808080;
+    float: left;
+    font-weight: bold;
+    margin-bottom: 10px;
+    overflow: hidden;
+    padding-left: 12px;
+    width: 273px;
+	margin-top:3px;
+	height:15px;
+}
+.datosFichaAutor li span{
+	color:#4d4d4d;	
+}
+
+.datosFichaAutor a:link, .datosFichaAutor a:visited{
+	color:#29abe2;
+	text-decoration:none;	
+}
+.datosFichaAutor a:hover{
+	text-decoration:underline !important;	
+}
+.otrosDatosFichaAutorLeft{
+	width:380px;
+	float:left;
+}
+.otrosDatosFichaAutorLeft li{
+    background-image: url("../images/bullet-menu-right.png");
+    background-position: left 3px;
+    background-repeat: no-repeat;
+    color: #808080;
+    float: left;
+    font-weight: bold;
+    margin-bottom: 10px;
+    overflow: hidden;
+    padding-left: 12px;
+    line-height:15px;
+	margin-top:3px;
+	
+}
+.lineaValoracion{
+    left: 109px;
+    margin-left: 20px;
+    margin-right: 96px;
+    position: relative;
+    top: -1px;
+    width: 119px;	
+}
+.itemListadoRelatosAutor{
+	width:353px !important;	
+}
+
+/* ################################################################################# */
+/* ####             ESTILOS PAGINA LISTADO RESEÑAS                             ##### */
+/* ################################################################################# */
+
+
+.paginasR li{
+	float:left;
+	padding:0 4px;
+	color:#496e88;	
+	font-size:14px;
+	font-weight:bold;
+}
+.paginasR li a:link, .paginasR li a:visited{
+	color:#496e88;
+	text-decoration:none;	
+}
+.paginasR li a:hover{
+	color:#ff9800;	
+}
+.paginasR li.activePage{
+	color:#496e88;
+	text-decoration:underline;	
+}
+.paginasR li.activePage a:link, .paginasR li.activePage a:visited{
+	color:#496e88;
+	text-decoration:underline;	
+}
+
+.paginasR{
+	margin-left:31px;
+	height: 22px;	
+}
+
+.cabeceraListadoResenas{
+	width:100%;
+	height:25px;
+	
+}
+
+.cabeceraListadoResenas li{
+	background-image:url(../images/bg-top-list.png);
+	height:25px;
+	float:left;
+		
+}
+.cabeceraListadoResenas li a:link, .cabeceraListadoResenas li a:visited{
+	color:#fff;
+	font-weight:bold;
+	line-height:25px;
+	text-decoration:none;
+	display:block;
+	height:25px;
+	background-image:url(../images/separador-menu-top.jpg);
+	background-repeat:no-repeat;
+	background-position:right;
+	font-size:11px;
+	text-align:center;
+
+}
+.cabeceraListadoResenas li a:hover{
+	
+	text-decoration:underline;
+
+}
+.rTitulo{
+	width:332px;
+}
+.rAutor{
+	width:194px;
+}
+.rFechaResena{
+	width:174px;
+}
+
+.boxListadoResena th{
+	background-image:url(../images/bg-top-list.png);
+	height:25px;
+	vertical-align:middle;
+	color:#fff;
+	border-right:1px solid #003356;	
+}
+.boxListadoResena td{
+	height:25px;
+	vertical-align:middle;
+	font-size:11px;
+	padding-left:4px;
+}
+.boxListadoResena tr.even{
+	background-color:#f2f6f9;	
+}
+.boxListadoResena tr{
+	border-left:1px solid #f0f5f9;
+	border-right:1px solid #f0f5f9;
+}
+.boxListadoResena .col1{
+	width:332px;
+}
+.boxListadoResena .col1 a:link, .boxListadoResena .col1 a:visited{
+	color:#003356;
+	font-weight:bold;	
+	text-decoration:none;
+}
+.boxListadoResena .col1 a:hover{
+	color:#496e88;
+	text-decoration:underline;
+	
+}
+
+
+.boxListadoResena .col2{
+	width:194px;
+}
+.boxListadoResena .col2 a:link, .boxListadoResena .col2 a:visited{
+	color:#29abe2;
+	text-decoration:none;
+}	
+.boxListadoResena .col2 a:hover{
+	color:#ff9800;
+	text-decoration:underline;
+}
+
+.boxListadoResena .col3{
+	width:174px;
+}
+.boxListadoResena .col3{
+	color:#666;
+	text-decoration:none;
+	text-align:center;
+		
+}	
+
+.boxListadoResena h2.titGranBox{
+	clear:both;
+	float:none;	
+}
+
+/* ################################################################################# */
+/* ####             ESTILOS PAGINA LISTADO BIOGRAFIAS                          ##### */
+/* ################################################################################# */
+
+.boxListaBiografia h2.titGranBox{
+	float:none !important;
+	width:689px;
+	height:20px;
+}
+.boxListaBiografia p{
+	
+    color: #666666;
+    padding: 9px 10px;	
+	
+}
+.boxListaBiografia a.leerMas{
+	
+    margin-top:30px;
+	margin-right:20px;
+}
+
+/* ################################################################################# */
+/* ####             ESTILOS PAGINA FICHA RESEÑA                                ##### */
+/* ################################################################################# */
+
+.datosFichaResena{
+	overflow:auto;
+	margin:10px 10px 0px 72px;
+	float:left;
+	width:571px;
+	
+}
+.datosFichaResena li{
+    background-image: url("../images/bullet-menu-right.png");
+    background-position: left center;
+    background-repeat: no-repeat;
+    color: #808080;
+    float: left;
+    font-weight: bold;
+    margin-bottom: 10px;
+    overflow: hidden;
+    padding-left: 12px;
+    width: 273px;
+	margin-top:3px;
+	height:15px;
+}
+.datosFichaResena li span{
+	color:#4d4d4d;	
+}
+.boxFichaResena p{
+	color: #666666;
+    padding: 9px 72px;	
+	clear:both;
+	
+}
+
+/* ################################################################################# */
+/* ####             ESTILOS PAGINA FICHA BIOGRAFIA                             ##### */
+/* ################################################################################# */
+
+
+
+
+
+.verCita{
+    color: #496E88;
+    display: block;
+    float: left;
+    font-weight: bold;
+    margin: 10px 0;
+    padding-left: 12px;
+    text-decoration: none;
+	background-image:url(../images/bullet-menu-right.png);
+	background-position:left center;
+	background-repeat:no-repeat;
+}
+
+.boxFichaBiografia p{
+	color: #666666;
+    padding: 5px 10px;	
+	clear:both;
+	line-height: 16px;
+}
+.boxFichaBiografia2 p{
+	color: #666666;
+    padding: 5px 10px;	
+	clear:both;
+	font-style:italic;
+}
+
+/* ################################################################################# */
+/* ####             ESTILOS PAGINA LISTADO NOTICIAS                            ##### */
+/* ################################################################################# */
+
+
+.noticiaBox h3.menPublicado{
+	margin:0;
+	color:#90A4BB;
+	float:right;
+	font-size:14px;
+	margin-right:10px;
+	margin-top:2px;	
+	font-weight:normal;
+}
+
+.noticiaBox p{
+	color:#666666;
+	padding:5px 10px;
+	clear:both;
+	font-style:italic;		
+}
+.noticiaBox h2.titGranBox{
+	margin-left:10px;	
+	
+}
+
+/* ################################################################################# */
+/* ####             ESTILOS PAGINA GESTION VALORACIONES                        ##### */
+/* ################################################################################# */
+
+
+.GValoracionesBox h3.menPublicado{
+	margin:0;
+	color:#90A4BB;
+	float:right;
+	font-size:14px;
+	margin-right:10px;
+	margin-top:2px;	
+	font-weight:normal;
+}
+
+.GValoracionesBox p{
+	color:#666666;
+	padding:5px 10px;
+	clear:both;
+	width:633px;	
+}
+.GValoracionesBox h2.titGranBox{
+	margin-left:10px;	
+	
+}
+.btnBorrar{
+    background-image: url("../images/cerrar_btn.jpg");
+    background-position: center top;
+    background-repeat: no-repeat;
+    color: #336699;
+    display: block;
+    height: 15px;
+    padding-top: 23px;
+    text-align: center;
+    width: 40px;
+	font-weight:bold;
+}
+.GValoracionesBox a.btnBorrar{
+    left: 666px;
+    position: absolute;
+    top: 29px;
+}
+.GValoracionesBox {
+	position:relative;	
+}
+	
+
+
+
+.GRelatosBox h3.menPublicado{
+	margin:0;
+	color:#90A4BB;
+	float:right;
+	font-size:14px;
+	margin-right:10px;
+	margin-top:2px;	
+	font-weight:normal;
+}
+
+.GRelatosBox p{
+	color:#666666;
+	padding:5px 10px;
+	clear:both;
+	width:585px;	
+}
+.GRelatosBox h2.titGranBox{
+	margin-left:10px;	
+	
+}
+.btnEditar{
+    background-image: url("../images/editar_btn.jpg");
+    background-position: center top;
+    background-repeat: no-repeat;
+    color: #336699;
+    display: block;
+    height: 15px;
+    padding-top: 23px;
+    text-align: center;
+    width: 40px;
+	font-weight:bold;
+}
+.GRelatosBox a.btnBorrar{
+    left: 666px;
+    position: absolute;
+    top: 29px;
+}
+.GRelatosBox a.btnEditar{
+    left: 617px;
+    position: absolute;
+    top: 29px;
+}
+.GRelatosBox {
+    min-height: 58px;
+    overflow: visible !important;
+    position: relative;
+}
+.GRelatosBox .btnNaranja{
+    left: 547px;
+    position: absolute;
+    top: 22px;
+    width: 159px !important;
+}
+	
+/* ################################################################################# */
+/* ####             ESTILOS PAGINA Nueva Reseña                                ##### */
+/* ################################################################################# */
+
+
+.menuUsuario{
+	clear:both;
+	margin-top:10px;
+	padding-left:5px;	
+	
+}
+
+.menuUsuario a:link, .menuUsuario a:visited{
+	background-image:url("../images/box-categoria.png");
+	display:block;
+	float:left;
+	height:93px;
+	margin-right:13px;
+	margin-top:10px;
+	padding-top:8px;
+	text-align:left;
+	text-decoration:none;
+	width:101px;
+}
+.menuUsuario a div{
+	margin-left:9px;
+	height:80px;
+	width:84px;
+	background-position:left top;
+	background-repeat:no-repeat;
+}
+
+a.opPublica:link div, a.opPublica:visited div{
+	background-image:url(../images/nemuusuario/publica_link.png);
+}
+a.opPublica:hover div{
+	background-image:url(../images/nemuusuario/publica_over.png);
+}
+a.opPublica div.activeOp{
+	background-image:url(../images/nemuusuario/publica_active.png) !important;
+}
+
+a.opObras:link div, a.opObras:visited div{
+	background-image:url(../images/nemuusuario/obras_link.png);
+}
+a.opObras:hover div{
+	background-image:url(../images/nemuusuario/obras_over.png);
+}
+a.opObras div.activeOp{
+	background-image:url(../images/nemuusuario/obras_active.png) !important;
+}
+
+a.opValoraciones:link div, a.opValoraciones:visited div{
+	background-image:url(../images/nemuusuario/valora_link.png);
+}
+a.opValoraciones:hover div{
+	background-image:url(../images/nemuusuario/valora_over.png);
+}
+a.opValoraciones div.activeOp{
+	background-image:url(../images/nemuusuario/valora_active.png) !important;
+}
+a.opCreditos:link div, a.opCreditos:visited div{
+	background-image:url(../images/nemuusuario/creditos_link.png)
+}
+a.opCreditos:hover div{
+	background-image:url(../images/nemuusuario/creditos_over.png);
+}
+a.opCreditos div.activeOp{
+	background-image:url(../images/nemuusuario/creditos_active.png) !important;
+}
+
+a.opPreferencias:link div, a.opPreferencias:visited div{
+	background-image:url(../images/nemuusuario/preferencias_link.png);
+}
+a.opPreferencias:hover div{
+	background-image:url(../images/nemuusuario/preferencias_over.png);
+}
+a.opPreferencias div.activeOp{
+	background-image:url(../images/nemuusuario/preferencias_active.png) !important;
+}
+a.opResenas:link div, a.opResenas:visited div{
+	background-image:url(../images/nemuusuario/resenas_link.png);
+}
+a.opResenas:hover div{
+	background-image:url(../images/nemuusuario/resenas_over.png);
+}
+a.opResenas div.activeOp{
+	background-image:url(../images/nemuusuario/resenas_active.png) !important;
+}
+
+
+                   
+                   
+                   
+
+.menuUsuario a:link span, .menuUsuario a:visited span{
+	color:#003356;
+	display:block;
+	text-align:center;
+	font-size:11px;
+	font-weight:bold;
+	*margin-top:0px;
+}
+.menuUsuario a:hover{
+	background-image:url(../images/box-categoria-hover.png);
+	
+}
+.menuUsuario a:hover span{
+	color:#ff9800;
+	
+	
+}
+h2 span.nombreUsuario{
+    color: #669999;
+    font-size: 15px;
+    margin-left: 5px;
+}
+.pieMenuUsuario{
+    clear: both;
+    color: #336699;
+    font-size: 15px;
+    font-weight: bold;
+    height: 17px;
+    padding-top: 11px;
+    text-align: center;
+}
+.pieMenuUsuario span{
+	
+	color:#669999;
+	
+}
+.nuevaResenaBox{
+    border: 2px solid #E3E3E3;
+    clear: both;
+    height:706px;
+	*height:750px;
+    margin: 10px auto;
+    padding: 20px;
+    width: 444px;	
+}
+.nuevaResena h2.titGranBox{
+	margin-bottom:10px;
+}
+.tituloForm{
+	color:#669999;
+	font-size:14px;
+	font-weight:bold;	
+}
+.tituloForm sup{
+	color:#ff0000;
+	font-size:10px;
+		
+}
+.registroUsuarioBox .formulario1,.preferenciasUsuarioBox .formulario1{
+   margin-left:20px;
+}
+.formulario1 li{
+    clear: both;
+    height: 20px;
+    margin: 15px 0;
+}
+.formulario1 label{
+	display:block;
+	float:left;
+	margin-right:10px;
+	color:#496e88;
+	font-size:12px;
+	font-weight:bold;
+}
+.formulario1 label span{
+	color:#3399cc;
+}
+.formulario1 input{
+	display:block;
+	float:left;
+	border:1px solid #cccccc;
+	height:13px;
+	font-size:12px;
+	
+}
+.formulario1 textarea{
+	display:block;
+	float:left;
+	border:1px solid #cccccc;
+	height:400px;
+	font-size:12px;
+	width: 424px;
+}
+label span.ayudaFormulario{
+	color:#666;
+	font-size:10px;
+	font-weight:normal;	
+}
+.formulario1 .btnNaranja{
+	width:100px !important;
+	margin-right:10px;
+	margin-top:10px;	
+}
+.formulario1 select{
+	display:block;
+	float:left;
+	border:1px solid #cccccc;
+	height:17px;
+	font-size:11px;
+	width: 200px;
+}
+/* ################################################################################# */
+/* ####             ESTILOS PAGINA Preferencias Usuario                        ##### */
+/* ################################################################################# */
+
+.preferenciasUsuarioBox{
+    border: 2px solid #E3E3E3;
+    clear: both;
+    height:1060px;
+	*height:1110px;
+    margin: 10px auto;
+    padding: 20px;
+    width: 453px;	
+}					
+.subirImagenBox{
+	margin:10px 10px;
+	clear:both;	
+	position:relative;
+}
+.subirImagenBox img{
+	margin:10px;
+	float:left;	
+}
+.subirImagenBox p{
+	margin:10px;
+	float:left;	
+	width:271px;
+	color:#999;
+}					
+a.enviarImagen{
+    left: 133px;
+    position: absolute;
+    top: 70px;
+    width: 94px !important;
+}
+					
+a.borrarImagen{
+    left: 252px;
+    position: absolute;
+    top: 70px;
+    width: 94px !important;;
+}
+						
+/* ################################################################################# */
+/* ####             ESTILOS PAGINA Publicar Relato                             ##### */
+/* ################################################################################# */
+
+.publicaRelatoBox{
+	clear: both;   
+    margin-left: 20px;
+    padding-top: 5px;	
+	padding-right: 10px;
+}
+label span.obligatorio{
+	color:#ff0000;
+	font-size:11px;
+	margin-left:5px;	
+}
+.formLeft{
+	width:200px;
+	float:left;	
+}
+						
+.formRight{
+	width:447px;
+	float:left;
+	
+}
+textarea.txtSipnosis{
+    color: #888888;
+    font-family: arial;
+    font-size: 11px;
+    height: 50px;
+    margin-top: 10px;
+    width: 447px;
+	margin-bottom: 10px;	
+}
+						
+textarea.ckeditor{
+   
+    
+    
+}						
+/* ################################################################################# */
+/* ####             ESTILOS PAGINA Registro de usuarios                        ##### */
+/* ################################################################################# */						
+.aceptarCondiciones{
+    color: #669999;
+    font-weight: bold;
+    line-height: 18px;
+    width: 269px;
+}
+						
+.aceptarCondiciones a:link, .aceptarCondiciones a:visited {
+	color:#336699;	
+}						
+.registroUsuarioBox{
+	border: 2px solid #E3E3E3;
+    clear: both;
+    height:540px;
+	*height:590px;
+    margin: 10px auto;
+    padding: 20px;
+    width: 453px;	
+}						
+						
+.registroUsuario h2.titGranBox{
+	margin-bottom:10px;
+}			
+		
+/* ################################################################################# */
+/* ####             ESTILOS PAGINA CREDITOS                                    ##### */
+/* ################################################################################# */		
+
+.parrafoCreditos{
+    clear: both;
+    color: #999999;
+    line-height: 16px;
+    margin: 10px;
+}
+.opctionesCompra{
+    margin-bottom: 20px;
+    margin-left: 45px;
+    margin-top: 30px;
+}
+.opctionesCompra li span{
+	color:#3399cc;	
+}
+.opctionesCompra li{
+    background-image: url("../images/carro.png");
+    background-position: left 0;
+    background-repeat: no-repeat;
+    color: #496E88;
+    font-weight: bold;
+    height: 25px;
+    padding-left: 25px;
+    width: 330px;
+	
+}
+.opctionesCompra li .btnNaranja{
+	margin-left:0px;
+	width:119px !important;
+	
+	
+}
+.opctionesCompra li .btnNaranja span{
+	color:#fff !important;	
+}
+.opctionesCompra li p{
+	margin-top:2px;
+	float:left;	
+}
+.imgTarjetas{
+	margin-left:127px;
+	margin-bottom:30px;
+}
+
+.compraCreditosBox{
+	    border: 2px solid #E3E3E3;
+    clear: both;
+    height:359px;
+	*height:410px;
+    margin: 10px auto;
+    padding: 20px;
+    width: 444px;	
+}
+
+/* ################################################################################# */
+/* ####             ESTILOS PAGINA Busqueda Avanzada                           ##### */
+/* ################################################################################# */		
+
+
+.busquedaAvanzada{
+	overflow:visible !important;	
+	
+}
+.busquedaAvanzada h2{
+    float: none !important;
+    margin-bottom: 10px;
+    padding-top: 10px;
+}
+
+.busquedaAvanzada label{
+	color: #666666;
+	margin-left:20px;
+	
+}
+.busquedaAvanzada input.txtBusAvanzada{
+	border:1px solid #cccccc;
+	height:13px;
+	font-size:12px;
+	width:300px;
+	
+}
+
+.busquedaAvanzada .btnNaranja{
+    margin-right: 105px !important;
+    width: 62px !important;
+	
+}
+
+
+.busquedaAvanzada ul{
+    height: 25px;
+    margin-top: 10px;	
+}
+.busquedaAvanzada li{
+	float:left;
+	margin-right:5px;
+	height:25px;
+	
+}
+.busquedaAvanzada li input{
+	vertical-align:bottom;	
+	display: block;
+    float: left;
+}
+.busquedaAvanzada li label{
+	color:#003356;
+	font-weight:bold;
+	display: block;
+    float: left;
+	margin-top:1px;
+}
+.busquedaAvanzada li label span{
+	color:#29abe2;
+	
+	
+}
+/* ################################################################################# */
+/* ####             ESTILOS PAGINA Ayuda                                       ##### */
+/* ################################################################################# */		
+
+.textoLargo{
+	overflow:visible;	
+}
+.textoLargo .btnNaranja{
+	width:121px !important;
+}
+
+.textoLargo .titGranBox{
+	float:none;
+	margin-left: 10px;
+}
+.textoLargo p {
+    clear: both;
+    color: #666666;
+    line-height: 16px;
+    padding: 5px 10px;
+}
+.listaMarcadores{
+	margin-left:20px;	
+}
+.listaMarcadores li{
+	margin:5px 0;	
+}
+
+
+
+
+
+/* ################################################################################# */
+/* ####             ESTILOS PAGINA Error Usuario                               ##### */
+/* ################################################################################# */		
+
+.parrafoBox{
+	overflow:visible;
+}
+
+
+.parrafoBox .titGranBox{
+	float:none;
+	margin-left: 10px;
+}
+.parrafoBox p {
+    clear: both;
+    color: #666666;
+    line-height: 16px;
+    padding: 5px 10px;
+}
+
+.parrafoBox p a:link, .parrafoBox p a:visited{
+    
+    color: #496e88;
+   
+}
+.imagenError{
+    background-image: url("../images/error_box.jpg");
+    background-repeat: no-repeat;
+    float: left;
+    height: 114px;
+    margin-left: 10px;
+    margin-top: 10px;
+    position: relative;
+    width: 242px;
+}
+.imagenError p{
+    font-size: 15px;
+    font-weight: bold;
+    left: 98px;
+    position: absolute;
+    text-align: center;
+    top: 74px;
+    width: 120px;
+}
+.textoError{
+	float: left;
+    margin-top: 10px;
+    width: 417px;
+}
+
+.textoError .btnNaranja{
+    float: left !important;
+    margin-left: 10px;
+    width: 74px !important;
+}	
+a.enlaceFlechaAzul:link,a.enlaceFlechaAzul:visited{
+	display:block;
+	clear:both;
+	color:#496e88;
+	font-weight:bold;
+	text-decoration:none;
+	margin-left:10px;
+}
+a.enlaceFlechaAzul:hover{
+	color:#ff9800;
+}
+.enlaceFlechaAzul span{	
+	color:#29abe2;	
+}
+.emailP{
+	color:#29abe2 !important;	
+}
+
+
+/* ################################################################################# */
+/* ####             ESTILOS PAGINA Recuperar clave                             ##### */
+/* ################################################################################# */	
+
+.txtClave{
+    border: 1px solid #CCCCCC;
+    display: block;
+    float: left;
+    font-size: 13px;
+    height: 15px;
+    margin-left: 10px;
+    width: 300px;
+}
+.parrafoBox form .btnNaranja{
+	width:115px !important;
+	float:left !important;
+	margin-left:10px;	
+}
+.parrafoBox form {
+	height:40px;
+	padding-top: 10px;
+}
+
+/* ################################################################################# */
+/* ####             ESTILOS GESTOR                                 ##### */
+/* ################################################################################# */		
+
+
+.contenidoGestor{
+	
+	
+	padding-top:2px;
+}
+
+.granBoxTopG{
+background-image:url(../images/gestor/box_top.jpg);
+width:942px;
+height:13px;
+
+}
+.granBoxBodyG{
+	background-image:url(../images/gestor/box_center.jpg);
+	background-repeat:repeat-y;
+	overflow:auto;
+	*overflow:visible;
+	padding:0 25px 20px 10px;
+	width: 922px;
+}
+.granBoxBottomG{
+	background-image:url(../images/gestor/box_bottom.jpg);
+	height:16px;
+	width:942px;
+	margin-bottom:10px;
+}
+
+
+.textoTitulo{
+    float: left;
+    margin-left: 243px;
+    margin-top: 17px;
+}
+
+.btnDesconectar{
+    height: 18px !important;
+    left: 613px;
+    overflow: hidden;
+    position: absolute;
+    top: 78px;
+    width: 111px !important;
+	
+}
+.btnDesconectar img{
+    display: block;
+    float: right;
+    margin-left: 8px;
+    margin-top: 3px;
+	
+}
+
+.btnHome{
+    height: 18px !important;
+    left: 746px;
+    overflow: hidden;
+    position: absolute;
+    top: 78px;
+    width: 135px !important;
+	
+}
+.btnHome img{
+    display: block;
+    float: left;
+    margin-right: 8px;
+    margin-top: 2px;
+	
+}
+.GRelatosBox2 h3.menPublicado{
+	margin:0;
+	color:#90A4BB;
+	float:right;
+	font-size:14px;
+	margin-right:10px;
+	margin-top:2px;	
+	font-weight:normal;
+}
+
+.GRelatosBox2 p{
+	color:#666666;
+	padding:5px 10px;
+	clear:both;
+	width:675px;
+	font-style:italic;	
+	line-height:17px;
+}
+.btnDespublicar{
+    height: 18px !important;
+    left: 802px;
+    overflow: hidden;
+    position: absolute;
+    top: 30px;
+    width: 108px !important;
+	
+}
+.btnDespublicar img{
+    display: block;
+    float: right;
+    margin-left: 8px;
+    margin-top: 3px;
+	
+}
+
+.GRelatosBox2 .leerMas{
+	
+    left: 720px;
+    position: absolute;
+    top: 31px;
+    
+}
+.GRelatosBox2{
+	position:relative;
+}
+

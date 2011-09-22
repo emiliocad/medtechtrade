@@ -97,14 +97,15 @@
             </span>
 
         </a>
+        <?= $this->render( 'navegacion/_statistics.phtml' ); ?>
     </li>
     <li>
         <a  href="
         <?=
         $this->url( array(
             'module' => 'admin' ,
-            'controller' => 'user' ,
-            'action' => 'index' ) , null , true )
+            'controller' => '' ,
+            'action' => '' ) , null , true )
         ?>">
             <span>
 
