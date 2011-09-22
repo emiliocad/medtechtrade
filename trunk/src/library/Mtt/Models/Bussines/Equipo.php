@@ -17,6 +17,28 @@ class Mtt_Models_Bussines_Equipo
         }
 
 
+    /**
+     *
+     * @param type $id 
+     */
+    public function addTopOfers( $id )
+        {
+        $data = array( 'topofers' => self::ACTIVE );
+        $this->updateEquipo( $data , $id );
+        }
+
+
+    /**
+     *
+     * @param type $id 
+     */
+    public function quitTopOfers( $id )
+        {
+        $data = array( 'topofers' => self::DESACTIVATE );
+        $this->updateEquipo( $data , $id );
+        }
+
+
 //TODO reparar este codigo
     public function getComboValues()
         {
@@ -139,9 +161,35 @@ class Mtt_Models_Bussines_Equipo
 
 
     /**
-     * 
-     * 
+     *
+     * @return type Object
      */
+    public function getProductsOfersAll()
+        {
+
+        $db = $this->getAdapter();
+
+        $query = $db->select()
+                ->from( $this->_name , array( 'id' , 'nombre' , 'topofers' ) )
+                ->joinInner( 'categoria' ,
+                             'categoria.id = equipo.categoria_id ' ,
+                             array( 'categoria.nombre as categoria' )
+                )
+                ->joinInner( 'fabricantes' ,
+                             'fabricantes.id = equipo.fabricantes_id' ,
+                             array( 'fabricantes.nombre as fabricante' )
+                )
+                ->joinLeft( 'imagen' , 'imagen.equipo_id = equipo.id' ,
+                            array( 'imagen.nombre as imagen' )
+                )
+                ->where( 'equipo.topofers IN (?)' , self::ACTIVE )
+                ->where( 'equipo.active IN (?)' , self::ACTIVE )
+                ->query();
+
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }
+
+
     public function listEquip()
         {
         $db = $this->getAdapter();
@@ -164,8 +212,8 @@ class Mtt_Models_Bussines_Equipo
                     'alto' ,
                     'sizeCaja' ,
                     'topofers' ,
-                    'publishdate',
-                        'active')
+                    'publishdate' ,
+                    'active' )
                 )
                 ->joinInner(
                         'categoria' , 'categoria.id = equipo.categoria_id' ,
@@ -189,9 +237,9 @@ class Mtt_Models_Bussines_Equipo
                 ->joinInner( 'paises' ,
                              'paises.id = equipo.paises_id'
                         , array( 'paises.nombre as paises' ) )
-                ->joinInner( 'estadoequipo', 
-                        'estadoequipo.id = equipo.estadoequipo_id',
-                        array('estadoequipo.nombre as estadoequipo') )
+                ->joinInner( 'estadoequipo' ,
+                             'estadoequipo.id = equipo.estadoequipo_id' ,
+                             array( 'estadoequipo.nombre as estadoequipo' ) )
                 ->joinLeft( 'imagen' , 'imagen.equipo_id = equipo.id' ,
                             array( 'imagen.nombre as imageNombre' ,
                     'imagen.thumb as imageThumb' ,
@@ -204,11 +252,12 @@ class Mtt_Models_Bussines_Equipo
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
 
+
     /**
      * 
      * 
      */
-    public function listEquipByUserStatus($idUser, $status)
+    public function listEquipByUserStatus( $idUser , $status )
         {
 
         $db = $this->getAdapter();
@@ -231,8 +280,8 @@ class Mtt_Models_Bussines_Equipo
                     'alto' ,
                     'sizeCaja' ,
                     'topofers' ,
-                    'publishdate',
-                        'active')
+                    'publishdate' ,
+                    'active' )
                 )
                 ->joinInner(
                         'categoria' , 'categoria.id = equipo.categoria_id' ,
@@ -253,9 +302,9 @@ class Mtt_Models_Bussines_Equipo
                 ->joinInner( 'paises' ,
                              'paises.id = equipo.paises_id'
                         , array( 'paises.nombre as paises' ) )
-                ->joinInner( 'estadoequipo', 
-                        'estadoequipo.id = equipo.estadoequipo_id',
-                        array('estadoequipo.nombre as estadoequipo') )
+                ->joinInner( 'estadoequipo' ,
+                             'estadoequipo.id = equipo.estadoequipo_id' ,
+                             array( 'estadoequipo.nombre as estadoequipo' ) )
                 ->joinLeft( 'imagen' , 'imagen.equipo_id = equipo.id' ,
                             array( 'imagen.nombre as imageNombre' ,
                     'imagen.thumb as imageThumb' ,
@@ -271,8 +320,6 @@ class Mtt_Models_Bussines_Equipo
         }
 
 
-        
-        
     public function listEquipbyUser( $userId )
         {
         $db = $this->getAdapter();
