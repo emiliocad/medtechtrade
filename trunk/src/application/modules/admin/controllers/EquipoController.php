@@ -56,8 +56,8 @@ class Admin_EquipoController
          $this->view->headScript()->appendFile(
                  $this->view->baseUrl().
                  "/js/statistic/js/modules/exporting.js");
-         $this->view->headScript()->appendFile(
-                 $this->view->baseUrl()."/js/stadistic.equipo.js");
+         $this->view->assign( 'equipos' ,
+                 $this->_equipo->listEquipMoreVisited( 10));
         }        
 
     public function verAction()
