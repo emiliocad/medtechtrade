@@ -18,6 +18,26 @@ class Admin_UserController extends Mtt_Controller_Action
         );
         }
 
+
+    public function activausuariosAction()
+        {
+        $form = new Mtt_Form_ActivarUsuario();
+        $this->view->assign('frmActiveUser' , $form);
+        if ( $this->_request->isPost()
+                    &&
+                    $form->isValid( $this->_request->getPost() ) )
+                {
+            
+                $usuarios = $form->getValues();
+                $ids = $usuarios['usuarios'];
+
+                foreach ($ids as $item){
+                    $this->_user->habilitarUsuario($item);
+                }
+            }
+        }
+
+        
     public function paginadoAction()
         {
         $p = $this->_user->getPaginator();

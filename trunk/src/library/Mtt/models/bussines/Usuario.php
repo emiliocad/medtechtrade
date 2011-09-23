@@ -95,6 +95,41 @@ class Mtt_Models_Bussines_Usuario
         }
 
 
+    public function listarRegistrados()
+        {
+
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from( $this->_name ,
+                        array(
+                    'id' ,
+                    'nombre' ,
+                    'apellido' ,
+                    'email' ,
+                    'login' ,
+                    'fecharegistro' ,
+                    'direccion' ,
+                    'codpostal' ,
+                    'ciudad' ,
+                    'institucion' ,
+                    'active'
+                ) )
+                ->joinInner( 'tipousuario' ,
+                             'tipousuario.id = usuario.tipousuario_id' ,
+                             array( 'tipousuario.nombre as rol' ) )
+                ->joinInner( 'paises' , 'paises.id = usuario.paises_id' ,
+                             array( 'paises.nombre as pais' ) )
+                ->where( 'usuario.active = ?' , self::ACTIVE )
+                ->where( 'usuario.tipousuario_id = ?' ,
+                         Mtt_Models_Bussines_TipoUsuario::REGISTERED
+                )
+                ->query()
+        ;
+
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }
+
+
     public function updateUsuario( array $data , $id )
         {
 
@@ -129,5 +164,14 @@ class Mtt_Models_Bussines_Usuario
         $this->update( array( "active" => self::DESACTIVATE ) , 'id = ' . $id );
         }
 
+    
+    public function habilitarUsuario( $id )
+        {
+
+        $this->update( 
+                array( 
+                    "tipousuario_id" => Mtt_Models_Table_TipoUsuario::USER ), 
+                'id = ' . $id );
+        }
 
     }
