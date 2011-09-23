@@ -433,7 +433,7 @@ class Mtt_Models_Bussines_Equipo
                 
                 ->where( 'equipo.active = ?' , '1' )
                 ->where( 'favorito_equipo_usuario.active = ?' , '1' )
-                ->group( ' equipo.id' )
+                ->group( 'equipo.id' )
                 ->limit($limit)
                 ->order('cantidad DESC')
                 ->query()
