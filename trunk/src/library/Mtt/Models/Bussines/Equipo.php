@@ -369,6 +369,7 @@ class Mtt_Models_Bussines_Equipo
                 )
                 ->where( 'equipo.active = ?' , '1' )
                 ->limit($limit)
+                ->order('views DESC')
                 ->query()
         ;
 
