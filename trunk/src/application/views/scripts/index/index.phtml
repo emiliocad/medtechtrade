@@ -50,3 +50,35 @@
     <?php endforeach; ?>
 
 </div>
+
+<a class="prev browse left">
+</a>
+
+<div class="scrollable">
+    <div class="items">
+        <?
+        for (
+        $i = 0; $i < 9; $i + 3
+        ):
+            ?>
+
+            <div>
+                <?
+                foreach (
+                $this->items->getItems(
+                        $i , 3
+                ) as $item ):
+                    ?>
+                    <span 
+                        style="font-family:verdana,Lucida,arial;font-size: 4.1em;">
+                            <?= $item ?>
+                    </span>
+                <? endforeach; ?>
+            </div>
+
+        <? endfor; ?>
+
+    </div>
+</div>
+<a class="prev browse right">
+</a>
