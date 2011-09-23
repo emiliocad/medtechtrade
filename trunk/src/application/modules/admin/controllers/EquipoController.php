@@ -58,7 +58,34 @@ class Admin_EquipoController
                  "/js/statistic/js/modules/exporting.js");
          $this->view->assign( 'equipos' ,
                  $this->_equipo->listEquipMoreVisited( 10));
+        }      
+
+    public function stadisticsreservasAction()
+        {
+         $this->view->headScript()->appendFile(
+                 $this->view->baseUrl()."/js/statistic/js/jquery.js");
+         $this->view->headScript()->appendFile(
+                 $this->view->baseUrl()."/js/statistic/js/highcharts.js");
+         $this->view->headScript()->appendFile(
+                 $this->view->baseUrl().
+                 "/js/statistic/js/modules/exporting.js");
+         $this->view->assign( 'equipos' ,
+                 $this->_equipo->listEquipMoreReserved( 10));
         }        
+
+
+    public function stadisticsfavoritosAction()
+        {
+         $this->view->headScript()->appendFile(
+                 $this->view->baseUrl()."/js/statistic/js/jquery.js");
+         $this->view->headScript()->appendFile(
+                 $this->view->baseUrl()."/js/statistic/js/highcharts.js");
+         $this->view->headScript()->appendFile(
+                 $this->view->baseUrl().
+                 "/js/statistic/js/modules/exporting.js");
+         $this->view->assign( 'equipos' ,
+                 $this->_equipo->listEquipFavoritos( 10));
+        }                   
 
     public function verAction()
         {
