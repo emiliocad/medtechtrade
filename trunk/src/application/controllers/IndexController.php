@@ -24,9 +24,9 @@ class IndexController
                 ->addStylesheet(
                         'http://flowplayer.org/tools/css/scrollale-buttons.css'
                 )
-                ->addOnLoad(
-                        "$('.scrollable').scrollable();"
-                )
+//                ->addOnLoad(
+//                        "alert('hola kusanagui');"
+//                )
         ;
         $this->view->assign(
                 'oferEquipo' , $this->_equipo->showEquiposOfers()
