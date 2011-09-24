@@ -61,6 +61,16 @@ class User_EquipoController
 
 
         
+    public function vervendidosAction()
+        {
+        $this->view->assign(
+                'equipos' , 
+                $this->_equipo->listEquipSalesUser(
+                        $this->authData['usuario']->id )
+        );
+        }        
+
+        
         
     public function nuevoAction()
         {
