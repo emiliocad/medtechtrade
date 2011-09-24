@@ -70,6 +70,35 @@ class User_EquipoController
         );
         }        
 
+
+        
+    public function vernovendidosAction()
+        {
+        $this->view->assign(
+                'equipos' , 
+                $this->_equipo->listEquipNoSalesUser(
+                        $this->authData['usuario']->id )
+        );
+        }        
+
+        
+    public function favoritosAction()
+        {
+        $this->view->assign(
+                'equipos' , 
+                $this->_equipo->listEquipFavoriteByUser(
+                        $this->authData['usuario']->id )
+        );
+        }        
+        
+    public function reservasAction()
+        {
+        $this->view->assign(
+                'equipos' , 
+                $this->_equipo->listEquipReservedUser(
+                        $this->authData['usuario']->id )
+        );
+        }        
         
         
     public function nuevoAction()
