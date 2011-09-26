@@ -19,11 +19,6 @@ class User_UserController extends Mtt_Controller_Action
         $this->view->assign( 'usuario' , $usuario );
         }
 
-    public function paginadoAction()
-        {
-       
-        }        
-        
     public function editarAction()
         {         
         
