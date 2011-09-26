@@ -17,97 +17,17 @@ class User_PreguntaController
 
     public function indexAction()
         {
-
-        }
-        
-    public function questionAction()
-        {
-        
-        }
-    public function addtopofersAction()
-        {
-        
+        $this->view->assign(
+                'preguntas' , $this->_pregunta->listByUser(
+                $this->authData['usuario']->id)
+        );
         }
    
 
-
-    public function verAction()
-        {
-        $id = intval( $this->_getParam( 'id' , null ) );
-        $stmt = $this->_equipo->getCategoria( $id );
-        $this->view->assign( 'categoria' , $stmt );
-        }
-        
-    public function verpendientesAction()
-        {
-        $this->view->assign(
-                'equipos' , 
-                $this->_equipo->listEquipByUserStatus(
-                        $this->authData['usuario']->id, 1 
-                )
-        );
-        }        
-
-        
-    public function veractivosAction()
-        {
-        $this->view->assign(
-                'equipos' , 
-                $this->_equipo->listEquipByUserStatus(
-                        $this->authData['usuario']->id, 2 
-                )
-        );
-        }        
-
-
-        
-    public function vervendidosAction()
-        {
-        $this->view->assign(
-                'equipos' , 
-                $this->_equipo->listEquipSalesUser(
-                        $this->authData['usuario']->id )
-        );
-        }        
-
-
-        
-    public function vernovendidosAction()
-        {
-        $this->view->assign(
-                'equipos' , 
-                $this->_equipo->listEquipNoSalesUser(
-                        $this->authData['usuario']->id )
-        );
-        }        
-
-        
-    public function favoritosAction()
-        {
-        $this->view->assign(
-                'equipos' , 
-                $this->_equipo->listEquipFavoriteByUser(
-                        $this->authData['usuario']->id )
-        );
-        }        
-        
-    public function reservasAction()
-        {
-        $this->view->assign(
-                'equipos' , 
-                $this->_equipo->listEquipReservedUser(
-                        $this->authData['usuario']->id )
-        );
-        }        
-        
-        
-    public function nuevoAction()
+    public function nuevoAction( $idEquipo )
         {
              
-        $form = new Mtt_Form_Equipo();
-        $form->removeElement( 'precioventa' );
-        $form->removeElement( 'publicacionEquipo_id' );
-        $form->preciocompra->setLabel( 'Precio' );
+        $form = new Mtt_Form_Pregunta();
         
         if ( $this->_request->isPost()
                 &&
@@ -115,58 +35,30 @@ class User_PreguntaController
         )
             {
 
-            $equipo = $form->getValues();
-            $equipo_new = array(
+            $pregunta = $form->getValues();
+            $pregunta_new = array(
                 'usuario_id' => $this->authData['usuario']->id,
-                'publicacionEquipo_id' => 1
+                'categoriapregunta_id' => 1,
+                'equipo_id' => $idEquipo,
+                'fechaFormulacion' => getdate()
             );
         
-            $equipo = array_merge( $equipo , $equipo_new );
+            $pregunta = array_merge( $pregunta , $pregunta_new );
 
-            $this->_equipo->saveEquipo( $equipo );
+            $this->_pregunta->saveEquipo( $pregunta );
 
-            $this->_helper->FlashMessenger( 'Se Registro El Equipo' );
+            $this->_helper->FlashMessenger( 'Se Registro la pregunta' );
             $this->_redirect( $this->URL );
             }
         $this->view->assign( 'frmRegistrar' , $form );
         }
 
 
-    public function editarAction()
-        {
-
-        $id = intval( $this->_getParam( 'id' ) );
-
-        $form = new Mtt_Form_Equipo();
-
-        $equipo = $this->_equipo->getFindId( $id );
-
-        if ( !is_null( $equipo ) )
-            {
-            if ( $this->_request->isPost() && $form->isValid(
-                            $this->_request->getPost() )
-            )
-                {
-                $this->_equipo->updateEquipo( $form->getValues() , $id );
-                $this->_helper->FlashMessenger( 'Se modificó un fabricante' );
-                $this->_redirect( $this->URL );
-                }
-            $form->setDefaults( $equipo->toArray() );
-            $this->view->assign( 'form' , $form );
-            }
-        else
-            {
-            $this->_helper->FlashMessenger( 'No existe ese fabricante' );
-            $this->_redirect( $this->URL );
-            }
-        }
-
-
     public function borrarAction()
         {
         $id = intval( $this->_request->getParam( 'id' ) );
-        $this->_equipo->desactivarEquipo( $id );
-        $this->_helper->FlashMessenger( 'Equipo Borrado' );
+        $this->_pregunta->desactivaPregunta( $id );
+        $this->_helper->FlashMessenger( 'Pregunta Borrado' );
         $this->_redirect( $this->URL );
         }
 

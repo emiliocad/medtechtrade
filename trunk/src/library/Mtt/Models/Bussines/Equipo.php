@@ -11,12 +11,6 @@ class Mtt_Models_Bussines_Equipo
     {
 
 
-    public function __construct( $config = array( ) )
-        {
-        parent::__construct( $config );
-        }
-
-
     /**
      *
      * @param type $id 

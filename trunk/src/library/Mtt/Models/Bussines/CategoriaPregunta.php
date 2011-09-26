@@ -15,12 +15,6 @@ class Mtt_Models_Bussines_CategoriaPregunta
     {
 
 
-    public function __construct()
-        {
-        parent::__construct();
-        }
-
-
     public function getComboValues()
         {
         $filas = $this->fetchAll( 'active=1' )->toArray();

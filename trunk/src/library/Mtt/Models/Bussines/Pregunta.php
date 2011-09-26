@@ -94,6 +94,31 @@ class Mtt_Models_Bussines_Pregunta
         }        
 
 
+        
+    public function listByUser($idUser)
+        {
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from( $this->_name ,
+                        array( 'id' ,
+                        'equipo_id',
+                        'usuario_id',
+                        'asunto',
+                        'formulacion', 
+                        'fechaFormulacion',
+                        'fechaRespuesta', 
+                        'respuesta',
+                        'estado')
+                )
+                ->where( 'active = ?' , '1' )
+                ->where( 'usuario_id = ?' , $idUser )
+                ->query()
+        ;
+
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }        
+
+        
 
     public function listByEquipUnresolved($idEquipo)
         {
