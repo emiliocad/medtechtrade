@@ -6,8 +6,8 @@
  */
 
 
-class Mtt_Models_Bussines_Moneda
-        extends Mtt_Models_Table_Moneda
+class Mtt_Models_Bussines_Pregunta
+        extends Mtt_Models_Table_Pregunta
     {
 
     
