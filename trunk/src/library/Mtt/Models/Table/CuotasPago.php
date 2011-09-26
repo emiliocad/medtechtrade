@@ -6,11 +6,11 @@
  */
 
 
-class Mtt_Models_Table_Moneda
+class Mtt_Models_Table_CuotasPago
         extends Mtt_Db_Table_Abstract
     {
 
-    protected $_name = 'moneda';
+    protected $_name = 'cuotaspago';
     protected $_primary = 'id';
 
 

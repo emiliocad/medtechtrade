@@ -39,18 +39,19 @@ class User_PreguntaController
             {
 
             $pregunta = $form->getValues();
+            
+            //Cambiar fecha formulacion, sincronizar con server.
+            
             $pregunta_new = array(
                 'usuario_id' => $this->authData['usuario']->id,
                 'categoriapregunta_id' => 1,
                 'equipo_id' => $idEquipo,
-                'fechaFormulacion' => getdate()
+                'fechaFormulacion' => date("Ymd G:i:s")
             );
         
             $pregunta = array_merge( $pregunta , $pregunta_new );
             
-      
-
-            //$this->_pregunta->savePregunta( $pregunta );
+            $this->_pregunta->savePregunta( $pregunta );
 
             $this->_helper->FlashMessenger( 'Se Registro la pregunta' );
             }

@@ -6,8 +6,8 @@
  */
 
 
-class Mtt_Models_Bussines_EstadoEquipo
-        extends Mtt_Models_Table_EstadoEquipo
+class Mtt_Models_Bussines_EstadoCuota
+        extends Mtt_Models_Table_EstadoCuota
     {
 
 
@@ -46,41 +46,6 @@ class Mtt_Models_Bussines_EstadoEquipo
         ;
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
-        }
-
-
-    public function updateEstadoEquipo( array $data , $id )
-        {
-
-        $this->update( $data , 'id = ' . $id );
-        }
-
-
-    public function saveEstadoEquipo( array $data )
-        {
-
-        $this->insert( $data );
-        }
-
-
-    public function deleteEstadoEquipo( $id )
-        {
-
-        $this->delete( 'id = ?' , $id );
-        }
-
-
-    public function activarEstadoEquipo( $id )
-        {
-
-        $this->update( array( "active" => self::ACTIVE ) , 'id = ' . $id );
-        }
-
-
-    public function desactivarEstadoEquipo( $id )
-        {
-
-        $this->update( array( "active" => self::DESACTIVATE ) , 'id = ' . $id );
         }
 
 
