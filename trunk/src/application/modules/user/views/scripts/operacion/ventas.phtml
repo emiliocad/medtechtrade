@@ -1,0 +1,40 @@
+<h2>Pagos por equipos</h2>
+
+
+<table border="1" class="listado">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Equipo</th>
+            <th>Modelo</th>
+            <th>Precio</th>
+            <th>Fecha</th>
+            <th>Cantidad</th>
+            <th>Ciudad</th>
+            <th>cod. Postal</th>
+            <th>Pais</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach( $this->operaciones as $operacion ): ?>
+            <tr>
+
+                <td><?= $this->escape( $operacion->nombre ) ?></td>
+                <td><?= $this->escape( $operacion->modelo ) ?></td>
+                <td><?= $this->escape( $operacion->precio ) ?></td>
+                <td><?= $this->escape( $operacion->fecha ) ?></td>
+                <td><?= $this->escape( $operacion->cantidad ) ?></td>
+                <td><?= $this->escape( $operacion->cantidad ) ?></td>
+                <td><?= $this->escape( $operacion->cantidad ) ?></td>
+                <td><?= $this->escape( $operacion->cantidad ) ?></td>
+                <td><?= $this->escape( $operacion->cantidad ) ?></td>
+                <td>
+
+                  
+
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+<br />

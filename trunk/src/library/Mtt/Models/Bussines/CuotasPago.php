@@ -49,6 +49,36 @@ class Mtt_Models_Bussines_CuotasPago
         }
 
 
+    public function listByOperation( $idOperacion)
+        {
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from($name, $this->_name ,
+                        array( 'id' ,
+                        'nrocuota' ,
+                        'pago' ,
+                        'cuotaspago.fechapago as fpagocuota' ,
+                        'mora' ,
+                        'estado')
+                )
+                ->joinInner( 'operacion_has_equipo' , 
+                        'cuotaspago.operacion_has_equipo_id = 
+                            operacion_has_equipo.id ' 
+                )
+                ->joinInner( 'estadocuenta' , 
+                        'cuotaspago.estadocuota_id = estadocuota.id' ,
+                        array ('estadocuota.nombre as estadocuota')
+                )
+                ->where( 'operacion_has_equipo.operacion_id  = ?' , 
+                        $idOperacion 
+                )
+                ->query()
+        ;
+
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }        
+        
+
     public function updateCuotasPago( array $data , $id )
         {
 
