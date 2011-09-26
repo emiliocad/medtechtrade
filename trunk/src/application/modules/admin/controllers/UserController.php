@@ -134,7 +134,7 @@ class Admin_UserController
         {
         $id = intval( $this->_getParam( 'id' , null ) );
         $_operacion = new Mtt_Models_Bussines_Operacion();
-        $stmt = $_operacion->listByUser( '6' );
+        $stmt = $_operacion->listByUser( $id );
         $this->view->assign( 'operaciones' , $stmt );
         }
 
