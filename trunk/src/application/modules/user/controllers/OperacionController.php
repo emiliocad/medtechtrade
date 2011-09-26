@@ -1,6 +1,7 @@
 <?php
 
-class Admin_OperacionController extends Mtt_Controller_Action
+class User_OperacionController 
+    extends Mtt_Controller_Action
     {
 
     protected $_operacion;
@@ -28,5 +29,16 @@ class Admin_OperacionController extends Mtt_Controller_Action
         );
         }        
 
+    public function ventasAction()
+        {
+        $id = intval( $this->_request->getParam( 'id' ) );
+        $this->view->assign(
+                'operaciones' , 
+                $this->_operacion->listByUserOperation( 
+                        $this->authData['usuario']->id,
+                        Mtt_Models_Bussines_EstadoOperacion::SALE
+                )
+        );
+        }          
 
     }

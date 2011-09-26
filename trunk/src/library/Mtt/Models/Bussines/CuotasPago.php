@@ -74,14 +74,6 @@ class Mtt_Models_Bussines_CuotasPago
                 )
                 ->query()
         ;
-        /*
-         * FROM  
-cuotaspago 
-INNER  JOIN operacion_has_equipo ON cuotaspago.operacion_has_equipo_id = operacion_has_equipo.id
-INNER JOIN estadocuota ON cuotaspago.estadocuota_id = estadocuota.id
-WHERE operacion_has_equipo.id = 4
-         *
-         */
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }        
