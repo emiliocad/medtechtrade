@@ -6,7 +6,7 @@
  */
 
 
-class Mtt_Models_Bussines_estadoOperacion
+class Mtt_Models_Bussines_EstadoOperacion
         extends Mtt_Models_Table_EstadoOperacion
     {
 

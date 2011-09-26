@@ -26,7 +26,8 @@ class Admin_EstadoOperacionController extends Mtt_Controller_Action
     public function registrarAction()
         {
         $form = new Mtt_Form_Equipo();
-        if ( $this->_request->isPost() && $form->isValid( $this->_request->getPost() ) )
+        if ( $this->_request->isPost() && 
+                $form->isValid( $this->_request->getPost() ) )
             {
 
             $producto = $form->getValues();

@@ -6,15 +6,20 @@
  */
 
 
-class Mtt_Models_Table_Pregunta
+class Mtt_Models_Table_CategoriaPregunta
         extends Mtt_Db_Table_Abstract
     {
     
-    const PreguntaNoResulta = 0;
-    const PreguntaResulta = 1;
-    
-    protected $_name = 'pregunta';
+    const Others = 1;
+
+    protected $_name = 'categoriapregunta';
     protected $_primary = 'id';
+
+
+    public function __construct()
+        {
+        parent::__construct();
+        }
 
 
     }
