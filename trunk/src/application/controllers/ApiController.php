@@ -1,7 +1,10 @@
 <?php
 
-class ApiController extends Mtt_Controller_Action
+
+class ApiController
+        extends Mtt_Controller_Action
     {
+
 
     public function init()
         {
@@ -10,21 +13,22 @@ class ApiController extends Mtt_Controller_Action
         $this->_helper->viewRenderer->setNoRender();
         }
 
-   
+
     public function validarLoginAction()
         {
-            
+
 
         if ( $this->_request->isPost() )
             {
             $_usuario = new Mtt_Models_Bussines_Usuario();
-            
+
             $form = new Mtt_Form_Registrar();
             $elementLogin = $form->getElement( 'login' );
             if ( $elementLogin->isValid( $this->_getParam( 'login' ) ) )
                 {
                 $msg = 'OK';
-                } else
+                }
+            else
                 {
                 $msg = 'ERROR';
                 }
@@ -35,7 +39,8 @@ class ApiController extends Mtt_Controller_Action
 //            } else {
 //                $msg = 'ERROR';
 //            }
-            } else
+            }
+        else
             {
             $msg = 'ERROR';
             $login = '';
@@ -46,10 +51,23 @@ class ApiController extends Mtt_Controller_Action
         $this->getResponse()->appendBody( $json );
         }
 
+
     public function validarRucAction()
         {
         
         }
+
+
+    public function dialogAction()
+        {
+        $this->dialogContainer( "dialog1" , "Welcome to the ZendX_JQuery World!" ,
+                         array( "draggable" => true ,
+            "modal" => true ,
+            "resizable" => true ,
+            "title" => "Welcome message" ,
+            "closeOnEscape" => true ) );
+        }
+
 
     }
 

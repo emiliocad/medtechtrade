@@ -291,15 +291,9 @@ class Mtt_Models_Bussines_Equipo
                 ->from(
                         $this->_name ,
                         array(
-                    'equipo.id' ,
-                    'nombre as equipo' ,
-                    'precioventa' ,
-                    'preciocompra' ,
-                    'calidad' ,
-                    'modelo' ,
-                    'fechafabricacion' ,
-                    'documento' ,
-                    'sourceDocumento' ,
+                    'equipo.id' , 'nombre as equipo' , 'precioventa' ,
+                    'preciocompra' , 'calidad' , 'modelo' ,
+                    'fechafabricacion' , 'documento' , 'sourceDocumento' ,
                     'pesoEstimado' ,
                     'size' ,
                     'ancho' ,
@@ -345,6 +339,71 @@ class Mtt_Models_Bussines_Equipo
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
 
+
+    public function listEquipByUser( $idUser )
+        {
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from(
+                        $this->_name ,
+                        array(
+                    'id' ,
+                    'nombre as equipo' ,
+                    'precioventa' ,
+                    'preciocompra' ,
+                    'calidad' ,
+                    'modelo' ,
+                    'fechafabricacion' ,
+                    'documento' ,
+                    'sourceDocumento' ,
+                    'pesoEstimado' ,
+                    'size' ,
+                    'ancho' ,
+                    'alto' ,
+                    'sizeCaja' ,
+                    'topofers' ,
+                    'publishdate' ,
+                    'active' )
+                )
+                ->joinInner(
+                        'categoria' , 'categoria.id = equipo.categoria_id' ,
+                        array( 'categoria.nombre as categoria' )
+                )
+                ->joinInner(
+                        'publicacionequipo' ,
+                        'publicacionequipo.id = equipo.publicacionEquipo_id' ,
+                        array( 'publicacionequipo.nombre as publicacionequipo' )
+                )
+                ->joinInner( 'usuario' , 'usuario.id = equipo.usuario_id' ,
+                             array( 'usuario.nombre as usuario' )
+                )
+                ->joinInner( 'fabricantes' ,
+                             'fabricantes.id = equipo.fabricantes_id' ,
+                             array( 'fabricantes.nombre as fabricante' )
+                )
+                ->joinInner( 'moneda' , 'moneda.id = equipo.moneda_id' ,
+                             array( 'moneda.nombre as moneda' )
+                )
+                ->joinInner( 'paises' ,
+                             'paises.id = equipo.paises_id'
+                        , array( 'paises.nombre as paises' ) )
+                ->joinInner( 'estadoequipo' ,
+                             'estadoequipo.id = equipo.estadoequipo_id' ,
+                             array( 'estadoequipo.nombre as estadoequipo' ) )
+                ->joinLeft( 'imagen' , 'imagen.equipo_id = equipo.id' ,
+                            array( 'imagen.nombre as imageNombre' ,
+                    'imagen.thumb as imageThumb' ,
+                    'imagen.imagen as image' )
+                )
+                ->where( 'equipo.active = ?' , self::ACTIVE )
+                ->where( 'usuario.id = ?' , $idUser )
+                ->query()
+        ;
+
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }
+
+
     /**
      * 
      * 
@@ -357,13 +416,13 @@ class Mtt_Models_Bussines_Equipo
                 ->from(
                         $this->_name ,
                         array(
-                        'nombre as equipo' ,
-                        'views'      
+                    'nombre as equipo' ,
+                    'views'
                         )
                 )
                 ->where( 'equipo.active = ?' , self::ACTIVE )
-                ->limit($limit)
-                ->order('views DESC')
+                ->limit( $limit )
+                ->order( 'views DESC' )
                 ->query()
         ;
 
@@ -371,7 +430,7 @@ class Mtt_Models_Bussines_Equipo
         }
 
 
-   /**
+    /**
      * 
      * 
      */
@@ -383,191 +442,169 @@ class Mtt_Models_Bussines_Equipo
                 ->from(
                         $this->_name ,
                         array(
-                        'nombre as equipo'  
+                    'nombre as equipo'
                         )
                 )
-                ->join( 'operacion_has_equipo' , 
+                ->join( 'operacion_has_equipo' ,
                         'operacion_has_equipo.equipo_id = equipo.id' ,
                         array( 'operacion_has_equipo.cantidad as cantidad' )
                 )
-                ->where( 'operacion_has_equipo.operacion_id = ?' , 
-                        Mtt_Models_Bussines_estadoOperacion::RESERVED )
+                ->where( 'operacion_has_equipo.operacion_id = ?' ,
+                         Mtt_Models_Bussines_estadoOperacion::RESERVED )
                 ->where( 'equipo.active = ?' , self::ACTIVE )
-                ->limit($limit)
-                ->order('cantidad DESC')
+                ->limit( $limit )
+                ->order( 'cantidad DESC' )
                 ->query()
-                
-    
+
+
         ;
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
- 
- 
-   /**
+
+
+    /**
      * 
      * 
      */
     public function listEquipFavoritos( $limit )
         {
 
-     
+
         $db = $this->getAdapter();
         $query = $db->select()
                 ->from(
                         $this->_name ,
                         array(
-                        'equipo.id',
-                        'nombre as equipo'   
+                    'equipo.id' ,
+                    'nombre as equipo'
                         )
                 )
-                ->join( 'favorito_equipo_usuario' , 
+                ->join( 'favorito_equipo_usuario' ,
                         'favorito_equipo_usuario.equipo_id = equipo.id' ,
                         array( 'COUNT(equipo.id) AS cantidad' )
                 )
-                
                 ->where( 'equipo.active = ?' , self::ACTIVE )
                 ->where( 'favorito_equipo_usuario.active = ?' , '1' )
                 ->group( 'equipo.id' )
-                ->limit($limit)
-                ->order('cantidad DESC')
+                ->limit( $limit )
+                ->order( 'cantidad DESC' )
                 ->query()
-               
+
         ;
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
 
 
- 
-   /**
+    /**
      * 
      * 
      */
     public function listEquipSalesUser( $idUser )
         {
-    
+
         $db = $this->getAdapter();
         $query = $db->select()
                 ->from(
                         $this->_name ,
                         array(
-                        'equipo.id',
-                        'equipo.nombre as equipo',
-                        'precioventa AS precio',
-                        'active'
+                    'equipo.id' ,
+                    'equipo.nombre as equipo' ,
+                    'precioventa AS precio' ,
+                    'active'
                         )
                 )
-                ->joinLeft ( 'operacion_has_equipo' , 
-                        'operacion_has_equipo.equipo_id = equipo.id' ,
-                        array('SUM(operacion_has_equipo.cantidad) AS cantidad')
+                ->joinLeft( 'operacion_has_equipo' ,
+                            'operacion_has_equipo.equipo_id = equipo.id' ,
+                            array( 'SUM(operacion_has_equipo.cantidad) AS cantidad' )
                 )
                 ->join( 'operacion' ,
-                        'operacion_has_equipo.operacion_id = operacion.id'  
+                        'operacion_has_equipo.operacion_id = operacion.id'
                 )
-                ->join( 'categoria', 
-                        'equipo.categoria_id = categoria.id',
-                         array( 'categoria.nombre AS categoria' )
+                ->join( 'categoria' , 'equipo.categoria_id = categoria.id' ,
+                        array( 'categoria.nombre AS categoria' )
                 )
-                ->join( 'estadoequipo',
-                        'equipo.estadoequipo_id = estadoequipo.id',
+                ->join( 'estadoequipo' ,
+                        'equipo.estadoequipo_id = estadoequipo.id' ,
                         array( 'estadoequipo.nombre AS estadoequipo' )
                 )
-                ->join( 'fabricantes', 
+                ->join( 'fabricantes' ,
                         'equipo.fabricantes_id = fabricantes.id' ,
                         array( 'fabricantes.nombre AS fabricante' )
                 )
-                ->join( 'moneda', 
-                        'equipo.moneda_id = moneda.id',
-                        array( 'moneda.nombre AS moneda',
-                        'moneda.simbolo AS simbolomoneda')
+                ->join( 'moneda' , 'equipo.moneda_id = moneda.id' ,
+                        array( 'moneda.nombre AS moneda' ,
+                    'moneda.simbolo AS simbolomoneda' )
                 )
-                ->join( 'paises', 
-                        'equipo.paises_id = paises.id' ,
+                ->join( 'paises' , 'equipo.paises_id = paises.id' ,
                         array( 'paises.nombre AS pais' )
                 )
-                ->where( 'estadooperacion_id = ?' , 
-                        Mtt_Models_Bussines_estadoOperacion::SALE )
-                ->where( 'equipo.usuario_id = ?' , $idUser)
+                ->where( 'estadooperacion_id = ?' ,
+                         Mtt_Models_Bussines_estadoOperacion::SALE )
+                ->where( 'equipo.usuario_id = ?' , $idUser )
                 ->group( 'equipo.id' )
                 ->query()
-                
-               
+
+
         ;
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
-        
- 
-   /**
+
+
+    /**
      * 
      * 
      */
     public function listEquipNoSalesUser( $idUser )
         {
-    
+
         $db = $this->getAdapter();
         $query = $db->select()
                 ->from(
                         $this->_name ,
                         array(
-                        'equipo.id',
-                        'equipo.nombre as equipo',
-                        'precioventa AS precio',
-                        'active'
+                    'equipo.id' ,
+                    'equipo.nombre as equipo' ,
+                    'precioventa AS precio' ,
+                    'active'
                         )
                 )
-                ->joinLeft ( 'operacion_has_equipo' , 
-                        'operacion_has_equipo.equipo_id = equipo.id' ,
-                        array('(equipo.cantidad - 
-                            SUM(operacion_has_equipo.cantidad)) AS cantidad')
+                ->joinLeft( 'operacion_has_equipo' ,
+                            'operacion_has_equipo.equipo_id = equipo.id' ,
+                            array( '(equipo.cantidad - 
+                            SUM(operacion_has_equipo.cantidad)) AS cantidad' )
                 )
                 ->join( 'operacion' ,
-                        'operacion_has_equipo.operacion_id = operacion.id'  
+                        'operacion_has_equipo.operacion_id = operacion.id'
                 )
-                ->join( 'categoria', 
-                        'equipo.categoria_id = categoria.id',
-                         array( 'categoria.nombre AS categoria' )
+                ->join( 'categoria' , 'equipo.categoria_id = categoria.id' ,
+                        array( 'categoria.nombre AS categoria' )
                 )
-                ->join( 'estadoequipo',
-                        'equipo.estadoequipo_id = estadoequipo.id',
+                ->join( 'estadoequipo' ,
+                        'equipo.estadoequipo_id = estadoequipo.id' ,
                         array( 'estadoequipo.nombre AS estadoequipo' )
                 )
-                ->join( 'fabricantes', 
+                ->join( 'fabricantes' ,
                         'equipo.fabricantes_id = fabricantes.id' ,
                         array( 'fabricantes.nombre AS fabricante' )
                 )
-                ->join( 'moneda', 
-                        'equipo.moneda_id = moneda.id',
-                        array( 'moneda.nombre AS moneda',
-                        'moneda.simbolo AS simbolomoneda')
+                ->join( 'moneda' , 'equipo.moneda_id = moneda.id' ,
+                        array( 'moneda.nombre AS moneda' ,
+                    'moneda.simbolo AS simbolomoneda' )
                 )
-                ->join( 'paises', 
-                        'equipo.paises_id = paises.id' ,
+                ->join( 'paises' , 'equipo.paises_id = paises.id' ,
                         array( 'paises.nombre AS pais' )
                 )
-                ->where( 'estadooperacion_id = ?' , 
-                        Mtt_Models_Bussines_estadoOperacion::SALE )
-                ->where( 'equipo.usuario_id = ?' , $idUser)
+                ->where( 'estadooperacion_id = ?' ,
+                         Mtt_Models_Bussines_estadoOperacion::SALE )
+                ->where( 'equipo.usuario_id = ?' , $idUser )
                 ->group( 'equipo.id' )
-                ->having('cantidad > 0')
+                ->having( 'cantidad > 0' )
                 ->query()
-                
-               
-        ;
 
-        return $query->fetchAll( Zend_Db::FETCH_OBJ );
-        }
-                
-        
-    public function listEquipbyUser( $userId )
-        {
-        $db = $this->getAdapter();
 
-        $query = $db->select()
-                ->from( $this->_name )
-                ->where( 'active = ?' , self::ACTIVE )
-                ->query()
         ;
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
@@ -626,8 +663,8 @@ class Mtt_Models_Bussines_Equipo
                     'imagen.thumb as imageThumb' ,
                     'imagen.imagen as image' )
                 )
-                ->join( 'favorito_equipo_usuario', 
-                        'equipo.id = favorito_equipo_usuario.equipo_id')
+                ->join( 'favorito_equipo_usuario' ,
+                        'equipo.id = favorito_equipo_usuario.equipo_id' )
                 ->where( 'equipo.active = ?' , self::ACTIVE )
                 ->where( 'equipo.usuario_id = ?' , $idUser )
                 ->query()
@@ -635,68 +672,64 @@ class Mtt_Models_Bussines_Equipo
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
-        
- 
-   /**
+
+
+    /**
      * 
      * 
      */
     public function listEquipReservedUser( $idUser )
         {
-    
+
         $db = $this->getAdapter();
         $query = $db->select()
                 ->from(
                         $this->_name ,
                         array(
-                        'equipo.id',
-                        'equipo.nombre as equipo',
-                        'precioventa AS precio',
-                        'active'
+                    'equipo.id' ,
+                    'equipo.nombre as equipo' ,
+                    'precioventa AS precio' ,
+                    'active'
                         )
                 )
-                ->joinLeft ( 'operacion_has_equipo' , 
-                        'operacion_has_equipo.equipo_id = equipo.id' ,
-                        array('SUM(operacion_has_equipo.cantidad) AS cantidad')
+                ->joinLeft( 'operacion_has_equipo' ,
+                            'operacion_has_equipo.equipo_id = equipo.id' ,
+                            array( 'SUM(operacion_has_equipo.cantidad) AS cantidad' )
                 )
                 ->join( 'operacion' ,
-                        'operacion_has_equipo.operacion_id = operacion.id'  
+                        'operacion_has_equipo.operacion_id = operacion.id'
                 )
-                ->join( 'categoria', 
-                        'equipo.categoria_id = categoria.id',
-                         array( 'categoria.nombre AS categoria' )
+                ->join( 'categoria' , 'equipo.categoria_id = categoria.id' ,
+                        array( 'categoria.nombre AS categoria' )
                 )
-                ->join( 'estadoequipo',
-                        'equipo.estadoequipo_id = estadoequipo.id',
+                ->join( 'estadoequipo' ,
+                        'equipo.estadoequipo_id = estadoequipo.id' ,
                         array( 'estadoequipo.nombre AS estadoequipo' )
                 )
-                ->join( 'fabricantes', 
+                ->join( 'fabricantes' ,
                         'equipo.fabricantes_id = fabricantes.id' ,
                         array( 'fabricantes.nombre AS fabricante' )
                 )
-                ->join( 'moneda', 
-                        'equipo.moneda_id = moneda.id',
-                        array( 'moneda.nombre AS moneda',
-                        'moneda.simbolo AS simbolomoneda')
+                ->join( 'moneda' , 'equipo.moneda_id = moneda.id' ,
+                        array( 'moneda.nombre AS moneda' ,
+                    'moneda.simbolo AS simbolomoneda' )
                 )
-                ->join( 'paises', 
-                        'equipo.paises_id = paises.id' ,
+                ->join( 'paises' , 'equipo.paises_id = paises.id' ,
                         array( 'paises.nombre AS pais' )
                 )
-                ->where( 'estadooperacion_id = ?' , 
-                        Mtt_Models_Bussines_estadoOperacion::RESERVED )
-                ->where( 'equipo.usuario_id = ?' , $idUser)
+                ->where( 'estadooperacion_id = ?' ,
+                         Mtt_Models_Bussines_estadoOperacion::RESERVED )
+                ->where( 'equipo.usuario_id = ?' , $idUser )
                 ->group( 'equipo.id' )
                 ->query()
-                
-               
+
+
         ;
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
 
-        
-        
+
     public function updateEquipo( array $data , $id )
         {
 
