@@ -6,8 +6,8 @@
  */
 
 
-class Mtt_Models_Bussines_Moneda
-        extends Mtt_Models_Table_Moneda
+class Mtt_Models_Bussines_CuotasPago
+        extends Mtt_Models_Table_CuotasPago
     {
 
 
@@ -49,35 +49,35 @@ class Mtt_Models_Bussines_Moneda
         }
 
 
-    public function updateMoneda( array $data , $id )
+    public function updateCuotasPago( array $data , $id )
         {
 
         $this->update( $data , 'id = ' . $id );
         }
 
 
-    public function saveMoneda( array $data )
+    public function saveCuotasPago( array $data )
         {
 
         $this->insert( $data );
         }
 
 
-    public function deleteMoneda( $id )
+    public function deleteCuotasPago( $id )
         {
 
         $this->delete( 'id = ?' , $id );
         }
 
 
-    public function activarMoneda( $id )
+    public function activarCuotasPago( $id )
         {
 
         $this->update( array( "active" => self::ACTIVE ) , 'id = ' . $id );
         }
 
 
-    public function desactivarMoneda( $id )
+    public function desactivarCuotasPago( $id )
         {
 
         $this->update( array( "active" => self::DESACTIVATE ) , 'id = ' . $id );
