@@ -76,7 +76,7 @@ class Mtt_Models_Bussines_Operacion
  * @param type $estado_operacion
  * @return type 
  */
-    public function listByUserOperation( $iduser, $status)
+    public function listByUserOperation( $idUser, $status)
         {
         $db = $this->getAdapter();
         $query = $db->select()
@@ -130,7 +130,7 @@ class Mtt_Models_Bussines_Operacion
                 )
   
                 ->where( 'operacion.estadooperacion_id = ?' , $status)
-                ->where( 'operacion.usuario_id = ?' , $iduser)
+                ->where( 'operacion.usuario_id = ?' , $idUser)
                 ->group( 'equipo.id' )
                 ->query()
                 ;
