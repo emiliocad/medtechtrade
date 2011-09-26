@@ -105,10 +105,11 @@ class Mtt_Models_Bussines_Pregunta
                         'usuario_id',
                         'asunto',
                         'formulacion', 
-                        'fechaFormulacion',
-                        'fechaRespuesta', 
+                        'fechaformulacion',
+                        'fecharespuesta', 
                         'respuesta',
-                        'estado')
+                        'estado',
+                        'active')
                 )
                 ->where( 'active = ?' , '1' )
                 ->where( 'usuario_id = ?' , $idUser )

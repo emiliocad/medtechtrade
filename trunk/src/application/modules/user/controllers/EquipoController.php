@@ -43,7 +43,9 @@ class User_EquipoController
         $this->view->assign(
                 'equipos' , 
                 $this->_equipo->listEquipByUserStatus(
-                        $this->authData['usuario']->id, 1 
+                        $this->authData['usuario']->id, 
+                        Mtt_Models_Bussines_PublicacionEquipo::Pendiente
+                        
                 )
         );
         }        
@@ -54,7 +56,8 @@ class User_EquipoController
         $this->view->assign(
                 'equipos' , 
                 $this->_equipo->listEquipByUserStatus(
-                        $this->authData['usuario']->id, 2 
+                        $this->authData['usuario']->id, 
+                        Mtt_Models_Bussines_PublicacionEquipo::Activada
                 )
         );
         }        
