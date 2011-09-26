@@ -24,10 +24,13 @@ class User_PreguntaController
         }
    
 
-    public function nuevoAction( $idEquipo )
+    public function nuevoAction( )
         {
-             
+        
+        $idEquipo = ( int ) ( $this->_getParam( 'id' , null ) );
+        
         $form = new Mtt_Form_Pregunta();
+        $form->removeElement( 'respuesta' );
         
         if ( $this->_request->isPost()
                 &&
@@ -44,12 +47,14 @@ class User_PreguntaController
             );
         
             $pregunta = array_merge( $pregunta , $pregunta_new );
+            
+      
 
-            $this->_pregunta->saveEquipo( $pregunta );
+            //$this->_pregunta->savePregunta( $pregunta );
 
             $this->_helper->FlashMessenger( 'Se Registro la pregunta' );
-            $this->_redirect( $this->URL );
             }
+        
         $this->view->assign( 'frmRegistrar' , $form );
         }
 
