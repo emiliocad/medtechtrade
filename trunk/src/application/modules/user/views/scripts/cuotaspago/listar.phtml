@@ -1,0 +1,25 @@
+<a href="
+<?=
+$this->url(
+        array( 'module' => 'user' , 'controller' => 'pregunta' ,
+    'action' => 'nuevo' ,
+    'id' => $this->producto->id ) , null , true
+ )
+?> ">
+    <span class="device-action-question">
+        <?= $this->translate( 'Ask a Question' ) ?>
+    </span>
+</a>
+<a href="
+<?=
+$this->url(
+        array( 'module' => 'default' , 'controller' => 'checkout' ,
+    'action' => 'index' ,
+    'id' => $this->producto->id ) , null , true
+ )
+?> 
+   ">
+    <span class="device-action-friend">
+        <?= $this->translate( 'Add Cart' ) ?>
+    </span>
+</a>
