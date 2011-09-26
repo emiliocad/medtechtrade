@@ -10,11 +10,6 @@ class Mtt_Models_Bussines_Operacion
         extends Mtt_Models_Table_Operacion
     {
 
-  public function __construct( $config = array( ) )
-        {
-        parent::__construct( $config );
-        }
-
     public function listarUltimasUsandoCache( $n )
         {
         $cache = Zend_Registry::get( 'cache' );
@@ -81,7 +76,7 @@ class Mtt_Models_Bussines_Operacion
  * @param type $estado_operacion
  * @return type 
  */
-    public function listByOperation( $status)
+    public function listByUserOperation( $status, $iduser)
         {
         $db = $this->getAdapter();
         $query = $db->select()
@@ -94,30 +89,48 @@ class Mtt_Models_Bussines_Operacion
                         'fechapago'
                         )
                 )
-                ->join(
+                ->joinInner(
                         'operacion_has_equipo' , 
                         'operacion.id = operacion_has_equipo.operacion_id' ,
                         array(
                         'precio' ,
-                        'cantidad',
-                        'nitems' => 'count(operacion_has_equipo.id)'
+                        'cantidad' => 'operacion_has_equipo.cantidad',
+                        'equipo_id' => 'operacion_has_equipo.equipo_id'
                         )
                      
                 )
-                ->joinInner('estadooperacion', 
-                            'operacion.estadooperacion_id = estadooperacion.id',
-                            array(
-                            'estadooperacion' => 'nombre'           
-                            )
+                ->joinInner(
+                        'equipo_has_formapago' , 
+                        'operacion_has_equipo.equipo_has_formapago_id = 
+                            equipo_has_formapago.id' ,
+                        array(
+                        'dias' ,
+                        'moraxdia',
+                        'nrocuotas' => 'operacion_has_equipo.equipo_id',
+                        'pago_forma' => 'equipo_has_formapago.pago',
+                        'totalpago'
+                        )
+                     
                 )
-                ->joinInner('usuario', 
-                            'operacion.usuario_id = usuario.id',
-                            array(
-                            'usuario' => 'nombre'    
-                            )
+                ->joinInner( 'formapago' , 
+                        'equipo_has_formapago.formapago_id = formapago.id', 
+                        array( 'formapago' => 'formapago.nombre'
+                        ) 
+                )
+                ->joinInner( 'equipo', 
+                        'operacion_has_equipo.equipo_id = equipo.id', 
+                        array( 'precio' => 'equipo.precioventa',
+                        'nombre',
+                        'modelo'                                                      
+                        ) 
+                )
+                ->joinInner( 'imagen' , 
+                        'operacion_has_equipo.equipo_id = equipo.id',
+                        array ('imagen')
                 )
                 ->where( 'operacion.estadooperacion_id = ?' , $status)
-                ->group( 'operacion_has_equipo.operacion_id' )
+                ->where( 'operacion.usuario_id = ?' , $iduser)
+                ->group( 'equipo.id' )
                 ->query()
                 ;
 
