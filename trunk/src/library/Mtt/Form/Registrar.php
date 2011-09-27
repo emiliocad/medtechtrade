@@ -42,10 +42,11 @@ class Mtt_Form_Registrar
                 )
         );
         $this->addElement( $e );
-
+        /* email */
         $e = new Zend_Form_Element_Text( 'email' );
-        $e->addValidator( new Zend_Validate_Db_RecordExists(
-                        array( 'table' => 'usuario' ,
+        $e->addValidator( new Zend_Validate_Db_NoRecordExists(
+                        array(
+                            'table' => 'usuario' ,
                             'field' => 'email' )
                 )
         );
@@ -54,7 +55,7 @@ class Mtt_Form_Registrar
         $e->setLabel( 'Email:' );
         $e->addValidator( new Zend_Validate_EmailAddress() );
         $this->addElement( $e );
-
+        /* end email */
         $e = new Zend_Form_Element_Text( 'login' );
         $e->setRequired();
         //$e->setDecorators( array( $decorator ) );
