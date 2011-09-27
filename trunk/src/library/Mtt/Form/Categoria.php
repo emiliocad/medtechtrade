@@ -77,7 +77,7 @@ class Mtt_Form_Categoria
 
 
 
-        $descripcion = new Zend_Form_Element_Textarea(
+        $descripcion = new Mtt_Form_Element_Ckeditor(
                         'descripcion'
         );
         $descripcion->setLabel( 'Descripcion *:' );
