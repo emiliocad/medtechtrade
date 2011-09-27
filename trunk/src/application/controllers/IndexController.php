@@ -17,17 +17,24 @@ class IndexController
 
     public function indexAction()
         {
-//        $this->view->jQuery()
-//                ->addJavascriptFile(
-//                        'http://cdn.jquerytools.org/1.2.4/jquery.tools.min.js'
-//                )
-//                ->addStylesheet(
-//                        'http://flowplayer.org/tools/css/scrollale-buttons.css'
-//                )
-////                ->addOnLoad(
-////                        "alert('hola kusanagui');"
-////                )
-//        ;
+
+        $this->view->jQuery()
+                ->addJavascriptFile(
+                        'http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js'
+                )
+                ->addStylesheet(
+                        'http://static.flowplayer.org/tools/css/standalone.css'
+                )
+                ->addStylesheet(
+                        'http://static.flowplayer.org/tools/css/scrollable-buttons.css'
+                )
+                ->addStylesheet(
+                        'http://static.flowplayer.org/tools/css/scrollable-horizontal.css'
+                )
+                ->addOnLoad(
+                        '$(".scrollable").scrollable();'
+                )
+        ;
         $this->view->assign(
                 'oferEquipo' , $this->_equipo->showEquiposOfers()
         );
