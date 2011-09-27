@@ -3,12 +3,17 @@
 </h2>
 
 <?=
-$this->dialogContainer( "dialog1" , "Welcome to the ZendX_JQuery World!" ,
-                        array( "draggable" => true ,
+$this->dialogContainer(
+        "dialog1" , "Welcome to the ZendX_JQuery World!" ,
+        array(
+    "draggable" => true ,
+    "height" => "500" ,
     "modal" => true ,
     "resizable" => true ,
     "title" => "Welcome message" ,
-    "closeOnEscape" => true ) );
+    "closeOnEscape" => true
+        )
+);
 ?>
 <!--Equipos-->
 <table border="1" class="listado">
@@ -63,8 +68,8 @@ $this->dialogContainer( "dialog1" , "Welcome to the ZendX_JQuery World!" ,
                 </td>
                 <td>
 
-                    
-                    
+
+
 
                     <? if ( !$equipo->topofers ): ?>
 
