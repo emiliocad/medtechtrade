@@ -98,7 +98,13 @@ class User_EquipoController
                 $this->_equipo->listEquipFavoriteByUser(
                         $this->authData['usuario']->id,10 )
         );
-        }        
+        } 
+        
+    public function addfavoriteAction()
+        {
+         $this->_helper->viewRenderer->setNoRender();
+         
+        }         
         
     public function reservasAction()
         {

@@ -374,6 +374,9 @@ a:hover	{
 		#device-actions a span.device-action-friend	{
 			background-image: url(/theme/default/image/device-action-friend.png);
 		}
+        #device-actions a span.device-action-favorite	{
+			background-image: url(/theme/default/image/device-action-favorite.png);
+		}
 
 #device-description	{
 	padding: 2px;
