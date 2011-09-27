@@ -100,6 +100,8 @@ class UsuarioController
 
         //TODO Revisar el Jquery
         $this->view->headScript()->appendFile( '/js/user.sigunp.js' );
+
+
         $form = new Mtt_Form_Registrar();
 
         if ( $this->_request->isPost() &&
@@ -122,7 +124,7 @@ class UsuarioController
 
             $usuario = array_merge( $valuesDefault , $usuario );
 
-            $this->_usuario->insert( $usuario );
+            $this->_usuario->saveUsuario( $usuario );
 
             $this->_helper->FlashMessenger(
                     'There has been registered a new user' );

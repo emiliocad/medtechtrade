@@ -1,6 +1,6 @@
 $(function(){
     
-    $('#login-element').append('<img id="alIcon" src="/img/ajax-loading.gif" />');
+    $('#login-element').append('<img id="alIcon" src="/media/system/ajax-loading.gif" />');
     $('#alIcon').hide();
     
     
@@ -22,9 +22,9 @@ $(function(){
             'success' : function(response){
                 $('#chkIcon').remove();
                 if (response.msg == 'OK'){
-                    $('#login').parent().append('<img id="chkIcon" src="/img/ok.gif" />');
+                    $('#login').parent().append('<img id="chkIcon" src="/media/system/ok.gif" />');
                 } else{
-                    $('#login').parent().append('<img id="chkIcon" src="/img/error.gif" />');
+                    $('#login').parent().append('<img id="chkIcon" src="/media/system/error.gif" />');
                 }
             },
             'error' : function(){
