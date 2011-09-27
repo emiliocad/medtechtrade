@@ -1,0 +1,27 @@
+<h2>Compras de equipos activos</h2>
+<table border="1" class="listado">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Equipo</th>
+            <th>Modelo</th>
+            <th>Precio</th>
+            <th>Fecha</th>
+            <th>Cantidad</th>
+            <th>Nro Cuotas</th>
+            <th>Mora Diaria</th>
+            <th>Forma de Pago</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach( $this->operaciones as $operacion ): ?>
+            <tr>
+                <td></td>
+                <td><?= $this->escape( $operacion->nombre ) ?></td>
+                <td><?= $this->escape( $operacion->modelo ) ?></td>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+<br />

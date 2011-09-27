@@ -21,18 +21,27 @@ class Mtt_Form_Equipo
         
         $this
                 ->setMethod( 'post' )
-                ->setAttrib( 'id' , 'frmEquipo' )
+                ->setAttrib( 'id' , 'frmImagen' )
         ;
 
-        $categoria = new Zend_Form_Element_Select( 'categoria_id' );
-        $categoria->setLabel( 'Categoria' );
-        $_categoria = new Mtt_Models_Bussines_Categoria();
-        $values = $_categoria->getComboValues();
-        $categoria->addMultiOption( -1 , '--- Categoria ---' );
-        $categoria->addMultiOptions( $values );
-        $this->addElement( $categoria );
-        $categoria->addValidator(
-                new Zend_Validate_InArray( array_keys( $values ) )
+        //Imagen
+        $imagen = new Zend_Form_Element_File( 'imagen' );
+        $imagen->setValue( 'imagen' );
+        $imagen->setLabel( 'Upload an image:' );
+
+        $target = $nombre->getValue();
+        $imagen->setDestination(
+                APPLICATION_PATH . '/../public/media/catalog/product'
+        );
+        $imagen->addValidator( 'Count' , false , 1 );
+        $imagen->addValidator( 'Size' , false , 1024000 )
+                ->setValueDisabled( true );
+        $imagen->addValidator(
+                'Extension' , false , $data['extension']
+        );
+
+        $this->addElement(
+                $imagen
         );
 
         // Elemento: Nombre

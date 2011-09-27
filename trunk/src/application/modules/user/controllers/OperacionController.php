@@ -27,9 +27,23 @@ class User_OperacionController
         $this->view->assign(
                 'operacion' , $this->_operacion->verDetalle($id)
         );
-        }        
+        }          
+        
+     
+    public function comprasactivasAction()
+        {
+        $id = intval( $this->_request->getParam( 'id' ) );
+        $this->view->assign(
+                'operaciones' , 
+                $this->_operacion->listByUserSalesActive(
+                        $this->authData['usuario']->id,
+                        Mtt_Models_Bussines_EstadoOperacion::SALE
+                )
+        );
+        }          
+        
 
-    public function ventasAction()
+    public function comprasAction()
         {
         $id = intval( $this->_request->getParam( 'id' ) );
         $this->view->assign(
@@ -39,6 +53,9 @@ class User_OperacionController
                         Mtt_Models_Bussines_EstadoOperacion::SALE
                 )
         );
-        }          
+        }  
+        
 
+  
+        
     }
