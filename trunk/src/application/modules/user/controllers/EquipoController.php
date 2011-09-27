@@ -90,7 +90,7 @@ class User_EquipoController
         $this->view->assign(
                 'equipos' , 
                 $this->_equipo->listEquipFavoriteByUser(
-                        $this->authData['usuario']->id )
+                        $this->authData['usuario']->id,10 )
         );
         }        
         
