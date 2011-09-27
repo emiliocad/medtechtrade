@@ -44,8 +44,13 @@ class Mtt_Form_Registrar
         $this->addElement( $e );
 
         $e = new Zend_Form_Element_Text( 'email' );
+        $e->addValidator( new Zend_Validate_Db_RecordExists(
+                        array( 'table' => 'usuario' ,
+                            'field' => 'email' )
+                )
+        );
         $e->setRequired();
-        //$e->setDecorators( array( $decorator ) );
+
         $e->setLabel( 'Email:' );
         $e->addValidator( new Zend_Validate_EmailAddress() );
         $this->addElement( $e );
