@@ -1,25 +1,26 @@
-<a href="
-<?=
-$this->url(
-        array( 'module' => 'user' , 'controller' => 'pregunta' ,
-    'action' => 'nuevo' ,
-    'id' => $this->producto->id ) , null , true
- )
-?> ">
-    <span class="device-action-question">
-        <?= $this->translate( 'Ask a Question' ) ?>
-    </span>
-</a>
-<a href="
-<?=
-$this->url(
-        array( 'module' => 'default' , 'controller' => 'checkout' ,
-    'action' => 'index' ,
-    'id' => $this->producto->id ) , null , true
- )
-?> 
-   ">
-    <span class="device-action-friend">
-        <?= $this->translate( 'Add Cart' ) ?>
-    </span>
-</a>
+<table border="1" class="listado">
+    <thead>
+        <tr>
+            <th>Nro Cuota</th>
+            <th>Monto</th>
+            <th>Fecha Pago</th>
+            <th>Fecha Limite</th>
+            <th>Mora Diaria</th>
+            <th>Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach( $this->cuotaspago as $cuotapago ): ?>
+            <tr>
+                
+                <td><?= $this->escape( $cuotapago->nrocuota ) ?></td>
+                <td><?= $this->escape( $cuotapago->pago ) ?></td>
+                <td><?= $this->escape( $cuotapago->fpagocuota ) ?></td>
+                <td><?= $this->escape( $cuotapago->fechalimite ) ?></td>
+                <td><?= $this->escape( $cuotapago->mora ) ?></td>
+                <td><?= $this->escape( $cuotapago->estadocuota ) ?></td>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>

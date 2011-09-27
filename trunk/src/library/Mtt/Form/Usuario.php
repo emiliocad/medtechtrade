@@ -37,7 +37,7 @@ class Mtt_Form_Usuario
         $email->setRequired();
         //$e->setDecorators( array( $decorator ) );
         $email->setLabel( 'Email:' );
-        $email->addValidator( new Zend_Validate_EmailAddress() );
+        $email->addValidator( new Zend_Validate_EmailAddress() );      
         //$this->addElement( $e );
 
         $login = new Zend_Form_Element_Text( 'login' );

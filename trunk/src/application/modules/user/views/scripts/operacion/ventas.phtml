@@ -10,24 +10,38 @@
             <th>Precio</th>
             <th>Fecha</th>
             <th>Cantidad</th>
-            <th>Ciudad</th>
-            <th>cod. Postal</th>
-            <th>Pais</th>
+            <th>Nro Cuotas</th>
+            <th>Mora Diaria</th>
+            <th>Forma de Pago</th>
         </tr>
     </thead>
     <tbody>
         <?php foreach( $this->operaciones as $operacion ): ?>
             <tr>
-
+                <td></td>
                 <td><?= $this->escape( $operacion->nombre ) ?></td>
                 <td><?= $this->escape( $operacion->modelo ) ?></td>
                 <td><?= $this->escape( $operacion->precio ) ?></td>
                 <td><?= $this->escape( $operacion->fecha ) ?></td>
                 <td><?= $this->escape( $operacion->cantidad ) ?></td>
-                <td><?= $this->escape( $operacion->cantidad ) ?></td>
-                <td><?= $this->escape( $operacion->cantidad ) ?></td>
-                <td><?= $this->escape( $operacion->cantidad ) ?></td>
-                <td><?= $this->escape( $operacion->cantidad ) ?></td>
+                <td><?= $this->escape( $operacion->nrocuotas ) ?></td>
+                <td><?= $this->escape( $operacion->moraxdia ) ?></td>
+                <td><?= $this->escape( $operacion->formapago ) ?></td>
+                <td>
+                    <div id="container"></div>
+                    <?php 
+                        $link = $this->url( array( 'module' => 'user' ,
+                                'controller' => 'cuotaspago' ,
+                                'action' => 'listar' ,
+                                'id' => $operacion->id ) );
+                        $this->ajaxLink("uotas",
+                          $link,
+                          array('update' => '#container')); ?>
+                        <?php
+                   
+
+                    ?>
+                    <a href="<?= $link ?>">[Detalle de Pagos]</a></td>
                 <td>
 
                   
