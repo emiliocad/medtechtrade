@@ -488,15 +488,15 @@ class Mtt_Models_Bussines_Equipo
                 ->where( 'equipo.active = ?' , self::ACTIVE )
                 ->where( 'favorito_equipo_usuario.active = ?' , '1' )
                 ->group( 'equipo.id' )
-                ->limit( $limit )
+                
                 ->order( 'cantidad DESC' )
+                ->limit( $limit )
                 ->query()
 
         ;
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
-
 
     /**
      * 
@@ -668,6 +668,7 @@ class Mtt_Models_Bussines_Equipo
                         'equipo.id = favorito_equipo_usuario.equipo_id' )
                 ->where( 'equipo.active = ?' , self::ACTIVE )
                 ->where( 'equipo.usuario_id = ?' , $idUser )
+                ->group( 'equipo.id')
                 ->query()
         ;
 
