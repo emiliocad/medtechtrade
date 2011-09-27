@@ -18,7 +18,14 @@
                 ->uiEnable();
         ?>
         <?=
-        $this->headScript()->appendFile( 'https://apis.google.com/js/plusone.js' );
+        $this->headScript()
+                ->appendFile(
+                        'https://apis.google.com/js/plusone.js'
+                )
+                ->appendFile(
+                        '/js/ckeditor/ckeditor.js'
+                )
+        ;
         ?> 
 
     </head>

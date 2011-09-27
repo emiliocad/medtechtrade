@@ -35,7 +35,7 @@ class Mtt_Form_Pregunta
 
 
         // Elemento: formulacion
-        $formulacion = new Zend_Form_Element_Textarea( 'formulacion' );
+        $formulacion = new Mtt_Form_Element_Ckeditor( 'formulacion' );
         $formulacion->setLabel( 'Pregunta ' );
         $formulacion->setRequired( true );
         $v = new Zend_Validate_StringLength(
