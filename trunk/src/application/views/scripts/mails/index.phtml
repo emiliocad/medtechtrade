@@ -1,8 +1,19 @@
-<h1>Hi <?= $this->name; ?>,</h1>
+<h1>
+    Hello <?= $this->usuario; ?>,
+</h1>
 
-<h3>Welcome to my website</h3>
-<p style="color: #F00; font-weight: bold;">
-    I am bold text in an email!
+<h2>Welcome to my Medtechtrade.com</h2>
+
+<p style="color: #F00; font-weight: bold; text-align: center">
+    Thanks for signing in MedTechTrade.com.<br/>
+    His account was created and must be activated by the administrator<br/>
+    before they can use it. We will send you a confirmation email soon<br/>
 </p>
+<h3>
+    After activating your account may be accessed using the following information: 
+</h3>
+
+Username - <?= $this->login; ?>
+Password - <?= $this->clave; ?>
 
 

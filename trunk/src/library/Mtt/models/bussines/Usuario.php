@@ -191,7 +191,6 @@ class Mtt_Models_Bussines_Usuario
 
         $dataUser = $data['nombre'] . '  ' . $data['apellido'];
 
-
         $confMail = $_conf->toArray();
 
         $config = array(
@@ -219,12 +218,12 @@ class Mtt_Models_Bussines_Usuario
         $m = new Mtt_Html_Mail_Mailer();
         $m->setSubject( $subject );
 
-
         $m->addTo( $data['email'] );
 
-        $m->setViewParam( $dataUser )
+        $m->setViewParam( 'usuario' , $dataUser )
+                ->setViewParam( 'login' , $data['login'] )
+                ->setViewParam( 'clave' , $data['clave'] )
         ;
-
         $m->sendHtmlTemplate( "index.phtml" );
         }
 
