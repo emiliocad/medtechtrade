@@ -5,11 +5,9 @@
  * and open the template in the editor.
  */
 
-/**
- * Description of Venta
- *
- */
-class Mtt_Models_Bussines_Operacion extends Mtt_Models_Table_Operacion
+
+class Mtt_Models_Bussines_Operacion
+        extends Mtt_Models_Table_Operacion
     {
 
     public function listarUltimasUsandoCache( $n )
@@ -26,28 +24,151 @@ class Mtt_Models_Bussines_Operacion extends Mtt_Models_Table_Operacion
         return $resultado;
         }
 
+/**
+ *
+ * @param type $n
+ * @return type 
+ */
+    public function listar( )
+        {
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from(
+                        $this->_name ,
+                        array(
+                        'operacion.id' ,
+                        'fecha' ,
+                        'fechainicio' ,
+                        'fechapago'
+                        )
+                )
+                ->join(
+                        'operacion_has_equipo' , 
+                        'operacion.id = operacion_has_equipo.operacion_id' ,
+                        array(
+                        'precio' ,
+                        'cantidad',
+                        'nitems' => 'count(operacion_has_equipo.id)'
+                        )
+                     
+                )
+                ->joinInner('estadooperacion', 
+                            'operacion.estadooperacion_id = estadooperacion.id',
+                            array(
+                            'estadooperacion' => 'nombre'           
+                            )
+                )
+                ->joinInner('usuario', 
+                            'operacion.usuario_id = usuario.id',
+                            array(
+                            'usuario' => 'nombre'    
+                            )
+                )
+                ->group( 'operacion_has_equipo.operacion_id' )
+                ->query()
+                ;
+
+        return $query->fetchAll(Zend_Db::FETCH_OBJ);
+        }
+
+/**
+ *
+ * @param type $estado_operacion
+ * @return type 
+ */
+    public function listByUserOperation( $idUser, $status)
+        {
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from(
+                        $this->_name ,
+                        array(
+                        'operacion.id' ,
+                        'fecha' ,
+                        'fechainicio' ,
+                        'fechapago'
+                        )
+                )
+                ->joinInner(
+                        'operacion_has_equipo' , 
+                        'operacion.id = operacion_has_equipo.operacion_id' ,
+                        array(
+                        'precio' ,
+                        'cantidad' => 'operacion_has_equipo.cantidad',
+                        'equipo_id' => 'operacion_has_equipo.equipo_id'
+                        )
+                     
+                )
+                ->joinInner(
+                        'equipo_has_formapago' , 
+                        'operacion_has_equipo.equipo_has_formapago_id = 
+                            equipo_has_formapago.id' ,
+                        array(
+                        'dias' ,
+                        'moraxdia',
+                        'nrocuotas' => 'equipo_has_formapago.nrocuotas',
+                        'pago_forma' => 'equipo_has_formapago.pago',
+                        'totalpago'
+                        )
+                     
+                )
+                ->joinInner( 'formapago' , 
+                        'equipo_has_formapago.formapago_id = formapago.id', 
+                        array( 'formapago' => 'formapago.nombre'
+                        ) 
+                )
+                ->joinInner( 'equipo', 
+                        'operacion_has_equipo.equipo_id = equipo.id', 
+                        array( 'precio' => 'equipo.precioventa',
+                        'nombre',
+                        'modelo'                                                      
+                        ) 
+                )
+                ->joinInner( 'imagen' , 
+                        'operacion_has_equipo.equipo_id = equipo.id',
+                        array ('imagen')
+                )
+  
+                ->where( 'operacion.estadooperacion_id = ?' , $status)
+                ->where( 'operacion.usuario_id = ?' , $idUser)
+                ->group( 'equipo.id' )
+                ->query()
+                ;
+
+        return $query->fetchAll(Zend_Db::FETCH_OBJ);
+        }
+        
+        
+/**
+ * 
+ * @param type $n
+ * @return type 
+ */
     public function listarUltimas( $n )
         {
         $db = $this->getAdapter();
         $query = $db->select()
                 ->from(
-                        $this->_name , array(
-                    'id_venta' => 'id' ,
-                    'comentarios' ,
-                    'fechahora'
+                        $this->_name ,
+                        array(
+                        'id_venta' => 'id' ,
+                        'comentarios' ,
+                        'fechahora'
                         )
                 )
                 ->join(
-                        'venta_detalle' , 'venta.id=venta_detalle.id_venta' , array(
-                    'total_venta' => 'sum(precio_venta*cantidad)' ,
-                    'n_productos' => 'count(venta_detalle.id)'
+                        'venta_detalle' , 
+                        'venta.id=venta_detalle.id_venta' ,
+                        array(
+                        'total_venta' => 'sum(precio_venta*cantidad)' ,
+                        'n_productos' => 'count(venta_detalle.id)'
                         )
                 )
                 ->group( 'venta_detalle.id_venta' )
                 ->limit( $n );
 
         return $db->fetchAll( $query );
-        }
+        }        
 
     public function addVentaDetalle( $venta_detalle )
         {
@@ -59,17 +180,20 @@ class Mtt_Models_Bussines_Operacion extends Mtt_Models_Table_Operacion
         $S->venta->detalles[] = $venta_detalle;
         }
 
+
     public function getVentaDetalles()
         {
         $S = new Zend_Session_Namespace( 'ventas' );
         return isset( $S->venta->detalles ) ? $S->venta->detalles : array( );
         }
 
+
     public function clearVentaDetalles()
         {
         $S = new Zend_Session_Namespace( 'ventas' );
         $S->venta->detalles = array( );
         }
+
 
     public function getDetallesVentaActual()
         {
@@ -85,7 +209,8 @@ class Mtt_Models_Bussines_Operacion extends Mtt_Models_Table_Operacion
         if ( count( $datalles_ids ) )
             {
             $detallesProducto = $_producto->getDetalles( $datalles_ids );
-            } else
+            }
+        else
             {
             $detallesProducto = array( );
             }
@@ -106,6 +231,7 @@ class Mtt_Models_Bussines_Operacion extends Mtt_Models_Table_Operacion
         return $detallesVenta;
         }
 
+
     public function addVenta( $venta )
         {
         $venta['fechahora'] = date( 'Y-m-d H:i:s' );
@@ -123,6 +249,7 @@ class Mtt_Models_Bussines_Operacion extends Mtt_Models_Table_Operacion
         $this->clearVentaDetalles();
         }
 
+
     public function borrarDetalle( $i )
         {
         $S = new Zend_Session_Namespace( 'ventas' );
@@ -137,37 +264,49 @@ class Mtt_Models_Bussines_Operacion extends Mtt_Models_Table_Operacion
         $S->venta->detalles = $nuevo_detalle;
         }
 
+
     public function verDetalle( $id )
         {
         $db = $this->getAdapter();
         $query = $db->select()
-                ->from( $this->_name , array( ) )
+                ->from( $this->_name , array('fecha' ) )
                 ->join(
-                        'venta_detalle' , 'venta.id=venta_detalle.id_venta' , array(
-                    'precio_venta' ,
-                    'cantidad' ,
-                    'total_venta' => '(precio_venta*cantidad)'
+                        'operacion_has_equipo' , 
+                        'operacion.id = operacion_has_equipo.operacion_id' ,
+                        array(
+                        'precio_op' => 'precio' ,
+                        'cantidad_operacion' => 'operacion_has_equipo.cantidad' ,
+                        'total_venta' => '(precio*operacion_has_equipo.cantidad)'
                         )
                 )
                 ->join(
-                        'producto' , 'producto.id = venta_detalle.id_producto' , array(
-                    'producto' => 'nombre' ,
-                    'precio_actual' => 'precio'
+                        'equipo' , 
+                        'operacion_has_equipo.equipo_id = equipo.id' ,
+                        array(
+                        'equipo' => 'nombre' ,
+                        'precio' => 'precioventa',
+                        'modelo'
                         )
                 )
                 ->joinLeft(
-                        'categoria' , 'categoria.id = producto.id_categoria' , array(
-                    'categoria' => 'nombre'
+                        'categoria' , 
+                        'categoria.id = equipo.categoria_id' ,
+                        array(
+                        'categoria' => 'nombre'
                         )
                 )
                 ->joinLeft(
-                        'fabricante' , 'fabricante.id = producto.id_fabricante' , array(
-                    'fabricante' => 'nombre' ,
-                    'ruc'
+                        'fabricantes' ,
+                        'fabricantes.id = equipo.fabricantes_id' ,
+                        array(
+                        'fabricante' => 'nombre' 
                         )
                 )
-                ->where( 'venta.id = ? ' , $id );
-        return $db->fetchAll( $query );
+                ->where( 'operacion.id = ? ' , $id )
+                ->query();
+        
+        return $query->fetchObject();
         }
+
 
     }
