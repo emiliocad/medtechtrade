@@ -79,36 +79,36 @@ class TestController
         //TODO falta transformarlo a todo
         $_conf = new Zend_Config_Ini( APPLICATION_PATH . '/configs/mail.ini' );
 
-//        $config = array(
-//            'auth' => 'login' ,
-//            'username' => 'checklist@pl-group.biz' ,
-//            'password' => '12345678' ,
-//            'port' => 25 );
-//        $this->mailTransport = new Zend_Mail_Transport_Smtp( 'smtp.1and1.com' ,
-//                        $config
-//        );
-//        
-//        Mtt_Html_Mail_Mailer::setDefaultFrom();
-//        Zend_Mail::setDefaultFrom(
-//                'checklist@pl-group.biz' , 'Zend GData'
-//        );
-//        Zend_Mail::setDefaultTransport( $this->mailTransport );
-//        Zend_Mail::setDefaultFrom(
-//                'checklist@pl-group.biz' , 'Zend GData'
-//        );
-//        Zend_Mail::setDefaultReplyTo(
-//                'checklist@pl-group.biz' , 'Zend GData'
-//        );
-//        
-//        $m = new Mtt_Html_Mail_Mailer();
-//        $m->setSubject( "Hello!" );
-//        $m->addTo( "slovacus@gmail.com" );
-//        $m->setViewParam( 'name' , 'Luis Alberto Mayta' );
-//        $m->sendHtmlTemplate( "index.phtml" );
+        $config = array(
+            'auth' => 'login' ,
+            'username' => 'checklist@pl-group.biz' ,
+            'password' => '12345678' ,
+            'port' => 25 );
+        $this->mailTransport = new Zend_Mail_Transport_Smtp( 'smtp.1and1.com' ,
+                        $config
+        );
+        
+        Mtt_Html_Mail_Mailer::setDefaultFrom();
+        Zend_Mail::setDefaultFrom(
+                'checklist@pl-group.biz' , 'Zend GData'
+        );
+        Zend_Mail::setDefaultTransport( $this->mailTransport );
+        Zend_Mail::setDefaultFrom(
+                'checklist@pl-group.biz' , 'Zend GData'
+        );
+        Zend_Mail::setDefaultReplyTo(
+                'checklist@pl-group.biz' , 'Zend GData'
+        );
+        
+        $m = new Mtt_Html_Mail_Mailer();
+        $m->setSubject( "Hello!" );
+        $m->addTo( "slovacus@gmail.com" );
+        $m->setViewParam( 'name' , 'Luis Alberto Mayta' );
+        $m->sendHtmlTemplate( "index.phtml" );
 
         $confMail = $_conf->toArray();
 
-        $this->view->assign( 'conf' , $confMail['auth'] );
+        //$this->view->assign( 'conf' , $confMail['auth'] );
         }
 
 

@@ -140,7 +140,10 @@ class Mtt_Models_Bussines_Usuario
     public function saveUsuario( array $data )
         {
 
-        $this->insert( $data );
+        if ( ( $this->insert( $data ) ) )
+            {
+            $this->sendMail( $data , 'Registro de Usuario' );
+            }
         }
 
 
@@ -164,14 +167,65 @@ class Mtt_Models_Bussines_Usuario
         $this->update( array( "active" => self::DESACTIVATE ) , 'id = ' . $id );
         }
 
-    
+
     public function habilitarUsuario( $id )
         {
 
-        $this->update( 
-                array( 
-                    "tipousuario_id" => Mtt_Models_Table_TipoUsuario::USER ), 
+        $this->update(
+                array(
+            "tipousuario_id" => Mtt_Models_Table_TipoUsuario::USER ) ,
                 'id = ' . $id );
         }
+
+
+    /**
+     * para enviar correo de autorizacion
+     * @param array $data
+     * @param string $subject
+     */
+    public function sendMail( array $data , $subject )
+        {
+        $_conf = new Zend_Config_Ini(
+                        APPLICATION_PATH . '/configs/mail.ini'
+        );
+
+        $dataUser = $data['nombre'] . '  ' . $data['apellido'];
+
+        $confMail = $_conf->toArray();
+
+        $config = array(
+            'auth' => $confMail['auth'] ,
+            'username' => $confMail['username'] ,
+            'password' => $confMail['password'] ,
+            'port' => $confMail['port'] );
+
+        $mailTransport = new Zend_Mail_Transport_Smtp(
+                        $confMail['smtp'] ,
+                        $config
+        );
+
+        Mtt_Html_Mail_Mailer::setDefaultFrom();
+        Zend_Mail::setDefaultFrom(
+                $confMail['username'] , $confMail['data']
+        );
+        Zend_Mail::setDefaultTransport( $mailTransport );
+        Zend_Mail::setDefaultFrom(
+                $confMail['username'] , $confMail['data']
+        );
+        Zend_Mail::setDefaultReplyTo(
+                $confMail['username'] , $confMail['data']
+        );
+        $m = new Mtt_Html_Mail_Mailer();
+        $m->setSubject( $subject );
+
+        $m->addTo( $data['email'] );
+
+        $m->setViewParam( 'usuario' , $dataUser )
+                ->setViewParam( 'login' , $data['login'] )
+                ->setViewParam( 'clave' , $data['clave'] )
+        ;
+        $m->sendHtmlTemplate( "index.phtml" );
+        }
+
 
     }

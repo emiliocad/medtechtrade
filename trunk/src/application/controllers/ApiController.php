@@ -57,17 +57,5 @@ class ApiController
         
         }
 
-
-    public function dialogAction()
-        {
-        $this->dialogContainer( "dialog1" , "Welcome to the ZendX_JQuery World!" ,
-                         array( "draggable" => true ,
-            "modal" => true ,
-            "resizable" => true ,
-            "title" => "Welcome message" ,
-            "closeOnEscape" => true ) );
-        }
-
-
     }
 
