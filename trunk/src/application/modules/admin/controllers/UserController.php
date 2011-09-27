@@ -139,5 +139,23 @@ class Admin_UserController
         }
 
 
+    public function activarAction()
+        {
+        $id = intval( $this->_request->getParam( 'id' ) );
+        $this->_user->activarUsuario( $id );
+        $this->_helper->FlashMessenger( 'Usuario activado' );
+        $this->_redirect( $this->URL );
+        }
+
+
+    public function desactivarAction()
+        {
+        $id = intval( $this->_request->getParam( 'id' ) );
+        $this->_user->desactivarUsuario( $id );
+        $this->_helper->FlashMessenger( 'Usuario Descativado' );
+        $this->_redirect( $this->URL );
+        }
+
+
     }
 
