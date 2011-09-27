@@ -34,8 +34,8 @@ class User_EquipoController
     public function verAction()
         {
         $id = intval( $this->_getParam( 'id' , null ) );
-        $stmt = $this->_equipo->getCategoria( $id );
-        $this->view->assign( 'categoria' , $stmt );
+        $stmt = $this->_equipo->getProduct( $id );
+        $this->view->assign( 'equipo' , $stmt );
         }
         
     public function verpendientesAction()
