@@ -27,11 +27,18 @@
                 <td><?= $this->escape( $operacion->nrocuotas ) ?></td>
                 <td><?= $this->escape( $operacion->moraxdia ) ?></td>
                 <td><?= $this->escape( $operacion->formapago ) ?></td>
-                <td><?php
-                    $link = $this->url( array( 'module' => 'user' ,
+                <td>
+                    <div id="container"></div>
+                    <?php 
+                        $link = $this->url( array( 'module' => 'user' ,
                                 'controller' => 'cuotaspago' ,
-                                'action' => 'ver' ,
-                                'id' => $operacion->id ) )
+                                'action' => 'listar' ,
+                                'id' => $operacion->id ) );
+                        $this->ajaxLink("uotas",
+                          $link,
+                          array('update' => '#container')); ?>
+                        <?php
+                   
 
                     ?>
                     <a href="<?= $link ?>">[Detalle de Pagos]</a></td>
