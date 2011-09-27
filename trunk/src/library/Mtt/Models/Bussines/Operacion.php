@@ -10,6 +10,7 @@ class Mtt_Models_Bussines_Operacion
         extends Mtt_Models_Table_Operacion
     {
 
+
     public function listarUltimasUsandoCache( $n )
         {
         $cache = Zend_Registry::get( 'cache' );
@@ -24,126 +25,186 @@ class Mtt_Models_Bussines_Operacion
         return $resultado;
         }
 
-/**
- *
- * @param type $n
- * @return type 
- */
-    public function listar( )
+
+    /**
+     *
+     * @param type $n
+     * @return type 
+     */
+    public function listar()
         {
         $db = $this->getAdapter();
         $query = $db->select()
                 ->from(
                         $this->_name ,
                         array(
-                        'operacion.id' ,
-                        'fecha' ,
-                        'fechainicio' ,
-                        'fechapago'
+                    'operacion.id' ,
+                    'fecha' ,
+                    'fechainicio' ,
+                    'fechapago'
                         )
                 )
                 ->join(
-                        'operacion_has_equipo' , 
+                        'operacion_has_equipo' ,
                         'operacion.id = operacion_has_equipo.operacion_id' ,
                         array(
-                        'precio' ,
-                        'cantidad',
-                        'nitems' => 'count(operacion_has_equipo.id)'
+                    'precio' ,
+                    'cantidad' ,
+                    'nitems' => 'count(operacion_has_equipo.id)'
                         )
-                     
                 )
-                ->joinInner('estadooperacion', 
-                            'operacion.estadooperacion_id = estadooperacion.id',
-                            array(
-                            'estadooperacion' => 'nombre'           
-                            )
+                ->joinInner( 'estadooperacion' ,
+                             'operacion.estadooperacion_id = estadooperacion.id' ,
+                             array(
+                    'estadooperacion' => 'nombre'
+                        )
                 )
-                ->joinInner('usuario', 
-                            'operacion.usuario_id = usuario.id',
-                            array(
-                            'usuario' => 'nombre'    
-                            )
+                ->joinInner( 'usuario' , 'operacion.usuario_id = usuario.id' ,
+                             array(
+                    'usuario' => 'nombre'
+                        )
                 )
                 ->group( 'operacion_has_equipo.operacion_id' )
                 ->query()
-                ;
+        ;
 
-        return $query->fetchAll(Zend_Db::FETCH_OBJ);
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
 
-/**
- *
- * @param type $estado_operacion
- * @return type 
- */
-    public function listByUserOperation( $idUser, $status)
+
+    /**
+     *
+     * @param type $estado_operacion
+     * @return type 
+     */
+    public function listByUserOperation( $idUser , $status )
         {
         $db = $this->getAdapter();
         $query = $db->select()
                 ->from(
                         $this->_name ,
                         array(
-                        'operacion.id' ,
-                        'fecha' ,
-                        'fechainicio' ,
-                        'fechapago'
+                    'operacion.id' ,
+                    'fecha' ,
+                    'fechainicio' ,
+                    'fechapago'
                         )
                 )
                 ->joinInner(
-                        'operacion_has_equipo' , 
+                        'operacion_has_equipo' ,
                         'operacion.id = operacion_has_equipo.operacion_id' ,
                         array(
-                        'precio' ,
-                        'cantidad' => 'operacion_has_equipo.cantidad',
-                        'equipo_id' => 'operacion_has_equipo.equipo_id'
+                    'precio' ,
+                    'cantidad' => 'operacion_has_equipo.cantidad' ,
+                    'equipo_id' => 'operacion_has_equipo.equipo_id'
                         )
-                     
                 )
                 ->joinInner(
-                        'equipo_has_formapago' , 
+                        'equipo_has_formapago' ,
                         'operacion_has_equipo.equipo_has_formapago_id = 
                             equipo_has_formapago.id' ,
                         array(
-                        'dias' ,
-                        'moraxdia',
-                        'nrocuotas' => 'equipo_has_formapago.nrocuotas',
-                        'pago_forma' => 'equipo_has_formapago.pago',
-                        'totalpago'
+                    'dias' ,
+                    'moraxdia' ,
+                    'nrocuotas' => 'operacion_has_equipo.equipo_id' ,
+                    'pago_forma' => 'equipo_has_formapago.pago' ,
+                    'totalpago' ,
+                    'dias' ,
+                    'moraxdia' ,
+                    'nrocuotas' => 'equipo_has_formapago.nrocuotas' ,
+                    'pago_forma' => 'equipo_has_formapago.pago' ,
+                    'totalpago'
                         )
-                     
                 )
-                ->joinInner( 'formapago' , 
-                        'equipo_has_formapago.formapago_id = formapago.id', 
-                        array( 'formapago' => 'formapago.nombre'
-                        ) 
+                ->joinInner( 'formapago' ,
+                             'equipo_has_formapago.formapago_id = formapago.id' ,
+                             array( 'formapago' => 'formapago.nombre'
+                        )
                 )
-                ->joinInner( 'equipo', 
-                        'operacion_has_equipo.equipo_id = equipo.id', 
-                        array( 'precio' => 'equipo.precioventa',
-                        'nombre',
-                        'modelo'                                                      
-                        ) 
+                ->joinInner( 'equipo' ,
+                             'operacion_has_equipo.equipo_id = equipo.id' ,
+                             array( 'precio' => 'equipo.precioventa' ,
+                    'nombre' ,
+                    'modelo'
+                        )
                 )
-                ->joinInner( 'imagen' , 
-                        'operacion_has_equipo.equipo_id = equipo.id',
-                        array ('imagen')
+                ->joinInner( 'imagen' ,
+                             'operacion_has_equipo.equipo_id = equipo.id' ,
+                             array( 'imagen' )
                 )
-  
-                ->where( 'operacion.estadooperacion_id = ?' , $status)
-                ->where( 'operacion.usuario_id = ?' , $idUser)
+                ->where( 'operacion.estadooperacion_id = ?' , $status )
+                ->where( 'operacion.usuario_id = ?' , $idUser )
                 ->group( 'equipo.id' )
                 ->query()
-                ;
+        ;
 
-        return $query->fetchAll(Zend_Db::FETCH_OBJ);
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
-        
-        
-/**
- * 
- * @param type $n
- * @return type 
- */
+
+
+    public function listByUser( $idUser )
+        {
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from(
+                        $this->_name ,
+                        array(
+                    'operacion.id' ,
+                    'fecha' ,
+                    'fechainicio' ,
+                    'fechapago'
+                        )
+                )
+                ->joinInner(
+                        'operacion_has_equipo' ,
+                        'operacion.id = operacion_has_equipo.operacion_id' ,
+                        array(
+                    'precio' ,
+                    'cantidad' => 'operacion_has_equipo.cantidad' ,
+                    'equipo_id' => 'operacion_has_equipo.equipo_id'
+                        )
+                )
+                ->joinInner(
+                        'equipo_has_formapago' ,
+                        'operacion_has_equipo.equipo_has_formapago_id = 
+                            equipo_has_formapago.id' ,
+                        array(
+                    'dias' ,
+                    'moraxdia' ,
+                    'nrocuotas' => 'operacion_has_equipo.equipo_id' ,
+                    'pago_forma' => 'equipo_has_formapago.pago' ,
+                    'totalpago'
+                        )
+                )
+                ->joinInner( 'formapago' ,
+                             'equipo_has_formapago.formapago_id = formapago.id' ,
+                             array( 'formapago' => 'formapago.nombre'
+                        )
+                )
+                ->joinInner( 'equipo' ,
+                             'operacion_has_equipo.equipo_id = equipo.id' ,
+                             array( 'precio' => 'equipo.precioventa' ,
+                    'nombre' ,
+                    'modelo'
+                        )
+                )
+                ->joinLeft( 'imagen' ,
+                            'operacion_has_equipo.equipo_id = equipo.id' ,
+                            array( 'imagen' )
+                )
+                ->where( 'operacion.usuario_id = ?' , $idUser )
+                ->query()
+        ;
+
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }
+
+
+    /**
+     * 
+     * @param type $n
+     * @return type 
+     */
     public function listarUltimas( $n )
         {
         $db = $this->getAdapter();
@@ -151,24 +212,24 @@ class Mtt_Models_Bussines_Operacion
                 ->from(
                         $this->_name ,
                         array(
-                        'id_venta' => 'id' ,
-                        'comentarios' ,
-                        'fechahora'
+                    'id_venta' => 'id' ,
+                    'comentarios' ,
+                    'fechahora'
                         )
                 )
                 ->join(
-                        'venta_detalle' , 
-                        'venta.id=venta_detalle.id_venta' ,
+                        'venta_detalle' , 'venta.id=venta_detalle.id_venta' ,
                         array(
-                        'total_venta' => 'sum(precio_venta*cantidad)' ,
-                        'n_productos' => 'count(venta_detalle.id)'
+                    'total_venta' => 'sum(precio_venta*cantidad)' ,
+                    'n_productos' => 'count(venta_detalle.id)'
                         )
                 )
                 ->group( 'venta_detalle.id_venta' )
                 ->limit( $n );
 
         return $db->fetchAll( $query );
-        }        
+        }
+
 
     public function addVentaDetalle( $venta_detalle )
         {
@@ -269,42 +330,41 @@ class Mtt_Models_Bussines_Operacion
         {
         $db = $this->getAdapter();
         $query = $db->select()
-                ->from( $this->_name , array('fecha' ) )
+                ->from( $this->_name , array( 'fecha' ) )
                 ->join(
-                        'operacion_has_equipo' , 
+                        'operacion_has_equipo' ,
                         'operacion.id = operacion_has_equipo.operacion_id' ,
                         array(
-                        'precio_op' => 'precio' ,
-                        'cantidad_operacion' => 'operacion_has_equipo.cantidad' ,
-                        'total_venta' => '(precio*operacion_has_equipo.cantidad)'
+                    'precio_op' => 'precio' ,
+                    'cantidad_operacion' => 'operacion_has_equipo.cantidad' ,
+                    'total_venta' => '(precio*operacion_has_equipo.cantidad)'
                         )
                 )
                 ->join(
-                        'equipo' , 
+                        'equipo' ,
                         'operacion_has_equipo.equipo_id = equipo.id' ,
                         array(
-                        'equipo' => 'nombre' ,
-                        'precio' => 'precioventa',
-                        'modelo'
+                    'equipo' => 'nombre' ,
+                    'precio' => 'precioventa' ,
+                    'modelo'
                         )
                 )
                 ->joinLeft(
-                        'categoria' , 
-                        'categoria.id = equipo.categoria_id' ,
+                        'categoria' , 'categoria.id = equipo.categoria_id' ,
                         array(
-                        'categoria' => 'nombre'
+                    'categoria' => 'nombre'
                         )
                 )
                 ->joinLeft(
                         'fabricantes' ,
                         'fabricantes.id = equipo.fabricantes_id' ,
                         array(
-                        'fabricante' => 'nombre' 
+                    'fabricante' => 'nombre'
                         )
                 )
                 ->where( 'operacion.id = ? ' , $id )
                 ->query();
-        
+
         return $query->fetchObject();
         }
 
