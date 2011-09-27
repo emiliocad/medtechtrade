@@ -333,6 +333,7 @@ class Mtt_Models_Bussines_Equipo
                 ->where( 'equipo.active = ?' , self::ACTIVE )
                 ->where( 'equipo.publicacionEquipo_id = ?' , $status )
                 ->where( 'equipo.usuario_id = ?' , $idUser )
+                ->group( 'equipo.id')
                 ->query()
         ;
 
