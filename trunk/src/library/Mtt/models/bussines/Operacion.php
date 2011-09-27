@@ -95,6 +95,20 @@ class Mtt_Models_Bussines_Operacion
                         )
                 )
                 ->joinInner(
+                        'estadooperacion' ,
+                        'estadooperacion.id = operacion.estadooperacion_id' ,
+                        array(
+                    'estadooperacion' => 'estadooperacion.nombre'
+                        )
+                )
+                ->joinInner(
+                        'usuario' , 'usuario.id = operacion.usuario_id' ,
+                        array(
+                    'usuario' => 'usuario.login' ,
+                    'usuario_id' => 'usuario.id'
+                        )
+                )
+                ->joinInner(
                         'equipo_has_formapago' ,
                         'operacion_has_equipo.equipo_has_formapago_id = 
                             equipo_has_formapago.id' ,
