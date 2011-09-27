@@ -36,6 +36,12 @@ class User_EquipoController
         $id = intval( $this->_getParam( 'id' , null ) );
         $stmt = $this->_equipo->getProduct( $id );
         $this->view->assign( 'equipo' , $stmt );
+        
+        $modImagen = new Mtt_Models_Bussines_Imagen();
+        $imagenes = $modImagen->listByEquip($id);
+        $this->view->assign( 'imagenes' , $imagenes );
+        
+        
         }
         
     public function verpendientesAction()

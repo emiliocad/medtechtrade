@@ -34,3 +34,14 @@
 
     </tbody>
 </table>
+
+<div class="image-horizontal-list">
+    <?php foreach ( $this->imagenes as $imagen ): ?>
+        <div>
+            <?= $imagen->nombre ?>
+            <img src="/media/catalog/product/<?= $imagen->imagen?>" 
+                 alt="<?= $imagen->nombre?>">
+        </div>
+    <?php endforeach; ?>
+
+</div>
