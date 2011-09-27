@@ -1,6 +1,5 @@
 <?php
 
-
 class User_PreguntaController
         extends Mtt_Controller_Action
     {
