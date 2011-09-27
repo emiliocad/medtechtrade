@@ -1,15 +1,19 @@
 <?php
 
-class Admin_UserController extends Mtt_Controller_Action
+
+class Admin_UserController
+        extends Mtt_Controller_Action
     {
 
     protected $_user;
+
 
     public function init()
         {
         parent::init();
         $this->_user = new Mtt_Models_Bussines_Usuario();
         }
+
 
     public function indexAction()
         {
@@ -22,29 +26,25 @@ class Admin_UserController extends Mtt_Controller_Action
     public function activausuariosAction()
         {
         $form = new Mtt_Form_ActivarUsuario();
-        $this->view->assign('frmActiveUser' , $form);
-        if ( $this->_request->isPost()
-                    &&
-                    $form->isValid( $this->_request->getPost() ) )
-                {
-            
-                $usuarios = $form->getValues();
-                $ids = $usuarios['usuarios'];
+        $this->view->assign( 'frmActiveUser' , $form );
 
-                foreach ($ids as $item){
-                    $this->_user->habilitarUsuario($item);
+        if ( $this->_request->isPost()
+                &&
+                $form->isValid( $this->_request->getPost() ) )
+            {
+
+            $usuarios = $form->getValues();
+            $ids = $usuarios['usuarios'];
+
+            foreach ( $ids as $item )
+                {
+                $this->_user->habilitarUsuario( $item );
                 }
+
+            $this->_redirect( $this->URL );
             }
         }
 
-        
-    public function paginadoAction()
-        {
-        $p = $this->_user->getPaginator();
-
-        $p->setCurrentPageNumber( $this->_getParam( 'page' , 1 ) );
-        $this->view->assign( 'usuarios' , $p );
-        }
 
     public function editarAction()
         {
@@ -71,12 +71,14 @@ class Admin_UserController extends Mtt_Controller_Action
                 }
             $form->setDefaults( $usuario->toArray() );
             $this->view->assign( 'form' , $form );
-            } else
+            }
+        else
             {
             $this->_helper->FlashMessenger( $this->translate( 'No User' ) );
             $this->_redirect( $this->URL );
             }
         }
+
 
     public function borrarAction()
         {
@@ -87,6 +89,7 @@ class Admin_UserController extends Mtt_Controller_Action
         );
         $this->_redirect( $this->URL );
         }
+
 
 //FIXME -verificar codigo para traducion
     public function nuevoAction()
@@ -107,6 +110,7 @@ class Admin_UserController extends Mtt_Controller_Action
         $this->view->assign( 'frmRegistrar' , $form );
         }
 
+
     //FIXME cambiar codigo de ver
     public function verAction()
         {
@@ -114,6 +118,26 @@ class Admin_UserController extends Mtt_Controller_Action
         $stmt = $this->_user->getCategoria( $id );
         $this->view->assign( 'categoria' , $stmt );
         }
+
+
+    public function equipmentAction()
+        {
+        $id = intval( $this->_getParam( 'id' , null ) );
+
+        $_equipo = new Mtt_Models_Bussines_Equipo();
+        $stmt = $_equipo->listEquipByUser( $id );
+        $this->view->assign( 'equipos' , $stmt );
+        }
+
+
+    public function operationAction()
+        {
+        $id = intval( $this->_getParam( 'id' , null ) );
+        $_operacion = new Mtt_Models_Bussines_Operacion();
+        $stmt = $_operacion->listByUser( $id );
+        $this->view->assign( 'operaciones' , $stmt );
+        }
+
 
     }
 

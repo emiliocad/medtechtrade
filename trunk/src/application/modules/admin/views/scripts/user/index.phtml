@@ -1,22 +1,45 @@
-<h2>Usuario:</h2>
+<h2><?= $this->translate( 'Usuario' ) ?>:
+</h2>
 
 
 <table border="1" class="listado">
     <thead>
         <tr>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Email</th>
-            <th>Login</th>
-            <th>Rol</th>
-            <th>Fecha de Registro</th>
-            <th>Ciudad</th>
-            <th>cod. Postal</th>
-            <th>Pais</th>
+            <th>
+                <?= $this->translate( 'Nombre' ) ?>
+            </th>
+            <th>
+                <?= $this->translate( 'Apellido' ) ?>
+            </th>
+            <th>
+                <?= $this->translate( 'Email' ) ?>
+            </th>
+            <th>
+                <?= $this->translate( 'Login' ) ?>
+            </th>
+            <th>
+                <?= $this->translate( 'Rol' ) ?>
+            </th>
+            <th>
+                <?= $this->translate( 'Fecha De Registro' ) ?>
+            </th>
+            <th>
+                <?= $this->translate( 'Ciudad' ) ?>
+            </th>
+            <th>
+                <?= $this->translate( 'Cod. Postal' ) ?>
+            </th>
+            <th>
+                <?= $this->translate( 'Pais' ) ?>
+            </th>
+            <th>
+                <?= $this->translate( 'Operaciones' ) ?>
+            </th>
         </tr>
     </thead>
     <tbody>
-        <?php foreach( $this->usuarios as $usuario ): ?>
+        <?php foreach ( $this->usuarios as $usuario ):
+            ?>
             <?php $id = $usuario->id; ?>
             <tr class="<?= $usuario->active
                             ? 'activo' : 'inactivo' ?>">
@@ -30,44 +53,77 @@
                 <td><?= $this->escape( $usuario->ciudad ) ?></td>
                 <td><?= $this->escape( $usuario->codpostal ) ?></td>
                 <td><?= $this->escape( $usuario->pais ) ?></td>
+
+                <!--Operaciones -->
                 <td>
+                    <!--Operaciones -->
+                    <?php
+                    $link = $this->url( array( 'module' => 'admin' ,
+                        'controller' => 'user' ,
+                        'action' => 'operation' ,
+                        'id' => $id ) )
+                    ?>
+                    <a href="<?= $link ?>">
+                        <?= $this->translate( 'Operations' ) ?>
+                    </a>
+
+                    <!--End operaciones -->
+                    
+                    <!--Operaciones -->
+                    <?php
+                    $link = $this->url( array( 'module' => 'admin' ,
+                        'controller' => 'user' ,
+                        'action' => 'equipment' ,
+                        'id' => $id ) )
+                    ?>
+                    <a href="<?= $link ?>">
+                        <?= $this->translate( 'Equipment' ) ?>
+                    </a>
+
+                    <!--End Equipos -->
+
 
                     <?php
                     $link = $this->url( array( 'module' => 'admin' ,
-                                'controller' => 'user' ,
-                                'action' => 'editar' ,
-                                'id' => $id ) )
-
+                        'controller' => 'user' ,
+                        'action' => 'editar' ,
+                        'id' => $id ) )
                     ?>
-                    <a href="<?= $link ?>">[Editar]</a>
+                    <a href="<?= $link ?>">
+                        [Editar]
+                    </a>
 
                     <?php
                     $link = $this->url( array( 'module' => 'admin' ,
-                                'controller' => 'user' ,
-                                'action' => 'borrar' ,
-                                'id' => $id ) )
-
+                        'controller' => 'user' ,
+                        'action' => 'borrar' ,
+                        'id' => $id ) )
                     ?>
-                    <a href="<?= $link ?>" onclick="return confirm('¿Estás seguro?')">[Borrar]</a>
+                    <a href="<?= $link ?>" 
+                       onclick="return confirm('¿Estás seguro?')">
+                        [Borrar]
+                    </a>
 
-                    <?php if( $usuario->active ): ?>
+                    <?php if ( $usuario->active ): ?>
                         <?php
                         $link = $this->url( array( 'module' => 'admin' ,
-                                    'controller' => 'user' ,
-                                    'action' => 'desactivar' ,
-                                    'id' => $id ) )
-
+                            'controller' => 'user' ,
+                            'action' => 'desactivar' ,
+                            'id' => $id ) )
                         ?>
-                        <a href="<?= $link ?>">[Desactivar]</a>
+                        <a href="<?= $link ?>">
+                            [Desactivar]
+                        </a>
                     <?php else: ?>
                         <?php
                         $link = $this->url( array( 'module' => 'admin' ,
-                                    'controller' => 'user' ,
-                                    'action' => 'activar' ,
-                                    'id' => $id ) )
-
+                            'controller' => 'user' ,
+                            'action' => 'activar' ,
+                            'id' => $id ) )
                         ?>
-                        <a href="<?= $link ?>">[Activar]</a>
+                        <a href="<?= $link ?>">
+                            [Activar]
+                        </a>
                     <?php endif; ?>
 
                 </td>
@@ -81,5 +137,8 @@
         $this->url( array( 'module' => 'admin' ,
             'controller' => 'user' ,
             'action' => 'nuevo' ) , null , true )
+        ?>">
 
-        ?>">Nuevo</a>
+    <?= $this->translate( 'Nuevo' ); ?>
+
+</a>

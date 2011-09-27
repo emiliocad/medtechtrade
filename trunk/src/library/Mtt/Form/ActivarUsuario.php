@@ -20,7 +20,6 @@ class Mtt_Form_ActivarUsuario
                 ->setMethod( 'post' )
                 ->setAttrib( 'id' , 'frmActivarUsuario' )
                 ->setAttrib( 'enctype' , 'multipart/form-data' )
-                ->setAction( '/admin/user/index')
         ;
         $this->addElementPrefixPath(
                 'Mtt_Form_Decorator' , 'Mtt/Form/Decorator/' , 'decorator'
