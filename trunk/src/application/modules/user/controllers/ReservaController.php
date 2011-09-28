@@ -34,6 +34,19 @@ class User_ReservaController
         }        
    
 
+    public function reservasAction()
+        {
+        $this->view->assign(
+                'favoritos' , 
+                $this->_reserva->getReservaByUser(
+                        $this->authData['usuario']->id, 
+                        Mtt_Models_Bussines_TipoReserva::RESERVED
+                        
+                )
+        );
+        }  
+        
+        
     public function agregarfavoritoAction( )
         {
         
