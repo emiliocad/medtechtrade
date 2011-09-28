@@ -100,11 +100,7 @@ class User_EquipoController
         );
         } 
         
-    public function addfavoriteAction()
-        {
-         $this->_helper->viewRenderer->setNoRender();
-         
-        }         
+       
         
     public function reservasAction()
         {

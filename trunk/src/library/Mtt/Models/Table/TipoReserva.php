@@ -6,11 +6,14 @@
  */
 
 
-class Mtt_Models_Table_FavoritoEquipoUsuario
+class Mtt_Models_Table_TipoReserva
         extends Mtt_Db_Table_Abstract
     {
 
-    protected $_name = 'favorito_equipo_usuario';
+    const RESERVED = 1;
+    const FAVORITE = 2;
+    
+    protected $_name = 'tipo_reserva';
     protected $_primary = 'id';
 
 
