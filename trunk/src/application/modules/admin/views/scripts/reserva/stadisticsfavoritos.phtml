@@ -1,0 +1,70 @@
+<script type="text/javascript">
+    
+/* stadistic.equipo.js */
+var chart;
+
+$(document).ready(function() {
+    chart = new Highcharts.Chart({
+        chart: {
+            // Aquí definimos el nombre del Div que contendrá la gráfica
+            renderTo: 'StadistictEquipos',
+	        // Aquí el tipo de gráfica
+            defaultSeriesType: 'column'
+        },
+        title: {
+            // Titulo
+            text: 'Estadistica de Equipos Favoritos'
+        },
+        subtitle: {
+            // Subtitulo
+            text: ''
+        },
+        xAxis: {
+            // Categorias del eje X
+            categories: [
+                <?php foreach ( $this->equipos as $equipo ): ?>
+                 '<?= $this->escape( $equipo->equipo ) ?>',
+                <?php endforeach; ?>
+            ],
+            labels: {
+                rotation: 90
+            }
+        },
+        yAxis: {
+            // En este caso no tiene valores pero configuro el titulo y el valor mínimo del eje
+            min: 0,
+            title: {
+                text: 'Favoritos'
+            },
+            labels: {
+                align: 'left',
+                x: 0,
+                y: 10
+            }
+        },
+        tooltip: {
+            // Definimos el valor del tooltips, sustituimos 'visitas', por la medida que queramos
+            formatter: function() {
+                return ''+
+                this.x +': '+ this.y +' Selecciones';
+            }
+        },
+        plotOptions: {
+            // Opciones de pintado. ver documentación
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: [{
+            // Valores de las series
+            name: 'Equipos',
+            data: [ <?php foreach ( $this->equipos as $equipo ): ?>
+                 '<?= $this->escape( $equipo->cantidad ) ?>',
+                <?php endforeach; ?>]
+        }]
+    });
+})
+</script>
+<h2> <?= $this->translate( 'Equipment' ) ?>:</h2>
+<div id="StadistictEquipos" style="width: 450px; height: 300px; margin-left:10px; float:left"></div>
