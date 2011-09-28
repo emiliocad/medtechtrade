@@ -15,7 +15,10 @@ $(function() {
         <?= $this->translate( 'Welcome to Medtechtrade' ); ?>
     </h1>
 </header>
+<?
+Zend_Debug::dump( $this->country );
 
+?>
 <p>MedTechTrade is a global trade association for technology manufacturers,
     research institutions, allied professional services and development organizations
     with shared interests in collaborative developing technologies, products and services
@@ -32,17 +35,17 @@ $(function() {
 <p>Our goal is to enable and accelerate trading of medical devices
     form companies and institutional organisation</p>
 <div class="device-horizontal-list">
-    <?php foreach ( $this->oferEquipo as $producto ): ?>
+<?php foreach ( $this->oferEquipo as $producto ): ?>
         <div>
             <img src="/media/catalog/product/device-00.png" alt="Device 00">
             <span class="manufacturer">
-                <?= $this->translate( 'Manufacturer' ) ?>
+    <?= $this->translate( 'Manufacturer' ) ?>
                 : <?= $producto->fabricante ?>
             </span>
             <span class="name">
                 <?= $this->translate( 'Product name' ) ?>
                 : 
-                <?= $producto->nombre ?>
+    <?= $producto->nombre ?>
             </span>
             <a href="
             <?=
@@ -54,11 +57,11 @@ $(function() {
             )
             ?>">
                 <span>
-                    <?= $this->translate( 'View details' ) ?>
+    <?= $this->translate( 'View details' ) ?>
                 </span>
             </a>
         </div>
-    <?php endforeach; ?>
+<?php endforeach; ?>
 
 </div>
 
