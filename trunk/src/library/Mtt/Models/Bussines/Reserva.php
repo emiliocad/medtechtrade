@@ -87,21 +87,52 @@ class Mtt_Models_Bussines_Reserva
                 )
                 ->joinInner( 'equipo', 
                         'reserva.equipo_id = equipo.id' , 
-                        array ('equipo' => 'nombre',
+                        array (
+                            'equipo' => 'nombre',
                             'precio' => 'precioventa',
                             'modelo',
                             'tag',
-                            'categoria_id'
-                            )
+                            'categoria_id',
+                            'calidad'
+                        )
                 )
                 ->joinInner( 'categoria', 
                         'categoria.id = equipo.categoria_id', 
-                        array ('categoria' => 'categoria.nombre'
-                            )
+                        array (
+                            'categoria' => 'categoria.nombre'
+                        )
+                )
+                ->joinInner( 'estadoequipo' ,     
+                        'estadoequipo.id = equipo.estadoequipo_id' ,
+                        array( 'estadoequipo.nombre as estadoequipo' ) 
+                )
+                ->joinInner( 
+                        'publicacionequipo' ,
+                        'publicacionequipo.id = equipo.publicacionEquipo_id' ,
+                        array( 
+                            'publicacionequipo.nombre as publicacionequipo' 
+                        ) 
+                )
+                ->joinInner( 'moneda' , 'moneda.id = equipo.moneda_id' ,
+                             array( 'moneda.nombre as moneda' ) 
+                )
+                ->joinInner( 'fabricantes' ,
+                             'fabricantes.id = equipo.fabricantes_id' ,
+                             array( 'fabricantes.nombre as fabricante' ) 
+                )
+                ->joinInner( 'paises' , 'paises.id = equipo.paises_id' ,
+                             array( 'paises.nombre as pais' ) 
+                )
+                ->joinLeft( 'imagen' , 
+                        'reserva.equipo_id = imagen.equipo_id' ,
+                        array( 'imagen.descripcion',
+                            'imagen.imagen', 
+                            'imageNombre' => 'imagen.nombre' ) 
                 )
                 ->where( 'reserva.usuario_id = ?' , $idUsuario )
                 ->where( 'tipo_reserva_id = ?' , $tipoReserva)
-                ->where( 'reserva.active = ?' , self::ACTIVE )                
+                ->where( 'reserva.active = ?' , self::ACTIVE )    
+                ->group( 'equipo.id' )
                 ->query()
         ;
 
