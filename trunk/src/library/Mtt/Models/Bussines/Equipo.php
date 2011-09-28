@@ -430,74 +430,7 @@ class Mtt_Models_Bussines_Equipo
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
 
-
-    /**
-     * 
-     * 
-     */
-    public function listEquipMoreReserved( $limit )
-        {
-
-        $db = $this->getAdapter();
-        $query = $db->select()
-                ->from(
-                        $this->_name ,
-                        array(
-                    'nombre as equipo'
-                        )
-                )
-                ->join( 'operacion_has_equipo' ,
-                        'operacion_has_equipo.equipo_id = equipo.id' ,
-                        array( 'operacion_has_equipo.cantidad as cantidad' )
-                )
-                ->where( 'operacion_has_equipo.operacion_id = ?' ,
-                         Mtt_Models_Bussines_estadoOperacion::RESERVED )
-                ->where( 'equipo.active = ?' , self::ACTIVE )
-                ->limit( $limit )
-                ->order( 'cantidad DESC' )
-                ->query()
-
-
-        ;
-
-        return $query->fetchAll( Zend_Db::FETCH_OBJ );
-        }
-
-
-    /**
-     * 
-     * 
-     */
-    public function listEquipFavoritos( $limit )
-        {
-
-
-        $db = $this->getAdapter();
-        $query = $db->select()
-                ->from(
-                        $this->_name ,
-                        array(
-                    'equipo.id' ,
-                    'nombre as equipo'
-                        )
-                )
-                ->join( 'favorito_equipo_usuario' ,
-                        'favorito_equipo_usuario.equipo_id = equipo.id' ,
-                        array( 'COUNT(equipo.id) AS cantidad' )
-                )
-                ->where( 'equipo.active = ?' , self::ACTIVE )
-                ->where( 'favorito_equipo_usuario.active = ?' , '1' )
-                ->group( 'equipo.id' )
-                
-                ->order( 'cantidad DESC' )
-                ->limit( $limit )
-                ->query()
-
-        ;
-
-        return $query->fetchAll( Zend_Db::FETCH_OBJ );
-        }
-
+        
     /**
      * 
      * 

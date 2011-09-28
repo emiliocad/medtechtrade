@@ -60,7 +60,7 @@ $(document).ready(function() {
             // Valores de las series
             name: 'Equipos',
             data: [ <?php foreach ( $this->equipos as $equipo ): ?>
-                 '<?= $this->escape( $equipo->views ) ?>',
+                 '<?= $this->escape( $equipo->cantidad ) ?>',
                 <?php endforeach; ?>]
         }]
     });

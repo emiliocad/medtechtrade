@@ -1,6 +1,6 @@
 <?php
 
-class User_ReservaController
+class Admin_ReservaController
         extends Mtt_Controller_Action
     {
 
@@ -57,7 +57,10 @@ class User_ReservaController
                  $this->view->baseUrl().
                  "/js/statistic/js/modules/exporting.js");
          $this->view->assign( 'equipos' ,
-                 $this->_equipo->listEquipMoreReserved( 10));
+                 $this->_reserva->listEquipMoreReserved( 10,
+                 Mtt_Models_Table_TipoReserva::RESERVED        
+                 )
+         );
         }        
 
 
@@ -71,7 +74,10 @@ class User_ReservaController
                  $this->view->baseUrl().
                  "/js/statistic/js/modules/exporting.js");
          $this->view->assign( 'equipos' ,
-                 $this->_reserva->listEquipFavoritos( 10));
+                 $this->_reserva->listEquipMoreReserved( 10,
+                 Mtt_Models_Table_TipoReserva::FAVORITE
+                 )
+         );
         }                   
         
         

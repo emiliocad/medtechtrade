@@ -37,6 +37,9 @@ class Mtt_Models_Bussines_Reserva
         }
         
 
+        
+        
+        
     public function getReservaByEquipUser( $idUsuario, $idEquipo, $tipoReserva )
         {
         $db = $this->getAdapter();
@@ -142,36 +145,44 @@ class Mtt_Models_Bussines_Reserva
     public function countReservaByUserTipo( $idUsuario, $idTipoReserva )
         {
 
-       $db = $this->getAdapter();
+
+        }        
+        
+ /**
+     * 
+     * 
+     */
+    public function listEquipMoreReserved( $limit, $tipoReserva )
+        {
+
+        $db = $this->getAdapter();
         $query = $db->select()
                 ->from(
                         $this->_name ,
                         array(
-                        'id' ,
                         'equipo_id' ,
-                        'usuario_id' ,
-                        'fechagrabacion' ,
-                        'order' ,
-                        'active' 
+                        'cantidad' => 'COUNT(*)'
                         )
                 )
                 ->joinInner( 'equipo', 
                         'reserva.equipo_id = equipo.id' , 
-                        array ('nombre',
-                            'precio' => 'precioventa',
-                            'modelo',
-                            'tag'
-                            )
+                        array ('equipo' => 'nombre' )
                 )
-                ->where( 'reserva.usuario_id = ?' , $idUsuario )
-                ->where( 'tipo_reserva_id = ?' , $tipoReserva)
+                ->where( 'equipo.active = ?' , self::ACTIVE )
+                ->where( 'reserva.active = ?' , self::ACTIVE )
+                ->where( 'reserva.tipo_reserva_id = ?' , $tipoReserva )
+                ->group( 'equipo_id')
+                ->order( 'cantidad DESC' )
+                ->limit( $limit )
+                
                 ->query()
+
+
         ;
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
-        }        
-        
-        
+        }
+
         
     public function updateReserva( array $data , $id )
         {
