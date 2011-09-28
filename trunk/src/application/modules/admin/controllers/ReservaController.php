@@ -50,12 +50,21 @@ class Admin_ReservaController
     public function stadisticsreservasAction()
         {
          $this->view->headScript()->appendFile(
-                 $this->view->baseUrl()."/js/statistic/js/jquery.js");
+                 $this->view->
+                 baseUrl()."/js/estadistica/fgCharting.jQuery.js");
          $this->view->headScript()->appendFile(
-                 $this->view->baseUrl()."/js/statistic/js/highcharts.js");
-         $this->view->headScript()->appendFile(
-                 $this->view->baseUrl().
-                 "/js/statistic/js/modules/exporting.js");
+                 $this->view->
+                 baseUrl()."/js/estadistica/excanvas-compressed.js");
+         $this->view->jQuery()
+                  ->addOnLoad(
+                        '$(document).ready(function() {
+                            if($.browser.msie) { 
+                                setTimeout(function(){$.fgCharting();}, 2000);
+                            } else {
+                                $.fgCharting();
+                            }	
+                        });'
+                );
          $this->view->assign( 'equipos' ,
                  $this->_reserva->listEquipMoreReserved( 10,
                  Mtt_Models_Table_TipoReserva::RESERVED        
@@ -67,12 +76,21 @@ class Admin_ReservaController
     public function stadisticsfavoritosAction()
         {
          $this->view->headScript()->appendFile(
-                 $this->view->baseUrl()."/js/statistic/js/jquery.js");
+                 $this->view->
+                 baseUrl()."/js/estadistica/fgCharting.jQuery.js");
          $this->view->headScript()->appendFile(
-                 $this->view->baseUrl()."/js/statistic/js/highcharts.js");
-         $this->view->headScript()->appendFile(
-                 $this->view->baseUrl().
-                 "/js/statistic/js/modules/exporting.js");
+                 $this->view->
+                 baseUrl()."/js/estadistica/excanvas-compressed.js");
+         $this->view->jQuery()
+                  ->addOnLoad(
+                        '$(document).ready(function() {
+                            if($.browser.msie) { 
+                                setTimeout(function(){$.fgCharting();}, 2000);
+                            } else {
+                                $.fgCharting();
+                            }	
+                        });'
+                );
          $this->view->assign( 'equipos' ,
                  $this->_reserva->listEquipMoreReserved( 10,
                  Mtt_Models_Table_TipoReserva::FAVORITE
