@@ -35,33 +35,6 @@ class Mtt_Models_Bussines_Reserva
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
-
-
-    public function getReservedByEquipoUser( $idUsuario, $idEquipo )
-        {
-        $db = $this->getAdapter();
-        $query = $db->select()
-                ->from(
-                        $this->_name ,
-                        array(
-                        'id' ,
-                        'equipo_id' ,
-                        'usuario_id' ,
-                        'fechagrabacion' ,
-                        'order' ,
-                        'active' 
-                        )
-                )
-                ->where( 'equipo_id = ?' , $idEquipo )
-                ->where( 'usuario_id = ?' , $idUsuario )
-                ->where( 'tipo_reserva_id = ?' , 
-                        Mtt_Models_Bussines_TipoReserva::RESERVED )
-                ->query()
-        ;
-
-        return $query->fetchAll( Zend_Db::FETCH_OBJ );
-        }
- 
         
 
     public function getReservaByEquipUser( $idUsuario, $idEquipo, $tipoReserva )
@@ -95,7 +68,45 @@ class Mtt_Models_Bussines_Reserva
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }        
-        
+
+
+    public function getReservaByUser( $idUsuario, $tipoReserva )
+        {
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from(
+                        $this->_name ,
+                        array(
+                        'id' ,
+                        'equipo_id' ,
+                        'usuario_id' ,
+                        'fechagrabacion' ,
+                        'order' ,
+                        'active' 
+                        )
+                )
+                ->joinInner( 'equipo', 
+                        'reserva.equipo_id = equipo.id' , 
+                        array ('equipo' => 'nombre',
+                            'precio' => 'precioventa',
+                            'modelo',
+                            'tag',
+                            'categoria_id'
+                            )
+                )
+                ->joinInner( 'categoria', 
+                        'categoria.id = equipo.categoria_id', 
+                        array ('categoria' => 'categoria.nombre'
+                            )
+                )
+                ->where( 'reserva.usuario_id = ?' , $idUsuario )
+                ->where( 'tipo_reserva_id = ?' , $tipoReserva)
+                ->where( 'reserva.active = ?' , self::ACTIVE )                
+                ->query()
+        ;
+
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }             
     
     public function countReservaByUserTipo( $idUsuario, $idTipoReserva )
         {

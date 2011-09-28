@@ -25,7 +25,7 @@ class User_ReservaController
         {
         $this->view->assign(
                 'favoritos' , 
-                $this->_reserva->getFavoriteByUser(
+                $this->_reserva->getReservaByUser(
                         $this->authData['usuario']->id, 
                         Mtt_Models_Bussines_TipoReserva::FAVORITE
                         
