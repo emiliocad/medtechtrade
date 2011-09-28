@@ -1,0 +1,25 @@
+<div class="sub" style="width: 600px; opacity: 0; display: none; ">
+    <ul>
+        <li>
+            <h2>
+                <a href="#">
+                    <?= $this->translate( 'CMS' ); ?>
+                </a>
+            </h2>
+        </li>
+        <li>
+            <a href="
+            <?=
+            $this->url( array(
+                'module' => 'admin' ,
+                'controller' => 'user' ,
+                'action' => 'activausuarios' ) , null , true )
+            ?>">
+                   <?= $this->translate( 'Creation of Page' ) ?>
+            </a>
+        </li>
+
+
+    </ul>
+
+</div>

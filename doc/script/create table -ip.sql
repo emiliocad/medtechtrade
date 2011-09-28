@@ -7,3 +7,9 @@ CREATE TABLE ipligence (
 	continent_name VARCHAR(255) NOT NULL,
 	PRIMARY KEY( ip_to)
 );
+
+
+SELECT country_name , country_code FROM ipligence
+WHERE ip_from <= '3515134258' AND ip_to >= '3515134258' LIMIT 1;
+
+ipligence
