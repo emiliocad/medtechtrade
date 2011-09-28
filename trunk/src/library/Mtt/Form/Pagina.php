@@ -84,6 +84,12 @@ class Mtt_Form_Pagina
         $this->addElement( $nombre );
 
 
+        /* body */
+
+        $body = new Mtt_Form_Element_Ckeditor( 'body' );
+        $body->setLabel( 'Body :' );
+        $body->setRequired();
+        $this->addElement( $body );
 
         $this->addElement( 'submit' , 'Enviar' );
         }

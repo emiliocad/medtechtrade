@@ -1,0 +1,104 @@
+<h2>
+    <?= $this->translate( 'Listado de Pagina' ) ?>    
+</h2>
+
+<table border="1" class="listado">
+    <thead>
+        <tr>
+            <th>Pagina</th>
+            <th>Idioma</th>
+            <th>Pais</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ( $this->paginas as $pagina ): ?>
+            <?php $id = $pagina->id; ?>
+            <tr class="<?= $pagina->active
+                            ? 'activo' : 'inactivo' ?>">
+
+                <td>
+                    <?= $this->escape( $pagina->pagina ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $pagina->idioma ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $pagina->pais ) ?>
+                </td>
+
+                <td>
+
+                    <?php
+                    $link = $this->url(
+                            array(
+                                'module' => 'admin' ,
+                                'controller' => 'cms' ,
+                                'action' => 'edit' ,
+                                'id' => $id )
+                            )
+                    ?>
+                    <a href="<?= $link ?>">
+                        <?= $this->translate( 'Edit' ) ?>  
+                    </a>
+
+                    <?php
+                    $link = $this->url(
+                            array(
+                                'module' => 'admin' ,
+                                'controller' => 'cms' ,
+                                'action' => 'delete' ,
+                                'id' => $id
+                            ), null , true
+                            )
+                    ?>
+                    <a href="<?= $link ?>" 
+                       onclick="return confirm(
+                           '¿<?= $this->translate( 'Estas seguro' ); ?>?'
+                       )">
+                           <?= $this->translate( 'Delete' ); ?>
+                    </a>
+
+                    <?php if ( $pagina->active ): ?>
+                        <?php
+                        $link = $this->url(
+                                array(
+                            'module' => 'admin' ,
+                            'controller' => 'cms' ,
+                            'action' => 'desactivar' ,
+                            'id' => $id ) , null , true
+                                )
+                        ?>
+                        <a href="<?= $link ?>">
+                            <?= $this->translate( 'Desactivar' ) ?>
+                        </a>
+                    <?php else: ?>
+                        <?php
+                        $link = $this->url(
+                                array(
+                            'module' => 'admin' ,
+                            'controller' => 'cms' ,
+                            'action' => 'activar' ,
+                            'id' => $id ) , null , true
+                                )
+                        ?>
+                        <a href="<?= $link ?>">
+                            <?= $this->translate( 'Activar' ); ?>
+                        </a>
+                    <?php endif; ?>
+
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+<br />
+
+<a href="<?=
+        $this->url( array(
+            'module' => 'admin' ,
+            'controller' => 'cms' ,
+            'action' => 'new'
+                ) , null , true )
+        ?>">
+       <? $this->translate( 'New' ) ?>
+</a>

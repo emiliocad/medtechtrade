@@ -23,7 +23,7 @@
         'action' => 'english' ) , null , true )
     ?>
        ">
-    <?= $this->translate( 'English' ) ?>
+           <?= $this->translate( 'English' ) ?>
     </a> |
     <a href="
     <?=
@@ -33,16 +33,26 @@
         'action' => 'spanish' ) , null , true )
     ?>
        ">
-    <?= $this->translate( 'Spanish' ) ?>
+           <?= $this->translate( 'Spanish' ) ?>
     </a> |
     <a href="<?=
-    $this->url( array(
-        'module' => 'default' ,
-        'controller' => 'idioma' ,
-        'action' => 'aleman' ) , null , true )
-    ?>
+           $this->url( array(
+               'module' => 'default' ,
+               'controller' => 'idioma' ,
+               'action' => 'aleman' ) , null , true )
+           ?>
        ">
-<?= $this->translate( 'Deutsch' ) ?>
+           <?= $this->translate( 'Deutsch' ) ?>
+    </a>
+    |
+    <a href="<?=
+           $this->url( array(
+               'module' => 'default' ,
+               'controller' => 'idioma' ,
+               'action' => 'polonia' ) , null , true )
+           ?>
+       ">
+           <?= $this->translate( 'Polish' ) ?>
     </a>
 </div>
 
@@ -58,13 +68,13 @@
         'module' => 'default' ,
         'controller' => 'usuario' ,
         'action' => 'logout' ) , null , true )
-    ?>">Logout</a>
-    <?php else: ?>
+        ?>">Logout</a>
+       <?php else: ?>
         <a href="<?=
-    $this->url( array(
-        'module' => 'default' ,
-        'controller' => 'usuario' ,
-        'action' => 'index' ) , null , true )
-    ?>">Login</a> |
-<? endif; ?>
+       $this->url( array(
+           'module' => 'default' ,
+           'controller' => 'usuario' ,
+           'action' => 'index' ) , null , true )
+           ?>">Login</a> |
+       <? endif; ?>
 </div>

@@ -11,19 +11,19 @@ class Admin_CmsController
     public function init()
         {
         parent::init();
-        $this->_pagina = new Mtt_Models_Catalog_Equipo();
+        $this->_pagina = new Mtt_Models_Bussines_Pagina();
         }
 
 
     public function indexAction()
         {
         $this->view->assign(
-                'equipos' , $this->_pagina->listEquip()
+                'paginas' , $this->_pagina->listPagina()
         );
         }
 
 
-    public function nuevoAction()
+    public function newAction()
         {
         $form = new Mtt_Form_Equipo();
         if ( $this->_request->isPost()
@@ -47,7 +47,7 @@ class Admin_CmsController
         }
 
 
-    public function editarAction()
+    public function editAction()
         {
 
         $id = intval( $this->_getParam( 'id' ) );
@@ -77,7 +77,7 @@ class Admin_CmsController
         }
 
 
-    public function borrarAction()
+    public function deleteAction()
         {
         $id = intval( $this->_request->getParam( 'id' ) );
         $this->_pagina->deleteEquipo( $id );

@@ -20,7 +20,8 @@ class Mtt_Controller_Plugin_LangSelector
             $mtt->lang = $zl->getLanguage();
             }
 
-        if ( $mtt->lang !== 'en' && $mtt->lang !== 'de' && $mtt->lang !== 'es' )
+        if ( $mtt->lang !== 'en' && $mtt->lang !== 'de' &&
+                $mtt->lang !== 'es' && $mtt->lang !== 'pl' )
             {
             $mtt->lang = 'en';
             }
