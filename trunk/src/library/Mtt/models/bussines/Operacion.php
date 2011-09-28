@@ -142,6 +142,7 @@ class Mtt_Models_Bussines_Operacion
                             array( 'imagen' )
                 )
                 ->where( 'operacion.estadooperacion_id = ?' , $status )
+                ->group( 'operacion.id')
                 ->query()
         ;
 
