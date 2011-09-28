@@ -34,6 +34,21 @@ class Admin_ReservaController
         }        
    
 
+
+    public function equiposreservadosAction()
+        {
+        $this->view->assign(
+                'equipos' , 
+                $this->_reserva->getReservaByType(
+                        Mtt_Models_Bussines_TipoReserva::RESERVED
+                        
+                )
+        );
+        }  
+                
+        
+        
+        
     public function reservasAction()
         {
         $this->view->assign(

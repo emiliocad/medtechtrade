@@ -142,6 +142,79 @@ class Mtt_Models_Bussines_Reserva
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }             
     
+        
+
+    public function getReservaByType( $tipoReserva )
+        {
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from(
+                        $this->_name ,
+                        array(
+                        'id' ,
+                        'equipo_id' ,
+                        'usuario_id' ,
+                        'fechagrabacion' ,
+                        'order' ,
+                        'active' 
+                        )
+                )
+                ->joinInner( 'equipo', 
+                        'reserva.equipo_id = equipo.id' , 
+                        array (
+                            'equipo' => 'nombre',
+                            'precio' => 'precioventa',
+                            'modelo',
+                            'tag',
+                            'categoria_id',
+                            'calidad'
+                        )
+                )
+                ->joinInner( 'categoria', 
+                        'categoria.id = equipo.categoria_id', 
+                        array (
+                            'categoria' => 'categoria.nombre'
+                        )
+                )
+                ->joinInner( 'estadoequipo' ,     
+                        'estadoequipo.id = equipo.estadoequipo_id' ,
+                        array( 'estadoequipo.nombre as estadoequipo' ) 
+                )
+                ->joinInner( 
+                        'publicacionequipo' ,
+                        'publicacionequipo.id = equipo.publicacionEquipo_id' ,
+                        array( 
+                            'publicacionequipo.nombre as publicacionequipo' 
+                        ) 
+                )
+                ->joinInner( 'moneda' , 'moneda.id = equipo.moneda_id' ,
+                             array( 'moneda.nombre as moneda' ) 
+                )
+                ->joinInner( 'fabricantes' ,
+                             'fabricantes.id = equipo.fabricantes_id' ,
+                             array( 'fabricantes.nombre as fabricante' ) 
+                )
+                ->joinInner( 'paises' , 'paises.id = equipo.paises_id' ,
+                             array( 'paises.nombre as pais' ) 
+                )
+                ->joinLeft( 'imagen' , 
+                        'reserva.equipo_id = imagen.equipo_id' ,
+                        array( 'imagen.descripcion',
+                            'imagen.imagen', 
+                            'imageNombre' => 'imagen.nombre' ) 
+                )
+                ->where( 'tipo_reserva_id = ?' , $tipoReserva)
+                ->where( 'reserva.active = ?' , self::ACTIVE )    
+                ->group( 'equipo.id' )
+                ->query()
+        ;
+
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }             
+            
+        
+        
+        
     public function countReservaByUserTipo( $idUsuario, $idTipoReserva )
         {
 

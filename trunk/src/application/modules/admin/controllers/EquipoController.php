@@ -71,27 +71,6 @@ class Admin_EquipoController
 
         
         
-    public function estadisticaAction()
-        {
-         $this->view->headScript()->appendFile(
-                 $this->view->
-                 baseUrl()."/js/estadistica/fgCharting.jQuery.js");
-         $this->view->headScript()->appendFile(
-                 $this->view->
-                 baseUrl()."/js/estadistica/excanvas-compressed.js");
-         $this->view->jQuery()
-                  ->addOnLoad(
-                        '$(document).ready(function() {
-                            if($.browser.msie) { 
-                                setTimeout(function(){$.fgCharting();}, 2000);
-                            } else {
-                                $.fgCharting();
-                            }	
-                        });'
-                );
-        }      
-        
-        
     public function verAction()
         {
         $id = intval( $this->_getParam( 'id' , null ) );
