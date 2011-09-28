@@ -46,6 +46,7 @@ class User_ReservaController
         );
         }  
       
+
         
     public function stadisticsreservasAction()
         {
@@ -79,10 +80,7 @@ class User_ReservaController
     public function agregarfavoritoAction( )
         {
         
-        $idEquipo = ( int ) ( $this->_getParam( 'id' , null ) );
-        
-        $this->_helper->layout->disableLayout();
-        $this->_helper->viewRenderer->setNoRender();
+        $idEquipo = ( int ) ( $this->_getParam( 'id' , null ) );        
                   
         $favorito = $this->_reserva->getReservaByEquipUser( 
                 $this->authData['usuario']->id,
@@ -106,6 +104,8 @@ class User_ReservaController
                     $favorito[0]->id
             );
             }
+            $this->_helper->FlashMessenger( 'Se agrego como Favorito' );
+            $this->_redirect( $_SERVER['HTTP_REFERER'] );
         }
         
 
@@ -114,9 +114,6 @@ class User_ReservaController
         {
         
         $idEquipo = ( int ) ( $this->_getParam( 'id' , null ) );
-        
-        $this->_helper->layout->disableLayout();
-        $this->_helper->viewRenderer->setNoRender();
                   
         $reservaEquip = $this->_reserva->getReservaByEquipUser( 
                 $this->authData['usuario']->id,
@@ -140,6 +137,8 @@ class User_ReservaController
                     $favorito[0]->id
             );
             }
+            $this->_helper->FlashMessenger( 'Se agrego como la reserva' );
+            $this->_redirect( $_SERVER['HTTP_REFERER'] );
         }
 
 

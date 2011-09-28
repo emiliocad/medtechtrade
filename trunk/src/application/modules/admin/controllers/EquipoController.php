@@ -50,16 +50,26 @@ class Admin_EquipoController
     public function stadisticsequipoAction()
         {
          $this->view->headScript()->appendFile(
-                 $this->view->baseUrl()."/js/statistic/js/jquery.js");
+                 $this->view->
+                 baseUrl()."/js/estadistica/fgCharting.jQuery.js");
          $this->view->headScript()->appendFile(
-                 $this->view->baseUrl()."/js/statistic/js/highcharts.js");
-         $this->view->headScript()->appendFile(
-                 $this->view->baseUrl().
-                 "/js/statistic/js/modules/exporting.js");
+                 $this->view->
+                 baseUrl()."/js/estadistica/excanvas-compressed.js");
+         $this->view->jQuery()
+                  ->addOnLoad(
+                        '$(document).ready(function() {
+                            if($.browser.msie) { 
+                                setTimeout(function(){$.fgCharting();}, 2000);
+                            } else {
+                                $.fgCharting();
+                            }	
+                        });'
+                );
          $this->view->assign( 'equipos' ,
                  $this->_equipo->listEquipMoreVisited( 10));
         }      
 
+        
         
     public function verAction()
         {

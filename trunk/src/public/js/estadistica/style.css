@@ -1,0 +1,176 @@
+body {
+	background:#FFFFFF none repeat scroll 0 0;
+	color:#444444;
+	font-family:"Segoe UI",Frutiger,Tahoma,"Helvetica","Helvetica Neue",Arial,sans-serif;
+	font-size:62.5%;
+	margin:20px;
+}
+#content h2 {
+clear:left;
+color:#444444;
+font-size:1.7em;
+font-weight:bold;
+line-height:1.2em;
+margin:1.5em 0pt 0.5em;
+}
+#content h3 {
+color:#444444;
+font-size:1.6em;
+font-weight:bold;
+margin:1em 0pt 0.5em;
+}
+#content h4 {
+color:#444444;
+font-size:1.5em;
+font-weight:bold;
+margin:1em 0pt 0.2em;
+}
+
+a:link, a:visited {
+color:#368512;
+text-decoration:underline;
+}
+a:visited {
+color:#8DC262;
+}
+ a:hover {
+color:#2A7801;
+}
+p, li {
+color:#444444;
+font-size:1.4em;
+line-height:1.4em;
+margin:0pt;
+padding:0pt 0pt 1.5em;
+width:60%;
+}
+li {
+list-style-type:disc;
+margin-left:2.5em;
+}
+dt {
+clear:left;
+float:left;
+font-weight:bold;
+}
+dt, dd {
+display:block;
+font-size:1.3em;
+line-height:1.6em;
+padding-right:0.5em;
+}
+
+pre {
+background:#444444 none repeat scroll 0%;
+border:1px solid #111111;
+color:#EEEEEE;
+font-size:1.5em;
+line-height:1.3em;
+margin:0pt 0pt 2em;
+overflow:auto;
+padding:1em;
+width:100%;
+}
+
+fieldset legend {
+font-size: 1.4em;
+}
+table {
+border:1px solid #EEEEEE;
+border-collapse:collapse;
+width:100%;
+}
+table tr, table td, table th {
+border:1px solid #CCCCCC;
+padding:0.3em;
+}
+input.text, textarea {
+background:#FFFFFF none repeat scroll 0%;
+border:1px solid #AAAAAA;
+color:#222222;
+display:block;
+float:left;
+font-size:1.3em;
+height:1.2em;
+padding:0.3em 0.5em;
+width:8.5em;
+}
+input.text:focus, textarea:focus {
+background:#EFEFE7 none repeat scroll 0%;
+}
+textarea {
+display:block;
+float:none;
+font-family:"Segoe UI","Lucida Grande",Verdana,sans-serif;
+font-size:1.3em;
+height:10em;
+padding:1em 10px;
+width:35.7em;
+}
+button, a.button {
+background: #3d8717;
+border:2px solid #2A7802;
+color:#EEEEEE;
+cursor:pointer;
+font-size:1.1em;
+font-weight:bold;
+padding:0.5em 0.6em;
+display: block;
+ text-decoration: none;
+text-align: center;
+width: 8em;
+}
+
+button:hover, a.button:hover {
+color:#FFFFFF;
+}
+label {
+color:#444444;
+display:block;
+font-size:1.4em;
+font-weight:bold;
+margin:0.7em 0pt;
+}
+span.required {
+color:red;
+font-size:0.8em;
+font-weight:normal;
+left:0.2em;
+position:relative;
+top:-0.3em;
+}
+table {width: 400px !important; height: 200px; border-collapse: collapse; color: #555;}
+td, th {text-align: center; border: 1px solid #ddd;  height: 1.5em;}
+th {background: #999; color: #fff;}
+thead th {height: 2.5em; }
+caption {margin: 0 0 .5em; font-size: 1.3em;  text-align: left; font-weight: bold; width: 40em; color: #555;}
+caption em {font-size: .9em; color: orange; font-weight: normal; padding-left: 1em;}
+
+
+/* ----- clear fix for floats ----- */
+/* these styles instruct non-IE browsers to render container elements so that they fully enclose floats */		
+/* without this class applied, a float might hang over the bottom border of it's container */
+.clearfix:after { content: "."; display:block; height:0; clear:both; visibility:hidden; }
+.clearfix { display:inline-block; }		
+
+/* hides clearfix from IE-mac \*/
+* html .clearfix { height:1%; }
+.clearfix { display:block; }
+/* end hide from IE-mac */
+
+
+/*demo styles*/
+
+	canvas{display: block; border: 1px solid #ddd;}
+	
+	div.chartBlock { margin: 1em 0 2em 20px; position: relative; }
+	table input, table span {width: 4em; display: block;text-align: center; height: 1.6em; padding: 2px;  margin:0 auto; border: 1px solid orange; font-size: 1em;}
+	table span {border: 0; padding: 3px; }
+	table input {background: #ffe4bf;}
+	/*show hide content for non js*/
+	div#dataVisualizations, h3 {display: none;}
+	body.hasJS div#dataVisualizations {display: block;}
+	body h3 {display: block; clear: both; margin: 4em 0 .5em;}
+	#copy {margin-top: 5em; border-top: 1px solid #eee; padding: .5em 0;}
+	body li {font-size: 1em;}
+	td,th {width: auto;}
