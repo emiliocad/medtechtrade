@@ -5,8 +5,12 @@
  * and open the template in the editor.
  */
 
-class Mtt_Models_Bussines_Imagen
-        extends Mtt_Models_Table_Imagen
+/**
+ * Description of Categoria
+ *
+ */
+class Mtt_Models_Bussines_Imagen extends Mtt_Models_Table_Imagen
     {
-    
+
+
     }

@@ -5,89 +5,78 @@
  * and open the template in the editor.
  */
 
-
-class Mtt_Models_Bussines_Contact
-        extends Mtt_Models_Bussines_Contact
+/**
+ * Description of Categoria
+ *
+ */
+class Mtt_Models_Bussines_Contact extends Zend_Db_Table_Abstract
     {
 
-
-    public function __construct()
-        {
-        parent::__construct();
-        }
-
-
-    public function getComboValues()
-        {
-        $filas = $this->fetchAll( 'active=1' )->toArray();
-        $values = array( );
-        foreach ( $filas as $fila )
-            {
-            $values[$fila['id']] = $fila['nombre'];
-            }
-        return $values;
-        }
-
-
-    public function getFindId( $id )
-        {
-//        $db = $this->getAdapter();
-//        $query = $db->select()
-//                ->from( $this->_name )
-//                ->where( 'id = ?' , $id )
-//                ->where( 'active = ?' , '1' )
-//                ->query()
-//        ;
-        return $this->fetchRow( 'id = ' . $id );
-        }
 
 
     public function listar()
         {
-        $db = $this->getAdapter();
-        $query = $db->select()
-                ->from( $this->_name )
-                ->where( 'active = ?' , '1' )
-                ->query()
-        ;
-
-        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        
         }
 
-
-    public function updateFabricante( array $data , $id )
+    public function listarPorPais()
         {
-
-        $this->update( $data , 'id = ' . $id );
+        
         }
 
-
-    public function saveFabricante( array $data )
+    public function getComboValues()
         {
-
-        $this->insert( $data );
+        $_categoria = new Application_Model_Categoria();
+        $categorias = $_categoria->fetchAll( 'activo=1' );
+        $listado = array( );
+        foreach ( $categorias as $categoria )
+            {
+            $productos = $_categoria->listarProductos( $categoria['id'] );
+            $productos2 = array( );
+            foreach ( $productos as $producto )
+                {
+                $productos2[$producto['id']] = $producto['nombre'];
+                }
+            if ( count( $productos ) )
+                {
+                $listado[$categoria['nombre']] = $productos2;
+                }
+            }
+        return $listado;
         }
 
-
-    public function deleteFabricante( $id )
+    public function getComboValidValues()
         {
-
-        $this->delete( 'id = ?' , $id );
+        $_categoria = new Application_Model_Categoria();
+        $categorias = $_categoria->fetchAll( 'activo=1' );
+        $listado = array( );
+        foreach ( $categorias as $categoria )
+            {
+            $productos = $_categoria->listarProductos( $categoria['id'] );
+            $productos2 = array( );
+            foreach ( $productos as $producto )
+                {
+                $productos2[] = $producto['id'];
+                }
+            if ( count( $productos ) )
+                {
+                foreach ( $productos2 as $productoId )
+                    {
+                    $listado[] = $productoId;
+                    }
+                }
+            }
+        return $listado;
         }
 
-
-    public function activarFabricante( $id )
+    public function getDetalles( Array $producto_ids )
         {
-
-        $this->update( array( "active" => self::ACTIVE ) , 'id = ' . $id );
+        
         }
 
-
-    public function desactivarFabricante( $id )
+    public function getDetalle( $producto_id )
         {
-
-        $this->update( array( "active" => self::DESACTIVATE ) , 'id = ' . $id );
+        
         }
-
 
     }
