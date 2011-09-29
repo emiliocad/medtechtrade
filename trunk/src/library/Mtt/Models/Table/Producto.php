@@ -1,3 +1,4 @@
+
 <?php
 
 /*
@@ -15,4 +16,3 @@ class Mtt_Models_Table_Producto
 
 
     }
-
