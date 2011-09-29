@@ -1,0 +1,80 @@
+<div class="sub" style="width: 600px; opacity: 0; display: none; ">
+    <ul>
+        <li>
+            <h2>
+                <a href="#">
+                    <?= $this->translate( 'My Purchases' ); ?>
+                </a>
+            </h2>
+        </li>
+        <li>
+            <a href="
+            <?=
+            $this->url( array(
+                'module' => 'user' ,
+                'controller' => 'reserva' ,
+                'action' => 'favoritos' ) , null , true )
+            ?>">
+                   <?= $this->translate( 'FAVORITOS' ) ?>
+            </a>
+        </li>
+        <li>
+            <a href="
+            <?=
+            $this->url( array(
+                'module' => 'user' ,
+                'controller' => 'reserva' ,
+                'action' => 'reservas' ) , null , true )
+            ?>">
+                   <?= $this->translate( 'RESERVAS' ) ?>
+            </a>
+        </li>
+        <li>
+            <a href="
+            <?=
+            $this->url( array(
+                'module' => 'user' ,
+                'controller' => 'operacion' ,
+                'action' => 'comprasactivas' ) , null , true )
+            ?>">
+                   <?= $this->translate( 'COMPRAS ACTIVAS' ) ?>
+            </a>
+        </li>
+        <li>
+            <a href="
+            <?=
+            $this->url( array(
+                'module' => 'user' ,
+                'controller' => 'pregunta' ,
+                'action' => 'index' ) , null , true )
+            ?>">
+                   <?= $this->translate( 'MIS PREGUNTAS' ) ?>
+            </a>
+        </li>
+        
+        <li>
+            <a href="
+            <?=
+            $this->url( array(
+                'module' => 'user' ,
+                'controller' => 'operacion' ,
+                'action' => 'compras' ) , null , true )
+            ?>">
+                   <?= $this->translate( 'MIS PAGOS' ) ?>
+            </a>
+        </li>
+        <li>
+            <a href="
+            <?=
+            $this->url( array(
+                'module' => 'user' ,
+                'controller' => '' ,
+                'action' => '' ) , null , true )
+            ?>">
+                   <?= $this->translate( 'MIS Envios' ) ?>
+            </a>
+        </li>
+        
+
+    </ul>
+</div>

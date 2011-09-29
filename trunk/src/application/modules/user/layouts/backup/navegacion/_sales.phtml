@@ -1,0 +1,69 @@
+<div class="sub" style="width: 600px; opacity: 0; display: none; ">
+    <ul>
+        <li>
+            <h2>
+                <a href="#">
+                    <?= $this->translate( 'My Sales' ); ?>
+                </a>
+            </h2>
+        </li>
+        <li>
+            <a href="
+            <?=
+            $this->url( array(
+                'module' => 'user' ,
+                'controller' => 'equipo' ,
+                'action' => 'nuevo' ) , null , true )
+            ?>">
+                   <?= $this->translate( 'Publicar' ) ?>
+            </a>
+        </li>
+        <li>
+            <a href="
+            <?=
+            $this->url( array(
+                'module' => 'user' ,
+                'controller' => 'equipo' ,
+                'action' => 'verpendientes' ) , null , true )
+            ?>">
+                   <?= $this->translate( 'Pendientes' ) ?>
+            </a>
+        </li>
+        <li>
+            <a href="
+            <?=
+            $this->url( array(
+                'module' => 'user' ,
+                'controller' => 'equipo' ,
+                'action' => 'veractivos' ) , null , true )
+            ?>">
+                   <?= $this->translate( 'Activos' ) ?>
+            </a>
+        </li>
+        <li>
+            <a href="
+            <?=
+            $this->url( array(
+                'module' => 'user' ,
+                'controller' => 'equipo' ,
+                'action' => 'vervendidos' ) , null , true )
+            ?>">
+                   <?= $this->translate( 'Vendidos' ) ?>
+            </a>
+        </li>
+        
+        <li>
+            <a href="
+            <?=
+            $this->url( array(
+                'module' => 'user' ,
+                'controller' => 'equipo' ,
+                'action' => 'vernovendidos' ) , null , true )
+            ?>">
+                   <?= $this->translate( 'no Vendidos' ) ?>
+            </a>
+        </li>
+        
+
+    </ul>
+</div>
