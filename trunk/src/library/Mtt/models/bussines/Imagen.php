@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <?php
 
 /*
@@ -6,22 +6,7 @@
  * and open the template in the editor.
  */
 
-/**
- * Description of Categoria
- *
- */
-class Mtt_Models_Bussines_Imagen extends Mtt_Models_Table_Imagen
-    {
 
-
-    }
-=======
-<?php
-
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
 class Mtt_Models_Bussines_Imagen
         extends Mtt_Models_Table_Imagen
@@ -83,4 +68,4 @@ class Mtt_Models_Bussines_Imagen
         }        
 
     }
->>>>>>> 8861fd912a5142bf0c39994ea16481ceb1b91d19
+
