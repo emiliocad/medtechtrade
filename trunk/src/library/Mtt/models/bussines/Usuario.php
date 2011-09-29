@@ -134,6 +134,7 @@ class Mtt_Models_Bussines_Usuario
         {
 
         $this->update( $data , 'id = ' . $id );
+
         }
 
 
@@ -147,6 +148,7 @@ class Mtt_Models_Bussines_Usuario
         }
 
 
+ 
     public function deleteUsuario( $id )
         {
 

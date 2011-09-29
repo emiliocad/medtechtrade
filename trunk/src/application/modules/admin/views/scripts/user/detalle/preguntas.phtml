@@ -1,10 +1,18 @@
-<h2>Preguntas</h2>
 <table border="1" class="listado">
     <tbody>
         <?php foreach ( $this->preguntas as $pregunta ): ?>
-
             <tr class="<?= $pregunta->active
                             ? 'activo' : 'inactivo' ?>">
+
+                <td>
+                    <?= $this->escape( $pregunta->nombre ) ?>
+                </td>
+
+
+            </tr>
+
+            <tr class="<?= $pregunta->active
+                                    ? 'activo' : 'inactivo' ?>">
 
                 <td>
                     <?= $this->escape( $pregunta->formulacion ) ?>
