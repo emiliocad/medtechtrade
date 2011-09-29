@@ -142,6 +142,7 @@ class Mtt_Models_Bussines_Operacion
                             array( 'imagen' )
                 )
                 ->where( 'operacion.estadooperacion_id = ?' , $status )
+
                 ->group( 'operacion.id')
                 ->query()
         ;
@@ -168,16 +169,8 @@ class Mtt_Models_Bussines_Operacion
                     'fechapago'
                         )
                 )
+
                  ->joinInner(
-                        'operacion_has_equipo' ,
-                        'operacion.id = operacion_has_equipo.operacion_id' ,
-                        array(
-                    'precio' ,
-                    'cantidad' => 'operacion_has_equipo.cantidad' ,
-                    'equipo_id' => 'operacion_has_equipo.equipo_id'
-                        )
-                )
-                ->joinInner(
                         'estadooperacion' ,
                         'estadooperacion.id = operacion.estadooperacion_id' ,
                         array(
@@ -208,11 +201,6 @@ class Mtt_Models_Bussines_Operacion
                     'totalpago'
                         )
                 )
-                ->joinInner( 'formapago' ,
-                             'equipo_has_formapago.formapago_id = formapago.id' ,
-                             array( 'formapago' => 'formapago.nombre'
-                        )
-                )
                 ->joinInner( 'equipo' ,
                              'operacion_has_equipo.equipo_id = equipo.id' ,
                              array( 'precio' => 'equipo.precioventa' ,
@@ -233,7 +221,7 @@ class Mtt_Models_Bussines_Operacion
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
 
-        
+
     /**
      *
      * @param type $estado_operacion
@@ -303,7 +291,7 @@ class Mtt_Models_Bussines_Operacion
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
-        
+
         
         
     public function listByUser( $idUser )
@@ -534,3 +522,4 @@ class Mtt_Models_Bussines_Operacion
 
 
     }
+
