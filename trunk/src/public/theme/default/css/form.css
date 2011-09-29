@@ -56,3 +56,24 @@ form dd select option {
     color: #fcfcfc;
 }
 
+
+ul.errors li {
+    font-size: 13px;
+    padding: 5px;
+    margin-top: 5px;
+    margin-left: 5px;
+    color: #f01818;
+    font-weight: bold;
+}
+
+#mensajes li {
+    font-size: 13px;
+    padding: 10px;
+    background-color: #FFF6BF;
+    color: #1f1c1f;
+    font-weight: bold;
+    border-style: solid;
+    border-color: #FFD324;
+    border-width: 1px;
+}
+

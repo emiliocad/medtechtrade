@@ -20,31 +20,30 @@ class Mtt_Form_ChangePassword
                 ->setMethod( 'post' )
                 ->setAttrib( 'id' , 'frmChangePassword' )
         ;
-        $decorator = new Mtt_Form_Decorator_SimpleInput();
-
-        $e = new Zend_Form_Element_Text( 'login' );
-        $e->setLabel( 'Password:' );
-        $e->setRequired();
-        $e->addValidator(
+        $clave = new Zend_Form_Element_Password( 'clave' );
+        $clave->setLabel( 'New Password:' );
+        $clave->setRequired();
+        $clave->addValidator(
                 new Zend_Validate_StringLength(
                         array( 'min' => 5 , 'max' => 20 )
                 )
         );
-        //$e->setDecorators( array( $decorator ) );
-        $this->addElement( $e );
 
-        $e = new Zend_Form_Element_Password( 'clave' );
-        $e->setRequired();
-        $e->setLabel( 'Password' );
-        //$e->setDecorators( array( $decorator ) );
-        $this->addElement( $e );
+        $this->addElement( $clave );
+
+        $clave2 = new Zend_Form_Element_Password( 'clave2' );
+        $clave2->setRequired();
+        $clave2->setLabel( 'Password' );
+        $clave2->addValidator( new Mtt_Validate_PasswordConfirmation() );
+        
+        $this->addElement( $clave2 );
 
         //Submit
-        $decorator = new Mtt_Form_Decorator_SimpleButton();
-        $e = new Zend_Form_Element_Submit( 'submit' );
-        $e->setValue( 'Login' );
+        $submit = new Zend_Form_Element_Submit( 'submit' );
+        $submit->setValue( 'Change Password' );
+        $submit->setAttrib( 'class' , 'button' );
         //$e->setDecorators( array( $decorator ) );
-        $this->addElement( $e );
+        $this->addElement( $submit );
         }
 
 
