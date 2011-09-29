@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 
-=======
->>>>>>> 39e26dc619c0e0384a65b352a41de6ebfb53bd11
 <?php
 
 /*
@@ -19,7 +16,3 @@ class Mtt_Models_Table_Producto
 
 
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> 39e26dc619c0e0384a65b352a41de6ebfb53bd11
