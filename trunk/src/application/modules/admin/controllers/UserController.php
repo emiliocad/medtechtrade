@@ -17,15 +17,35 @@ class Admin_UserController
 
     public function indexAction()
         {
+        $this->view->jQuery()
+                ->addStylesheet(
+                        'js/simple_modal/'
+                )
+                ->addJavascriptFile(
+                        'js/simple_modal/js/jquery.simplemodal.js'
+                )
+               
+                ->addOnLoad(
+                        ' $(document).ready(function() {
+                            $("#tabs").tabs();
+                          });'
+                )
+        ;
         $this->view->assign(
                 'usuarios' , $this->_user->listar()
         );
         }
         
-        
+
 
     public function detalleAction()
         {
+        
+        $this->_helper->layout->disableLayout();
+        $this->_helper->viewRenderer->setNoRender(true);
+        
+        
+        
         $id = intval( $this->_getParam( 'id' ) );
         $this->view->jQuery()
                 ->addOnLoad(

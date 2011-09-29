@@ -1,4 +1,36 @@
 <h2><?= $this->translate( 'Usuario' ) ?></h2>
+<script>
+    function funcion1(){
+    $.ajax({
+         type: "POST",
+         url: "<?= $this->url( array( 'module' => 'admin' ,
+                        'controller' => 'user' ,
+                        'action' => 'detalle',
+                        'id' => 6) )
+                    ?>?>",
+
+         success: function(data) {
+            //alert(window.location.pathname);
+            $("#dialog").append('hola');
+            $( "#dialog" ).dialog();
+        },error: function() {
+            alert("AJAX call an epic failure");
+        }
+
+    });
+    }
+	</script>
+
+
+
+<div class="demo">
+
+<div id="dialog" title="Basic dialog">
+	This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.
+</div>
+
+
+</div><!-- End demo -->
 
 
 <table border="1" class="listado">
@@ -50,7 +82,7 @@
                         'action' => 'detalle' ,
                         'id' => $usuario->id) )
                     ?>
-                    <a href="<?= $link ?>">
+                    <a href="#" >
                         <?= $this->escape( $usuario->nombre ) ?>
                     </a>
                 </td>
@@ -98,7 +130,7 @@
                         'action' => 'editar' ,
                         'id' => $id ) )
                     ?>
-                    <a href="<?= $link ?>">
+                    <a href="<?= $link ?>" >
                         [Editar]
                     </a>
 
