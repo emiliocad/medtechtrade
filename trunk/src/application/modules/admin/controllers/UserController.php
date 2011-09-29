@@ -53,6 +53,14 @@ class Admin_UserController
             Mtt_Models_Table_TipoReserva::RESERVED);
         $this->view->assign( 'reservas' , $reservas_user );
         
+        //Listar operaciones
+        $operacion = new Mtt_Models_Bussines_Operacion();
+        $operaciones_user = $operacion->
+                listByUserOperation($id , 
+                    Mtt_Models_Table_EstadoOperacion::SALE
+        );
+        $this->view->assign( 'operaciones' , $operaciones_user );
+        
         
         }
         

@@ -1,0 +1,29 @@
+<?php 
+       Zend_Debug::dump($this->equipos);?>
+
+<table border="1" class="listado">
+    <thead>
+        <tr>
+            <th><?= $this->translate( 'Date' ) ?></th>
+            <th><?= $this->translate( 'Type' ) ?></th>
+            <th><?= $this->translate( 'User' ) ?></th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ( $this->operaciones as $operacion ): ?>
+
+            <?php $id = $operacion->id; ?>
+            <tr>
+                <td>
+                    <?= $this->escape( $operacion->fecha ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $operacion->fechainicio ) ?>
+                </td>
+              
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+<br />
