@@ -1,13 +1,12 @@
-<?php 
-       Zend_Debug::dump($this->equipos);?>
-
 <table border="1" class="listado">
     <thead>
         <tr>
             <th><?= $this->translate( 'Date' ) ?></th>
-            <th><?= $this->translate( 'Type' ) ?></th>
-            <th><?= $this->translate( 'User' ) ?></th>
-
+            <th><?= $this->translate( 'Product' ) ?></th>
+            <th><?= $this->translate( 'Precio' ) ?></th>
+            <th><?= $this->translate( 'Pay' ) ?></th>
+            <th><?= $this->translate( 'Cuotas' ) ?></th>
+            <th><?= $this->translate( 'Pagado' ) ?></th>
         </tr>
     </thead>
     <tbody>
@@ -19,10 +18,20 @@
                     <?= $this->escape( $operacion->fecha ) ?>
                 </td>
                 <td>
-                    <?= $this->escape( $operacion->fechainicio ) ?>
+                    <?= $this->escape( $operacion->nombre ) ?>
                 </td>
-              
-            </tr>
+                <td>
+                    <?= $this->escape( $operacion->precio ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $operacion->formapago ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $operacion->nrocuotas ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $operacion->totalpago ) ?>
+                </td>
         <?php endforeach; ?>
     </tbody>
 </table>

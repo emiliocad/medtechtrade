@@ -168,13 +168,27 @@ class Mtt_Models_Bussines_Operacion
                     'fechapago'
                         )
                 )
-                ->joinInner(
+                 ->joinInner(
                         'operacion_has_equipo' ,
                         'operacion.id = operacion_has_equipo.operacion_id' ,
                         array(
                     'precio' ,
                     'cantidad' => 'operacion_has_equipo.cantidad' ,
                     'equipo_id' => 'operacion_has_equipo.equipo_id'
+                        )
+                )
+                ->joinInner(
+                        'estadooperacion' ,
+                        'estadooperacion.id = operacion.estadooperacion_id' ,
+                        array(
+                    'estadooperacion' => 'estadooperacion.nombre'
+                        )
+                )
+                ->joinInner(
+                        'usuario' , 'usuario.id = operacion.usuario_id' ,
+                        array(
+                    'usuario' => 'usuario.login' ,
+                    'usuario_id' => 'usuario.id'
                         )
                 )
                 ->joinInner(
@@ -206,9 +220,9 @@ class Mtt_Models_Bussines_Operacion
                     'modelo'
                         )
                 )
-                ->joinInner( 'imagen' ,
-                             'operacion_has_equipo.equipo_id = equipo.id' ,
-                             array( 'imagen' )
+                ->joinLeft( 'imagen' ,
+                            'operacion_has_equipo.equipo_id = equipo.id' ,
+                            array( 'imagen' )
                 )
                 ->where( 'operacion.estadooperacion_id = ?' , $status )
                 ->where( 'operacion.usuario_id = ?' , $idUser )
