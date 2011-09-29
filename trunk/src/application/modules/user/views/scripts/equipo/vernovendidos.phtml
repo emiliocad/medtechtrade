@@ -1,0 +1,46 @@
+<h2>Vendidos</h2>
+<table border="1" class="listado">
+    <thead>
+        <tr>
+            <th><?= $this->translate( 'Name' ) ?></th>
+            <th><?= $this->translate( 'Price' ) ?></th>
+            <th><?= $this->translate( 'Category' ) ?></th>
+            <th><?= $this->translate( 'Status' ) ?></th>
+            <th><?= $this->translate( 'Factory' ) ?></th>
+            <th><?= $this->translate( 'Country' ) ?></th>
+            <th><?= $this->translate( 'Quantity' ) ?></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ( $this->equipos as $equipo ): ?>
+
+            <tr class="<?= $equipo->active
+                            ? 'activo' : 'inactivo' ?>">
+
+                <td>
+                    <?= $this->escape( $equipo->equipo ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $equipo->simbolomoneda). " " .
+                    $this->escape( $equipo->precio ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $equipo->categoria ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $equipo->estadoequipo ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $equipo->fabricante ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $equipo->pais ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $equipo->cantidad ) ?>
+                </td>
+               
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>

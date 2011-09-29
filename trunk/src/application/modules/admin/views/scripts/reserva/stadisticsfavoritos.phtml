@@ -1,0 +1,31 @@
+<table id="dataTable" summary="Stadistic Favorite">
+    <caption>Stadistics Favorite</caption>
+    <thead>
+        <tr>
+            <td></td>
+            <th id="equipo">Equipo</th>
+            <th id="cantidad">Cantidad</th>   
+        </tr>
+    </thead>
+    <tfoot>
+   
+    </tfoot>
+    <tbody>
+        <?php foreach ( $this->equipos as $equipo ): ?>
+        <tr>
+            <th headers="members">
+                <?= $this->escape( $equipo->equipo ) ?>
+            </th>
+            <td headers="cantidad">
+                <?= $this->escape( $equipo->cantidad ) ?>
+            </td>
+        </tr>
+       <?php endforeach; ?>
+    </tbody>
+</table>
+
+<canvas 
+    id="chart1" class="fgCharting_src-dataTable_type-pie" width="250" 
+    height="250">
+    
+</canvas>

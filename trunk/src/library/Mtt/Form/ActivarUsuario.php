@@ -6,7 +6,7 @@
  */
 
 
-//TODO Crear Translate para Zend Form
+
 class Mtt_Form_ActivarUsuario
         extends Zend_Form
     {
@@ -14,13 +14,12 @@ class Mtt_Form_ActivarUsuario
 
     public function init()
         {
-       
+
 
         $this
                 ->setMethod( 'post' )
                 ->setAttrib( 'id' , 'frmActivarUsuario' )
                 ->setAttrib( 'enctype' , 'multipart/form-data' )
-                ->setAction( '/admin/user/index')
         ;
         $this->addElementPrefixPath(
                 'Mtt_Form_Decorator' , 'Mtt/Form/Decorator/' , 'decorator'
@@ -31,8 +30,9 @@ class Mtt_Form_ActivarUsuario
 
         foreach ( $_usuarios->listarRegistrados() as $usuario )
             {
-            $usuarios->addMultiOption( $usuario->id , $usuario->nombre . ' ' .
-                    $usuario->apellido);
+            $usuarios->addMultiOption( $usuario->id ,
+                                       $usuario->nombre . ' ' .
+                    $usuario->apellido );
             }
 
         $this->addElement( $usuarios );

@@ -6,7 +6,6 @@
             <th><?= $this->translate( 'Date' ) ?></th>
             <th><?= $this->translate( 'Type' ) ?></th>
             <th><?= $this->translate( 'User' ) ?></th>
-            <th><?= $this->translate( 'Items' ) ?></th>
 
         </tr>
     </thead>
@@ -24,9 +23,7 @@
                 <td>
                     <?= $this->escape( $operacion->usuario ) ?>
                 </td>
-                <td>
-                    <?= $this->escape( $operacion->nitems ) ?>
-                </td>
+
                 <td>
 
                     <?php
@@ -40,8 +37,6 @@
                     <a href="<?= $link ?>">
                         [Ver]
                     </a>
-
-                    
 
                 </td>
             </tr>

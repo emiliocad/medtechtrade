@@ -34,8 +34,14 @@ class User_EquipoController
     public function verAction()
         {
         $id = intval( $this->_getParam( 'id' , null ) );
-        $stmt = $this->_equipo->getCategoria( $id );
-        $this->view->assign( 'categoria' , $stmt );
+        $stmt = $this->_equipo->getProduct( $id );
+        $this->view->assign( 'equipo' , $stmt );
+        
+        $modImagen = new Mtt_Models_Bussines_Imagen();
+        $imagenes = $modImagen->listByEquip($id);
+        $this->view->assign( 'imagenes' , $imagenes );
+        
+        
         }
         
     public function verpendientesAction()
@@ -43,7 +49,9 @@ class User_EquipoController
         $this->view->assign(
                 'equipos' , 
                 $this->_equipo->listEquipByUserStatus(
-                        $this->authData['usuario']->id, 1 
+                        $this->authData['usuario']->id, 
+                        Mtt_Models_Bussines_PublicacionEquipo::Pendiente
+                        
                 )
         );
         }        
@@ -54,12 +62,54 @@ class User_EquipoController
         $this->view->assign(
                 'equipos' , 
                 $this->_equipo->listEquipByUserStatus(
-                        $this->authData['usuario']->id, 2 
+                        $this->authData['usuario']->id, 
+                        Mtt_Models_Bussines_PublicacionEquipo::Activada
                 )
         );
         }        
 
 
+        
+    public function vervendidosAction()
+        {
+        $this->view->assign(
+                'equipos' , 
+                $this->_equipo->listEquipSalesUser(
+                        $this->authData['usuario']->id )
+        );
+        }        
+
+
+        
+    public function vernovendidosAction()
+        {
+        $this->view->assign(
+                'equipos' , 
+                $this->_equipo->listEquipNoSalesUser(
+                        $this->authData['usuario']->id )
+        );
+        }        
+
+        
+    public function favoritosAction()
+        {
+        $this->view->assign(
+                'equipos' , 
+                $this->_equipo->listEquipFavoriteByUser(
+                        $this->authData['usuario']->id,10 )
+        );
+        } 
+        
+       
+        
+    public function reservasAction()
+        {
+        $this->view->assign(
+                'equipos' , 
+                $this->_equipo->listEquipReservedUser(
+                        $this->authData['usuario']->id )
+        );
+        }        
         
         
     public function nuevoAction()

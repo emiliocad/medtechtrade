@@ -12,7 +12,7 @@
             <?=
             $this->url( array(
                 'module' => 'user' ,
-                'controller' => 'equipo' ,
+                'controller' => 'reserva' ,
                 'action' => 'favoritos' ) , null , true )
             ?>">
                    <?= $this->translate( 'FAVORITOS' ) ?>
@@ -23,8 +23,8 @@
             <?=
             $this->url( array(
                 'module' => 'user' ,
-                'controller' => '' ,
-                'action' => 'index' ) , null , true )
+                'controller' => 'reserva' ,
+                'action' => 'reservas' ) , null , true )
             ?>">
                    <?= $this->translate( 'RESERVAS' ) ?>
             </a>
@@ -33,9 +33,9 @@
             <a href="
             <?=
             $this->url( array(
-                'module' => 'admin' ,
-                'controller' => 'fabricante' ,
-                'action' => 'index' ) , null , true )
+                'module' => 'user' ,
+                'controller' => 'operacion' ,
+                'action' => 'comprasactivas' ) , null , true )
             ?>">
                    <?= $this->translate( 'COMPRAS ACTIVAS' ) ?>
             </a>
@@ -44,8 +44,8 @@
             <a href="
             <?=
             $this->url( array(
-                'module' => 'admin' ,
-                'controller' => 'fabricante' ,
+                'module' => 'user' ,
+                'controller' => 'pregunta' ,
                 'action' => 'index' ) , null , true )
             ?>">
                    <?= $this->translate( 'MIS PREGUNTAS' ) ?>
@@ -56,9 +56,9 @@
             <a href="
             <?=
             $this->url( array(
-                'module' => 'admin' ,
-                'controller' => 'fabricante' ,
-                'action' => 'index' ) , null , true )
+                'module' => 'user' ,
+                'controller' => 'operacion' ,
+                'action' => 'compras' ) , null , true )
             ?>">
                    <?= $this->translate( 'MIS PAGOS' ) ?>
             </a>
@@ -67,9 +67,9 @@
             <a href="
             <?=
             $this->url( array(
-                'module' => 'admin' ,
-                'controller' => 'fabricante' ,
-                'action' => 'index' ) , null , true )
+                'module' => 'user' ,
+                'controller' => '' ,
+                'action' => '' ) , null , true )
             ?>">
                    <?= $this->translate( 'MIS Envios' ) ?>
             </a>

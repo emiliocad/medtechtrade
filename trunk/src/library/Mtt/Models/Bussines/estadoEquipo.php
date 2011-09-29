@@ -6,7 +6,7 @@
  */
 
 
-class Mtt_Models_Bussines_estadoEquipo
+class Mtt_Models_Bussines_EstadoEquipo
         extends Mtt_Models_Table_EstadoEquipo
     {
 

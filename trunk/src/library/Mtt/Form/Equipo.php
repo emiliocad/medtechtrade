@@ -13,6 +13,12 @@ class Mtt_Form_Equipo
 
     public function init()
         {
+         $_conf = new Zend_Config_Ini(
+                        APPLICATION_PATH . '/configs/myConfig.ini' , 'upload'
+                )
+        ;
+        $data = $_conf->toArray();
+        
         $this
                 ->setMethod( 'post' )
                 ->setAttrib( 'id' , 'frmEquipo' )
@@ -131,7 +137,7 @@ class Mtt_Form_Equipo
         $pais->addValidator(
                 new Zend_Validate_InArray( array_keys( $values ) )
         );
-
+        
         // Elemento: Calidad
         $calidad = new Zend_Form_Element_Text( 'calidad' );
         $calidad->setLabel( 'Calidad' );

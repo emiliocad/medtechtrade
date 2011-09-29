@@ -17,23 +17,47 @@ class IndexController
 
     public function indexAction()
         {
+        /* entrada */
+
+
+        /* proceso */
         $this->view->jQuery()
                 ->addJavascriptFile(
-                        'http://cdn.jquerytools.org/1.2.4/jquery.tools.min.js'
+                        'http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js'
                 )
                 ->addStylesheet(
-                        'http://flowplayer.org/tools/css/scrollale-buttons.css'
+                        'http://static.flowplayer.org/tools/css/standalone.css'
                 )
-//                ->addOnLoad(
-//                        "alert('hola kusanagui');"
-//                )
+                ->addStylesheet(
+                        'http://static.flowplayer.org/tools/css/scrollable-buttons.css'
+                )
+                ->addStylesheet(
+                        'http://static.flowplayer.org/tools/css/scrollable-horizontal.css'
+                )
+                ->addOnLoad(
+                        '$(".scrollable").scrollable();'
+                )
         ;
+
+        /* proceso */
+        $objIp = new Mtt_Tools_Ip();
+        $objIp->setIp( '190.41.129.183' );
+        $objIp->convIpLonG();
+        
+        $ipLong = $objIp->getLongIp();
+        $objIpLigence = new Mtt_Models_Bussines_IpLigence();
+        $ipligence = $objIpLigence->getCountry( $ipLong );
+
+        /* salida */
+        $this->view->assign( 'country' , $ipligence );
+
         $this->view->assign(
                 'oferEquipo' , $this->_equipo->showEquiposOfers()
         );
 
-        $paginado = new Zend_Paginator_Adapter_Array( range( 1 , 9 ) );
-        $this->view->assign( 'items' , $paginado );
+
+//        $paginado = new Zend_Paginator_Adapter_Array( range( 1 , 9 ) );
+//        $this->view->assign( 'items' , $paginado );
         }
 
 

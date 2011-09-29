@@ -1,1 +1,47 @@
-<h2><?=$this->categoria->title ?></h2>
+<h2>Equipo</h2>
+<table border="1" class="listado">
+    <tbody>
+        <tr>
+            <td>
+                <?= $this->escape( $this->equipo->nombre ) ?>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <?= $this->escape( $this->equipo->preciocompra ) ?>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <?= $this->escape( $this->equipo->categoria ) ?>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <?= $this->escape( $this->equipo->estadoequipo ) ?>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <?= $this->escape( $this->equipo->fabricante ) ?>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <?= $this->escape( $this->equipo->calidad ) ?>
+            </td>
+        </tr>
+
+    </tbody>
+</table>
+
+<div class="image-horizontal-list">
+    <?php foreach ( $this->imagenes as $imagen ): ?>
+        <div>
+            <?= $imagen->nombre ?>
+            <img src="/media/catalog/product/<?= $imagen->imagen?>" 
+                 alt="<?= $imagen->nombre?>">
+        </div>
+    <?php endforeach; ?>
+
+</div>

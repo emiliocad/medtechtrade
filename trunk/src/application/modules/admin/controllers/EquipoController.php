@@ -23,6 +23,28 @@ class Admin_EquipoController
         }
 
 
+
+    public function detalleAction()
+        {
+        $this->view->jQuery()
+                ->addStylesheet(
+                        '"http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css'
+                )
+                ->addJavascriptFile(
+                        'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js'
+                )
+       
+                ->addOnLoad(
+                        ' $(document).ready(function() {
+                            $("#tabs").tabs();
+                          });'
+                )
+        ;
+        }
+
+        
+        
+        
     public function questionAction()
         {
         
@@ -50,43 +72,27 @@ class Admin_EquipoController
     public function stadisticsequipoAction()
         {
          $this->view->headScript()->appendFile(
-                 $this->view->baseUrl()."/js/statistic/js/jquery.js");
+                 $this->view->
+                 baseUrl()."/js/estadistica/fgCharting.jQuery.js");
          $this->view->headScript()->appendFile(
-                 $this->view->baseUrl()."/js/statistic/js/highcharts.js");
-         $this->view->headScript()->appendFile(
-                 $this->view->baseUrl().
-                 "/js/statistic/js/modules/exporting.js");
+                 $this->view->
+                 baseUrl()."/js/estadistica/excanvas-compressed.js");
+         $this->view->jQuery()
+                  ->addOnLoad(
+                        '$(document).ready(function() {
+                            if($.browser.msie) { 
+                                setTimeout(function(){$.fgCharting();}, 2000);
+                            } else {
+                                $.fgCharting();
+                            }	
+                        });'
+                );
          $this->view->assign( 'equipos' ,
                  $this->_equipo->listEquipMoreVisited( 10));
         }      
 
-    public function stadisticsreservasAction()
-        {
-         $this->view->headScript()->appendFile(
-                 $this->view->baseUrl()."/js/statistic/js/jquery.js");
-         $this->view->headScript()->appendFile(
-                 $this->view->baseUrl()."/js/statistic/js/highcharts.js");
-         $this->view->headScript()->appendFile(
-                 $this->view->baseUrl().
-                 "/js/statistic/js/modules/exporting.js");
-         $this->view->assign( 'equipos' ,
-                 $this->_equipo->listEquipMoreReserved( 10));
-        }        
-
-
-    public function stadisticsfavoritosAction()
-        {
-         $this->view->headScript()->appendFile(
-                 $this->view->baseUrl()."/js/statistic/js/jquery.js");
-         $this->view->headScript()->appendFile(
-                 $this->view->baseUrl()."/js/statistic/js/highcharts.js");
-         $this->view->headScript()->appendFile(
-                 $this->view->baseUrl().
-                 "/js/statistic/js/modules/exporting.js");
-         $this->view->assign( 'equipos' ,
-                 $this->_equipo->listEquipFavoritos( 10));
-        }                   
-
+        
+        
     public function verAction()
         {
         $id = intval( $this->_getParam( 'id' , null ) );

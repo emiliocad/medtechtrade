@@ -14,7 +14,9 @@ class Admin_OperacionController extends Mtt_Controller_Action
     public function indexAction()
         {
         $this->view->assign(
-                'operaciones', $this->_operacion->listByOperation(2)
+                'operaciones', 
+                $this->_operacion->listByOperation(
+                        Mtt_Models_Bussines_EstadoOperacion::SALE)
         );
         }
      

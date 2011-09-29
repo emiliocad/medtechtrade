@@ -9,7 +9,7 @@ class Mtt_Form_Element_Ckeditor
     public function init()
         {
         $this->setAttrib( 'class' , 'ckeditor' );
-        $this->setDecorators( array( 'Composite' ) );
+
         }
 
 

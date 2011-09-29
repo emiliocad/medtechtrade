@@ -14,4 +14,10 @@ class Mtt_Models_Table_Pagina
     protected $_primary = 'idpagina';
 
 
+    public function __construct( $config = array( ) )
+        {
+        parent::__construct( $config );
+        }
+
+
     }

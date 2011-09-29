@@ -64,7 +64,7 @@ class EquipoController
         $pdf->render();
         $pdf->stream( 'Medtechtrade.pdf' ); //->output()
         }
-
+         
 
     }
 

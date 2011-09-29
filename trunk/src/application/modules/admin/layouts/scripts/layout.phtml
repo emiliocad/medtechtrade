@@ -16,7 +16,8 @@
         $this->headLink()->appendStylesheet( '/theme/admin/css/1140.css' )
                 ->appendStylesheet( '/theme/admin/css/styles.css' )
                 ->appendStylesheet( '/theme/admin/css/style.css' )
-        ;?>
+        ;
+        ?>
 
         <?=
         $this->jQuery()->setVersion( '1.4.2' )
@@ -30,9 +31,18 @@
 
         <?=
         $this->headScript()
-                ->appendFile( '/theme/admin/js/css3-mediaqueries.js' )
-                ->appendFile( '/theme/admin/js/jquery.hoverIntent.minified.js' )
-                ->appendFile( '/theme/admin/js/menu.js' )
+                ->appendFile(
+                        '/js/ckeditor/ckeditor.js'
+                )
+                ->appendFile(
+                        '/theme/admin/js/css3-mediaqueries.js'
+                )
+                ->appendFile(
+                        '/theme/admin/js/jquery.hoverIntent.minified.js'
+                )
+                ->appendFile(
+                        '/theme/admin/js/menu.js'
+                )
         ;
         ?> 
 
