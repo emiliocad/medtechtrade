@@ -111,8 +111,11 @@ class Mtt_Models_Bussines_Pregunta
                         'estado',
                         'active')
                 )
-                ->where( 'active = ?' , '1' )
-                ->where( 'usuario_id = ?' , $idUser )
+                ->joinInner( 'equipo', 
+                        'pregunta.equipo_id = equipo.id' , 
+                        array ('equipo.nombre') )
+                ->where( 'pregunta.active = ?' , self::ACTIVE )
+                ->where( 'pregunta.usuario_id = ?' , $idUser )
                 ->query()
         ;
 

@@ -12,11 +12,11 @@
                 <td>
                     <?= $this->escape( $pregunta->fechaformulacion ) ?>
                 </td>
-                           
+
             </tr>
-            
+
             <tr class="<?= $pregunta->active
-                            ? 'activo' : 'inactivo' ?>">
+                                    ? 'activo' : 'inactivo' ?>">
 
                 <td>
                     <?= $this->escape( $pregunta->respuesta ) ?>
@@ -24,7 +24,7 @@
                 <td>
                     <?= $this->escape( $pregunta->fecharespuesta ) ?>
                 </td>
-                           
+
             </tr>
         <?php endforeach; ?>
     </tbody>

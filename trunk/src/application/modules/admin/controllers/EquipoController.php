@@ -27,19 +27,20 @@ class Admin_EquipoController
     public function detalleAction()
         {
         $this->view->jQuery()
-                ->addStylesheet(
+              /*  ->addStylesheet(
                         '"http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css'
-                )
-                ->addJavascriptFile(
+                )*/
+                /*->addJavascriptFile(
                         'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js'
-                )
-       
+                )*/
                 ->addOnLoad(
                         ' $(document).ready(function() {
                             $("#tabs").tabs();
                           });'
                 )
         ;
+        
+        //$this->_equipo->get
         }
 
         

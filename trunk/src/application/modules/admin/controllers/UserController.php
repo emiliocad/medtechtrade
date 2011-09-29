@@ -21,6 +21,44 @@ class Admin_UserController
                 'usuarios' , $this->_user->listar()
         );
         }
+        
+        
+
+    public function detalleAction()
+        {
+        $id = intval( $this->_getParam( 'id' ) );
+        $this->view->jQuery()
+                ->addOnLoad(
+                        ' $(document).ready(function() {
+                            $("#tabs").tabs();
+                          });'
+                )
+        ;
+        //Editar datos del usuario
+        $this->editarAction();
+        
+        //Listar equipos del Usuario
+        $equipo = new Mtt_Models_Bussines_Equipo();
+        $equipos_user = $equipo->listEquipByUser($id);
+        $this->view->assign( 'equipos' , $equipos_user );
+        
+        //Listar preguntas que el usuario formulo
+        $pregunta = new Mtt_Models_Bussines_Pregunta();
+        $preguntas_user = $pregunta->listByUser($id);
+        $this->view->assign( 'preguntas' , $preguntas_user );
+        
+        //Listar reservas
+        $reserva = new Mtt_Models_Bussines_Reserva();
+        $reservas_user = $reserva->getReservaByUser($id, 
+            Mtt_Models_Table_TipoReserva::RESERVED);
+        $this->view->assign( 'reservas' , $reservas_user );
+        
+        
+        }
+        
+        
+        
+        
 
 
     public function activausuariosAction()

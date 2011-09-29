@@ -43,7 +43,17 @@
             <tr class="<?= $usuario->active
                             ? 'activo' : 'inactivo' ?>">
 
-                <td><?= $this->escape( $usuario->nombre ) ?></td>
+                <td>
+                    <?php
+                    $link = $this->url( array( 'module' => 'admin' ,
+                        'controller' => 'user' ,
+                        'action' => 'detalle' ,
+                        'id' => $usuario->id) )
+                    ?>
+                    <a href="<?= $link ?>">
+                        <?= $this->escape( $usuario->nombre ) ?>
+                    </a>
+                </td>
                 <td><?= $this->escape( $usuario->apellido ) ?></td>
                 <td><?= $this->escape( $usuario->email ) ?></td>
                 <td><?= $this->escape( $usuario->login ) ?></td>
