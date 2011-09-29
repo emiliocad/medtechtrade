@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <table border="1" class="listado">
     <tbody>
         <?php foreach ( $this->preguntas as $pregunta ): ?>
@@ -37,6 +38,46 @@
             </tr>
         <?php endforeach; ?>
     </tbody>
+=======
+<table border="1" class="listado">
+    <tbody>
+        <?php foreach ( $this->preguntas as $pregunta ): ?>
+            <tr class="<?= $pregunta->active
+                            ? 'activo' : 'inactivo' ?>">
+
+                <td>
+                    <?= $this->escape( $pregunta->nombre ) ?>
+                </td>
+
+
+            </tr>
+
+            <tr class="<?= $pregunta->active
+                                    ? 'activo' : 'inactivo' ?>">
+
+                <td>
+                    <?= $this->escape( $pregunta->formulacion ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $pregunta->fechaformulacion ) ?>
+                </td>
+
+            </tr>
+
+            <tr class="<?= $pregunta->active
+                                    ? 'activo' : 'inactivo' ?>">
+
+                <td>
+                    <?= $this->escape( $pregunta->respuesta ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $pregunta->fecharespuesta ) ?>
+                </td>
+
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+>>>>>>> 39e26dc619c0e0384a65b352a41de6ebfb53bd11
 =======
 <table border="1" class="listado">
     <tbody>

@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <table border="1" class="listado">
     <thead>
         <tr>
@@ -46,6 +47,55 @@
             </tr>
         <?php endforeach; ?>
     </tbody>
+=======
+<table border="1" class="listado">
+    <thead>
+        <tr>
+            <th><?= $this->translate( 'Name' ) ?></th>
+            <th><?= $this->translate( 'Modelo' ) ?></th>
+            <th><?= $this->translate( 'Categoria' ) ?></th>
+            <th><?= $this->translate( 'Estado Equipo' ) ?></th>
+            <th><?= $this->translate( 'Fecha de Fabricacion' ) ?></th>
+            <th><?= $this->translate( 'Fecha de Publicacion' ) ?></th>
+            <th><?= $this->translate( 'Fabricante' ) ?></th>
+            <th><?= $this->translate( 'Pais' ) ?></th>               
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ( $this->reservas as $reserva ): ?>
+
+            <?php $id = $reserva->id; ?>
+            <tr class="<?= $reserva->active
+                            ? 'activo' : 'inactivo' ?>">
+
+                <td>
+                    <?= $this->escape( $reserva->equipo ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $reserva->modelo ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $reserva->categoria ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $reserva->estadoequipo ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $reserva->tag ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $reserva->calidad) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $reserva->fabricante ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $reserva->precio ) ?>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+>>>>>>> 39e26dc619c0e0384a65b352a41de6ebfb53bd11
 =======
 <table border="1" class="listado">
     <thead>

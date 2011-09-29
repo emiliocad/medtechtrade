@@ -523,5 +523,3 @@ class Mtt_Models_Bussines_Operacion
 
 
     }
-
-
