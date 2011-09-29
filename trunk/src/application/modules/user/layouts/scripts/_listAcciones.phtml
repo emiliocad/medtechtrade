@@ -1,0 +1,264 @@
+<div id="listacciones">
+    <ul>
+        <li>
+            <a href="
+            <?=
+            $this->url( array(
+                'module' => 'user' ,
+                'controller' => 'user' ,
+                'action' => 'editar' ) , null , true )
+            ?>">
+
+                <span>
+                    <?= $this->translate( 'Mi Perfil' ) ?>
+                </span>  
+            </a>
+
+        </li>
+        <li>
+            <a href="
+            <?=
+            $this->url(
+                    array(
+                'module' => 'user' ,
+                'controller' => '' ,
+                'action' => ''
+                    )
+                    , null , true
+            );
+            ?>"
+               >
+                <span>
+                    <?= $this->translate( 'Configuracion' ) ?>
+                </span>  
+            </a>
+
+        </li>
+        <li>
+            <a href="
+            <?=
+            $this->url(
+                    array(
+                'module' => 'user' ,
+                'controller' => '' ,
+                'action' => ''
+                    )
+                    , null , true
+            );
+            ?>"
+               >
+                <span>
+                    <?= $this->translate( 'Busqueda Especial' ) ?>
+                </span>  
+            </a>
+
+        </li>
+        <li>
+            <a href="
+            <?=
+            $this->url( array(
+                'module' => 'user' ,
+                'controller' => 'reserva' ,
+                'action' => 'favoritos' ) , null , true )
+            ?>">
+                <span>
+                    <?= $this->translate( 'Mis Favoritos' ) ?>
+                </span>  
+            </a>
+
+        </li>
+        <li>
+            <a href="
+            <?=
+            $this->url( array(
+                'module' => 'user' ,
+                'controller' => 'equipo' ,
+                'action' => 'index' ) , null , true )
+            ?>">
+                <span>
+                    <?= $this->translate( 'Mis Dispositivos' ) ?>
+                </span>  
+            </a>
+
+        </li>
+        <li>
+            <a href="
+            <?=
+            $this->url( array(
+                'module' => 'user' ,
+                'controller' => 'reserva' ,
+                'action' => 'reservas' ) , null , true )
+            ?>">
+                <span>
+                    <?= $this->translate( 'Mis Reservas' ) ?>
+                </span>  
+            </a>
+
+        </li>
+        <li>
+            <a href="
+            <?=
+            $this->url( array(
+                'module' => 'user' ,
+                'controller' => 'operacion' ,
+                'action' => 'comprasactivas' ) , null , true )
+            ?>">
+                <span>
+                    <?= $this->translate( 'Mis Compras Activas' ) ?>
+                </span>  
+            </a>
+
+        </li>
+        <li>
+            <a href="
+            <?=
+            $this->url( array(
+                'module' => 'user' ,
+                'controller' => 'pregunta' ,
+                'action' => 'index' ) , null , true )
+            ?>">
+                <span>
+                    <?= $this->translate( 'Mis Preguntas' ) ?>
+                </span>  
+            </a>
+
+        </li>
+        <li>
+            <a href="
+            <?=
+            $this->url( array(
+                'module' => 'user' ,
+                'controller' => 'operacion' ,
+                'action' => 'compras' ) , null , true )
+            ?>">
+                <span>
+                    <?= $this->translate( 'Mis Pagos' ) ?>
+                </span>  
+            </a>
+
+        </li>
+        <li>
+            <a href="
+            <?=
+            $this->url( array(
+                'module' => 'user' ,
+                'controller' => '' ,
+                'action' => '' ) , null , true )
+            ?>">
+                <span>
+                    <?= $this->translate( 'Mis Envios' ) ?>
+                </span>  
+            </a>
+
+        </li>
+        <li>
+            <a href="
+            <?=
+            $this->url( array(
+                'module' => 'user' ,
+                'controller' => 'equipo' ,
+                'action' => 'nuevo' ) , null , true )
+            ?>">
+                <span>
+                    <?= $this->translate( 'Ingrese Un Nuevo Dispositivo' ) ?>
+                </span>  
+            </a>
+
+        </li>
+        <li>
+            <a href="
+            <?=
+            $this->url( array(
+                'module' => 'user' ,
+                'controller' => 'equipo' ,
+                'action' => 'verpendientes' ) , null , true )
+            ?>">
+                <span>
+                    <?= $this->translate( 'Ver Equipos Pendientes' ) ?>
+                </span>  
+            </a>
+
+        </li>
+        <li>
+            <a href="
+            <?=
+            $this->url( array(
+                'module' => 'user' ,
+                'controller' => 'equipo' ,
+                'action' => 'veractivos' ) , null , true )
+            ?>">
+                <span>
+                    <?= $this->translate( 'Ver Equipos Activos' ) ?>
+                </span>  
+            </a>
+
+        </li>
+        <li>
+            <a href="
+            <?=
+            $this->url( array(
+                'module' => 'user' ,
+                'controller' => 'equipo' ,
+                'action' => 'vervendidos' ) , null , true )
+            ?>">
+                <span>
+                    <?= $this->translate( 'Ver Equipos Vendidos' ) ?>
+                </span>  
+            </a>
+
+        </li>
+        <li>
+            <a href="
+            <?=
+            $this->url( array(
+                'module' => 'user' ,
+                'controller' => 'equipo' ,
+                'action' => 'vernovendidos' ) , null , true )
+            ?>">
+                <span>
+                    <?= $this->translate( 'Ver Equipos no Vendidos' ) ?>
+                </span>  
+            </a>
+
+        </li>
+        <li>
+            <a href="
+            <?=
+            $this->url(
+                    array(
+                'module' => 'user' ,
+                'controller' => '' ,
+                'action' => ''
+                    )
+                    , null , true
+            );
+            ?>"
+               >
+                <span>
+                    <?= $this->translate( 'Contacte al Administrador' ) ?>
+                </span>  
+            </a>
+
+        </li>
+        <li>
+            <a href="
+            <?=
+            $this->url(
+                    array(
+                'module' => 'default' ,
+                'controller' => 'usuario' ,
+                'action' => 'logout'
+                    )
+                    , null , true
+            );
+            ?>"
+               >
+                <span>
+                    <?= $this->translate( 'Salir' ) ?>
+                </span>  
+            </a>
+
+        </li>
+
+    </ul>
+</div>
