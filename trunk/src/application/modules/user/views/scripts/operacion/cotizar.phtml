@@ -54,4 +54,15 @@
         </tbody>
     </table>
 </div>
-<br />
+<a href="
+<?=
+$this->url(
+        array( 'module' => 'user' , 'controller' => 'operacion' ,
+    'action' => 'nuevo' ,
+    'id' => $this->equipo->id ) , null , true
+ )
+?> ">
+
+    <?= $this->translate( 'Buy' ) ?>
+
+</a>
