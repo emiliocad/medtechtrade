@@ -1,0 +1,51 @@
+<h2>Request Price</h2>
+<img src="/media/catalog/product/device-00.png" 
+     alt="">
+<table>
+    <tr>
+        <td><?= $this->translate( 'Name' ) ?></td>
+        <td><?= $this->escape( $this->equipo->nombre ) ?></td>
+    </tr>
+    <tr>
+        <td><?= $this->translate( 'Model' ) ?></td>
+        <td><?= $this->escape( $this->equipo->modelo ) ?></td>
+    </tr>
+</table>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th><?= $this->translate( 'Tipo' ) ?></th>
+                <th><?= $this->translate( 'Numero de Cuotas ' ) ?></th>
+                <th><?= $this->translate( 'Pago' ) ?></th>
+                <th><?= $this->translate( 'Dias' ) ?></th>
+                <th><?= $this->translate( 'Mora por dia' ) ?></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ( $this->formaspago as $formapago ): ?>
+                <tr>
+
+                    <td>
+                        <?= $this->escape( $formapago->nombre ) ?>
+                    </td>
+                    <td>
+                        <?= $this->escape( $formapago->nrocuotas ) ?>
+                    </td>
+                    <td>
+                        <?= $this->escape( $formapago->pago ) ?>
+                    </td>
+                    <td>
+                        <?= $this->escape( $formapago->dias ) ?>
+                    </td>
+                    <td>
+                        <?= $this->escape( $formapago->moraxdia ) ?>
+                    </td>
+
+                </tr>
+            <?php endforeach; ?>
+
+        </tbody>
+    </table>
+</div>
+<br />
