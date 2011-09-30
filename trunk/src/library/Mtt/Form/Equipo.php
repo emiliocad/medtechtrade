@@ -13,6 +13,12 @@ class Mtt_Form_Equipo
 
     public function init()
         {
+         $_conf = new Zend_Config_Ini(
+                        APPLICATION_PATH . '/configs/myConfig.ini' , 'upload'
+                )
+        ;
+        $data = $_conf->toArray();
+        
         $this
                 ->setMethod( 'post' )
                 ->setAttrib( 'id' , 'frmEquipo' )
@@ -131,7 +137,7 @@ class Mtt_Form_Equipo
         $pais->addValidator(
                 new Zend_Validate_InArray( array_keys( $values ) )
         );
-
+        
         // Elemento: Calidad
         $calidad = new Zend_Form_Element_Text( 'calidad' );
         $calidad->setLabel( 'Calidad' );
@@ -167,9 +173,12 @@ class Mtt_Form_Equipo
 
         // Elemento: fecha de Fabricacion
         $fechaFabricacion = new ZendX_JQuery_Form_Element_DatePicker(
-                        'fechafabricacion'
+                        'fechafabricacion',
+                        array('jQueryParams' => array('defaultDate' => date('Y-m-D'),
+                                'changeYear'=> 'true'))
         );
         $fechaFabricacion->setLabel( 'fecha de Fabricacion' );
+        $fechaFabricacion->setJQueryParam( 'dateFormat' , 'yy.mm.dd' );
         $fechaFabricacion->setRequired( true );
         $this->addElement( $fechaFabricacion );
 

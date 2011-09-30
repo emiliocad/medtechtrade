@@ -61,6 +61,7 @@ class Mtt_Models_Bussines_Categoria
 
     public function listCategory()
         {
+
         
         $db = $this->getAdapter();
 
@@ -75,7 +76,17 @@ class Mtt_Models_Bussines_Categoria
         }
 
 
-        
+        $db = $this->getAdapter();
+
+        $query = $db->select()
+                ->from( $this->_name )
+                ->where( 'active IN (?)' , self::ACTIVE )
+                ->query();
+
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }
+
+
     public function getCategoria( $id )
         {
         $db = $this->getAdapter();
@@ -128,7 +139,7 @@ class Mtt_Models_Bussines_Categoria
         }
 
 
-   
 
+   
 
     }

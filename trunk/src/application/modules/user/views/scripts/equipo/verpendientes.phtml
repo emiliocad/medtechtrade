@@ -1,0 +1,50 @@
+<h2>Pendientes</h2>
+<table border="1" class="listado">
+    <thead>
+        <tr>
+            <th><?= $this->translate( 'Name' ) ?></th>
+            <th><?= $this->translate( 'Price' ) ?></th>
+            <th><?= $this->translate( 'Category' ) ?></th>
+            <th><?= $this->translate( 'Status' ) ?></th>
+            <th><?= $this->translate( 'Factory' ) ?></th>
+            <th><?= $this->translate( 'Quality' ) ?></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ( $this->equipos as $equipo ): ?>
+
+            <tr class="<?= $equipo->active
+                            ? 'activo' : 'inactivo' ?>">
+
+                <td>
+                    <?= $this->escape( $equipo->equipo ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $equipo->preciocompra ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $equipo->categoria ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $equipo->estadoequipo ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $equipo->fabricante ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $equipo->calidad ) ?>
+                </td>
+                <td><?php
+                    $link = $this->url( array( 'module' => 'user' ,
+                        'controller' => 'imagen' ,
+                        'action' => 'nuevo' ,
+                        'id' => $equipo->id ) )
+                    ?>
+                    <a href="<?= $link ?>">
+                        Agregar Imagen
+                    </a></td>
+               
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>

@@ -1,1 +1,41 @@
-Medtechtrade
+<div id="wrap-bottom" class="wrapper">
+    <div id="section-bottom" class="section">
+        <div id="section-bottom-footer">
+            <div id="section-bottom-buttons">
+                <ul>
+                    <li>
+                        <span>
+                            <a href="#">
+                                <?= $this->translate( 'home' ) ?>
+                            </a>
+                        </span>
+                    </li>
+                    <li><span>|</span></li>
+                    <li><span>
+                            <a href="#">
+                                GTC
+                            </a>
+                        </span>
+                    </li>
+                    <li>
+                        <span>|</span>
+                    </li>
+                    <li>
+                        <span>
+                            <a href="#">
+                                <?= $this->translate( 'About Us' ) ?>
+                            </a>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div id="section-botttom-copyright">
+                <p>&copy; 2011 MedTechTrade AG, All Rights Reserved</p>
+                <p>
+                    <?= $this->translate( 'Powered by Stocker Group' ) ?>
+                </p>
+            </div>
+        </div>
+        <?= $this->render( '_contact.phtml' ) ?>
+    </div>
+</div>

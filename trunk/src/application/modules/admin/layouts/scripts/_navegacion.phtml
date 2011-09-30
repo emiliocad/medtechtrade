@@ -1,12 +1,6 @@
 <ul id="topnav">
     <li>
-        <a class="current" href="
-           <?=
-           $this->url( array(
-               'module' => 'admin' ,
-               'controller' => 'index' ,
-               'action' => 'index' ) , null , true )
-           ?>">
+        <a class="current" >
             <span>
 
                 <?= $this->translate( 'Desk' ); ?>
@@ -71,7 +65,7 @@
         <?=
         $this->url( array(
             'module' => 'admin' ,
-            'controller' => 'moneda' ,
+            'controller' => 'operacion' ,
             'action' => 'index' ) , null , true )
         ?>">
             <span>
@@ -83,13 +77,7 @@
         </a>
     </li>
     <li>
-        <a  href="
-        <?=
-        $this->url( array(
-            'module' => 'admin' ,
-            'controller' => 'user' ,
-            'action' => 'index' ) , null , true )
-        ?>">
+        <a>
             <span>
 
                 <?= $this->translate( 'Statistics' ); ?>
@@ -97,15 +85,10 @@
             </span>
 
         </a>
+        <?= $this->render( 'navegacion/_statistics.phtml' ); ?>
     </li>
     <li>
-        <a  href="
-        <?=
-        $this->url( array(
-            'module' => 'admin' ,
-            'controller' => 'user' ,
-            'action' => 'index' ) , null , true )
-        ?>">
+        <a >
             <span>
 
                 <?= $this->translate( 'Configuration' ); ?>
@@ -114,6 +97,17 @@
 
         </a>
         <?= $this->render( 'navegacion/_configuration.phtml' ); ?>
+    </li>
+    <li>
+        <a >
+            <span>
+
+                <?= $this->translate( 'CMS' ); ?>
+
+            </span>
+
+        </a>
+        <?= $this->render( 'navegacion/_cms.phtml' ); ?>
     </li>
 
 </ul>

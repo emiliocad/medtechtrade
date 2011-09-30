@@ -1,35 +1,80 @@
-<div class="row">
-    <div class="fourcol">
+<div id="logo-top">
+    <a href ="
+    <?=
+    $this->url(
+            array( 'module' => 'default' ,
+        'controller' => 'index' ,
+        'action' => 'index' ) , null , true
+    )
+    ?>
+       ">
+        <img src="/theme/default/image/logo-top.png">
+    </a>
 
-        <img src="/theme/default/image/logo-top.png" alt="Medtechtrade" />
+</div>
 
-    </div>   
-    <div class="eightcol last">
+<div id="lang-selection-top">
+    <!-- Get by PHP function -->
+    <a href="
+    <?=
+    $this->url( array(
+        'module' => 'default' ,
+        'controller' => 'idioma' ,
+        'action' => 'english' ) , null , true )
+    ?>
+       ">
+           <?= $this->translate( 'English' ) ?>
+    </a> |
+    <a href="
+    <?=
+    $this->url( array(
+        'module' => 'default' ,
+        'controller' => 'idioma' ,
+        'action' => 'spanish' ) , null , true )
+    ?>
+       ">
+           <?= $this->translate( 'Spanish' ) ?>
+    </a> |
+    <a href="<?=
+           $this->url( array(
+               'module' => 'default' ,
+               'controller' => 'idioma' ,
+               'action' => 'aleman' ) , null , true )
+           ?>
+       ">
+           <?= $this->translate( 'Deutsch' ) ?>
+    </a>
+    |
+    <a href="<?=
+           $this->url( array(
+               'module' => 'default' ,
+               'controller' => 'idioma' ,
+               'action' => 'polonia' ) , null , true )
+           ?>
+       ">
+           <?= $this->translate( 'Polish' ) ?>
+    </a>
+</div>
 
-        <ul id="nav-admin">
-            <li>
-                Buscar: "Caja de Busqueda"
-            </li>
-            <li>
-                <?= $this->translate( 'Welcome' ) ?>  :  <?= $this->authUser ?>
-            </li>
-            <li>
-                <?= $this->translate( 'Date' ) ?>:  <?= Zend_Date::now() ?>
-            </li>
-            <li>
-                <a href="<?=
-                $this->Url(
-                        array( 'module' => 'admin' ,
-                            'controller' => 'login' ,
-                            'action' => 'logout' )
-                )
-                ?>">
-                       <?= $this->translate( 'Logout' ) ?>
-                </a>
-            </li>
+<div>
+    Bienvenido 
+    <?=
+    Zend_Auth::getInstance()->hasIdentity() ? $this->authUser : $this->translate( 'Visitante' )
+    ?>
 
-        </ul>
-
-    </div>   
-
+    <? if ( Zend_Auth::getInstance()->hasIdentity() ): ?>
+        <a href="<?=
+    $this->url( array(
+        'module' => 'default' ,
+        'controller' => 'usuario' ,
+        'action' => 'logout' ) , null , true )
+        ?>">Logout</a>
+       <?php else: ?>
+        <a href="<?=
+       $this->url( array(
+           'module' => 'default' ,
+           'controller' => 'usuario' ,
+           'action' => 'index' ) , null , true )
+           ?>">Login</a> |
+       <? endif; ?>
 </div>

@@ -25,11 +25,21 @@ class CategoriaController
 
         $this->view->assign( 'productos' , $stmt );
 
+
+
         $stmtCategoria = $this->_categoria->getCategoria( $id );
         $this->view->assign( 'categoria' , $stmtCategoria );
 
+
+
         $formOrder = new Mtt_Form_OrderEquipo();
         $this->view->assign( 'formOrder' , $formOrder );
+
+        $_equipo = new Mtt_Models_Catalog_Equipo();
+        $this->view->assign(
+                'equipoOfert'
+                , $_equipo->showEquiposOfersByCategory( $id )
+        );
         }
 
 

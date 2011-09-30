@@ -1,0 +1,68 @@
+<ul id="topnav">
+    <li>
+        <a >
+            <span>
+
+                <?= $this->translate( 'Desktop' ); ?>
+
+            </span>
+
+        </a>
+        <?= $this->render( 'navegacion/_desktop.phtml' ); ?>
+
+    </li>
+    <li>
+        <a  href="
+        <?=
+        $this->url( array(
+            'module' => 'user' ,
+            'controller' => 'user' ,
+            'action' => 'editar' ) , null , true )
+        ?>">
+            <span>
+
+                <?= $this->translate( 'My data' ); ?>
+
+            </span>
+
+        </a>
+
+    </li>
+    <li>
+        <a href="
+        <?=
+        $this->url( array(
+            'module' => 'user' ,
+            'controller' => 'equipo' ,
+            'action' => 'index' ) , null , true )
+        ?>">
+            <span>
+
+                <?= $this->translate( 'My Sales' ); ?>
+
+            </span>
+
+        </a>
+        <?= $this->render( 'navegacion/_sales.phtml' ); ?>
+    </li>
+    <li>
+        <a  href="
+        <?=
+        $this->url( array(
+            'module' => 'admin' ,
+            'controller' => 'categoria' ,
+            'action' => 'index' ) , null , true )
+        ?>">
+            <span>
+
+                <?= $this->translate( 'My Purchases' ); ?>
+
+            </span>
+
+        </a>
+        <?= $this->render( 'navegacion/_purchases.phtml' ); ?>
+    </li>
+
+
+</ul>
+

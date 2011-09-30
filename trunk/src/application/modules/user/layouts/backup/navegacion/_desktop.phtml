@@ -1,0 +1,71 @@
+<div class="sub" style="width: 600px; opacity: 0; display: none; ">
+    <ul>
+        <li>
+            <h2>
+                <a href="#">
+                    <?= $this->translate( 'Configuration' ); ?>
+                </a>
+            </h2>
+        </li>
+        <li>
+            <a href="
+            <?=
+            $this->url( array(
+                'module' => 'user' ,
+                'controller' => 'tipousuario' ,
+                'action' => 'index' ) , null , true )
+            ?>">
+                   <?= $this->translate( 'Type User' ) ?>
+            </a>
+        </li>
+        <li>
+            <a href="
+            <?=
+            $this->url( array(
+                'module' => 'user' ,
+                'controller' => 'index' ,
+                'action' => 'index' ) , null , true )
+            ?>">
+                   <?= $this->translate( 'Equipment State' ) ?>
+            </a>
+        </li>
+        <li>
+            <a href="
+            <?=
+            $this->url( array(
+                'module' => 'user' ,
+                'controller' => 'index' ,
+                'action' => 'index' ) , null , true )
+            ?>">
+                   <?= $this->translate( 'Country' ) ?>
+            </a>
+        </li>
+
+    </ul>
+
+
+    <ul>
+        <li>
+            <h2>
+                <a href="#">
+                    <?= $this->translate( 'Pagos' ); ?>
+                </a>
+            </h2>
+        </li>
+        <li>
+            <a href="<?=
+                    $this->url(
+                            array(
+                        'module' => 'user' ,
+                        'controller' => 'moneda' ,
+                        'action' => 'index' ) , null , true )
+                    ?>">
+                   <?= $this->translate( 'Moneda' ) ?>
+            </a>
+        </li>
+
+
+    </ul>
+
+
+</div>

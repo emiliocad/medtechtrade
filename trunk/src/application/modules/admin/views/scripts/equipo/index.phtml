@@ -1,5 +1,14 @@
 <h2> <?= $this->translate( 'Equipment' ) ?>:</h2>
 
+
+<!-- Filtrado -->
+<?= $this->render( 'equipo/comp/_filter.phtml' ); ?>
+<!-- fin del Filtrado -->
+
+<!-- Aca Ira La Barra de Navegacion -->
+<?= $this->render( 'equipo/comp/_nav.phtml' ); ?>
+<!-- fin de la Barra de Navegacion -->
+
 <table border="1" class="listado">
     <thead>
         <tr>
@@ -52,6 +61,35 @@
                 </td>
                 <td>
 
+
+                    <? if ( !$equipo->topofers ): ?>
+
+                        <?php
+                        $link = $this->url(
+                                array(
+                                    'module' => 'admin' ,
+                                    'controller' => 'equipo' ,
+                                    'action' => 'addtopofers' ,
+                                    'id' => $id ) )
+                        ?>
+                        <a href="<?= $link ?>">
+                            <?= $this->translate( 'Add Ofers' ); ?> 
+                        </a>
+                    <? else: ?>
+                        <?php
+                        $link = $this->url(
+                                array(
+                                    'module' => 'admin' ,
+                                    'controller' => 'equipo' ,
+                                    'action' => 'quittopofers' ,
+                                    'id' => $id ) )
+                        ?>
+                        <a href="<?= $link ?>">
+                            <?= $this->translate( 'Quit Ofers' ); ?> 
+                        </a>
+
+                    <? endif; ?>
+
                     <?php
                     $link = $this->url(
                             array(
@@ -61,7 +99,7 @@
                                 'id' => $id ) )
                     ?>
                     <a href="<?= $link ?>">
-                        [Editar]
+                        <?= $this->translate( 'Editar' ); ?> 
                     </a>
 
                     <?php

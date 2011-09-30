@@ -7,10 +7,10 @@
         'action' => 'index'
             ) , null , true )
     ?>">
-           <?= $this->translate( 'Buy Equipment' ) ?>
+           <?= $this->translate( 'Home' ) ?>
     </a>
 
-
+    >
     <a href="
     <?=
     $this->url( array(
@@ -22,13 +22,12 @@
     ?>">
            <?= $this->producto->categoria ?>
     </a>
-
-    <a href="#"><?= $this->producto->nombre ?></a>
+    >
+    <?= $this->producto->nombre ?>
 </span>
 
 <h2>
-    <?= $this->translate( 'Manufacturer' ) ?>: <?= $this->producto->fabricante
-    ?>
+    <?= $this->producto->nombre ?>
 </h2>
 
 <div id="device-foto-galery">

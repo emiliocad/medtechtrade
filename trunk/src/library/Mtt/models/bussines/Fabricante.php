@@ -1,32 +1,86 @@
 <?php
-/* 
+
+/*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 
-/**
- * Description of Categoria
- *
- */
-class Mtt_Models_Bussines_Fabricante extends Zend_Db_Table_Abstract {
- 
-    public function getComboValues(){
-        $filas = $this->fetchAll('activo=1')->toArray();
-        $values = array();
-        foreach($filas as $fila){
+
+class Mtt_Models_Bussines_Fabricante
+        extends Mtt_Models_Table_Fabricante
+    {
+
+
+    public function getComboValues()
+        {
+        $filas = $this->fetchAll( 'active=1' )->toArray();
+        $values = array( );
+        foreach ( $filas as $fila )
+            {
             $values[$fila['id']] = $fila['nombre'];
-        }
+            }
         return $values;
-    }
-    
-    public function detalle($id){
-        $sql = "SELECT id, nombre, ruc, activo FROM fabricante WHERE id = ".$id;
-        //$sql = sprintf("SELECT id, nombre, ruc, activo FROM fabricante WHERE id = %d ",$id);
-        
-        //$this->fetchRow(array('id=?'=>$id));
-        
-        return $this->getAdapter()->fetchRow($sql);
-    }
+        }
 
 
-}
+//    public function getFindId( $id )
+//        {
+////        $db = $this->getAdapter();
+////        $query = $db->select()
+////                ->from( $this->_name )
+////                ->where( 'id = ?' , $id )
+////                ->where( 'active = ?' , '1' )
+////                ->query()
+////        ;
+//        return $this->fetchRow( 'id = ' . $id );
+//        }
+
+    public function listar()
+        {
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from( $this->_name )
+                ->where( 'active = ?' , '1' )
+                ->query()
+        ;
+
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }
+
+
+    public function updateFabricante( array $data , $id )
+        {
+
+        $this->update( $data , 'id = ' . $id );
+        }
+
+
+    public function saveFabricante( array $data )
+        {
+
+        $this->insert( $data );
+        }
+
+
+    public function deleteFabricante( $id )
+        {
+
+        $this->delete( 'id = ?' , $id );
+        }
+
+
+    public function activarFabricante( $id )
+        {
+
+        $this->update( array( "active" => self::ACTIVE ) , 'id = ' . $id );
+        }
+
+
+    public function desactivarFabricante( $id )
+        {
+
+        $this->update( array( "active" => self::DESACTIVATE ) , 'id = ' . $id );
+        }
+
+
+    }

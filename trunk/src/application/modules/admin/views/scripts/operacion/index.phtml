@@ -1,0 +1,46 @@
+<h2> <?= $this->translate( 'Operations' ) ?>:</h2>
+
+<table border="1" class="listado">
+    <thead>
+        <tr>
+            <th><?= $this->translate( 'Date' ) ?></th>
+            <th><?= $this->translate( 'Type' ) ?></th>
+            <th><?= $this->translate( 'User' ) ?></th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ( $this->operaciones as $operacion ): ?>
+
+            <?php $id = $operacion->id; ?>
+            <tr>
+                <td>
+                    <?= $this->escape( $operacion->fecha ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $operacion->estadooperacion ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $operacion->usuario ) ?>
+                </td>
+
+                <td>
+
+                    <?php
+                    $link = $this->url(
+                            array(
+                                'module' => 'admin' ,
+                                'controller' => 'operacion' ,
+                                'action' => 'ver' ,
+                                'id' => $id ) )
+                    ?>
+                    <a href="<?= $link ?>">
+                        [Ver]
+                    </a>
+
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+<br />

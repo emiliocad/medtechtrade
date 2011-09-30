@@ -37,6 +37,13 @@ class IdiomaController extends Mtt_Controller_Action
         $this->view->assign( 'mtt' , $mtt );
         $this->_redirect($_SERVER['HTTP_REFERER']);
         }
+    public function poloniaAction()
+        {
+        $mtt = new Zend_Session_Namespace( 'MTT' );
+        $mtt->lang = 'pl';
+        $this->view->assign( 'mtt' , $mtt );
+        $this->_redirect( $_SERVER['HTTP_REFERER'] );
+        }
 
     }
 

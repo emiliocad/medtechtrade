@@ -11,7 +11,7 @@ class Admin_EquipoController
     public function init()
         {
         parent::init();
-        $this->_equipo = new Mtt_Models_Bussines_Equipo();
+        $this->_equipo = new Mtt_Models_Catalog_Equipo();
         }
 
 
@@ -21,16 +21,79 @@ class Admin_EquipoController
                 'equipos' , $this->_equipo->listEquip()
         );
         }
+
+
+
+    public function detalleAction()
+        {
+        $this->view->jQuery()
+              /*  ->addStylesheet(
+                        '"http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css'
+                )*/
+                /*->addJavascriptFile(
+                        'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js'
+                )*/
+                ->addOnLoad(
+                        ' $(document).ready(function() {
+                            $("#tabs").tabs();
+                          });'
+                )
+        ;
+        
+        //$this->_equipo->get
+        }
+
+        
+        
+        
     public function questionAction()
         {
         
         }
+
+
     public function addtopofersAction()
         {
-        
+        $id = intval( $this->_getParam( 'id' , null ) );
+        $this->_equipo->addTopOfers( $id );
+        $this->_helper->FlashMessenger( 'se Agrego como Top Ofers  ' . $id );
+        $this->_redirect( $_SERVER['HTTP_REFERER'] );
         }
 
 
+    public function quittopofersAction()
+        {
+        $id = intval( $this->_getParam( 'id' , null ) );
+        $this->_equipo->quitTopOfers( $id );
+        $this->_helper->FlashMessenger( 'se a quitado de Top Ofers  ' . $id );
+        $this->_redirect( $_SERVER['HTTP_REFERER'] );
+        }
+
+        
+    public function stadisticsequipoAction()
+        {
+         $this->view->headScript()->appendFile(
+                 $this->view->
+                 baseUrl()."/js/estadistica/fgCharting.jQuery.js");
+         $this->view->headScript()->appendFile(
+                 $this->view->
+                 baseUrl()."/js/estadistica/excanvas-compressed.js");
+         $this->view->jQuery()
+                  ->addOnLoad(
+                        '$(document).ready(function() {
+                            if($.browser.msie) { 
+                                setTimeout(function(){$.fgCharting();}, 2000);
+                            } else {
+                                $.fgCharting();
+                            }	
+                        });'
+                );
+         $this->view->assign( 'equipos' ,
+                 $this->_equipo->listEquipMoreVisited( 10));
+        }      
+
+        
+        
     public function verAction()
         {
         $id = intval( $this->_getParam( 'id' , null ) );

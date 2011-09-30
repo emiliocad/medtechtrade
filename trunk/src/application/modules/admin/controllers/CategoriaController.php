@@ -26,7 +26,10 @@ class Admin_CategoriaController
     public function registrarAction()
         {
         $form = new Mtt_Form_Categoria();
-        if ( $this->_request->isPost() && $form->isValid( $this->_request->getPost() ) )
+        if ( $this->_request->isPost() && $form->isValid(
+                        $this->_request->getPost()
+                )
+        )
             {
 
             $categoria = $form->getValues();
@@ -51,12 +54,27 @@ class Admin_CategoriaController
         ;
 
         $data = $this->_request->getPost();
+        $nombre = ( string ) $this->_request->getParam( 'nombre' );
         unset( $data["nombre"] );
         unset( $data["MAX_FILE_SIZE"] );
         unset( $data["submit"] );
 
         $categoria = $this->_categoria->getFindId( $id );
 
+        $upload = $form->thumbnail->getTransferAdapter();
+
+        $target = str_replace(
+                        ' ' , '' , $nombre
+                ) . '_' . $id . '.jpg';
+
+        $f = new Zend_Filter_File_Rename(
+                        array(
+                            'target' => $target ,
+                            'overwrite' => true
+                        )
+        );
+
+        $upload->addFilter( $f );
 
 
         if ( !is_null( $categoria ) )
@@ -67,6 +85,11 @@ class Admin_CategoriaController
                 {
                 if ( $form->thumbnail->receive() )
                     {
+
+                    $arrayTmp = array( 'thumbnail' => $target );
+
+                    $data = array_merge( $data , $arrayTmp );
+
                     $this->_categoria->updateCategoria( $data , $id );
                     $this->_helper->FlashMessenger( 'Se modificó La Categoria' );
                     $this->_redirect( $this->URL );
@@ -94,7 +117,7 @@ class Admin_CategoriaController
     public function borrarAction()
         {
         $id = intval( $this->_request->getParam( 'id' ) );
-        $this->_moneda->desactivarCategoria( $id );
+        $this->_categoria->desactivarCategoria( $id );
         $this->_helper->FlashMessenger( 'Categoria Borrada' );
         $this->_redirect( $this->URL );
         }
@@ -103,7 +126,7 @@ class Admin_CategoriaController
     public function activarAction()
         {
         $id = intval( $this->_request->getParam( 'id' ) );
-        $this->_moneda->activarCategoria( $id );
+        $this->_categoria->activarCategoria( $id );
         $this->_helper->FlashMessenger( 'Categoria Activado' );
         $this->_redirect( $this->URL );
         }
@@ -112,7 +135,7 @@ class Admin_CategoriaController
     public function desactivarAction()
         {
         $id = intval( $this->_request->getParam( 'id' ) );
-        $this->_moneda->desactivarCategoria( $id );
+        $this->_categoria->desactivarCategoria( $id );
         $this->_helper->FlashMessenger( 'Categoria desactivado' );
         $this->_redirect( $this->URL );
         }

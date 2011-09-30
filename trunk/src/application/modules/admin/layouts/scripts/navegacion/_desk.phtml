@@ -12,8 +12,8 @@
             <?=
             $this->url( array(
                 'module' => 'admin' ,
-                'controller' => 'tipousuario' ,
-                'action' => 'index' ) , null , true )
+                'controller' => 'user' ,
+                'action' => 'activausuarios' ) , null , true )
             ?>">
                    <?= $this->translate( 'Activation pending users' ) ?>
             </a>
@@ -56,8 +56,8 @@
             <?=
             $this->url( array(
                 'module' => 'admin' ,
-                'controller' => 'index' ,
-                'action' => 'index' ) , null , true )
+                'controller' => 'reserva' ,
+                'action' => 'equiposreservados' ) , null , true )
             ?>">
                    <?= $this->translate( 'Equipos reservados' ) ?>
             </a>

@@ -1,0 +1,619 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Medtechtrade\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-28 18:42-0500\n"
+"PO-Revision-Date: 2011-09-28 18:42-0500\n"
+"Last-Translator: Luis Mayta <slovacus@gmail.com>\n"
+"Language-Team: StockerGroup <slovacus@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;translate\n"
+"X-Poedit-Basepath: E:\\Project\\Zend\\medtechtrade.zend.local\\trunk\\src\\application\n"
+"X-Poedit-Language: Polish\n"
+"X-Poedit-Country: POLAND\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: modules/admin/controllers/UserController.php:68
+msgid "Changed a User"
+msgstr ""
+
+#: modules/admin/controllers/UserController.php:77
+msgid "No User"
+msgstr ""
+
+#: modules/admin/controllers/UserController.php:88
+msgid "Usuario Desactivado"
+msgstr ""
+
+#: modules/admin/controllers/UserController.php:106
+msgid "Se Registro el Usuario"
+msgstr ""
+
+#: layouts/scripts/_footer.phtml:9
+msgid "home"
+msgstr "Polaco"
+
+#: layouts/scripts/_footer.phtml:26
+msgid "About Us"
+msgstr ""
+
+#: layouts/scripts/_footer.phtml:35
+msgid "Powered by Stocker Group"
+msgstr ""
+
+#: layouts/scripts/_header.phtml:26
+msgid "English"
+msgstr ""
+
+#: layouts/scripts/_header.phtml:36
+msgid "Spanish"
+msgstr ""
+
+#: layouts/scripts/_header.phtml:45
+msgid "Deutsch"
+msgstr ""
+
+#: layouts/scripts/_header.phtml:55
+msgid "Polish"
+msgstr ""
+
+#: layouts/scripts/_header.phtml:62
+msgid "Visitante"
+msgstr ""
+
+#: layouts/scripts/_navegacion.phtml:9
+msgid "Home"
+msgstr "polaco menu 1"
+
+#: layouts/scripts/_navegacion.phtml:20
+msgid "Buy equipment"
+msgstr ""
+
+#: layouts/scripts/_navegacion.phtml:31
+msgid "Sell/trade-in Equipment"
+msgstr ""
+
+#: layouts/scripts/_navegacion.phtml:43
+msgid "Contact us"
+msgstr ""
+
+#: layouts/scripts/_navegacion.phtml:53
+msgid "my account"
+msgstr ""
+
+#: modules/admin/layouts/scripts/layout.phtml:110
+msgid "Most Requested Operations"
+msgstr ""
+
+#: modules/admin/layouts/scripts/_header.phtml:14
+msgid "Welcome"
+msgstr ""
+
+#: modules/admin/layouts/scripts/_header.phtml:17
+msgid "Date"
+msgstr ""
+
+#: modules/admin/layouts/scripts/_header.phtml:27
+msgid "Logout"
+msgstr ""
+
+#: modules/admin/layouts/scripts/_navegacion.phtml:6
+msgid "Desk"
+msgstr ""
+
+#: modules/admin/layouts/scripts/_navegacion.phtml:24
+msgid "Users"
+msgstr ""
+
+#: modules/admin/layouts/scripts/_navegacion.phtml:41
+msgid "Equipment"
+msgstr ""
+
+#: modules/admin/layouts/scripts/_navegacion.phtml:57
+msgid "Questions"
+msgstr ""
+
+#: modules/admin/layouts/scripts/_navegacion.phtml:73
+msgid "Operations"
+msgstr ""
+
+#: modules/admin/layouts/scripts/_navegacion.phtml:83
+#: modules/admin/layouts/scripts/navegacion/_statistics.phtml:6
+msgid "Statistics"
+msgstr ""
+
+#: modules/admin/layouts/scripts/_navegacion.phtml:94
+#: modules/admin/layouts/scripts/navegacion/_configuration.phtml:6
+#: modules/admin/layouts/scripts/navegacion/_desk.phtml:6
+msgid "Configuration"
+msgstr ""
+
+#: modules/admin/layouts/scripts/_navegacion.phtml:105
+#: modules/admin/layouts/scripts/navegacion/_cms.phtml:6
+msgid "CMS"
+msgstr ""
+
+#: modules/admin/layouts/scripts/navegacion/_cms.phtml:18
+msgid "List of Page"
+msgstr ""
+
+#: modules/admin/layouts/scripts/navegacion/_cms.phtml:29
+msgid "Creation of Page"
+msgstr ""
+
+#: modules/admin/layouts/scripts/navegacion/_configuration.phtml:18
+msgid "Tipo de Monedas"
+msgstr ""
+
+#: modules/admin/layouts/scripts/navegacion/_configuration.phtml:29
+msgid "Manufacturer"
+msgstr ""
+
+#: modules/admin/layouts/scripts/navegacion/_configuration.phtml:40
+#: modules/admin/views/scripts/categoria/index.phtml:1
+msgid "Category"
+msgstr ""
+
+#: modules/admin/layouts/scripts/navegacion/_desk.phtml:18
+msgid "Activation pending users"
+msgstr ""
+
+#: modules/admin/layouts/scripts/navegacion/_desk.phtml:29
+msgid "yet approved equipment"
+msgstr ""
+
+#: modules/admin/layouts/scripts/navegacion/_desk.phtml:40
+msgid "Questions to answer"
+msgstr ""
+
+#: modules/admin/layouts/scripts/navegacion/_desk.phtml:51
+msgid "Nuevas ventas realizadas"
+msgstr ""
+
+#: modules/admin/layouts/scripts/navegacion/_desk.phtml:62
+msgid "Equipos reservados"
+msgstr ""
+
+#: modules/admin/layouts/scripts/navegacion/_statistics.phtml:18
+msgid "Equipos"
+msgstr ""
+
+#: modules/admin/layouts/scripts/navegacion/_statistics.phtml:29
+msgid "Favoritos"
+msgstr ""
+
+#: modules/admin/layouts/scripts/navegacion/_statistics.phtml:40
+msgid ""
+"\n"
+"                       Reservas"
+msgstr ""
+
+#: modules/admin/views/scripts/categoria/index.phtml:5
+msgid "Name"
+msgstr ""
+
+#: modules/admin/views/scripts/categoria/index.phtml:6
+msgid "Title"
+msgstr ""
+
+#: modules/admin/views/scripts/categoria/index.phtml:7
+msgid "Thumbnail"
+msgstr ""
+
+#: modules/admin/views/scripts/categoria/index.phtml:8
+msgid "Description"
+msgstr ""
+
+#: modules/admin/views/scripts/categoria/index.phtml:9
+msgid "Published"
+msgstr ""
+
+#: modules/admin/views/scripts/categoria/index.phtml:10
+msgid "Order"
+msgstr ""
+
+#: modules/admin/views/scripts/categoria/index.phtml:62
+msgid "¿Estás seguro?"
+msgstr ""
+
+#: modules/admin/views/scripts/categoria/index.phtml:64
+msgid "Borrar"
+msgstr ""
+
+#: modules/admin/views/scripts/categoria/index.phtml:77
+msgid "Desactivar"
+msgstr ""
+
+#: modules/admin/views/scripts/categoria/index.phtml:88
+msgid "Activar"
+msgstr ""
+
+#: modules/admin/views/scripts/cms/index.phtml:2
+msgid "Listado de Pagina"
+msgstr ""
+
+#: modules/admin/views/scripts/cms/index.phtml:41
+msgid "Edit"
+msgstr ""
+
+#: modules/admin/views/scripts/cms/index.phtml:56
+msgid "Estas seguro"
+msgstr ""
+
+#: modules/admin/views/scripts/cms/index.phtml:58
+msgid "Delete"
+msgstr ""
+
+#: modules/admin/views/scripts/cms/index.phtml:103
+#: modules/admin/views/scripts/fabricante/index.phtml:46
+msgid "New"
+msgstr ""
+
+#: modules/admin/views/scripts/equipo/index.phtml:16
+msgid "Modelo"
+msgstr ""
+
+#: modules/admin/views/scripts/equipo/index.phtml:17
+msgid "Categoria"
+msgstr ""
+
+#: modules/admin/views/scripts/equipo/index.phtml:18
+msgid "Estado Equipo"
+msgstr ""
+
+#: modules/admin/views/scripts/equipo/index.phtml:19
+msgid "Usuario"
+msgstr ""
+
+#: modules/admin/views/scripts/equipo/index.phtml:20
+msgid "Fecha de Fabricacion"
+msgstr ""
+
+#: modules/admin/views/scripts/equipo/index.phtml:21
+msgid "Fecha de Publicacion"
+msgstr ""
+
+#: modules/admin/views/scripts/equipo/index.phtml:22
+msgid "Fabricante"
+msgstr ""
+
+#: modules/admin/views/scripts/equipo/index.phtml:23
+msgid "Pais"
+msgstr ""
+
+#: modules/admin/views/scripts/equipo/index.phtml:76
+msgid "Add Ofers"
+msgstr ""
+
+#: modules/admin/views/scripts/equipo/index.phtml:88
+msgid "Quit Ofers"
+msgstr ""
+
+#: modules/admin/views/scripts/equipo/index.phtml:102
+msgid "Editar"
+msgstr ""
+
+#: modules/admin/views/scripts/moneda/index.phtml:2
+msgid "Coins"
+msgstr ""
+
+#: modules/admin/views/scripts/moneda/index.phtml:8
+msgid "Symbol"
+msgstr ""
+
+#: modules/admin/views/scripts/operacion/index.phtml:7
+msgid "Type"
+msgstr ""
+
+#: modules/admin/views/scripts/operacion/index.phtml:8
+msgid "User"
+msgstr ""
+
+#: modules/admin/views/scripts/user/index.phtml:9
+msgid "Nombre"
+msgstr ""
+
+#: modules/admin/views/scripts/user/index.phtml:12
+msgid "Apellido"
+msgstr ""
+
+#: modules/admin/views/scripts/user/index.phtml:15
+msgid "Email"
+msgstr ""
+
+#: modules/admin/views/scripts/user/index.phtml:18
+msgid "Login"
+msgstr ""
+
+#: modules/admin/views/scripts/user/index.phtml:21
+msgid "Rol"
+msgstr ""
+
+#: modules/admin/views/scripts/user/index.phtml:24
+msgid "Fecha De Registro"
+msgstr ""
+
+#: modules/admin/views/scripts/user/index.phtml:27
+msgid "Ciudad"
+msgstr ""
+
+#: modules/admin/views/scripts/user/index.phtml:30
+msgid "Cod. Postal"
+msgstr ""
+
+#: modules/admin/views/scripts/user/index.phtml:36
+msgid "Operaciones"
+msgstr ""
+
+#: modules/admin/views/scripts/user/index.phtml:142
+msgid "Nuevo"
+msgstr ""
+
+#: modules/admin/views/scripts/user/operation.phtml:2
+msgid "Operations of Usuario"
+msgstr ""
+
+#: modules/user/layouts/scripts/_navegacion.phtml:6
+msgid "Desktop"
+msgstr ""
+
+#: modules/user/layouts/scripts/_navegacion.phtml:24
+msgid "My data"
+msgstr ""
+
+#: modules/user/layouts/scripts/_navegacion.phtml:41
+#: modules/user/layouts/scripts/navegacion/_sales.phtml:6
+msgid "My Sales"
+msgstr ""
+
+#: modules/user/layouts/scripts/_navegacion.phtml:58
+#: modules/user/layouts/scripts/navegacion/_purchases.phtml:6
+msgid "My Purchases"
+msgstr ""
+
+#: modules/user/layouts/scripts/navegacion/_desktop.phtml:18
+msgid "Type User"
+msgstr ""
+
+#: modules/user/layouts/scripts/navegacion/_desktop.phtml:29
+msgid "Equipment State"
+msgstr ""
+
+#: modules/user/layouts/scripts/navegacion/_desktop.phtml:40
+msgid "Country"
+msgstr ""
+
+#: modules/user/layouts/scripts/navegacion/_desktop.phtml:51
+msgid "Pagos"
+msgstr ""
+
+#: modules/user/layouts/scripts/navegacion/_desktop.phtml:63
+msgid "Moneda"
+msgstr ""
+
+#: modules/user/layouts/scripts/navegacion/_purchases.phtml:18
+msgid "FAVORITOS"
+msgstr ""
+
+#: modules/user/layouts/scripts/navegacion/_purchases.phtml:29
+msgid "RESERVAS"
+msgstr ""
+
+#: modules/user/layouts/scripts/navegacion/_purchases.phtml:40
+msgid "COMPRAS ACTIVAS"
+msgstr ""
+
+#: modules/user/layouts/scripts/navegacion/_purchases.phtml:51
+msgid "MIS PREGUNTAS"
+msgstr ""
+
+#: modules/user/layouts/scripts/navegacion/_purchases.phtml:63
+msgid "MIS PAGOS"
+msgstr ""
+
+#: modules/user/layouts/scripts/navegacion/_purchases.phtml:74
+msgid "MIS Envios"
+msgstr ""
+
+#: modules/user/layouts/scripts/navegacion/_sales.phtml:18
+msgid "Publicar"
+msgstr ""
+
+#: modules/user/layouts/scripts/navegacion/_sales.phtml:29
+msgid "Pendientes"
+msgstr ""
+
+#: modules/user/layouts/scripts/navegacion/_sales.phtml:40
+msgid "Activos"
+msgstr ""
+
+#: modules/user/layouts/scripts/navegacion/_sales.phtml:51
+msgid "Vendidos"
+msgstr ""
+
+#: modules/user/layouts/scripts/navegacion/_sales.phtml:63
+msgid "no Vendidos"
+msgstr ""
+
+#: modules/user/views/scripts/equipo/reservas.phtml:6
+#: modules/user/views/scripts/equipo/veractivos.phtml:6
+#: modules/user/views/scripts/equipo/vernovendidos.phtml:6
+#: modules/user/views/scripts/equipo/verpendientes.phtml:6
+#: modules/user/views/scripts/equipo/vervendidos.phtml:6
+msgid "Price"
+msgstr ""
+
+#: modules/user/views/scripts/equipo/reservas.phtml:8
+#: modules/user/views/scripts/equipo/veractivos.phtml:8
+#: modules/user/views/scripts/equipo/vernovendidos.phtml:8
+#: modules/user/views/scripts/equipo/verpendientes.phtml:8
+#: modules/user/views/scripts/equipo/vervendidos.phtml:8
+msgid "Status"
+msgstr ""
+
+#: modules/user/views/scripts/equipo/reservas.phtml:9
+#: modules/user/views/scripts/equipo/veractivos.phtml:9
+#: modules/user/views/scripts/equipo/vernovendidos.phtml:9
+#: modules/user/views/scripts/equipo/verpendientes.phtml:9
+#: modules/user/views/scripts/equipo/vervendidos.phtml:9
+msgid "Factory"
+msgstr ""
+
+#: modules/user/views/scripts/equipo/reservas.phtml:10
+#: modules/user/views/scripts/equipo/veractivos.phtml:10
+#: modules/user/views/scripts/equipo/verpendientes.phtml:10
+msgid "Quality"
+msgstr ""
+
+#: modules/user/views/scripts/equipo/vernovendidos.phtml:11
+#: modules/user/views/scripts/equipo/vervendidos.phtml:11
+msgid "Quantity"
+msgstr ""
+
+#: views/scripts/categoria/index.phtml:26
+#: views/scripts/categoria/index.phtml:86
+msgid "Click to see all"
+msgstr ""
+
+#: views/scripts/categoria/index.phtml:56
+#: views/scripts/categoria/index.phtml:112
+#: views/scripts/equipo/index.phtml:42
+#: views/scripts/equipo/ver.phtml:54
+msgid "Product name"
+msgstr ""
+
+#: views/scripts/categoria/index.phtml:69
+#: views/scripts/categoria/index.phtml:126
+#: views/scripts/equipo/index.phtml:55
+msgid "View details"
+msgstr ""
+
+#: views/scripts/categoria/index.phtml:80
+msgid "Top Seller in"
+msgstr ""
+
+#: views/scripts/checkout/cart.phtml:2
+msgid "Lo que tienes en tu Carro"
+msgstr ""
+
+#: views/scripts/contacto/index.phtml:4
+msgid "Contactenos"
+msgstr ""
+
+#: views/scripts/equipo/index.phtml:2
+msgid "Purchase of equipment"
+msgstr ""
+
+#: views/scripts/equipo/index.phtml:11
+msgid "Our Equipment"
+msgstr ""
+
+#: views/scripts/equipo/ver.phtml:50
+msgid "Advanced Search"
+msgstr ""
+
+#: views/scripts/equipo/ver.phtml:86
+#: views/scripts/equipo/guest/deviceActions.phtml:4
+msgid "Download PDF"
+msgstr ""
+
+#: views/scripts/equipo/ver.phtml:91
+#: views/scripts/equipo/guest/deviceActions.phtml:9
+msgid "Print"
+msgstr ""
+
+#: views/scripts/equipo/ver.phtml:96
+#: views/scripts/equipo/guest/deviceActions.phtml:14
+msgid "I Need Help"
+msgstr ""
+
+#: views/scripts/equipo/ver.phtml:101
+#: views/scripts/equipo/guest/deviceActions.phtml:19
+msgid "Tell a Friend"
+msgstr ""
+
+#: views/scripts/equipo/guest/deviceDescription.phtml:2
+msgid "Model"
+msgstr ""
+
+#: views/scripts/equipo/guest/deviceDescription.phtml:8
+msgid "Origin"
+msgstr ""
+
+#: views/scripts/equipo/guest/deviceDescription.phtml:14
+msgid "Article ID"
+msgstr ""
+
+#: views/scripts/equipo/guest/deviceDescription.phtml:20
+msgid "Date/Year of manufacture"
+msgstr ""
+
+#: views/scripts/equipo/guest/deviceDescription.phtml:26
+msgid "Estimated weight (KG)"
+msgstr ""
+
+#: views/scripts/equipo/guest/deviceDescription.phtml:32
+msgid "Quality/Condition"
+msgstr ""
+
+#: views/scripts/equipo/guest/deviceDescription.phtml:38
+msgid "Mode Amount of equipment"
+msgstr ""
+
+#: views/scripts/equipo/guest/deviceDescription.phtml:51
+msgid "Specifications"
+msgstr ""
+
+#: views/scripts/equipo/guest/deviceDescription.phtml:54
+msgid "Temperature Range"
+msgstr ""
+
+#: views/scripts/equipo/guest/deviceDescription.phtml:55
+msgid "Capacity Cu."
+msgstr ""
+
+#: views/scripts/equipo/guest/deviceDescription.phtml:57
+msgid "Interior dimensions"
+msgstr ""
+
+#: views/scripts/equipo/guest/deviceDescription.phtml:58
+msgid "Exterior dimensions"
+msgstr ""
+
+#: views/scripts/equipo/guest/deviceDescription.phtml:59
+msgid "Shipping weight"
+msgstr ""
+
+#: views/scripts/equipo/guest/deviceDescription.phtml:61
+msgid "Amps"
+msgstr ""
+
+#: views/scripts/equipo/user/deviceActions.phtml:10
+#: views/scripts/equipo/user/deviceQuestion.phtml:3
+msgid "Ask a Question"
+msgstr ""
+
+#: views/scripts/equipo/user/deviceActions.phtml:23
+#: views/scripts/equipo/user/deviceQuestion.phtml:16
+msgid "Add Cart"
+msgstr ""
+
+#: views/scripts/equipo/user/deviceActions.phtml:36
+msgid "Add Favorite"
+msgstr ""
+
+#: views/scripts/equipo/user/deviceActions.phtml:49
+msgid "Add to Reserve"
+msgstr ""
+
+#: views/scripts/index/index.phtml:15
+msgid "Welcome to Medtechtrade"
+msgstr ""
+
+#: views/scripts/index/index.phtml:33
+msgid "Top Offers"
+msgstr ""
+

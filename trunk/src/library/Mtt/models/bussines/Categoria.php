@@ -61,6 +61,7 @@ class Mtt_Models_Bussines_Categoria
 
     public function listCategory()
         {
+
         
         $db = $this->getAdapter();
 
@@ -75,7 +76,9 @@ class Mtt_Models_Bussines_Categoria
         }
 
 
-        
+       
+
+
     public function getCategoria( $id )
         {
         $db = $this->getAdapter();
@@ -128,7 +131,7 @@ class Mtt_Models_Bussines_Categoria
         }
 
 
-   
 
+   
 
     }

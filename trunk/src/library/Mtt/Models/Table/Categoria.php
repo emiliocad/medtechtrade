@@ -5,10 +5,20 @@
  * and open the template in the editor.
  */
 
-class Mtt_Models_Table_Categoria extends Zend_Db_Table_Abstract
+
+class Mtt_Models_Table_Categoria
+        extends Mtt_Db_Table_Abstract
     {
 
     protected $_name = 'categoria';
+    protected $_primary = 'id';
+
+
+    public function __construct()
+        {
+        parent::__construct();
+        }
+
 
     public function listar()
         {
@@ -22,5 +32,5 @@ class Mtt_Models_Table_Categoria extends Zend_Db_Table_Abstract
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
 
-   
+
     }

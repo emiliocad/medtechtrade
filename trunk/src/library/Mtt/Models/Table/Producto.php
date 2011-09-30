@@ -1,3 +1,4 @@
+
 <?php
 
 /*
@@ -6,7 +7,7 @@
  */
 
 
-class Mtt_Models_Table_Equipo
+class Mtt_Models_Table_Producto
         extends Mtt_Db_Table_Abstract
     {
 
@@ -15,3 +16,4 @@ class Mtt_Models_Table_Equipo
 
 
     }
+

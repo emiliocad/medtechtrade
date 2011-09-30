@@ -3,7 +3,7 @@
         <?= $this->translate( 'Welcome' ) ?>
     </h2>
 
-<?=$this->formOrder ?>
+    <?= $this->formOrder ?>
 
     <br/>
 
@@ -13,18 +13,40 @@
 </header>
 
 <span class="see-more">
-    <a href="#">
-        <?=
-        $this->translate( 'Click to see all' )
-        ?>
+    <a href="<?=
+        $this->url(
+                array(
+            'module' => 'default' ,
+            'controller' => 'equipo' ,
+            'action' => 'index' )
+                , null , true
+        )
+        ?>">
+           <?=
+           $this->translate( 'Click to see all' )
+           ?>
     </a>
 </span>
 <div class="device-horizontal-list">
     <?php foreach ( $this->productos as $producto ): ?>
 
         <div>
-            <img src="/media/catalog/product/device-00.png" 
-                 alt="<?= $producto->nombre ?>">
+
+
+            <a href="
+            <?=
+            $this->url( array( 'module' => 'default' ,
+                'controller' => 'equipo' ,
+                'action' => 'ver' ,
+                'id' => $producto->id ) , null , true )
+            ?>
+               ">
+
+                <img src="/media/catalog/product/device-00.png" 
+
+
+                     alt="<?= $producto->nombre ?>">
+            </a>
 
             <span class="manufacturer">
                 <?= $this->translate( 'Manufacturer' ) ?> : 
@@ -66,30 +88,46 @@
 </span>
 
 <div class="device-horizontal-list">
-    <div>
-        <img src="/media/catalog/product/device-00.png" alt="Device 00">
-        <span class="manufacturer">Manufacturer: Zeiss</span>
-        <span class="name">Product name: Microscop</span>
-        <a href="#"><span>View details</span></a>
-    </div>
-    <div>
-        <img src="/media/catalog/product/device-01.png" alt="Device 01">
-        <span class="manufacturer">Manufacturer: Zeiss</span>
-        <span class="name">Product name: Microscop</span>
-        <a href="#"><span>View details</span></a>
-    </div>
-    <div>
-        <img src="/media/catalog/product/device-00.png" alt="Device 00">
-        <span class="manufacturer">Manufacturer: Zeiss</span>
-        <span class="name">Product name: Microscop</span>
-        <a href="#"><span>View details</span></a>
-    </div>
-    <div>
-        <img src="/media/catalog/product/device-01.png" alt="Device 01">
-        <span class="manufacturer">Manufacturer: Zeiss</span>
-        <span class="name">Product name: Microscop</span>
-        <a href="#"><span>View details</span></a>
-    </div>
+
+    <?php foreach ( $this->equipoOfert as $producto ): ?>
+        <div>
+
+            <a href="
+            <?=
+            $this->url( array( 'module' => 'default' ,
+                'controller' => 'equipo' ,
+                'action' => 'ver' ,
+                'id' => $producto->id ) , null , true )
+            ?>
+               ">
+                <img src="/media/catalog/product/device-00.png" 
+                     alt="<?= $producto->nombre ?>">
+            </a>
+
+            <span class="manufacturer">
+                <?= $this->translate( 'Manufacturer' ) ?>
+                : <?= $producto->fabricante ?>
+            </span>
+            <span class="name">
+                <?= $this->translate( 'Product name' ) ?>
+                : 
+                <?= $producto->nombre ?>
+            </span>
+            <a href="
+            <?=
+            $this->url(
+                    array(
+                'controller' => 'equipo' ,
+                'action' => 'ver' , 'id' => $producto->id
+                    ) , null , true
+            )
+            ?>">
+                <span>
+                    <?= $this->translate( 'View details' ) ?>
+                </span>
+            </a>
+        </div>
+    <?php endforeach; ?>
 
 
 </div>

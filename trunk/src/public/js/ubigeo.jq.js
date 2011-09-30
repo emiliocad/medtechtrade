@@ -18,9 +18,9 @@ $(function(){
                     provincia = response[i]
                     $option = $('<option>');
                     $option
-                        .attr('value',provincia.idprovincia)
-                        .text(provincia.nombre)
-                        ;
+                    .attr('value',provincia.idprovincia)
+                    .text(provincia.nombre)
+                    ;
                     $('#provincia select').append($option);
                 }
                 $('#provincia').slideDown('slow');
@@ -44,9 +44,9 @@ $(function(){
                     distrito = response[i]
                     $option = $('<option>');
                     $option
-                        .attr('value',distrito.iddistrito)
-                        .text(distrito.nombre)
-                        ;
+                    .attr('value',distrito.iddistrito)
+                    .text(distrito.nombre)
+                    ;
                     $('#distrito select').append($option);
                 }
                 $('#distrito').slideDown('slow');

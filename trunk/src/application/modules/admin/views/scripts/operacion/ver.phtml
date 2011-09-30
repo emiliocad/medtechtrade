@@ -1,0 +1,40 @@
+<h2>Detalle Venta</h2>
+<table>
+    <tr>
+        <td>Date</td>
+        <td><?= $this->escape( $this->operacion->fecha ) ?></td>
+    </tr>
+    <tr>
+        <td>Categoria</td>
+        <td><?= $this->escape( $this->operacion->categoria ) ?></td>
+    </tr>
+    <tr>
+        <td>Equipo</td>
+        <td><?= $this->escape( $this->operacion->equipo ) ?></td>
+    </tr>
+    <tr>
+        <td>Fabricante</td>
+        <td><?= $this->escape( $this->operacion->fabricante ) ?></td>
+    </tr>
+    <tr>
+        <td>Modelo</td>
+        <td><?= $this->escape( $this->operacion->modelo ) ?></td>
+    </tr>
+    <tr>
+        <td>Precio</td>
+        <td><?= $this->escape( $this->operacion->precio_op ) ?></td>
+    </tr>
+    <tr>
+        <td>Cantidad</td>
+        <td><?= $this->escape( $this->operacion->cantidad_operacion ) ?></td>
+    </tr>
+</table>
+
+<a href="<?=
+        $this->url(
+                array(
+            'module' => 'admin' ,
+            'controller' => 'operacion' ,
+            'action' => 'index' ) , null , true
+        )
+        ?>">Retornar</a>

@@ -1,74 +1,60 @@
-<ul id="topnav">
-    <li>
-        <a class="current" href="
-           <?=
-           $this->url( array(
-               'module' => 'user' ,
-               'controller' => 'index' ,
-               'action' => 'index' ) , null , true )
-           ?>">
+<div id="sections-buttons-top">
+    <ul>
+        <li class="selected">
+            <span>
+                <a href="
+                <?= $this->url( array( 'controller' => 'index' ,
+                    'action' => 'index' ) , null , true ) ?>">
+
+                    <?= $this->translate( 'Home' ); ?>
+                </a>  
+            </span>
+        </li>
+        <li>
             <span>
 
-                <?= $this->translate( 'Desktop' ); ?>
+                <a href="
+                <?= $this->url( array( 'controller' => 'equipo' ,
+                    'action' => 'index' ) , null , true ) ?>">
 
+                    <?= $this->translate( 'Buy equipment' ); ?>
+                </a>  
             </span>
 
-        </a>
-        <?= $this->render( 'navegacion/_desktop.phtml' ); ?>
-
-    </li>
-    <li>
-        <a  href="
-        <?=
-        $this->url( array(
-            'module' => 'user' ,
-            'controller' => 'equipo' ,
-            'action' => 'index' ) , null , true )
-        ?>">
+        </li>
+        <li>
             <span>
 
-                <?= $this->translate( 'My data' ); ?>
+                <a href="
+                <?= $this->url( array( 'controller' => 'vender' ,
+                    'action' => 'index' ) , null , true ) ?>">
+                       <?= $this->translate( 'Sell/trade-in Equipment' ); ?>
 
+                </a>  
             </span>
 
-        </a>
-
-    </li>
-    <li>
-        <a href="
-        <?=
-        $this->url( array(
-            'module' => 'admin' ,
-            'controller' => 'fabricante' ,
-            'action' => 'index' ) , null , true )
-        ?>">
+        </li>
+        
+        <li>
             <span>
+                <a href="
+                <?= $this->url( array( 'controller' => 'contacto' ,
+                    'action' => 'index' ) , null , true ) ?>">
+                       <?= $this->translate( 'Contact us' ); ?>
 
-                <?= $this->translate( 'My Sales' ); ?>
-
+                </a>  
             </span>
-
-        </a>
-        <?= $this->render( 'navegacion/_sales.phtml' ); ?>
-    </li>
-    <li>
-        <a  href="
-        <?=
-        $this->url( array(
-            'module' => 'admin' ,
-            'controller' => 'categoria' ,
-            'action' => 'index' ) , null , true )
-        ?>">
+        </li>
+        <li>
             <span>
+                <a href="
+                <?= $this->url( array( 'controller' => 'usuario' ,
+                    'action' => 'index' ) , null , true ) ?>">
+                       <?= $this->translate( 'my account' ); ?>
 
-                <?= $this->translate( 'My Purchases' ); ?>
-
+                </a> 
             </span>
+        </li>
+    </ul> 
 
-        </a>
-        <?= $this->render( 'navegacion/_purchases.phtml' ); ?>
-    </li>
-    
-
-</ul>
-
+</div>

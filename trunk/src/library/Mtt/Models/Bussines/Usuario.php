@@ -94,20 +94,61 @@ class Mtt_Models_Bussines_Usuario
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
 
+    public function listarRegistrados()
+        {
+
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from( $this->_name ,
+                        array(
+                    'id' ,
+                    'nombre' ,
+                    'apellido' ,
+                    'email' ,
+                    'login' ,
+                    'fecharegistro' ,
+                    'direccion' ,
+                    'codpostal' ,
+                    'ciudad' ,
+                    'institucion' ,
+                    'active'
+                ) )
+                ->joinInner( 'tipousuario' ,
+                             'tipousuario.id = usuario.tipousuario_id' ,
+                             array( 'tipousuario.nombre as rol' ) )
+                ->joinInner( 'paises' , 'paises.id = usuario.paises_id' ,
+                             array( 'paises.nombre as pais' ) )
+                ->where( 'usuario.active = ?' , self::ACTIVE )
+                ->where( 'usuario.tipousuario_id = ?' ,
+                         Mtt_Models_Bussines_TipoUsuario::REGISTERED
+                )
+                ->query()
+        ;
+
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }
+
+
 
     public function updateUsuario( array $data , $id )
         {
 
         $this->update( $data , 'id = ' . $id );
+
         }
 
 
     public function saveUsuario( array $data )
         {
 
-        $this->insert( $data );
+        if ( ( $this->insert( $data ) ) )
+            {
+            $this->sendMail( $data , 'Registro de Usuario' );
+            }
         }
 
+
+ 
 
     public function deleteUsuario( $id )
         {
@@ -130,4 +171,77 @@ class Mtt_Models_Bussines_Usuario
         }
 
 
+
+ 
+    public function habilitarUsuario( $id )
+        {
+
+        $this->update(
+                array(
+            "tipousuario_id" => Mtt_Models_Table_TipoUsuario::USER ) ,
+                'id = ' . $id );
+        }
+
+
+    public function changePassword( $id , $password )
+        {
+
+        $this->update(
+                array(
+            "clave" => $password ) , 'id = ' . $id );
+        }
+
+
+    /**
+     * para enviar correo de autorizacion
+     * @param array $data
+     * @param string $subject
+     */
+    public function sendMail( array $data , $subject )
+        {
+        $_conf = new Zend_Config_Ini(
+                        APPLICATION_PATH . '/configs/mail.ini'
+        );
+
+        $dataUser = $data['nombre'] . '  ' . $data['apellido'];
+
+        $confMail = $_conf->toArray();
+
+        $config = array(
+            'auth' => $confMail['auth'] ,
+            'username' => $confMail['username'] ,
+            'password' => $confMail['password'] ,
+            'port' => $confMail['port'] );
+
+        $mailTransport = new Zend_Mail_Transport_Smtp(
+                        $confMail['smtp'] ,
+                        $config
+        );
+
+        Mtt_Html_Mail_Mailer::setDefaultFrom();
+        Zend_Mail::setDefaultFrom(
+                $confMail['username'] , $confMail['data']
+        );
+        Zend_Mail::setDefaultTransport( $mailTransport );
+        Zend_Mail::setDefaultFrom(
+                $confMail['username'] , $confMail['data']
+        );
+        Zend_Mail::setDefaultReplyTo(
+                $confMail['username'] , $confMail['data']
+        );
+        $m = new Mtt_Html_Mail_Mailer();
+        $m->setSubject( $subject );
+
+        $m->addTo( $data['email'] );
+
+        $m->setViewParam( 'usuario' , $dataUser )
+                ->setViewParam( 'login' , $data['login'] )
+                ->setViewParam( 'clave' , $data['clave'] )
+        ;
+        $m->sendHtmlTemplate( "index.phtml" );
+        }
+
+
     }
+
+

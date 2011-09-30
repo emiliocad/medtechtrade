@@ -1,0 +1,47 @@
+<div class="sub" style="width: 600px; opacity: 0; display: none; ">
+    <ul>
+        <li>
+            <h2>
+                <a href="#">
+                    <?= $this->translate( 'Statistics' ); ?>
+                </a>
+            </h2>
+        </li>
+        <li>
+            <a href="
+            <?=
+            $this->url( array(
+                'module' => 'admin' ,
+                'controller' => 'equipo' ,
+                'action' => 'stadisticsequipo' ) , null , true )
+            ?>">
+                   <?= $this->translate( 'Equipos' ) ?>
+            </a>
+        </li>
+        <li>
+            <a href="
+            <?=
+            $this->url( array(
+                'module' => 'admin' ,
+                'controller' => 'reserva' ,
+                'action' => 'stadisticsfavoritos' ) , null , true )
+            ?>">
+                   <?= $this->translate( 'Favoritos' ) ?>
+            </a>
+        </li>
+        <li>
+            <a href="
+            <?=
+            $this->url( array(
+                'module' => 'admin' ,
+                'controller' => 'reserva' ,
+                'action' => 'stadisticsreservas' ) , null , true )
+            ?>">
+                   <?= $this->translate( '
+                       Reservas' ) ?>
+            </a>
+        </li>
+        
+
+    </ul>
+</div>

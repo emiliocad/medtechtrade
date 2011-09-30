@@ -64,6 +64,9 @@ PANEL DEL ADMINISTRADOR MTT
 	- TIPO DE MONEDAS
 	- CATEGORIAS
 	- OTROS...
+	SUBTABS
+	1. de las paginas generales (home, about us, team etc.)
+	2. de las paginas con contenido de paises (distintos home, about us etc.)
 
 ---------------------------------------------------------------
 PANEL DEL USUARIO
