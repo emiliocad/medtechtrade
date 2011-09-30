@@ -5,13 +5,13 @@
  * and open the template in the editor.
  */
 
-
-class Mtt_Models_Table_Usuario
-        extends Mtt_Db_Table_Abstract
+/**
+ * Description of Usuario
+ *
+ */
+class Mtt_Models_Table_Usuario extends Zend_Db_Table_Abstract
     {
 
     protected $_name = 'usuario';
-    protected $_primary = 'id';
-
 
     }

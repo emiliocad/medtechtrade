@@ -5,13 +5,13 @@
  * and open the template in the editor.
  */
 
-
-class Mtt_Models_Table_Fabricante
-        extends Mtt_Db_Table_Abstract
+/**
+ * Description of Categoria
+ *
+ */
+class Mtt_Models_Table_Fabricante extends Zend_Db_Table_Abstract
     {
 
-    protected $_name = 'fabricantes';
-    protected $_primary = 'id';
-
+    protected $_name = 'fabricante';
 
     }
