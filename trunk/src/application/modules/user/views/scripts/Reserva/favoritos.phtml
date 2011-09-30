@@ -1,8 +1,10 @@
 <h2>Favoritos</h2>
+<?php $i = 0; ?>
 <div class="caja">
     <?php foreach ( $this->favoritos as $favorito ): ?>
+        <?php $i++; ?>
+    <div class="fichaproducto" >
 
-        <div class="fichaproducto ">
             <p>
                 <img src="/media/catalog/product/device-00.png" 
                      alt="<?= $favorito->equipo ?>">
@@ -16,7 +18,7 @@
                 ?> 
                    ">
                     <span >
-                        <?= $this->translate( 'Delete' ) ?>
+    <?= $this->translate( 'Delete' ) ?>
                     </span>
                 </a>
             </p>
@@ -29,6 +31,6 @@
             <p><?= $this->escape( $favorito->imageNombre ) ?></p>
         </div>
 
-    <?php endforeach; ?>
+<?php endforeach; ?>
 
 </div>    

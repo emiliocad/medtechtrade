@@ -23,7 +23,10 @@ class User_ReservaController
 
     public function favoritosAction()
         {
-        
+        $this->view->jQuery()
+                ->addStylesheet(
+                        $this->view->baseUrl().'/css/reserva.css'
+        );
         $this->view->assign(
                 'favoritos' , 
                 $this->_reserva->getReservaByUser(
