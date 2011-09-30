@@ -1,7 +1,9 @@
 /* reserva */
 .caja { 
-    width: 100%; overflow: hidden; margin: 0 0 1em 0; display: block; 
-    overflow: hidden; 
+    margin: 5px 0 0 4px;
+    display: inline-block;
+    text-align: center;
+    width: 175px;
 }
 
 .col1, .col2, .col3, .col4, .col5, .col6, .col7, .col8, .col9, .col10, .col11, 
@@ -25,5 +27,26 @@
 .col12 { width: 940px; margin: 0; }
 .col50 { width: 48.15%;  }
 
-.fichaproducto { float: left; margin: 0 20px 0 0; overflow: hidden; }
-.fichaproducto tr { width: 120px;}
+
+.fichaproducto { float: left; margin: 0 20px 0 0; overflow: hidden; width: 220}
+.tabfinal { margin-right: 0;}
+
+/* Estilos para tablas de listado*/
+.listado {
+    width: 520px;
+    background-color: #e6e6e6;
+}
+
+.listado thead {
+    background-color: #0b88b5;
+}
+
+.listado thead th {
+    font-size: 15px;
+    font-weight: bold;
+    color: #faf7fa;
+}
+
+.listado tbody td {
+    padding: 5px;
+}
