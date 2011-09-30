@@ -19,9 +19,14 @@ class CategoriaController
 
     public function indexAction()
         {
+
         $id = intval( $this->_getParam( 'id' , null ) );
 
-        $stmt = $this->_categoria->getProducts( $id );
+
+        $order = $this->_getParam( 'order' , 'modelo' );
+
+
+        $stmt = $this->_categoria->getProducts( $id , $order );
 
         $this->view->assign( 'productos' , $stmt );
 

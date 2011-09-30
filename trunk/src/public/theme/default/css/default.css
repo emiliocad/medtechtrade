@@ -286,7 +286,7 @@ a:hover	{
     border-top: dotted 1px #CCC;
 }
 .device-horizontal-list	div	{
-    margin: 5px 0 0 4px;
+    margin: 5px 0 0 2px;
     display: inline-block;
     text-align: center;
     width: 175px;

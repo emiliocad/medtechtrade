@@ -8,13 +8,14 @@
 </h3>
 <span class="see-more">
     <a href="#">
-        Click to see all
+        <?= $this->translate( 'Click to see all' ) ?>
     </a>
 </span>
+
 <div class="device-horizontal-list">
     <?php foreach ( $this->productos as $producto ): ?>
 
-        <div>
+    <div>
             <a href="
             <?=
             $this->url( array( 'module' => 'default' ,

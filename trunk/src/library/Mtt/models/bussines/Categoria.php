@@ -21,13 +21,13 @@ class Mtt_Models_Bussines_Categoria
         }
 
 
-    public function getProducts( $id )
+    public function getProducts( $id ,$order = "modelo" )
         {
         $_producto = new Mtt_Models_Bussines_Equipo();
         $db = $this->getAdapter();
 
         $query = $db->select()
-                ->from( 'equipo' , array( 'id' , 'nombre' ) )
+                ->from( 'equipo' , array( 'id' , 'nombre' , 'modelo') )
                 ->joinInner( $this->_name ,
                              'categoria.id = equipo.categoria_id ' ,
                              array( 'categoria.nombre as categoria' )
@@ -41,6 +41,7 @@ class Mtt_Models_Bussines_Categoria
                 )
                 ->where( 'equipo.active IN (?)' , self::ACTIVE )
                 ->where( 'equipo.categoria_id IN (?)' , $id )
+                ->order( $order )
                 ->query();
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
