@@ -10,8 +10,9 @@ class User_UserController
 
     public function init()
         {
-        parent::init();
+
         $this->_user = new Mtt_Models_Bussines_Usuario();
+        parent::init();
         }
 
 
@@ -50,7 +51,9 @@ class User_UserController
                         $form->getValues() , $id
                 );
                 $this->_helper->FlashMessenger(
-                        $this->translate( 'Changed a User' )
+                        $this->_translate->translate(
+                                'Changed a User'
+                        )
                 );
                 $this->_redirect( $this->URL );
                 }
@@ -59,7 +62,9 @@ class User_UserController
             }
         else
             {
-            $this->_helper->FlashMessenger( $this->translate( 'No User' ) );
+            $this->_helper->FlashMessenger(
+                    $this->_translate->translate( 'No User' )
+            );
             $this->_redirect( $this->URL );
             }
         }
@@ -74,7 +79,11 @@ class User_UserController
 
 
 
-        $form->submit->setLabel( 'Change Password' );
+        $form->submit->setLabel(
+                $this->_translate->translate(
+                        'Change Password'
+                )
+        );
 
         $usuario = $this->_user->getFindId( $id );
 
@@ -93,7 +102,9 @@ class User_UserController
                         $id , $newClave
                 );
                 $this->_helper->FlashMessenger(
-                        'Changed a Password'
+                        $this->_translate->translate(
+                                'Changed a Password'
+                        )
                 );
                 $this->_redirect( $this->URL );
                 }
@@ -102,7 +113,11 @@ class User_UserController
             }
         else
             {
-            $this->_helper->FlashMessenger( 'No se Pudo Cambiar' );
+            $this->_helper->FlashMessenger(
+                    $this->_translate->translate(
+                            'No se Pudo Cambiar'
+                    )
+            );
             $this->_redirect( $this->URL );
             }
         }

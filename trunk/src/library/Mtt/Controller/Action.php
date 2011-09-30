@@ -11,12 +11,7 @@ class Mtt_Controller_Action
     {
 
     protected $URL;
-
-//TODO crear la Herramienta para Traducir en los controladores
-    protected function translate()
-        {
-        
-        }
+    protected $_translate;
 
 
     public function init()
@@ -32,6 +27,10 @@ class Mtt_Controller_Action
         $this->URL =
                 $this->getRequest()->getModuleName()
                 . '/' . $this->getRequest()->getControllerName();
+
+        /* agregando traduccion en Controller */
+        $this->_translate = Zend_Registry::get( 'Zend_Translate' );
+        /* fin de Traduccion */
         }
 
 
@@ -42,7 +41,6 @@ class Mtt_Controller_Action
             $this->authData = Zend_Auth::getInstance()->getStorage()->read();
             $this->view->assign( 'authData' , $this->authData );
             $this->view->assign( 'authUser' , $this->authData['usuario']->nombre );
-
             }
         else
             {
