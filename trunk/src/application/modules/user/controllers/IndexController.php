@@ -8,7 +8,7 @@ class User_IndexController
 
     public function indexAction()
         {
-        $this->view->assign( 'auth' , $this->authData );
+        
         }
 
 
