@@ -25,15 +25,23 @@
 .col50 { width: 48.15%;  }
 
 
-.fichaproducto {
-  
+.fichaproducto-izquierda {
     float: left;
-    width: 245px;
+    width: 240px;
     padding: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #1f1c1f;
 
 }
-.fichaproducto p {
-    margin-top: -4px;
+
+.fichaproducto-derecha {
+    float: left;
+    border-style: solid;
+    border-color: #eb1aeb;
+    border-width: 1px;
+    padding: 5px;
+    width: 240px;
 }
 
 /* Estilos para tablas de listado*/
@@ -55,3 +63,27 @@
 .listado tbody td {
     padding: 5px;
 }
+
+
+#gallery1 {
+    width:100%; 
+    overflow:hidden;
+} 
+#gallery1 a {
+    position:relative; 
+    float:left; 
+    margin:5px;} 
+#gallery1 a span { 
+    display:none; 
+    background-image:url(/theme/default/image/deletecell.png);
+    background-repeat:no-repeat; 
+    width:48px; 
+    height:48px; 
+    position:absolute; 
+    left:15px; 
+    top:15px;} 
+#gallery1 img { 
+    border: solid 1px #999; 
+    padding:5px;
+}
+#gallery1 a:hover span { display:block;}

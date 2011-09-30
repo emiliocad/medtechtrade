@@ -3,32 +3,33 @@
 <div class="caja">
     <?php foreach ( $this->favoritos as $favorito ): ?>
         <?php $i++; ?>
-    <div class="fichaproducto" >
+        <div 
+            class="<?=
+    ($i % 2 == 0) ? 'fichaproducto-derecha' :
+                    "fichaproducto-izquierda"
+        ?> ">
 
-            <p>
-                <img src="/media/catalog/product/device-00.png" 
-                     alt="<?= $favorito->equipo ?>">
-                <a href="
-                <?=
-                $this->url(
-                        array( 'module' => 'user' , 'controller' => 'reserva' ,
-                    'action' => 'borrarfavorito' ,
-                    'id' => $favorito->id ) , null , true
-                )
-                ?> 
-                   ">
-                    <span >
-    <?= $this->translate( 'Delete' ) ?>
-                    </span>
+            <div id="gallery1">
+                <a href="<?=
+            $this->url(
+                    array( 'module' => 'user' , 'controller' => 'reserva' ,
+                'action' => 'borrarfavorito' ,
+                'id' => $favorito->id ) , null , true
+            )
+            ?>" title="<?= $this->translate( 'Delete' ) ?>">
+                    <span></span>
+                    <img src="/media/catalog/product/device-00.png" 
+                         alt="<?= $favorito->equipo ?>">
                 </a>
-            </p>
+            </div>
+       
             <p><?= $this->escape( $favorito->equipo ) ?></p>
             <p><?= $this->escape( $favorito->precio ) ?></p>
             <p><?= $this->escape( $favorito->categoria ) ?></p>
             <p><?= $this->escape( $favorito->estadoequipo ) ?></p>
             <p><?= $this->escape( $favorito->fabricante ) ?></p>
             <p><?= $this->escape( $favorito->calidad ) ?></p>
-            <p><?= $this->escape( $favorito->imageNombre ) ?></p>
+           
         </div>
 
 <?php endforeach; ?>
