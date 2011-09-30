@@ -8,7 +8,7 @@
 
 //TODO Crear Translate para Zend Form
 class Mtt_Form_OrderEquipo
-        extends Zend_Form
+        extends Mtt_Form
     {
 
 

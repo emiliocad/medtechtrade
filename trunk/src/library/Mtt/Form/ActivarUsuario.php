@@ -6,9 +6,8 @@
  */
 
 
-
 class Mtt_Form_ActivarUsuario
-        extends Zend_Form
+        extends Mtt_Form
     {
 
 
@@ -25,6 +24,7 @@ class Mtt_Form_ActivarUsuario
                 'Mtt_Form_Decorator' , 'Mtt/Form/Decorator/' , 'decorator'
         );
 
+
         $usuarios = new Zend_Form_Element_MultiCheckbox( 'usuarios' );
         $_usuarios = new Mtt_Models_Bussines_Usuario();
 
@@ -40,7 +40,9 @@ class Mtt_Form_ActivarUsuario
 
         //Submit
         $submit = new Zend_Form_Element_Submit( 'submit' );
-        $submit->setAttrib( 'value' , 'Habilitar' );
+        $submit->setAttrib( 'value' , 'Habilitar' )
+                ->setAttrib( 'class' , 'button' )
+        ;
         $this->addElement( $submit );
         }
 

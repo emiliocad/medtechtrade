@@ -6,7 +6,12 @@
         <link href="/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <?=
         $this->headLink()->prependStylesheet( '/theme/default/css/reset.css' )
-                ->headLink()->appendStylesheet( '/theme/default/css/default.css' )
+                ->headLink()->appendStylesheet(
+                        '/theme/default/css/default.css'
+                )
+                ->headLink()->appendStylesheet(
+                        '/theme/default/css/form.css'
+                )
                 ->headLink()->appendAlternate( '/humans.txt' , 'text/plain' ,
                                                'author' , '' );
         ?>

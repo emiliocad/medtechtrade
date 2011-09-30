@@ -7,7 +7,7 @@
 
 
 class Mtt_Form_Pagina
-        extends Zend_Form
+        extends Mtt_Form
     {
 
 

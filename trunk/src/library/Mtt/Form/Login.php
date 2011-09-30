@@ -10,7 +10,7 @@
  *
  */
 class Mtt_Form_Login
-        extends Zend_Form
+        extends Mtt_Form
     {
 
 

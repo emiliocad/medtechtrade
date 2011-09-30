@@ -180,6 +180,15 @@ class Mtt_Models_Bussines_Usuario
         }
 
 
+    public function changePassword( $id , $password )
+        {
+
+        $this->update(
+                array(
+            "clave" => $password ) , 'id = ' . $id );
+        }
+
+
     /**
      * para enviar correo de autorizacion
      * @param array $data

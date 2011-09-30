@@ -7,7 +7,7 @@
 
 
 class Mtt_Form_Pais
-        extends Zend_Form
+        extends Mtt_Form
     {
 
 
