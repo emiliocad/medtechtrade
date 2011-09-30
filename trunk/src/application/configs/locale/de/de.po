@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: medtechtrade\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-30 11:07-0500\n"
-"PO-Revision-Date: 2011-09-30 11:08-0500\n"
+"POT-Creation-Date: 2011-09-30 11:25-0500\n"
+"PO-Revision-Date: 2011-09-30 11:26-0500\n"
 "Last-Translator: Luis Mayta <slovacus@gmail.com>\n"
 "Language-Team: Stockergroup Peru <slovacus@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -31,6 +31,29 @@ msgstr ""
 #: application/modules/admin/controllers/UserController.php:152
 msgid "Se Registro el Usuario"
 msgstr ""
+
+#: application/modules/user/controllers/EquipoController.php:138
+msgid "Se Registro El Equipo"
+msgstr ""
+
+#: application/modules/user/controllers/UserController.php:84
+#, fuzzy
+msgid "Change Password"
+msgstr "Changed ein User"
+
+#: application/modules/user/controllers/UserController.php:106
+#, fuzzy
+msgid "Changed a Password"
+msgstr "Changed ein User"
+
+#: application/modules/user/controllers/UserController.php:118
+msgid "No se Pudo Cambiar"
+msgstr ""
+
+#: library/Mtt/Form/ChangePassword.php:26
+#, fuzzy
+msgid "New Password:"
+msgstr "Changed ein User"
 
 #: library/Mtt/Form/Pais.php:24
 msgid "Name *:"
@@ -592,11 +615,6 @@ msgstr ""
 #: application/modules/user/views/scripts/equipo/vervendidos.phtml:11
 msgid "Quantity"
 msgstr ""
-
-#: application/modules/user/views/scripts/user/change-password.phtml:2
-#, fuzzy
-msgid "Change Password"
-msgstr "Changed ein User"
 
 #: application/modules/user/views/scripts/user/index.phtml:2
 msgid "Dashboard"

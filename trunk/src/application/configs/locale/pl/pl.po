@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Medtechtrade\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-30 11:08-0500\n"
-"PO-Revision-Date: 2011-09-30 11:08-0500\n"
+"POT-Creation-Date: 2011-09-30 11:26-0500\n"
+"PO-Revision-Date: 2011-09-30 11:26-0500\n"
 "Last-Translator: Luis Mayta <slovacus@gmail.com>\n"
 "Language-Team: StockerGroup <slovacus@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -30,6 +30,22 @@ msgstr ""
 
 #: modules/admin/controllers/UserController.php:152
 msgid "Se Registro el Usuario"
+msgstr ""
+
+#: modules/user/controllers/EquipoController.php:138
+msgid "Se Registro El Equipo"
+msgstr ""
+
+#: modules/user/controllers/UserController.php:84
+msgid "Change Password"
+msgstr ""
+
+#: modules/user/controllers/UserController.php:106
+msgid "Changed a Password"
+msgstr ""
+
+#: modules/user/controllers/UserController.php:118
+msgid "No se Pudo Cambiar"
 msgstr ""
 
 #: layouts/scripts/_footer.phtml:9
@@ -545,10 +561,6 @@ msgstr ""
 #: modules/user/views/scripts/equipo/vernovendidos.phtml:11
 #: modules/user/views/scripts/equipo/vervendidos.phtml:11
 msgid "Quantity"
-msgstr ""
-
-#: modules/user/views/scripts/user/change-password.phtml:2
-msgid "Change Password"
 msgstr ""
 
 #: modules/user/views/scripts/user/index.phtml:2
