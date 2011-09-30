@@ -77,3 +77,9 @@ ul.errors li {
     border-width: 1px;
 }
 
+#mensajes li .error {
+    background-color: #de3c4a;
+    color: #f2edf2;
+    border-color: #f50e1a;
+}
+

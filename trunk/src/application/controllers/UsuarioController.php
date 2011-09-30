@@ -85,8 +85,9 @@ class UsuarioController
                 }
             else
                 {
-                $this->_helper->FlashMessenger(
-                        'User or Password Invalido'
+                $this->_helper->MyFlashMessenger(
+                        'User or Password Invalido' ,
+                        Mtt_Controller_Action_Helper_MyFlashMessenger::ERROR
                 );
                 $this->_redirect( '/usuario/index' );
                 }

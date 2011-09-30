@@ -19,12 +19,14 @@ class EquipoController
         {
         $formOrder = new Mtt_Form_OrderEquipo();
 
-
         $productos = $this->_equipo->showEquipos();
+
         $productos->setCurrentPageNumber(
                 $this->_getParam( 'page' , 1 )
         );
 
+        
+        
         $this->view->assign( 'formOrder' , $formOrder );
         $this->view->assign(
                 'productos' , $productos
