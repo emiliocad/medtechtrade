@@ -1,0 +1,31 @@
+#user-index-latest-equipment {
+    font-size: 13px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+#user-index-favorites {
+    float: left;
+    width: 245px;
+    padding: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #1f1c1f;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+#user-index-latest-search {
+    float: left;
+    border-style: solid;
+    border-color: #eb1aeb;
+    border-width: 1px;
+    padding: 5px;
+    width: 245px;
+}
+.user-index-welcome {
+    font-size: 13px;
+    font-weight: bold;
+    padding: 10px;
+}
