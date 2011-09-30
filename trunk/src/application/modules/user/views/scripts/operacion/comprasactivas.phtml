@@ -4,12 +4,10 @@
         <tr>
             <th></th>
             <th>Equipo</th>
-            <th>Modelo</th>
             <th>Precio</th>
             <th>Fecha</th>
             <th>Cantidad</th>
             <th>Nro Cuotas</th>
-            <th>Mora Diaria</th>
             <th>Forma de Pago</th>
         </tr>
     </thead>
@@ -18,7 +16,7 @@
             <tr>
                 <td></td>
                 <td><?= $this->escape( $operacion->nombre ) ?></td>
-                <td><?= $this->escape( $operacion->modelo ) ?></td>
+                <td><?= $this->escape( $operacion->precio ) ?></td>
                 </td>
             </tr>
         <?php endforeach; ?>

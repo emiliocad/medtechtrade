@@ -62,3 +62,15 @@ $this->url(
         <?= $this->translate( 'Request Price' ) ?>
     </span>
 </a>
+    <a href="
+    <?=
+    $this->url(
+            array( 'module' => '' , 'controller' => 'categoria' ,
+        'action' => 'index' ,
+        'id' => $this->producto->categoria_id ) , null , true
+    )
+    ?> ">
+    <span class="device-action-back">
+        <?= $this->translate( 'Back' ) ?>
+    </span>
+    </a>

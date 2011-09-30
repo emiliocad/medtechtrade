@@ -59,6 +59,10 @@ class User_EquipoController
 
     public function veractivosAction()
         {
+        $this->view->jQuery()
+                ->addStylesheet(
+                        $this->view->baseUrl().'/css/reserva.css'
+        );
         $this->view->assign(
                 'equipos' ,
                 $this->_equipo->listEquipByUserStatus(
@@ -177,7 +181,7 @@ class User_EquipoController
     public function borrarAction()
         {
         $id = intval( $this->_request->getParam( 'id' ) );
-        $this->_equipo->desactivarEquipo( $id );
+        $this->_equipo->desactivarReserva( $id );
         $this->_helper->FlashMessenger( 'Equipo Borrado' );
         $this->_redirect( $this->URL );
         }

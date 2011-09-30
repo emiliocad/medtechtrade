@@ -1,7 +1,6 @@
 /* reserva */
 .caja { 
-    width: 100%; overflow: hidden; margin: 0 0 1em 0; display: block; 
-    overflow: hidden; 
+
 }
 
 .col1, .col2, .col3, .col4, .col5, .col6, .col7, .col8, .col9, .col10, .col11, 
@@ -25,5 +24,66 @@
 .col12 { width: 940px; margin: 0; }
 .col50 { width: 48.15%;  }
 
-.fichaproducto { float: left; margin: 0 20px 0 0; overflow: hidden; }
-.fichaproducto tr { width: 120px;}
+
+.fichaproducto-izquierda {
+    float: left;
+    width: 240px;
+    padding: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #1f1c1f;
+
+}
+
+.fichaproducto-derecha {
+    float: left;
+    border-style: solid;
+    border-color: #eb1aeb;
+    border-width: 1px;
+    padding: 5px;
+    width: 240px;
+}
+
+/* Estilos para tablas de listado*/
+.listado {
+    width: 520px;
+    background-color: #e6e6e6;
+}
+
+.listado thead {
+    background-color: #0b88b5;
+}
+
+.listado thead th {
+    font-size: 15px;
+    font-weight: bold;
+    color: #faf7fa;
+}
+
+.listado tbody td {
+    padding: 5px;
+}
+
+
+#gallery1 {
+    width:100%; 
+    overflow:hidden;
+} 
+#gallery1 a {
+    position:relative; 
+    float:left; 
+    margin:5px;} 
+#gallery1 a span { 
+    display:none; 
+    background-image:url(/theme/default/image/deletecell.png);
+    background-repeat:no-repeat; 
+    width:48px; 
+    height:48px; 
+    position:absolute; 
+    left:15px; 
+    top:15px;} 
+#gallery1 img { 
+    border: solid 1px #999; 
+    padding:5px;
+}
+#gallery1 a:hover span { display:block;}
