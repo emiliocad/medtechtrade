@@ -5,28 +5,51 @@
  * and open the template in the editor.
  */
 
+
 /**
  * Description of Categoria
  *
  */
-class Mtt_Models_Bussines_Categoria extends Mtt_Models_Table_Categoria
+class Mtt_Models_Bussines_Categoria
+        extends Mtt_Models_Table_Categoria
     {
 
-    public function __construct( $config = array( ) )
+
+    public function __construct()
         {
-        parent::__construct( $config );
+        parent::__construct();
         }
 
-    public function listarProductos( $id )
+
+    public function getProducts( $id )
         {
-        $_producto = new Application_Model_Producto();
-        $productos = $_producto->fetchAll( "id_categoria=$id AND activo=1" );
-        return $productos->toArray();
+        $_producto = new Mtt_Models_Bussines_Equipo();
+        $db = $this->getAdapter();
+
+        $query = $db->select()
+                ->from( 'equipo' , array( 'id' , 'nombre' ) )
+                ->joinInner( $this->_name ,
+                             'categoria.id = equipo.categoria_id ' ,
+                             array( 'categoria.nombre as categoria' )
+                )
+                ->joinInner( 'fabricantes' ,
+                             'fabricantes.id = equipo.fabricantes_id' ,
+                             array( 'fabricantes.nombre as fabricante' )
+                )
+                ->joinLeft( 'imagen' , 'imagen.equipo_id = equipo.id' ,
+                            array( 'imagen.nombre as imagen' )
+                )
+                ->where( 'equipo.active IN (?)' , self::ACTIVE )
+                ->where( 'equipo.categoria_id IN (?)' , $id )
+                ->query();
+
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
+
 
     public function getComboValues()
         {
-        $filas = $this->fetchAll( 'activo=1' )->toArray();
+        $filas = $this->fetchAll( 'active=1' )->toArray();
         $values = array( );
         foreach ( $filas as $fila )
             {
@@ -35,6 +58,24 @@ class Mtt_Models_Bussines_Categoria extends Mtt_Models_Table_Categoria
         return $values;
         }
 
+
+    public function listCategory()
+        {
+        
+        $db = $this->getAdapter();
+
+        $query = $db->select()
+                ->from( $this->_name)
+                ->where( 'active IN (?)' , self::ACTIVE )
+ 
+                ->query();
+
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        
+        }
+
+
+        
     public function getCategoria( $id )
         {
         $db = $this->getAdapter();
@@ -46,5 +87,48 @@ class Mtt_Models_Bussines_Categoria extends Mtt_Models_Table_Categoria
         ;
         return $query->fetchObject();
         }
+
+
+    public function updateCategoria( array $data , $id )
+        {
+
+        $this->update( $data , 'id = ' . $id );
+        }
+
+
+    public function saveCategoria( array $data )
+        {
+
+        $this->insert( $data );
+        }
+
+
+    public function deleteCategoria( $id )
+        {
+
+        $this->delete( 'id = ?' , $id );
+        }
+
+
+    public function activarCategoria( $id )
+        {
+
+        $this->update( array(
+            "active" => self::ACTIVE )
+                , 'id = ' . $id );
+        }
+
+
+    public function desactivarCategoria( $id )
+        {
+
+        $this->update( array(
+            "active" => self::DESACTIVATE )
+                , 'id = ' . $id );
+        }
+
+
+   
+
 
     }
