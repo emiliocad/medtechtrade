@@ -24,3 +24,6 @@
 .col11 { width: 860px; }
 .col12 { width: 940px; margin: 0; }
 .col50 { width: 48.15%;  }
+
+.fichaproducto { float: left; margin: 0 20px 0 0; overflow: hidden; }
+.fichaproducto tr { width: 120px;}
