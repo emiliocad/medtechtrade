@@ -23,6 +23,7 @@ class User_ReservaController
 
     public function favoritosAction()
         {
+        
         $this->view->assign(
                 'favoritos' , 
                 $this->_reserva->getReservaByUser(
