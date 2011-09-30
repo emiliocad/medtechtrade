@@ -5,6 +5,19 @@
             <p>
                 <img src="/media/catalog/product/device-00.png" 
                      alt="<?= $favorito->equipo ?>">
+                <a href="
+                <?=
+                $this->url(
+                        array( 'module' => 'user' , 'controller' => 'reserva' ,
+                    'action' => 'borrarfavorito' ,
+                    'id' => $favorito->id ) , null , true
+                )
+                ?> 
+                   ">
+                    <span >
+                        <?= $this->translate( 'Delete' ) ?>
+                    </span>
+                </a>
             </p>
             <p><?= $this->escape( $favorito->equipo ) ?></p>
             <p><?= $this->escape( $favorito->precio ) ?></p>
@@ -14,7 +27,7 @@
             <p><?= $this->escape( $favorito->calidad ) ?></p>
             <p><?= $this->escape( $favorito->imageNombre ) ?></p>
         </div>
-                       
-        <?php endforeach; ?>
-       
-    </div>    
+
+    <?php endforeach; ?>
+
+</div>    

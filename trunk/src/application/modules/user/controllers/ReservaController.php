@@ -143,9 +143,12 @@ class User_ReservaController
         }
 
 
-    public function borrarAction()
+    public function borrarfavoritoAction()
         {
-
+        $id = intval( $this->_request->getParam( 'id' ) );
+        $this->_reserva->desactivarReserva( $id );
+        $this->_helper->FlashMessenger( 'Elemento Borrado' );
+        $this->_redirect( $this->URL."/favoritos" );
         }
         
     
