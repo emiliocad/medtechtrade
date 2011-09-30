@@ -55,7 +55,12 @@ class User_OperacionController
         );
         }  
         
-
-  
+     
+    public function cotizarAction()
+        {
+        $id = intval( $this->_request->getParam( 'id' ) );
+        
+        }          
+        
         
     }

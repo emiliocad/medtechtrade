@@ -413,6 +413,9 @@ a:hover	{
 #device-actions a span.device-action-reserve	{
     background-image: url(/theme/default/image/device-action-reserve.png);
 }
+#device-actions a span.device-action-tobuy	{
+    background-image: url(/theme/default/image/device-action-tobuy.png);
+}
 #device-description	{
     padding: 2px;
     width: 460px;

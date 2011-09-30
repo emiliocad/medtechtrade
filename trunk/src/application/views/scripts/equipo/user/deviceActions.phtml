@@ -49,3 +49,16 @@ $this->url(
         <?= $this->translate( 'Add to Reserve' ) ?>
     </span>
 </a>
+<a href="
+<?=
+$this->url(
+        array( 'module' => 'user' , 'controller' => 'operacion' ,
+    'action' => 'cotizar' ,
+    'id' => $this->producto->id ) , null , true
+ )
+?> 
+   ">
+    <span class="device-action-tobuy">
+        <?= $this->translate( 'Request Price' ) ?>
+    </span>
+</a>
