@@ -9,7 +9,7 @@
                     "fichaproducto-izquierda"
         ?> ">
 
-            <div id="gallery1">
+            <div id="gallery1" class="item1">
                 <a href="<?=
             $this->url(
                     array( 'module' => 'user' , 'controller' => 'reserva' ,
@@ -23,7 +23,13 @@
                 </a>
             </div>
        
-            <p><?= $this->escape( $favorito->equipo ) ?></p>
+            <p><a href="<?=
+            $this->url(
+                    array( 'module' => 'user' , 'controller' => 'equipo' ,
+                'action' => 'ver' ,
+                'id' => $favorito->equipo_id ) , null , true
+            )
+            ?>"><?= $this->escape( $favorito->equipo ) ?></a></p>
             <p><?= $this->escape( $favorito->precio ) ?></p>
             <p><?= $this->escape( $favorito->categoria ) ?></p>
             <p><?= $this->escape( $favorito->estadoequipo ) ?></p>

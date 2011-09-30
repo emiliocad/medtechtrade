@@ -64,7 +64,12 @@
     padding: 5px;
 }
 
-
+.fichaproducto-derecha p{
+    margin-bottom: -5px;
+}
+.fichaproducto-izquierda p{
+    margin-bottom: -5px;    
+}
 #gallery1 {
     width:100%; 
     overflow:hidden;
@@ -75,8 +80,8 @@
     margin:5px;} 
 #gallery1 a span { 
     display:none; 
-    background-image:url(/theme/default/image/deletecell.png);
     background-repeat:no-repeat; 
+    background-image:url(/theme/default/image/deletecell.png);
     width:48px; 
     height:48px; 
     position:absolute; 
