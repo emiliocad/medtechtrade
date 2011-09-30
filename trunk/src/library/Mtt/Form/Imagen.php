@@ -7,7 +7,7 @@
 
 
 class Mtt_Form_Imagen
-        extends Zend_Form
+        extends Mtt_Form
     {
 
 

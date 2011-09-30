@@ -6,7 +6,7 @@
  */
 
 class Mtt_Form_Pregunta      
-        extends Zend_Form
+        extends Mtt_Form
     {
 
 

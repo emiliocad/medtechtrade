@@ -7,7 +7,7 @@
 
 //TODO crear decoradores para este formulario
 class Mtt_Form_Usuario
-        extends Zend_Form
+        extends Mtt_Form
     {
 
 

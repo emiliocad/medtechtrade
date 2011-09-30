@@ -7,7 +7,7 @@
 
 
 class Mtt_Form_Moneda
-        extends Zend_Form
+        extends Mtt_Form
     {
 
 
