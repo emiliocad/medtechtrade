@@ -45,11 +45,17 @@ class Mtt_Form_Login
                  
         
         //Submit
-        $decorator = new Mtt_Form_Decorator_SimpleButton();
-        $e = new Zend_Form_Element_Submit( 'submit' );
-        $e->setValue( 'Login' );
-        //$e->setDecorators( array( $decorator ) );
-        $this->addElement( $e );
+        $submit = new Zend_Form_Element_Button( 'submit' );
+        $submit->setLabel(
+                        $this->_translate->translate( 'Login' )
+                )
+                ->setAttrib(
+                        'class' , 'button'
+                )
+                ->setAttrib( 'type' , 'submit' )
+        ;
+
+        $this->addElement( $submit );
         }
 
 

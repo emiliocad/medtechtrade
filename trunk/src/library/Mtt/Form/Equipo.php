@@ -182,9 +182,19 @@ class Mtt_Form_Equipo
         $fechaFabricacion->setRequired( true );
         $this->addElement( $fechaFabricacion );
 
+        $submit = new Zend_Form_Element_Button( 'submit' );
+        $submit->setLabel(
+                        $this->_translate->translate( 'Registrar' )
+                )
+                ->setAttrib(
+                        'class' , 'button'
+                )
+                ->setAttrib( 'type' , 'submit' )
+        ;
 
 
-        $this->addElement( 'submit' , 'Enviar' );
+
+        $this->addElement( $submit );
         }
 
 

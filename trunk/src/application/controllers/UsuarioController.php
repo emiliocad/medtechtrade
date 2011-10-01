@@ -93,8 +93,10 @@ class UsuarioController
             else
                 {
                 $this->_helper->MyFlashMessenger(
-                        'User or Password Invalido' ,
-                        Mtt_Controller_Action_Helper_MyFlashMessenger::ERROR
+                        $this->_translate->translate(
+                                'User or Password Invalido'
+                        )
+                        , Mtt_Controller_Action_Helper_MyFlashMessenger::ERROR
                 );
                 $this->_redirect( '/usuario/index' );
                 }
@@ -111,6 +113,20 @@ class UsuarioController
 
 
         $form = new Mtt_Form_Registrar();
+
+        if ( $this->_request->isPost() )
+            {
+            if ( !$form->isValid( $this->_request->getPost() ) )
+                {
+
+                $this->_helper->MyFlashMessenger(
+                        $this->_translate->translate(
+                                'Error al Ingreso de Datos'
+                        )
+                        , Mtt_Controller_Action_Helper_MyFlashMessenger::ERROR
+                );
+                }
+            }
 
         if ( $this->_request->isPost() &&
                 $form->isValid( $this->_request->getPost() ) )
@@ -134,10 +150,15 @@ class UsuarioController
 
             $this->_usuario->saveUsuario( $usuario );
 
-            $this->_helper->FlashMessenger(
-                    'There has been registered a new user' );
+            $this->_helper->MyFlashMessenger(
+                    $this->_translate->translate(
+                            'There has been registered a new user'
+                    )
+                    , Mtt_Controller_Action_Helper_MyFlashMessenger::SUCCESS
+            );
             $this->_redirect( $this->URL );
             }
+
         $this->view->assign( 'frmRegistrar' , $form );
         }
 

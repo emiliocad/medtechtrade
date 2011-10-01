@@ -86,9 +86,11 @@ class Mtt_Form_Categoria
 
 
         //Submit
-        $submit = new Zend_Form_Element_Submit( 'submit' );
+        $submit = new Zend_Form_Element_Button( 'submit' );
         $submit->setAttrib( 'value' , 'Registrar' )
-                ->setAttrib( 'class' , 'button' );
+                ->setAttrib( 'class' , 'button' )
+                ->setAttrib( 'type', 'submit' )
+                ;
         $this->addElement( $submit );
         }
 
