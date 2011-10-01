@@ -24,14 +24,21 @@ class Mtt_Form_Usuario
         $nombre->setRequired();
         //$e->setDecorators( array( $decorator ) );
         $nombre->setLabel( 'Nombre:' );
-        $nombre->addValidator( new Zend_Validate_StringLength( array( 'min' => 5 , 'max' => 25 ) ) );
-        //$this->addElement( $e );
+        $nombre->addValidator(
+                new Zend_Validate_StringLength(
+                        array( 'min' => 5 , 'max' => 25 )
+                )
+        );
+
 
         $apellido = new Zend_Form_Element_Text( 'apellido' );
         $apellido->setRequired();
         //$e->setDecorators( array( $decorator ) );
         $apellido->setLabel( 'Apellido:' );
-        $apellido->addValidator( new Zend_Validate_StringLength( array( 'min' => 5 , 'max' => 25 ) ) );
+        $apellido->addValidator( new Zend_Validate_StringLength(
+                        array( 'min' => 5 , 'max' => 25 )
+                )
+        );
         //$this->addElement( $e );
 
         $email = new Zend_Form_Element_Text( 'email' );
@@ -50,7 +57,10 @@ class Mtt_Form_Usuario
                     'table' => 'usuario' ,
                     'field' => 'login' ,
                         ) ) );
-        $login->addValidator( new Zend_Validate_StringLength( array( 'min' => 5 , 'max' => 25 ) ) );
+        $login->addValidator( new Zend_Validate_StringLength(
+                        array( 'min' => 5 , 'max' => 25 )
+                )
+        );
         //$this->addElement( $e );
 
         $clave = new Zend_Form_Element_Password( 'clave' );
@@ -95,7 +105,10 @@ class Mtt_Form_Usuario
         $paises->addMultiOption( -1 , '--- Paises ---' );
         $paises->addMultiOptions( $values );
         //$this->addElement( $e );
-        $paises->addValidator( new Zend_Validate_InArray( array_keys( $values ) ) );
+        $paises->addValidator( new Zend_Validate_InArray(
+                        array_keys( $values )
+                )
+        );
 
         $rol = new Zend_Form_Element_Select( 'tipousuario_id' );
         $rol->setLabel( '* Rol de Usuario :' );
@@ -104,7 +117,10 @@ class Mtt_Form_Usuario
         $rol->addMultiOption( -1 , '--- Rol de Usario ---' );
         $rol->addMultiOptions( $values );
         //$this->addElement( $e );
-        $rol->addValidator( new Zend_Validate_InArray( array_keys( $values ) ) );
+        $rol->addValidator( new Zend_Validate_InArray(
+                        array_keys( $values )
+                )
+        );
 
 
 
