@@ -21,8 +21,8 @@ class Admin_PreguntaController
                         $this->view->baseUrl().'/css/reserva.css'
         );
         $this->view->assign(
-                'preguntas' , $this->_pregunta->listByUser(
-                $this->authData['usuario']->id)
+                'preguntas' , $this->_pregunta->listar(
+                )
         );
         }
 
