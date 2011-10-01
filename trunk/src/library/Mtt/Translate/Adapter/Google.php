@@ -90,9 +90,13 @@ class Mtt_Translate_Adapter_Google
 
 
 
-            $client = new Zend_Http_Client( 'http://ajax.googleapis.com/ajax/services/language/translate' , array(
-                        'maxredirects' => 0 ,
-                        'timeout' => 30 ) );
+            $client = new Zend_Http_Client(
+                            'http://ajax.googleapis.com/ajax/services/language/translate' ,
+                            array(
+                                'maxredirects' => 0 ,
+                                'timeout' => 30
+                            )
+            );
 
             $client->setParameterGet( array(
                 'v' => '1.0' ,
