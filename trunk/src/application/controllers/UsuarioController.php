@@ -24,7 +24,7 @@ class UsuarioController
 
     public function indexAction()
         {
-
+        
         if ( Zend_Auth::getInstance()->hasIdentity() )
             {
 
@@ -45,7 +45,7 @@ class UsuarioController
                 }
             }
         $form = new Mtt_Form_Login();
-
+      
         if ( $this->_request->isPost()
                 &&
                 $form->isValid(
@@ -62,7 +62,14 @@ class UsuarioController
             );
 
             $this->view->assign( 'loginValido' , $loginValido );
-
+            
+            //Funcionalidad Remember me
+            if ($form->getValue( "remember" )) {
+                Zend_Session ::rememberMe(60 * 60 * 24 * 7) ;
+            } else {
+                 Zend_Session::ForgetMe();
+            }
+          
             if ( $loginValido )
                 {
 

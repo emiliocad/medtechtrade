@@ -39,6 +39,11 @@ class Mtt_Form_Login
         //$e->setDecorators( array( $decorator ) );
         $this->addElement( $e );
 
+        $e = new Zend_Form_Element_Checkbox('remember');
+        $e->setLabel('Remember me');
+        $this->addElement( $e );
+                 
+        
         //Submit
         $submit = new Zend_Form_Element_Button( 'submit' );
         $submit->setLabel(

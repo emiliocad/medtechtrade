@@ -35,6 +35,10 @@ class User_EquipoController
 
     public function verAction()
         {
+        $this->view->jQuery()
+                ->addStylesheet(
+                        $this->view->baseUrl().'/css/reserva.css'
+        );
         $id = intval( $this->_getParam( 'id' , null ) );
         $stmt = $this->_equipo->getProduct( $id );
         $this->view->assign( 'equipo' , $stmt );
