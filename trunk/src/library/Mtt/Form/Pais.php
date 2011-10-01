@@ -49,9 +49,15 @@ class Mtt_Form_Pais
         $this->addElement( $code );
 
         //Submit
-        $submit = new Zend_Form_Element_Submit( 'submit' );
-        $submit
-                ->setValue( $this->translate( 'Register' ) );
+        $submit = new Zend_Form_Element_Button( 'submit' );
+        $submit->setLabel(
+                        $this->_translate->translate( 'Save' )
+                )
+                ->setAttrib(
+                        'class' , 'button'
+                )
+                ->setAttrib( 'type' , 'submit' );
+
         $this->addElement( $submit );
         }
 

@@ -121,7 +121,16 @@ class Mtt_Form_Registrar
         $e->setLabel( 'Institucion:' );
         $this->addElement( $e );
 
-        $this->addElement( 'submit' , 'Enviar' );
+        $submit = new Zend_Form_Element_Button( 'submit' );
+        $submit->setLabel(
+                        $this->_translate->translate( 'Save' )
+                )
+                ->setAttrib(
+                        'class' , 'button'
+                )
+                ->setAttrib( 'type' , 'submit' );
+
+        $this->addElement( $submit );
         }
 
 

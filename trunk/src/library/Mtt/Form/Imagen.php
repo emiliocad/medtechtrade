@@ -13,17 +13,17 @@ class Mtt_Form_Imagen
 
     public function init()
         {
-         $_conf = new Zend_Config_Ini(
+        $_conf = new Zend_Config_Ini(
                         APPLICATION_PATH . '/configs/myConfig.ini' , 'upload'
                 )
         ;
         $data = $_conf->toArray();
-        
+
         $this
                 ->setMethod( 'post' )
                 ->setAttrib( 'id' , 'frmImagen' )
                 ->setAttrib( 'enctype' , 'multipart/form-data' );
-        
+
         // Nombre
         $nombre = new Zend_Form_Element_Text( 'nombre' );
         $nombre->setLabel( 'Nombre *:' );
@@ -80,13 +80,23 @@ class Mtt_Form_Imagen
         $this->addElement( $nombre );
 
         // Elemento: Descripcion
-        $descripcion = new Zend_Form_Element_Text( 'descripcion' );
+        $descripcion = new Mtt_Form_Element_Ckeditor( 'descripcion' );
         $descripcion->setLabel( 'Descripcion:' );
         $descripcion->setAttrib( 'maxlength' , '80' );
         $descripcion->setRequired( false );
         $this->addElement( $descripcion );
 
-        $this->addElement( 'submit' , 'Enviar' );
+        $submit = new Zend_Form_Element_Button( 'submit' );
+        $submit->setLabel(
+                        $this->_translate->translate( 'Save' )
+                )
+                ->setAttrib(
+                        'class' , 'button'
+                )
+                ->setAttrib( 'type' , 'submit' )
+        ;
+
+        $this->addElement( $submit );
         }
 
 

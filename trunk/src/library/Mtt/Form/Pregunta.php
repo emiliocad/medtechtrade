@@ -5,7 +5,8 @@
  * and open the template in the editor.
  */
 
-class Mtt_Form_Pregunta      
+
+class Mtt_Form_Pregunta
         extends Mtt_Form
     {
 
@@ -43,7 +44,7 @@ class Mtt_Form_Pregunta
         );
         $formulacion->addValidator( $v );
         $this->addElement( $formulacion );
-        
+
         // Elemento: respuesta
         $respuesta = new Zend_Form_Element_Textarea( 'respuesta' );
         $respuesta->setLabel( 'Respuesta ' );
@@ -53,15 +54,24 @@ class Mtt_Form_Pregunta
         );
         $respuesta->addValidator( $v );
         $this->addElement( $respuesta );
-        
-        // Elemento: copiaEmail
-        $copiaEmail = new Zend_Form_Element_Checkbox('copiaEmail');
-        $copiaEmail->setLabel('Copy to email')
-                 ->setAttrib('id','copiaEmail');
-        $this->addElement( $copiaEmail );
- 
 
-        $this->addElement( 'submit' , 'Enviar' );
+        // Elemento: copiaEmail
+        $copiaEmail = new Zend_Form_Element_Checkbox( 'copiaEmail' );
+        $copiaEmail->setLabel( 'Copy to email' )
+                ->setAttrib( 'id' , 'copiaEmail' );
+        $this->addElement( $copiaEmail );
+
+
+        $submit = new Zend_Form_Element_Button( 'submit' );
+        $submit->setLabel(
+                        $this->_translate->translate( 'Save' )
+                )
+                ->setAttrib(
+                        'class' , 'button'
+                )
+                ->setAttrib( 'type' , 'submit' );
+
+        $this->addElement( $submit );
         }
 
 

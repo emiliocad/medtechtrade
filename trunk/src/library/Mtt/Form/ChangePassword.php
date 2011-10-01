@@ -43,14 +43,14 @@ class Mtt_Form_ChangePassword
         $this->addElement( $clave2 );
 
         //Submit
-        $submit = new Zend_Form_Element_Submit( 'submit' );
+        $submit = new Zend_Form_Element_Button( 'submit' );
         $submit->setValue(
                 $this->_translate->translate(
                         'Change Password'
                 )
         );
-        $submit->setAttrib( 'class' , 'button' );
-        //$e->setDecorators( array( $decorator ) );
+        $submit->setAttrib( 'class' , 'button' )
+                ->setAttrib( 'type' , 'submit' );
         $this->addElement( $submit );
         }
 

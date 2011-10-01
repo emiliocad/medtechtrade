@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Medtchtrade\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-30 11:37-0500\n"
-"PO-Revision-Date: 2011-09-30 11:37-0500\n"
+"POT-Creation-Date: 2011-09-30 18:44-0500\n"
+"PO-Revision-Date: 2011-09-30 18:44-0500\n"
 "Last-Translator: Luis Mayta <slovacus@gmail.com>\n"
 "Language-Team: Stocker Group Peru <Slovacus@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -15,6 +15,18 @@ msgstr ""
 "X-Poedit-Country: UNITED STATES\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-SearchPath-0: .\n"
+
+#: application/controllers/UsuarioController.php:90
+msgid "User or Password Invalido"
+msgstr ""
+
+#: application/controllers/UsuarioController.php:114
+msgid "Error al Ingreso de Datos"
+msgstr ""
+
+#: application/controllers/UsuarioController.php:144
+msgid "There has been registered a new user"
+msgstr "There has been registered a new user"
 
 #: application/modules/admin/controllers/UserController.php:114
 msgid "Changed a User"
@@ -32,7 +44,7 @@ msgstr "Disabled Users"
 msgid "Se Registro el Usuario"
 msgstr ""
 
-#: application/modules/user/controllers/EquipoController.php:138
+#: application/modules/user/controllers/EquipoController.php:142
 msgid "Se Registro El Equipo"
 msgstr ""
 
@@ -55,6 +67,26 @@ msgstr ""
 msgid "New Password:"
 msgstr "Changed a User"
 
+#: library/Mtt/Form/Equipo.php:187
+#, fuzzy
+msgid "Registrar"
+msgstr "Register"
+
+#: library/Mtt/Form/Fabricante.php:36
+#: library/Mtt/Form/Imagen.php:91
+#: library/Mtt/Form/Moneda.php:50
+#: library/Mtt/Form/Pagina.php:96
+#: library/Mtt/Form/Pais.php:54
+#: library/Mtt/Form/Pregunta.php:66
+#: library/Mtt/Form/Registrar.php:126
+#: library/Mtt/Form/Usuario.php:119
+msgid "Save"
+msgstr ""
+
+#: library/Mtt/Form/Login.php:45
+msgid "Login"
+msgstr ""
+
 #: library/Mtt/Form/Pais.php:24
 msgid "Name *:"
 msgstr "Name *:"
@@ -62,10 +94,6 @@ msgstr "Name *:"
 #: library/Mtt/Form/Pais.php:47
 msgid "Code:"
 msgstr "Code:"
-
-#: library/Mtt/Form/Pais.php:54
-msgid "Register"
-msgstr "Register"
 
 #: application/layouts/scripts/_footer.phtml:9
 msgid "home"
@@ -166,7 +194,6 @@ msgid "Operations"
 msgstr "Operations"
 
 #: application/modules/admin/layouts/scripts/_navegacion.phtml:83
-#: application/modules/admin/layouts/scripts/navegacion/_statistics.phtml:6
 msgid "Statistics"
 msgstr ""
 
@@ -406,10 +433,6 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: application/modules/admin/views/scripts/user/index.phtml:17
-msgid "Login"
-msgstr ""
-
 #: application/modules/admin/views/scripts/user/index.phtml:20
 msgid "Rol"
 msgstr ""
@@ -621,22 +644,61 @@ msgstr ""
 msgid "Quantity"
 msgstr ""
 
-#: application/modules/user/views/scripts/user/index.phtml:2
+#: application/modules/user/views/scripts/index/index.phtml:2
 msgid "Dashboard"
+msgstr ""
+
+#: application/modules/user/views/scripts/index/index.phtml:10
+msgid ""
+"to MedTechTrade. Please find and administrate\n"
+"                your medical equipment in this section."
+msgstr ""
+
+#: application/modules/user/views/scripts/operacion/cotizar.phtml:14
+msgid "Model"
+msgstr "Model"
+
+#: application/modules/user/views/scripts/operacion/cotizar.phtml:24
+msgid "Tipo"
+msgstr ""
+
+#: application/modules/user/views/scripts/operacion/cotizar.phtml:25
+msgid "Numero de Cuotas "
+msgstr ""
+
+#: application/modules/user/views/scripts/operacion/cotizar.phtml:26
+#, fuzzy
+msgid "Pago"
+msgstr "Payments"
+
+#: application/modules/user/views/scripts/operacion/cotizar.phtml:27
+msgid "Dias"
+msgstr ""
+
+#: application/modules/user/views/scripts/operacion/cotizar.phtml:28
+msgid "Mora por dia"
+msgstr ""
+
+#: application/modules/user/views/scripts/operacion/cotizar.phtml:66
+msgid "Buy"
 msgstr ""
 
 #: application/views/scripts/categoria/index.phtml:26
 #: application/views/scripts/categoria/index.phtml:86
+#: application/views/scripts/equipo/index.phtml:11
 msgid "Click to see all"
 msgstr "Click to see all"
 
 #: application/views/scripts/categoria/index.phtml:56
 #: application/views/scripts/categoria/index.phtml:112
+#: application/views/scripts/equipo/index.phtml:39
+#: application/views/scripts/equipo/ver.phtml:54
 msgid "Product name"
 msgstr "Product name"
 
 #: application/views/scripts/categoria/index.phtml:69
 #: application/views/scripts/categoria/index.phtml:126
+#: application/views/scripts/equipo/index.phtml:52
 msgid "View details"
 msgstr "View details"
 
@@ -658,7 +720,7 @@ msgstr "Contact Us"
 msgid "Purchase of equipment"
 msgstr "Buy Equipment"
 
-#: application/views/scripts/equipo/index.phtml:11
+#: application/views/scripts/equipo/index.phtml:7
 #, fuzzy
 msgid "Our Equipment"
 msgstr "Buy Equipment"
@@ -686,11 +748,6 @@ msgstr "I Need Help"
 #: application/views/scripts/equipo/guest/deviceActions.phtml:19
 msgid "Tell a Friend"
 msgstr "Tell a Friend"
-
-#: application/views/scripts/equipo/guest/deviceDescription.phtml:2
-#: application/views/scripts/equipo/user/deviceDescription.phtml:2
-msgid "Model"
-msgstr "Model"
 
 #: application/views/scripts/equipo/guest/deviceDescription.phtml:8
 #: application/views/scripts/equipo/user/deviceDescription.phtml:8
@@ -775,11 +832,19 @@ msgstr ""
 msgid "Add to Reserve"
 msgstr ""
 
-#: application/views/scripts/index/index.phtml:15
+#: application/views/scripts/equipo/user/deviceActions.phtml:62
+msgid "Request Price"
+msgstr ""
+
+#: application/views/scripts/equipo/user/deviceActions.phtml:74
+msgid "Back"
+msgstr ""
+
+#: application/views/scripts/index/index.phtml:4
 msgid "Welcome to Medtechtrade"
 msgstr "Welcome to MedTechTrade"
 
-#: application/views/scripts/index/index.phtml:33
+#: application/views/scripts/index/index.phtml:22
 msgid "Top Offers"
 msgstr "Top Offers"
 
@@ -798,9 +863,6 @@ msgstr "Top Offers"
 
 #~ msgid "Español"
 #~ msgstr "Español"
-
-#~ msgid "There has been registered a new user"
-#~ msgstr "There has been registered a new user"
 
 #~ msgid "Payments"
 #~ msgstr "Payments"

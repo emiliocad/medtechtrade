@@ -5,6 +5,7 @@
  * and open the template in the editor.
  */
 
+
 //TODO crear decoradores para este formulario
 class Mtt_Form_Usuario
         extends Mtt_Form
@@ -37,7 +38,7 @@ class Mtt_Form_Usuario
         $email->setRequired();
         //$e->setDecorators( array( $decorator ) );
         $email->setLabel( 'Email:' );
-        $email->addValidator( new Zend_Validate_EmailAddress() );      
+        $email->addValidator( new Zend_Validate_EmailAddress() );
         //$this->addElement( $e );
 
         $login = new Zend_Form_Element_Text( 'login' );
@@ -113,8 +114,16 @@ class Mtt_Form_Usuario
         $institucion->setLabel( 'Institucion:' );
         //$this->addElement( $e );
 
-        $submit = new Zend_Form_Element_Submit( 'submit' );
-        $submit->setLabel( 'Enviar' );
+        $submit = new Zend_Form_Element_Button( 'submit' );
+        $submit->setLabel(
+                        $this->_translate->translate( 'Save' )
+                )
+                ->setAttrib(
+                        'class' , 'button'
+                )
+                ->setAttrib( 'type' , 'submit' );
+
+
 
         $this->addElements(
                 array(

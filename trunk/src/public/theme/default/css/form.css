@@ -23,18 +23,18 @@ form dt {
     font-weight: bold;
 }
 
-form dd {
+form  dd {
     padding: 4px;
 }
 
-form dd input {
+form  dd input {
     padding: 5px;
     margin: 0;
     width: 250px;
     font-size: 12px;
 }
 
-form dd select {
+form  dd select {
     padding: 5px;
     font-size: 12px;
     width: 265px;
@@ -54,6 +54,7 @@ form dd select option {
     background-color: #52A0C4;
     border-color: #52A0C4;
     color: #fcfcfc;
+    cursor: pointer;
 }
 
 
@@ -66,7 +67,7 @@ ul.errors li {
     font-weight: bold;
 }
 
-#mensajes li {
+ul#mensajes li {
     font-size: 13px;
     padding: 10px;
     background-color: #FFF6BF;
@@ -77,7 +78,7 @@ ul.errors li {
     border-width: 1px;
 }
 
-#mensajes li .error {
+ul#mensajes li .error {
     background-color: #de3c4a;
     color: #f2edf2;
     border-color: #f50e1a;

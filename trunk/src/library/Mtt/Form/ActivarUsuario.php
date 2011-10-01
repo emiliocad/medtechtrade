@@ -14,7 +14,6 @@ class Mtt_Form_ActivarUsuario
     public function init()
         {
 
-
         $this
                 ->setMethod( 'post' )
                 ->setAttrib( 'id' , 'frmActivarUsuario' )
@@ -39,9 +38,10 @@ class Mtt_Form_ActivarUsuario
 
 
         //Submit
-        $submit = new Zend_Form_Element_Submit( 'submit' );
+        $submit = new Zend_Form_Element_Button( 'submit' );
         $submit->setAttrib( 'value' , 'Habilitar' )
                 ->setAttrib( 'class' , 'button' )
+                ->setAttrib( 'type' , 'submit' )
         ;
         $this->addElement( $submit );
         }

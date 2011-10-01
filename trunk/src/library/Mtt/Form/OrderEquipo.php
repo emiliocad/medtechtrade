@@ -27,10 +27,7 @@ class Mtt_Form_OrderEquipo
         $order->setAttrib( 'class' , 'order-by' );
 
         $this->addElement( $order );
-//
-//        $submit = new Zend_Form_Element_Submit( 'submit' );
-//        $submit->setAttrib( 'value' , 'Registrar' );
-//        $this->addElement( $submit );
+
         }
 
 

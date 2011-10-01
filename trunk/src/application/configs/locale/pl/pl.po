@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Medtechtrade\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-30 11:37-0500\n"
-"PO-Revision-Date: 2011-09-30 11:37-0500\n"
+"POT-Creation-Date: 2011-09-30 18:44-0500\n"
+"PO-Revision-Date: 2011-09-30 18:44-0500\n"
 "Last-Translator: Luis Mayta <slovacus@gmail.com>\n"
 "Language-Team: StockerGroup <slovacus@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -15,6 +15,18 @@ msgstr ""
 "X-Poedit-Country: POLAND\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-SearchPath-0: .\n"
+
+#: controllers/UsuarioController.php:90
+msgid "User or Password Invalido"
+msgstr ""
+
+#: controllers/UsuarioController.php:114
+msgid "Error al Ingreso de Datos"
+msgstr ""
+
+#: controllers/UsuarioController.php:144
+msgid "There has been registered a new user"
+msgstr ""
 
 #: modules/admin/controllers/UserController.php:114
 msgid "Changed a User"
@@ -32,7 +44,7 @@ msgstr ""
 msgid "Se Registro el Usuario"
 msgstr ""
 
-#: modules/user/controllers/EquipoController.php:138
+#: modules/user/controllers/EquipoController.php:142
 msgid "Se Registro El Equipo"
 msgstr ""
 
@@ -563,25 +575,60 @@ msgstr ""
 msgid "Quantity"
 msgstr ""
 
-#: modules/user/views/scripts/user/index.phtml:2
+#: modules/user/views/scripts/index/index.phtml:2
 msgid "Dashboard"
+msgstr ""
+
+#: modules/user/views/scripts/index/index.phtml:10
+msgid ""
+"to MedTechTrade. Please find and administrate\n"
+"                your medical equipment in this section."
+msgstr ""
+
+#: modules/user/views/scripts/operacion/cotizar.phtml:14
+msgid "Model"
+msgstr ""
+
+#: modules/user/views/scripts/operacion/cotizar.phtml:24
+msgid "Tipo"
+msgstr ""
+
+#: modules/user/views/scripts/operacion/cotizar.phtml:25
+msgid "Numero de Cuotas "
+msgstr ""
+
+#: modules/user/views/scripts/operacion/cotizar.phtml:26
+msgid "Pago"
+msgstr ""
+
+#: modules/user/views/scripts/operacion/cotizar.phtml:27
+msgid "Dias"
+msgstr ""
+
+#: modules/user/views/scripts/operacion/cotizar.phtml:28
+msgid "Mora por dia"
+msgstr ""
+
+#: modules/user/views/scripts/operacion/cotizar.phtml:66
+msgid "Buy"
 msgstr ""
 
 #: views/scripts/categoria/index.phtml:26
 #: views/scripts/categoria/index.phtml:86
+#: views/scripts/equipo/index.phtml:11
 msgid "Click to see all"
 msgstr ""
 
 #: views/scripts/categoria/index.phtml:56
 #: views/scripts/categoria/index.phtml:112
-#: views/scripts/equipo/index.phtml:42
+#: views/scripts/equipo/index.phtml:39
 #: views/scripts/equipo/ver.phtml:54
 msgid "Product name"
 msgstr ""
 
 #: views/scripts/categoria/index.phtml:69
 #: views/scripts/categoria/index.phtml:126
-#: views/scripts/equipo/index.phtml:55
+#: views/scripts/equipo/index.phtml:52
 msgid "View details"
 msgstr ""
 
@@ -601,7 +648,7 @@ msgstr ""
 msgid "Purchase of equipment"
 msgstr ""
 
-#: views/scripts/equipo/index.phtml:11
+#: views/scripts/equipo/index.phtml:7
 msgid "Our Equipment"
 msgstr ""
 
@@ -623,11 +670,6 @@ msgstr ""
 
 #: views/scripts/equipo/ver.phtml:101
 msgid "Tell a Friend"
-msgstr ""
-
-#: views/scripts/equipo/guest/deviceDescription.phtml:2
-#: views/scripts/equipo/user/deviceDescription.phtml:2
-msgid "Model"
 msgstr ""
 
 #: views/scripts/equipo/guest/deviceDescription.phtml:8
@@ -713,11 +755,19 @@ msgstr ""
 msgid "Add to Reserve"
 msgstr ""
 
-#: views/scripts/index/index.phtml:15
+#: views/scripts/equipo/user/deviceActions.phtml:62
+msgid "Request Price"
+msgstr ""
+
+#: views/scripts/equipo/user/deviceActions.phtml:74
+msgid "Back"
+msgstr ""
+
+#: views/scripts/index/index.phtml:4
 msgid "Welcome to Medtechtrade"
 msgstr ""
 
-#: views/scripts/index/index.phtml:33
+#: views/scripts/index/index.phtml:22
 msgid "Top Offers"
 msgstr ""
 
