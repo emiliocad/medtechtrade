@@ -1,29 +1,24 @@
 <h2><?= $this->translate( 'Usuario' ) ?></h2>
 
 <script>
-    $(function() {
-
-        $('a.ajaxLink1').click(function(){ 
-            $.get('/admin/user/detalle/id/6', {}, 
-            function(data,textStatus) { 
-                $('#dialog-modal #ficha').html(data); 
-                alert(data);
-                $( "#dialog-modal" ).dialog({
-                    modal: true
-                });
+    function prueba(id){
+        $.get('/admin/user/detalle/id/'+id, {}, 
+        function(data,textStatus) { 
+           // $('#dialog-modal #ficha').html(data); 
+            alert(data);
+            $( "#dialog-modal" ).dialog({
+                modal: true
+            });
                 
-                $('#dialog-modal').fadeIn('normal'); 
-            }, 'html'); return false
-        });
-    });
+            $('#dialog-modal').fadeIn('normal'); 
+        }, 'html'); return false
+
+}
 </script>
-
-
 <div id="dialog-modal" title="User">
-    <div id="ficha">
-        jhkhlk
-    </div>
+    <p>sdfsflkjsdlfsjdñfsdkfjñsdfs</p>
 </div>
+
 <table border="1" class="listado">
     <thead>
         <tr>
@@ -73,7 +68,7 @@
                         'action' => 'detalle' ,
                         'id' => $usuario->id ) )
                     ?>
-                    <a href="#" class="ajaxLink1">
+                    <a href="#" onclick="prueba(<?= $this->escape( $usuario->id ) ?>)">
                         <?= $this->escape( $usuario->nombre ) ?>
                     </a>
 
