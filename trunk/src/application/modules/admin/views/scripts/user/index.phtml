@@ -1,6 +1,29 @@
 <h2><?= $this->translate( 'Usuario' ) ?></h2>
 
+<script>
+    $(function() {
 
+        $('a.ajaxLink1').click(function(){ 
+            $.get('/admin/user/detalle/id/6', {}, 
+            function(data,textStatus) { 
+                $('#dialog-modal #ficha').html(data); 
+                alert(data);
+                $( "#dialog-modal" ).dialog({
+                    modal: true
+                });
+                
+                $('#dialog-modal').fadeIn('normal'); 
+            }, 'html'); return false
+        });
+    });
+</script>
+
+
+<div id="dialog-modal" title="User">
+    <div id="ficha">
+        jhkhlk
+    </div>
+</div>
 <table border="1" class="listado">
     <thead>
         <tr>
@@ -48,11 +71,12 @@
                     $link = $this->url( array( 'module' => 'admin' ,
                         'controller' => 'user' ,
                         'action' => 'detalle' ,
-                        'id' => $usuario->id) )
+                        'id' => $usuario->id ) )
                     ?>
-                    <a href="<?= $link ?>">
+                    <a href="#" class="ajaxLink1">
                         <?= $this->escape( $usuario->nombre ) ?>
                     </a>
+
                 </td>
                 <td><?= $this->escape( $usuario->apellido ) ?></td>
                 <td><?= $this->escape( $usuario->email ) ?></td>
@@ -77,7 +101,7 @@
                     </a>
 
                     <!--End operaciones -->
-                    
+
                     <!--Operaciones -->
                     <?php
                     $link = $this->url( array( 'module' => 'admin' ,

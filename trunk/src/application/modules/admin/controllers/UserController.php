@@ -26,6 +26,9 @@ class Admin_UserController
 
     public function detalleAction()
         {
+        
+        $this->_helper->layout->disableLayout();
+        
         $id = intval( $this->_getParam( 'id' ) );
         $this->view->jQuery()
                 ->addOnLoad(
