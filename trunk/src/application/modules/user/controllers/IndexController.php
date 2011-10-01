@@ -8,7 +8,8 @@ class User_IndexController
 
     public function indexAction()
         {
-        
+        $url = Zend_Controller_Front::getInstance()
+                ->getRequest()->getRequestUri();
         }
 
 
