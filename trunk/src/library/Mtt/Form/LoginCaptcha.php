@@ -10,7 +10,7 @@
  *
  */
 class Mtt_Form_LoginCaptcha
-        extends Mtt_Form_Login
+        extends Mtt_Form
     {
 
 
@@ -21,8 +21,21 @@ class Mtt_Form_LoginCaptcha
                 ->setAttrib( 'id' , 'frmLogin' )
         ;
 
-        $e = new Zend_Form_Element_Captcha();
-        $this->addElement( $e );
+        $captcha = new Zend_Captcha_Image( array(
+                    'name' => 'foo' ,
+                    'wordLen' => 5 ,
+                    'font' => 'VeraMono.ttf' ,
+                    'height' => 50 ,
+                    'width' => 120 ,
+                    'imgDir' => './images/captcha' ,
+                    'imgUrl' => 'http://localhost:8080/test/images/captcha' ,
+                    'timeout' => 300
+                ) );
+
+        $id = $captcha->generate();
+
+        
+        $this->addElement( $id );
 
 
         $e = $this->getElement( 'username' );

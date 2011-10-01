@@ -87,7 +87,7 @@ class TestController
         $this->mailTransport = new Zend_Mail_Transport_Smtp( 'smtp.1and1.com' ,
                         $config
         );
-        
+
         Mtt_Html_Mail_Mailer::setDefaultFrom();
         Zend_Mail::setDefaultFrom(
                 'checklist@pl-group.biz' , 'Zend GData'
@@ -99,7 +99,7 @@ class TestController
         Zend_Mail::setDefaultReplyTo(
                 'checklist@pl-group.biz' , 'Zend GData'
         );
-        
+
         $m = new Mtt_Html_Mail_Mailer();
         $m->setSubject( "Hello!" );
         $m->addTo( "slovacus@gmail.com" );
@@ -109,6 +109,13 @@ class TestController
         $confMail = $_conf->toArray();
 
         //$this->view->assign( 'conf' , $confMail['auth'] );
+        }
+
+
+    public function captchaAction()
+        {
+        $loginCaptcha = new Mtt_Form_LoginCaptcha();
+        $this->view->assign( 'form' , $loginCaptcha );
         }
 
 
