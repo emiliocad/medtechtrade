@@ -17,7 +17,9 @@ class My_Form
         array( 'HtmlTag' , array( 'tag' => 'div' ) ) ,
     );
     protected static $_standardElementDecoratorAppendDescription = array(
-        array( 'Description' , array( 'tag' => 'span' , 'class' => 'element-description-prepend' , 'placement' => 'prepend' ) ) ,
+        array( 'Description' , array( 'tag' => 'span' ,
+                'class' => 'element-description-prepend' ,
+                'placement' => 'prepend' ) ) ,
         array( 'ViewHelper' ) ,
         array( 'Label' , array( 'separator' => ' ' , ) ) ,
         array( 'Errors' ) ,
@@ -26,14 +28,18 @@ class My_Form
     protected static $_standardElementDecoratorClearRight = array(
         array( 'ViewHelper' ) ,
         array( 'Label' , array( 'separator' => ' ' , ) ) ,
-        array( 'Description' , array( 'tag' => 'span' , 'class' => 'element-description-append' , 'placement' => 'append' ) ) ,
+        array( 'Description' , array( 'tag' => 'span' ,
+                'class' => 'element-description-append' ,
+                'placement' => 'append' ) ) ,
         array( 'Errors' ) ,
         array( 'HtmlTag' , array( 'tag' => 'div' , 'class' => 'clearRight' ) ) ,
     );
     protected static $_standardElementDecoratorClearLeft = array(
         array( 'ViewHelper' ) ,
         array( 'Label' , array( 'separator' => ' ' , ) ) ,
-        array( 'Description' , array( 'tag' => 'span' , 'class' => 'element-description-append' , 'placement' => 'append' ) ) ,
+        array( 'Description' , array( 'tag' => 'span' ,
+                'class' => 'element-description-append' ,
+                'placement' => 'append' ) ) ,
         array( 'Errors' ) ,
         array( 'HtmlTag' , array( 'tag' => 'div' , 'class' => 'clearLeft' ) ) ,
     );
@@ -46,7 +52,9 @@ class My_Form
     protected static $_multiCheckboxElementDecorator = array(
         array( 'ViewHelper' ) ,
         array( 'Label' , array( 'separator' => ' ' , 'tag' => 'span' ) ) ,
-        array( 'Description' , array( 'tag' => 'span' , 'class' => 'element-description-append' , 'placement' => 'append' ) ) ,
+        array( 'Description' , array( 'tag' => 'span' ,
+                'class' => 'element-description-append' ,
+                'placement' => 'append' ) ) ,
         array( 'Errors' ) ,
         array( 'HtmlTag' , array( 'tag' => 'div' , 'class' => 'multiCheckbox' ) ) ,
     );
@@ -102,7 +110,9 @@ class My_Form
             $group->addDecorators(
                     array(
                         array( 'FormElements' ) ,
-                        array( 'Description' , array( 'tag' => 'p' , 'class' => 'group-description' , 'placement' => 'prepend' ) ) ,
+                        array( 'Description' , array( 'tag' => 'p' ,
+                                'class' => 'group-description' ,
+                                'placement' => 'prepend' ) ) ,
                         new Zend_Form_Decorator_Fieldset() ,
                     )
             );
@@ -116,16 +126,26 @@ class My_Form
             switch ( $element->getType() )
                 {
 
-                case 'Zend_Form_Element_Hidden': $element->setDecorators( self::$_hiddenElementDecorator );
+                case 'Zend_Form_Element_Hidden':
+                    $element->setDecorators(
+                            self::$_hiddenElementDecorator
+                    );
                     break;
-                case 'Zend_Form_Element_Submit': $element->setDecorators( self::$_submitElementDecorator );
+                case 'Zend_Form_Element_Submit':
+                    $element->setDecorators(
+                            self::$_submitElementDecorator
+                    );
                     break;
                 case 'Zend_Form_Element_Radio':
-                case 'Zend_Form_Element_MultiCheckbox': $element->setDecorators( self::$_multiCheckboxElementDecorator );
+                case 'Zend_Form_Element_MultiCheckbox': $element->setDecorators(
+                            self::$_multiCheckboxElementDecorator
+                    );
                     break;
                 case 'Zend_Form_Element_Select':
                 case 'Zend_Form_Element_Text':
-                default: $element->setDecorators( self::$_standardElementDecorator );
+                default: $element->setDecorators(
+                            self::$_standardElementDecorator
+                    );
                 }
             }
 
