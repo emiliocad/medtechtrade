@@ -111,3 +111,9 @@
 .encabezado {
     background-color: #e0dce0;
 }
+
+/* */
+.table-question {
+    width: 520px;
+    background-color: #e6e6e6;
+}

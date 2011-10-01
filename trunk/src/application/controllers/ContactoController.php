@@ -12,7 +12,8 @@ class ContactoController extends Mtt_Controller_Action
 
     public function indexAction()
         {
-        
+        $form = new Mtt_Form_Contactar();
+        $this->view->assign( 'formContactar' , $form );
         }
 
     

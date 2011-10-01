@@ -16,6 +16,10 @@ class User_PreguntaController
 
     public function indexAction()
         {
+        $this->view->jQuery()
+                ->addStylesheet(
+                        $this->view->baseUrl().'/css/reserva.css'
+        );
         $this->view->assign(
                 'preguntas' , $this->_pregunta->listByUser(
                 $this->authData['usuario']->id)
