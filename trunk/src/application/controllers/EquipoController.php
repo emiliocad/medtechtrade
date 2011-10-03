@@ -42,10 +42,16 @@ class EquipoController
 
         $this->view
                 ->headScript()
-                ->appendFile( '/js/fancybox/jquery.fancybox-1.3.4.pack.js' , 
-                        'text/javascript' );
+                ->appendFile( '/js/fancybox/jquery.fancybox-1.3.4.pack.js' ,
+                              'text/javascript' );
         $this->view->headLink()
-                ->appendStylesheet('/js/fancybox/jquery.fancybox-1.3.4.css');
+                ->appendStylesheet( '/js/fancybox/jquery.fancybox-1.3.4.css' );
+        $this->view->jQuery()
+                ->addOnLoad(
+                        '$(document).ready(function() {
+                            $(".fancy").fancybox();
+                        });'
+                );
 
         $this->_equipo->updateView( $id );
 
