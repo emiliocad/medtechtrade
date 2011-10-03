@@ -84,3 +84,35 @@ ul#mensajes li .error {
     border-color: #f50e1a;
 }
 
+/*zendy_form*/
+
+.zendy_form div {
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 10px;
+}
+
+.zendy_form div label {
+    padding: 5px;
+}
+
+.zendy_form div input {
+    padding: 5px;
+    font-size: 13px;
+}
+
+label.required {
+    font-weight: bold;
+}
+
+.zendy_form div .button {
+    padding: 5px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    background-color: #00A2D7;
+    border-color: #00A2D7;
+    border-width: 1px;
+    border-style: solid;
+}
