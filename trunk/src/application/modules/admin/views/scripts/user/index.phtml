@@ -1,29 +1,26 @@
 <h2><?= $this->translate( 'Usuario' ) ?></h2>
 
 <script>
-    $(function() {
-
-        $('a.ajaxLink1').click(function(){ 
-            $.get('/admin/user/detalle/id/6', {}, 
-            function(data,textStatus) { 
-                $('#dialog-modal #ficha').html(data); 
-                alert(data);
-                $( "#dialog-modal" ).dialog({
-                    modal: true
-                });
+    function prueba(id){
+        $.get('/admin/user/detalle/id/'+id, {}, 
+        function(data,textStatus) { 
+            $('#dialog_text').html(data); 
+            //alert(data);
+            $( "#dialog" ).dialog({
+                modal: true
+            });
                 
-                $('#dialog-modal').fadeIn('normal'); 
-            }, 'html'); return false
-        });
-    });
+            $('#dialog').fadeIn('normal'); 
+        }, 'html'); return false
+
+}
 </script>
+<div class="demo">
 
-
-<div id="dialog-modal" title="User">
-    <div id="ficha">
-        jhkhlk
-    </div>
+<div id="dialog" title="Basic dialog">
+	<div id="dialog_text">This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</div>
 </div>
+
 <table border="1" class="listado">
     <thead>
         <tr>
@@ -73,7 +70,7 @@
                         'action' => 'detalle' ,
                         'id' => $usuario->id ) )
                     ?>
-                    <a href="#" class="ajaxLink1">
+                    <a href="#" onclick="prueba(<?= $this->escape( $usuario->id ) ?>)">
                         <?= $this->escape( $usuario->nombre ) ?>
                     </a>
 
