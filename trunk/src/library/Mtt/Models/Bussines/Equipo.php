@@ -278,7 +278,7 @@ class Mtt_Models_Bussines_Equipo
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
 
-
+        
     /**
      * 
      * 
@@ -545,6 +545,43 @@ class Mtt_Models_Bussines_Equipo
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
 
+        
+     public function searchEquip($keywords, $modelo, $fabricante, $categoria)
+        {
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from(
+                        $this->_name ,
+                        array(
+                    'id' ,
+                    'nombre as equipo' ,
+                    'modelo' ,
+                    'fechafabricacion' ,
+
+                    'active' )
+                )
+                ->joinInner(
+                        'categoria' , 'categoria.id = equipo.categoria_id' ,
+                        array( 'categoria.nombre as categoria' )
+                )
+                ->joinInner( 'fabricantes' ,
+                             'fabricantes.id = equipo.fabricantes_id' ,
+                             array( 'fabricantes.nombre as fabricante' )
+                )
+                ->joinLeft( 'imagen' , 'imagen.equipo_id = equipo.id' ,
+                            array( 'imagen.nombre as imageNombre' ,
+                    'imagen.thumb as imageThumb' ,
+                    'imagen.imagen as image' )
+                )
+                ->where( 'equipo.active = ?' , self::ACTIVE )
+                ->query()
+        ;
+
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }       
+        
+        
+              
 
     public function updateEquipo( array $data , $id )
         {
