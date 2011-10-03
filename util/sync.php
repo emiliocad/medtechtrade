@@ -1,6 +1,7 @@
 <?php
 
-$projectPath = realpath(dirname(__FILE__) . '/../src/ventas');
+$projectPath = realpath(__DIR__ . '/../trunk/src');
+//$projectPath = 'E:\Project\Zend\medtechtrade.zend.local\trunk\src';
 $configPath = $projectPath . "/application/configs/application.ini";
 $libraryPath = $projectPath . "/library/";
 $deltaPath = $projectPath . "/sql/";
@@ -15,10 +16,10 @@ set_include_path(implode(PATH_SEPARATOR, $paths));
 require 'Zend/Loader/Autoloader.php';
 
 $loader = Zend_Loader_Autoloader::getInstance();
-$loader->registerNamespace('My_');
+$loader->registerNamespace('Mtt_');
 
 $config = new Zend_Config_Ini($configPath, $env);
 $db = Zend_Db::factory($config->resources->db);
 $log = new Zend_Log(new Zend_Log_Writer_Stream($logPath));
-$mmm = new My_Migration_Manager($db, $deltaPath, $log);
+$mmm = new Mtt_Migration_Manager($db, $deltaPath, $log);
 $mmm->sync();
