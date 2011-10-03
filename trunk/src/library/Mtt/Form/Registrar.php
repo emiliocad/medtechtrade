@@ -7,7 +7,7 @@
 
 
 class Mtt_Form_Registrar
-        extends Mtt_Form
+        extends Mtt_Formy
     {
 
 

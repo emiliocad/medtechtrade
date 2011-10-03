@@ -7,7 +7,7 @@
 
 
 class Mtt_Form_Equipo
-        extends Mtt_Form
+        extends Mtt_Formy
     {
 
 

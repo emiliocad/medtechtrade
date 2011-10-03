@@ -10,7 +10,7 @@
  *
  */
 class Mtt_Form_ChangePassword
-        extends Mtt_Form
+        extends Mtt_Formy
     {
 
 

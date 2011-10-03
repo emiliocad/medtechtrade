@@ -7,7 +7,7 @@
 
 
 class Mtt_Form_Pregunta
-        extends Mtt_Form
+        extends Mtt_Formy
     {
 
 

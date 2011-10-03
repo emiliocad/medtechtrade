@@ -8,7 +8,7 @@
 
 //TODO crear decoradores para este formulario
 class Mtt_Form_Usuario
-        extends Mtt_Form
+        extends Mtt_Formy
     {
 
 
