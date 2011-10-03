@@ -10,7 +10,7 @@
  *
  */
 class Mtt_Form_Login
-        extends Mtt_Form
+        extends Mtt_Formy
     {
 
 

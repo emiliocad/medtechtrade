@@ -10,7 +10,7 @@
  *
  */
 class Mtt_Form_LoginCaptcha
-        extends My_Form
+        extends Mtt_Formy
     {
 
 
