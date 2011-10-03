@@ -105,6 +105,7 @@ class Mtt_Form_Registrar
 
 
         $e = new Zend_Form_Element_Select( 'paises_id' );
+        $e->setRequired();
         $e->setLabel( 'Pais' );
         $_pais = new Mtt_Models_Bussines_Paises();
         $values = $_pais->getComboValues();

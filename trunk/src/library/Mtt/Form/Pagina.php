@@ -22,6 +22,7 @@ class Mtt_Form_Pagina
 
         /* idiomas */
         $idioma = new Zend_Form_Element_Select( 'idiomas_id' );
+        $idioma->setRequired();
         $_idioma = new Mtt_Models_Bussines_Idioma();
         $idioma->setLabel( 'Idiomas :' );
         $idioma->addMultiOption( -1 , '--- Idiomas ---' );
@@ -41,6 +42,7 @@ class Mtt_Form_Pagina
 
         /* pais */
         $pais = new Zend_Form_Element_Select( 'paises_id' );
+        $pais->setRequired();
         $_pais = new Mtt_Models_Bussines_Paises();
         $pais->setLabel( 'Paises:' );
         $pais->addMultiOption( -1 , '--- Escoger Paises ---' );

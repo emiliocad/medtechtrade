@@ -7,7 +7,10 @@ class Mtt_Formy
 
     protected static $_standardElementDecorator = array(
         array( 'ViewHelper' ) ,
-        array( 'Label' , array( 'separator' => ' ' , ) ) ,
+        array( 'Label' , array(
+                'separator' => ' ' ,
+                'tag' => 'div'
+            ) ) ,
         array( 'Description' , array(
                 'tag' => 'span' ,
                 'class' => 'element-description-append' ,
@@ -65,7 +68,6 @@ class Mtt_Formy
         array( 'ViewHelper' ) ,
         array( 'HtmlTag' , array( 'tag' => 'p' , 'class' => 'element-submit' ) ) ,
     );
-
 
     public function __construct( $options = null )
         {

@@ -25,6 +25,7 @@ class Mtt_Form_Equipo
         ;
 
         $categoria = new Zend_Form_Element_Select( 'categoria_id' );
+        $categoria->setRequired();
         $categoria->setLabel( 'Categoria' );
         $_categoria = new Mtt_Models_Bussines_Categoria();
         $values = $_categoria->getComboValues();
@@ -77,6 +78,7 @@ class Mtt_Form_Equipo
 
 
         $estadoEquipo = new Zend_Form_Element_Select( 'estadoequipo_id' );
+        $estadoEquipo->setRequired();
         $estadoEquipo->setLabel( 'Estado Equipo:' );
         $_estadoEquipo = new Mtt_Models_Bussines_estadoEquipo();
         $values = $_estadoEquipo->getComboValues();
@@ -88,6 +90,7 @@ class Mtt_Form_Equipo
         );
 
         $publicacionEquipo = new Zend_Form_Element_Select( 'publicacionEquipo_id' );
+        $publicacionEquipo->setRequired();
         $publicacionEquipo->setLabel( 'Publicacion de Equipo:' );
         $_publicacionEquipo = new Mtt_Models_Bussines_PublicacionEquipo;
         $values = $_publicacionEquipo->getComboValues();
@@ -99,6 +102,7 @@ class Mtt_Form_Equipo
         );
 
         $fabricantes = new Zend_Form_Element_Select( 'fabricantes_id' );
+        $fabricantes->setRequired();
         $fabricantes->setLabel( 'Fabricantes:' );
         $_fabricantes = new Mtt_Models_Bussines_Fabricante();
         $values = $_fabricantes->getComboValues();
@@ -117,6 +121,7 @@ class Mtt_Form_Equipo
         $this->addElement( $tag );
 
         $moneda = new Zend_Form_Element_Select( 'moneda_id' );
+        $moneda->setRequired();
         $moneda->setLabel( 'Moneda:' );
         $_moneda = new Mtt_Models_Bussines_Moneda();
         $values = $_moneda->getComboValues();
@@ -128,6 +133,7 @@ class Mtt_Form_Equipo
         );
 
         $pais = new Zend_Form_Element_Select( 'paises_id' );
+        $pais->setRequired();
         $pais->setLabel( 'Pais:' );
         $_pais = new Mtt_Models_Bussines_Paises();
         $values = $_pais->getComboValues();

@@ -99,7 +99,9 @@ class Mtt_Form_Usuario
 
 
         $paises = new Zend_Form_Element_Select( 'paises_id' );
+        $paises->setRequired();
         $paises->setLabel( '* Escoger Pais' );
+        $paises->setRequired();
         $_pais = new Mtt_Models_Bussines_Paises();
         $values = $_pais->getComboValues();
         $paises->addMultiOption( -1 , '--- Paises ---' );
@@ -111,6 +113,7 @@ class Mtt_Form_Usuario
         );
 
         $rol = new Zend_Form_Element_Select( 'tipousuario_id' );
+        $rol->setRequired();
         $rol->setLabel( '* Rol de Usuario :' );
         $_tipoUsuario = new Mtt_Models_Bussines_TipoUsuario();
         $values = $_tipoUsuario->getComboValues();
