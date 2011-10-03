@@ -17,6 +17,13 @@ class Admin_UserController
 
     public function indexAction()
         {
+        $this->view->jQuery()
+                ->addOnLoad(
+                        ' $(document).ready(function() {
+                            $("#tabs").tabs();
+                          });'
+                )
+        ;
         $this->view->assign(
                 'usuarios' , $this->_user->listar()
         );
@@ -30,13 +37,7 @@ class Admin_UserController
         $this->_helper->layout->disableLayout();
         
         $id = intval( $this->_getParam( 'id' ) );
-        $this->view->jQuery()
-                ->addOnLoad(
-                        ' $(document).ready(function() {
-                            $("#tabs").tabs();
-                          });'
-                )
-        ;
+        
         //Editar datos del usuario
         $this->editarAction();
         

@@ -4,19 +4,21 @@
     function prueba(id){
         $.get('/admin/user/detalle/id/'+id, {}, 
         function(data,textStatus) { 
-           // $('#dialog-modal #ficha').html(data); 
-            alert(data);
-            $( "#dialog-modal" ).dialog({
+            $('#dialog_text').html(data); 
+            //alert(data);
+            $( "#dialog" ).dialog({
                 modal: true
             });
                 
-            $('#dialog-modal').fadeIn('normal'); 
+            $('#dialog').fadeIn('normal'); 
         }, 'html'); return false
 
 }
 </script>
-<div id="dialog-modal" title="User">
-    <p>sdfsflkjsdlfsjdñfsdkfjñsdfs</p>
+<div class="demo">
+
+<div id="dialog" title="Basic dialog">
+	<div id="dialog_text">This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</div>
 </div>
 
 <table border="1" class="listado">
