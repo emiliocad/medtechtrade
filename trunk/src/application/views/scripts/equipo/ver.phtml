@@ -1,3 +1,10 @@
+<script language="javascript">
+    $(document).ready(function() {
+
+        $(".fancy").fancybox();
+    });
+</script>
+
 <span class="breadcrumb">
     <a href="
     <?=
@@ -30,16 +37,34 @@
     <?= $this->producto->nombre ?>
 </h2>
 
+<div id="dialog" title="An Image!" style="display: none;">
+    <img id="image" src=""/>
+</div>
+
 <div id="device-foto-galery">
     <!--Producto -->
 
     <img src="/media/catalog/product/device-03-00.png" alt="">
     <!--Producto-->
     <!--\media\catalog\product\thumb-->
-    <img src="http://medtechtrade.zend.local/media/catalog/product/thumb/device-03-01.png" alt="">
-    <img src="/media/catalog/product/thumb/device-03-02.png" alt="">
-    <img src="/media/catalog/product/thumb/device-03-03.png" alt="">
-    <img src="/media/catalog/product/thumb/device-03-04.png" alt="">
+    <a href="/media/catalog/product/thumb/device-03-01.png" title="" 
+       class="fancy" rel="gallery">
+        <img src="/media/catalog/product/thumb/device-03-01.png" alt="Device" />
+    </a> 
+    <a href="/media/catalog/product/thumb/device-03-02.png" title="" 
+       class="fancy" rel="gallery">
+        <img src="/media/catalog/product/thumb/device-03-02.png" alt="Device" />
+    </a> 
+    <a href="/media/catalog/product/thumb/device-03-03.png" title="" 
+       class="fancy" rel="gallery">
+        <img src="/media/catalog/product/thumb/device-03-03.png" alt="Device" />
+    </a> 
+    <a href="/media/catalog/product/thumb/device-03-04.png" title="" 
+       class="fancy" rel="gallery">
+        <img src="/media/catalog/product/thumb/device-03-04.png" alt="Device" />
+    </a> 
+
+
     <!-- Fin de imagenes -->
     <a href="#"><img src="/images/arrow-left.png" alt=""></a>
     <a href="#"><img src="/images/arrow-right.png" alt=""></a>
@@ -113,4 +138,3 @@
             <?= $this->translate( 'Back' ) ?>
         </span>
     </a>
-  
