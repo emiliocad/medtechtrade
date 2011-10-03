@@ -18,13 +18,14 @@ class Mtt_Form_Cotizar
                 ->setAttrib( 'id' , 'frmCotizar' )
         ;
 
+        //Nombre
         $decorator = new Mtt_Form_Decorator_SimpleInput();
         $e = new Zend_Form_Element_Text( 'nombre' );
         $e->setRequired();
         //$e->setDecorators( array( $decorator ) );
         $e->setLabel(
                 $this->_translate->translate(
-                        'Name:'
+                        'nombre'
                 )
         );
         $e->addValidator( new Zend_Validate_StringLength(
@@ -42,7 +43,7 @@ class Mtt_Form_Cotizar
         //$e->setDecorators( array( $decorator ) );
         $e->setLabel(
                 $this->_translate->translate(
-                        'Address:'
+                        'organizacion'
                 )
         );
         $e->addValidator( new Zend_Validate_StringLength(
@@ -51,6 +52,64 @@ class Mtt_Form_Cotizar
                 )
         );
         $this->addElement( $e );
+
+        
+        /* Direccion */
+        $e = new Zend_Form_Element_Text( 'direccion' );
+        $e->setRequired();
+        //$e->setDecorators( array( $decorator ) );
+        $e->setLabel(
+                $this->_translate->translate(
+                        'direccion'
+                )
+        );
+        $e->addValidator( new Zend_Validate_StringLength(
+                        array(
+                            'min' => 5 , 'max' => 25 )
+                )
+        );
+        $this->addElement( $e );
+        
+        /* Cod. Postal */
+        $e = new Zend_Form_Element_Text( 'codpostal' );
+        $e->setRequired();
+        //$e->setDecorators( array( $decorator ) );
+        $e->setLabel(
+                $this->_translate->translate(
+                        'codigo postal'
+                )
+        );
+        $this->addElement( $e );
+        
+        /*  Ciudad  */
+        $e = new Zend_Form_Element_Text( 'ciudad' );
+        $e->setRequired();
+        //$e->setDecorators( array( $decorator ) );
+        $e->setLabel(
+                $this->_translate->translate(
+                        'ciudad'
+                )
+        );
+        $this->addElement( $e );
+
+        /* Pais */
+        $e = new Zend_Form_Element_Select( 'paises_id' );
+        $e->setLabel(
+                $this->_translate->translate(
+                        'pais'
+                )
+        );
+        $_pais = new Mtt_Models_Bussines_Paises();
+        $values = $_pais->getComboValues();
+        $e->addMultiOption( -1 ,
+                            $this->_translate->translate(
+                        'paises'
+                )
+        );
+        $e->addMultiOptions( $values );
+        $this->addElement( $e );
+        $e->addValidator( new Zend_Validate_InArray( array_keys( $values ) ) );
+        
         /* email */
         $e = new Zend_Form_Element_Text( 'email' );
         $e->addValidator( new Zend_Validate_Db_NoRecordExists(
@@ -63,73 +122,38 @@ class Mtt_Form_Cotizar
 
         $e->setLabel(
                 $this->_translate->translate(
-                        'Email:'
+                        'email'
                 )
         );
         $e->addValidator( new Zend_Validate_EmailAddress() );
         $this->addElement( $e );
-        /* end email */
+        
 
-        $e = new Zend_Form_Element_Text( 'codpostal' );
+        $e = new Zend_Form_Element_Text( 'asunto' );
         $e->setRequired();
         //$e->setDecorators( array( $decorator ) );
         $e->setLabel(
                 $this->_translate->translate(
-                        'Codigo Postal:'
-                )
-        );
-        $this->addElement( $e );
-
-
-        $e = new Zend_Form_Element_Text( 'ciudad' );
-        $e->setRequired();
-        //$e->setDecorators( array( $decorator ) );
-        $e->setLabel(
-                $this->_translate->translate(
-                        'City:'
-                )
-        );
-        $this->addElement( $e );
-
-
-        $e = new Zend_Form_Element_Select( 'paises_id' );
-        $e->setLabel(
-                $this->_translate->translate(
-                        'Country:'
-                )
-        );
-        $_pais = new Mtt_Models_Bussines_Paises();
-        $values = $_pais->getComboValues();
-        $e->addMultiOption( -1 ,
-                            $this->_translate->translate(
-                        'Countries:'
-                )
-        );
-        $e->addMultiOptions( $values );
-        $this->addElement( $e );
-        $e->addValidator( new Zend_Validate_InArray( array_keys( $values ) ) );
-
-
-
-        $e = new Zend_Form_Element_Text( 'telefono' );
-        $e->setRequired();
-        //$e->setDecorators( array( $decorator ) );
-        $e->setLabel(
-                $this->_translate->translate(
-                        'Telephone:'
+                        'asunto'
                 )
         );
         $this->addElement( $e );
         
         
-        $e = new Zend_Form_Element_TextArea( 'comentario' );
+        $e = new Zend_Form_Element_TextArea( 'mensaje' );
         $e->setRequired();
         //$e->setDecorators( array( $decorator ) );
         $e->setLabel(
                 $this->_translate->translate(
-                        'Comment:'
+                        'mensaje:'
                 )
         );
+        $this->addElement( $e );
+        
+        $e = new Zend_Form_Element_Checkbox('toemail');
+        $e->setLabel($this->_translate->translate(
+                        'Envie una copia a su correo'))
+                 ->setAttrib('id','toemail');
         $this->addElement( $e );
 
         $this->addElement( 'submit' ,
