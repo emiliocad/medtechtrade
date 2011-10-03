@@ -4,7 +4,7 @@
     $this->url(
             array( 'module' => 'default' ,
         'controller' => 'index' ,
-        'action' => 'index' ) , null , true
+        'action' => 'index' ) , 'default' , true
     )
     ?>
        ">
@@ -20,7 +20,7 @@
     $this->url( array(
         'module' => 'default' ,
         'controller' => 'idioma' ,
-        'action' => 'english' ) , null , true )
+        'action' => 'english' ) , 'default' , true )
     ?>
        ">
            <?= $this->translate( 'English' ) ?>
@@ -30,7 +30,7 @@
     $this->url( array(
         'module' => 'default' ,
         'controller' => 'idioma' ,
-        'action' => 'spanish' ) , null , true )
+        'action' => 'spanish' ) , 'default' , true )
     ?>
        ">
            <?= $this->translate( 'Spanish' ) ?>
@@ -39,7 +39,7 @@
            $this->url( array(
                'module' => 'default' ,
                'controller' => 'idioma' ,
-               'action' => 'aleman' ) , null , true )
+               'action' => 'aleman' ) , 'default' , true )
            ?>
        ">
            <?= $this->translate( 'Deutsch' ) ?>
@@ -49,7 +49,7 @@
            $this->url( array(
                'module' => 'default' ,
                'controller' => 'idioma' ,
-               'action' => 'polonia' ) , null , true )
+               'action' => 'polonia' ) , 'default' , true )
            ?>
        ">
            <?= $this->translate( 'Polish' ) ?>
@@ -67,14 +67,14 @@
     $this->url( array(
         'module' => 'default' ,
         'controller' => 'usuario' ,
-        'action' => 'logout' ) , null , true )
+        'action' => 'logout' ) , 'default' , true )
         ?>">Logout</a>
        <?php else: ?>
         <a href="<?=
        $this->url( array(
            'module' => 'default' ,
            'controller' => 'usuario' ,
-           'action' => 'index' ) , null , true )
+           'action' => 'index' ) , 'default' , true )
            ?>">Login</a> |
        <? endif; ?>
 </div>

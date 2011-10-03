@@ -150,7 +150,7 @@ class Mtt_Form_Search
 
         $this->addElement( 'submit' ,
                            $this->_translate->translate(
-                        'Submit'
+                        'buscar'
                 )
         );
         }
