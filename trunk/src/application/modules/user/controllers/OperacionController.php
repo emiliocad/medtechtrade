@@ -60,22 +60,4 @@ class User_OperacionController
         }
 
 
-    public function cotizarAction()
-        {
-        $id = intval( $this->_request->getParam( 'id' ) );
-
-        //Traer datos del equipo.
-        $equipo = new Mtt_Models_Bussines_Equipo();
-        $this->view->assign(
-                'equipo' , $equipo->getProduct( $id )
-        );
-
-        //Datos de formas de pago
-        $formaPago = new Mtt_Models_Bussines_EquipoFormaPago();
-        $this->view->assign(
-                'formaspago' , $formaPago->listByEquipo( $id )
-        );
-        }
-
-
     }

@@ -37,7 +37,7 @@ class Mtt_Form_Cotizar
         );
         $this->addElement( $e );
 
-        /* Organizacion*/
+        /* Organizacion */
         $e = new Zend_Form_Element_Text( 'organizacion' );
         $e->setRequired();
         //$e->setDecorators( array( $decorator ) );
@@ -53,7 +53,7 @@ class Mtt_Form_Cotizar
         );
         $this->addElement( $e );
 
-        
+
         /* Direccion */
         $e = new Zend_Form_Element_Text( 'direccion' );
         $e->setRequired();
@@ -69,7 +69,7 @@ class Mtt_Form_Cotizar
                 )
         );
         $this->addElement( $e );
-        
+
         /* Cod. Postal */
         $e = new Zend_Form_Element_Text( 'codpostal' );
         $e->setRequired();
@@ -80,7 +80,7 @@ class Mtt_Form_Cotizar
                 )
         );
         $this->addElement( $e );
-        
+
         /*  Ciudad  */
         $e = new Zend_Form_Element_Text( 'ciudad' );
         $e->setRequired();
@@ -109,7 +109,7 @@ class Mtt_Form_Cotizar
         $e->addMultiOptions( $values );
         $this->addElement( $e );
         $e->addValidator( new Zend_Validate_InArray( array_keys( $values ) ) );
-        
+
         /* email */
         $e = new Zend_Form_Element_Text( 'email' );
         $e->addValidator( new Zend_Validate_Db_NoRecordExists(
@@ -127,7 +127,7 @@ class Mtt_Form_Cotizar
         );
         $e->addValidator( new Zend_Validate_EmailAddress() );
         $this->addElement( $e );
-        
+
 
         $e = new Zend_Form_Element_Text( 'asunto' );
         $e->setRequired();
@@ -138,22 +138,24 @@ class Mtt_Form_Cotizar
                 )
         );
         $this->addElement( $e );
-        
-        
+
+
         $e = new Zend_Form_Element_TextArea( 'mensaje' );
         $e->setRequired();
         //$e->setDecorators( array( $decorator ) );
         $e->setLabel(
-                $this->_translate->translate(
-                        'mensaje:'
-                )
-        );
-        $this->addElement( $e );
+            $this->_translate->translate(
+                'mensaje'
+        ));
+        $e->setAttrib('COLS' , '40');
+        $e->setAttrib('ROWS' , '4');
         
-        $e = new Zend_Form_Element_Checkbox('toemail');
-        $e->setLabel($this->_translate->translate(
-                        'Envie una copia a su correo'))
-                 ->setAttrib('id','toemail');
+        $this->addElement( $e );
+
+        $e = new Zend_Form_Element_Checkbox( 'toemail' );
+        $e->setLabel( $this->_translate->translate(
+                                'Envie una copia a su correo' ) )
+                ->setAttrib( 'id' , 'toemail' );
         $this->addElement( $e );
 
         $this->addElement( 'submit' ,
