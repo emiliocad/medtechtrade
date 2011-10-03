@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Medtechtrade\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-30 18:44-0500\n"
-"PO-Revision-Date: 2011-09-30 18:44-0500\n"
-"Last-Translator: Luis Mayta <slovacus@gmail.com>\n"
+"POT-Creation-Date: 2011-10-01 14:56-0500\n"
+"PO-Revision-Date: 2011-10-01 15:25-0500\n"
+"Last-Translator: Matias Franci <mfranci@stockergroup.com>\n"
 "Language-Team: Stockergroup Peru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop;translate\n"
-"X-Poedit-Basepath: E:\\Project\\Zend\\medtechtrade.zend.local\\trunk\\src\n"
+"X-Poedit-Basepath: C:\\project\\zend\\medtechtrade.zend.local\\trunk\\src\n"
 "X-Poedit-Language: Spanish\n"
 "X-Poedit-Country: PERU\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -18,13 +18,13 @@ msgstr ""
 
 #: application/controllers/UsuarioController.php:90
 msgid "User or Password Invalido"
-msgstr ""
+msgstr "Usuario o clave inválida"
 
-#: application/controllers/UsuarioController.php:114
+#: application/controllers/UsuarioController.php:117
 msgid "Error al Ingreso de Datos"
-msgstr ""
+msgstr "Error al ingreo de datos"
 
-#: application/controllers/UsuarioController.php:144
+#: application/controllers/UsuarioController.php:148
 msgid "There has been registered a new user"
 msgstr "Se ha registrado un nuevo usuario"
 
@@ -39,28 +39,27 @@ msgstr "Usuario"
 
 #: application/modules/admin/controllers/UserController.php:134
 msgid "Usuario Desactivado"
-msgstr ""
+msgstr "Usuario Desactivado"
 
 #: application/modules/admin/controllers/UserController.php:152
 msgid "Se Registro el Usuario"
-msgstr ""
+msgstr "Se ha registrado un nuevo usuario"
 
 #: application/modules/user/controllers/EquipoController.php:142
 msgid "Se Registro El Equipo"
-msgstr ""
+msgstr "Se ha registrado un nuevo equipo"
 
 #: application/modules/user/controllers/UserController.php:84
 msgid "Change Password"
 msgstr "Cambiar Password"
 
 #: application/modules/user/controllers/UserController.php:106
-#, fuzzy
 msgid "Changed a Password"
-msgstr "Clave"
+msgstr "Changed a Password"
 
 #: application/modules/user/controllers/UserController.php:118
 msgid "No se Pudo Cambiar"
-msgstr ""
+msgstr "No se ha podido realizar la operación"
 
 #: library/Mtt/Form/ChangePassword.php:26
 msgid "New Password:"
@@ -76,9 +75,9 @@ msgstr "Registrar"
 #: library/Mtt/Form/Moneda.php:50
 #: library/Mtt/Form/Pagina.php:96
 #: library/Mtt/Form/Pais.php:54
-#: library/Mtt/Form/Pregunta.php:66
+#: library/Mtt/Form/Pregunta.php:67
 #: library/Mtt/Form/Registrar.php:126
-#: library/Mtt/Form/Usuario.php:119
+#: library/Mtt/Form/Usuario.php:135
 msgid "Save"
 msgstr "Guardar"
 
@@ -151,7 +150,7 @@ msgstr "Mi Cuenta"
 
 #: application/modules/admin/layouts/scripts/layout.phtml:110
 msgid "Most Requested Operations"
-msgstr ""
+msgstr "Operaciones más utilizadas"
 
 #: application/modules/admin/layouts/scripts/_header.phtml:14
 msgid "Welcome"
@@ -167,7 +166,7 @@ msgstr "Salir"
 
 #: application/modules/admin/layouts/scripts/_navegacion.phtml:6
 msgid "Desk"
-msgstr ""
+msgstr "Escritorio"
 
 #: application/modules/admin/layouts/scripts/_navegacion.phtml:24
 #, fuzzy
@@ -190,7 +189,7 @@ msgstr "Especificaciones"
 
 #: application/modules/admin/layouts/scripts/_navegacion.phtml:83
 msgid "Statistics"
-msgstr ""
+msgstr "Estadísticas"
 
 #: application/modules/admin/layouts/scripts/_navegacion.phtml:94
 #: application/modules/admin/layouts/scripts/navegacion/_configuration.phtml:6
@@ -201,19 +200,19 @@ msgstr "Configuracion"
 #: application/modules/admin/layouts/scripts/_navegacion.phtml:105
 #: application/modules/admin/layouts/scripts/navegacion/_cms.phtml:6
 msgid "CMS"
-msgstr ""
+msgstr "CMS"
 
 #: application/modules/admin/layouts/scripts/navegacion/_cms.phtml:18
 msgid "List of Page"
-msgstr ""
+msgstr "Listado de páginas"
 
 #: application/modules/admin/layouts/scripts/navegacion/_cms.phtml:29
 msgid "Creation of Page"
-msgstr ""
+msgstr "Crear una página"
 
 #: application/modules/admin/layouts/scripts/navegacion/_configuration.phtml:18
 msgid "Tipo de Monedas"
-msgstr ""
+msgstr "Tipo de moneda"
 
 #: application/modules/admin/layouts/scripts/navegacion/_configuration.phtml:29
 msgid "Manufacturer"
@@ -235,15 +234,15 @@ msgstr "Comprar equipos"
 
 #: application/modules/admin/layouts/scripts/navegacion/_desk.phtml:40
 msgid "Questions to answer"
-msgstr ""
+msgstr "Preguntas por responder"
 
 #: application/modules/admin/layouts/scripts/navegacion/_desk.phtml:51
 msgid "Nuevas ventas realizadas"
-msgstr ""
+msgstr "Nuevas ventas realizadas"
 
 #: application/modules/admin/layouts/scripts/navegacion/_desk.phtml:62
 msgid "Equipos reservados"
-msgstr ""
+msgstr "Equipos reservados"
 
 #: application/modules/admin/layouts/scripts/navegacion/_statistics.phtml:18
 #, fuzzy
@@ -252,13 +251,15 @@ msgstr "Equipos"
 
 #: application/modules/admin/layouts/scripts/navegacion/_statistics.phtml:29
 msgid "Favoritos"
-msgstr ""
+msgstr "Favoritos"
 
 #: application/modules/admin/layouts/scripts/navegacion/_statistics.phtml:40
 msgid ""
 "\n"
 "                       Reservas"
 msgstr ""
+"\n"
+"                       Reservas"
 
 #: application/modules/admin/views/scripts/categoria/index.phtml:5
 #: application/modules/admin/views/scripts/equipo/index.phtml:15
@@ -268,11 +269,11 @@ msgstr "Nombre *:"
 
 #: application/modules/admin/views/scripts/categoria/index.phtml:6
 msgid "Title"
-msgstr ""
+msgstr "Título"
 
 #: application/modules/admin/views/scripts/categoria/index.phtml:7
 msgid "Thumbnail"
-msgstr ""
+msgstr "Miniatura"
 
 #: application/modules/admin/views/scripts/categoria/index.phtml:8
 msgid "Description"
@@ -280,45 +281,45 @@ msgstr "Descripcion"
 
 #: application/modules/admin/views/scripts/categoria/index.phtml:9
 msgid "Published"
-msgstr ""
+msgstr "Publicado"
 
 #: application/modules/admin/views/scripts/categoria/index.phtml:10
 msgid "Order"
-msgstr ""
+msgstr "Orden"
 
 #: application/modules/admin/views/scripts/categoria/index.phtml:62
 #: application/modules/admin/views/scripts/equipo/index.phtml:115
 msgid "¿Estás seguro?"
-msgstr ""
+msgstr "¿Está seguro de realizar "
 
 #: application/modules/admin/views/scripts/categoria/index.phtml:64
 #: application/modules/admin/views/scripts/equipo/index.phtml:117
 msgid "Borrar"
-msgstr ""
+msgstr "Eliminar"
 
 #: application/modules/admin/views/scripts/categoria/index.phtml:77
 #: application/modules/admin/views/scripts/cms/index.phtml:72
 #: application/modules/admin/views/scripts/equipo/index.phtml:130
 msgid "Desactivar"
-msgstr ""
+msgstr "Desactivar"
 
 #: application/modules/admin/views/scripts/categoria/index.phtml:88
 #: application/modules/admin/views/scripts/cms/index.phtml:85
 #: application/modules/admin/views/scripts/equipo/index.phtml:141
 msgid "Activar"
-msgstr ""
+msgstr "Activar"
 
 #: application/modules/admin/views/scripts/cms/index.phtml:2
 msgid "Listado de Pagina"
-msgstr ""
+msgstr "Listado de Página"
 
 #: application/modules/admin/views/scripts/cms/index.phtml:41
 msgid "Edit"
-msgstr ""
+msgstr "Editar"
 
 #: application/modules/admin/views/scripts/cms/index.phtml:56
 msgid "Estas seguro"
-msgstr ""
+msgstr "¿Está seguro de realizar la operación?"
 
 #: application/modules/admin/views/scripts/cms/index.phtml:58
 #, fuzzy
@@ -341,27 +342,27 @@ msgstr "Categoria"
 
 #: application/modules/admin/views/scripts/equipo/index.phtml:18
 msgid "Estado Equipo"
-msgstr ""
+msgstr "Estado del equipo"
 
 #: application/modules/admin/views/scripts/equipo/index.phtml:19
 msgid "Usuario"
-msgstr ""
+msgstr "Usuario"
 
 #: application/modules/admin/views/scripts/equipo/index.phtml:20
 msgid "Fecha de Fabricacion"
-msgstr ""
+msgstr "Fecha de fabricación"
 
 #: application/modules/admin/views/scripts/equipo/index.phtml:21
 msgid "Fecha de Publicacion"
-msgstr ""
+msgstr "Fecha de Publicación"
 
 #: application/modules/admin/views/scripts/equipo/index.phtml:22
 msgid "Fabricante"
-msgstr ""
+msgstr "Fabricante"
 
 #: application/modules/admin/views/scripts/equipo/index.phtml:23
 msgid "Pais"
-msgstr ""
+msgstr "País"
 
 #: application/modules/admin/views/scripts/equipo/index.phtml:76
 #, fuzzy
@@ -375,7 +376,7 @@ msgstr "Ofertas Top"
 
 #: application/modules/admin/views/scripts/equipo/index.phtml:102
 msgid "Editar"
-msgstr ""
+msgstr "Editar"
 
 #: application/modules/admin/views/scripts/moneda/index.phtml:2
 #, fuzzy
@@ -384,7 +385,7 @@ msgstr "Logeo"
 
 #: application/modules/admin/views/scripts/moneda/index.phtml:8
 msgid "Symbol"
-msgstr ""
+msgstr "Símbolo"
 
 #: application/modules/admin/views/scripts/operacion/index.phtml:7
 #, fuzzy
@@ -412,7 +413,7 @@ msgstr "Categoria"
 
 #: application/modules/admin/views/scripts/reserva/equiposreservados.phtml:10
 msgid "Quality"
-msgstr ""
+msgstr "Calidad"
 
 #: application/modules/admin/views/scripts/user/index.phtml:8
 #, fuzzy
@@ -421,27 +422,27 @@ msgstr "Inicio"
 
 #: application/modules/admin/views/scripts/user/index.phtml:11
 msgid "Apellido"
-msgstr ""
+msgstr "Apellido"
 
 #: application/modules/admin/views/scripts/user/index.phtml:14
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #: application/modules/admin/views/scripts/user/index.phtml:20
 msgid "Rol"
-msgstr ""
+msgstr "Perfil del usuario"
 
 #: application/modules/admin/views/scripts/user/index.phtml:23
 msgid "Fecha De Registro"
-msgstr ""
+msgstr "Fecha de registro"
 
 #: application/modules/admin/views/scripts/user/index.phtml:26
 msgid "Ciudad"
-msgstr ""
+msgstr "Ciudad"
 
 #: application/modules/admin/views/scripts/user/index.phtml:29
 msgid "Cod. Postal"
-msgstr ""
+msgstr "Código Postal"
 
 #: application/modules/admin/views/scripts/user/index.phtml:35
 #, fuzzy
@@ -450,7 +451,7 @@ msgstr "Especificaciones"
 
 #: application/modules/admin/views/scripts/user/index.phtml:151
 msgid "Nuevo"
-msgstr ""
+msgstr "Nuevo"
 
 #: application/modules/admin/views/scripts/user/operation.phtml:2
 #, fuzzy
@@ -464,11 +465,11 @@ msgstr "Nombre Equipo"
 
 #: application/modules/admin/views/scripts/user/detalle/operaciones.phtml:6
 msgid "Precio"
-msgstr ""
+msgstr "Precio"
 
 #: application/modules/admin/views/scripts/user/detalle/operaciones.phtml:7
 msgid "Pay"
-msgstr ""
+msgstr "Pagar"
 
 #: application/modules/admin/views/scripts/user/detalle/operaciones.phtml:8
 #, fuzzy
@@ -477,25 +478,25 @@ msgstr "Contáctenos"
 
 #: application/modules/admin/views/scripts/user/detalle/operaciones.phtml:9
 msgid "Pagado"
-msgstr ""
+msgstr "Pagado"
 
 #: application/modules/user/layouts/backup/_navegacion.phtml:6
 msgid "Desktop"
-msgstr ""
+msgstr "Escritorio"
 
 #: application/modules/user/layouts/backup/_navegacion.phtml:24
 msgid "My data"
-msgstr ""
+msgstr "Mis Datos"
 
 #: application/modules/user/layouts/backup/_navegacion.phtml:41
 #: application/modules/user/layouts/backup/navegacion/_sales.phtml:6
 msgid "My Sales"
-msgstr ""
+msgstr "Mis Ventas"
 
 #: application/modules/user/layouts/backup/_navegacion.phtml:58
 #: application/modules/user/layouts/backup/navegacion/_purchases.phtml:6
 msgid "My Purchases"
-msgstr ""
+msgstr "Mis Compras"
 
 #: application/modules/user/layouts/backup/navegacion/_desktop.phtml:18
 msgid "Type User"
@@ -511,59 +512,59 @@ msgstr "Pais"
 
 #: application/modules/user/layouts/backup/navegacion/_desktop.phtml:51
 msgid "Pagos"
-msgstr ""
+msgstr "Pagos"
 
 #: application/modules/user/layouts/backup/navegacion/_desktop.phtml:63
 msgid "Moneda"
-msgstr ""
+msgstr "Moneda"
 
 #: application/modules/user/layouts/backup/navegacion/_purchases.phtml:18
 msgid "FAVORITOS"
-msgstr ""
+msgstr "Favoritos"
 
 #: application/modules/user/layouts/backup/navegacion/_purchases.phtml:29
 msgid "RESERVAS"
-msgstr ""
+msgstr "Reservas"
 
 #: application/modules/user/layouts/backup/navegacion/_purchases.phtml:40
 msgid "COMPRAS ACTIVAS"
-msgstr ""
+msgstr "Compras Activas"
 
 #: application/modules/user/layouts/backup/navegacion/_purchases.phtml:51
 msgid "MIS PREGUNTAS"
-msgstr ""
+msgstr "Mis Preguntas"
 
 #: application/modules/user/layouts/backup/navegacion/_purchases.phtml:63
 msgid "MIS PAGOS"
-msgstr ""
+msgstr "Mis Pagos"
 
 #: application/modules/user/layouts/backup/navegacion/_purchases.phtml:74
 msgid "MIS Envios"
-msgstr ""
+msgstr "Mis Envíos"
 
 #: application/modules/user/layouts/backup/navegacion/_sales.phtml:18
 msgid "Publicar"
-msgstr ""
+msgstr "Publicar"
 
 #: application/modules/user/layouts/backup/navegacion/_sales.phtml:29
 msgid "Pendientes"
-msgstr ""
+msgstr "Pendientes"
 
 #: application/modules/user/layouts/backup/navegacion/_sales.phtml:40
 msgid "Activos"
-msgstr ""
+msgstr "Activos"
 
 #: application/modules/user/layouts/backup/navegacion/_sales.phtml:51
 msgid "Vendidos"
-msgstr ""
+msgstr "Vendidos"
 
 #: application/modules/user/layouts/backup/navegacion/_sales.phtml:63
 msgid "no Vendidos"
-msgstr ""
+msgstr "No Vendidos"
 
 #: application/modules/user/layouts/scripts/_listAcciones.phtml:13
 msgid "Mi Perfil"
-msgstr ""
+msgstr "Mi Perfil"
 
 #: application/modules/user/layouts/scripts/_listAcciones.phtml:32
 #, fuzzy
@@ -572,78 +573,80 @@ msgstr "Configuracion"
 
 #: application/modules/user/layouts/scripts/_listAcciones.phtml:51
 msgid "Busqueda Especial"
-msgstr ""
+msgstr "Búsqueda Especial"
 
 #: application/modules/user/layouts/scripts/_listAcciones.phtml:65
 msgid "Mis Favoritos"
-msgstr ""
+msgstr "Mis Favoritos"
 
 #: application/modules/user/layouts/scripts/_listAcciones.phtml:79
 msgid "Mis Dispositivos"
-msgstr ""
+msgstr "Mis Dispositivos"
 
 #: application/modules/user/layouts/scripts/_listAcciones.phtml:93
 msgid "Mis Reservas"
-msgstr ""
+msgstr "Mis Reservas"
 
 #: application/modules/user/layouts/scripts/_listAcciones.phtml:107
 msgid "Mis Compras Activas"
-msgstr ""
+msgstr "Mis Compras Activas"
 
 #: application/modules/user/layouts/scripts/_listAcciones.phtml:121
 msgid "Mis Preguntas"
-msgstr ""
+msgstr "Mis Preguntas"
 
 #: application/modules/user/layouts/scripts/_listAcciones.phtml:135
 msgid "Mis Pagos"
-msgstr ""
+msgstr "Mis Pagos"
 
 #: application/modules/user/layouts/scripts/_listAcciones.phtml:149
 msgid "Mis Envios"
-msgstr ""
+msgstr "Mis Envíos"
 
 #: application/modules/user/layouts/scripts/_listAcciones.phtml:163
 msgid "Ingrese Un Nuevo Dispositivo"
-msgstr ""
+msgstr "Ingrese un nuevo dispositivo"
 
 #: application/modules/user/layouts/scripts/_listAcciones.phtml:177
 msgid "Ver Equipos Pendientes"
-msgstr ""
+msgstr "Ver equipos pendientes"
 
 #: application/modules/user/layouts/scripts/_listAcciones.phtml:191
 msgid "Ver Equipos Activos"
-msgstr ""
+msgstr "Ver "
 
 #: application/modules/user/layouts/scripts/_listAcciones.phtml:205
 msgid "Ver Equipos Vendidos"
-msgstr ""
+msgstr "Ver equipos vendidos"
 
 #: application/modules/user/layouts/scripts/_listAcciones.phtml:219
 msgid "Ver Equipos no Vendidos"
-msgstr ""
+msgstr "Ver equipos no vendidos"
 
 #: application/modules/user/layouts/scripts/_listAcciones.phtml:238
 msgid "Contacte al Administrador"
-msgstr ""
+msgstr "Contactar al administrador"
 
 #: application/modules/user/layouts/scripts/_listAcciones.phtml:257
 msgid "Salir"
-msgstr ""
+msgstr "Salir"
 
 #: application/modules/user/views/scripts/equipo/vernovendidos.phtml:11
 #: application/modules/user/views/scripts/equipo/vervendidos.phtml:11
 msgid "Quantity"
-msgstr ""
+msgstr "Cantidad"
 
 #: application/modules/user/views/scripts/index/index.phtml:2
 msgid "Dashboard"
-msgstr ""
+msgstr "Escritorio"
 
 #: application/modules/user/views/scripts/index/index.phtml:10
 msgid ""
 "to MedTechTrade. Please find and administrate\n"
 "                your medical equipment in this section."
 msgstr ""
+"a MedTechTrade. Por favor buscar y administrar\n"
+"                sus equipos médicos en esta sección."
 
 #: application/modules/user/views/scripts/operacion/cotizar.phtml:14
 msgid "Model"
@@ -651,27 +654,27 @@ msgstr "Modelo"
 
 #: application/modules/user/views/scripts/operacion/cotizar.phtml:24
 msgid "Tipo"
-msgstr ""
+msgstr "Tipo"
 
 #: application/modules/user/views/scripts/operacion/cotizar.phtml:25
 msgid "Numero de Cuotas "
-msgstr ""
+msgstr "Cantidad de cuotas"
 
 #: application/modules/user/views/scripts/operacion/cotizar.phtml:26
 msgid "Pago"
-msgstr ""
+msgstr "Monto a pagar"
 
 #: application/modules/user/views/scripts/operacion/cotizar.phtml:27
 msgid "Dias"
-msgstr ""
+msgstr "Días"
 
 #: application/modules/user/views/scripts/operacion/cotizar.phtml:28
 msgid "Mora por dia"
-msgstr ""
+msgstr "Recargo por día"
 
 #: application/modules/user/views/scripts/operacion/cotizar.phtml:66
 msgid "Buy"
-msgstr ""
+msgstr "Comprar"
 
 #: application/views/scripts/categoria/index.phtml:26
 #: application/views/scripts/categoria/index.phtml:86
@@ -698,7 +701,7 @@ msgstr "Vendedores Top en"
 
 #: application/views/scripts/checkout/cart.phtml:2
 msgid "Lo que tienes en tu Carro"
-msgstr ""
+msgstr "Contenido del carro"
 
 #: application/views/scripts/contacto/index.phtml:4
 msgid "Contactenos"
@@ -811,23 +814,23 @@ msgstr "Hacer una Pregunta"
 #: application/views/scripts/equipo/user/deviceActions.phtml:23
 #: application/views/scripts/equipo/user/deviceQuestion.phtml:16
 msgid "Add Cart"
-msgstr ""
+msgstr "Agregar al carro"
 
 #: application/views/scripts/equipo/user/deviceActions.phtml:36
 msgid "Add Favorite"
-msgstr ""
+msgstr "Agregar a Favoritos"
 
 #: application/views/scripts/equipo/user/deviceActions.phtml:49
 msgid "Add to Reserve"
-msgstr ""
+msgstr "Agregar a Reservas"
 
 #: application/views/scripts/equipo/user/deviceActions.phtml:62
 msgid "Request Price"
-msgstr ""
+msgstr "Solicitar Cotización"
 
 #: application/views/scripts/equipo/user/deviceActions.phtml:74
 msgid "Back"
-msgstr ""
+msgstr "Volver"
 
 #: application/views/scripts/index/index.phtml:4
 msgid "Welcome to Medtechtrade"

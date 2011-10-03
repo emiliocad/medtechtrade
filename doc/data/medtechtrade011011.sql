@@ -11,7 +11,6 @@ MySQL - 5.5.8-log : Database - medtechtrade
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
-
 /*Table structure for table `categoria` */
 
 DROP TABLE IF EXISTS `categoria`;
@@ -129,11 +128,11 @@ CREATE TABLE `equipo` (
   CONSTRAINT `fk_equipo_paises1` FOREIGN KEY (`paises_id`) REFERENCES `paises` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_equipo_publicacionEquipo1` FOREIGN KEY (`publicacionEquipo_id`) REFERENCES `publicacionequipo` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_equipo_usuario1` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `equipo` */
 
-insert  into `equipo`(`id`,`nombre`,`precioventa`,`preciocompra`,`categoria_id`,`estadoequipo_id`,`publicacionEquipo_id`,`usuario_id`,`fabricantes_id`,`tag`,`moneda_id`,`paises_id`,`calidad`,`cantidad`,`modelo`,`fechafabricacion`,`documento`,`sourceDocumento`,`pesoEstimado`,`size`,`ancho`,`alto`,`sizeCaja`,`active`,`views`,`topofers`,`publishdate`) values (2,'Equipo 1',12,12,148,1,2,3,2,'sas',1,1,'buena',122,'23123','0000-00-00 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,79,0,NULL),(3,'equipo 2',123,111,148,2,1,3,2,'kusa,kusa',1,1,'muy mala',123,'123we','0000-00-00 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,125,0,NULL),(4,'equipo 3',125,140,151,1,2,5,2,'1245',1,1,'buena',145,'1455214','0000-00-00 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,290,0,NULL),(5,'equipo 4',1234,12,162,1,2,3,2,'qwq',1,1,'muy buena',12,'2122','0000-00-00 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,401,1,NULL),(6,'test tsfs',120,240,150,2,2,6,2,'sssss',2,1,'Alta calidad',5,'s','0000-00-00 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,679,0,NULL),(9,'prueba equivo',15,1285,151,2,2,6,2,'',1,1,'Buena Calidad',10,'120vb','0000-00-00 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,95,0,NULL),(10,'test 2 x',9,1258,152,2,2,6,2,'dgdfgdgfd',1,1,'Buena Calidad',15,'xxxxxxxxxxxxxxx','0000-00-00 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,2,1,NULL),(11,'test tsfs2',5,245,150,1,2,6,2,'sfsf',1,1,'Buena Calidad',35,'xxxxxxxxxxxxxxx','2015-03-20 17:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,0,NULL),(12,'test tsfs3',14,654,159,1,2,6,2,'sgadgsg',2,1,'Buena Calidad',10,'tst','2023-03-20 17:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,0,NULL),(13,'stereo xxxx',58,958,150,1,2,6,2,'sdsssssssssssssss',1,1,'Buena Calidad',25,'sfs','2011-03-17 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,3,1,NULL),(14,'electrocardiograma',0,915,151,2,1,6,2,'Equipo de Electro',2,1,'Excelente',10,'varuadis','2011-03-24 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,0,NULL);
+insert  into `equipo`(`id`,`nombre`,`precioventa`,`preciocompra`,`categoria_id`,`estadoequipo_id`,`publicacionEquipo_id`,`usuario_id`,`fabricantes_id`,`tag`,`moneda_id`,`paises_id`,`calidad`,`cantidad`,`modelo`,`fechafabricacion`,`documento`,`sourceDocumento`,`pesoEstimado`,`size`,`ancho`,`alto`,`sizeCaja`,`active`,`views`,`topofers`,`publishdate`) values (2,'Equipo 1',12,12,148,1,2,3,2,'sas',1,1,'buena',122,'23123','0000-00-00 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,79,0,NULL),(3,'equipo 2',123,111,148,2,1,3,2,'kusa,kusa',1,1,'muy mala',123,'123we','0000-00-00 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,128,0,NULL),(4,'equipo 3',125,140,151,1,2,5,2,'1245',1,1,'buena',145,'1455214','0000-00-00 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,293,1,NULL),(5,'equipo 4',1234,12,162,1,2,3,2,'qwq',1,1,'muy buena',12,'2122','0000-00-00 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,401,1,NULL),(6,'test tsfs',120,240,150,2,2,6,2,'sssss',2,1,'Alta calidad',5,'s','0000-00-00 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,679,0,NULL),(9,'prueba equivo',15,1285,151,2,2,6,2,'',1,1,'Buena Calidad',10,'120vb','0000-00-00 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,95,0,NULL),(10,'test 2 x',9,1258,152,2,2,6,2,'dgdfgdgfd',1,1,'Buena Calidad',15,'xxxxxxxxxxxxxxx','0000-00-00 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,2,1,NULL),(11,'test tsfs2',5,245,150,1,2,6,2,'sfsf',1,1,'Buena Calidad',35,'xxxxxxxxxxxxxxx','2015-03-20 17:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,0,NULL),(12,'test tsfs3',14,654,159,1,2,6,2,'sgadgsg',2,1,'Buena Calidad',10,'tst','2023-03-20 17:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,0,NULL),(13,'stereo xxxx',58,958,150,1,2,6,2,'sdsssssssssssssss',1,1,'Buena Calidad',25,'sfs','2011-03-17 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,3,1,NULL),(14,'electrocardiograma',0,915,151,2,1,6,2,'Equipo de Electro',2,1,'Excelente',10,'varuadis','2011-03-24 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,0,NULL),(15,'Equipo-X-Ray',0,1452,168,1,1,6,2,'Equipo,',3,1,'Excelente',1452,'mdmfsdf','2011-03-30 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,0,NULL);
 
 /*Table structure for table `equipo_has_formapago` */
 
@@ -237,6 +236,28 @@ CREATE TABLE `fabricantes` (
 
 insert  into `fabricantes`(`id`,`nombre`,`active`) values (2,'Samsung',1),(4,'fabricante',0);
 
+/*Table structure for table `favorito_equipo_usuario` */
+
+DROP TABLE IF EXISTS `favorito_equipo_usuario`;
+
+CREATE TABLE `favorito_equipo_usuario` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `equipo_id` int(11) NOT NULL,
+  `usuario_id` int(11) NOT NULL,
+  `fechagrabacion` datetime DEFAULT NULL,
+  `order` int(11) DEFAULT NULL,
+  `active` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_favorito_equipo` (`equipo_id`),
+  KEY `FK_favorito_equipo1` (`usuario_id`),
+  CONSTRAINT `FK_favorito_equipo` FOREIGN KEY (`equipo_id`) REFERENCES `equipo` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_favorito_equipo1` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+/*Data for the table `favorito_equipo_usuario` */
+
+insert  into `favorito_equipo_usuario`(`id`,`equipo_id`,`usuario_id`,`fechagrabacion`,`order`,`active`) values (1,2,6,'2011-09-23 12:42:16',1,1),(2,3,5,'2011-09-23 12:42:59',1,1),(3,12,6,'2011-09-24 12:35:14',2,1);
+
 /*Table structure for table `formaenvio` */
 
 DROP TABLE IF EXISTS `formaenvio`;
@@ -312,11 +333,11 @@ CREATE TABLE `imagen` (
   PRIMARY KEY (`id`),
   KEY `fk_imagenes_equipo1` (`equipo_id`),
   CONSTRAINT `fk_imagenes_equipo1` FOREIGN KEY (`equipo_id`) REFERENCES `equipo` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `imagen` */
 
-insert  into `imagen`(`id`,`equipo_id`,`nombre`,`thumb`,`imagen`,`published`,`descripcion`,`order`,`active`) values (1,13,'imagen1',NULL,'1254.png',1,NULL,1,1),(2,13,'imagen2',NULL,'1234.png',1,NULL,1,1),(4,14,'testttttttttttttt',NULL,'292a_t.jpg',0,'testttttttttttttttttttt',1,1),(5,14,'terts',NULL,'292c.jpg',0,'tsafaaaaa',1,1),(6,14,'sdafsdds',NULL,'device-00.png',0,'fsdfsdfds',1,0);
+insert  into `imagen`(`id`,`equipo_id`,`nombre`,`thumb`,`imagen`,`published`,`descripcion`,`order`,`active`) values (1,13,'imagen1',NULL,'1254.png',1,NULL,1,1),(2,13,'imagen2',NULL,'1234.png',1,NULL,1,1),(4,14,'testttttttttttttt',NULL,'292a_t.jpg',0,'testttttttttttttttttttt',1,1),(5,14,'terts',NULL,'292c.jpg',0,'tsafaaaaa',1,1),(6,14,'sdafsdds',NULL,'device-00.png',0,'fsdfsdfds',1,0),(7,14,'esta es  su Imagen',NULL,'plano de red.jpg',0,'<p>\r\n	agregando una Imagen</p>\r\n',1,1);
 
 /*Table structure for table `ipligence` */
 
@@ -518,7 +539,7 @@ CREATE TABLE `reserva` (
 
 /*Data for the table `reserva` */
 
-insert  into `reserva`(`id`,`equipo_id`,`usuario_id`,`fechagrabacion`,`order`,`active`,`tipo_reserva_id`) values (3,4,6,'2011-09-28 16:25:14',NULL,1,2),(4,4,6,'2011-09-28 16:25:39',NULL,1,1),(5,13,6,'2011-09-28 16:56:43',NULL,1,2),(6,4,7,'2011-09-28 12:34:08',NULL,1,2),(7,4,3,'2011-09-28 21:33:46',NULL,1,2);
+insert  into `reserva`(`id`,`equipo_id`,`usuario_id`,`fechagrabacion`,`order`,`active`,`tipo_reserva_id`) values (3,4,6,'2011-09-28 16:25:14',NULL,0,2),(4,4,6,'2011-09-28 16:25:39',NULL,1,1),(5,13,6,'2011-09-28 16:56:43',NULL,1,2),(6,4,7,'2011-09-28 12:34:08',NULL,1,2),(7,4,3,'2011-09-28 21:33:46',NULL,1,2);
 
 /*Table structure for table `tipo_reserva` */
 
@@ -583,7 +604,7 @@ CREATE TABLE `usuario` (
   `fecharegistro` datetime NOT NULL,
   `ultimavisita` datetime NOT NULL,
   `activacion` varchar(90) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `active` int(11) DEFAULT '0',
+  `active` int(11) DEFAULT '1',
   `direccion` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
   `codpostal` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `ciudad` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
@@ -594,11 +615,11 @@ CREATE TABLE `usuario` (
   KEY `fk_usuario_paises1` (`paises_id`),
   CONSTRAINT `fk_usuario_paises1` FOREIGN KEY (`paises_id`) REFERENCES `paises` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_usuario_tipousuario1` FOREIGN KEY (`tipousuario_id`) REFERENCES `tipousuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `usuario` */
 
-insert  into `usuario`(`id`,`nombre`,`apellido`,`email`,`login`,`clave`,`tipousuario_id`,`sendemail`,`fecharegistro`,`ultimavisita`,`activacion`,`active`,`direccion`,`codpostal`,`ciudad`,`institucion`,`paises_id`) values (3,'Luis','mayta mamani','slovacus@gmail.com','admin','sha1$87711$488758631b7e41e578f9b4b95d96cecfa288f696',1,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00',NULL,1,'mi casa','1414','Lima','master',1),(4,'Luis alberto','mayta mamani','slovacus@gmail.com','kusanagi','sha1$21ee2$9be1a234e6a93bcb218c56189d70b6a0be2d7d8b',3,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00',NULL,1,'mi casa','1414','Lima','dsdfsd',1),(5,'matias','franci','mfranci@gmail.com','mfranci','sha1$9d02a$de595b6b2d2bd7d9f3a8ece6f9813e7553fc8aa6',3,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00',NULL,1,'mi casa','1414','lima','dsfsdfs',1),(6,'Luis alberto','mayta mamani','slovacus@gmail.com','usuario','sha1$87711$488758631b7e41e578f9b4b95d96cecfa288f696',3,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00',NULL,1,'mi casa','1414','Lima','St Group',1),(7,'teresa','chunga ','tj.chunga@gmail.com','tchunga','sha1$2599c$917f9e211f5f06b9f52739bb7891de9274c6a02e',3,NULL,'2011-09-23 15:24:11','2011-09-23 15:24:11',NULL,1,'-','-','Lima','st',1),(11,'teresa','chunga','tere_chunga@hotmail.com','tjche','sha1$2599c$917f9e211f5f06b9f52739bb7891de9274c6a02e',2,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00',NULL,1,'pando','lima 16','lima','sx',1);
+insert  into `usuario`(`id`,`nombre`,`apellido`,`email`,`login`,`clave`,`tipousuario_id`,`sendemail`,`fecharegistro`,`ultimavisita`,`activacion`,`active`,`direccion`,`codpostal`,`ciudad`,`institucion`,`paises_id`) values (3,'Luis','mayta mamani','slovacus@gmail.com','admin','sha1$87711$488758631b7e41e578f9b4b95d96cecfa288f696',1,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00',NULL,1,'mi casa','1414','Lima','master',1),(4,'Luis alberto','mayta mamani','slovacus@gmail.com','kusanagi','sha1$21ee2$9be1a234e6a93bcb218c56189d70b6a0be2d7d8b',3,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00',NULL,1,'mi casa','1414','Lima','dsdfsd',1),(5,'matias','franci','mfranci@gmail.com','mfranci','sha1$9d02a$de595b6b2d2bd7d9f3a8ece6f9813e7553fc8aa6',3,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00',NULL,1,'mi casa','1414','lima','dsfsdfs',1),(6,'Luis alberto','mayta mamani','slovacus@gmail.com','usuario','sha1$6319f$7dda231dcf59e9fba26dc7d23a1513b61084595b',3,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00',NULL,1,'mi casa','1414','Lima','St Grou',1),(7,'teresa','chunga ','tj.chunga@gmail.com','tchunga','sha1$2599c$917f9e211f5f06b9f52739bb7891de9274c6a02e',3,NULL,'2011-09-23 15:24:11','2011-09-23 15:24:11',NULL,1,'-','-','Lima','st',1),(11,'teresa','chunga','tere_chunga@hotmail.com','tjche','sha1$2599c$917f9e211f5f06b9f52739bb7891de9274c6a02e',2,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00',NULL,1,'pando','lima 16','lima','sx',1),(13,'Luis alberto','mayta mamani','kofyagami2k@hotmail.com','slovacus','sha1$01445$83f3fd3463b80206f814039fddbc4775f0c0bcc4',3,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00',NULL,1,'Mi casa','14145','Lima','institucion',1);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
