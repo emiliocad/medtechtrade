@@ -70,6 +70,16 @@ class User_UserController
         }
 
 
+    public function searchAction()
+        {
+
+      
+
+        $form = new Mtt_Form_Search();
+        $this->view->assign( 'frmSearch' , $form );
+        }
+
+
     public function changePasswordAction()
         {
 

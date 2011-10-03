@@ -25,8 +25,8 @@ class EquipoController
                 $this->_getParam( 'page' , 1 )
         );
 
-        
-        
+
+
         $this->view->assign( 'formOrder' , $formOrder );
         $this->view->assign(
                 'productos' , $productos
@@ -39,6 +39,19 @@ class EquipoController
         //$this->_helper->layout->disableLayout();
         //$this->_helper->viewRenderer->setNoRender();
         $id = ( int ) ( $this->_getParam( 'id' , null ) );
+
+        $this->view
+                ->headScript()
+                ->appendFile( '/js/fancybox/jquery.fancybox-1.3.4.pack.js' ,
+                              'text/javascript' );
+        $this->view->headLink()
+                ->appendStylesheet( '/js/fancybox/jquery.fancybox-1.3.4.css' );
+        $this->view->jQuery()
+                ->addOnLoad(
+                        '$(document).ready(function() {
+                            $(".fancy").fancybox();
+                        });'
+                );
 
         $this->_equipo->updateView( $id );
 

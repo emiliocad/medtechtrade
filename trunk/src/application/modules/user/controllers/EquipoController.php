@@ -117,6 +117,16 @@ class User_EquipoController
         }
 
 
+    public function cotizarAction()
+        {
+        $id = intval( $this->_request->getParam( 'id' ) );
+
+        $form = new Mtt_Form_Cotizar();
+        $this->view->assign( 'frmCotizar' , $form );
+        }
+        
+        
+        
     public function nuevoAction()
         {
 

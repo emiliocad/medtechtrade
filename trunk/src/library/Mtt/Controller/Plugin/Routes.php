@@ -8,6 +8,7 @@ class Mtt_Controller_Plugin_Routes
 
     public function routeStartup( Zend_Controller_Request_Abstract $request )
         {
+
         $routes = array(
             'index' => new Zend_Controller_Router_Route(
                     'index.html' ,
