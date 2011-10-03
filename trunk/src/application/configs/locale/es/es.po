@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Medtechtrade\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-10-01 14:56-0500\n"
-"PO-Revision-Date: 2011-10-01 15:00-0500\n"
+"PO-Revision-Date: 2011-10-01 15:25-0500\n"
 "Last-Translator: Matias Franci <mfranci@stockergroup.com>\n"
 "Language-Team: Stockergroup Peru\n"
 "MIME-Version: 1.0\n"
@@ -54,9 +54,8 @@ msgid "Change Password"
 msgstr "Cambiar Password"
 
 #: application/modules/user/controllers/UserController.php:106
-#, fuzzy
 msgid "Changed a Password"
-msgstr "Clave"
+msgstr "Changed a Password"
 
 #: application/modules/user/controllers/UserController.php:118
 msgid "No se Pudo Cambiar"
