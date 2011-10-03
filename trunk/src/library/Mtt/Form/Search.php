@@ -72,6 +72,16 @@ class Mtt_Form_Search
         $e->addValidator( new Zend_Validate_InArray( array_keys( $values ) ) );
         
          /* año desde */
+        // Creando array
+        $ini_year = 1980;
+        $year_fin = date( 'Y' );
+        for ( $i = $ini_year; $i <= $year_fin; $i++ )
+            {
+            $anio[$i] = $i;
+          
+            }
+            
+        
         $e = new Zend_Form_Element_Select( 'anioinicio_id' );
         $e->setLabel(
                 $this->_translate->translate(
@@ -84,7 +94,7 @@ class Mtt_Form_Search
                         'desde'
                 )
         );
-        $e->addMultiOptions( $values_desde );
+        $e->addMultiOptions( $anio );
         $this->addElement( $e );
         
         
@@ -95,10 +105,22 @@ class Mtt_Form_Search
                         'hasta'
                 )
         );
-        $e->addMultiOptions( $values_hasta );
+        $e->addMultiOptions( $anio );
         $this->addElement( $e );
 
          /* precio desde */
+        //Creando array precios
+        $precio = array(
+            '0' => 0,
+            '100' => 100,
+            '500' => 500,
+            '1000' => 1000,
+            '2000' => 2000,
+            '5000' => 5000,
+            '10000' => 10000,
+            '50000' => 50000
+           
+        );
         $e = new Zend_Form_Element_Select( 'preciomin_id' );
         $e->setLabel(
                 $this->_translate->translate(
@@ -111,7 +133,7 @@ class Mtt_Form_Search
                         'desde'
                 )
         );
-        $e->addMultiOptions( $values_desde );
+        $e->addMultiOptions( $precio );
         $this->addElement( $e );
         
         
@@ -122,7 +144,7 @@ class Mtt_Form_Search
                         'hasta'
                 )
         );
-        $e->addMultiOptions( $values_desde );
+        $e->addMultiOptions( $precio );
         $this->addElement( $e );
         
 
