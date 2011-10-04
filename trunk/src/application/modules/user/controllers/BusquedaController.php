@@ -47,6 +47,15 @@ class User_BusquedaController
         
         $this->view->assign('criterio', $criterio);
         $this->view->assign('resultados', $resultados);
+        
+        if ( $this->_request->isPost()
+                &&
+                $form->isValid( $this->_request->getPost() )
+        )
+            {
+                unset( $criterio["buscar"] );
+                $this->_Busqueda->saveBusqueda();
+            }
 
         }
         
