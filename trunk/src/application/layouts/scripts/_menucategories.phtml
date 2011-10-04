@@ -8,13 +8,14 @@
             <a href="
             <?=
             $this->url(
-                    array( 'controller' => 'categoria' ,
-                'action' => 'index' ,
-                'id' => $this->escape( $categoria->id ) ) , 'default' , true
+                    array(
+                'slug' => $categoria->slug
+                    )
+                    , 'slugCategory' , true
             )
             ?>">
                 <span>
-    <?= $this->escape( $categoria->title ) ?>
+                    <?= $this->escape( $categoria->title ) ?>
                 </span>
 
             </a>

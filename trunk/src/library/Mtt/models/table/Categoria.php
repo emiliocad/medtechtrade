@@ -25,7 +25,7 @@ class Mtt_Models_Table_Categoria
         $db = $this->getAdapter();
         $query = $db->select()
                 ->from( $this->_name )
-                ->where( 'active = ?' , '1' )
+                ->where( 'active = ?' , self::ACTIVE )
                 ->query()
         ;
 

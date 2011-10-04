@@ -10,13 +10,13 @@ class Mtt_Controller_Plugin_Routes
         {
 
         $routes = array(
-            'index' => new Zend_Controller_Router_Route(
-                    'category/:slugCategory' ,
+            'slugCategory' => new Zend_Controller_Router_Route(
+                    'category/:slug' ,
                     array(
                         'module' => 'default' ,
                         'controller' => 'categoria' ,
                         'action' => 'ver' ,
-                        'slug' => ':slugCategory'
+                        'slug' => ':slug'
                     )
             ) ,
             'login' => new Zend_Controller_Router_Route(

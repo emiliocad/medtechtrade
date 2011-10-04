@@ -1,55 +1,57 @@
 <h2>Reservas</h2>
 <table border="1" class="listado">
-    <tbody>
-        <?php foreach ( $this->favoritos as $favorito ): ?>
+<thead>
+    <th>imagen</th>
+    <th>Equipo</th>
+    <th>Precio</th>
+    <th>Categoria</th>
+    <th>Estado Equipo</th>
+    <th>Fabricante</th>
+    <th>Calidad</th>
+    <th>Imagen</th>
+</thead>
+<tbody>
+    <?php foreach ( $this->favoritos as $favorito ): ?>
 
-            <tr class="<?= $favorito->active
-                            ? 'activo' : 'inactivo' ?>">
-                <td >
-                    <img src="/media/catalog/product/device-00.png" 
-                    alt="<?= $favorito->equipo ?>">
-                </td>
-                <td>
-                    <table>
-                        <tr>
-                            <td>
-                                <?= $this->escape( $favorito->equipo ) ?>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <?= $this->escape( $favorito->precio ) ?>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <?= $this->escape( $favorito->categoria ) ?>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <?= $this->escape( $favorito->estadoequipo ) ?>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <?= $this->escape( $favorito->fabricante ) ?>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <?= $this->escape( $favorito->calidad ) ?>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <?= $this->escape( $favorito->imageNombre ) ?>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-               
-            </tr>
-        <?php endforeach; ?>
-    </tbody>
+        <tr class="<?= $favorito->active
+                        ? 'activo' : 'inactivo' ?>">
+            <td >
+                <img src="/media/catalog/product/device-00.png" 
+                     alt="<?= $favorito->equipo ?>"
+                     width="24px" height="24px">
+            </td>
+
+
+            <td>
+                <?= $this->escape( $favorito->equipo ) ?>
+            </td>
+
+
+            <td>
+                <?= $this->escape( $favorito->precio ) ?>
+            </td>
+
+            <td>
+                <?= $this->escape( $favorito->categoria ) ?>
+            </td>
+
+            <td>
+                <?= $this->escape( $favorito->estadoequipo ) ?>
+            </td>
+
+            <td>
+                <?= $this->escape( $favorito->fabricante ) ?>
+            </td>
+
+            <td>
+                <?= $this->escape( $favorito->calidad ) ?>
+            </td>
+
+            <td>
+                <?= $this->escape( $favorito->imageNombre ) ?>
+            </td>
+
+        </tr>
+    <?php endforeach; ?>
+</tbody>
 </table>

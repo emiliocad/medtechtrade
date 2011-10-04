@@ -40,6 +40,7 @@ class User_ReservaController
 
     public function reservasAction()
         {
+        $this->_helper->layout->setLayout('layoutListado');
         $this->view->assign(
                 'favoritos' , 
                 $this->_reserva->getReservaByUser(
