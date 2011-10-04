@@ -1,0 +1,53 @@
+<h2>Resultados</h2>
+<?= $this->frmSaveSearch; ?>
+<?php Zend_Debug::dump($this->criterio)?>
+<?php foreach ($this->resultados as $result): ?>
+
+    <div>
+        <img src="/media/catalog/product/device-03-00.png" alt="">
+    </div>
+    <div>
+        <table border="1">
+            <tbody>
+
+                <tr>
+                    <td>
+                        <?= $this->escape($result->fabricante) ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <?= $this->escape($result->categoria) ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <?= $this->escape($result->equipo) ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <?= $this->escape($result->modelo) ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <?= $this->escape($result->fechafabricacion) ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td><?php
+                    $link = $this->url(array('module' => 'user',
+                        'controller' => 'equipo',
+                        'action' => 'ver',
+                        'id' => $result->id))
+                        ?>
+                        <a href="<?= $link ?>">
+                            ver detalles
+                        </a></td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+<?php endforeach; ?>

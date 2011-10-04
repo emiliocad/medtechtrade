@@ -5,7 +5,9 @@
  * and open the template in the editor.
  */
 
-class Mtt_Models_Bussines_Equipo extends Mtt_Models_Table_Equipo {
+class Mtt_Models_Bussines_Equipo 
+        extends Mtt_Models_Table_Equipo 
+    {
 
     /**
      *
@@ -445,7 +447,8 @@ class Mtt_Models_Bussines_Equipo extends Mtt_Models_Table_Equipo {
 
     public function searchEquip($keywords, $modelo, $fabricante, 
             $categoria, $anioInicial, $anioFinal, $precioInicial, 
-            $precioFinal) {
+            $precioFinal) 
+                {
         $db = $this->getAdapter();
         $query = $db->select()
                 ->from(
@@ -501,19 +504,6 @@ class Mtt_Models_Bussines_Equipo extends Mtt_Models_Table_Equipo {
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
 
-
-    public function updateEquipo( array $data , $id )
-        {
-
-        $this->update( $data , 'id = ' . $id );
-        }
-
-
-    public function saveEquipo( array $data )
-        {
-
-        $this->insert( $data );
-        }
 
     public function updateEquipo(array $data, $id) {
 

@@ -16,6 +16,7 @@ class Mtt_Form_Search
         $this
                 ->setMethod( 'post' )
                 ->setAttrib( 'id' , 'frmSearch' )
+                ->setAction('/user/busqueda/find')
         ;
 
         //Busqueda

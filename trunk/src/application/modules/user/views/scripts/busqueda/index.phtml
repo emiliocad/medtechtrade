@@ -1,0 +1,8 @@
+<h2>
+    busqueda avanzada
+</h2>
+<?= $this->frmSearch;
+?>
+<?php if(isset($this->resultados)){ ?>
+ <?= $this->render( 'user/find.phtml' ); ?>
+<?php } ?>
