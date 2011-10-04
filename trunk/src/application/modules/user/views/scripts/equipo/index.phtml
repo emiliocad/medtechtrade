@@ -1,4 +1,21 @@
-<h2><?= $this->translate( 'mis equipos' ); ?></h2>
+<h2>
+    <?= $this->translate( 'administrar mis equipos' ); ?>
+    <button>
+        <a href="
+        <?=
+        $this->url(
+                array(
+            'module' => 'user' ,
+            'controller' => 'equipo' ,
+            'action' => 'nuevo' ) , 'default' , true
+        );
+        ?>
+           ">
+
+            <?= $this->translate( 'nuevo equipo' ) ?>
+        </a>
+    </button>
+</h2>
 
 <!-- agregando Table -->
 <table border="1" class="listado">
