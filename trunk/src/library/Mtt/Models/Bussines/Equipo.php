@@ -11,6 +11,7 @@ class Mtt_Models_Bussines_Equipo
     {
 
 
+
     /**
      *
      * @param type $id 
@@ -612,14 +613,15 @@ class Mtt_Models_Bussines_Equipo
                 ->where( 'CASE ? 
                     WHEN -1
                     THEN equipo.preciocompra > -1
-                    ELSE equipo.preciocompra < ? END' ,
-                         $precioFinal )
+                    ELSE equipo.preciocompra < ? END', $precioFinal)
+                ->group('equipo.id')
                 ->query()
 
         ;
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
+
 
 
     public function updateEquipo( array $data , $id )
