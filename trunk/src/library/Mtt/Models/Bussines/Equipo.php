@@ -255,7 +255,23 @@ class Mtt_Models_Bussines_Equipo extends Mtt_Models_Table_Equipo {
         return $query->fetchAll(Zend_Db::FETCH_OBJ);
     }
 
-    public function listEquipByUser($idUser) {
+    public function pagListEquipByUser( $idUser )
+        {
+        $_conf = new Zend_Config_Ini(
+                        APPLICATION_PATH . '/configs/myConfigUser.ini' , 'paginator'
+        );
+        $data = $_conf->toArray();
+
+        $object = Zend_Paginator::factory( $this->listEquipByUser( $idUser ) );
+        $object->setItemCountPerPage(
+                $data['ItemCountPerPage']
+        );
+        return $object;
+        }
+
+
+    public function listEquipByUser( $idUser )
+        {
         $db = $this->getAdapter();
         $query = $db->select()
                 ->from(
@@ -282,23 +298,35 @@ class Mtt_Models_Bussines_Equipo extends Mtt_Models_Table_Equipo {
                         'categoria', 'categoria.id = equipo.categoria_id', array('categoria.nombre as categoria')
                 )
                 ->joinInner(
-                        'publicacionequipo', 'publicacionequipo.id = equipo.publicacionEquipo_id', array('publicacionequipo.nombre as publicacionequipo')
+                        'publicacionequipo' ,
+                        'publicacionequipo.id = equipo.publicacionEquipo_id' ,
+                        array(
+                    'publicacionequipo.nombre as publicacionequipo'
+                        )
                 )
-                ->joinInner('usuario', 'usuario.id = equipo.usuario_id', array('usuario.nombre as usuario')
+                ->joinInner( 'usuario' , 'usuario.id = equipo.usuario_id' ,
+                             array( 'usuario.nombre as usuario' )
                 )
-                ->joinInner('fabricantes', 'fabricantes.id = equipo.fabricantes_id', array('fabricantes.nombre as fabricante')
+                ->joinInner( 'fabricantes' ,
+                             'fabricantes.id = equipo.fabricantes_id' ,
+                             array( 'fabricantes.nombre as fabricante' )
                 )
-                ->joinInner('moneda', 'moneda.id = equipo.moneda_id', array('moneda.nombre as moneda')
+                ->joinInner( 'moneda' , 'moneda.id = equipo.moneda_id' ,
+                             array( 'moneda.nombre as moneda' )
                 )
-                ->joinInner('paises', 'paises.id = equipo.paises_id'
-                        , array('paises.nombre as paises'))
-                ->joinInner('estadoequipo', 'estadoequipo.id = equipo.estadoequipo_id', array('estadoequipo.nombre as estadoequipo'))
-                ->joinLeft('imagen', 'imagen.equipo_id = equipo.id', array('imagen.nombre as imageNombre',
-                    'imagen.thumb as imageThumb',
-                    'imagen.imagen as image')
+                ->joinInner( 'paises' ,
+                             'paises.id = equipo.paises_id'
+                        , array( 'paises.nombre as paises' ) )
+                ->joinInner( 'estadoequipo' ,
+                             'estadoequipo.id = equipo.estadoequipo_id' ,
+                             array( 'estadoequipo.nombre as estadoequipo' ) )
+                ->joinLeft( 'imagen' , 'imagen.equipo_id = equipo.id' ,
+                            array( 'imagen.nombre as imageNombre' ,
+                    'imagen.thumb as imageThumb' ,
+                    'imagen.imagen as image' )
                 )
-                ->where('equipo.active = ?', self::ACTIVE)
-                ->where('usuario.id = ?', $idUser)
+                ->where( 'equipo.active = ?' , self::ACTIVE )
+                ->where( 'usuario.id = ?' , $idUser )
                 ->query()
         ;
 
@@ -325,8 +353,9 @@ class Mtt_Models_Bussines_Equipo extends Mtt_Models_Table_Equipo {
                 ->query()
         ;
 
-        return $query->fetchAll(Zend_Db::FETCH_OBJ);
-    }
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }
+
 
     /**
      * 
@@ -469,8 +498,22 @@ class Mtt_Models_Bussines_Equipo extends Mtt_Models_Table_Equipo {
       
         ;
 
-        return $query->fetchAll(Zend_Db::FETCH_OBJ);
-    }
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }
+
+
+    public function updateEquipo( array $data , $id )
+        {
+
+        $this->update( $data , 'id = ' . $id );
+        }
+
+
+    public function saveEquipo( array $data )
+        {
+
+        $this->insert( $data );
+        }
 
     public function updateEquipo(array $data, $id) {
 

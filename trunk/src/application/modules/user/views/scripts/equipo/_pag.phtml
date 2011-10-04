@@ -1,0 +1,70 @@
+<div class="paginador">
+    <?php if ( $this->pageCount )
+        { ?>
+
+        <div style="text-align:center;margin:3px;">
+            <?php
+            if ( isset( $this->previous ) )
+                {
+                $params = array( 'page' => $this->first );
+                echo '<a href="' . $this->url( $params ) . '">
+        <img src="/images/icons/pagination_first.png" 
+        alt="primera" style="border:0px;" />
+        </a>';
+                }
+
+            if ( isset( $this->previous ) )
+                {
+                $params = array( 'page' => $this->previous );
+                echo '<a href="' . $this->url( $params ) . '">
+        <img src="/images/icons/pagination_previous.png" 
+        alt="Anterior" style="border:0px;" />
+        </a>';
+                }
+            ?>
+
+            <? foreach ( $this->pagesInRange as $page ): ?>
+                <? if ( $page != $this->current ): ?>
+                    <a href="<?= $this->url( array( 'page' => $page ) ); ?>">
+                        <?= $page; ?>
+                    </a>
+                    <?= $this->last == $page
+                                        ? '' : '|' ?>
+                <? else: ?>
+                    <?= $page; ?> <?= $this->last == $page
+                                ? '' : '|' ?>
+                <? endif; ?>
+            <? endforeach; ?>
+
+            <?
+            if ( isset( $this->next ) )
+                {
+                $params = array( 'page' => $this->next );
+                echo '<a href="' . $this->url( $params ) . '">
+                    <img src="/images/icons/pagination_next.png" 
+                    alt="Siguiente" style="border:0px;" />
+                    </a>';
+                }
+
+            if ( isset( $this->next ) )
+                {
+                $params = array( 'page' => $this->last );
+                echo '<a href="' . $this->url( $params ) . '">
+                    <img src="/images/icons/pagination_last.png" 
+                    alt="Ultima" style="border:0px;" />
+                    </a>';
+                }
+            ?>
+        </div>
+        <?php
+        }
+    else
+        {
+        echo "&nbsp;&nbsp; - No hay Resultados -";
+        }
+    ?>
+</div>
+
+<script type="text/javascript">
+    var mivar = {'sac':sdf,'asd':dfg}
+</script>
