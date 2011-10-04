@@ -36,11 +36,11 @@ class User_BusquedaController
         $equipo = new Mtt_Models_Bussines_Equipo();
             
 
-        $resultados = $equipo->searchEquip($criterio['keywords'], 
+        $resultados = $equipo->searchEquip($criterio['palabras_busqueda'], 
             $criterio['modelo'], $criterio['fabricante'], 
-            $criterio['categoria_id'], $criterio['anioinicio_id'], 
-            $criterio['aniofin_id'], $criterio['preciomin_id'], 
-            $criterio['preciomax_id']);
+            $criterio['categoria_id'], $criterio['anioinicio'], 
+            $criterio['aniofin'], $criterio['preciomin'], 
+            $criterio['preciomax']);
         
         $form = new Mtt_Form_SaveSearch();
         $this->view->assign('frmSaveSearch', $form);
@@ -54,7 +54,7 @@ class User_BusquedaController
         )
             {
                 unset( $criterio["buscar"] );
-                $this->_Busqueda->saveBusqueda();
+                //$this->_Busqueda->saveBusqueda();
             }
 
         }
