@@ -16,6 +16,7 @@ class Mtt_Controller_Plugin_Routes
                         'controller' => 'categoria' ,
                         'action' => 'ver' ,
                         'slug' => ':slug'
+
                     )
             ) ,
             'slugEquipment' => new Zend_Controller_Router_Route(
@@ -25,6 +26,7 @@ class Mtt_Controller_Plugin_Routes
                         'controller' => 'test' ,
                         'action' => 'slugequipment' ,
                         'slug' => ':slug'
+
                     )
             ) ,
             'login' => new Zend_Controller_Router_Route(

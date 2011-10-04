@@ -81,7 +81,19 @@ class User_UserController
                 $form->isValid( $this->_request->getPost() ) )
             {
             
+                $equipo = new Mtt_Models_Bussines_Equipo();
+                $criterio= $this->_request->getPost() ;
+             
+                $equipo->searchEquip($criterio['keywords'], 
+                        $criterio['modelo'], $criterio['fabricante'], 
+                        $criterio['categoria_id'], 
+                        $criterio['anioinicio_id'], 
+                        $criterio['aniofin_id'], 
+                        $criterio['preciomin_id'], 
+                        $criterio['preciomax_id']);
+              
             }
+             $this->view->assign( 'form' , $this->_request->getPost()  );
         }
 
 

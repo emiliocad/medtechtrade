@@ -21,7 +21,7 @@ class Mtt_Form_Search
         //Busqueda
         $decorator = new Mtt_Form_Decorator_SimpleInput();
         $e = new Zend_Form_Element_Text( 'keywords' );
-        $e->setRequired();
+        //$e->setRequired();
         //$e->setDecorators( array( $decorator ) );
         $e->setLabel(
                 $this->_translate->translate(
@@ -32,7 +32,7 @@ class Mtt_Form_Search
 
         /* Modelo */
         $e = new Zend_Form_Element_Text( 'modelo' );
-        $e->setRequired();
+        //$e->setRequired();
         //$e->setDecorators( array( $decorator ) );
         $e->setLabel(
                 $this->_translate->translate(
@@ -44,7 +44,7 @@ class Mtt_Form_Search
 
         /* Fabricante */
         $e = new Zend_Form_Element_Text( 'fabricante' );
-        $e->setRequired();
+        //$e->setRequired();
         //$e->setDecorators( array( $decorator ) );
         $e->setLabel(
                 $this->_translate->translate(
@@ -64,12 +64,11 @@ class Mtt_Form_Search
         $values = $_categoria->getComboValues();
         $e->addMultiOption( -1 ,
                             $this->_translate->translate(
-                        'categorias'
+                        'todos'
                 )
         );
         $e->addMultiOptions( $values );
         $this->addElement( $e );
-        $e->addValidator( new Zend_Validate_InArray( array_keys( $values ) ) );
         
          /* año desde */
         // Creando array
