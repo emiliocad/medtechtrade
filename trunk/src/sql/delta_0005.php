@@ -1,7 +1,7 @@
 <?php
 
 
-class Delta_0004
+class Delta_0005
         extends Mtt_Migration_Delta
     {
 
