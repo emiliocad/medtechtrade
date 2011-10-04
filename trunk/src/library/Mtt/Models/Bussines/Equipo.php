@@ -464,6 +464,7 @@ class Mtt_Models_Bussines_Equipo extends Mtt_Models_Table_Equipo {
                     WHEN -1
                     THEN equipo.preciocompra > -1
                     ELSE equipo.preciocompra < ? END', $precioFinal)
+                ->group('equipo.id')
                 ->query()
       
         ;

@@ -3,4 +3,6 @@
 </h2>
 <?= $this->frmSearch;
 ?>
-<?php Zend_Debug::dump($this->form)?>
+<?php if(isset($this->resultados)){ ?>
+ <?= $this->render( 'user/find.phtml' ); ?>
+<?php } ?>
