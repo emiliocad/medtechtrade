@@ -141,8 +141,6 @@ class TestController
         }
 
 
-<<<<<<< HEAD
-=======
     public function slugequipmentAction()
         {
 //        $_categoria = new Mtt_Models_Catalog_Equipo();
@@ -169,6 +167,5 @@ class TestController
         }
 
 
->>>>>>> 8c53208cb6c40928421e33e7f022c730d17c3510
     }
 
