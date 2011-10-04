@@ -38,6 +38,7 @@ class EquipoController
         {
         //$this->_helper->layout->disableLayout();
         //$this->_helper->viewRenderer->setNoRender();
+        
         $id = ( int ) ( $this->_getParam( 'id' , null ) );
 
         $this->view
