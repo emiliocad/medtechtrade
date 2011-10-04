@@ -1,3 +1,60 @@
 <h2><?= $this->translate( 'mis equipos' ); ?></h2>
 
-<? Zend_Debug::dump( $this->equipos ); ?>
+<!-- agregando Table -->
+<table border="1" class="listado">
+    <thead>
+    <th></th>
+    <th><?= $this->translate( 'equipo' ) ?> </th>
+    <th><?= $this->translate( 'fabricante' ) ?></th>
+    <th><?= $this->translate( 'categoria' ) ?></th>
+    <th><?= $this->translate( 'paises' ) ?></th>
+    <th><?= $this->translate( 'estado equipo' ) ?></th>
+    <th><?= $this->translate( 'calidad' ) ?></th>
+    <th><?= $this->translate( 'acciones' ) ?></th>
+</thead>
+<tbody>
+    <?php foreach ( $this->equipos as $equipo ): ?>
+
+        <tr class="<?= $equipo->active
+                        ? 'activo' : 'inactivo' ?>">
+            <td >
+                <img src="/media/catalog/product/device-00.png" 
+                     alt="<?= $equipo->equipo ?>"
+                     width="24px" height="24px">
+            </td>
+
+
+            <td>
+                <?= $this->escape( $equipo->fabricante ) ?>
+            </td>
+
+
+            <td>
+                <?= $this->escape( $equipo->categoria ) ?>
+            </td>
+
+            <td>
+                <?= $this->escape( $equipo->paises ) ?>
+            </td>
+
+            <td>
+                <?= $this->escape( $equipo->estadoequipo ) ?>
+            </td>
+
+            <td>
+                <?= $this->escape( $equipo->calidad ) ?>
+            </td>
+
+            <td>
+                <?= $this->escape( $equipo->calidad ) ?>
+            </td>
+
+        </tr>
+    <?php endforeach; ?>
+</tbody>
+</table>
+<?=
+$this->paginationControl(
+        $this->equipos , 'Sliding' , 'equipo/_pag.phtml'
+);
+?>

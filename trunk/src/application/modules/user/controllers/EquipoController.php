@@ -18,8 +18,12 @@ class User_EquipoController
     public function indexAction()
         {
         $this->_helper->layout->setLayout( 'layoutListado' );
-        $equipos = $this->_equipo->listEquipByUser(
+
+        $equipos = $this->_equipo->pagListEquipByUser(
                 $this->authData['usuario']->id
+        );
+        $equipos->setCurrentPageNumber(
+                $this->_getParam( 'page' , 1 )
         );
 
         $this->view->assign( 'equipos' , $equipos );

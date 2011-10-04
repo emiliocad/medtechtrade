@@ -278,10 +278,12 @@ class Mtt_Models_Bussines_Equipo
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
 
-        
-    /***
+
+    /*     * *
      * 
      */
+
+
     public function listEquipByUserStatus( $idUser , $status )
         {
         $db = $this->getAdapter();
@@ -331,11 +333,26 @@ class Mtt_Models_Bussines_Equipo
                 ->where( 'equipo.active = ?' , self::ACTIVE )
                 ->where( 'equipo.publicacionEquipo_id = ?' , $status )
                 ->where( 'equipo.usuario_id = ?' , $idUser )
-                ->group( 'equipo.id')
+                ->group( 'equipo.id' )
                 ->query()
         ;
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }
+
+
+    public function pagListEquipByUser( $idUser )
+        {
+        $_conf = new Zend_Config_Ini(
+                        APPLICATION_PATH . '/configs/myConfigUser.ini' , 'paginator'
+        );
+        $data = $_conf->toArray();
+
+        $object = Zend_Paginator::factory( $this->listEquipByUser( $idUser ) );
+        $object->setItemCountPerPage(
+                $data['ItemCountPerPage']
+        );
+        return $object;
         }
 
 
@@ -371,7 +388,9 @@ class Mtt_Models_Bussines_Equipo
                 ->joinInner(
                         'publicacionequipo' ,
                         'publicacionequipo.id = equipo.publicacionEquipo_id' ,
-                        array( 'publicacionequipo.nombre as publicacionequipo' )
+                        array(
+                    'publicacionequipo.nombre as publicacionequipo'
+                        )
                 )
                 ->joinInner( 'usuario' , 'usuario.id = equipo.usuario_id' ,
                              array( 'usuario.nombre as usuario' )
@@ -427,7 +446,6 @@ class Mtt_Models_Bussines_Equipo
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
-
 
 
     /**
@@ -543,8 +561,8 @@ class Mtt_Models_Bussines_Equipo
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
 
-        
-     public function searchEquip($keywords, $modelo, $fabricante, $categoria)
+
+    public function searchEquip( $keywords , $modelo , $fabricante , $categoria )
         {
         $db = $this->getAdapter();
         $query = $db->select()
@@ -555,7 +573,6 @@ class Mtt_Models_Bussines_Equipo
                     'nombre as equipo' ,
                     'modelo' ,
                     'fechafabricacion' ,
-
                     'active' )
                 )
                 ->joinInner(
@@ -576,10 +593,8 @@ class Mtt_Models_Bussines_Equipo
         ;
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
-        }       
-        
-        
-              
+        }
+
 
     public function updateEquipo( array $data , $id )
         {
