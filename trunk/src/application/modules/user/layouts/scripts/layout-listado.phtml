@@ -1,0 +1,105 @@
+<?= $this->doctype(); ?>
+<html>
+    <head>
+        <?= $this->headMeta() ?>        
+        <?= $this->headTitle() ?> 
+        <link href="/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <?=
+        $this->headLink()->prependStylesheet( '/theme/default/css/reset.css' )
+                ->headLink()->appendStylesheet( '/theme/default/css/default.css' )
+                ->headLink()->appendStylesheet(
+                        '/theme/default/css/form.css'
+                )
+                ->headLink()->appendStylesheet(
+                        '/theme/default/css/user.css'
+                )
+                ->headLink()->appendAlternate( '/humans.txt' , 'text/plain' ,
+                                               'author' , '' );
+        ?>
+        <?=
+        $this->jQuery()->setVersion( '1.4.2' )
+                ->setUiVersion( '1.8.16' )
+                ->addStylesheet( '/theme/admin/css/redmond/jquery-ui-1.8.16.custom.css' )
+                ->enable()
+                ->uiEnable();
+        ?>
+        <?=
+        $this->headScript()
+                ->appendFile(
+                        'https://apis.google.com/js/plusone.js'
+                )
+                ->appendFile(
+                        '/js/ckeditor/ckeditor.js'
+                )
+        ;
+        ?> 
+
+    </head>
+    <body>
+        <?= $this->render( '_redes.phtml' ); ?>
+        <header>
+
+            <div id="wrap-top" class="wrapper">
+                <div id="section-top" class="section">
+                    <?= $this->render( '_header.phtml' ); ?>
+                    <nav>
+                        <?= $this->render( '_navegacion.phtml' ); ?>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <section>
+
+            <div id="wrap-middle" class="wrapper">
+                <div id="section-middle" class="section">
+                    <aside>
+                        <div id="section-middle-categories">
+
+
+                            <?= $this->render( '_menucategories.phtml' ); ?>
+                            <div id="section-middle-list">
+                                <span id="section-middle-list-advice">
+                                    We are looking
+                                    <br/>
+                                    for this used
+                                    <br/>
+                                    medical
+                                    <br/>equipment:
+                                    <br/>
+                                </span>
+                                <br/>
+                                <a href="#">
+                                    <span>Link to the list</span>
+                                </a>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <article>
+
+                        <div id="section-middle-body">
+
+                            <div id="section-middle-content">
+                                <?= $this->render( '_messages.phtml' ); ?>
+
+                                <?= $this->layout()->content ?>
+
+                            </div>
+                            <div id="section-middle-acciones">
+                                <?= $this->render( '_listAcciones.phtml' ) ?>
+                            </div>
+                            <div class="clear">
+
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <footer>
+
+            <?= $this->render( '_footer.phtml' ) ?>
+        </footer>
+    </body>
+</html>
