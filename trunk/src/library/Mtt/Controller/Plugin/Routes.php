@@ -1,29 +1,24 @@
 <?php
 
+class Mtt_Controller_Plugin_Routes extends Zend_Controller_Plugin_Abstract {
 
-class Mtt_Controller_Plugin_Routes
-        extends Zend_Controller_Plugin_Abstract
-    {
-
-
-    public function routeStartup( Zend_Controller_Request_Abstract $request )
-        {
+    public function routeStartup(Zend_Controller_Request_Abstract $request) {
 
         $routes = array(
             'slugCategory' => new Zend_Controller_Router_Route(
-                    'category/:slug' ,
+                    'category/:slug',
                     array(
-                        'module' => 'default' ,
-                        'controller' => 'categoria' ,
-                        'action' => 'ver' ,
+                        'module' => 'default',
+                        'controller' => 'categoria',
+                        'action' => 'ver',
                         'slug' => ':slug'
                     )
-            ) ,
+            ),
             'login' => new Zend_Controller_Router_Route(
-                    'login' ,
+                    'login',
                     array(
-                        'module' => 'default' ,
-                        'controller' => 'usuario' ,
+                        'module' => 'default',
+                        'controller' => 'usuario',
                         'action' => 'index'
                     )
             )
@@ -101,11 +96,10 @@ class Mtt_Controller_Plugin_Routes
 //        );
 
         $router = Zend_Controller_Front::getInstance()->getRouter();
-        $router->addRoutes( $routes );
-        parent::routeStartup( $request );
-        }
-
-
+        $router->addRoutes($routes);
+        parent::routeStartup($request);
     }
+
+}
 
 ?>
