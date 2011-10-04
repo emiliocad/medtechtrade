@@ -141,5 +141,34 @@ class TestController
         }
 
 
+<<<<<<< HEAD
+=======
+    public function slugequipmentAction()
+        {
+//        $_categoria = new Mtt_Models_Catalog_Equipo();
+//        $slugger = new Mtt_Filter_Slug(
+//                        array(
+//                            'field' => 'slug' ,
+//                            'model' => $_categoria
+//                        )
+//        );
+//        $categorias = $_categoria->listar();
+//        $slug = array( );
+//        foreach ( $categorias as $categoria )
+//            {
+//            $slug[$categoria->id] = $slugger->filter( $categoria->nombre );
+//            }
+//
+//        $this->view->assign(
+//                'slug' , $slug
+//        );
+
+        $slug = $this->_getParam( 'slug' , null );
+
+        $this->view->assign( 'slug' , $slug );
+        }
+
+
+>>>>>>> 8c53208cb6c40928421e33e7f022c730d17c3510
     }
 

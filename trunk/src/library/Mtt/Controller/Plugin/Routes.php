@@ -5,7 +5,6 @@ class Mtt_Controller_Plugin_Routes
         extends Zend_Controller_Plugin_Abstract
     {
 
-
     public function routeStartup( Zend_Controller_Request_Abstract $request )
         {
 
@@ -17,6 +16,18 @@ class Mtt_Controller_Plugin_Routes
                         'controller' => 'categoria' ,
                         'action' => 'ver' ,
                         'slug' => ':slug'
+<<<<<<< HEAD
+=======
+                    )
+            ) ,
+            'slugEquipment' => new Zend_Controller_Router_Route(
+                    'equipment/:slug' ,
+                    array(
+                        'module' => 'default' ,
+                        'controller' => 'test' ,
+                        'action' => 'slugequipment' ,
+                        'slug' => ':slug'
+>>>>>>> 8c53208cb6c40928421e33e7f022c730d17c3510
                     )
             ) ,
             'login' => new Zend_Controller_Router_Route(
