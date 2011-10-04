@@ -5,255 +5,340 @@
  * and open the template in the editor.
  */
 
-class Mtt_Models_Bussines_Equipo extends Mtt_Models_Table_Equipo {
+
+class Mtt_Models_Bussines_Equipo
+        extends Mtt_Models_Table_Equipo
+    {
+
 
     /**
      *
      * @param type $id 
      */
-    public function addTopOfers($id) {
-        $data = array('topofers' => self::ACTIVE);
-        $this->updateEquipo($data, $id);
-    }
+    public function addTopOfers( $id )
+        {
+        $data = array( 'topofers' => self::ACTIVE );
+        $this->updateEquipo( $data , $id );
+        }
+
 
     /**
      *
      * @param type $id 
      */
-    public function quitTopOfers($id) {
-        $data = array('topofers' => self::DESACTIVATE);
-        $this->updateEquipo($data, $id);
-    }
+    public function quitTopOfers( $id )
+        {
+        $data = array( 'topofers' => self::DESACTIVATE );
+        $this->updateEquipo( $data , $id );
+        }
+
 
 //TODO reparar este codigo
-    public function getComboValues() {
-        $filas = $this->fetchAll('active=1')->toArray();
-        $values = array();
-        foreach ($filas as $fila) {
+    public function getComboValues()
+        {
+        $filas = $this->fetchAll( 'active=1' )->toArray();
+        $values = array( );
+        foreach ( $filas as $fila )
+            {
             $values[$fila['id']] = $fila['nombre'];
-        }
+            }
         return $values;
-    }
+        }
 
-    public function getProduct($id) {
+
+    public function getProduct( $id )
+        {
         $db = $this->getAdapter();
         $query = $db->select()
-                ->from($this->_name, array('id', 'nombre', 'precioventa',
-                    'preciocompra', 'tag', 'calidad',
-                    'cantidad', 'modelo', 'fechafabricacion',
-                    'documento', 'sourceDocumento', 'pesoEstimado', 'size',
-                    'ancho', 'alto', 'sizeCaja')
+                ->from( $this->_name ,
+                        array( 'id' , 'nombre' , 'precioventa' ,
+                    'preciocompra' , 'tag' , 'calidad' ,
+                    'cantidad' , 'modelo' , 'fechafabricacion' ,
+                    'documento' , 'sourceDocumento' , 'pesoEstimado' , 'size' ,
+                    'ancho' , 'alto' , 'sizeCaja' )
                 )
-                ->joinInner('categoria', 'categoria.id = equipo.categoria_id', array(
-                    'categoria.nombre as categoria',
+                ->joinInner( 'categoria' , 'categoria.id = equipo.categoria_id' ,
+                             array(
+                    'categoria.nombre as categoria' ,
                     'categoria.id as categoria_id'
                         )
                 )
-                ->joinInner('estadoequipo', 'estadoequipo.id = equipo.estadoequipo_id', array('estadoequipo.nombre as estadoequipo'))
-                ->joinInner('publicacionequipo', 'publicacionequipo.id = equipo.publicacionEquipo_id', array('publicacionequipo.nombre as publicacionequipo'))
-                ->joinInner('moneda', 'moneda.id = equipo.moneda_id', array('moneda.nombre as moneda'))
-                ->joinInner('fabricantes', 'fabricantes.id = equipo.fabricantes_id', array('fabricantes.nombre as fabricante'))
-                ->joinInner('paises', 'paises.id = equipo.paises_id', array('paises.nombre as pais'))
-                ->where('equipo.active IN (?)', self::ACTIVE)
+                ->joinInner( 'estadoequipo' ,
+                             'estadoequipo.id = equipo.estadoequipo_id' ,
+                             array( 'estadoequipo.nombre as estadoequipo' ) )
+                ->joinInner( 'publicacionequipo' ,
+                             'publicacionequipo.id = equipo.publicacionEquipo_id' ,
+                             array( 'publicacionequipo.nombre as publicacionequipo' ) )
+                ->joinInner( 'moneda' , 'moneda.id = equipo.moneda_id' ,
+                             array( 'moneda.nombre as moneda' ) )
+                ->joinInner( 'fabricantes' ,
+                             'fabricantes.id = equipo.fabricantes_id' ,
+                             array( 'fabricantes.nombre as fabricante' ) )
+                ->joinInner( 'paises' , 'paises.id = equipo.paises_id' ,
+                             array( 'paises.nombre as pais' ) )
+                ->where( 'equipo.active IN (?)' , self::ACTIVE )
                 ->query();
 
         return $query->fetchObject();
-    }
+        }
 
-    public function getImagenes($id) {
+
+    public function getImagenes( $id )
+        {
         $db = $this->getAdapter();
         $query = $db->select()
-                ->from($this->_name, array('id', 'nombre'))
-                ->joinInner('categoria', 'categoria.id = ' . $id, array('categoria.nombre as categoria'))
-                ->joinInner('fabricantes', 'fabricantes.id = equipo.fabricantes_id', array('fabricantes.nombre as fabricante'))
-                ->joinLeft('imagen', 'imagen.equipo_id = equipo.id', array('imagen.nombre as imagen'))
-                ->where('equipo.active IN (?)', self::ACTIVE)
+                ->from( $this->_name , array( 'id' , 'nombre' ) )
+                ->joinInner( 'categoria' , 'categoria.id = ' . $id ,
+                             array( 'categoria.nombre as categoria' ) )
+                ->joinInner( 'fabricantes' ,
+                             'fabricantes.id = equipo.fabricantes_id' ,
+                             array( 'fabricantes.nombre as fabricante' ) )
+                ->joinLeft( 'imagen' , 'imagen.equipo_id = equipo.id' ,
+                            array( 'imagen.nombre as imagen' ) )
+                ->where( 'equipo.active IN (?)' , self::ACTIVE )
                 ->query();
 
-        return $query->fetchAll(Zend_Db::FETCH_OBJ);
-    }
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }
 
-    public function getImage($id) {
+
+    public function getImage( $id )
+        {
         $db = $this->getAdapter();
         $query = $db->select()
-                ->from($this->_name, array('id', 'nombre'))
-                ->joinInner('categoria', 'categoria.id = ' . $id, array('categoria.nombre as categoria'))
-                ->joinInner('fabricantes', 'fabricantes.id = equipo.fabricantes_id', array('fabricantes.nombre as fabricante'))
-                ->joinLeft('imagen', 'imagen.equipo_id = equipo.id', array('imagen.nombre as imagen'))
-                ->where('equipo.active IN (?)', self::ACTIVE)
+                ->from( $this->_name , array( 'id' , 'nombre' ) )
+                ->joinInner( 'categoria' , 'categoria.id = ' . $id ,
+                             array( 'categoria.nombre as categoria' ) )
+                ->joinInner( 'fabricantes' ,
+                             'fabricantes.id = equipo.fabricantes_id' ,
+                             array( 'fabricantes.nombre as fabricante' ) )
+                ->joinLeft( 'imagen' , 'imagen.equipo_id = equipo.id' ,
+                            array( 'imagen.nombre as imagen' ) )
+                ->where( 'equipo.active IN (?)' , self::ACTIVE )
                 ->query();
 
-        return $query->fetchAll(Zend_Db::FETCH_OBJ);
-    }
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }
 
-    public function getFindId($id) {
 
-        return $this->fetchRow('id = ' . $id);
-    }
+    public function getFindId( $id )
+        {
 
-    public function getProducts() {
+        return $this->fetchRow( 'id = ' . $id );
+        }
+
+
+    public function getProducts()
+        {
 
         $db = $this->getAdapter();
 
         $query = $db->select()
-                ->from($this->_name, array('id', 'nombre'))
-                ->joinInner('categoria', 'categoria.id = equipo.categoria_id ', array('categoria.nombre as categoria')
+                ->from( $this->_name , array( 'id' , 'nombre' ) )
+                ->joinInner( 'categoria' ,
+                             'categoria.id = equipo.categoria_id ' ,
+                             array( 'categoria.nombre as categoria' )
                 )
-                ->joinInner('fabricantes', 'fabricantes.id = equipo.fabricantes_id', array('fabricantes.nombre as fabricante')
+                ->joinInner( 'fabricantes' ,
+                             'fabricantes.id = equipo.fabricantes_id' ,
+                             array( 'fabricantes.nombre as fabricante' )
                 )
-                ->joinLeft('imagen', 'imagen.equipo_id = equipo.id', array('imagen.nombre as imagen')
+                ->joinLeft( 'imagen' , 'imagen.equipo_id = equipo.id' ,
+                            array( 'imagen.nombre as imagen' )
                 )
-                ->where('equipo.active IN (?)', self::ACTIVE)
+                ->where( 'equipo.active IN (?)' , self::ACTIVE )
                 ->query();
 
-        return $query->fetchAll(Zend_Db::FETCH_OBJ);
-    }
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }
+
 
     /**
      *
      * @return type Object
      */
-    public function getProductsOfersAll() {
+    public function getProductsOfersAll()
+        {
 
         $db = $this->getAdapter();
 
         $query = $db->select()
-                ->from($this->_name, array('id', 'nombre', 'topofers'))
-                ->joinInner('categoria', 'categoria.id = equipo.categoria_id ', array('categoria.nombre as categoria')
+                ->from( $this->_name , array( 'id' , 'nombre' , 'topofers' ) )
+                ->joinInner( 'categoria' ,
+                             'categoria.id = equipo.categoria_id ' ,
+                             array( 'categoria.nombre as categoria' )
                 )
-                ->joinInner('fabricantes', 'fabricantes.id = equipo.fabricantes_id', array('fabricantes.nombre as fabricante')
+                ->joinInner( 'fabricantes' ,
+                             'fabricantes.id = equipo.fabricantes_id' ,
+                             array( 'fabricantes.nombre as fabricante' )
                 )
-                ->joinLeft('imagen', 'imagen.equipo_id = equipo.id', array('imagen.nombre as imagen')
+                ->joinLeft( 'imagen' , 'imagen.equipo_id = equipo.id' ,
+                            array( 'imagen.nombre as imagen' )
                 )
-                ->where('equipo.topofers IN (?)', self::ACTIVE)
-                ->where('equipo.active IN (?)', self::ACTIVE)
+                ->where( 'equipo.topofers IN (?)' , self::ACTIVE )
+                ->where( 'equipo.active IN (?)' , self::ACTIVE )
                 ->query();
 
-        return $query->fetchAll(Zend_Db::FETCH_OBJ);
-    }
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }
+
 
     /**
      *
      * @param type $category_id
      * @return type object
      */
-    public function getProductsOfersAllByCategory($category_id) {
+    public function getProductsOfersAllByCategory( $category_id )
+        {
 
         $db = $this->getAdapter();
 
         $query = $db->select()
-                ->from($this->_name, array('id', 'nombre', 'topofers'))
-                ->joinInner('categoria', 'categoria.id = equipo.categoria_id ', array('categoria.nombre as categoria')
+                ->from( $this->_name , array( 'id' , 'nombre' , 'topofers' ) )
+                ->joinInner( 'categoria' ,
+                             'categoria.id = equipo.categoria_id ' ,
+                             array( 'categoria.nombre as categoria' )
                 )
-                ->joinInner('fabricantes', 'fabricantes.id = equipo.fabricantes_id', array('fabricantes.nombre as fabricante')
+                ->joinInner( 'fabricantes' ,
+                             'fabricantes.id = equipo.fabricantes_id' ,
+                             array( 'fabricantes.nombre as fabricante' )
                 )
-                ->joinLeft('imagen', 'imagen.equipo_id = equipo.id', array('imagen.nombre as imagen')
+                ->joinLeft( 'imagen' , 'imagen.equipo_id = equipo.id' ,
+                            array( 'imagen.nombre as imagen' )
                 )
-                ->where('equipo.topofers IN (?)', self::ACTIVE)
-                ->where('equipo.categoria_id IN (?)', $category_id)
-                ->where('equipo.active IN (?)', self::ACTIVE)
+                ->where( 'equipo.topofers IN (?)' , self::ACTIVE )
+                ->where( 'equipo.categoria_id IN (?)' , $category_id )
+                ->where( 'equipo.active IN (?)' , self::ACTIVE )
                 ->query();
 
-        return $query->fetchAll(Zend_Db::FETCH_OBJ);
-    }
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }
 
-    public function listEquip() {
+
+    public function listEquip()
+        {
         $db = $this->getAdapter();
         $query = $db->select()
                 ->from(
-                        $this->_name, array(
-                    'id',
-                    'nombre as equipo',
-                    'precioventa',
-                    'preciocompra',
-                    'calidad',
-                    'modelo',
-                    'fechafabricacion',
-                    'documento',
-                    'sourceDocumento',
-                    'pesoEstimado',
-                    'size',
-                    'ancho',
-                    'alto',
-                    'sizeCaja',
-                    'topofers',
-                    'publishdate',
-                    'active')
+                        $this->_name ,
+                        array(
+                    'id' ,
+                    'nombre as equipo' ,
+                    'precioventa' ,
+                    'preciocompra' ,
+                    'calidad' ,
+                    'modelo' ,
+                    'fechafabricacion' ,
+                    'documento' ,
+                    'sourceDocumento' ,
+                    'pesoEstimado' ,
+                    'size' ,
+                    'ancho' ,
+                    'alto' ,
+                    'sizeCaja' ,
+                    'topofers' ,
+                    'publishdate' ,
+                    'active' )
                 )
                 ->joinInner(
-                        'categoria', 'categoria.id = equipo.categoria_id', array('categoria.nombre as categoria')
+                        'categoria' , 'categoria.id = equipo.categoria_id' ,
+                        array( 'categoria.nombre as categoria' )
                 )
                 ->joinInner(
-                        'publicacionequipo', 'publicacionequipo.id = equipo.publicacionEquipo_id', array('publicacionequipo.nombre as publicacionequipo')
+                        'publicacionequipo' ,
+                        'publicacionequipo.id = equipo.publicacionEquipo_id' ,
+                        array( 'publicacionequipo.nombre as publicacionequipo' )
                 )
-                ->joinInner('usuario', 'usuario.id = equipo.usuario_id', array('usuario.nombre as usuario')
+                ->joinInner( 'usuario' , 'usuario.id = equipo.usuario_id' ,
+                             array( 'usuario.nombre as usuario' )
                 )
-                ->joinInner('fabricantes', 'fabricantes.id = equipo.fabricantes_id', array('fabricantes.nombre as fabricante')
+                ->joinInner( 'fabricantes' ,
+                             'fabricantes.id = equipo.fabricantes_id' ,
+                             array( 'fabricantes.nombre as fabricante' )
                 )
-                ->joinInner('moneda', 'moneda.id = equipo.moneda_id', array('moneda.nombre as moneda')
+                ->joinInner( 'moneda' , 'moneda.id = equipo.moneda_id' ,
+                             array( 'moneda.nombre as moneda' )
                 )
-                ->joinInner('paises', 'paises.id = equipo.paises_id'
-                        , array('paises.nombre as paises'))
-                ->joinInner('estadoequipo', 'estadoequipo.id = equipo.estadoequipo_id', array('estadoequipo.nombre as estadoequipo'))
-                ->joinLeft('imagen', 'imagen.equipo_id = equipo.id', array('imagen.nombre as imageNombre',
-                    'imagen.thumb as imageThumb',
-                    'imagen.imagen as image')
+                ->joinInner( 'paises' ,
+                             'paises.id = equipo.paises_id'
+                        , array( 'paises.nombre as paises' ) )
+                ->joinInner( 'estadoequipo' ,
+                             'estadoequipo.id = equipo.estadoequipo_id' ,
+                             array( 'estadoequipo.nombre as estadoequipo' ) )
+                ->joinLeft( 'imagen' , 'imagen.equipo_id = equipo.id' ,
+                            array( 'imagen.nombre as imageNombre' ,
+                    'imagen.thumb as imageThumb' ,
+                    'imagen.imagen as image' )
                 )
-                ->where('equipo.active = ?', self::ACTIVE)
+                ->where( 'equipo.active = ?' , self::ACTIVE )
                 ->query()
         ;
 
-        return $query->fetchAll(Zend_Db::FETCH_OBJ);
-    }
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }
+
 
     /**
      * 
      * 
      */
-    public function listEquipByUserStatus($idUser, $status) {
+    public function listEquipByUserStatus( $idUser , $status )
+        {
 
         $db = $this->getAdapter();
         $query = $db->select()
                 ->from(
-                        $this->_name, array(
-                    'equipo.id', 'nombre as equipo', 'precioventa',
-                    'preciocompra', 'calidad', 'modelo',
-                    'fechafabricacion', 'documento', 'sourceDocumento',
-                    'pesoEstimado',
-                    'size',
-                    'ancho',
-                    'alto',
-                    'sizeCaja',
-                    'topofers',
-                    'publishdate',
-                    'active')
+                        $this->_name ,
+                        array(
+                    'equipo.id' , 'nombre as equipo' , 'precioventa' ,
+                    'preciocompra' , 'calidad' , 'modelo' ,
+                    'fechafabricacion' , 'documento' , 'sourceDocumento' ,
+                    'pesoEstimado' ,
+                    'size' ,
+                    'ancho' ,
+                    'alto' ,
+                    'sizeCaja' ,
+                    'topofers' ,
+                    'publishdate' ,
+                    'active' )
                 )
                 ->joinInner(
-                        'categoria', 'categoria.id = equipo.categoria_id', array('categoria.nombre as categoria')
+                        'categoria' , 'categoria.id = equipo.categoria_id' ,
+                        array( 'categoria.nombre as categoria' )
                 )
                 ->joinInner(
-                        'publicacionequipo', 'publicacionequipo.id = equipo.publicacionEquipo_id', array('publicacionequipo.nombre as publicacionequipo')
+                        'publicacionequipo' ,
+                        'publicacionequipo.id = equipo.publicacionEquipo_id' ,
+                        array( 'publicacionequipo.nombre as publicacionequipo' )
                 )
-                ->joinInner('fabricantes', 'fabricantes.id = equipo.fabricantes_id', array('fabricantes.nombre as fabricante')
+                ->joinInner( 'fabricantes' ,
+                             'fabricantes.id = equipo.fabricantes_id' ,
+                             array( 'fabricantes.nombre as fabricante' )
                 )
-                ->joinInner('moneda', 'moneda.id = equipo.moneda_id', array('moneda.nombre as moneda')
+                ->joinInner( 'moneda' , 'moneda.id = equipo.moneda_id' ,
+                             array( 'moneda.nombre as moneda' )
                 )
-                ->joinInner('paises', 'paises.id = equipo.paises_id'
-                        , array('paises.nombre as paises'))
-                ->joinInner('estadoequipo', 'estadoequipo.id = equipo.estadoequipo_id', array('estadoequipo.nombre as estadoequipo'))
-                ->joinLeft('imagen', 'imagen.equipo_id = equipo.id', array('imagen.nombre as imageNombre',
-                    'imagen.thumb as imageThumb',
-                    'imagen.imagen as image')
+                ->joinInner( 'paises' ,
+                             'paises.id = equipo.paises_id'
+                        , array( 'paises.nombre as paises' ) )
+                ->joinInner( 'estadoequipo' ,
+                             'estadoequipo.id = equipo.estadoequipo_id' ,
+                             array( 'estadoequipo.nombre as estadoequipo' ) )
+                ->joinLeft( 'imagen' , 'imagen.equipo_id = equipo.id' ,
+                            array( 'imagen.nombre as imageNombre' ,
+                    'imagen.thumb as imageThumb' ,
+                    'imagen.imagen as image' )
                 )
-                ->where('equipo.active = ?', self::ACTIVE)
-                ->where('equipo.publicacionEquipo_id = ?', $status)
-                ->where('equipo.usuario_id = ?', $idUser)
-                ->group('equipo.id')
+                ->where( 'equipo.active = ?' , self::ACTIVE )
+                ->where( 'equipo.publicacionEquipo_id = ?' , $status )
+                ->where( 'equipo.usuario_id = ?' , $idUser )
+                ->group( 'equipo.id' )
                 ->query()
         ;
 
-        return $query->fetchAll(Zend_Db::FETCH_OBJ);
-    }
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }
+
 
     public function pagListEquipByUser( $idUser )
         {
@@ -275,27 +360,29 @@ class Mtt_Models_Bussines_Equipo extends Mtt_Models_Table_Equipo {
         $db = $this->getAdapter();
         $query = $db->select()
                 ->from(
-                        $this->_name, array(
-                    'id',
-                    'nombre as equipo',
-                    'precioventa',
-                    'preciocompra',
-                    'calidad',
-                    'modelo',
-                    'fechafabricacion',
-                    'documento',
-                    'sourceDocumento',
-                    'pesoEstimado',
-                    'size',
-                    'ancho',
-                    'alto',
-                    'sizeCaja',
-                    'topofers',
-                    'publishdate',
-                    'active')
+                        $this->_name ,
+                        array(
+                    'id' ,
+                    'nombre as equipo' ,
+                    'precioventa' ,
+                    'preciocompra' ,
+                    'calidad' ,
+                    'modelo' ,
+                    'fechafabricacion' ,
+                    'documento' ,
+                    'sourceDocumento' ,
+                    'pesoEstimado' ,
+                    'size' ,
+                    'ancho' ,
+                    'alto' ,
+                    'sizeCaja' ,
+                    'topofers' ,
+                    'publishdate' ,
+                    'active' )
                 )
                 ->joinInner(
-                        'categoria', 'categoria.id = equipo.categoria_id', array('categoria.nombre as categoria')
+                        'categoria' , 'categoria.id = equipo.categoria_id' ,
+                        array( 'categoria.nombre as categoria' )
                 )
                 ->joinInner(
                         'publicacionequipo' ,
@@ -330,26 +417,29 @@ class Mtt_Models_Bussines_Equipo extends Mtt_Models_Table_Equipo {
                 ->query()
         ;
 
-        return $query->fetchAll(Zend_Db::FETCH_OBJ);
-    }
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }
+
 
     /**
      * 
      * 
      */
-    public function listEquipMoreVisited($limit) {
+    public function listEquipMoreVisited( $limit )
+        {
 
         $db = $this->getAdapter();
         $query = $db->select()
                 ->from(
-                        $this->_name, array(
-                    'nombre as equipo',
+                        $this->_name ,
+                        array(
+                    'nombre as equipo' ,
                     'views'
                         )
                 )
-                ->where('equipo.active = ?', self::ACTIVE)
-                ->limit($limit)
-                ->order('views DESC')
+                ->where( 'equipo.active = ?' , self::ACTIVE )
+                ->limit( $limit )
+                ->order( 'views DESC' )
                 ->query()
         ;
 
@@ -361,140 +451,171 @@ class Mtt_Models_Bussines_Equipo extends Mtt_Models_Table_Equipo {
      * 
      * 
      */
-    public function listEquipSalesUser($idUser) {
+    public function listEquipSalesUser( $idUser )
+        {
 
         $db = $this->getAdapter();
         $query = $db->select()
                 ->from(
-                        $this->_name, array(
-                    'equipo.id',
-                    'equipo.nombre as equipo',
-                    'precioventa AS precio',
+                        $this->_name ,
+                        array(
+                    'equipo.id' ,
+                    'equipo.nombre as equipo' ,
+                    'precioventa AS precio' ,
                     'active'
                         )
                 )
-                ->joinLeft('operacion_has_equipo', 'operacion_has_equipo.equipo_id = equipo.id', array('SUM(operacion_has_equipo.cantidad) AS cantidad')
+                ->joinLeft( 'operacion_has_equipo' ,
+                            'operacion_has_equipo.equipo_id = equipo.id' ,
+                            array( 'SUM(operacion_has_equipo.cantidad) AS cantidad' )
                 )
-                ->join('operacion', 'operacion_has_equipo.operacion_id = operacion.id'
+                ->join( 'operacion' ,
+                        'operacion_has_equipo.operacion_id = operacion.id'
                 )
-                ->join('categoria', 'equipo.categoria_id = categoria.id', array('categoria.nombre AS categoria')
+                ->join( 'categoria' , 'equipo.categoria_id = categoria.id' ,
+                        array( 'categoria.nombre AS categoria' )
                 )
-                ->join('estadoequipo', 'equipo.estadoequipo_id = estadoequipo.id', array('estadoequipo.nombre AS estadoequipo')
+                ->join( 'estadoequipo' ,
+                        'equipo.estadoequipo_id = estadoequipo.id' ,
+                        array( 'estadoequipo.nombre AS estadoequipo' )
                 )
-                ->join('fabricantes', 'equipo.fabricantes_id = fabricantes.id', array('fabricantes.nombre AS fabricante')
+                ->join( 'fabricantes' ,
+                        'equipo.fabricantes_id = fabricantes.id' ,
+                        array( 'fabricantes.nombre AS fabricante' )
                 )
-                ->join('moneda', 'equipo.moneda_id = moneda.id', array('moneda.nombre AS moneda',
-                    'moneda.simbolo AS simbolomoneda')
+                ->join( 'moneda' , 'equipo.moneda_id = moneda.id' ,
+                        array( 'moneda.nombre AS moneda' ,
+                    'moneda.simbolo AS simbolomoneda' )
                 )
-                ->join('paises', 'equipo.paises_id = paises.id', array('paises.nombre AS pais')
+                ->join( 'paises' , 'equipo.paises_id = paises.id' ,
+                        array( 'paises.nombre AS pais' )
                 )
-                ->where('estadooperacion_id = ?', Mtt_Models_Bussines_estadoOperacion::SALE)
-                ->where('equipo.usuario_id = ?', $idUser)
-                ->group('equipo.id')
+                ->where( 'estadooperacion_id = ?' ,
+                         Mtt_Models_Bussines_estadoOperacion::SALE )
+                ->where( 'equipo.usuario_id = ?' , $idUser )
+                ->group( 'equipo.id' )
                 ->query()
 
 
         ;
 
-        return $query->fetchAll(Zend_Db::FETCH_OBJ);
-    }
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }
+
 
     /**
      * 
      * 
      */
-    public function listEquipNoSalesUser($idUser) {
+    public function listEquipNoSalesUser( $idUser )
+        {
 
         $db = $this->getAdapter();
         $query = $db->select()
                 ->from(
-                        $this->_name, array(
-                    'equipo.id',
-                    'equipo.nombre as equipo',
-                    'precioventa AS precio',
+                        $this->_name ,
+                        array(
+                    'equipo.id' ,
+                    'equipo.nombre as equipo' ,
+                    'precioventa AS precio' ,
                     'active'
                         )
                 )
-                ->joinLeft('operacion_has_equipo', 'operacion_has_equipo.equipo_id = equipo.id', array('(equipo.cantidad - 
-                            SUM(operacion_has_equipo.cantidad)) AS cantidad')
+                ->joinLeft( 'operacion_has_equipo' ,
+                            'operacion_has_equipo.equipo_id = equipo.id' ,
+                            array( '(equipo.cantidad - 
+                            SUM(operacion_has_equipo.cantidad)) AS cantidad' )
                 )
-                ->join('operacion', 'operacion_has_equipo.operacion_id = operacion.id'
+                ->join( 'operacion' ,
+                        'operacion_has_equipo.operacion_id = operacion.id'
                 )
-                ->join('categoria', 'equipo.categoria_id = categoria.id', array('categoria.nombre AS categoria')
+                ->join( 'categoria' , 'equipo.categoria_id = categoria.id' ,
+                        array( 'categoria.nombre AS categoria' )
                 )
-                ->join('estadoequipo', 'equipo.estadoequipo_id = estadoequipo.id', array('estadoequipo.nombre AS estadoequipo')
+                ->join( 'estadoequipo' ,
+                        'equipo.estadoequipo_id = estadoequipo.id' ,
+                        array( 'estadoequipo.nombre AS estadoequipo' )
                 )
-                ->join('fabricantes', 'equipo.fabricantes_id = fabricantes.id', array('fabricantes.nombre AS fabricante')
+                ->join( 'fabricantes' ,
+                        'equipo.fabricantes_id = fabricantes.id' ,
+                        array( 'fabricantes.nombre AS fabricante' )
                 )
-                ->join('moneda', 'equipo.moneda_id = moneda.id', array('moneda.nombre AS moneda',
-                    'moneda.simbolo AS simbolomoneda')
+                ->join( 'moneda' , 'equipo.moneda_id = moneda.id' ,
+                        array( 'moneda.nombre AS moneda' ,
+                    'moneda.simbolo AS simbolomoneda' )
                 )
-                ->join('paises', 'equipo.paises_id = paises.id', array('paises.nombre AS pais')
+                ->join( 'paises' , 'equipo.paises_id = paises.id' ,
+                        array( 'paises.nombre AS pais' )
                 )
-                ->where('estadooperacion_id = ?', Mtt_Models_Bussines_estadoOperacion::SALE)
-                ->where('equipo.usuario_id = ?', $idUser)
-                ->group('equipo.id')
-                ->having('cantidad > 0')
+                ->where( 'estadooperacion_id = ?' ,
+                         Mtt_Models_Bussines_estadoOperacion::SALE )
+                ->where( 'equipo.usuario_id = ?' , $idUser )
+                ->group( 'equipo.id' )
+                ->having( 'cantidad > 0' )
                 ->query()
 
 
         ;
 
-        return $query->fetchAll(Zend_Db::FETCH_OBJ);
-    }
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }
 
-    public function searchEquip($keywords, $modelo, $fabricante, 
-            $categoria, $anioInicial, $anioFinal, $precioInicial, 
-            $precioFinal) {
+
+    public function searchEquip( $keywords , $modelo , $fabricante , $categoria ,
+                                 $anioInicial , $anioFinal , $precioInicial ,
+                                 $precioFinal )
+        {
         $db = $this->getAdapter();
         $query = $db->select()
                 ->from(
-                        $this->_name, array(
-                    'id',
-                    'nombre as equipo',
-                    'modelo',
-                    'fechafabricacion',
-                    'tag',
-                    'preciocompra',
-                    'active')
+                        $this->_name ,
+                        array(
+                    'id' ,
+                    'nombre as equipo' ,
+                    'modelo' ,
+                    'fechafabricacion' ,
+                    'tag' ,
+                    'preciocompra' ,
+                    'active' )
                 )
                 ->joinInner(
-                        'categoria', 
-                        'categoria.id = equipo.categoria_id', 
-                        array('categoria.nombre as categoria')
+                        'categoria' , 'categoria.id = equipo.categoria_id' ,
+                        array( 'categoria.nombre as categoria' )
                 )
-                ->joinInner('fabricantes', 
-                        'fabricantes.id = equipo.fabricantes_id', 
-                        array('fabricantes.nombre as fabricante')
+                ->joinInner( 'fabricantes' ,
+                             'fabricantes.id = equipo.fabricantes_id' ,
+                             array( 'fabricantes.nombre as fabricante' )
                 )
-                ->joinLeft('imagen', 
-                        'imagen.equipo_id = equipo.id', 
-                        array('imagen.nombre as imageNombre',
-                    'imagen.thumb as imageThumb',
-                    'imagen.imagen as image')
+                ->joinLeft( 'imagen' , 'imagen.equipo_id = equipo.id' ,
+                            array( 'imagen.nombre as imageNombre' ,
+                    'imagen.thumb as imageThumb' ,
+                    'imagen.imagen as image' )
                 )
-                ->where('equipo.active = ?', self::ACTIVE)
-                ->where("equipo.nombre LIKE '%$keywords%'" )
-                ->where("equipo.modelo LIKE '%$modelo%'" )
-                ->where('CASE ? WHEN -1 
+                ->where( 'equipo.active = ?' , self::ACTIVE )
+                ->where( "equipo.nombre LIKE '%$keywords%'" )
+                ->where( "equipo.modelo LIKE '%$modelo%'" )
+                ->where( 'CASE ? WHEN -1 
                     THEN equipo.categoria_id LIKE "%%" 
                     ELSE equipo.categoria_id = ? 
-                    END', $categoria)
-                ->where("DATE_FORMAT(equipo.fechafabricacion,'%Y')  > ? ", 
-                        $anioInicial)
-                ->where("CASE ?
+                    END' ,
+                         $categoria )
+                ->where( "DATE_FORMAT(equipo.fechafabricacion,'%Y')  > ? " ,
+                         $anioInicial )
+                ->where( "CASE ?
                     WHEN -1 
                     THEN DATE_FORMAT(equipo.fechafabricacion,'%Y') < 
                     (DATE_FORMAT(NOW(),'%Y')+1) 
                     ELSE DATE_FORMAT(equipo.fechafabricacion,'%Y') < ? 
-                    END", $anioFinal)
-                ->where('equipo.preciocompra > ?', $precioInicial)
-                ->where('CASE ? 
+                    END" ,
+                         $anioFinal )
+                ->where( 'equipo.preciocompra > ?' , $precioInicial )
+                ->where( 'CASE ? 
                     WHEN -1
                     THEN equipo.preciocompra > -1
-                    ELSE equipo.preciocompra < ? END', $precioFinal)
+                    ELSE equipo.preciocompra < ? END' ,
+                         $precioFinal )
                 ->query()
-      
+
         ;
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
@@ -514,42 +635,41 @@ class Mtt_Models_Bussines_Equipo extends Mtt_Models_Table_Equipo {
         $this->insert( $data );
         }
 
-    public function updateEquipo(array $data, $id) {
 
-        $this->update($data, 'id = ' . $id);
-    }
+    public function deleteEquipo( $id )
+        {
 
-    public function saveEquipo(array $data) {
+        $this->delete( 'id = ?' , $id );
+        }
 
-        $this->insert($data);
-    }
 
-    public function deleteEquipo($id) {
+    public function activarEquipo( $id )
+        {
 
-        $this->delete('id = ?', $id);
-    }
+        $this->update( array(
+            "active" => self::ACTIVE )
+                , 'id = ' . $id );
+        }
 
-    public function activarEquipo($id) {
 
-        $this->update(array(
-            "active" => self::ACTIVE)
-                , 'id = ' . $id);
-    }
+    public function desactivarEquipo( $id )
+        {
 
-    public function desactivarEquipo($id) {
+        $this->update( array(
+            "active" => self::DESACTIVATE )
+                , 'id = ' . $id );
+        }
 
-        $this->update(array(
-            "active" => self::DESACTIVATE)
-                , 'id = ' . $id);
-    }
 
-    public function updateView($id) {
-        $equipo = $this->getFindId($id);
+    public function updateView( $id )
+        {
+        $equipo = $this->getFindId( $id );
         $equipo = $equipo->toArray();
-        $newView = (int) $equipo['views'] + 1;
-        $data = array('views' => $newView);
+        $newView = ( int ) $equipo['views'] + 1;
+        $data = array( 'views' => $newView );
 
-        $this->update($data, 'id = ' . $id);
+        $this->update( $data , 'id = ' . $id );
+        }
+
+
     }
-
-}
