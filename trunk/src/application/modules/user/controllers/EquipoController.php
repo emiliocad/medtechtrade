@@ -17,7 +17,12 @@ class User_EquipoController
 
     public function indexAction()
         {
-        
+        $this->_helper->layout->setLayout( 'layoutListado' );
+        $equipos = $this->_equipo->listEquipByUser(
+                $this->authData['usuario']->id
+        );
+
+        $this->view->assign( 'equipos' , $equipos );
         }
 
 
@@ -37,7 +42,7 @@ class User_EquipoController
         {
         $this->view->jQuery()
                 ->addStylesheet(
-                        $this->view->baseUrl().'/css/reserva.css'
+                        $this->view->baseUrl() . '/css/reserva.css'
         );
         $id = intval( $this->_getParam( 'id' , null ) );
         $stmt = $this->_equipo->getProduct( $id );
@@ -65,7 +70,7 @@ class User_EquipoController
         {
         $this->view->jQuery()
                 ->addStylesheet(
-                        $this->view->baseUrl().'/css/reserva.css'
+                        $this->view->baseUrl() . '/css/reserva.css'
         );
         $this->view->assign(
                 'equipos' ,
@@ -124,9 +129,8 @@ class User_EquipoController
         $form = new Mtt_Form_Cotizar();
         $this->view->assign( 'frmCotizar' , $form );
         }
-        
-        
-        
+
+
     public function nuevoAction()
         {
 

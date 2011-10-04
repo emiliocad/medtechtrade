@@ -279,13 +279,11 @@ class Mtt_Models_Bussines_Equipo
         }
 
         
-    /**
-     * 
+    /***
      * 
      */
     public function listEquipByUserStatus( $idUser , $status )
         {
-
         $db = $this->getAdapter();
         $query = $db->select()
                 ->from(

@@ -36,6 +36,7 @@ class User_OperacionController
 
     public function comprasactivasAction()
         {
+        $this->_helper->layout->setLayout( 'layoutListado' );
         $id = intval( $this->_request->getParam( 'id' ) );
         $this->view->assign(
                 'operaciones' ,
