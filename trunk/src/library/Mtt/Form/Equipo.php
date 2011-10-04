@@ -182,14 +182,14 @@ class Mtt_Form_Equipo
                         'fechafabricacion' ,
                         array(
                             'jQueryParams' => array(
-                                'defaultDate' => date( 'Y-m-D' ) ,
+                                'defaultDate' => date( 'Y/m/d' , time() ) ,
                                 'changeYear' => 'true'
                             )
                         )
         );
         $fechaFabricacion->setLabel( 'fecha de Fabricacion' );
         $fechaFabricacion->loadDefaultDecorators();
-        $fechaFabricacion->setJQueryParam( 'dateFormat' , 'yy.mm.dd' );
+        $fechaFabricacion->setJQueryParam( 'dateFormat' , 'yy-mm-dd' );
         $fechaFabricacion->setRequired( true );
         $this->addElement( $fechaFabricacion );
 
