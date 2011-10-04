@@ -8,3 +8,20 @@
 2011-10-03T17:43:40-05:00 INFO (6): ===== Sync Ends =====
 2011-10-03T17:43:55-05:00 INFO (6): ===== Sync Starts =====
 2011-10-03T17:43:55-05:00 INFO (6): ===== Sync Ends =====
+2011-10-03T19:43:25-05:00 INFO (6): ===== Sync Starts =====
+2011-10-03T19:43:26-05:00 INFO (6): Se Aplico el Delta 3
+2011-10-03T19:43:26-05:00 INFO (6): ===== Sync Ends =====
+2011-10-03T19:48:00-05:00 INFO (6): ===== Sync Starts =====
+2011-10-03T19:48:00-05:00 INFO (6): ===== Sync Ends =====
+2011-10-03T16:08:37-05:00 INFO (6): ===== Sync Starts =====
+2011-10-03T16:10:16-05:00 INFO (6): ===== Sync Starts =====
+2011-10-03T16:10:17-05:00 INFO (6): Se Aplico el Delta 1
+2011-10-03T16:10:17-05:00 INFO (6): Se Aplico el Delta 2
+2011-10-03T16:10:18-05:00 INFO (6): Se Aplico el Delta 3
+2011-10-03T16:10:18-05:00 INFO (6): ===== Sync Ends =====
+2011-10-04T12:51:13-05:00 INFO (6): ===== Sync Starts =====
+2011-10-04T12:52:23-05:00 INFO (6): ===== Sync Starts =====
+2011-10-04T12:52:23-05:00 INFO (6): Se Aplico el Delta 1
+2011-10-04T12:52:24-05:00 INFO (6): Se Aplico el Delta 2
+2011-10-04T12:52:24-05:00 INFO (6): Se Aplico el Delta 3
+2011-10-04T12:52:24-05:00 INFO (6): ===== Sync Ends =====

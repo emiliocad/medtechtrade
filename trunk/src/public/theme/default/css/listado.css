@@ -182,13 +182,12 @@ a:hover	{
 #section-middle-body	{
     margin: 0 0 30px 0;
     padding: 0 0 0 10px;
-    width: 740px;
-    float: right;
+    width: 960px;
 }
 
 /*agregando codigo para el layout de Usuario*/
 #section-middle-content{
-    width: 522px;
+    width: 742px;
     float: left;
     margin-left: 0px;
     border: solid 1px blue;

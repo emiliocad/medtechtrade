@@ -94,7 +94,13 @@ ul#mensajes li .error {
 }
 
 .zendy_form div label {
-    padding: 5px;
+    color: #2D7AA2;
+    font-size: 13px;
+    width: 70px;
+    text-align: right;
+    float: left;
+    margin-right: 10px;
+    display: block;
 }
 
 .zendy_form div input {

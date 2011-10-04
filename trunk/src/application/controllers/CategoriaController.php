@@ -17,6 +17,40 @@ class CategoriaController
         }
 
 
+    public function verAction()
+        {
+        $slug = $this->_getParam( 'slug' , NULL );
+
+        $data = $this->_categoria->getCategoriaBySlug( $slug );
+
+        $id = $data->id;
+
+
+        $order = $this->_getParam( 'order' , 'modelo' );
+
+
+        $stmt = $this->_categoria->getProducts( $id , $order );
+
+        $this->view->assign( 'productos' , $stmt );
+
+
+
+        $stmtCategoria = $this->_categoria->getCategoria( $id );
+        $this->view->assign( 'categoria' , $stmtCategoria );
+
+
+
+        $formOrder = new Mtt_Form_OrderEquipo();
+        $this->view->assign( 'formOrder' , $formOrder );
+
+        $_equipo = new Mtt_Models_Catalog_Equipo();
+        $this->view->assign(
+                'equipoOfert'
+                , $_equipo->showEquiposOfersByCategory( $id )
+        );
+        }
+
+
     public function indexAction()
         {
 
@@ -45,15 +79,6 @@ class CategoriaController
                 'equipoOfert'
                 , $_equipo->showEquiposOfersByCategory( $id )
         );
-        }
-
-
-    public function paginadoAction()
-        {
-        $id = intval( $this->_getParam( 'id' , null ) );
-        $p = $this->_categoria->getPaginator( $id );
-        $p->setCurrentPageNumber( $this->_getParam( 'page' , 1 ) );
-        $this->view->assign( 'equipos' , $p );
         }
 
 

@@ -8,8 +8,7 @@ class Mtt_Formy
     protected static $_standardElementDecorator = array(
         array( 'ViewHelper' ) ,
         array( 'Label' , array(
-                'separator' => ' ' ,
-                'tag' => 'div'
+                'separator' => ' '
             ) ) ,
         array( 'Description' , array(
                 'tag' => 'span' ,
@@ -68,6 +67,11 @@ class Mtt_Formy
         array( 'ViewHelper' ) ,
         array( 'HtmlTag' , array( 'tag' => 'p' , 'class' => 'element-submit' ) ) ,
     );
+    protected static $_buttonElementDecorator = array(
+        array( 'ViewHelper' ) ,
+        array( 'HtmlTag' , array( 'tag' => 'p' , 'class' => 'element-button' ) ) ,
+    );
+
 
     public function __construct( $options = null )
         {
@@ -138,6 +142,11 @@ class Mtt_Formy
                 case 'Zend_Form_Element_Submit':
                     $element->setDecorators(
                             self::$_submitElementDecorator
+                    );
+                    break;
+                case 'Zend_Form_Element_Button':
+                    $element->setDecorators(
+                            self::$_buttonElementDecorator
                     );
                     break;
                 case 'Zend_Form_Element_Radio':

@@ -119,5 +119,27 @@ class TestController
         }
 
 
+    public function slugAction()
+        {
+        $_categoria = new Mtt_Models_Bussines_Categoria();
+        $slugger = new Mtt_Filter_Slug(
+                        array(
+                            'field' => 'slug' ,
+                            'model' => $_categoria
+                        )
+        );
+        $categorias = $_categoria->listar();
+        $slug = array( );
+        foreach ( $categorias as $categoria )
+            {
+            $slug[$categoria->id] = $slugger->filter( $categoria->nombre );
+            }
+
+        $this->view->assign(
+                'slug' , $slug
+        );
+        }
+
+
     }
 
