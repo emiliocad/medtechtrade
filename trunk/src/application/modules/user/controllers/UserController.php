@@ -122,6 +122,40 @@ class User_UserController
             }
         }
 
+        
+        
+
+    public function contactaradminAction()
+        {
+
+        $id = $this->authData['usuario']->id;
+
+        $form = new Mtt_Form_ContactarAdmin();
+        //$form->submit->setLabel( ucwords($this->_translate->translate('actualizar')) );
+
+        $usuario = $this->_user->getFindId( $id );
+
+        $this->view->assign( 'usuario' , $usuario );
+
+        if ( !is_null( $usuario ) )
+            {
+            if ( $this->_request->isPost()
+                    &&
+                    $form->isValid( $this->_request->getPost() ) )
+                {
+                
+                }
+            $form->setDefaults( $usuario->toArray() );
+            $this->view->assign( 'form' , $form );
+            }
+        else
+            {
+            $this->_helper->FlashMessenger(
+                    $this->_translate->translate( 'No User' )
+            );
+            $this->_redirect( $this->URL );
+            }
+        }        
 
     }
 
