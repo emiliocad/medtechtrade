@@ -167,5 +167,15 @@ class TestController
         }
 
 
+    public function formAction()
+        {
+        $test = new Mtt_Form_Test();
+        $test->nombre->setValue('Slovacus');
+
+
+        $this->view->assign( 'test' , $test );
+        }
+
+
     }
 
