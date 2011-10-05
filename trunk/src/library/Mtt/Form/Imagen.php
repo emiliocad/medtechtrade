@@ -26,7 +26,7 @@ class Mtt_Form_Imagen
 
         // Nombre
         $nombre = new Zend_Form_Element_Text( 'nombre' );
-        $nombre->setLabel( 'Nombre *:' );
+        $nombre->setLabel( ucwords($this->_translate->translate('nombre')).'*:' );
         $nombre->setRequired();
         $nombre->addValidator(
                 new Zend_Validate_StringLength(
@@ -46,7 +46,7 @@ class Mtt_Form_Imagen
         //Imagen
         $imagen = new Zend_Form_Element_File( 'imagen' );
         $imagen->setValue( 'imagen' );
-        $imagen->setLabel( 'Upload an image:' );
+        $imagen->setLabel( $this->_translate->translate('Upload an image').':' );
 
         $target = $nombre->getValue();
         $imagen->setDestination(
@@ -65,7 +65,7 @@ class Mtt_Form_Imagen
 
         // Elemento: Nombre
         $nombre = new Zend_Form_Element_Text( 'nombre' );
-        $nombre->setLabel( 'Nombre' );
+        $nombre->setLabel( ucwords( $this->_translate->translate( 'nombre' ) ) );
         $nombre->setAttrib( 'maxlength' , '50' );
         $nombre->setRequired( true );
         $v = new Zend_Validate_StringLength(
@@ -81,14 +81,14 @@ class Mtt_Form_Imagen
 
         // Elemento: Descripcion
         $descripcion = new Mtt_Form_Element_Ckeditor( 'descripcion' );
-        $descripcion->setLabel( 'Descripcion:' );
+        $descripcion->setLabel( ucwords($this->_translate->translate('descripcion')).':' );
         $descripcion->setAttrib( 'maxlength' , '80' );
         $descripcion->setRequired( false );
         $this->addElement( $descripcion );
 
         $submit = new Zend_Form_Element_Button( 'submit' );
         $submit->setLabel(
-                        $this->_translate->translate( 'Save' )
+                    ucwords($this->_translate->translate('save'))
                 )
                 ->setAttrib(
                         'class' , 'button'

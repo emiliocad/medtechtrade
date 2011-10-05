@@ -23,9 +23,7 @@ class Mtt_Form_Contactar
         $e->setRequired();
         //$e->setDecorators( array( $decorator ) );
         $e->setLabel(
-                $this->_translate->translate(
-                        'Name:'
-                )
+                ucwords( $this->_translate->translate( 'name' ) ) . ':'
         );
         $e->addValidator( new Zend_Validate_StringLength(
                         array(
@@ -40,9 +38,7 @@ class Mtt_Form_Contactar
         $e->setRequired();
         //$e->setDecorators( array( $decorator ) );
         $e->setLabel(
-                $this->_translate->translate(
-                        'Address:'
-                )
+                ucwords( $this->_translate->translate( 'address' ) ) . ':'
         );
         $e->addValidator( new Zend_Validate_StringLength(
                         array(
@@ -61,9 +57,7 @@ class Mtt_Form_Contactar
         $e->setRequired();
 
         $e->setLabel(
-                $this->_translate->translate(
-                        'Email:'
-                )
+                ucwords( $this->_translate->translate( 'email' ) ) . ':'
         );
         $e->addValidator( new Zend_Validate_EmailAddress() );
         $this->addElement( $e );
@@ -73,9 +67,7 @@ class Mtt_Form_Contactar
         $e->setRequired();
         //$e->setDecorators( array( $decorator ) );
         $e->setLabel(
-                $this->_translate->translate(
-                        'Codigo Postal:'
-                )
+                ucwords( $this->_translate->translate( 'codigo postal' ) ) . ':'
         );
         $this->addElement( $e );
 
@@ -84,25 +76,19 @@ class Mtt_Form_Contactar
         $e->setRequired();
         //$e->setDecorators( array( $decorator ) );
         $e->setLabel(
-                $this->_translate->translate(
-                        'City:'
-                )
+                ucwords( $this->_translate->translate( 'ciudad' ) ) . ':'
         );
         $this->addElement( $e );
 
 
         $e = new Zend_Form_Element_Select( 'paises_id' );
         $e->setLabel(
-                $this->_translate->translate(
-                        'Country:'
-                )
+                ucwords( $this->_translate->translate( 'pais' ) ) . ':'
         );
         $_pais = new Mtt_Models_Bussines_Paises();
         $values = $_pais->getComboValues();
         $e->addMultiOption( -1 ,
-                            $this->_translate->translate(
-                        'Countries:'
-                )
+                            ucwords( $this->_translate->translate( 'paises' ) ) . ':'
         );
         $e->addMultiOptions( $values );
         $this->addElement( $e );
@@ -114,20 +100,16 @@ class Mtt_Form_Contactar
         $e->setRequired();
         //$e->setDecorators( array( $decorator ) );
         $e->setLabel(
-                $this->_translate->translate(
-                        'Telephone:'
-                )
+                ucwords( $this->_translate->translate( 'telefono' ) ) . ':'
         );
         $this->addElement( $e );
-        
-        
+
+
         $e = new Zend_Form_Element_TextArea( 'comentario' );
         $e->setRequired();
         //$e->setDecorators( array( $decorator ) );
         $e->setLabel(
-                $this->_translate->translate(
-                        'Comment:'
-                )
+                ucwords( $this->_translate->translate( 'comentario' ) ) . ':'
         );
         $this->addElement( $e );
 
