@@ -43,6 +43,9 @@ class User_BusquedaController
             $criterio['preciomax']);
         
         $form = new Mtt_Form_SaveSearch();
+        $form->parameters->setAttrib('value',25);
+        //$form->parameters->setValue($resultados);  
+        
         $this->view->assign('frmSaveSearch', $form);
         
         $this->view->assign('criterio', $criterio);
@@ -60,6 +63,12 @@ class User_BusquedaController
         }
         
 
+    public function listSearchAction()
+        {
+        
+        }
+        
+        
 
     public function borrarAction()
         {
