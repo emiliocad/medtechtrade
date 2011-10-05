@@ -8,12 +8,6 @@
 class Mtt_Models_Bussines_Busqueda 
     extends Mtt_Models_Table_Busqueda 
     {
-    
-    public function __construct( $config = array( ) )
-        {
-        parent::__construct( $config );
-        }
-
 
     public function listSearchByUserId($idUsuario) 
         {
@@ -36,14 +30,14 @@ class Mtt_Models_Bussines_Busqueda
                     WHERE categoria.id = categoria_id
                 ) END AS categoria
             FROM busqueda
-            WHERE usuario_id = " . $idUsuario;
+            WHERE active = ".self::ACTIVE." and usuario_id = " . $idUsuario;
 
         return $db->query($query)->fetchAll(Zend_Db::FETCH_OBJ);
         
         }
 
         
-    public function listById( $id )
+    public function getFindId( $id )
         {
          return $this->fetchRow( 'id = ' . $id );
         }

@@ -44,12 +44,24 @@
                     </a>    
                 </td>
                 <td>
-                    <a>
+                    <?php
+                    $link = $this->url( array( 'module' => 'user' ,
+                        'controller' => 'busqueda' ,
+                        'action' => 'editar' ,
+                        'id' => $busqueda->id ) )
+                    ?>
+                    <a href="<?= $link ?>">
                         <?= $this->translate("modificar") ?>
                     </a>
                 </td>
                 <td>
-                    <a>
+                    <?php
+                    $link = $this->url( array( 'module' => 'user' ,
+                        'controller' => 'busqueda' ,
+                        'action' => 'borrar' ,
+                        'id' => $busqueda->id ) )
+                    ?>
+                    <a href="<?= $link ?>">
                         <?= $this->translate("borrar") ?>
                     </a>
                 </td>

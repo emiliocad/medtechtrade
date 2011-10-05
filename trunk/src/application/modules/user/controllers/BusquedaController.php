@@ -3,11 +3,11 @@
 class User_BusquedaController 
     extends Mtt_Controller_Action {
 
-    protected $_Busqueda;
+    protected $_busqueda;
 
     public function init() {
         parent::init();
-        $this->_Busqueda = new Mtt_Models_Bussines_Busqueda();
+        $this->_busqueda = new Mtt_Models_Bussines_Busqueda();
     }
 
     public function indexAction() {
@@ -45,9 +45,8 @@ class User_BusquedaController
                 $form->parameters->setValue($parameters_hid);
 
                 $this->view->assign('frmSaveSearch', $form);
-
-                $this->view->assign('criterio', $criterio);
                 $this->view->assign('resultados', $resultados);
+                
             } else {
                 $getDatos = $this->_request->getPost();
                 
@@ -63,15 +62,28 @@ class User_BusquedaController
                     'precio_fin' => $parameters[7],
                     'usuario_id' => $this->authData['usuario']->id
                 );
+                
+                $id = $parameters[9];
+                
+                //$parameters[8] captura el flag, si es 0 es un insert 
                
-                $this->_Busqueda->saveBusqueda($busqueda);
-                $this->_redirect( '/user/busqueda/listsearch' );
+                if($parameters[8]== 0){
+                    
+                    $this->_busqueda->saveBusqueda($busqueda);
+                
+                } 
+                //$parameters[8] captura el flag, si es 1 es un update
+                if($parameters[8]== 1){
+                    $this->_busqueda->updateBusqueda($busqueda, $id);
+                }
+               $this->_redirect( '/user/busqueda/listsearch' );
+
             }
         }
     }
 
     public function listsearchAction() {
-        $listadoBusqueda = $this->_Busqueda->listSearchByUserId(
+        $listadoBusqueda = $this->_busqueda->listSearchByUserId(
                 $this->authData['usuario']->id
         );
 
@@ -80,8 +92,9 @@ class User_BusquedaController
 
     
     public function verAction() {
+        
         $id = intval($this->_request->getParam('id'));
-        $criterio = $this->_Busqueda->listById($id);
+        $criterio = $this->_busqueda->getFindId($id);
         
         $equipo = new Mtt_Models_Bussines_Equipo();
         $resultados = $equipo->searchEquip(
@@ -98,9 +111,37 @@ class User_BusquedaController
     }    
     
     
+
+    public function editarAction()
+        {
+
+        $id = intval( $this->_getParam( 'id' ) );
+
+        $form = new Mtt_Form_Search();
+        $form->flag->setValue(1);
+        $form->id->setValue($id);
+
+        $busqueda = $this->_busqueda->getFindId( $id );
+
+        if ( !is_null( $busqueda ) )
+            {
+            
+            $form->setDefaults( $busqueda->toArray() );
+            $this->view->assign( 'form' , $form );
+            }
+        else
+            {
+            $this->_helper->FlashMessenger( 'No existe esa busqueda' );
+            $this->_redirect( $this->URL );
+            }
+        }
+    
+    
+    
+    
     public function borrarAction() {
         $id = intval($this->_request->getParam('id'));
-        $this->_Busqueda->desactivaBusqueda($id);
+        $this->_busqueda->desactivarBusqueda($id);
         $this->_helper->FlashMessenger('Busqueda Borrado');
         $this->_redirect($this->URL);
     }
