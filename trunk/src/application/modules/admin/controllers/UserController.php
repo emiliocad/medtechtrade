@@ -101,7 +101,7 @@ class Admin_UserController
 
         $form = new Mtt_Form_Usuario();
         $form->removeElement( 'clave_2' );
-        $form->submit->setLabel( 'Actualizar' );
+        $form->submit->setLabel( ucwords($this->_translate->translate('actualizar')) );
         $usuario = $this->_user->getFindId( $id );
 
         if ( !is_null( $usuario ) )
@@ -192,7 +192,7 @@ class Admin_UserController
         {
         $id = intval( $this->_request->getParam( 'id' ) );
         $this->_user->activarUsuario( $id );
-        $this->_helper->FlashMessenger( 'Usuario activado' );
+        $this->_helper->FlashMessenger( $this->_translate->translate('Usuario activado') );
         $this->_redirect( $this->URL );
         }
 
@@ -201,10 +201,9 @@ class Admin_UserController
         {
         $id = intval( $this->_request->getParam( 'id' ) );
         $this->_user->desactivarUsuario( $id );
-        $this->_helper->FlashMessenger( 'Usuario Descativado' );
+        $this->_helper->FlashMessenger( $this->_translate->translate('Usuario desactivado') );
         $this->_redirect( $this->URL );
         }
-
 
     }
 

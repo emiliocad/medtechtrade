@@ -21,7 +21,7 @@ class Mtt_Form_Pais
         //$decorator = new Mtt_Form_Decorator_SimpleInput();
 
         $nombre = new Zend_Form_Element_Text( 'nombre' );
-        $nombre->setLabel( $this->translate( 'Name *:' ) );
+        $nombre->setLabel( ucwords( $this->_translate->translate( 'nombre' ) ) . '*:' );
         $nombre->setRequired();
         $nombre->addValidator(
                 new Zend_Validate_StringLength(
@@ -44,14 +44,14 @@ class Mtt_Form_Pais
         $this->addElement( $nombre );
 
         $code = new Zend_Form_Element_Text( 'code' );
-        $code->setLabel( $this->translate( 'Code:' ) );
+        $code->setLabel( ucwords( $this->_translate->translate( 'code' ) ) . ':' );
         //$e->setDecorators( array( $decorator ) );
         $this->addElement( $code );
 
         //Submit
         $submit = new Zend_Form_Element_Button( 'submit' );
         $submit->setLabel(
-                        $this->_translate->translate( 'Save' )
+                        ucwords( $this->_translate->translate( 'save' ) )
                 )
                 ->setAttrib(
                         'class' , 'button'

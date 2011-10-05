@@ -28,7 +28,7 @@ class Mtt_Form_LoginCaptcha
         ;
 
         $text = new Zend_Form_Element_Text( 'text' );
-        $text->setLabel( 'nuevo' );
+        $text->setLabel( ucwords( $this->_translate->translate( 'nuevo' ) ) );
         $text->setRequired();
 
         $this->addElement( $text );

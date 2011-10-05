@@ -48,14 +48,14 @@ class Mtt_Form_Login
         $this->addElement( $clave );
 
         $login = new Zend_Form_Element_Checkbox( 'remember' );
-        $login->setLabel( 'Remember me' );
+        $login->setLabel( $this->_translate->translate( 'Remember me' ) );
         $this->addElement( $login );
 
 
         //Submit
         $submit = new Zend_Form_Element_Button( 'submit' );
         $submit->setLabel(
-                        $this->_translate->translate( 'Login' )
+                        ucwords($this->_translate->translate( 'login' ))
                 )
                 ->setAttrib(
                         'class' , 'button'
