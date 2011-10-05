@@ -5,24 +5,22 @@
  * and open the template in the editor.
  */
 
-
 class Mtt_Form_SaveSearch
         extends Mtt_Formy
     {
 
-
+    
     public function init()
         {
         $this
                 ->setMethod( 'post' )
                 ->setAttrib( 'id' , 'frmSaveSearch' )
+               
         ;
 
-        /*$e = new Zend_Form_Element_Hidden('busqueda');
-        $e->setValue($this->resultados)
-          ->removeDecorator('label')
-          ->removeDecorator('HtmlTag');         
-        $this->addElement($e);*/
+        $parameters = new Zend_Form_Element_Hidden('parameters');      
+    
+        $this->addElement($parameters);
         
         $submit = new Zend_Form_Element_Button( 'submit' );
         $submit->setLabel(

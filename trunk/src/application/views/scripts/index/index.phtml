@@ -22,7 +22,20 @@
 <div class="device-horizontal-list">
     <?php foreach ( $this->oferEquipo as $producto ): ?>
         <div>
-            <img src="/media/catalog/product/device-00.png" alt="Device 00">
+            <a href="
+            <?=
+            $this->url(
+                    array(
+                'controller' => 'equipo' ,
+                'action' => 'ver' , 'id' => $producto->id
+                    ) , 'default' , true
+            )
+            ?>">
+
+                <img src="/media/catalog/product/device-00.png" 
+                     alt="<?= $producto->nombre ?>
+                     ">
+            </a>
             <span class="manufacturer">
                 <?= $this->translate( 'Manufacturer' ) ?>
                 : <?= $producto->fabricante ?>
@@ -38,7 +51,7 @@
                     array(
                 'controller' => 'equipo' ,
                 'action' => 'ver' , 'id' => $producto->id
-                    ) , null , true
+                    ) , 'default' , true
             )
             ?>">
                 <span>

@@ -1,6 +1,9 @@
 <?php
 
 
+/**
+ * 
+ */
 class EquipoController
         extends Mtt_Controller_Action
     {
@@ -15,6 +18,9 @@ class EquipoController
         }
 
 
+    /**
+     * 
+     */
     public function indexAction()
         {
         $formOrder = new Mtt_Form_OrderEquipo();
@@ -38,7 +44,7 @@ class EquipoController
         {
         //$this->_helper->layout->disableLayout();
         //$this->_helper->viewRenderer->setNoRender();
-        
+
         $id = ( int ) ( $this->_getParam( 'id' , null ) );
 
         $this->view
@@ -52,7 +58,7 @@ class EquipoController
                         '$(document).ready(function() {
                             $(".fancy").fancybox();
                         });'
-                );
+        );
 
         $this->_equipo->updateView( $id );
 

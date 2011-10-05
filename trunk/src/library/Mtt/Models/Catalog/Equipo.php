@@ -41,9 +41,18 @@ class Mtt_Models_Catalog_Equipo
         }
 
 
-    public function showEquiposOfers()
+    /**
+     * @author Luis Alberto Mayta Mamani <slovacus@gmail.com>
+     * @param type Integer
+     * @return type Object
+     * @method showEquiposOfers
+     * @category Bussines
+     * @package MTT
+     */
+    public function showEquiposOfers( $limit = 0 )
         {
-        return $this->getProductsOfersAll();
+
+        return $this->getProductsOfersAll( $limit );
         }
 
 

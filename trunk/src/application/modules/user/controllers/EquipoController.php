@@ -72,10 +72,11 @@ class User_EquipoController
 
     public function veractivosAction()
         {
-        $this->view->jQuery()
-                ->addStylesheet(
-                        $this->view->baseUrl() . '/css/reserva.css'
-        );
+        $this->_helper->layout->setLayout( 'layoutListado' );
+//        $this->view->jQuery()
+//                ->addStylesheet(
+//                        $this->view->baseUrl() . '/css/reserva.css'
+//        );
         $this->view->assign(
                 'equipos' ,
                 $this->_equipo->listEquipByUserStatus(
@@ -98,6 +99,7 @@ class User_EquipoController
 
     public function vernovendidosAction()
         {
+        $this->_helper->layout->setLayout( 'layoutListado' );
         $this->view->assign(
                 'equipos' ,
                 $this->_equipo->listEquipNoSalesUser(

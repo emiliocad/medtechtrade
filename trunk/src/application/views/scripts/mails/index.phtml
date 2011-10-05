@@ -2,18 +2,27 @@
     Hello <?= $this->usuario; ?>,
 </h1>
 
-<h2>Welcome to my Medtechtrade.com</h2>
+<h2>
+    <?= $this->translate( 'welcome to ' ) ?> Medtechtrade.com
+</h2>
 
 <p style="color: #F00; font-weight: bold; text-align: center">
-    Thanks for signing in MedTechTrade.com.<br/>
-    His account was created and must be activated by the administrator<br/>
-    before they can use it. We will send you a confirmation email soon<br/>
+    <?= $this->translate( 'thanks for signing in' ) ?>  MedTechTrade.com.<br/>
+    <?= $this->translate( 'his account was created and must 
+        be activated by the administrator' ) ?><br/>
+    <?= $this->translate( 'before they can use it. We will 
+        send you a confirmation email soon' ) ?><br/>
 </p>
 <h3>
-    After activating your account may be accessed using the following information: 
+    <?= $this->translate( 'after activating your 
+        account may be accessed using the following information' ) ?>
+    : 
 </h3>
-
-Username - <?= $this->login; ?>
-Password - <?= $this->clave; ?>
+<p>
+    <?= $this->translate( 'username' ) ?>  - <?= $this->login; ?>
+</p>
+<p>
+    <?= $this->translate( 'password' ) ?>  - <?= $this->password; ?>
+</p>
 
 
