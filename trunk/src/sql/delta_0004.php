@@ -1,5 +1,5 @@
 <?php
-class Delta_0002 extends Mtt_Migration_Delta
+class Delta_0004 extends Mtt_Migration_Delta
 {
     protected $_author = "Teresa Chunga Estrada";
     protected $_desc = "cambio de nombre de campo";

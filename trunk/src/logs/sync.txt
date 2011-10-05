@@ -35,3 +35,11 @@
 2011-10-04T12:43:38-05:00 INFO (6): ===== Sync Starts =====
 2011-10-04T12:43:38-05:00 INFO (6): ===== Sync Ends =====
 >>>>>>> 8c53208cb6c40928421e33e7f022c730d17c3510
+2011-10-04T18:19:15-05:00 INFO (6): ===== Sync Starts =====
+2011-10-04T18:19:16-05:00 INFO (6): Se Aplico el Delta 1
+2011-10-04T18:19:16-05:00 INFO (6): Se Aplico el Delta 2
+2011-10-04T18:19:18-05:00 INFO (6): Se Aplico el Delta 3
+2011-10-04T18:20:15-05:00 INFO (6): ===== Sync Starts =====
+2011-10-04T18:20:16-05:00 INFO (6): Se Aplico el Delta 4
+2011-10-04T18:20:16-05:00 INFO (6): Se Aplico el Delta 5
+2011-10-04T18:20:16-05:00 INFO (6): ===== Sync Ends =====
