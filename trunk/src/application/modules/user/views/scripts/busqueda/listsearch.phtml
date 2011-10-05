@@ -33,7 +33,13 @@
             </tr>  
             <tr>
                 <td>
-                    <a>
+                     <?php
+                    $link = $this->url( array( 'module' => 'user' ,
+                        'controller' => 'busqueda' ,
+                        'action' => 'ver' ,
+                        'id' => $busqueda->id ) )
+                    ?>
+                    <a href="<?= $link ?>">
                         <?= $this->translate("ver") ?>
                     </a>    
                 </td>

@@ -1,6 +1,7 @@
 <?php
 
-class User_BusquedaController extends Mtt_Controller_Action {
+class User_BusquedaController 
+    extends Mtt_Controller_Action {
 
     protected $_Busqueda;
 
@@ -32,10 +33,10 @@ class User_BusquedaController extends Mtt_Controller_Action {
                         $criterio['modelo'], 
                         $criterio['fabricante'], 
                         $criterio['categoria_id'], 
-                        $criterio['anioinicio'], 
-                        $criterio['aniofin'], 
-                        $criterio['preciomin'], 
-                        $criterio['preciomax']
+                        $criterio['anio_inicio'], 
+                        $criterio['anio_fin'], 
+                        $criterio['precio_inicio'], 
+                        $criterio['precio_fin']
                 );
 
                 $parameters_hid = implode(",", $criterio);
@@ -79,7 +80,21 @@ class User_BusquedaController extends Mtt_Controller_Action {
 
     
     public function verAction() {
+        $id = intval($this->_request->getParam('id'));
+        $criterio = $this->_Busqueda->listById($id);
         
+        $equipo = new Mtt_Models_Bussines_Equipo();
+        $resultados = $equipo->searchEquip(
+                        $criterio->palabras_busqueda, 
+                        $criterio->modelo, 
+                        $criterio->fabricante, 
+                        $criterio->categoria_id, 
+                        $criterio->anio_inicio, 
+                        $criterio->anio_fin, 
+                        $criterio->precio_inicio, 
+                        $criterio->precio_fin
+                );
+        $this->view->assign('resultados', $resultados);
     }    
     
     

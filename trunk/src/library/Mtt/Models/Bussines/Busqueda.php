@@ -6,15 +6,21 @@
  */
 
 class Mtt_Models_Bussines_Busqueda 
-        extends Mtt_Models_Table_Busqueda 
+    extends Mtt_Models_Table_Busqueda 
     {
-
-
-    public function listSearchByUserId( $idUsuario ) 
+    
+    public function __construct( $config = array( ) )
         {
-        
+        parent::__construct( $config );
+        }
+
+
+    public function listSearchByUserId($idUsuario) 
+        {
+
         $db = $this->getAdapter();
-        $query = "SELECT palabras_busqueda,
+        $query = "SELECT id,
+            palabras_busqueda,
             modelo,
             fabricante,
             categoria_id,
@@ -30,37 +36,49 @@ class Mtt_Models_Bussines_Busqueda
                     WHERE categoria.id = categoria_id
                 ) END AS categoria
             FROM busqueda
-            WHERE usuario_id = ".$idUsuario;
+            WHERE usuario_id = " . $idUsuario;
+
+        return $db->query($query)->fetchAll(Zend_Db::FETCH_OBJ);
         
-        return $db->query($query)->fetchAll( Zend_Db::FETCH_OBJ );
         }
-    
-    
-    
-    
-    public function updateBusqueda(array $data, $id) {
+
+        
+    public function listById( $id )
+        {
+         return $this->fetchRow( 'id = ' . $id );
+        }
+
+        
+        
+    public function updateBusqueda(array $data, $id) 
+        {
 
         $this->update($data, 'id = ' . $id);
-    }
+        }
 
-    public function saveBusqueda(array $data) {
+    public function saveBusqueda(array $data) 
+        {
 
         $this->insert($data);
-    }
+        }
 
-    public function deleteBusqueda($id) {
+    public function deleteBusqueda($id) 
+        {
 
         $this->delete('id = ?', $id);
-    }
+        }
 
-    public function activarBusqueda($id) {
+    public function activarBusqueda($id) 
+        {
 
         $this->update(array("active" => self::ACTIVE), 'id = ' . $id);
-    }
+        }
 
-    public function desactivarBusqueda($id) {
+    public function desactivarBusqueda($id) 
+        {
 
         $this->update(array("active" => self::DESACTIVATE), 'id = ' . $id);
-    }
+        
+        }
 
 }

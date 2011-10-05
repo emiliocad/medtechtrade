@@ -82,7 +82,7 @@ class Mtt_Form_Search
             }
             
         
-        $e = new Zend_Form_Element_Select( 'anioinicio' );
+        $e = new Zend_Form_Element_Select( 'anio_inicio' );
         $e->setLabel(
                 $this->_translate->translate(
                         'desde el año'
@@ -99,7 +99,7 @@ class Mtt_Form_Search
         
         
          /* hasta */
-        $e = new Zend_Form_Element_Select( 'aniofin' );
+        $e = new Zend_Form_Element_Select( 'anio_fin' );
         $e->addMultiOption( -1 ,
                             $this->_translate->translate(
                         'hasta'
@@ -121,7 +121,7 @@ class Mtt_Form_Search
             '50000' => 50000
            
         );
-        $e = new Zend_Form_Element_Select( 'preciomin' );
+        $e = new Zend_Form_Element_Select( 'precio_inicio' );
         $e->setLabel(
                 $this->_translate->translate(
                         'precio'
@@ -138,7 +138,7 @@ class Mtt_Form_Search
         
         
          /* hasta */
-        $e = new Zend_Form_Element_Select( 'preciomax' );     
+        $e = new Zend_Form_Element_Select( 'precio_fin' );     
         $e->addMultiOption( -1 ,
                             $this->_translate->translate(
                         'hasta'
