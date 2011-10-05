@@ -143,7 +143,7 @@ class User_BusquedaController
         $id = intval($this->_request->getParam('id'));
         $this->_busqueda->desactivarBusqueda($id);
         $this->_helper->FlashMessenger('Busqueda Borrado');
-        $this->_redirect($this->URL);
+        $this->_redirect('/user/busqueda/listsearch');
     }
 
 }

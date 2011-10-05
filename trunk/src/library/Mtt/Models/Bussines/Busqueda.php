@@ -18,10 +18,10 @@ class Mtt_Models_Bussines_Busqueda
             modelo,
             fabricante,
             categoria_id,
-            anio_inicio,
-            anio_fin,
-            precio_inicio,
-            precio_fin,
+            CASE anio_inicio WHEN -1 THEN '' ELSE anio_inicio END AS anio_inicio,
+            CASE anio_fin WHEN -1 THEN '' ELSE anio_fin END AS anio_fin,
+            CASE precio_inicio WHEN -1 THEN '' ELSE precio_inicio END AS precio_inicio,
+            CASE precio_fin WHEN -1 THEN '' ELSE precio_fin END precio_fin,
             usuario_id,
             CASE categoria_id 
                 WHEN -1 THEN 'Todos' 
