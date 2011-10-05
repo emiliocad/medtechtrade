@@ -1,2 +1,54 @@
-<h2>Resultados</h2>
-<?php Zend_Debug::dump($this->busquedas)?>
+<h2>mis busquedas guardadas</h2>
+<?php Zend_Debug::dump($this->busquedas) ?>
+<table border="1">
+    <tbody>
+        <?php foreach ($this->busquedas as $busqueda): ?>
+            <?php if (!empty($busqueda->palabras_busqueda)) { ?>
+                <tr>
+                    <td colspan ="3">
+                        <?= $this->translate("buscar por") ?>
+                        <?= $this->escape($busqueda->palabras_busqueda) ?>
+                    </td>
+                </tr>
+            <?php } ?>
+            <?php if (!empty($busqueda->modelo)) { ?>
+            <tr>
+                <td colspan ="3">
+                    <?= $this->translate("modelo") ?>
+                    <?= $this->escape($busqueda->modelo) ?>
+                </td>
+            </tr>
+            <?php } ?>
+            <tr>
+                <td colspan ="3">
+                    <?= $this->translate("fabricante") ?>
+                    <?= $this->escape($busqueda->fabricante) ?>
+                </td>
+            </tr>  
+            <tr>
+                <td colspan ="3">
+                    <?= $this->translate("desde") ?>
+                    <?= $this->escape($busqueda->anio_inicio) ?>
+                </td>
+            </tr>  
+            <tr>
+                <td>
+                    <a>
+                        <?= $this->translate("ver") ?>
+                    </a>    
+                </td>
+                <td>
+                    <a>
+                        <?= $this->translate("modificar") ?>
+                    </a>
+                </td>
+                <td>
+                    <a>
+                        <?= $this->translate("borrar") ?>
+                    </a>
+                </td>
+            </tr>
+
+        <?php endforeach; ?>
+    </tbody>
+</table>
