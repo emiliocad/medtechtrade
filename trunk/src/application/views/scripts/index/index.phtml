@@ -8,21 +8,17 @@
 //Zend_Debug::dump( $this->country );
 //
 ?>
-<p>MedTechTrade is a global trade association for technology manufacturers,
-    research institutions, allied professional services and development organizations
-    with shared interests in collaborative developing technologies, products and services
-    for the global medical products marketplace.
+<p>
+    <?= $this->translate( 'home-welcome-txt-p1' ) ?>
 </p>
 
-<p>Our goal is to enable and accelerate trading of medical devices
-    for companies and institutional organisation.</p>
+<p>
+    <?= $this->translate( 'home-welcome-txt-p2' ) ?>
+</p>
 
 <header>
-
     <h3><?= $this->translate( 'Top Offers' ) ?></h3>
 </header>
-<p>Our goal is to enable and accelerate trading of medical devices
-    form companies and institutional organisation</p>
 <div class="device-horizontal-list">
     <?php foreach ( $this->oferEquipo as $producto ): ?>
         <div>

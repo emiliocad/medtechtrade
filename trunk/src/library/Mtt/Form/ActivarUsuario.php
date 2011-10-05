@@ -41,7 +41,7 @@ class Mtt_Form_ActivarUsuario
         $submit = new Zend_Form_Element_Button( 'submit' );
         $submit->setAttrib(
                         'value' ,
-                        $this->_translate->translate( 'mattHabilitar'
+                        $this->_translate->translate( 'Habilitar'
                         )
                 )
                 ->setAttrib( 'class' , 'button' )
