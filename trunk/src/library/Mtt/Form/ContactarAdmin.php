@@ -67,7 +67,7 @@ class Mtt_Form_ContactarAdmin
         $this->addElement( $asunto );
 
 
-        $e = new Zend_Form_Element_TextArea( 'comentario' );
+        $e = new Mtt_Form_Element_Ckeditor( 'comentario' );
         $e->setRequired();
         //$e->setDecorators( array( $decorator ) );
         $e->setLabel(
