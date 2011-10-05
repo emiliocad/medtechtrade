@@ -11,7 +11,6 @@ class Mtt_Models_Bussines_Equipo
     {
 
 
-
     /**
      *
      * @param type $id 
@@ -58,7 +57,8 @@ class Mtt_Models_Bussines_Equipo
                     'documento' , 'sourceDocumento' , 'pesoEstimado' , 'size' ,
                     'ancho' , 'alto' , 'sizeCaja' )
                 )
-                ->joinInner( 'categoria' , 'categoria.id = equipo.categoria_id' ,
+                ->joinInner( 'categoria' ,
+                             'categoria.id = equipo.categoria_id' ,
                              array(
                     'categoria.nombre as categoria' ,
                     'categoria.id as categoria_id'
@@ -78,6 +78,7 @@ class Mtt_Models_Bussines_Equipo
                 ->joinInner( 'paises' , 'paises.id = equipo.paises_id' ,
                              array( 'paises.nombre as pais' ) )
                 ->where( 'equipo.active IN (?)' , self::ACTIVE )
+                ->where( 'equipo.id IN (?)' , $id )
                 ->query();
 
         return $query->fetchObject();
@@ -562,9 +563,9 @@ class Mtt_Models_Bussines_Equipo
         }
 
 
-    public function searchEquip( $keywords , $modelo , $fabricante , $categoria ,
-                                 $anioInicial , $anioFinal , $precioInicial ,
-                                 $precioFinal )
+    public function searchEquip( $keywords , $modelo , $fabricante ,
+                                 $categoria , $anioInicial , $anioFinal ,
+                                 $precioInicial , $precioFinal )
         {
         $db = $this->getAdapter();
         $query = $db->select()
@@ -613,15 +614,15 @@ class Mtt_Models_Bussines_Equipo
                 ->where( 'CASE ? 
                     WHEN -1
                     THEN equipo.preciocompra > -1
-                    ELSE equipo.preciocompra < ? END', $precioFinal)
-                ->group('equipo.id')
+                    ELSE equipo.preciocompra < ? END' ,
+                         $precioFinal )
+                ->group( 'equipo.id' )
                 ->query()
 
         ;
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
-
 
 
     public function updateEquipo( array $data , $id )
