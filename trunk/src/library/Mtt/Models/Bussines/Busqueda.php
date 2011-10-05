@@ -14,27 +14,25 @@ class Mtt_Models_Bussines_Busqueda
         {
         
         $db = $this->getAdapter();
-        $query = $db->select()
-                ->from(
-                        $this->_name ,
-                        array(
-                    'palabras_busqueda' ,
-                    'modelo' ,
-                    'fabricante' ,
-                    'categoria_id',
-                    'anio_inicio', 
-                    'anio_fin',
-                    'precio_inicio',
-                    'precio_fin',
-                    'usuario_id',        
-                    'active'
-                        )
-                )
-                
-                ->where( 'usuario_id = ?' , $idUsuario )
-                ->query();
+        $query = "SELECT palabras_busqueda,
+            modelo,
+            fabricante,
+            categoria_id,
+            anio_inicio,
+            anio_fin,
+            precio_inicio,
+            precio_fin,
+            usuario_id,
+            CASE categoria_id 
+                WHEN -1 THEN 'Todos' 
+                ELSE (
+                    SELECT nombre FROM categoria 
+                    WHERE categoria.id = categoria_id
+                ) END AS categoria
+            FROM busqueda
+            WHERE usuario_id = ".$idUsuario;
         
-        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        return $db->query($query)->fetchAll( Zend_Db::FETCH_OBJ );
         }
     
     

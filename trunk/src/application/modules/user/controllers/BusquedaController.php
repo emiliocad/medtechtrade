@@ -77,6 +77,12 @@ class User_BusquedaController extends Mtt_Controller_Action {
         $this->view->assign('busquedas', $listadoBusqueda);
     }
 
+    
+    public function verAction() {
+        
+    }    
+    
+    
     public function borrarAction() {
         $id = intval($this->_request->getParam('id'));
         $this->_Busqueda->desactivaBusqueda($id);
