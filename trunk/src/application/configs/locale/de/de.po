@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: medtechtrade\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-04 16:37-0500\n"
-"PO-Revision-Date: 2011-10-05 10:59-0500\n"
+"POT-Creation-Date: 2011-10-05 15:18-0500\n"
+"PO-Revision-Date: 2011-10-05 15:18-0500\n"
 "Last-Translator: Matias Franci <mfranci@stockergroup.com>\n"
 "Language-Team: Stockergroup Peru <slovacus@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -29,9 +29,8 @@ msgid "There has been registered a new user"
 msgstr "Es wurde ein neuer Benutzer registriert"
 
 #: application/modules/admin/controllers/UserController.php:104
-#, fuzzy
 msgid "actualizar"
-msgstr "Deaktivieren"
+msgstr "aktualisierung"
 
 #: application/modules/admin/controllers/UserController.php:117
 msgid "Changed a User"
@@ -50,28 +49,26 @@ msgid "Se Registro el Usuario"
 msgstr "Benutzer wurde registriert"
 
 #: application/modules/admin/controllers/UserController.php:195
-#, fuzzy
 msgid "Usuario activado"
-msgstr "Benutzer deaktiviert"
+msgstr "Aktive Benutzer"
 
 #: application/modules/admin/controllers/UserController.php:204
-#, fuzzy
 msgid "Usuario desactivado"
-msgstr "Benutzer deaktiviert"
+msgstr "Inaktive Benutzer"
 
-#: application/modules/user/controllers/EquipoController.php:156
+#: application/modules/user/controllers/EquipoController.php:164
 msgid "Se Registro El Equipo"
 msgstr "Gerät wurde hochgeladen"
 
-#: application/modules/user/controllers/UserController.php:99
+#: application/modules/user/controllers/UserController.php:84
 msgid "Change Password"
 msgstr "Passwort wechseln"
 
-#: application/modules/user/controllers/UserController.php:121
+#: application/modules/user/controllers/UserController.php:106
 msgid "Changed a Password"
 msgstr "Ein Passwort wechseln"
 
-#: application/modules/user/controllers/UserController.php:133
+#: application/modules/user/controllers/UserController.php:118
 msgid "No se Pudo Cambiar"
 msgstr "Kann nicht geändert werden"
 
@@ -87,9 +84,8 @@ msgid "nombre"
 msgstr "Name"
 
 #: library/Mtt/Form/Categoria.php:57
-#, fuzzy
 msgid "title"
-msgstr "Titel"
+msgstr "titel"
 
 #: library/Mtt/Form/Categoria.php:65
 #: library/Mtt/Form/Imagen.php:49
@@ -98,33 +94,28 @@ msgstr "Ein Bild hochladen"
 
 #: library/Mtt/Form/Categoria.php:87
 #: library/Mtt/Form/Imagen.php:84
-#, fuzzy
 msgid "descripcion"
 msgstr "Beschreibung"
 
 #: library/Mtt/Form/Categoria.php:95
-#, fuzzy
 msgid "registrar"
-msgstr "Registrieren"
+msgstr "registrieren"
 
 #: library/Mtt/Form/ChangePassword.php:26
 msgid "New Password:"
 msgstr "Neues Passwort"
 
 #: library/Mtt/Form/ChangePassword.php:40
-#: library/Mtt/Form/Login.php:44
 msgid "password"
 msgstr "Neues Passwort"
 
 #: library/Mtt/Form/Contactar.php:26
-#, fuzzy
 msgid "name"
-msgstr "Name"
+msgstr "name"
 
 #: library/Mtt/Form/Contactar.php:41
-#, fuzzy
 msgid "address"
-msgstr "Anschrift:"
+msgstr "adresse"
 
 #: library/Mtt/Form/Contactar.php:60
 #: library/Mtt/Form/Cotizar.php:125
@@ -184,7 +175,7 @@ msgstr "Nachricht"
 msgid "Envie una copia a su correo"
 msgstr "Senden einer Kopie an Ihre E-Mail"
 
-#: library/Mtt/Form/Equipo.php:193
+#: library/Mtt/Form/Equipo.php:198
 msgid "Registrar"
 msgstr "Registrieren"
 
@@ -193,9 +184,8 @@ msgid "Save"
 msgstr "Speichern"
 
 #: library/Mtt/Form/Imagen.php:91
-#, fuzzy
 msgid "save"
-msgstr "Speichern"
+msgstr "sparen"
 
 #: library/Mtt/Form/Login.php:28
 msgid "username"
@@ -206,14 +196,13 @@ msgid "Remember me"
 msgstr "Erinnere dich an mich"
 
 #: library/Mtt/Form/Login.php:58
-#, fuzzy
+#: library/Mtt/Form/Usuario.php:54
 msgid "login"
-msgstr "Login"
+msgstr "login"
 
 #: library/Mtt/Form/LoginCaptcha.php:31
-#, fuzzy
 msgid "nuevo"
-msgstr "Neu"
+msgstr "neu"
 
 #: library/Mtt/Form/Moneda.php:30
 #: library/Mtt/Form/Pagina.php:71
@@ -223,14 +212,12 @@ msgstr "Der Name des Produkts muss, muss mindestens"
 #: library/Mtt/Form/Moneda.php:32
 #: library/Mtt/Form/Pagina.php:73
 #: library/Mtt/Form/Pregunta.php:32
-#, fuzzy
 msgid "caracteres"
-msgstr "Hersteller"
+msgstr "zeichen"
 
 #: library/Mtt/Form/Moneda.php:41
-#, fuzzy
 msgid "simbolo"
-msgstr "Modell"
+msgstr "symbol"
 
 #: library/Mtt/Form/Pagina.php:27
 msgid "idiomas"
@@ -241,18 +228,16 @@ msgid "body"
 msgstr "Körper"
 
 #: library/Mtt/Form/Pais.php:47
-#, fuzzy
 msgid "code"
-msgstr "Code:"
+msgstr "code"
 
 #: library/Mtt/Form/Pregunta.php:30
 msgid "Debe tener debe tener al menos"
 msgstr "Sie müssen müssen mindestens"
 
 #: library/Mtt/Form/Pregunta.php:41
-#, fuzzy
 msgid "pregunta"
-msgstr "Meine Fragen"
+msgstr "frage"
 
 #: library/Mtt/Form/Pregunta.php:51
 msgid "respuesta"
@@ -264,43 +249,41 @@ msgstr "Kopieren Sie auf E-Mail"
 
 #: library/Mtt/Form/Registrar.php:38
 #: library/Mtt/Form/Usuario.php:37
-#, fuzzy
 msgid "apellido"
-msgstr "Nachname"
+msgstr "nachname"
 
 #: library/Mtt/Form/Registrar.php:81
 msgid "confirmacion password"
 msgstr "Passwort bestätigen"
 
 #: library/Mtt/Form/Registrar.php:96
-#, fuzzy
 msgid "Codigo postal"
-msgstr "Postleitzahl"
+msgstr "Postleitzahl "
 
 #: library/Mtt/Form/Registrar.php:122
 #: library/Mtt/Form/Usuario.php:133
 msgid "institucion"
 msgstr "institution"
 
-#: library/Mtt/Form/Search.php:28
+#: library/Mtt/Form/Search.php:29
 msgid "buscar por"
 msgstr "Suche nach"
 
-#: library/Mtt/Form/Search.php:39
+#: library/Mtt/Form/Search.php:40
 msgid "modelo"
 msgstr "Modell"
 
-#: library/Mtt/Form/Search.php:51
+#: library/Mtt/Form/Search.php:52
 msgid "fabricante"
 msgstr "Hersteller"
 
-#: library/Mtt/Form/Search.php:60
+#: library/Mtt/Form/Search.php:61
 msgid "categoria"
 msgstr "Kategorie"
 
-#: library/Mtt/Form/Search.php:67
-msgid "categorias"
-msgstr "Kategorie"
+#: library/Mtt/Form/Search.php:68
+msgid "todos"
+msgstr "alle"
 
 #: library/Mtt/Form/Search.php:88
 msgid "desde el año"
@@ -325,18 +308,16 @@ msgid "buscar"
 msgstr "zu"
 
 #: library/Mtt/Form/Usuario.php:75
-#, fuzzy
 msgid "confirmar password"
-msgstr "Neues Passwort"
+msgstr "Passwort bestätigen"
 
 #: library/Mtt/Form/Usuario.php:103
 msgid "Escoger pais"
-msgstr ""
+msgstr "Land wählen"
 
 #: library/Mtt/Form/Usuario.php:117
-#, fuzzy
 msgid "tipo de usuario"
-msgstr "Operationen des Benutzers"
+msgstr "Art der Benutzer"
 
 #: application/layouts/scripts/_footer.phtml:9
 msgid "home"
@@ -347,6 +328,7 @@ msgid "About Us"
 msgstr "Über uns"
 
 #: application/layouts/scripts/_footer.phtml:33
+#: application/layouts/scripts/backup/_footer.phtml:21
 msgid "All Rights Reserved"
 msgstr "All Rights Reserved"
 
@@ -540,12 +522,10 @@ msgid "Borrar"
 msgstr "Löschen"
 
 #: application/modules/admin/views/scripts/categoria/index.phtml:77
-#: application/modules/admin/views/scripts/cms/index.phtml:72
 msgid "Desactivar"
 msgstr "Deaktivieren"
 
 #: application/modules/admin/views/scripts/categoria/index.phtml:88
-#: application/modules/admin/views/scripts/cms/index.phtml:85
 msgid "Activar"
 msgstr "Aktivieren"
 
@@ -722,6 +702,7 @@ msgid "My data"
 msgstr "Meine Daten"
 
 #: application/modules/user/layouts/backup/_navegacion.phtml:41
+#: application/modules/user/layouts/backup/navegacion/_sales.phtml:6
 msgid "My Sales"
 msgstr "Meine Verkäufe"
 
@@ -862,6 +843,34 @@ msgstr "Administrator kontaktieren"
 msgid "Salir"
 msgstr "Verlassen"
 
+#: application/modules/user/views/scripts/equipo/index.phtml:2
+msgid "administrar mis equipos"
+msgstr "verwalte ich meine Ausrüstung"
+
+#: application/modules/user/views/scripts/equipo/index.phtml:15
+msgid "nuevo equipo"
+msgstr "neue Geräte"
+
+#: application/modules/user/views/scripts/equipo/index.phtml:24
+msgid "equipo"
+msgstr "gerätestatus"
+
+#: application/modules/user/views/scripts/equipo/index.phtml:28
+msgid "estado equipo"
+msgstr "Gerätestatus"
+
+#: application/modules/user/views/scripts/equipo/index.phtml:29
+msgid "calidad"
+msgstr "qualität"
+
+#: application/modules/user/views/scripts/equipo/index.phtml:30
+msgid "acciones"
+msgstr "operationen"
+
+#: application/modules/user/views/scripts/equipo/nuevo.phtml:2
+msgid "registrar un nuevo equipo"
+msgstr "fügen Sie eine neue Ausrüstung"
+
 #: application/modules/user/views/scripts/equipo/ver.phtml:32
 msgid "Model"
 msgstr "Modell"
@@ -886,6 +895,10 @@ msgid ""
 msgstr ""
 "bei  MedTechTrade. Finden und verwalten\n"
 "                Sie Ihre medizinischen Geräte hier."
+
+#: application/modules/user/views/scripts/Reserva/reservas.phtml:2
+msgid "equipo reservados"
+msgstr "reservierte Geräte"
 
 #: application/views/scripts/categoria/index.phtml:26
 #: application/views/scripts/categoria/index.phtml:86
@@ -938,18 +951,22 @@ msgid "Advanced Search"
 msgstr "Erweiterte Suche"
 
 #: application/views/scripts/equipo/ver.phtml:104
+#: application/views/scripts/equipo/guest/deviceActions.phtml:4
 msgid "Download PDF"
 msgstr "Download PDF"
 
 #: application/views/scripts/equipo/ver.phtml:109
+#: application/views/scripts/equipo/guest/deviceActions.phtml:9
 msgid "Print"
 msgstr "Drucken"
 
 #: application/views/scripts/equipo/ver.phtml:114
+#: application/views/scripts/equipo/guest/deviceActions.phtml:14
 msgid "I Need Help"
 msgstr "Ich brauche Hilfe"
 
 #: application/views/scripts/equipo/ver.phtml:119
+#: application/views/scripts/equipo/guest/deviceActions.phtml:19
 msgid "Tell a Friend"
 msgstr "Einem Freund senden"
 
@@ -1059,6 +1076,9 @@ msgstr "Unser Ziel ist es zu ermöglichen und zu beschleunigen, den Handel mi
 #: application/views/scripts/index/index.phtml:20
 msgid "Top Offers"
 msgstr "Top-Angebote"
+
+#~ msgid "categorias"
+#~ msgstr "Kategorie"
 
 #~ msgid "Name:"
 #~ msgstr "Name"
