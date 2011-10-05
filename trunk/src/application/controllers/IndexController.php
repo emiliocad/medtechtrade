@@ -52,7 +52,7 @@ class IndexController
 //        $this->view->assign( 'country' , $ipligence );
 
         $this->view->assign(
-                'oferEquipo' , $this->_equipo->showEquiposOfers()
+                'oferEquipo' , $this->_equipo->showEquiposOfers( 4 )
         );
 
 

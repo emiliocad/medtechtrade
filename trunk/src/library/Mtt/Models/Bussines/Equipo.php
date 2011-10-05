@@ -159,7 +159,7 @@ class Mtt_Models_Bussines_Equipo
      *
      * @return type Object
      */
-    public function getProductsOfersAll()
+    public function getProductsOfersAll( $limit = 0  )
         {
 
         $db = $this->getAdapter();
@@ -179,6 +179,7 @@ class Mtt_Models_Bussines_Equipo
                 )
                 ->where( 'equipo.topofers IN (?)' , self::ACTIVE )
                 ->where( 'equipo.active IN (?)' , self::ACTIVE )
+                ->limit( $limit )
                 ->query();
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );

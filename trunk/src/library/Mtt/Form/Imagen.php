@@ -7,7 +7,7 @@
 
 
 class Mtt_Form_Imagen
-        extends Mtt_Formy
+        extends Mtt_Form
     {
 
 
