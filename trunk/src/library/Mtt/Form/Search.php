@@ -18,7 +18,8 @@ class Mtt_Form_Search
                 ->setAttrib( 'id' , 'frmSearch' )
                 ->setAction('/user/busqueda/find')
         ;
-
+        
+        
         //Busqueda
         $decorator = new Mtt_Form_Decorator_SimpleInput();
         $e = new Zend_Form_Element_Text( 'palabras_busqueda' );
@@ -147,6 +148,13 @@ class Mtt_Form_Search
         $e->addMultiOptions( $precio );
         $this->addElement( $e );
         
+        //flag en caso es update
+        $flag = new Zend_Form_Element_Hidden('flag'); 
+        $flag->setValue(0);
+        $this->addElement( $flag );
+        
+        $id = new Zend_Form_Element_Hidden('id'); 
+        $this->addElement( $id );
 
         $this->addElement( 'submit' ,
                            $this->_translate->translate(
