@@ -93,9 +93,8 @@ class Mtt_Models_Bussines_Usuario
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
-        
-        
-        
+
+
     public function listarRegistrados()
         {
 
@@ -135,7 +134,6 @@ class Mtt_Models_Bussines_Usuario
         {
 
         $this->update( $data , 'id = ' . $id );
-
         }
 
 
@@ -144,12 +142,16 @@ class Mtt_Models_Bussines_Usuario
 
         if ( ( $this->insert( $data ) ) )
             {
+
+            $arrayNew = array(
+                'fecharegistro' => Zend_Date::now()->toString( "YYYY-MM-dd" )
+            );
+
             $this->sendMail( $data , 'Registro de Usuario' );
             }
         }
 
 
- 
     public function deleteUsuario( $id )
         {
 
