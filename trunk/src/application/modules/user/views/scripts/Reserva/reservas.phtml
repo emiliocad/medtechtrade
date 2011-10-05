@@ -3,14 +3,31 @@
 </h2>
 <table border="1" class="listado">
     <thead>
-    <th>imagen</th>
-    <th>Equipo</th>
-    <th>Precio</th>
-    <th>Categoria</th>
-    <th>Estado Equipo</th>
-    <th>Fabricante</th>
-    <th>Calidad</th>
-    <th>Imagen</th>
+    <th>
+        <?= $this->translate( 'imagen' ) ?>
+    </th>
+    <th>
+        <?= $this->translate( 'equipo' ) ?>
+    </th>
+    <th>
+        <?= $this->translate( 'precio' ) ?>
+    </th>
+    <th>
+        <?= $this->translate( 'categoria' ) ?>
+    </th>
+    <th>
+        <?= $this->translate( 'estado equipo' ) ?>
+    </th>
+    <th>
+        <?= $this->translate( 'fabricante' ) ?>
+    </th>
+    <th>
+        <?= $this->translate( 'calidad' ) ?>
+    </th>
+    <th>
+        <?= $this->translate( 'acciones' ) ?>
+        
+    </th>
 </thead>
 <tbody>
     <?php foreach ( $this->favoritos as $favorito ): ?>

@@ -37,7 +37,7 @@ class User_OperacionController
     public function comprasactivasAction()
         {
         $this->_helper->layout->setLayout( 'layoutListado' );
-        $id = intval( $this->_request->getParam( 'id' ) );
+        //$id = intval( $this->_request->getParam( 'id' ) );
         $this->view->assign(
                 'operaciones' ,
                 $this->_operacion->listByUserSalesActive(
@@ -50,7 +50,8 @@ class User_OperacionController
 
     public function comprasAction()
         {
-        $id = intval( $this->_request->getParam( 'id' ) );
+        $this->_helper->layout->setLayout( 'layoutListado' );
+        //$id = intval( $this->_request->getParam( 'id' ) );
         $this->view->assign(
                 'operaciones' ,
                 $this->_operacion->listByUserOperation(

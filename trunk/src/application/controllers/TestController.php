@@ -46,10 +46,56 @@ class TestController
     public function fechaAction()
         {
 
+
+//        $days = array(
+//            'monday' => 'Lunes' ,
+//            'Tuesday' => 'Martes' ,
+//            'Wednesday' => 'Miercoles' ,
+//            'Thursday' => 'jueves' ,
+//            'Friday' => 'Viernes' ,
+//            'Saturday' => 'Sabado' ,
+//            'Sunday' => 'Domingo'
+//        );
+//        $month = array(
+//            '' => 'Lunes' ,
+//            'Tuesday' => 'Martes' ,
+//            'Wednesday' => 'Miercoles' ,
+//            'Thursday' => 'jueves' ,
+//            'Friday' => 'Viernes' ,
+//            'Saturday' => 'Sabado' ,
+//            'Sunday' => 'Domingo'
+//        );
+        $dias = array(
+            "Domingo" ,
+            "Lunes" ,
+            "Martes" ,
+            "Miercoles" ,
+            "Jueves" ,
+            "Viernes" ,
+            "Sábado"
+        );
+        $mes = array(
+            "Diciembre" ,
+            "Enero" ,
+            "Febrero" ,
+            "Marzo" ,
+            "Abril" ,
+            "Mayo" ,
+            "Junio" ,
+            "Julio" ,
+            "Agosto" ,
+            "Septiembre" ,
+            "Octubre" ,
+            "Noviembre"
+        );
+        //echo "Hoy es " . $dias[date( 'w' )];
+
         $date = Zend_Date::now()->toString( "YYYY-MM-dd hh-mm-ss" );
 
         $this->view->assign( 'date' , $date );
         $this->view->assign( 'fecha' , Zend_Date::now( 'us' ) );
+        $fecha = date( 'd' ) . " " . $mes[date( 'm' )] . ' | ' . date( 'Y' );
+        $this->view->assign( 'fecha2' , $fecha );
         }
 
 
