@@ -24,7 +24,7 @@ class UsuarioController
 
     public function indexAction()
         {
-        
+
         if ( Zend_Auth::getInstance()->hasIdentity() )
             {
 
@@ -45,7 +45,7 @@ class UsuarioController
                 }
             }
         $form = new Mtt_Form_Login();
-      
+
         if ( $this->_request->isPost()
                 &&
                 $form->isValid(
@@ -62,14 +62,17 @@ class UsuarioController
             );
 
             $this->view->assign( 'loginValido' , $loginValido );
-            
+
             //Funcionalidad Remember me
-            if ($form->getValue( "remember" )) {
-                Zend_Session ::rememberMe(60 * 60 * 24 * 7) ;
-            } else {
-                 Zend_Session::ForgetMe();
-            }
-          
+            if ( $form->getValue( "remember" ) )
+                {
+                Zend_Session ::rememberMe( 60 * 60 * 24 * 7 );
+                }
+            else
+                {
+                Zend_Session::ForgetMe();
+                }
+
             if ( $loginValido )
                 {
 
@@ -133,20 +136,6 @@ class UsuarioController
             {
 
             $usuario = $form->getValues();
-
-            unset( $usuario["clave_2"] );
-            unset( $usuario["clave"] );
-
-            $valuesDefault = array(
-                "clave" => Mtt_Auth_Adapter_DbTable_Mtt::generatePassword(
-                        $form->getValue( 'clave' )
-                ) ,
-                "tipousuario_id" => Mtt_Models_Bussines_TipoUsuario::REGISTERED ,
-                "fecharegistro" => Zend_Date::now() ,
-                "ultimavisita" => Zend_Date::now()
-            );
-
-            $usuario = array_merge( $valuesDefault , $usuario );
 
             $this->_usuario->saveUsuario( $usuario );
 
