@@ -137,20 +137,6 @@ class UsuarioController
 
             $usuario = $form->getValues();
 
-            unset( $usuario["clave_2"] );
-            unset( $usuario["clave"] );
-
-            $valuesDefault = array(
-                "clave" => Mtt_Auth_Adapter_DbTable_Mtt::generatePassword(
-                        $form->getValue( 'clave' )
-                ) ,
-                "tipousuario_id" => Mtt_Models_Bussines_TipoUsuario::REGISTERED ,
-                "fecharegistro" => Zend_Date::now() ,
-                "ultimavisita" => Zend_Date::now()
-            );
-
-            $usuario = array_merge( $valuesDefault , $usuario );
-
             $this->_usuario->saveUsuario( $usuario );
 
             $this->_helper->MyFlashMessenger(

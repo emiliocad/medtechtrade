@@ -139,14 +139,36 @@ class Mtt_Models_Bussines_Usuario
 
     public function saveUsuario( array $data )
         {
+        $passwordUser = $data["clave"];
 
-        if ( ( $this->insert( $data ) ) )
+        $valuesDefault = array(
+            "clave" => Mtt_Auth_Adapter_DbTable_Mtt::generatePassword(
+                    $data["clave"]
+            ) ,
+            "tipousuario_id" => Mtt_Models_Bussines_TipoUsuario::REGISTERED ,
+            "fecharegistro" =>
+            Zend_Date::now()->toString(
+                    "YYYY-MM-dd hh-mm-ss"
+            ) ,
+            "ultimavisita" => Zend_Date::now()->toString(
+                    "YYYY-MM-dd hh-mm-ss"
+            )
+        );
+
+
+        unset( $data["clave_2"] );
+        unset( $data["clave"] );
+
+        $usuario = array_merge( $valuesDefault , $data );
+
+        if ( ( $this->insert( $usuario ) ) )
             {
 
             $arrayNew = array(
-                'fecharegistro' => Zend_Date::now()->toString( "YYYY-MM-dd" )
+                'password' => $passwordUser
             );
 
+            $data = array_merge( $arrayNew , $data );
             $this->sendMail( $data , 'Registro de Usuario' );
             }
         }

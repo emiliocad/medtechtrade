@@ -46,7 +46,9 @@ class TestController
     public function fechaAction()
         {
 
+        $date = Zend_Date::now()->toString( "YYYY-MM-dd hh-mm-ss" );
 
+        $this->view->assign( 'date' , $date );
         $this->view->assign( 'fecha' , Zend_Date::now( 'us' ) );
         }
 
@@ -170,7 +172,7 @@ class TestController
     public function formAction()
         {
         $test = new Mtt_Form_Test();
-        $test->nombre->setValue('Slovacus');
+        $test->nombre->setValue( 'Slovacus' );
 
 
         $this->view->assign( 'test' , $test );
