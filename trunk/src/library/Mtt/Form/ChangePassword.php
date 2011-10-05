@@ -37,7 +37,7 @@ class Mtt_Form_ChangePassword
 
         $clave2 = new Zend_Form_Element_Password( 'clave2' );
         $clave2->setRequired();
-        $clave2->setLabel( 'Password' );
+        $clave2->setLabel( ucwords( $this->_translate->translate( 'password' ) ) );
         $clave2->addValidator( new Mtt_Validate_PasswordConfirmation() );
 
         $this->addElement( $clave2 );

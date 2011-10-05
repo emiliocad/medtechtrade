@@ -278,6 +278,11 @@ a:hover	{
     background-repeat: no-repeat;
     background-position: 4px 11px;
 }
+#section-bottom-country-poland	{
+    background-image: url(/theme/default/image/bottom-flag-poland.png);
+    background-repeat: no-repeat;
+    background-position: 4px 11px;
+}
 
 
 /* Device List */

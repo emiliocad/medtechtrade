@@ -20,16 +20,17 @@ class Mtt_Form_Pregunta
 
         // Elemento: Asunto
         $asunto = new Zend_Form_Element_Text( 'asunto' );
-        $asunto->setLabel( 'Asunto' );
+        $asunto->setLabel( ucwords( $this->_translate->translate( 'asunto' ) ) );
         $asunto->setAttrib( 'maxlength' , '120' );
         $asunto->setRequired( true );
         $v = new Zend_Validate_StringLength(
                         array( 'min' => 5 , 'max' => 120 )
         );
         $v->setMessage(
-                "La descripciion del asunto tener al menos
-            %min% characters. '%value%' no cumple ese requisito" ,
-                Zend_Validate_StringLength::TOO_SHORT
+                $this->_translate->translate( 'Debe tener debe tener al menos' ) .
+                " %min% " .
+                $this->_translate->translate( 'caracteres' ) ,
+                                              Zend_Validate_StringLength::TOO_SHORT
         );
         $asunto->addValidator( $v );
         $this->addElement( $asunto );
@@ -37,7 +38,7 @@ class Mtt_Form_Pregunta
 
         // Elemento: formulacion
         $formulacion = new Mtt_Form_Element_Ckeditor( 'formulacion' );
-        $formulacion->setLabel( 'Pregunta ' );
+        $formulacion->setLabel( ucwords( $this->_translate->translate( 'pregunta' ) ) );
         $formulacion->setRequired( true );
         $v = new Zend_Validate_StringLength(
                         array( 'min' => 20 , 'max' => 255 )
@@ -47,7 +48,7 @@ class Mtt_Form_Pregunta
 
         // Elemento: respuesta
         $respuesta = new Zend_Form_Element_Textarea( 'respuesta' );
-        $respuesta->setLabel( 'Respuesta ' );
+        $respuesta->setLabel( ucwords( $this->_translate->translate( 'respuesta' ) ) );
         $respuesta->setRequired( true );
         $v = new Zend_Validate_StringLength(
                         array( 'min' => 20 , 'max' => 255 )
@@ -57,14 +58,14 @@ class Mtt_Form_Pregunta
 
         // Elemento: copiaEmail
         $copiaEmail = new Zend_Form_Element_Checkbox( 'copiaEmail' );
-        $copiaEmail->setLabel( 'Copy to email' )
+        $copiaEmail->setLabel( $this->_translate->translate( 'Copy to email' ) )
                 ->setAttrib( 'id' , 'copiaEmail' );
         $this->addElement( $copiaEmail );
 
 
         $submit = new Zend_Form_Element_Button( 'submit' );
         $submit->setLabel(
-                        $this->_translate->translate( 'Save' )
+                    ucwords($this->_translate->translate('save'))
                 )
                 ->setAttrib(
                         'class' , 'button'

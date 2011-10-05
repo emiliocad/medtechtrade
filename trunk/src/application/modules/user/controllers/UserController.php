@@ -35,7 +35,7 @@ class User_UserController
         $form->removeElement( 'clave' );
         $form->removeElement( 'tipousuario_id' );
         $form->removeElement( 'login' );
-        $form->submit->setLabel( 'Actualizar' );
+        $form->submit->setLabel( ucwords($this->_translate->translate('actualizar')) );
 
         $usuario = $this->_user->getFindId( $id );
 

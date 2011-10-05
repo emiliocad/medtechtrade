@@ -24,7 +24,7 @@ class Mtt_Form_Pagina
         $idioma = new Zend_Form_Element_Select( 'idiomas_id' );
         $idioma->setRequired();
         $_idioma = new Mtt_Models_Bussines_Idioma();
-        $idioma->setLabel( 'Idiomas :' );
+        $idioma->setLabel( ucwords( $this->_translate->translate( 'idiomas' ) ) . ':' );
         $idioma->addMultiOption( -1 , '--- Idiomas ---' );
         $idioma->addMultiOptions(
                 $_idioma->getComboValues()
@@ -44,7 +44,7 @@ class Mtt_Form_Pagina
         $pais = new Zend_Form_Element_Select( 'paises_id' );
         $pais->setRequired();
         $_pais = new Mtt_Models_Bussines_Paises();
-        $pais->setLabel( 'Paises:' );
+        $pais->setLabel( ucwords( $this->_translate->translate( 'paises' ) ) . ':' );
         $pais->addMultiOption( -1 , '--- Escoger Paises ---' );
         $pais->addMultiOptions( $_pais->getComboValues() );
         $pais->setRequired();
@@ -61,16 +61,17 @@ class Mtt_Form_Pagina
 
         // Elemento: Nombre
         $nombre = new Zend_Form_Element_Text( 'nombre' );
-        $nombre->setLabel( 'Nombre' );
+        $nombre->setLabel( ucwords( $this->_translate->translate( 'nombre' ) ) );
         $nombre->setAttrib( 'maxlength' , '50' );
         $nombre->setRequired( true );
         $v = new Zend_Validate_StringLength(
                         array( 'min' => 5 , 'max' => 50 )
         );
         $v->setMessage(
-                "El nombre del producto debe tener debe tener al menos
-            %min% characters. '%value%' no cumple ese requisito" ,
-                Zend_Validate_StringLength::TOO_SHORT
+                $this->_translate->translate( 'El nombre del producto debe tener debe tener al menos' ) .
+                " %min% " .
+                $this->_translate->translate( 'caracteres' ) ,
+                                              Zend_Validate_StringLength::TOO_SHORT
         );
         $nombre
                 ->addValidator( $v )
@@ -89,13 +90,13 @@ class Mtt_Form_Pagina
         /* body */
 
         $body = new Mtt_Form_Element_Ckeditor( 'body' );
-        $body->setLabel( 'Body :' );
+        $body->setLabel( ucwords($this->_translate->translate('body')).':' );
         $body->setRequired();
         $this->addElement( $body );
 
         $submit = new Zend_Form_Element_Button( 'submit' );
         $submit->setLabel(
-                        $this->_translate->translate( 'Save' )
+                        ucwords($this->_translate->translate('save'))
                 )
                 ->setAttrib(
                         'class' , 'button'
