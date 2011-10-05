@@ -1,5 +1,4 @@
 <h2>mis busquedas guardadas</h2>
-<?php Zend_Debug::dump($this->busquedas) ?>
 <table border="1">
     <tbody>
         <?php foreach ($this->busquedas as $busqueda): ?>
@@ -29,6 +28,16 @@
                 <td colspan ="3">
                     <?= $this->translate("desde") ?>
                     <?= $this->escape($busqueda->anio_inicio) ?>
+                    <?= $this->translate("hasta") ?>
+                    <?= $this->escape($busqueda->anio_fin) ?>
+                </td>
+            </tr>  
+            <tr>
+                <td colspan ="3">
+                    <?= $this->translate("precio desde") ?>
+                    <?= $busqueda->precio_inicio ?>
+                    <?= $this->translate("hasta") ?>
+                    <?= $busqueda->precio_fin ?>
                 </td>
             </tr>  
             <tr>
