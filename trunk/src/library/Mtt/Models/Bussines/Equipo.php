@@ -11,6 +11,7 @@ class Mtt_Models_Bussines_Equipo
     {
 
 
+
     /**
      *
      * @param type $id 
@@ -57,8 +58,7 @@ class Mtt_Models_Bussines_Equipo
                     'documento' , 'sourceDocumento' , 'pesoEstimado' , 'size' ,
                     'ancho' , 'alto' , 'sizeCaja' )
                 )
-                ->joinInner( 'categoria' ,
-                             'categoria.id = equipo.categoria_id' ,
+                ->joinInner( 'categoria' , 'categoria.id = equipo.categoria_id' ,
                              array(
                     'categoria.nombre as categoria' ,
                     'categoria.id as categoria_id'
@@ -278,7 +278,7 @@ class Mtt_Models_Bussines_Equipo
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
 
-        
+
     /**
      * 
      * 
@@ -333,11 +333,26 @@ class Mtt_Models_Bussines_Equipo
                 ->where( 'equipo.active = ?' , self::ACTIVE )
                 ->where( 'equipo.publicacionEquipo_id = ?' , $status )
                 ->where( 'equipo.usuario_id = ?' , $idUser )
-                ->group( 'equipo.id')
+                ->group( 'equipo.id' )
                 ->query()
         ;
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }
+
+
+    public function pagListEquipByUser( $idUser )
+        {
+        $_conf = new Zend_Config_Ini(
+                        APPLICATION_PATH . '/configs/myConfigUser.ini' , 'paginator'
+        );
+        $data = $_conf->toArray();
+
+        $object = Zend_Paginator::factory( $this->listEquipByUser( $idUser ) );
+        $object->setItemCountPerPage(
+                $data['ItemCountPerPage']
+        );
+        return $object;
         }
 
 
@@ -373,7 +388,9 @@ class Mtt_Models_Bussines_Equipo
                 ->joinInner(
                         'publicacionequipo' ,
                         'publicacionequipo.id = equipo.publicacionEquipo_id' ,
-                        array( 'publicacionequipo.nombre as publicacionequipo' )
+                        array(
+                    'publicacionequipo.nombre as publicacionequipo'
+                        )
                 )
                 ->joinInner( 'usuario' , 'usuario.id = equipo.usuario_id' ,
                              array( 'usuario.nombre as usuario' )
@@ -429,7 +446,6 @@ class Mtt_Models_Bussines_Equipo
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
-
 
 
     /**
@@ -545,8 +561,10 @@ class Mtt_Models_Bussines_Equipo
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
 
-        
-     public function searchEquip($keywords, $modelo, $fabricante, $categoria)
+
+    public function searchEquip( $keywords , $modelo , $fabricante , $categoria ,
+                                 $anioInicial , $anioFinal , $precioInicial ,
+                                 $precioFinal )
         {
         $db = $this->getAdapter();
         $query = $db->select()
@@ -557,7 +575,8 @@ class Mtt_Models_Bussines_Equipo
                     'nombre as equipo' ,
                     'modelo' ,
                     'fechafabricacion' ,
-
+                    'tag' ,
+                    'preciocompra' ,
                     'active' )
                 )
                 ->joinInner(
@@ -574,14 +593,36 @@ class Mtt_Models_Bussines_Equipo
                     'imagen.imagen as image' )
                 )
                 ->where( 'equipo.active = ?' , self::ACTIVE )
+                ->where( "equipo.nombre LIKE '%$keywords%'" )
+                ->where( "equipo.modelo LIKE '%$modelo%'" )
+                ->where( 'CASE ? WHEN -1 
+                    THEN equipo.categoria_id LIKE "%%" 
+                    ELSE equipo.categoria_id = ? 
+                    END' ,
+                         $categoria )
+                ->where( "DATE_FORMAT(equipo.fechafabricacion,'%Y')  > ? " ,
+                         $anioInicial )
+                ->where( "CASE ?
+                    WHEN -1 
+                    THEN DATE_FORMAT(equipo.fechafabricacion,'%Y') < 
+                    (DATE_FORMAT(NOW(),'%Y')+1) 
+                    ELSE DATE_FORMAT(equipo.fechafabricacion,'%Y') < ? 
+                    END" ,
+                         $anioFinal )
+                ->where( 'equipo.preciocompra > ?' , $precioInicial )
+                ->where( 'CASE ? 
+                    WHEN -1
+                    THEN equipo.preciocompra > -1
+                    ELSE equipo.preciocompra < ? END', $precioFinal)
+                ->group('equipo.id')
                 ->query()
+
         ;
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
-        }       
-        
-        
-              
+        }
+
+
 
     public function updateEquipo( array $data , $id )
         {

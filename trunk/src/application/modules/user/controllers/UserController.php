@@ -70,21 +70,6 @@ class User_UserController
         }
 
 
-    public function searchAction()
-        {
-
-        $form = new Mtt_Form_Search();
-        $this->view->assign( 'frmSearch' , $form );
-
-        if ( $this->_request->isPost()
-                &&
-                $form->isValid( $this->_request->getPost() ) )
-            {
-            
-            }
-        }
-
-
     public function changePasswordAction()
         {
 

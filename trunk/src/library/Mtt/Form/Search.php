@@ -16,12 +16,13 @@ class Mtt_Form_Search
         $this
                 ->setMethod( 'post' )
                 ->setAttrib( 'id' , 'frmSearch' )
+                ->setAction('/user/busqueda/find')
         ;
 
         //Busqueda
         $decorator = new Mtt_Form_Decorator_SimpleInput();
-        $e = new Zend_Form_Element_Text( 'keywords' );
-        $e->setRequired();
+        $e = new Zend_Form_Element_Text( 'palabras_busqueda' );
+        //$e->setRequired();
         //$e->setDecorators( array( $decorator ) );
         $e->setLabel(
                 $this->_translate->translate(
@@ -32,7 +33,7 @@ class Mtt_Form_Search
 
         /* Modelo */
         $e = new Zend_Form_Element_Text( 'modelo' );
-        $e->setRequired();
+        //$e->setRequired();
         //$e->setDecorators( array( $decorator ) );
         $e->setLabel(
                 $this->_translate->translate(
@@ -44,7 +45,7 @@ class Mtt_Form_Search
 
         /* Fabricante */
         $e = new Zend_Form_Element_Text( 'fabricante' );
-        $e->setRequired();
+        //$e->setRequired();
         //$e->setDecorators( array( $decorator ) );
         $e->setLabel(
                 $this->_translate->translate(
@@ -64,12 +65,11 @@ class Mtt_Form_Search
         $values = $_categoria->getComboValues();
         $e->addMultiOption( -1 ,
                             $this->_translate->translate(
-                        'categorias'
+                        'todos'
                 )
         );
         $e->addMultiOptions( $values );
         $this->addElement( $e );
-        $e->addValidator( new Zend_Validate_InArray( array_keys( $values ) ) );
         
          /* año desde */
         // Creando array
@@ -82,7 +82,7 @@ class Mtt_Form_Search
             }
             
         
-        $e = new Zend_Form_Element_Select( 'anioinicio_id' );
+        $e = new Zend_Form_Element_Select( 'anioinicio' );
         $e->setLabel(
                 $this->_translate->translate(
                         'desde el año'
@@ -99,7 +99,7 @@ class Mtt_Form_Search
         
         
          /* hasta */
-        $e = new Zend_Form_Element_Select( 'aniofin_id' );
+        $e = new Zend_Form_Element_Select( 'aniofin' );
         $e->addMultiOption( -1 ,
                             $this->_translate->translate(
                         'hasta'
@@ -121,7 +121,7 @@ class Mtt_Form_Search
             '50000' => 50000
            
         );
-        $e = new Zend_Form_Element_Select( 'preciomin_id' );
+        $e = new Zend_Form_Element_Select( 'preciomin' );
         $e->setLabel(
                 $this->_translate->translate(
                         'precio'
@@ -138,7 +138,7 @@ class Mtt_Form_Search
         
         
          /* hasta */
-        $e = new Zend_Form_Element_Select( 'preciomax_id' );     
+        $e = new Zend_Form_Element_Select( 'preciomax' );     
         $e->addMultiOption( -1 ,
                             $this->_translate->translate(
                         'hasta'

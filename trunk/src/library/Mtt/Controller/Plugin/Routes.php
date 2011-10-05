@@ -1,24 +1,39 @@
 <?php
 
-class Mtt_Controller_Plugin_Routes extends Zend_Controller_Plugin_Abstract {
 
-    public function routeStartup(Zend_Controller_Request_Abstract $request) {
+class Mtt_Controller_Plugin_Routes
+        extends Zend_Controller_Plugin_Abstract
+    {
+
+    public function routeStartup( Zend_Controller_Request_Abstract $request )
+        {
 
         $routes = array(
             'slugCategory' => new Zend_Controller_Router_Route(
-                    'category/:slug',
+                    'category/:slug' ,
                     array(
-                        'module' => 'default',
-                        'controller' => 'categoria',
-                        'action' => 'ver',
+                        'module' => 'default' ,
+                        'controller' => 'categoria' ,
+                        'action' => 'ver' ,
                         'slug' => ':slug'
+
                     )
-            ),
-            'login' => new Zend_Controller_Router_Route(
-                    'login',
+            ) ,
+            'slugEquipment' => new Zend_Controller_Router_Route(
+                    'equipment/:slug' ,
                     array(
-                        'module' => 'default',
-                        'controller' => 'usuario',
+                        'module' => 'default' ,
+                        'controller' => 'test' ,
+                        'action' => 'slugequipment' ,
+                        'slug' => ':slug'
+
+                    )
+            ) ,
+            'login' => new Zend_Controller_Router_Route(
+                    'login' ,
+                    array(
+                        'module' => 'default' ,
+                        'controller' => 'usuario' ,
                         'action' => 'index'
                     )
             )
@@ -96,10 +111,11 @@ class Mtt_Controller_Plugin_Routes extends Zend_Controller_Plugin_Abstract {
 //        );
 
         $router = Zend_Controller_Front::getInstance()->getRouter();
-        $router->addRoutes($routes);
-        parent::routeStartup($request);
-    }
+        $router->addRoutes( $routes );
+        parent::routeStartup( $request );
+        }
 
-}
+
+    }
 
 ?>

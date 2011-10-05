@@ -93,8 +93,9 @@ class Mtt_Models_Bussines_Usuario
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
-
-
+        
+        
+        
     public function listarRegistrados()
         {
 

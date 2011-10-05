@@ -93,15 +93,7 @@ ul#mensajes li .error {
     padding-right: 10px;
 }
 
-.zendy_form div label {
-    color: #2D7AA2;
-    font-size: 13px;
-    width: 70px;
-    text-align: right;
-    float: left;
-    margin-right: 10px;
-    display: block;
-}
+
 
 .zendy_form div input {
     padding: 5px;
@@ -121,4 +113,60 @@ label.required {
     border-color: #00A2D7;
     border-width: 1px;
     border-style: solid;
+}
+
+
+.zendy_form div label {
+    color: #2D7AA2;
+    font-size: 13px;
+    width: 70px;
+    text-align: right;
+    float: left;
+    margin-right: 10px;
+    display: block;
+}
+
+.zendy_form div input {
+    padding: 5px;
+    font-size: 13px;
+    width: 200px
+;
+}
+
+.listado thead {
+    font-size: 1em;
+    color: #357082;
+    border-width: 1px;
+    border-color: #CAD7E1;
+    border-style: solid;
+    background-color: #EBF1F5;
+    font-weight: bold;
+}
+
+.listado {
+    margin: 10px;
+}
+
+.listado thead tr th {
+    border-style: solid;
+    width: auto;
+    padding: 11px;
+    text-align: center;
+}
+
+.listado tbody tr td {
+    font-size: 12px;
+    padding: 4px;
+    background-color: #fffcff;
+    text-align: center;
+}
+
+tr.activo {
+    background-color: #cedaf2;
+}
+
+.listado tbody tr {
+    border-color: #CCC;
+    border-style: solid;
+    border-width: 1px;
 }

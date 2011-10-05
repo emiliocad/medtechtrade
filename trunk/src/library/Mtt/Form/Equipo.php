@@ -7,7 +7,7 @@
 
 
 class Mtt_Form_Equipo
-        extends Mtt_Formy
+        extends Mtt_Form
     {
 
 
@@ -45,7 +45,7 @@ class Mtt_Form_Equipo
                         array( 'min' => 5 , 'max' => 50 )
         );
         $v->setMessage(
-                "El nombre del producto debe tener debe tener al menos
+                "El nombre del Equipo debe tener debe tener al menos
             %min% characters. '%value%' no cumple ese requisito" ,
                 Zend_Validate_StringLength::TOO_SHORT
         );
@@ -180,11 +180,16 @@ class Mtt_Form_Equipo
         // Elemento: fecha de Fabricacion
         $fechaFabricacion = new ZendX_JQuery_Form_Element_DatePicker(
                         'fechafabricacion' ,
-                        array( 'jQueryParams' => array( 'defaultDate' => date( 'Y-m-D' ) ,
-                                'changeYear' => 'true' ) )
+                        array(
+                            'jQueryParams' => array(
+                                'defaultDate' => date( 'Y/m/d' , time() ) ,
+                                'changeYear' => 'true'
+                            )
+                        )
         );
         $fechaFabricacion->setLabel( 'fecha de Fabricacion' );
-        $fechaFabricacion->setJQueryParam( 'dateFormat' , 'yy.mm.dd' );
+        $fechaFabricacion->loadDefaultDecorators();
+        $fechaFabricacion->setJQueryParam( 'dateFormat' , 'yy-mm-dd' );
         $fechaFabricacion->setRequired( true );
         $this->addElement( $fechaFabricacion );
 
