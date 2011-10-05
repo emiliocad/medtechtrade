@@ -15,10 +15,10 @@ class Mtt_Form_SaveSearch
         $this
                 ->setMethod( 'post' )
                 ->setAttrib( 'id' , 'frmSaveSearch' )
-                ->setAction('/user/busqueda/listSearch')
+               
         ;
 
-        $parameters = new Zend_Form_Element_Text('parameters');      
+        $parameters = new Zend_Form_Element_Hidden('parameters');      
     
         $this->addElement($parameters);
         

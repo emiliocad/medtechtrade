@@ -31,7 +31,7 @@ class Mtt_Models_Bussines_Busqueda
                         )
                 )
                 
-                ->where( 'usuario_id = ?' , $idUser )
+                ->where( 'usuario_id = ?' , $idUsuario )
                 ->query();
         
         return $query->fetchAll( Zend_Db::FETCH_OBJ );

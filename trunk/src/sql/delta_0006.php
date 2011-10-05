@@ -2,17 +2,14 @@
 class Delta_0006 extends Mtt_Migration_Delta
 {
     protected $_author = "Teresa Chunga Estrada";
-    protected $_desc = "agregar foreign key a busqueda";
+    protected $_desc = "agregar campo active tabla busqueda";
 
     public function up()
     {
         $sql =
-            "ALTER TABLE busqueda 
-                ADD CONSTRAINT `fk_busqueda_categoria1` 
-                FOREIGN KEY (`categoria_id`) 
-                REFERENCES `categoria` (`id`) 
-                ON DELETE NO ACTION 
-                ON UPDATE NO ACTION;";
+            "ALTER TABLE `medtechtrade`.`busqueda`     
+                ADD COLUMN `active` INT DEFAULT '1' NOT NULL 
+                AFTER `usuario_id`;";
         
         $this->_db->query($sql);
         return true;
