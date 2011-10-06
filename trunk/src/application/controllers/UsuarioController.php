@@ -152,6 +152,12 @@ class UsuarioController
         }
 
 
+    public function noAutorizadoAction()
+        {
+        
+        }
+
+
     public function logoutAction()
         {
         Zend_Auth::getInstance()->clearIdentity();

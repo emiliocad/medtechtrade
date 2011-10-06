@@ -225,5 +225,15 @@ class TestController
         }
 
 
+    public function authAction()
+        {
+
+        $auth = Zend_Auth::getInstance()->getIdentity();
+
+
+        $this->view->assign( 'auth' , $auth );
+        }
+
+
     }
 
