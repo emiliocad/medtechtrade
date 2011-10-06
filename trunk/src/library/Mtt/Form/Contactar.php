@@ -7,7 +7,7 @@
 
 
 class Mtt_Form_Contactar
-        extends Mtt_Formy
+        extends Mtt_Form
     {
 
 
@@ -105,13 +105,13 @@ class Mtt_Form_Contactar
         $this->addElement( $e );
 
 
-        $e = new Zend_Form_Element_TextArea( 'comentario' );
-        $e->setRequired();
+        $comentario = new Mtt_Form_Element_Ckeditor( 'comentario' );
+        $comentario->setRequired();
         //$e->setDecorators( array( $decorator ) );
-        $e->setLabel(
+        $comentario->setLabel(
                 ucwords( $this->_translate->translate( 'comentario' ) ) . ':'
         );
-        $this->addElement( $e );
+        $this->addElement( $comentario );
 
         $this->addElement( 'submit' ,
                            $this->_translate->translate(
