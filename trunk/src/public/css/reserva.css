@@ -36,7 +36,7 @@
 }
 
 .fichaproducto-derecha {
-    float: left;
+    float: right;
     border-style: solid;
     border-color: #eb1aeb;
     border-width: 1px;

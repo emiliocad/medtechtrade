@@ -49,3 +49,9 @@
         </table>
     </div>
 <?php endforeach; ?>
+
+<?=
+$this->paginationControl(
+        $this->resultados , 'Sliding' , 'busqueda/_pag.phtml'
+);
+?>

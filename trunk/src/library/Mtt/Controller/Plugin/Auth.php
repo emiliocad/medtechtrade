@@ -51,7 +51,7 @@ class Mtt_controller_Plugin_Auth
             if ( $this->_auth->hasIdentity() )
                 {
                 $data = $this->_auth->getIdentity();
-                $role = strtolower( $data['rol'] );
+                $role =strtolower( $data['rol'] );
                 $resource = $request->getModuleName() . '::' . $request->getControllerName();
                 $action = $request->getActionName();
 

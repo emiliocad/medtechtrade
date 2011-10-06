@@ -41,3 +41,9 @@
 <?php endforeach; ?>
 
 </div>    
+<div  style="clear:both"></div>
+<?=
+$this->paginationControl(
+        $this->favoritos , 'Sliding' , 'reserva/_pag.phtml'
+);
+?>
