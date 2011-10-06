@@ -1,24 +1,21 @@
 <h2>
     <?= $this->translate( 'Purchase of equipment' ) ?>
 </h2>
-<select class="order-by">
-    <option>Order by</option>
-    <option>Manufacturer, A-Z</option>
-    <option>Model, A-Z</option>
-</select>
-<br/>
+<?= $this->formOrder ?>
+
 <h3>
     <?= $this->translate( 'Our Equipment' ) ?>
 </h3>
 <span class="see-more">
     <a href="#">
-        Click to see all
+        <?= $this->translate( 'Click to see all' ) ?>
     </a>
 </span>
+
 <div class="device-horizontal-list">
     <?php foreach ( $this->productos as $producto ): ?>
 
-        <div>
+    <div>
             <a href="
             <?=
             $this->url( array( 'module' => 'default' ,

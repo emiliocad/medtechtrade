@@ -7,6 +7,12 @@
         <?=
         $this->headLink()->prependStylesheet( '/theme/default/css/reset.css' )
                 ->headLink()->appendStylesheet( '/theme/default/css/default.css' )
+                ->headLink()->appendStylesheet(
+                        '/theme/default/css/form.css'
+                )
+                ->headLink()->appendStylesheet(
+                        '/theme/default/css/user.css'
+                )
                 ->headLink()->appendAlternate( '/humans.txt' , 'text/plain' ,
                                                'author' , '' );
         ?>

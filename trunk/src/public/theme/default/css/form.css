@@ -1,0 +1,172 @@
+/* 
+    Document   : form
+    Created on : 29/09/2011, 12:36:32 PM
+    Author     : User
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+form {
+    margin: 10px;
+    padding: 10px;
+}
+
+form dt {
+    padding: 8px;
+    background-color: #f5f5fa;
+    color: #2385db;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+form  dd {
+    padding: 4px;
+}
+
+form  dd input {
+    padding: 5px;
+    margin: 0;
+    width: 250px;
+    font-size: 12px;
+}
+
+form  dd select {
+    padding: 5px;
+    font-size: 12px;
+    width: 265px;
+}
+
+form dd select option {
+    padding: 10px;
+}
+
+.button {
+    padding: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    width: 200px;
+    border-style: solid;
+    line-height: 15px;
+    background-color: #52A0C4;
+    border-color: #52A0C4;
+    color: #fcfcfc;
+    cursor: pointer;
+}
+
+
+ul.errors li {
+    font-size: 13px;
+    padding: 5px;
+    margin-top: 5px;
+    margin-left: 5px;
+    color: #f01818;
+    font-weight: bold;
+}
+
+ul#mensajes li {
+    font-size: 13px;
+    padding: 10px;
+    background-color: #FFF6BF;
+    color: #1f1c1f;
+    font-weight: bold;
+    border-style: solid;
+    border-color: #FFD324;
+    border-width: 1px;
+}
+
+ul#mensajes li .error {
+    background-color: #de3c4a;
+    color: #f2edf2;
+    border-color: #f50e1a;
+}
+
+/*zendy_form*/
+
+.zendy_form div {
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 10px;
+}
+
+
+
+.zendy_form div input {
+    padding: 5px;
+    font-size: 13px;
+}
+
+label.required {
+    font-weight: bold;
+}
+
+.zendy_form div .button {
+    padding: 5px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    background-color: #00A2D7;
+    border-color: #00A2D7;
+    border-width: 1px;
+    border-style: solid;
+}
+
+
+.zendy_form div label {
+    color: #2D7AA2;
+    font-size: 13px;
+    width: 70px;
+    text-align: right;
+    float: left;
+    margin-right: 10px;
+    display: block;
+}
+
+.zendy_form div input {
+    padding: 5px;
+    font-size: 13px;
+    width: 200px
+;
+}
+
+.listado thead {
+    font-size: 1em;
+    color: #357082;
+    border-width: 1px;
+    border-color: #CAD7E1;
+    border-style: solid;
+    background-color: #EBF1F5;
+    font-weight: bold;
+}
+
+.listado {
+    margin: 10px;
+}
+
+.listado thead tr th {
+    border-style: solid;
+    width: auto;
+    padding: 11px;
+    text-align: center;
+}
+
+.listado tbody tr td {
+    font-size: 12px;
+    padding: 4px;
+    background-color: #fffcff;
+    text-align: center;
+}
+
+tr.activo {
+    background-color: #cedaf2;
+}
+
+.listado tbody tr {
+    border-color: #CCC;
+    border-style: solid;
+    border-width: 1px;
+}

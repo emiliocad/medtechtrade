@@ -7,26 +7,26 @@
 
 
 class Mtt_Form_Imagen
-        extends Zend_Form
+        extends Mtt_Form
     {
 
 
     public function init()
         {
-         $_conf = new Zend_Config_Ini(
+        $_conf = new Zend_Config_Ini(
                         APPLICATION_PATH . '/configs/myConfig.ini' , 'upload'
                 )
         ;
         $data = $_conf->toArray();
-        
+
         $this
                 ->setMethod( 'post' )
                 ->setAttrib( 'id' , 'frmImagen' )
                 ->setAttrib( 'enctype' , 'multipart/form-data' );
-        
+
         // Nombre
         $nombre = new Zend_Form_Element_Text( 'nombre' );
-        $nombre->setLabel( 'Nombre *:' );
+        $nombre->setLabel( ucwords($this->_translate->translate('nombre')).'*:' );
         $nombre->setRequired();
         $nombre->addValidator(
                 new Zend_Validate_StringLength(
@@ -46,7 +46,7 @@ class Mtt_Form_Imagen
         //Imagen
         $imagen = new Zend_Form_Element_File( 'imagen' );
         $imagen->setValue( 'imagen' );
-        $imagen->setLabel( 'Upload an image:' );
+        $imagen->setLabel( $this->_translate->translate('Upload an image').':' );
 
         $target = $nombre->getValue();
         $imagen->setDestination(
@@ -65,7 +65,7 @@ class Mtt_Form_Imagen
 
         // Elemento: Nombre
         $nombre = new Zend_Form_Element_Text( 'nombre' );
-        $nombre->setLabel( 'Nombre' );
+        $nombre->setLabel( ucwords( $this->_translate->translate( 'nombre' ) ) );
         $nombre->setAttrib( 'maxlength' , '50' );
         $nombre->setRequired( true );
         $v = new Zend_Validate_StringLength(
@@ -80,13 +80,23 @@ class Mtt_Form_Imagen
         $this->addElement( $nombre );
 
         // Elemento: Descripcion
-        $descripcion = new Zend_Form_Element_Text( 'descripcion' );
-        $descripcion->setLabel( 'Descripcion:' );
+        $descripcion = new Mtt_Form_Element_Ckeditor( 'descripcion' );
+        $descripcion->setLabel( ucwords($this->_translate->translate('descripcion')).':' );
         $descripcion->setAttrib( 'maxlength' , '80' );
         $descripcion->setRequired( false );
         $this->addElement( $descripcion );
 
-        $this->addElement( 'submit' , 'Enviar' );
+        $submit = new Zend_Form_Element_Button( 'submit' );
+        $submit->setLabel(
+                    ucwords($this->_translate->translate('save'))
+                )
+                ->setAttrib(
+                        'class' , 'button'
+                )
+                ->setAttrib( 'type' , 'submit' )
+        ;
+
+        $this->addElement( $submit );
         }
 
 

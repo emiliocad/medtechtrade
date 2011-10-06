@@ -57,7 +57,7 @@
 </div>
 
 <div>
-    Bienvenido 
+    <?= $this->translate( 'Bienvenido' ) ?> 
     <?=
     Zend_Auth::getInstance()->hasIdentity() ? $this->authUser : $this->translate( 'Visitante' )
     ?>

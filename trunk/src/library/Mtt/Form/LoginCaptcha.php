@@ -10,8 +10,14 @@
  *
  */
 class Mtt_Form_LoginCaptcha
-        extends Mtt_Form_Login
+        extends Mtt_Formy
     {
+
+
+    public function __construct( $options = null )
+        {
+        parent::__construct( $options );
+        }
 
 
     public function init()
@@ -21,12 +27,36 @@ class Mtt_Form_LoginCaptcha
                 ->setAttrib( 'id' , 'frmLogin' )
         ;
 
-        $e = new Zend_Form_Element_Captcha();
-        $this->addElement( $e );
+        $text = new Zend_Form_Element_Text( 'text' );
+        $text->setLabel( ucwords( $this->_translate->translate( 'nuevo' ) ) );
+        $text->setRequired();
+
+        $this->addElement( $text );
+        $button = new Zend_Form_Element_Button( 'button' );
+        $button->setAttrib( 'value' , 'Button' );
+        $this->addElement( $button );
 
 
-        $e = $this->getElement( 'username' );
-        $e->addValidator();
+
+//        $captcha = new Zend_Captcha_Image( array(
+//                    'name' => 'foo' ,
+//                    'wordLen' => 5 ,
+//                    'font' => 'VeraMono.ttf' ,
+//                    'height' => 50 ,
+//                    'width' => 120 ,
+//                    'imgDir' => './images/captcha' ,
+//                    'imgUrl' => 'http://localhost:8080/test/images/captcha' ,
+//                    'timeout' => 300
+//                        ) );
+//
+//        $id = $captcha->generate();
+//
+//
+//        $this->addElement( $id );
+//
+//
+//        $e = $this->getElement( 'username' );
+//        $e->addValidator();
         }
 
 

@@ -173,4 +173,17 @@ class Bootstrap
         }
 
 
+    protected function _initPlugins()
+        {
+//        Zend_Controller_Front::getInstance()->registerPlugin(
+//                new My_Controller_Plugin_Acl() , 50
+//        );
+        Zend_Controller_Front::getInstance()->registerPlugin(
+                new Mtt_Controller_Plugin_Routes() , 80
+        );
+
+        //var_dump(Zend_Controller_Front::getInstance()->getPlugins());exit;
+        }
+
+
     }

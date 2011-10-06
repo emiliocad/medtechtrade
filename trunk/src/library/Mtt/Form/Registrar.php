@@ -7,7 +7,7 @@
 
 
 class Mtt_Form_Registrar
-        extends Zend_Form
+        extends Mtt_Formy
     {
 
 
@@ -22,7 +22,7 @@ class Mtt_Form_Registrar
         $e = new Zend_Form_Element_Text( 'nombre' );
         $e->setRequired();
         //$e->setDecorators( array( $decorator ) );
-        $e->setLabel( 'Nombre:' );
+        $e->setLabel( ucwords( $this->_translate->translate( 'nombre' ) ) . ':' );
         $e->addValidator( new Zend_Validate_StringLength(
                         array(
                             'min' => 5
@@ -35,7 +35,7 @@ class Mtt_Form_Registrar
         $e = new Zend_Form_Element_Text( 'apellido' );
         $e->setRequired();
         //$e->setDecorators( array( $decorator ) );
-        $e->setLabel( 'Apellido:' );
+        $e->setLabel( ucwords( $this->_translate->translate( 'apellido' ) ) . ':' );
         $e->addValidator( new Zend_Validate_StringLength(
                         array(
                             'min' => 5 , 'max' => 25 )
@@ -72,13 +72,13 @@ class Mtt_Form_Registrar
         $e = new Zend_Form_Element_Password( 'clave' );
         $e->setRequired();
         //$e->setDecorators( array( $decorator ) );
-        $e->setLabel( 'Password:' );
+        $e->setLabel( ucwords( $this->_translate->translate( 'password' ) ) . ':' );
         $this->addElement( $e );
 
         $e = new Zend_Form_Element_Password( 'clave_2' );
         $e->setRequired();
         //$e->setDecorators( array( $decorator ) );
-        $e->setLabel( 'Confirmación Password:' );
+        $e->setLabel(  $this->_translate->translate( 'confirmacion password' ) . ':' );
         $e->addValidator( new Mtt_Validate_PasswordConfirmation() );
         $this->addElement( $e );
 
@@ -86,26 +86,27 @@ class Mtt_Form_Registrar
         $e = new Zend_Form_Element_Text( 'direccion' );
         $e->setRequired();
         //$e->setDecorators( array( $decorator ) );
-        $e->setLabel( 'Direccion:' );
+        $e->setLabel( ucwords($this->_translate->translate('direccion')).':' );
         $this->addElement( $e );
 
 
         $e = new Zend_Form_Element_Text( 'codpostal' );
         $e->setRequired();
         //$e->setDecorators( array( $decorator ) );
-        $e->setLabel( 'Cod. Postal:' );
+        $e->setLabel( $this->_translate->translate('Codigo postal').':');
         $this->addElement( $e );
 
 
         $e = new Zend_Form_Element_Text( 'ciudad' );
         $e->setRequired();
         //$e->setDecorators( array( $decorator ) );
-        $e->setLabel( 'Ciudad:' );
+        $e->setLabel( ucwords($this->_translate->translate('ciudad')).':' );
         $this->addElement( $e );
 
 
         $e = new Zend_Form_Element_Select( 'paises_id' );
-        $e->setLabel( 'Pais' );
+        $e->setRequired();
+        $e->setLabel( ucwords($this->_translate->translate('pais')) );
         $_pais = new Mtt_Models_Bussines_Paises();
         $values = $_pais->getComboValues();
         $e->addMultiOption( -1 , '--- Paises ---' );
@@ -118,10 +119,19 @@ class Mtt_Form_Registrar
         $e = new Zend_Form_Element_Text( 'institucion' );
         $e->setRequired();
         //$e->setDecorators( array( $decorator ) );
-        $e->setLabel( 'Institucion:' );
+        $e->setLabel( ucwords($this->_translate->translate('institucion')).':' );
         $this->addElement( $e );
 
-        $this->addElement( 'submit' , 'Enviar' );
+        $submit = new Zend_Form_Element_Button( 'submit' );
+        $submit->setLabel(
+                        ucwords($this->_translate->translate('save'))
+                )
+                ->setAttrib(
+                        'class' , 'button'
+                )
+                ->setAttrib( 'type' , 'submit' );
+
+        $this->addElement( $submit );
         }
 
 

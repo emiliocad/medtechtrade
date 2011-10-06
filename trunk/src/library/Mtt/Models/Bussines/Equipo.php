@@ -78,6 +78,7 @@ class Mtt_Models_Bussines_Equipo
                 ->joinInner( 'paises' , 'paises.id = equipo.paises_id' ,
                              array( 'paises.nombre as pais' ) )
                 ->where( 'equipo.active IN (?)' , self::ACTIVE )
+                ->where( 'equipo.id IN (?)' , $id )
                 ->query();
 
         return $query->fetchObject();
@@ -158,7 +159,7 @@ class Mtt_Models_Bussines_Equipo
      *
      * @return type Object
      */
-    public function getProductsOfersAll()
+    public function getProductsOfersAll( $limit = 0  )
         {
 
         $db = $this->getAdapter();
@@ -178,6 +179,7 @@ class Mtt_Models_Bussines_Equipo
                 )
                 ->where( 'equipo.topofers IN (?)' , self::ACTIVE )
                 ->where( 'equipo.active IN (?)' , self::ACTIVE )
+                ->limit( $limit )
                 ->query();
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
@@ -333,11 +335,26 @@ class Mtt_Models_Bussines_Equipo
                 ->where( 'equipo.active = ?' , self::ACTIVE )
                 ->where( 'equipo.publicacionEquipo_id = ?' , $status )
                 ->where( 'equipo.usuario_id = ?' , $idUser )
-                ->group( 'equipo.id')
+                ->group( 'equipo.id' )
                 ->query()
         ;
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }
+
+
+    public function pagListEquipByUser( $idUser )
+        {
+        $_conf = new Zend_Config_Ini(
+                        APPLICATION_PATH . '/configs/myConfigUser.ini' , 'paginator'
+        );
+        $data = $_conf->toArray();
+
+        $object = Zend_Paginator::factory( $this->listEquipByUser( $idUser ) );
+        $object->setItemCountPerPage(
+                $data['ItemCountPerPage']
+        );
+        return $object;
         }
 
 
@@ -373,7 +390,9 @@ class Mtt_Models_Bussines_Equipo
                 ->joinInner(
                         'publicacionequipo' ,
                         'publicacionequipo.id = equipo.publicacionEquipo_id' ,
-                        array( 'publicacionequipo.nombre as publicacionequipo' )
+                        array(
+                    'publicacionequipo.nombre as publicacionequipo'
+                        )
                 )
                 ->joinInner( 'usuario' , 'usuario.id = equipo.usuario_id' ,
                              array( 'usuario.nombre as usuario' )
@@ -429,7 +448,6 @@ class Mtt_Models_Bussines_Equipo
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
-
 
 
     /**
@@ -539,6 +557,68 @@ class Mtt_Models_Bussines_Equipo
                 ->having( 'cantidad > 0' )
                 ->query()
 
+
+        ;
+
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }
+
+
+    public function searchEquip( $keywords , $modelo , $fabricante ,
+                                 $categoria , $anioInicial , $anioFinal ,
+                                 $precioInicial , $precioFinal )
+        {
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from(
+                        $this->_name ,
+                        array(
+                    'id' ,
+                    'nombre as equipo' ,
+                    'modelo' ,
+                    'fechafabricacion' ,
+                    'tag' ,
+                    'preciocompra' ,
+                    'active' )
+                )
+                ->joinInner(
+                        'categoria' , 'categoria.id = equipo.categoria_id' ,
+                        array( 'categoria.nombre as categoria' )
+                )
+                ->joinInner( 'fabricantes' ,
+                             'fabricantes.id = equipo.fabricantes_id' ,
+                             array( 'fabricantes.nombre as fabricante' )
+                )
+                ->joinLeft( 'imagen' , 'imagen.equipo_id = equipo.id' ,
+                            array( 'imagen.nombre as imageNombre' ,
+                    'imagen.thumb as imageThumb' ,
+                    'imagen.imagen as image' )
+                )
+                ->where( 'equipo.active = ?' , self::ACTIVE )
+                ->where( "equipo.nombre LIKE '%$keywords%'" )
+                ->where( "equipo.modelo LIKE '%$modelo%'" )
+                ->where( 'CASE ? WHEN -1 
+                    THEN equipo.categoria_id LIKE "%%" 
+                    ELSE equipo.categoria_id = ? 
+                    END' ,
+                         $categoria )
+                ->where( "DATE_FORMAT(equipo.fechafabricacion,'%Y')  > ? " ,
+                         $anioInicial )
+                ->where( "CASE ?
+                    WHEN -1 
+                    THEN DATE_FORMAT(equipo.fechafabricacion,'%Y') < 
+                    (DATE_FORMAT(NOW(),'%Y')+1) 
+                    ELSE DATE_FORMAT(equipo.fechafabricacion,'%Y') < ? 
+                    END" ,
+                         $anioFinal )
+                ->where( 'equipo.preciocompra > ?' , $precioInicial )
+                ->where( 'CASE ? 
+                    WHEN -1
+                    THEN equipo.preciocompra > -1
+                    ELSE equipo.preciocompra < ? END' ,
+                         $precioFinal )
+                ->group( 'equipo.id' )
+                ->query()
 
         ;
 
