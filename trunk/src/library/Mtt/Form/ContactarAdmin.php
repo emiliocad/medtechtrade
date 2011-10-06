@@ -36,12 +36,6 @@ class Mtt_Form_ContactarAdmin
         
         /* email */
         $email = new Zend_Form_Element_Text( 'email' );
-        $email->addValidator( new Zend_Validate_Db_NoRecordExists(
-                        array(
-                            'table' => 'usuario' ,
-                            'field' => 'email' )
-                )
-        );
         $email->setRequired();
 
         $email->setLabel(

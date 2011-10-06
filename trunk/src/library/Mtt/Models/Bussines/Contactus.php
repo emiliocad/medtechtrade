@@ -56,7 +56,7 @@ class Mtt_Models_Bussines_Contactus
         $m = new Mtt_Html_Mail_Mailer();
         $m->setSubject( $subject );
 
-        $m->addTo( 'tj.chunga@gmail.com' );
+        $m->addTo( $confMail['username']  );
 
         $m->setViewParam( 'usuario' , $data['nombre'] )
                 ->setViewParam( 'direccion' , $data['direccion'] )

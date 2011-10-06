@@ -19,13 +19,12 @@ class ContactusController extends Mtt_Controller_Action {
 
                 $contacto = $form->getValues();
 
-
                 //obtener datos de pais
                 $paises = new Mtt_Models_Bussines_Paises();
                 $pais = $paises->getFindId($contacto['paises_id']);
                 $contacto['pais'] = $pais->nombre;
                 $this->_contactus->sendMail($contacto, 'contactenos');
-                $this->view->assign('contacto', $contacto);
+                //$this->view->assign('contacto', $contacto);
             }
         } else {
             $this->view->assign('formContactar', $form);

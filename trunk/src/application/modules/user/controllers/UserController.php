@@ -131,7 +131,6 @@ class User_UserController
         $id = $this->authData['usuario']->id;
 
         $form = new Mtt_Form_ContactarAdmin();
-        //$form->submit->setLabel( ucwords($this->_translate->translate('actualizar')) );
 
         $usuario = $this->_user->getFindId( $id );
 
@@ -143,7 +142,9 @@ class User_UserController
                     &&
                     $form->isValid( $this->_request->getPost() ) )
                 {
-                
+                    $contacto = $form->getValues();
+                    $this->_user->sendMailToAdmin($contacto, 'Contactar al Admin');
+                    $this->view->assign( 'contacto' , $contacto );
                 }
             $form->setDefaults( $usuario->toArray() );
             $this->view->assign( 'form' , $form );
