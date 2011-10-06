@@ -28,14 +28,19 @@ class User_ReservaController
                 ->addStylesheet(
                         $this->view->baseUrl() . '/css/reserva.css'
         );
-        $this->view->assign(
-                'favoritos' ,
-                $this->_reserva->getReservaByUser(
+        $reserva = $this->_reserva->pagListFavoritosByUser(
                         $this->authData['usuario']->id ,
                         Mtt_Models_Bussines_TipoReserva::FAVORITE
-                )
+                );
+        $reserva->setCurrentPageNumber(
+                $this->_getParam( 'page' , 1 ));
+        $this->view->assign(
+                'favoritos' ,$reserva
+        
         );
         }
+        
+        
 
 
     public function reservasAction()
