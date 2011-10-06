@@ -18,7 +18,6 @@ class Mtt_Form_Contactar
                 ->setAttrib( 'id' , 'frmContactar' )
         ;
 
-        $decorator = new Mtt_Form_Decorator_SimpleInput();
         $e = new Zend_Form_Element_Text( 'nombre' );
         $e->setRequired();
         //$e->setDecorators( array( $decorator ) );
@@ -48,16 +47,10 @@ class Mtt_Form_Contactar
         $this->addElement( $e );
         /* email */
         $e = new Zend_Form_Element_Text( 'email' );
-        $e->addValidator( new Zend_Validate_Db_NoRecordExists(
-                        array(
-                            'table' => 'usuario' ,
-                            'field' => 'email' )
-                )
-        );
         $e->setRequired();
 
         $e->setLabel(
-                ucwords( $this->_translate->translate( 'email' ) ) . ':'
+                $this->_translate->translate( 'email' ) . ':'
         );
         $e->addValidator( new Zend_Validate_EmailAddress() );
         $this->addElement( $e );
@@ -102,6 +95,26 @@ class Mtt_Form_Contactar
         $e->setLabel(
                 ucwords( $this->_translate->translate( 'telefono' ) ) . ':'
         );
+        $e->addValidators(array(
+             array(
+                 'validator'   => 'Regex',
+                 'breakChainOnFailure' => true,
+                 'options'     => array( 
+                 'pattern' => '/^[+]?[-\d() .]*$/i',
+                     'messages' => array(
+                         Zend_Validate_Regex::NOT_MATCH =>
+                            'ingre un numero telefonico correcto'
+                     )
+                 )
+             ),
+             array(
+                 'validator' => 'StringLength',
+                 'breakChainOnFailure' => true,
+                 'options' => array(
+                     'min' => 6
+                 )
+             )
+         ));
         $this->addElement( $e );
 
 

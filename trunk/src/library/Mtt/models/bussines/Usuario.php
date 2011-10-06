@@ -240,14 +240,14 @@ class Mtt_Models_Bussines_Usuario
                         $config
         );
 
-        Mtt_Html_Mail_Mailer::setDefaultFrom();
+//        Mtt_Html_Mail_Mailer::setDefaultFrom();
         Zend_Mail::setDefaultFrom(
                 $confMail['username'] , $confMail['data']
         );
         Zend_Mail::setDefaultTransport( $mailTransport );
-        Zend_Mail::setDefaultFrom(
-                $confMail['username'] , $confMail['data']
-        );
+//        Zend_Mail::setDefaultFrom(
+//                $confMail['username'] , $confMail['data']
+//        );
         Zend_Mail::setDefaultReplyTo(
                 $confMail['username'] , $confMail['data']
         );
