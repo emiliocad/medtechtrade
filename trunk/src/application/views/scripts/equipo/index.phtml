@@ -7,15 +7,25 @@
     <?= $this->translate( 'Our Equipment' ) ?>
 </h3>
 <span class="see-more">
-    <a href="#">
-        <?= $this->translate( 'Click to see all' ) ?>
+    <a href="<?=
+    $this->url(
+            array(
+        'module' => 'default' ,
+        'controller' => 'equipo' ,
+        'action' => 'index' )
+            , 'default' , true
+    )
+    ?>">
+           <?=
+           $this->translate( 'Click to see all' )
+           ?>
     </a>
 </span>
 
 <div class="device-horizontal-list">
     <?php foreach ( $this->productos as $producto ): ?>
 
-    <div>
+        <div>
             <a href="
             <?=
             $this->url( array( 'module' => 'default' ,
@@ -23,12 +33,14 @@
                 'action' => 'ver' ,
                 'id' => $producto->id ) , null , true )
             ?>
-               ">
+               " title="<?= $producto->nombre ?>">
 
                 <img src="/media/catalog/product/device-00.png" 
 
 
-                     alt="<?= $producto->nombre ?>">
+                     alt="<?= $producto->nombre ?>" 
+                     title="<?= $producto->nombre ?>"
+                     />
             </a>
 
             <span class="manufacturer">
@@ -47,7 +59,9 @@
                 'action' => 'ver' ,
                 'id' => $producto->id ) , null , true )
             ?>
-               ">
+               "
+               title="<?= $producto->nombre ?>"
+               >
                 <span>
                     <?= $this->translate( 'View details' ) ?>
                 </span>

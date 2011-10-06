@@ -1,0 +1,27 @@
+#tooltip {
+    background-color: #CCCCCC;
+    border: 1px solid #888888;
+    color: #333333;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+    -moz-border-radius-bottomleft: 7px;
+    -moz-border-radius-bottomright: 7px;
+    -moz-border-radius-topleft: 0;
+    -moz-border-radius-topright: 7px;
+    max-width: 20em;
+    line-height: 12px;
+}
+#tooltip h3 {
+    font-size: 1.1em;
+    margin: 0;
+    padding: 0 3px;
+    text-align: left !important;
+}
+#tooltip p {
+    font-size: 0.95em;
+    margin: 5px 0 0 5px;
+    text-align: left;
+}
+

@@ -53,11 +53,6 @@
 2011-10-04T18:20:16-05:00 INFO (6): Se Aplico el Delta 4
 2011-10-04T18:20:16-05:00 INFO (6): Se Aplico el Delta 5
 2011-10-04T18:20:16-05:00 INFO (6): ===== Sync Ends =====
-=======
->>>>>>> 0d8361eb85dbebf9965a97ba443be448f697f73c
->>>>>>> c23673ab85b17a5510b5bfd65d56ba248ffc8602
-=======
->>>>>>> 0d8361eb85dbebf9965a97ba443be448f697f73c
 >>>>>>> c23673ab85b17a5510b5bfd65d56ba248ffc8602
 2011-10-05T10:43:55-05:00 INFO (6): ===== Sync Starts =====
 2011-10-05T10:43:55-05:00 INFO (6): Se Aplico el Delta 6
