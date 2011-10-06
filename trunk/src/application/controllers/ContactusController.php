@@ -1,6 +1,6 @@
 <?php
 
-class ContactoController extends Mtt_Controller_Action
+class ContactusController extends Mtt_Controller_Action
     {
 
    
