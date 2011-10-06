@@ -626,6 +626,67 @@ class Mtt_Models_Bussines_Equipo
         }
 
 
+    /**
+     * para enviar correo de autorizacion
+     * @param array $data
+     * @param string $subject
+     */
+    public function sendMailToRequest( array $data , $subject )
+        {
+        $_conf = new Zend_Config_Ini(
+                        APPLICATION_PATH . '/configs/mail.ini'
+        );
+
+
+        $confMail = $_conf->toArray();
+
+        $config = array(
+            'auth' => $confMail['auth'] ,
+            'username' => $confMail['username'] ,
+            'password' => $confMail['password'] ,
+            'port' => $confMail['port'] );
+
+        $mailTransport = new Zend_Mail_Transport_Smtp(
+                        $confMail['smtp'] ,
+                        $config
+        );
+
+        //Mtt_Html_Mail_Mailer::setDefaultFrom();
+        Zend_Mail::setDefaultFrom(
+                $confMail['username'] , $confMail['data']
+        );
+        Zend_Mail::setDefaultTransport( $mailTransport );
+//        Zend_Mail::setDefaultFrom(
+//                $confMail['username'] , $confMail['data']
+//        );
+        Zend_Mail::setDefaultReplyTo(
+                $confMail['username'] , $confMail['data']
+        );
+        $m = new Mtt_Html_Mail_Mailer();
+        $m->setSubject( $data['asunto'] );
+
+        $m->addTo( 'tj.chunga@gmail.com'  );
+        
+        if($data['toemail'] == 1){
+            $m->addTo( $data['email']  );
+        }
+
+        $m->setViewParam( 'usuario' , $data['nombre'] )
+                ->setViewParam( 'organizacion' , $data['organizacion'] )
+                ->setViewParam( 'direccion' , $data['direccion'] )                
+                ->setViewParam( 'codpostal' , $data['codpostal'] )
+                ->setViewParam( 'ciudad' , $data['ciudad'] )
+                ->setViewParam( 'pais' , $data['pais'] )
+                ->setViewParam( 'mensaje' , $data['mensaje'] )
+                ->setViewParam('equipo', $data['equipo'])
+                
+        ;
+        
+        $m->sendHtmlTemplate( "request.phtml" );
+        }        
+        
+        
+         
     public function updateEquipo( array $data , $id )
         {
 

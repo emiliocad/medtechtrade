@@ -130,10 +130,44 @@ class User_EquipoController
 
     public function cotizarAction()
         {
+        
         $id = intval( $this->_request->getParam( 'id' ) );
-
+        
+        $equipo = $this->_equipo->getFindId( $id );
+        
         $form = new Mtt_Form_Cotizar();
-        $this->view->assign( 'frmCotizar' , $form );
+        
+        if ( !is_null( $equipo ) ){
+
+            if ( $this->_request->isPost()
+                &&
+                $form->isValid( $this->_request->getPost() ) )
+                    {
+                
+                    $cotizacion = $form->getValues();
+                    
+                    //obtener datos de pais
+                    $paises = new Mtt_Models_Bussines_Paises();
+                    $pais = $paises->getFindId($cotizacion['paises_id']);
+                    $cotizacion['pais'] = $pais->nombre;
+                    $cotizacion['equipo'] = $equipo->nombre;
+                    $this->_equipo->sendMailToRequest($cotizacion, 'cotizar');
+                    //$this->view->assign('cotizacion', $cotizacion);
+                    $this->view->assign('equipo', $equipo);
+                    }
+      
+            
+            $this->view->assign( 'frmCotizar' , $form );
+        } else {
+            
+            $this->_helper->FlashMessenger(
+                    $this->_translate->translate( 'no existe' )
+            );
+            $this->_redirect( $this->URL );
+            
+        }
+        
+        
         }
 
 

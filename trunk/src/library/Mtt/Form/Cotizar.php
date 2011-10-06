@@ -112,12 +112,6 @@ class Mtt_Form_Cotizar
 
         /* email */
         $e = new Zend_Form_Element_Text( 'email' );
-        $e->addValidator( new Zend_Validate_Db_NoRecordExists(
-                        array(
-                            'table' => 'usuario' ,
-                            'field' => 'email' )
-                )
-        );
         $e->setRequired();
 
         $e->setLabel(

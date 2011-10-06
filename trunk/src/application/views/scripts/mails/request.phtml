@@ -1,0 +1,23 @@
+<h1>
+    Formulario de Contacto 
+</h1>
+
+
+<p style="color: #F00; font-weight: bold; text-align: center">
+    <?= $this->translate( 'el sr/sra/srta ' ) ?> <?= $this->nombre; ?><br/>
+    <?= $this->translate( 'domiciliado en ' ) ?> <?= $this->direccion; ?><br/>
+    <?= $this->translate( 'codigo postal' ) ?> <?= $this->codpostal; ?><br/>
+    <?= $this->translate( 'ciudad' ) ?> <?= $this->ciudad; ?> - 
+    <?= $this->translate( 'pais' ) ?> <?= $this->pais; ?> <br/>
+   
+</p>
+<h3>
+    <?= $this->translate( 'requiere una cotizacion del producto ' ) ?><br/>
+    : 
+</h3>
+<p><?= $this->equipo ?></p>
+<p>
+    <?= $this->mensaje; ?>
+</p>
+
+
