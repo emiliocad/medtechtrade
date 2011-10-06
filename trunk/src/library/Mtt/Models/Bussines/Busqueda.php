@@ -50,8 +50,7 @@ class Mtt_Models_Bussines_Busqueda
         $search->AnioFin = $data['anio_fin']; 
         $search->PrecioInicio = $data['precio_inicio']; 
         $search->PrecioFin = $data['precio_fin']; 
-                         
-                     
+                                       
         }
         
 
