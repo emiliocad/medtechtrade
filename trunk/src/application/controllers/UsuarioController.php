@@ -154,7 +154,9 @@ class UsuarioController
 
     public function noAutorizadoAction()
         {
-        
+        $mtt = new Zend_Session_Namespace( 'MTT' );
+
+        $this->view->assign( 'data' , $mtt->noAuth );
         }
 
 

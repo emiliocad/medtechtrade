@@ -14,6 +14,12 @@ class Mtt_Controller_Action
     protected $_translate;
 
 
+    public function __call( $method , $args )
+        {
+        $this->_redirect( "/default/index/index" );
+        }
+
+
     public function init()
         {
         // inicializando logger
