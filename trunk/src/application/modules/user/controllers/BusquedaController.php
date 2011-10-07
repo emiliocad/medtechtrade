@@ -15,6 +15,7 @@ class User_BusquedaController extends Mtt_Controller_Action {
         
         $search = new Zend_Session_Namespace( 'MTT' );
         unset($search->Search->Id);
+        $search->Search = NULL;
         $form = new Mtt_Form_Search();
         $this->view->assign('frmSearch', $form);
         }
@@ -65,74 +66,6 @@ class User_BusquedaController extends Mtt_Controller_Action {
             $this->_redirect('/user/busqueda');
             }
         
-        
-
-       /* if ($this->_request->isPost()
-                &&
-                $form->isValid($this->_request->getPost())) {
-
-            
-            $equipo = new Mtt_Models_Bussines_Equipo();
-
-            if (isset($criterio['buscar'])) {
-
-                $resultados = $equipo->pagListResultSearch(
-                        $criterio['palabras_busqueda']
-                        , $criterio['modelo']
-                        , $criterio['fabricante']
-                        , $criterio['categoria_id']
-                        , $criterio['anio_inicio']
-                        , $criterio['anio_fin']
-                        , $criterio['precio_inicio']
-                        , $criterio['precio_fin']
-                );
-
-                $resultados->setCurrentPageNumber(
-                        $this->_getParam('page', 1)
-                );
-
-                //Concatenar valor para pasarlos en campo oculto
-                $parameters_hid = implode(",", $criterio);
-                $form = new Mtt_Form_SaveSearch();
-                $form->parameters->setValue($parameters_hid);
-
-                $this->view->assign('frmSaveSearch', $form);
-                $this->view->assign('datos', $this->_request->isPost());
-                $this->view->assign('resultados', $resultados);
-            } else {
-                $getDatos = $this->_request->getPost();
-
-                $parameters = explode(",", $getDatos['parameters']);
-                $busqueda = array(
-                    'palabras_busqueda' => $parameters[0],
-                    'modelo' => $parameters[1],
-                    'fabricante' => $parameters[2],
-                    'categoria_id' => $parameters[3],
-                    'anio_inicio' => $parameters[4],
-                    'anio_fin' => $parameters[5],
-                    'precio_inicio' => $parameters[6],
-                    'precio_fin' => $parameters[7],
-                    'usuario_id' => $this->authData['usuario']->id
-                );
-
-                $id = $parameters[9];
-
-                //$parameters[8] captura el flag, si es 0 es un insert 
-
-                if ($parameters[8] == 0) {
-
-                    $this->_busqueda->saveBusqueda($busqueda);
-                }
-                //$parameters[8] captura el flag, si es 1 es un update
-                if ($parameters[8] == 1) {
-                    $this->_busqueda->updateBusqueda($busqueda, $id);
-                }
-                $this->_redirect('/user/busqueda/listsearch');
-            }
-        } else {
-            $this->_helper->FlashMessenger('no efectuo la busqueda');
-            $this->_redirect('/user/busqueda');
-        }*/
         }
         
 
@@ -140,7 +73,6 @@ class User_BusquedaController extends Mtt_Controller_Action {
         {
         $search = new Zend_Session_Namespace( 'MTT' );
         //$this->_helper->layout()->disableLayout();
-        //$search = $this->_busqueda->getSearchAsArray();
        
         if(isset( $search->Search))
             {
@@ -178,8 +110,15 @@ class User_BusquedaController extends Mtt_Controller_Action {
         $criterio = $this->_busqueda->getFindId($id);
 
         $equipo = new Mtt_Models_Bussines_Equipo();
-        $resultados = $equipo->searchEquip(
-                $criterio->palabras_busqueda, $criterio->modelo, $criterio->fabricante, $criterio->categoria_id, $criterio->anio_inicio, $criterio->anio_fin, $criterio->precio_inicio, $criterio->precio_fin
+        $resultados = $equipo->pagListResultSearch(
+                $criterio->palabras_busqueda
+                , $criterio->modelo
+                , $criterio->fabricante
+                , $criterio->categoria_id
+                , $criterio->anio_inicio
+                , $criterio->anio_fin
+                , $criterio->precio_inicio
+                , $criterio->precio_fin
         );
         $this->view->assign('resultados', $resultados);
     }
