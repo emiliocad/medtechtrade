@@ -1,6 +1,6 @@
 <div id="sections-buttons-top">
     <ul>
-        <li class="selected">
+        <li  id ="home-visit" onclick="fnSelectedItem(this.id)">
             <span>
                 <a href="
                 <?= $this->url( array( 'controller' => 'index' ,
@@ -10,7 +10,7 @@
                 </a>  
             </span>
         </li>
-        <li>
+        <li  id ="buy-visit" onclick="fnSelectedItem(this.id)">
             <span>
 
                 <a href="
@@ -22,7 +22,7 @@
             </span>
 
         </li>
-        <li>
+        <li  id ="sel-visit" onclick="fnSelectedItem(this.id)">
             <span>
 
                 <a href="
@@ -35,7 +35,7 @@
 
         </li>
         
-        <li>
+        <li  id ="contactus-visit" onclick="fnSelectedItem(this.id)">
             <span>
                 <a href="
                 <?= $this->url( array( 'controller' => 'contactus' ,
@@ -45,7 +45,7 @@
                 </a>  
             </span>
         </li>
-        <li>
+        <li  id ="account-visit" onclick="fnSelectedItem(this.id)" >
             <span>
                 <a href="
                 <?= $this->url( array( 'controller' => 'usuario' ,
