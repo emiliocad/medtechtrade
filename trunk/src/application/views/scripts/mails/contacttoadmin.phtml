@@ -1,14 +1,17 @@
-<h1>
-    formulario de contacto a administrador
-</h1>
+<h2>
+    <?= $this->translate('formulario de contacto al administrador') ?>
+</h2>
 
 
-<p style="color: #F00; font-weight: bold; text-align: center">
-    <?= $this->translate( 'el sr/sra/srta ' ) ?> <?= $this->nombre; ?><br/>
+<p style="color: #071e4a; font-weight: bold; ">
+    <?= $this->translate( 'el sr/sra/srta ' ) ?> <?= $this->usuario; ?><br/>
+</p>
+<p style="color: #000000;">
     <?= $this->translate( 'email' ) ?> <?= $this->email; ?><br/>
 </p>
 <h3>
-    <?= $this->translate( 'mensaje' ) ?>
+    <?= $this->translate( 'desea contactarse con el administrador por 
+        el siguiente motivo, que se describe a continuacion' ) ?>
     : 
 </h3>
 <p>
