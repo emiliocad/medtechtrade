@@ -14,9 +14,20 @@ $(document).ready(function(){
     
     
 });
+//
+
+//
+//
+//$(document).ready(
+//
+//    $("#sections-buttons-top li a").bind(
+//        "click",function(){
+//        alert("hola Kusanagi");
+//        })
+//    );
 
 function fnSelectedItem(id)
-    {
+{
     createCookie('tabVisible',id,1);
    
-    }
+}
