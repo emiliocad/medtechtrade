@@ -356,6 +356,26 @@ class Mtt_Models_Bussines_Equipo
         );
         return $object;
         }
+        
+        
+    public function pagListResultSearch(  $keywords , 
+                $modelo , $fabricante , $categoria , $anioInicial , 
+                $anioFinal , $precioInicial , $precioFinal )
+        {
+        $_conf = new Zend_Config_Ini(
+                        APPLICATION_PATH . '/configs/myConfigUser.ini' , 
+                'paginator'
+        );
+        $data = $_conf->toArray();
+
+        $object = Zend_Paginator::factory( $this->searchEquip( $keywords , 
+                $modelo , $fabricante , $categoria , $anioInicial , 
+                $anioFinal , $precioInicial , $precioFinal ) );
+        $object->setItemCountPerPage(
+                $data['ItemCountPerPage']
+        );
+        return $object;
+        }        
 
 
     public function listEquipByUser( $idUser )

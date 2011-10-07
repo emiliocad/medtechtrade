@@ -17,10 +17,6 @@ class Mtt_Form_SaveSearch
                 ->setAttrib( 'id' , 'frmSaveSearch' )
                
         ;
-
-        $parameters = new Zend_Form_Element_Hidden('parameters');      
-    
-        $this->addElement($parameters);
         
         $submit = new Zend_Form_Element_Button( 'submit' );
         $submit->setLabel(

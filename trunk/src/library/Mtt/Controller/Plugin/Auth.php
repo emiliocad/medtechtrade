@@ -62,21 +62,26 @@ class Mtt_controller_Plugin_Auth
 
         if ( !$this->_acl->isAllowed( $role , $resource , $action ) )
             {
-            $noAuth = array(
-                'module' => $request->getModuleName() ,
-                'controller' => $request->getControllerName() ,
-                'action' => $request->getActionName()
-            );
+            if ( $this->_auth->hasIdentity() )
+                {
+                $data = $this->_auth->getIdentity();
+                $role =strtolower( $data['rol'] );
+                $resource = $request->getModuleName() . '::' . $request->getControllerName();
+                $action = $request->getActionName();
 
-            $redirector = Zend_Controller_Action_HelperBroker::getStaticHelper(
-                            'redirector'
-            );
-            $mtt = new Zend_Session_Namespace( 'MTT' );
-
-            $mtt->noAuth = $noAuth;
-
-            $redirector->gotoUrl( '/default/usuario/no-autorizado' )
-                    ->redirectAndExit();
+                if ( !$this->_acl->isAllowed( $role , $resource , $action ) )
+                    {
+                    $request->setModuleName( $this->_noAcl['module'] );
+                    $request->setControllerName( $this->_noAcl['controller'] );
+                    $request->setActionName( $this->_noAcl['action'] );
+                    }
+                }
+            else
+                {
+                $request->setModuleName( $this->_noAuth['module'] );
+                $request->setControllerName( $this->_noAuth['controller'] );
+                $request->setActionName( $this->_noAuth['action'] );
+                }
             }
 
 //        $role = "invitado";

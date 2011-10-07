@@ -219,6 +219,24 @@ class Mtt_Models_Bussines_Reserva
         {
 
 
+        }      
+        
+        
+        
+
+    public function pagListFavoritosByUser( $idUser, $tipo )
+        {
+        $_conf = new Zend_Config_Ini(
+                        APPLICATION_PATH . '/configs/myConfigUser.ini' , 'paginator'
+        );
+        $data = $_conf->toArray();
+
+        $object = Zend_Paginator::factory( 
+                $this->getReservaByUser( $idUser, $tipo) );
+        $object->setItemCountPerPage(
+                $data['ItemCountPerPage']
+        );
+        return $object;
         }        
         
  /**
