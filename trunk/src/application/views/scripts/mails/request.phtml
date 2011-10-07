@@ -3,8 +3,10 @@
 </h2>
 
 
-<p style="color: #F00; font-weight: bold; text-align: center">
+<p style="color: #071e4a; font-weight: bold; ">
     <?= $this->translate( 'el sr/sra/srta ' ) ?> <?= $this->nombre; ?><br/>
+</p>
+<p style="color: #000000;">
     <?= $this->translate( 'domiciliado en ' ) ?> <?= $this->direccion; ?><br/>
     <?= $this->translate( 'codigo postal' ) ?> <?= $this->codpostal; ?><br/>
     <?= $this->translate( 'ciudad' ) ?> <?= $this->ciudad; ?> - 
@@ -16,6 +18,7 @@
     : 
 </h3>
 <p><?= $this->equipo ?></p>
+<p><?= $this->translate( 'mensaje' ) ?><br/></p>
 <p>
     <?= $this->mensaje; ?>
 </p>
