@@ -68,10 +68,6 @@ class Admin_UserController
         }
         
         
-        
-        
-
-
     public function activausuariosAction()
         {
         $form = new Mtt_Form_ActivarUsuario();
