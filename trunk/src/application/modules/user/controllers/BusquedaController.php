@@ -23,14 +23,17 @@ class User_BusquedaController extends Mtt_Controller_Action {
         {
         
         $search = new Zend_Session_Namespace( 'Search' );
-        if ($this->_request->isPost() || !is_null($search))
+        
+        if ($this->_request->isPost() || !empty($search))
             {
             if($this->_request->isPost()){
                 $criterio = $this->_request->getPost();
+                //asignar valores a Session
                 $this->_busqueda->setSearch($criterio);
-            }
-            
+            } 
+            //Obtener busquedas en Session
             $busqueda = $this->_busqueda->getSearch();
+                   
             $equipo = new Mtt_Models_Bussines_Equipo();
             $resultados = $equipo->pagListResultSearch(
                     $busqueda->PalabrasBusqueda
@@ -48,7 +51,7 @@ class User_BusquedaController extends Mtt_Controller_Action {
             $form = new Mtt_Form_SaveSearch();
             $this->view->assign('frmSaveSearch', $form);
             $this->view->assign('resultados', $resultados);
-             
+      
             }
         else 
             {
@@ -126,6 +129,14 @@ class User_BusquedaController extends Mtt_Controller_Action {
             $this->_redirect('/user/busqueda');
         }*/
         }
+        
+
+    public function saveSearchAction() {
+        $search = new Zend_Session_Namespace( 'Search' );
+    }        
+        
+        
+        
 
     public function listsearchAction() {
         $listadoBusqueda = $this->_busqueda->listSearchByUserId(

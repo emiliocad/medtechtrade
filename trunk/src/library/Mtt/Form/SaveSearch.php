@@ -15,6 +15,8 @@ class Mtt_Form_SaveSearch
         $this
                 ->setMethod( 'post' )
                 ->setAttrib( 'id' , 'frmSaveSearch' )
+                ->setAction('/user/busqueda/saveSearch')
+                
                
         ;
         

@@ -148,11 +148,6 @@ class Mtt_Form_Search
         $e->addMultiOptions( $precio );
         $this->addElement( $e );
         
-        //flag en caso es update
-        $flag = new Zend_Form_Element_Hidden('flag'); 
-        $flag->setValue(0);
-        $this->addElement( $flag );
-        
         $id = new Zend_Form_Element_Hidden('id'); 
         $this->addElement( $id );
 
