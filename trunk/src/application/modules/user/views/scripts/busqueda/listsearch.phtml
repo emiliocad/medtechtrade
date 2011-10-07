@@ -1,5 +1,5 @@
-<h2>mis busquedas guardadas</h2>
-<table border="1">
+<h2> <?= $this->translate('mis busquedas guardadas') ?></h2>
+<table>
     <tbody>
         <?php foreach ($this->busquedas as $busqueda): ?>
             <?php if (!empty($busqueda->palabras_busqueda)) { ?>
@@ -70,7 +70,8 @@
                         'action' => 'borrar',
                         'id' => $busqueda->id))
                     ?>
-                    <a href="<?= $link ?>">
+                    <a href="<?= $link ?>" 
+                       onclick="return confirm('¿Estás seguro?')">>
                         <?= $this->translate("borrar") ?>
                     </a>
                 </td>
