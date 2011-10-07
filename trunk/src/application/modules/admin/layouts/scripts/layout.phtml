@@ -50,8 +50,6 @@
     <body>
         <div id="main">
             <div id="backHeader">
-
-
                 <div id="header" class="container_16">
 
                     <div id="logo" class="grid_8 alpha">
@@ -67,13 +65,15 @@
 
                 </div>
                 <div id="backNav">
-                    
-                    
+
+
                     <div id="nav" class="container_16">
 
                         <div class="grid_14 alpha">
                             <ul>
-                                <li><a href="">DESK </a></li>
+                                <li><a href="">
+                                        DESK 
+                                    </a></li>
                                 <li><a href="">USER </a></li>
                                 <li><a href="">EQUIPMENT </a></li>
                                 <li><a href="">QUESTIONS </a></li>
@@ -97,10 +97,12 @@
             </div>
             <div id="headcontent" class="container_16">
                 <div id="titulo" class="grid_12 alpha">
-                    <h2>Dashboard</h2>
+                    <h2>
+                        <?= $this->translate( 'dashboard' ) ?>
+
+                    </h2>
                 </div>
                 <div id="messages" class="grid_4 omega">
-                    Mensajes de Alerta
                     <?= $this->render( '_messages.phtml' ); ?>
                 </div>
                 <div class="clear">
@@ -119,16 +121,16 @@
             </div>
 
             <div id="backFooter">
-                
-            <div id="footer" class="container_16">
-                <div id="footerDetails" class="grid_16">
 
-                   
-                </div>
-                <div class="clear">
+                <div id="footer" class="container_16">
+                    <div id="footerDetails" class="grid_16">
 
+
+                    </div>
+                    <div class="clear">
+
+                    </div>
                 </div>
-            </div>
             </div>
         </div>
     </body>
