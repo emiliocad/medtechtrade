@@ -7,16 +7,17 @@
         <link href="/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <?=
         $this->headLink()
-                ->appendStylesheet( '/css/grid-960/styles/reset.css' )
-                ->appendStylesheet( '/css/grid-960/styles/text.css' )
-                ->appendStylesheet( '/css/grid-960/styles/960.css' )
-                ->appendStylesheet( '/theme/admin/css/styleNew.css' )
+                ->appendStylesheet('/css/grid-960/styles/reset.css')
+                ->appendStylesheet('/css/grid-960/styles/text.css')
+                ->appendStylesheet('/css/grid-960/styles/960.css')
+                ->appendStylesheet('/theme/admin/css/styleNew.css')
+                ->appendStylesheet('/css/style-menu.css')
         ;
         ?>
 
         <?=
-        $this->jQuery()->setVersion( '1.4.2' )
-                ->setUiVersion( '1.8.16' )
+        $this->jQuery()->setVersion('1.4.2')
+                ->setUiVersion('1.8.16')
                 ->addStylesheet(
                         '/theme/admin/css/redmond/jquery-ui-1.8.16.custom.css'
                 )
@@ -36,7 +37,7 @@
                         '/theme/admin/js/jquery.hoverIntent.minified.js'
                 )
                 ->appendFile(
-                        '/theme/admin/js/menu.js'
+                        '/theme/admin/js/menuNew.js'
                 )
                 ->appendFile(
                         '/theme/default/js/accionmenuadmin.js'
@@ -64,46 +65,17 @@
                     </div>
 
                 </div>
-                <div id="backNav">
-
-
-                    <div id="nav" class="container_16">
-
-                        <div class="grid_14 alpha">
-                            <ul>
-                                <li><a href="">
-                                        DESK 
-                                    </a></li>
-                                <li><a href="">USER </a></li>
-                                <li><a href="">EQUIPMENT </a></li>
-                                <li><a href="">QUESTIONS </a></li>
-                                <li><a href="">OPERATIONS </a></li>
-                                <li><a href="">STATISTICS </a></li>
-                                <li><a href="">CONFIGURATION </a></li>
-                                <li><a href="">CMS </a></li>
-
-                            </ul>
-                        </div>
-                        <div class="grid_2 omega">
-                            <span id="help">
-                                <?= $this->translate( 'obtener ayuda' ) ?> 
-                            </span>
-                        </div>
-                        <div class="clear">
-
-                        </div>
-                    </div>
-                </div>
+                <?= $this->render( '_navegacion.phtml' ); ?>
             </div>
             <div id="headcontent" class="container_16">
                 <div id="titulo" class="grid_12 alpha">
                     <h2>
-                        <?= $this->translate( 'dashboard' ) ?>
+                        <?= $this->translate('dashboard') ?>
 
                     </h2>
                 </div>
                 <div id="messages" class="grid_4 omega">
-                    <?= $this->render( '_messages.phtml' ); ?>
+                    <?= $this->render('_messages.phtml'); ?>
                 </div>
                 <div class="clear">
 
