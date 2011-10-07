@@ -41,15 +41,31 @@
         </div>
 
     </div>
-    
 
-    
+
+
 
 </div>
 
 <div id="devRight" class="grid_8 omega">
     <div id="navDevRight">
-        texto
+
+        <?php
+        foreach ( range(
+                1 , 3
+        ) AS $article ):
+            ?>
+            <?php
+            $this->tabPane( "newstab" , "aca va el cuerpo $article" ,
+                            array( 'title' => "titulo $article"  ) );
+            ?>
+        <?php endforeach; ?>
+
+        <?php
+        echo $this->tabContainer( "newstab" , array( ) ,
+                                  array( 'class' => 'flora' ) );
+        ?>
+
     </div>
 </div>
 <div class="clear">

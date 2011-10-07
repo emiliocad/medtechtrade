@@ -26,8 +26,8 @@ a {
 
 #footer {
     height: 50px;
-    
-    
+
+
     margin-top: 15px;
 }
 
@@ -115,3 +115,18 @@ h2 {
 #divInformation {
     margin-bottom: 10px;
 }
+
+
+
+/*css para los jquerys*/
+
+#newstab li {
+    background-color: #177FAE;
+
+}
+#newstab li a {
+    color: #177FAE;
+
+}
+
+/*fin de los css*/
