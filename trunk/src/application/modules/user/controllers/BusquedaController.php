@@ -4,20 +4,25 @@ class User_BusquedaController extends Mtt_Controller_Action {
 
     protected $_busqueda;
 
-    public function init() {
+    public function init() 
+        {
         parent::init();
         $this->_busqueda = new Mtt_Models_Bussines_Busqueda();
-    }
+        }
 
-    public function indexAction() {
-
+    public function indexAction() 
+        {
+        
+        $search = new Zend_Session_Namespace( 'MTT' );
+        unset($search->Search->Id);
         $form = new Mtt_Form_Search();
         $this->view->assign('frmSearch', $form);
-    }
+        }
 
-    public function nuevoAction() {
+    public function nuevoAction() 
+        {
         
-    }
+        }
 
     public function findAction() 
         {
