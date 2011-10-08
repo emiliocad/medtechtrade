@@ -23,8 +23,8 @@ class Mtt_Controller_Plugin_Routes
                     'equipment/:slug' ,
                     array(
                         'module' => 'default' ,
-                        'controller' => 'test' ,
-                        'action' => 'slugequipment' ,
+                        'controller' => 'equipo' ,
+                        'action' => 'ver' ,
                         'slug' => ':slug'
                     )
             ) ,
@@ -42,6 +42,14 @@ class Mtt_Controller_Plugin_Routes
                         'module' => 'default' ,
                         'controller' => 'usuario' ,
                         'action' => 'emailcheck'
+                    )
+            ),
+            'buyEquipment' => new Zend_Controller_Router_Route(
+                    'buy-equipment' ,
+                    array(
+                        'module' => 'default' ,
+                        'controller' => 'equipo' ,
+                        'action' => 'index'
                     )
             )
                 )

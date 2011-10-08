@@ -191,27 +191,25 @@ class TestController
 
     public function slugequipmentAction()
         {
-//        $_categoria = new Mtt_Models_Catalog_Equipo();
-//        $slugger = new Mtt_Filter_Slug(
-//                        array(
-//                            'field' => 'slug' ,
-//                            'model' => $_categoria
-//                        )
-//        );
-//        $categorias = $_categoria->listar();
-//        $slug = array( );
-//        foreach ( $categorias as $categoria )
-//            {
-//            $slug[$categoria->id] = $slugger->filter( $categoria->nombre );
-//            }
-//
-//        $this->view->assign(
-//                'slug' , $slug
-//        );
+        $_equipo = new Mtt_Models_Catalog_Equipo();
+        $slugger = new Mtt_Filter_Slug(
+                        array(
+                            'field' => 'slug' ,
+                            'model' => $_equipo
+                        )
+        );
+        $equipos = $_equipo->listar();
+        $slug = array( );
+        foreach ( $equipos as $equipo )
+            {
+            $slug[$equipo->id] = $slugger->filter( $equipo->nombre );
+            }
 
-        $slug = $this->_getParam( 'slug' , null );
+        $this->view->assign(
+                'slug' , $slug
+        );
 
-        $this->view->assign( 'slug' , $slug );
+        
         }
 
 
