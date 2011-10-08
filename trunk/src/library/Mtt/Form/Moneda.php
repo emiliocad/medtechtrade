@@ -7,7 +7,7 @@
 
 
 class Mtt_Form_Moneda
-        extends Zend_Form
+        extends Mtt_Formy
     {
 
 
@@ -20,16 +20,17 @@ class Mtt_Form_Moneda
 
         // Elemento: Nombre
         $nombre = new Zend_Form_Element_Text( 'nombre' );
-        $nombre->setLabel( 'Nombre' );
+        $nombre->setLabel( ucwords( $this->_translate->translate( 'nombre' ) ) );
         $nombre->setAttrib( 'maxlength' , '50' );
         $nombre->setRequired( true );
         $v = new Zend_Validate_StringLength(
                         array( 'min' => 5 , 'max' => 50 )
         );
         $v->setMessage(
-                "El nombre del producto debe tener debe tener al menos
-            %min% characters. '%value%' no cumple ese requisito" ,
-                Zend_Validate_StringLength::TOO_SHORT
+                $this->_translate->translate( 'El nombre del producto debe tener debe tener al menos' ) .
+                " %min% " .
+                $this->_translate->translate( 'caracteres' ) ,
+                                              Zend_Validate_StringLength::TOO_SHORT
         );
         $nombre->addValidator( $v );
         $this->addElement( $nombre );
@@ -37,7 +38,7 @@ class Mtt_Form_Moneda
 
         // Elemento: Simbolo
         $simbolo = new Zend_Form_Element_Text( 'simbolo' );
-        $simbolo->setLabel( 'Simbolo: ' );
+        $simbolo->setLabel( ucwords( $this->_translate->translate( 'simbolo' ) ) . ': ' );
         $simbolo->setRequired( true );
         $v = new Zend_Validate_StringLength(
                         array( 'min' => 1 , 'max' => 5 )
@@ -45,7 +46,17 @@ class Mtt_Form_Moneda
         $simbolo->addValidator( $v );
         $this->addElement( $simbolo );
 
-        $this->addElement( 'submit' , 'Enviar' );
+        $submit = new Zend_Form_Element_Button( 'submit' );
+        $submit->setLabel(
+                        ucwords($this->_translate->translate('save'))
+                )
+                ->setAttrib(
+                        'class' , 'button'
+                )
+                ->setAttrib( 'type' , 'submit' )
+        ;
+
+        $this->addElement( $submit );
         }
 
 

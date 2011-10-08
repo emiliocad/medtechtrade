@@ -278,6 +278,11 @@ a:hover	{
     background-repeat: no-repeat;
     background-position: 4px 11px;
 }
+#section-bottom-country-poland	{
+    background-image: url(/theme/default/image/bottom-flag-poland.png);
+    background-repeat: no-repeat;
+    background-position: 4px 11px;
+}
 
 
 /* Device List */
@@ -286,7 +291,7 @@ a:hover	{
     border-top: dotted 1px #CCC;
 }
 .device-horizontal-list	div	{
-    margin: 5px 0 0 4px;
+    margin: 5px 0 0 2px;
     display: inline-block;
     text-align: center;
     width: 175px;
@@ -412,6 +417,9 @@ a:hover	{
 }
 #device-actions a span.device-action-reserve	{
     background-image: url(/theme/default/image/device-action-reserve.png);
+}
+#device-actions a span.device-action-tobuy	{
+    background-image: url(/theme/default/image/device-action-tobuy.png);
 }
 #device-description	{
     padding: 2px;

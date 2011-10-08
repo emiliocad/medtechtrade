@@ -1,6 +1,6 @@
 <ul id="topnav">
     <li>
-        <a class="current" >
+        <a id ="desk-admin" onclick="fnSelectedItem(this.id)">
             <span>
 
                 <?= $this->translate( 'Desk' ); ?>
@@ -12,7 +12,7 @@
 
     </li>
     <li>
-        <a  href="
+        <a id ="users-admin" onclick="fnSelectedItem(this.id)"  href="
         <?=
         $this->url( array(
             'module' => 'admin' ,
@@ -29,7 +29,7 @@
 
     </li>
     <li>
-        <a href="
+        <a id ="equipment-admin" onclick="fnSelectedItem(this.id)" href="
         <?=
         $this->url( array(
             'module' => 'admin' ,
@@ -45,11 +45,11 @@
         </a>
     </li>
     <li>
-        <a  href="
+        <a id ="questions-admin" onclick="fnSelectedItem(this.id)" href="
         <?=
         $this->url( array(
             'module' => 'admin' ,
-            'controller' => 'equipo' ,
+            'controller' => 'pregunta' ,
             'action' => 'index' ) , null , true )
         ?>">
             <span>
@@ -61,7 +61,7 @@
         </a>
     </li>
     <li>
-        <a href="
+        <a id ="operations-admin" onclick="fnSelectedItem(this.id)" href="
         <?=
         $this->url( array(
             'module' => 'admin' ,
@@ -77,7 +77,7 @@
         </a>
     </li>
     <li>
-        <a>
+        <a id ="stadistics-admin" onclick="fnSelectedItem(this.id)">
             <span>
 
                 <?= $this->translate( 'Statistics' ); ?>
@@ -88,7 +88,7 @@
         <?= $this->render( 'navegacion/_statistics.phtml' ); ?>
     </li>
     <li>
-        <a >
+        <a id ="configuration-admin" onclick="fnSelectedItem(this.id)">
             <span>
 
                 <?= $this->translate( 'Configuration' ); ?>
@@ -99,7 +99,7 @@
         <?= $this->render( 'navegacion/_configuration.phtml' ); ?>
     </li>
     <li>
-        <a >
+        <a id ="cms-admin" onclick="fnSelectedItem(this.id)">
             <span>
 
                 <?= $this->translate( 'CMS' ); ?>

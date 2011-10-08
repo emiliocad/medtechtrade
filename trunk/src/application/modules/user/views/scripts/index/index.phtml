@@ -1,2 +1,51 @@
-<h2>ingreso de usuario en Usuario</h2>
+<h2>
+    <?= $this->translate( 'Dashboard' ); ?>
+</h2>
+<p class="user-index-welcome">
+
+    <?= $this->translate( 'Welcome' ) ?>
+    Mr./Ms. <?= $this->authUser; ?> 
+    <?=
+    $this->translate(
+            'to MedTechTrade. Please find and administrate
+                your medical equipment in this section.'
+    );
+    ?>
+</p>
+
+<div id="user-index-latest-equipment">
+    <a href="#">
+        <span>
+            Last uploaded devices  
+        </span>
+    </a>
+    <ul>
+        <li>
+            Imagen 1
+        </li>
+        <li>
+            Imagen 2
+        </li>
+    </ul>
+</div>
+
+<div id="user-index-favorites" >
+    <a href="#">
+        <span>
+            My favorites 
+        </span>
+    </a>
+</div>
+
+<div id="user-index-latest-search" >
+    <a href="#">
+        <span>
+            Latest search matches  
+        </span>
+    </a>
+</div>
+<div class="clear">
+
+</div>
+
 

@@ -10,7 +10,7 @@
  *
  */
 class Mtt_Form_ChangePassword
-        extends Zend_Form
+        extends Mtt_Formy
     {
 
 
@@ -21,7 +21,11 @@ class Mtt_Form_ChangePassword
                 ->setAttrib( 'id' , 'frmChangePassword' )
         ;
         $clave = new Zend_Form_Element_Password( 'clave' );
-        $clave->setLabel( 'New Password:' );
+        $clave->setLabel(
+                $this->_translate->translate(
+                        'New Password:'
+                )
+        );
         $clave->setRequired();
         $clave->addValidator(
                 new Zend_Validate_StringLength(
@@ -33,16 +37,20 @@ class Mtt_Form_ChangePassword
 
         $clave2 = new Zend_Form_Element_Password( 'clave2' );
         $clave2->setRequired();
-        $clave2->setLabel( 'Password' );
+        $clave2->setLabel( ucwords( $this->_translate->translate( 'password' ) ) );
         $clave2->addValidator( new Mtt_Validate_PasswordConfirmation() );
-        
+
         $this->addElement( $clave2 );
 
         //Submit
-        $submit = new Zend_Form_Element_Submit( 'submit' );
-        $submit->setValue( 'Change Password' );
-        $submit->setAttrib( 'class' , 'button' );
-        //$e->setDecorators( array( $decorator ) );
+        $submit = new Zend_Form_Element_Button( 'submit' );
+        $submit->setValue(
+                $this->_translate->translate(
+                        'Change Password'
+                )
+        );
+        $submit->setAttrib( 'class' , 'button' )
+                ->setAttrib( 'type' , 'submit' );
         $this->addElement( $submit );
         }
 

@@ -1,8 +1,14 @@
 <?php if(count($this->messages)): ?>
     <ul id="mensajes">
         <?php foreach($this->messages as $m): ?>
-            <li><?=$m?></li>
+            <?if(is_string($m)):?>
+                <li><?=$m?></li>
+            <?elseif(is_object($m)):?>
+                <li class="<?=$m->level?>"><?=$m->message?></li>
+            <?endif;?>
+
         <?php endforeach; ?>
     </ul>
 <?php endif; ?>
+
 

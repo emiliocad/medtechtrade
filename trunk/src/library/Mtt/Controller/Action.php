@@ -11,11 +11,12 @@ class Mtt_Controller_Action
     {
 
     protected $URL;
+    protected $_translate;
 
-//TODO crear la Herramienta para Traducir en los controladores
-    protected function translate()
+
+    public function __call( $method , $args )
         {
-        
+        $this->_redirect( "/default/index/index" );
         }
 
 
@@ -32,52 +33,64 @@ class Mtt_Controller_Action
         $this->URL =
                 $this->getRequest()->getModuleName()
                 . '/' . $this->getRequest()->getControllerName();
+
+        /* agregando traduccion en Controller */
+        $this->_translate = Zend_Registry::get( 'Zend_Translate' );
+        /* fin de Traduccion */
         }
 
 
     public function preDispatch()
         {
-        if ( $this->isAuth )
+        if ( Zend_Auth::getInstance()->hasIdentity() )
             {
             $this->authData = Zend_Auth::getInstance()->getStorage()->read();
-            $this->view->assign( 'authData' , $this->authData );
-            $this->view->assign( 'authUser' , $this->authData['usuario']->nombre );
+            $this->view->assign(
+                    'authData' , $this->authData
+            );
 
+            $this->view->assign(
+                    'authUser' , $this->authData['usuario']->nombre
+            );
             }
-        else
-            {
-            $no_require_login_modules = array(
-                'default'
-            );
-            $no_require_login_controllers = array(
-                'test' ,
-                'tests' ,
-                'error' ,
-                'api'
-            );
-            $no_require_login_actions = array(
-                'default/usuario/registrar' ,
-                'default/usuario/index'
-            );
 
-            $current_module = $this->_request->getModuleName();
-            $current_controller = $this->_request->getControllerName();
-
-            $current_action = $current_module . '/' . $current_controller . '/' . $this->_request->getActionName();
-
-            if ( !in_array( $current_module , $no_require_login_modules ) )
-                {
-                if ( !in_array( $current_controller ,
-                                $no_require_login_controllers ) )
-                    {
-                    if ( !in_array( $current_action , $no_require_login_actions ) )
-                        {
-                        $this->_helper->FlashMessenger( 'Debes Logearte' );
-                        $this->_redirect( 'default/usuario/index' );
-                        }
-                    }
-                }
-            }
+//        if ( $this->isAuth )
+//            {
+//            }
+//        else
+//            {
+//            $no_require_login_modules = array(
+//                'default'
+//            );
+//            $no_require_login_controllers = array(
+//                'test' ,
+//                'tests' ,
+//                'error' ,
+//                'api'
+//            );
+//            $no_require_login_actions = array(
+//                'default/usuario/registrar' ,
+//                'default/usuario/index'
+//            );
+//
+//            $current_module = $this->_request->getModuleName();
+//            $current_controller = $this->_request->getControllerName();
+//
+//            $current_action = $current_module . '/' . $current_controller . '/' . $this->_request->getActionName();
+//
+//            if ( !in_array( $current_module , $no_require_login_modules ) )
+//                {
+//                if ( !in_array( $current_controller ,
+//                                $no_require_login_controllers ) )
+//                    {
+//                    if ( !in_array( $current_action , $no_require_login_actions ) )
+//                        {
+//                        $this->_helper->FlashMessenger( 'Debes Logearte' );
+//                        $this->_redirect( 'default/usuario/index' );
+//                        }
+//                    }
+//                }
+//            }
         parent::preDispatch();
         }
 

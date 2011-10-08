@@ -1,0 +1,37 @@
+<h2>Questions</h2>
+<table border="1" class="table-question">
+    <tbody>
+        <?php foreach ( $this->preguntas as $pregunta ): ?>
+
+            <tr class="<?= $pregunta->active
+                            ? 'activo' : 'inactivo' ?>">
+
+                 <td>
+                    ->
+                </td>
+                <td>
+                    <?= $this->escape( $pregunta->formulacion ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $pregunta->fechaFormulacion ) ?>
+                </td>
+
+            </tr>
+
+            <tr class="<?= $pregunta->active
+                                    ? 'activo' : 'inactivo' ?>">
+
+                <td>
+                    <?= $this->translate("Answer") ?>
+                </td>
+                <td>
+                    <?= $this->escape( $pregunta->respuesta ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $pregunta->fechaRespuesta ) ?>
+                </td>
+
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>

@@ -47,7 +47,55 @@ class TestController
         {
 
 
+//        $days = array(
+//            'monday' => 'Lunes' ,
+//            'Tuesday' => 'Martes' ,
+//            'Wednesday' => 'Miercoles' ,
+//            'Thursday' => 'jueves' ,
+//            'Friday' => 'Viernes' ,
+//            'Saturday' => 'Sabado' ,
+//            'Sunday' => 'Domingo'
+//        );
+//        $month = array(
+//            '' => 'Lunes' ,
+//            'Tuesday' => 'Martes' ,
+//            'Wednesday' => 'Miercoles' ,
+//            'Thursday' => 'jueves' ,
+//            'Friday' => 'Viernes' ,
+//            'Saturday' => 'Sabado' ,
+//            'Sunday' => 'Domingo'
+//        );
+        $dias = array(
+            "Domingo" ,
+            "Lunes" ,
+            "Martes" ,
+            "Miercoles" ,
+            "Jueves" ,
+            "Viernes" ,
+            "Sábado"
+        );
+        $mes = array(
+            "Diciembre" ,
+            "Enero" ,
+            "Febrero" ,
+            "Marzo" ,
+            "Abril" ,
+            "Mayo" ,
+            "Junio" ,
+            "Julio" ,
+            "Agosto" ,
+            "Septiembre" ,
+            "Octubre" ,
+            "Noviembre"
+        );
+        //echo "Hoy es " . $dias[date( 'w' )];
+
+        $date = Zend_Date::now()->toString( "YYYY-MM-dd hh-mm-ss" );
+
+        $this->view->assign( 'date' , $date );
         $this->view->assign( 'fecha' , Zend_Date::now( 'us' ) );
+        $fecha = date( 'd' ) . " " . $mes[date( 'm' )] . ' | ' . date( 'Y' );
+        $this->view->assign( 'fecha2' , $fecha );
         }
 
 
@@ -87,7 +135,7 @@ class TestController
         $this->mailTransport = new Zend_Mail_Transport_Smtp( 'smtp.1and1.com' ,
                         $config
         );
-        
+
         Mtt_Html_Mail_Mailer::setDefaultFrom();
         Zend_Mail::setDefaultFrom(
                 'checklist@pl-group.biz' , 'Zend GData'
@@ -99,7 +147,7 @@ class TestController
         Zend_Mail::setDefaultReplyTo(
                 'checklist@pl-group.biz' , 'Zend GData'
         );
-        
+
         $m = new Mtt_Html_Mail_Mailer();
         $m->setSubject( "Hello!" );
         $m->addTo( "slovacus@gmail.com" );
@@ -109,6 +157,81 @@ class TestController
         $confMail = $_conf->toArray();
 
         //$this->view->assign( 'conf' , $confMail['auth'] );
+        }
+
+
+    public function captchaAction()
+        {
+        $loginCaptcha = new Mtt_Form_LoginCaptcha();
+        $this->view->assign( 'form' , $loginCaptcha );
+        }
+
+
+    public function slugAction()
+        {
+        $_categoria = new Mtt_Models_Bussines_Categoria();
+        $slugger = new Mtt_Filter_Slug(
+                        array(
+                            'field' => 'slug' ,
+                            'model' => $_categoria
+                        )
+        );
+        $categorias = $_categoria->listar();
+        $slug = array( );
+        foreach ( $categorias as $categoria )
+            {
+            $slug[$categoria->id] = $slugger->filter( $categoria->nombre );
+            }
+
+        $this->view->assign(
+                'slug' , $slug
+        );
+        }
+
+
+    public function slugequipmentAction()
+        {
+//        $_categoria = new Mtt_Models_Catalog_Equipo();
+//        $slugger = new Mtt_Filter_Slug(
+//                        array(
+//                            'field' => 'slug' ,
+//                            'model' => $_categoria
+//                        )
+//        );
+//        $categorias = $_categoria->listar();
+//        $slug = array( );
+//        foreach ( $categorias as $categoria )
+//            {
+//            $slug[$categoria->id] = $slugger->filter( $categoria->nombre );
+//            }
+//
+//        $this->view->assign(
+//                'slug' , $slug
+//        );
+
+        $slug = $this->_getParam( 'slug' , null );
+
+        $this->view->assign( 'slug' , $slug );
+        }
+
+
+    public function formAction()
+        {
+        $test = new Mtt_Form_Test();
+        $test->nombre->setValue( 'Slovacus' );
+
+
+        $this->view->assign( 'test' , $test );
+        }
+
+
+    public function authAction()
+        {
+
+        $auth = Zend_Auth::getInstance()->getIdentity();
+
+
+        $this->view->assign( 'auth' , $auth );
         }
 
 

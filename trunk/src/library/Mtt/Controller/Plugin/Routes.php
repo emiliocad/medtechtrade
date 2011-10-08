@@ -8,13 +8,24 @@ class Mtt_Controller_Plugin_Routes
 
     public function routeStartup( Zend_Controller_Request_Abstract $request )
         {
+
         $routes = array(
-            'index' => new Zend_Controller_Router_Route(
-                    'index.html' ,
+            'slugCategory' => new Zend_Controller_Router_Route(
+                    'category/:slug' ,
                     array(
                         'module' => 'default' ,
-                        'controller' => 'index' ,
-                        'action' => 'index'
+                        'controller' => 'categoria' ,
+                        'action' => 'ver' ,
+                        'slug' => ':slug'
+                    )
+            ) ,
+            'slugEquipment' => new Zend_Controller_Router_Route(
+                    'equipment/:slug' ,
+                    array(
+                        'module' => 'default' ,
+                        'controller' => 'test' ,
+                        'action' => 'slugequipment' ,
+                        'slug' => ':slug'
                     )
             ) ,
             'login' => new Zend_Controller_Router_Route(
@@ -23,6 +34,14 @@ class Mtt_Controller_Plugin_Routes
                         'module' => 'default' ,
                         'controller' => 'usuario' ,
                         'action' => 'index'
+                    )
+            ) ,
+            'emailCheck' => new Zend_Controller_Router_Route(
+                    'emailcheck/:validacion' ,
+                    array(
+                        'module' => 'default' ,
+                        'controller' => 'usuario' ,
+                        'action' => 'emailcheck'
                     )
             )
                 )

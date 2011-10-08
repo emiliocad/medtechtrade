@@ -63,6 +63,16 @@ class UsuarioController
 
             $this->view->assign( 'loginValido' , $loginValido );
 
+            //Funcionalidad Remember me
+            if ( $form->getValue( "remember" ) )
+                {
+                Zend_Session ::rememberMe( 60 * 60 * 24 * 7 );
+                }
+            else
+                {
+                Zend_Session::ForgetMe();
+                }
+
             if ( $loginValido )
                 {
 
@@ -85,8 +95,11 @@ class UsuarioController
                 }
             else
                 {
-                $this->_helper->FlashMessenger(
-                        'User or Password Invalido'
+                $this->_helper->MyFlashMessenger(
+                        $this->_translate->translate(
+                                'User or Password Invalido'
+                        )
+                        , Mtt_Controller_Action_Helper_MyFlashMessenger::ERROR
                 );
                 $this->_redirect( '/usuario/index' );
                 }
@@ -104,33 +117,54 @@ class UsuarioController
 
         $form = new Mtt_Form_Registrar();
 
+        if ( $this->_request->isPost() )
+            {
+            if ( !$form->isValid( $this->_request->getPost() ) )
+                {
+
+                $this->_helper->MyFlashMessenger(
+                        $this->_translate->translate(
+                                'Error al Ingreso de Datos'
+                        )
+                        , Mtt_Controller_Action_Helper_MyFlashMessenger::ERROR
+                );
+                }
+            }
+
         if ( $this->_request->isPost() &&
                 $form->isValid( $this->_request->getPost() ) )
             {
 
             $usuario = $form->getValues();
 
-            unset( $usuario["clave_2"] );
-            unset( $usuario["clave"] );
-
-            $valuesDefault = array(
-                "clave" => Mtt_Auth_Adapter_DbTable_Mtt::generatePassword(
-                        $form->getValue( 'clave' )
-                ) ,
-                "tipousuario_id" => Mtt_Models_Bussines_TipoUsuario::REGISTERED ,
-                "fecharegistro" => Zend_Date::now() ,
-                "ultimavisita" => Zend_Date::now()
-            );
-
-            $usuario = array_merge( $valuesDefault , $usuario );
-
             $this->_usuario->saveUsuario( $usuario );
 
-            $this->_helper->FlashMessenger(
-                    'There has been registered a new user' );
+            $this->_helper->MyFlashMessenger(
+                    $this->_translate->translate(
+                            'There has been registered a new user'
+                    )
+                    , Mtt_Controller_Action_Helper_MyFlashMessenger::SUCCESS
+            );
             $this->_redirect( $this->URL );
             }
+
         $this->view->assign( 'frmRegistrar' , $form );
+        }
+
+
+    public function noAutorizadoAction()
+        {
+        $mtt = new Zend_Session_Namespace( 'MTT' );
+
+        $this->view->assign( 'data' , $mtt->noAuth );
+        }
+
+
+    public function emailcheckAction()
+        {
+        $checkMail = $this->_getParam( 'validacion' , null );
+        $data = $this->_usuario->activeUsuario( $checkMail );
+        $this->view->assign( 'data' , $data );
         }
 
 

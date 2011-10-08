@@ -21,13 +21,17 @@ class Mtt_Models_Bussines_Categoria
         }
 
 
-    public function getProducts( $id )
+    public function getProducts( $id , $order = "modelo" )
         {
         $_producto = new Mtt_Models_Bussines_Equipo();
         $db = $this->getAdapter();
 
         $query = $db->select()
+<<<<<<< HEAD
                 ->from( 'equipo' , array( 'id' , 'nombre' ) )
+=======
+                ->from( 'equipo' , array( 'id' , 'nombre' , 'modelo' ) )
+>>>>>>> developer
                 ->joinInner( $this->_name ,
                              'categoria.id = equipo.categoria_id ' ,
                              array( 'categoria.nombre as categoria' )
@@ -41,6 +45,41 @@ class Mtt_Models_Bussines_Categoria
                 )
                 ->where( 'equipo.active IN (?)' , self::ACTIVE )
                 ->where( 'equipo.categoria_id IN (?)' , $id )
+<<<<<<< HEAD
+=======
+                ->order( $order )
+                ->query();
+
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }
+
+
+    public function getProductsSlug( $slug , $order = "modelo" )
+        {
+        $_producto = new Mtt_Models_Bussines_Equipo();
+        $data = $this->getCategoriaBySlug( $slug );
+        $db = $this->getAdapter();
+
+        $query = $db->select()
+                ->from( 'equipo' , array( 'id' , 'nombre' , 'modelo' ) )
+                ->joinInner( $this->_name ,
+                             'categoria.id = equipo.categoria_id ' ,
+                             array(
+                    'categoria' => 'nombre' ,
+                    'slug' => 'slug'
+                        )
+                )
+                ->joinInner( 'fabricantes' ,
+                             'fabricantes.id = equipo.fabricantes_id' ,
+                             array( 'fabricantes.nombre as fabricante' )
+                )
+                ->joinLeft( 'imagen' , 'imagen.equipo_id = equipo.id' ,
+                            array( 'imagen.nombre as imagen' )
+                )
+                ->where( 'equipo.active IN (?)' , self::ACTIVE )
+                ->where( 'equipo.categoria_id IN (?)' , $data->id )
+                ->order( $order )
+>>>>>>> developer
                 ->query();
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
@@ -62,6 +101,7 @@ class Mtt_Models_Bussines_Categoria
     public function listCategory()
         {
 
+<<<<<<< HEAD
         
         $db = $this->getAdapter();
 
@@ -79,6 +119,19 @@ class Mtt_Models_Bussines_Categoria
        
 
 
+=======
+        $db = $this->getAdapter();
+
+        $query = $db->select()
+                ->from( $this->_name )
+                ->where( 'active IN (?)' , self::ACTIVE )
+                ->query();
+
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }
+
+
+>>>>>>> developer
     public function getCategoria( $id )
         {
         $db = $this->getAdapter();
@@ -92,6 +145,22 @@ class Mtt_Models_Bussines_Categoria
         }
 
 
+<<<<<<< HEAD
+=======
+    public function getCategoriaBySlug( $slug )
+        {
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from( $this->_name )
+                ->where( 'slug IN (?)' , $slug )
+                ->where( 'active = ?' , self::ACTIVE )
+                ->query()
+        ;
+        return $query->fetchObject();
+        }
+
+
+>>>>>>> developer
     public function updateCategoria( array $data , $id )
         {
 
@@ -101,7 +170,20 @@ class Mtt_Models_Bussines_Categoria
 
     public function saveCategoria( array $data )
         {
+<<<<<<< HEAD
 
+=======
+        $slug = new Mtt_Filter_Slug( array(
+                    'field' => 'slug' ,
+                    'model' => $this
+                        ) );
+
+        $dataNew = array(
+            'slug' => $slug->filter( $data['title'] )
+        );
+
+        $data = array_merge( $dataNew , $data );
+>>>>>>> developer
         $this->insert( $data );
         }
 
@@ -131,7 +213,11 @@ class Mtt_Models_Bussines_Categoria
         }
 
 
+<<<<<<< HEAD
 
    
 
+=======
+
+>>>>>>> developer
     }

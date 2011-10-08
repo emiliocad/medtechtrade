@@ -7,13 +7,12 @@
 
 
 class Mtt_Form_ActivarUsuario
-        extends Zend_Form
+        extends Mtt_Form
     {
 
 
     public function init()
         {
-
 
         $this
                 ->setMethod( 'post' )
@@ -39,9 +38,14 @@ class Mtt_Form_ActivarUsuario
 
 
         //Submit
-        $submit = new Zend_Form_Element_Submit( 'submit' );
-        $submit->setAttrib( 'value' , 'Habilitar' )
+        $submit = new Zend_Form_Element_Button( 'submit' );
+        $submit->setAttrib(
+                        'value' ,
+                        $this->_translate->translate( 'Habilitar'
+                        )
+                )
                 ->setAttrib( 'class' , 'button' )
+                ->setAttrib( 'type' , 'submit' )
         ;
         $this->addElement( $submit );
         }

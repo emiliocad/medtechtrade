@@ -19,7 +19,7 @@
             'module' => 'default' ,
             'controller' => 'equipo' ,
             'action' => 'index' )
-                , null , true
+                , 'default' , true
         )
         ?>">
            <?=
@@ -81,10 +81,19 @@
     <?= $this->categoria->title ?>
 </h3>
 <span class="see-more">
-    <a href="#">
-        <?=
-        $this->translate( 'Click to see all' )
-        ?></a>
+    <a href="<?=
+    $this->url(
+            array(
+        'module' => 'default' ,
+        'controller' => 'equipo' ,
+        'action' => 'index' )
+            , 'default' , true
+    )
+    ?>">
+           <?=
+           $this->translate( 'Click to see all' )
+           ?>
+    </a>
 </span>
 
 <div class="device-horizontal-list">

@@ -1,21 +1,16 @@
-<!doctype html>
-<html lang="en">
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
     <head>
-
-        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 
         <?= $this->headTitle() ?> 
         <link href="/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <!-- 1140px Grid styles for IE -->
-        <!--[if lte IE 9]>
-        <link rel="stylesheet" href="/theme/admin/css/ie.css" type="text/css" media="screen" />
-        <![endif]-->
         <?=
-        $this->headLink()->appendStylesheet( '/theme/admin/css/1140.css' )
-                ->appendStylesheet( '/theme/admin/css/styles.css' )
-                ->appendStylesheet( '/theme/admin/css/style.css' )
+        $this->headLink()
+                ->appendStylesheet( '/css/grid-960/styles/reset.css' )
+                ->appendStylesheet( '/css/grid-960/styles/text.css' )
+                ->appendStylesheet( '/css/grid-960/styles/960.css' )
+                ->appendStylesheet( '/theme/admin/css/styleNew.css' )
         ;
         ?>
 
@@ -43,91 +38,102 @@
                 ->appendFile(
                         '/theme/admin/js/menu.js'
                 )
+                ->appendFile(
+                        '/theme/default/js/accionmenuadmin.js'
+                )
+                ->appendFile(
+                        '/js/CookieJS.js'
+                )
         ;
         ?> 
-
-
-        <!--Delete embedded styles, just for example.-->
-        <style type="text/css">
-
-            body {
-                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            }
-
-            .container p {
-                color: #fff;
-                line-height: 100px;
-                background: #000;
-                text-align: center;
-                margin: 20px 0 0 0;
-            }
-
-        </style>
-
     </head>
-
-
     <body>
-        <header>
-            <div class="container header">
-                <?= $this->render( '_header.phtml' ) ?>
-            </div>
+        <div id="main">
+            <div id="backHeader">
+                <div id="header" class="container_16">
 
-            <nav>
-                <div class="container nav">
-                    <!--            <div class="row">-->
-                    <div id="dolphincontainer">
-                        <div id="dolphinnav">
-                            <?= $this->render( '_navegacion.phtml' ); ?>
+                    <div id="logo" class="grid_8 alpha">
+                        <img id="imgLogo" src="/theme/admin/images/logo-admin.png" />
+                    </div>
+
+                    <div id="welcome" class="grid_8 omega">
+                        bienvenido Luis Alberto Mayta
+                    </div>
+                    <div class="clear">
+
+                    </div>
+
+                </div>
+                <div id="backNav">
+
+
+                    <div id="nav" class="container_16">
+
+                        <div class="grid_14 alpha">
+                            <ul>
+                                <li><a href="">
+                                        DESK 
+                                    </a></li>
+                                <li><a href="">USER </a></li>
+                                <li><a href="">EQUIPMENT </a></li>
+                                <li><a href="">QUESTIONS </a></li>
+                                <li><a href="">OPERATIONS </a></li>
+                                <li><a href="">STATISTICS </a></li>
+                                <li><a href="">CONFIGURATION </a></li>
+                                <li><a href="">CMS </a></li>
+
+                            </ul>
+                        </div>
+                        <div class="grid_2 omega">
+                            <span id="help">
+                                <?= $this->translate( 'obtener ayuda' ) ?> 
+                            </span>
+                        </div>
+                        <div class="clear">
+
                         </div>
                     </div>
-                    <!--            </div>-->
+                </div>
+            </div>
+            <div id="headcontent" class="container_16">
+                <div id="titulo" class="grid_12 alpha">
+                    <h2>
+                        <?= $this->translate( 'dashboard' ) ?>
+
+                    </h2>
+                </div>
+                <div id="messages" class="grid_4 omega">
+                    <?= $this->render( '_messages.phtml' ); ?>
+                </div>
+                <div class="clear">
+
                 </div>
 
-            </nav>
-        </header>
+            </div>
+            <div id="content" class="container_16">
+                <div id="contentDetails" class="grid_16">
 
-
-        <section>
-            <div class="container body">
-                <div class="row">
-
-
-                    <div class="eightcol">
-                        <?=
-                        $this->render( '_messages.phtml' );
-                        ?>
-
-                        <?=
-                        $this->layout()->content
-                        ?>
-                    </div>
-
-
-                    <div class="fourcol last">
-
-                        <h3>
-                            <?= $this->translate( 'Most Requested Operations' ) ?>
-                        </h3>
-
-                        <?= $this->partial( 'operations/_function.phtml' ); ?>
-
-                    </div>
+                    <?= $this->layout()->content ?>
+                </div>
+                <div class="clear">
 
                 </div>
             </div>
-        </section>
 
-        <footer>
-            <div class="container footer">
-                <div class="row">
-                    <?= $this->render( '_footer.phtml' ); ?>
+            <div id="backFooter">
+
+                <div id="footer" class="container_16">
+                    <div id="footerDetails" class="grid_16">
+
+
+                    </div>
+                    <div class="clear">
+
+                    </div>
                 </div>
             </div>
-        </footer>
-
-
+        </div>
     </body>
-
 </html>
+
 

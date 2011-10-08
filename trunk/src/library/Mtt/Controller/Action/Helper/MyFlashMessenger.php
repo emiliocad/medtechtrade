@@ -3,7 +3,6 @@
 
 /**
  * Personalización de Flash Messenger para que soporte tipo de mensaje
- * @author Luis Mayta
  */
 class Mtt_Controller_Action_Helper_MyFlashMessenger
         extends Zend_Controller_Action_Helper_FlashMessenger

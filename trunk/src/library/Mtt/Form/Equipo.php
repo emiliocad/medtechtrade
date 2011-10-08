@@ -7,24 +7,25 @@
 
 
 class Mtt_Form_Equipo
-        extends Zend_Form
+        extends Mtt_Form
     {
 
 
     public function init()
         {
-         $_conf = new Zend_Config_Ini(
+        $_conf = new Zend_Config_Ini(
                         APPLICATION_PATH . '/configs/myConfig.ini' , 'upload'
                 )
         ;
         $data = $_conf->toArray();
-        
+
         $this
                 ->setMethod( 'post' )
                 ->setAttrib( 'id' , 'frmEquipo' )
         ;
 
         $categoria = new Zend_Form_Element_Select( 'categoria_id' );
+        $categoria->setRequired();
         $categoria->setLabel( 'Categoria' );
         $_categoria = new Mtt_Models_Bussines_Categoria();
         $values = $_categoria->getComboValues();
@@ -44,7 +45,7 @@ class Mtt_Form_Equipo
                         array( 'min' => 5 , 'max' => 50 )
         );
         $v->setMessage(
-                "El nombre del producto debe tener debe tener al menos
+                "El nombre del Equipo debe tener debe tener al menos
             %min% characters. '%value%' no cumple ese requisito" ,
                 Zend_Validate_StringLength::TOO_SHORT
         );
@@ -77,6 +78,7 @@ class Mtt_Form_Equipo
 
 
         $estadoEquipo = new Zend_Form_Element_Select( 'estadoequipo_id' );
+        $estadoEquipo->setRequired();
         $estadoEquipo->setLabel( 'Estado Equipo:' );
         $_estadoEquipo = new Mtt_Models_Bussines_estadoEquipo();
         $values = $_estadoEquipo->getComboValues();
@@ -88,6 +90,7 @@ class Mtt_Form_Equipo
         );
 
         $publicacionEquipo = new Zend_Form_Element_Select( 'publicacionEquipo_id' );
+        $publicacionEquipo->setRequired();
         $publicacionEquipo->setLabel( 'Publicacion de Equipo:' );
         $_publicacionEquipo = new Mtt_Models_Bussines_PublicacionEquipo;
         $values = $_publicacionEquipo->getComboValues();
@@ -99,6 +102,7 @@ class Mtt_Form_Equipo
         );
 
         $fabricantes = new Zend_Form_Element_Select( 'fabricantes_id' );
+        $fabricantes->setRequired();
         $fabricantes->setLabel( 'Fabricantes:' );
         $_fabricantes = new Mtt_Models_Bussines_Fabricante();
         $values = $_fabricantes->getComboValues();
@@ -117,6 +121,7 @@ class Mtt_Form_Equipo
         $this->addElement( $tag );
 
         $moneda = new Zend_Form_Element_Select( 'moneda_id' );
+        $moneda->setRequired();
         $moneda->setLabel( 'Moneda:' );
         $_moneda = new Mtt_Models_Bussines_Moneda();
         $values = $_moneda->getComboValues();
@@ -128,6 +133,7 @@ class Mtt_Form_Equipo
         );
 
         $pais = new Zend_Form_Element_Select( 'paises_id' );
+        $pais->setRequired();
         $pais->setLabel( 'Pais:' );
         $_pais = new Mtt_Models_Bussines_Paises();
         $values = $_pais->getComboValues();
@@ -137,7 +143,7 @@ class Mtt_Form_Equipo
         $pais->addValidator(
                 new Zend_Validate_InArray( array_keys( $values ) )
         );
-        
+
         // Elemento: Calidad
         $calidad = new Zend_Form_Element_Text( 'calidad' );
         $calidad->setLabel( 'Calidad' );
@@ -173,18 +179,33 @@ class Mtt_Form_Equipo
 
         // Elemento: fecha de Fabricacion
         $fechaFabricacion = new ZendX_JQuery_Form_Element_DatePicker(
-                        'fechafabricacion',
-                        array('jQueryParams' => array('defaultDate' => date('Y-m-D'),
-                                'changeYear'=> 'true'))
+                        'fechafabricacion' ,
+                        array(
+                            'jQueryParams' => array(
+                                'defaultDate' => date( 'Y/m/d' , time() ) ,
+                                'changeYear' => 'true'
+                            )
+                        )
         );
         $fechaFabricacion->setLabel( 'fecha de Fabricacion' );
-        $fechaFabricacion->setJQueryParam( 'dateFormat' , 'yy.mm.dd' );
+        $fechaFabricacion->loadDefaultDecorators();
+        $fechaFabricacion->setJQueryParam( 'dateFormat' , 'yy-mm-dd' );
         $fechaFabricacion->setRequired( true );
         $this->addElement( $fechaFabricacion );
 
+        $submit = new Zend_Form_Element_Button( 'submit' );
+        $submit->setLabel(
+                        $this->_translate->translate( 'Registrar' )
+                )
+                ->setAttrib(
+                        'class' , 'button'
+                )
+                ->setAttrib( 'type' , 'submit' )
+        ;
 
 
-        $this->addElement( 'submit' , 'Enviar' );
+
+        $this->addElement( $submit );
         }
 
 

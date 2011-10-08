@@ -1,0 +1,92 @@
+<h2> <?= $this->translate('mis busquedas guardadas') ?></h2>
+<table>
+    <tbody>
+        <?php foreach ($this->busquedas as $busqueda): ?>
+            <?php if (!empty($busqueda->palabras_busqueda)) { ?>
+                <tr>
+                    <td colspan ="3">
+                        <?= $this->translate("buscar por") ?>
+                        <?= $this->escape($busqueda->palabras_busqueda) ?>
+                    </td>
+                </tr>
+            <?php } ?>
+            <?php if (!empty($busqueda->modelo)) { ?>
+                <tr>
+                    <td colspan ="3">
+                        <?= $this->translate("modelo") ?>
+                        <?= $this->escape($busqueda->modelo) ?>
+                    </td>
+                </tr>
+            <?php } ?>
+            <tr>
+                <td colspan ="3">
+                    <?= $this->translate("fabricante") ?>
+                    <?= $this->escape($busqueda->fabricante) ?>
+                </td>
+            </tr>  
+            <tr>
+                <td colspan ="3">
+                    <?= $this->translate("desde") ?>
+                    <?= $this->escape($busqueda->anio_inicio) ?>
+                    <?= $this->translate("hasta") ?>
+                    <?= $this->escape($busqueda->anio_fin) ?>
+                </td>
+            </tr>  
+            <tr>
+                <td colspan ="3">
+                    <?= $this->translate("precio desde") ?>
+                    <?= $busqueda->precio_inicio ?>
+                    <?= $this->translate("hasta") ?>
+                    <?= $busqueda->precio_fin ?>
+                </td>
+            </tr>  
+            <tr>
+                <td>
+                    <?php
+                    $link = $this->url(array('module' => 'user',
+                        'controller' => 'busqueda',
+                        'action' => 'ver',
+                        'id' => $busqueda->id))
+                    ?>
+                    <a href="<?= $link ?>">
+                        <?= $this->translate("ver") ?>
+                    </a>    
+                </td>
+                <td>
+                    <?php
+                    $link = $this->url(array('module' => 'user',
+                        'controller' => 'busqueda',
+                        'action' => 'editar',
+                        'id' => $busqueda->id))
+                    ?>
+                    <a href="<?= $link ?>">
+                        <?= $this->translate("modificar") ?>
+                    </a>
+                </td>
+                <td>
+                    <?php
+                    $link = $this->url(array('module' => 'user',
+                        'controller' => 'busqueda',
+                        'action' => 'borrar',
+                        'id' => $busqueda->id))
+                    ?>
+                    <a href="<?= $link ?>" 
+                       onclick="return confirm('¿Estás seguro?')">>
+                        <?= $this->translate("borrar") ?>
+                    </a>
+                </td>
+            </tr>
+
+        <?php endforeach; ?>
+    </tbody>
+</table>
+<div>
+    <?php
+    $link = $this->url(array('module' => 'user',
+        'controller' => 'busqueda',
+        'action' => 'index'))
+    ?>
+    <a href="<?= $link ?>">
+        <?= $this->translate("nueva busqueda") ?>
+    </a>
+</div>

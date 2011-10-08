@@ -1,5 +1,3 @@
-
-
 <?php
 
 /*
@@ -144,7 +142,6 @@ class Mtt_Models_Bussines_Operacion
                             array( 'imagen' )
                 )
                 ->where( 'operacion.estadooperacion_id = ?' , $status )
-
                 ->group( 'operacion.id')
                 ->query()
         ;
@@ -171,19 +168,13 @@ class Mtt_Models_Bussines_Operacion
                     'fechapago'
                         )
                 )
-
-                 ->joinInner(
-                        'estadooperacion' ,
-                        'estadooperacion.id = operacion.estadooperacion_id' ,
-                        array(
-                    'estadooperacion' => 'estadooperacion.nombre'
-                        )
-                )
                 ->joinInner(
-                        'usuario' , 'usuario.id = operacion.usuario_id' ,
+                        'operacion_has_equipo' ,
+                        'operacion.id = operacion_has_equipo.operacion_id' ,
                         array(
-                    'usuario' => 'usuario.login' ,
-                    'usuario_id' => 'usuario.id'
+                    'precio' ,
+                    'cantidad' => 'operacion_has_equipo.cantidad' ,
+                    'equipo_id' => 'operacion_has_equipo.equipo_id'
                         )
                 )
                 ->joinInner(
@@ -203,6 +194,11 @@ class Mtt_Models_Bussines_Operacion
                     'totalpago'
                         )
                 )
+                ->joinInner( 'formapago' ,
+                             'equipo_has_formapago.formapago_id = formapago.id' ,
+                             array( 'formapago' => 'formapago.nombre'
+                        )
+                )
                 ->joinInner( 'equipo' ,
                              'operacion_has_equipo.equipo_id = equipo.id' ,
                              array( 'precio' => 'equipo.precioventa' ,
@@ -210,9 +206,9 @@ class Mtt_Models_Bussines_Operacion
                     'modelo'
                         )
                 )
-                ->joinLeft( 'imagen' ,
-                            'operacion_has_equipo.equipo_id = equipo.id' ,
-                            array( 'imagen' )
+                ->joinInner( 'imagen' ,
+                             'operacion_has_equipo.equipo_id = equipo.id' ,
+                             array( 'imagen' )
                 )
                 ->where( 'operacion.estadooperacion_id = ?' , $status )
                 ->where( 'operacion.usuario_id = ?' , $idUser )
@@ -223,7 +219,7 @@ class Mtt_Models_Bussines_Operacion
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
 
-
+        
     /**
      *
      * @param type $estado_operacion
@@ -293,7 +289,7 @@ class Mtt_Models_Bussines_Operacion
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
-
+        
         
         
     public function listByUser( $idUser )
@@ -521,7 +517,6 @@ class Mtt_Models_Bussines_Operacion
 
         return $query->fetchObject();
         }
-
 
 
     }

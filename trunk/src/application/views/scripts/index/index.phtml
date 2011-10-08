@@ -1,14 +1,3 @@
-<!--<script>
-// execute your scripts when the DOM is ready. this is mostly a good habit
-$(function() {
-
-    // initialize scrollable
-    alert($(".scrollable"));
-
-});
-</script>
--->
-
 <header>
     <img src="/theme/default/image/middle-header.png" alt="MedTechTrade"/>
     <h1>
@@ -16,36 +5,45 @@ $(function() {
     </h1>
 </header>
 <?
-Zend_Debug::dump( $this->country );
-
+//Zend_Debug::dump( $this->country );
+//
 ?>
-<p>MedTechTrade is a global trade association for technology manufacturers,
-    research institutions, allied professional services and development organizations
-    with shared interests in collaborative developing technologies, products and services
-    for the global medical products marketplace.
+<p>
+    <?= $this->translate( 'home-welcome-txt-p1' ) ?>
 </p>
 
-<p>Our goal is to enable and accelerate trading of medical devices
-    for companies and institutional organisation.</p>
+<p>
+    <?= $this->translate( 'home-welcome-txt-p2' ) ?>
+</p>
 
 <header>
-
     <h3><?= $this->translate( 'Top Offers' ) ?></h3>
 </header>
-<p>Our goal is to enable and accelerate trading of medical devices
-    form companies and institutional organisation</p>
 <div class="device-horizontal-list">
-<?php foreach ( $this->oferEquipo as $producto ): ?>
+    <?php foreach ( $this->oferEquipo as $producto ): ?>
         <div>
-            <img src="/media/catalog/product/device-00.png" alt="Device 00">
+            <a href="
+            <?=
+            $this->url(
+                    array(
+                'controller' => 'equipo' ,
+                'action' => 'ver' , 'id' => $producto->id
+                    ) , 'default' , true
+            )
+            ?>">
+
+                <img src="/media/catalog/product/device-00.png" 
+                     alt="<?= $producto->nombre ?>
+                     ">
+            </a>
             <span class="manufacturer">
-    <?= $this->translate( 'Manufacturer' ) ?>
+                <?= $this->translate( 'Manufacturer' ) ?>
                 : <?= $producto->fabricante ?>
             </span>
             <span class="name">
                 <?= $this->translate( 'Product name' ) ?>
                 : 
-    <?= $producto->nombre ?>
+                <?= $producto->nombre ?>
             </span>
             <a href="
             <?=
@@ -53,57 +51,57 @@ Zend_Debug::dump( $this->country );
                     array(
                 'controller' => 'equipo' ,
                 'action' => 'ver' , 'id' => $producto->id
-                    ) , null , true
+                    ) , 'default' , true
             )
             ?>">
                 <span>
-    <?= $this->translate( 'View details' ) ?>
+                    <?= $this->translate( 'View details' ) ?>
                 </span>
             </a>
         </div>
-<?php endforeach; ?>
+    <?php endforeach; ?>
 
 </div>
 
 <!--Agregando Datos-->
 
 <!-- "previous page" action -->
-<a class="prev browse left"></a>
+<!--<a class="prev browse left"></a>-->
 
 <!-- root element for scrollable -->
-<div class="scrollable">   
+<!--<div class="scrollable">   -->
 
-    <!-- root element for the items -->
-    <div class="items">
+<!-- root element for the items -->
+<!--    <div class="items">-->
 
-        <!-- 1-5 -->
-        <div>
+<!-- 1-5 -->
+<!--        <div>
             <img src="http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_t.jpg" />
             <img src="http://farm4.static.flickr.com/3089/2796719087_c3ee89a730_t.jpg" />
             <img src="http://farm1.static.flickr.com/79/244441862_08ec9b6b49_t.jpg" />
             <img src="http://farm1.static.flickr.com/28/66523124_b468cf4978_t.jpg" />
-        </div>
+        </div>-->
 
-        <!-- 5-10 -->
-        <div>
+<!-- 5-10 -->
+<!--        <div>
             <img src="http://farm1.static.flickr.com/163/399223609_db47d35b7c_t.jpg" />
             <img src="http://farm1.static.flickr.com/135/321464104_c010dbf34c_t.jpg" />
             <img src="http://farm1.static.flickr.com/40/117346184_9760f3aabc_t.jpg" />
             <img src="http://farm1.static.flickr.com/153/399232237_6928a527c1_t.jpg" />
-        </div>
+        </div>-->
 
-        <!-- 10-15 -->
-        <div>
+<!-- 10-15 -->
+<!--        <div>
             <img src="http://farm4.static.flickr.com/3629/3323896446_3b87a8bf75_t.jpg" />
             <img src="http://farm4.static.flickr.com/3023/3323897466_e61624f6de_t.jpg" />
             <img src="http://farm4.static.flickr.com/3650/3323058611_d35c894fab_t.jpg" />
             <img src="http://farm4.static.flickr.com/3635/3323893254_3183671257_t.jpg" />
-        </div>
+        </div>-->
 
-    </div>
+<!--    </div>-->
 
-</div>
+<!--</div>-->
 
 <!-- "next page" action -->
-<a class="next browse right"></a>
+<!--<a class="next browse right"></a>-->
 <!--fin de Datos-->

@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>jQuery Tooltip by unijimpe </title>
+<style type="text/css">
+body {
+	font-family: "Trebuchet MS", Verdana, Arial;
+	font-size: 12px;
+	color: #777777;
+	background-color: #F6FAFA;
+}
+#tooltip {
+	background-color: #CCCCCC;
+	border: 1px solid #888888;
+	color: #333333;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-left: 10px;
+	padding-right: 10px;
+	-moz-border-radius-bottomleft: 7px;
+	-moz-border-radius-bottomright: 7px;
+	-moz-border-radius-topleft: 0;
+	-moz-border-radius-topright: 7px;
+	max-width: 20em;
+	line-height: 12px;
+}
+#tooltip h3 {
+	font-size: 1.1em;
+    margin: 0;
+	padding: 0 3px;
+	text-align: left !important;
+}
+#tooltip p {
+	font-size: 0.95em;
+	margin: 5px 0 0 5px;
+	text-align: left;
+}
+</style>
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.0.2/jquery.min.js"></script>
+
+<script src="jquery.tooltip.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function() {
+	// modify global settings
+	$.extend($.fn.Tooltip.defaults, {
+		track: true,
+		delay: 0,
+		showURL: false,
+		showBody: " - "
+	});
+	$('a, input, img').Tooltip();
+});
+</script>
+
+</head>
+<body>
+<h3>jQuery Tooltip by unijimpe </h3>
+<p>Esta es una prueba de jQuery Tooltip<br /> 
+creada por unijimpe:</p>
+<ol>
+  <li><a href="http://www.google.com" title="Google - http://www.google.com">Google</a></li>
+  <li><a href="http://blog.unijimpe.net" title="unijimpe - http://blog.unijimpe.net">unijimpe</a>  </li>
+</ol>
+</body>
+</html>
