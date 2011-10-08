@@ -27,7 +27,14 @@ class Mtt_Models_Bussines_Categoria
         $db = $this->getAdapter();
 
         $query = $db->select()
-                ->from( 'equipo' , array( 'id' , 'nombre' , 'modelo' ) )
+                ->from(
+                        'equipo' ,
+                        array(
+                    'id' ,
+                    'nombre' ,
+                    'modelo' ,
+                    'slug' )
+                )
                 ->joinInner( $this->_name ,
                              'categoria.id = equipo.categoria_id ' ,
                              array( 'categoria.nombre as categoria' )
@@ -97,88 +104,87 @@ class Mtt_Models_Bussines_Categoria
         $db = $this->getAdapter();
 
         $query = $db->select()
-        ->from( $this->_name )
-        ->where( 'active IN (?)' , self::ACTIVE )
-        ->query();
+                ->from( $this->_name )
+                ->where( 'active IN (?)' , self::ACTIVE )
+                ->query();
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
 
 
-
-public function getCategoria( $id )
-{
-$db = $this->getAdapter();
-$query = $db->select()
-->from( $this->_name )
-->where( 'id IN (?)' , $id )
-->where( 'active = ?' , '1' )
-->query()
-;
-return $query->fetchObject();
-}
-
-
-public function getCategoriaBySlug( $slug )
-{
-$db = $this->getAdapter();
-$query = $db->select()
-        ->from( $this->_name )
-        ->where( 'slug IN (?)' , $slug )
-        ->where( 'active = ?' , self::ACTIVE )
-        ->query()
-;
-return $query->fetchObject();
-}
+    public function getCategoria( $id )
+        {
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from( $this->_name )
+                ->where( 'id IN (?)' , $id )
+                ->where( 'active = ?' , '1' )
+                ->query()
+        ;
+        return $query->fetchObject();
+        }
 
 
-public function updateCategoria( array $data , $id )
-{
-
-$this->update( $data , 'id = ' . $id );
-}
-
-
-public function saveCategoria( array $data )
-{
-
-$slug = new Mtt_Filter_Slug( array(
-            'field' => 'slug' ,
-            'model' => $this
-                ) );
-
-$dataNew = array(
-    'slug' => $slug->filter( $data['title'] )
-);
-
-$data = array_merge( $dataNew , $data );
-$this->insert( $data );
-}
+    public function getCategoriaBySlug( $slug )
+        {
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from( $this->_name )
+                ->where( 'slug IN (?)' , $slug )
+                ->where( 'active = ?' , self::ACTIVE )
+                ->query()
+        ;
+        return $query->fetchObject();
+        }
 
 
-public function deleteCategoria( $id )
-{
+    public function updateCategoria( array $data , $id )
+        {
 
-$this->delete( 'id = ?' , $id );
-}
-
-
-public function activarCategoria( $id )
-{
-
-$this->update( array(
-    "active" => self::ACTIVE )
-        , 'id = ' . $id );
-}
+        $this->update( $data , 'id = ' . $id );
+        }
 
 
-public function desactivarCategoria( $id )
-{
+    public function saveCategoria( array $data )
+        {
 
-$this->update( array(
-    "active" => self::DESACTIVATE )
-        , 'id = ' . $id );
-}
+        $slug = new Mtt_Filter_Slug( array(
+                    'field' => 'slug' ,
+                    'model' => $this
+                        ) );
+
+        $dataNew = array(
+            'slug' => $slug->filter( $data['title'] )
+        );
+
+        $data = array_merge( $dataNew , $data );
+        $this->insert( $data );
+        }
 
 
-}
+    public function deleteCategoria( $id )
+        {
+
+        $this->delete( 'id = ?' , $id );
+        }
+
+
+    public function activarCategoria( $id )
+        {
+
+        $this->update( array(
+            "active" => self::ACTIVE )
+                , 'id = ' . $id );
+        }
+
+
+    public function desactivarCategoria( $id )
+        {
+
+        $this->update( array(
+            "active" => self::DESACTIVATE )
+                , 'id = ' . $id );
+        }
+
+
+    }

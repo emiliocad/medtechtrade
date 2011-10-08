@@ -23,8 +23,8 @@ class Mtt_Controller_Plugin_Routes
                     'equipment/:slug' ,
                     array(
                         'module' => 'default' ,
-                        'controller' => 'test' ,
-                        'action' => 'slugequipment' ,
+                        'controller' => 'equipo' ,
+                        'action' => 'ver' ,
                         'slug' => ':slug'
                     )
             ) ,

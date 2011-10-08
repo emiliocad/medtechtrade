@@ -11,6 +11,32 @@ class Mtt_Models_Bussines_Equipo
     {
 
 
+    public function getEquipmentBySlug( $slug )
+        {
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from( $this->_name )
+                ->where( 'slug IN (?)' , $slug )
+                ->where( 'active = ?' , self::ACTIVE )
+                ->query()
+        ;
+        return $query->fetchObject();
+        }
+
+
+    public function listar()
+        {
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from( $this->_name )
+                ->where( 'active = ?' , self::ACTIVE )
+                ->query()
+        ;
+
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }
+
+
     /**
      *
      * @param type $id 
@@ -136,7 +162,7 @@ class Mtt_Models_Bussines_Equipo
         $db = $this->getAdapter();
 
         $query = $db->select()
-                ->from( $this->_name , array( 'id' , 'nombre' ) )
+                ->from( $this->_name , array( 'id' , 'nombre' , 'slug' ) )
                 ->joinInner( 'categoria' ,
                              'categoria.id = equipo.categoria_id ' ,
                              array( 'categoria.nombre as categoria' )
@@ -197,7 +223,14 @@ class Mtt_Models_Bussines_Equipo
         $db = $this->getAdapter();
 
         $query = $db->select()
-                ->from( $this->_name , array( 'id' , 'nombre' , 'topofers' ) )
+                ->from(
+                        $this->_name ,
+                        array(
+                    'id' ,
+                    'nombre' ,
+                    'topofers' ,
+                    'slug' )
+                )
                 ->joinInner( 'categoria' ,
                              'categoria.id = equipo.categoria_id ' ,
                              array( 'categoria.nombre as categoria' )

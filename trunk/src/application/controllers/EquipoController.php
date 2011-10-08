@@ -1,4 +1,6 @@
 <?php
+
+
 /**
  * 
  */
@@ -40,10 +42,12 @@ class EquipoController
 
     public function verAction()
         {
-        //$this->_helper->layout->disableLayout();
-        //$this->_helper->viewRenderer->setNoRender();
+//$this->_helper->layout->disableLayout();
+//$this->_helper->viewRenderer->setNoRender();
 
-        $id = ( int ) ( $this->_getParam( 'id' , null ) );
+        $slug = ( $this->_getParam( 'slug' , null ) );
+
+        $id = $this->_equipo->getEquipmentBySlug( $slug )->id;
 
         $this->view
                 ->headScript()
@@ -78,7 +82,7 @@ class EquipoController
                 'producto' , $this->_equipo->getProduct( $id )
         );
 
-        //$this->view->venta = $this->_venta->fetchRow( 'id = ' . $id )->toArray();
+//$this->view->venta = $this->_venta->fetchRow( 'id = ' . $id )->toArray();
         $html = $this->view->render( 'equipo/ver.phtml' );
 
         require_once(APPLICATION_PATH . "/../library/Dompdf/dompdf_config.inc.php");
