@@ -60,6 +60,24 @@ class Mtt_Models_Bussines_Usuario
         }
 
 
+    /**
+     *
+     * @param type $checkMail 
+     */
+    public function getByValidacionEmail( $checkMail )
+        {
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from( $this->_name
+                )
+                ->where( 'active IN (?)' , self::DESACTIVATE )
+                ->where( 'activacion IN (?)' , $checkMail )
+                ->query();
+
+        return $query->fetchObject();
+        }
+
+
     public function getPaginator()
         {
         $p = Zend_Paginator::factory( $this->fetchAll() );
@@ -157,6 +175,9 @@ class Mtt_Models_Bussines_Usuario
             ) ,
             "ultimavisita" => Zend_Date::now()->toString(
                     "YYYY-MM-dd hh-mm-ss"
+            ) ,
+            "activacion" => Mtt_Auth_Adapter_DbTable_Mtt::generatePassword(
+                    $data["login"]
             )
         );
 
@@ -210,6 +231,21 @@ class Mtt_Models_Bussines_Usuario
         }
 
 
+    public function activeUsuario( $validacion )
+        {
+        $data = $this->getByValidacionEmail( $validacion );
+        if ( isset( $data ) && !is_null( $data ) && is_object( $data ) )
+            {
+            $this->updateUsuario(
+                    array( 'active' => self::ACTIVE )
+                    , $data->id
+            );
+            return $data;
+            }
+        return false;
+        }
+
+
     public function changePassword( $id , $password )
         {
 
@@ -246,21 +282,11 @@ class Mtt_Models_Bussines_Usuario
         );
 
 
-//        Mtt_Html_Mail_Mailer::setDefaultFrom();
-
-
+        Mtt_Html_Mail_Mailer::setDefaultFrom();
         Zend_Mail::setDefaultFrom(
                 $confMail['username'] , $confMail['data']
         );
         Zend_Mail::setDefaultTransport( $mailTransport );
-
-//        Zend_Mail::setDefaultFrom(
-//                $confMail['username'] , $confMail['data']
-//        );
-
-        Zend_Mail::setDefaultFrom(
-                $confMail['username'] , $confMail['data']
-        );
 
         Zend_Mail::setDefaultReplyTo(
                 $confMail['username'] , $confMail['data']
@@ -273,6 +299,12 @@ class Mtt_Models_Bussines_Usuario
         $m->setViewParam( 'usuario' , $dataUser )
                 ->setViewParam( 'login' , $data['login'] )
                 ->setViewParam( 'clave' , $data['clave'] )
+                ->setViewParam(
+                        'enlace' ,
+                        Mtt_Auth_Adapter_DbTable_Mtt::generatePassword(
+                                $data['login']
+                        )
+        );
         ;
         $m->sendHtmlTemplate( "index.phtml" );
         }
@@ -362,6 +394,90 @@ class Mtt_Models_Bussines_Usuario
         return $query->fetchObject();
         }
 
+
+
+    /**
+     * para enviar correo de autorizacion
+     * @param array $data
+     * @param string $subject
+     */
+    public function sendMailToAdmin( array $data , $subject )
+        {
+        $_conf = new Zend_Config_Ini(
+                        APPLICATION_PATH . '/configs/mail.ini'
+        );
+
+
+        $confMail = $_conf->toArray();
+
+        $config = array(
+            'auth' => $confMail['auth'] ,
+            'username' => $confMail['username'] ,
+            'password' => $confMail['password'] ,
+            'port' => $confMail['port'] );
+
+        $mailTransport = new Zend_Mail_Transport_Smtp(
+                        $confMail['smtp'] ,
+                        $config
+        );
+
+        //Mtt_Html_Mail_Mailer::setDefaultFrom();
+        Zend_Mail::setDefaultFrom(
+                $confMail['username'] , $confMail['data']
+        );
+        Zend_Mail::setDefaultTransport( $mailTransport );
+//        Zend_Mail::setDefaultFrom(
+//                $confMail['username'] , $confMail['data']
+//        );
+        Zend_Mail::setDefaultReplyTo(
+                $data['email'] , $confMail['data']
+        );
+        $m = new Mtt_Html_Mail_Mailer();
+        $m->setSubject( $data['asunto'] );
+
+        $m->addTo( $confMail['administrator'] );
+
+        $m->setViewParam( 'usuario' , $data['nombre'] )
+                ->setViewParam( 'email' , $data['email'] )
+                ->setViewParam( 'comentario' , $data['comentario'] )
+        ;
+        $m->sendHtmlTemplate( "contacttoadmin.phtml" );
+        }
+
+
+    /**
+     *
+     * @param type $login
+     * @return type 
+     */
+    public function getByRol( $login )
+        {
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from( $this->_name ,
+                        array(
+                    'id' ,
+                    'nombre' ,
+                    'apellido' ,
+                    'email' ,
+                    'login' ,
+                    'clave' ,
+                    'active'
+                        )
+                )
+                ->joinInner( 'tipousuario' ,
+                             'tipousuario.id = usuario.tipousuario_id' ,
+                             array(
+                    'rol' => 'nombre'
+                        )
+                )
+                ->where( 'usuario.active =?' , self::ACTIVE )
+                ->where( 'usuario.login =?' , $login )
+                ->query()
+        ;
+
+        return $query->fetchObject();
+        }
 
 
     }

@@ -58,3 +58,23 @@
 2011-10-05T10:43:55-05:00 INFO (6): Se Aplico el Delta 6
 2011-10-05T10:43:56-05:00 INFO (6): Se Aplico el Delta 7
 2011-10-05T10:43:56-05:00 INFO (6): ===== Sync Ends =====
+2011-10-07T17:25:26-05:00 INFO (6): ===== Sync Starts =====
+2011-10-07T17:25:26-05:00 INFO (6): ===== Sync Ends =====
+2011-10-07T17:25:37-05:00 INFO (6): ===== Sync Starts =====
+2011-10-07T17:25:37-05:00 INFO (6): ===== Sync Ends =====
+2011-10-07T17:27:22-05:00 INFO (6): ===== Sync Starts =====
+2011-10-07T17:27:23-05:00 INFO (6): Se Aplico el Delta 7
+2011-10-07T17:27:23-05:00 INFO (6): ===== Sync Ends =====
+2011-10-08T07:19:14-05:00 INFO (6): ===== Sync Starts =====
+2011-10-08T07:19:14-05:00 INFO (6): Se Aplico el Delta 1
+2011-10-08T07:20:43-05:00 INFO (6): ===== Sync Starts =====
+2011-10-08T07:20:44-05:00 INFO (6): Se Aplico el Delta 3
+2011-10-08T07:20:44-05:00 INFO (6): Se Aplico el Delta 4
+2011-10-08T07:20:45-05:00 INFO (6): Se Aplico el Delta 5
+2011-10-08T07:20:45-05:00 INFO (6): Se Aplico el Delta 6
+2011-10-08T07:20:45-05:00 INFO (6): Se Aplico el Delta 7
+2011-10-08T07:20:46-05:00 INFO (6): Se Aplico el Delta 8
+2011-10-08T07:20:46-05:00 INFO (6): ===== Sync Ends =====
+2011-10-08T07:35:12-05:00 INFO (6): ===== Sync Starts =====
+2011-10-08T07:35:12-05:00 INFO (6): Se Aplico el Delta 9
+2011-10-08T07:35:12-05:00 INFO (6): ===== Sync Ends =====

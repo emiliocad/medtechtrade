@@ -6,7 +6,7 @@ class Delta_0007
     {
 
     protected $_author = "Luis Alberto Mayta Mamani";
-    protected $_desc = "Agregando CAmbios A la 
+    protected $_desc = "Agregando Cambios A la 
         Tabla Moneda para Google Finance";
 
 

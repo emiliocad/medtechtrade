@@ -28,13 +28,10 @@
         <div>
             <a href="
             <?=
-            $this->url( array( 'module' => 'default' ,
-                'controller' => 'equipo' ,
-                'action' => 'ver' ,
-                'id' => $producto->id ) , null , true )
+            $this->url( array(
+                'slug' => $producto->slug ) , 'slugEquipment' , true )
             ?>
-               " title="<?= $producto->nombre ?>">
-
+               " title="<?= $producto->slug ?>">
                 <img src="/media/catalog/product/device-00.png" 
 
 
@@ -51,17 +48,12 @@
                 <?= $this->translate( 'Product name' ) ?>: 
                 <?= $producto->nombre ?>
             </span>
-
             <a href="
             <?=
-            $this->url( array( 'module' => 'default' ,
-                'controller' => 'equipo' ,
-                'action' => 'ver' ,
-                'id' => $producto->id ) , null , true )
+            $this->url( array(
+                'slug' => $producto->slug ) , 'slugEquipment' , true )
             ?>
-               "
-               title="<?= $producto->nombre ?>"
-               >
+               " title="<?= $producto->slug ?>">
                 <span>
                     <?= $this->translate( 'View details' ) ?>
                 </span>

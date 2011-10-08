@@ -11,6 +11,32 @@ class Mtt_Models_Bussines_Equipo
     {
 
 
+    public function getEquipmentBySlug( $slug )
+        {
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from( $this->_name )
+                ->where( 'slug IN (?)' , $slug )
+                ->where( 'active = ?' , self::ACTIVE )
+                ->query()
+        ;
+        return $query->fetchObject();
+        }
+
+
+    public function listar()
+        {
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from( $this->_name )
+                ->where( 'active = ?' , self::ACTIVE )
+                ->query()
+        ;
+
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }
+
+
     /**
      *
      * @param type $id 
@@ -136,7 +162,7 @@ class Mtt_Models_Bussines_Equipo
         $db = $this->getAdapter();
 
         $query = $db->select()
-                ->from( $this->_name , array( 'id' , 'nombre' ) )
+                ->from( $this->_name , array( 'id' , 'nombre' , 'slug' ) )
                 ->joinInner( 'categoria' ,
                              'categoria.id = equipo.categoria_id ' ,
                              array( 'categoria.nombre as categoria' )
@@ -159,7 +185,7 @@ class Mtt_Models_Bussines_Equipo
      *
      * @return type Object
      */
-    public function getProductsOfersAll( $limit = 0  )
+    public function getProductsOfersAll( $limit = 0 )
         {
 
         $db = $this->getAdapter();
@@ -197,7 +223,14 @@ class Mtt_Models_Bussines_Equipo
         $db = $this->getAdapter();
 
         $query = $db->select()
-                ->from( $this->_name , array( 'id' , 'nombre' , 'topofers' ) )
+                ->from(
+                        $this->_name ,
+                        array(
+                    'id' ,
+                    'nombre' ,
+                    'topofers' ,
+                    'slug' )
+                )
                 ->joinInner( 'categoria' ,
                              'categoria.id = equipo.categoria_id ' ,
                              array( 'categoria.nombre as categoria' )
@@ -356,26 +389,32 @@ class Mtt_Models_Bussines_Equipo
         );
         return $object;
         }
-        
-        
-    public function pagListResultSearch(  $keywords , 
-                $modelo , $fabricante , $categoria , $anioInicial , 
-                $anioFinal , $precioInicial , $precioFinal )
+
+
+    public function pagListResultSearch( $keywords , $modelo , $fabricante ,
+                                         $categoria , $anioInicial ,
+                                         $anioFinal , $precioInicial ,
+                                         $precioFinal )
         {
         $_conf = new Zend_Config_Ini(
-                        APPLICATION_PATH . '/configs/myConfigUser.ini' , 
-                'paginator'
+                        APPLICATION_PATH . '/configs/myConfigUser.ini' ,
+                        'paginator'
         );
         $data = $_conf->toArray();
 
-        $object = Zend_Paginator::factory( $this->searchEquip( $keywords , 
-                $modelo , $fabricante , $categoria , $anioInicial , 
-                $anioFinal , $precioInicial , $precioFinal ) );
+        $object = Zend_Paginator::factory( $this->searchEquip( $keywords ,
+                                                               $modelo ,
+                                                               $fabricante ,
+                                                               $categoria ,
+                                                               $anioInicial ,
+                                                               $anioFinal ,
+                                                               $precioInicial ,
+                                                               $precioFinal ) );
         $object->setItemCountPerPage(
                 $data['ItemCountPerPage']
         );
         return $object;
-        }        
+        }
 
 
     public function listEquipByUser( $idUser )
@@ -685,28 +724,28 @@ class Mtt_Models_Bussines_Equipo
         $m = new Mtt_Html_Mail_Mailer();
         $m->setSubject( $data['asunto'] );
 
-        $m->addTo( 'tj.chunga@gmail.com'  );
-        
-        if($data['toemail'] == 1){
-            $m->addTo( $data['email']  );
-        }
+        $m->addTo( 'tj.chunga@gmail.com' );
+
+        if ( $data['toemail'] == 1 )
+            {
+            $m->addTo( $data['email'] );
+            }
 
         $m->setViewParam( 'usuario' , $data['nombre'] )
                 ->setViewParam( 'organizacion' , $data['organizacion'] )
-                ->setViewParam( 'direccion' , $data['direccion'] )                
+                ->setViewParam( 'direccion' , $data['direccion'] )
                 ->setViewParam( 'codpostal' , $data['codpostal'] )
                 ->setViewParam( 'ciudad' , $data['ciudad'] )
                 ->setViewParam( 'pais' , $data['pais'] )
                 ->setViewParam( 'mensaje' , $data['mensaje'] )
-                ->setViewParam('equipo', $data['equipo'])
-                
+                ->setViewParam( 'equipo' , $data['equipo'] )
+
         ;
-        
+
         $m->sendHtmlTemplate( "request.phtml" );
-        }        
-        
-        
-         
+        }
+
+
     public function updateEquipo( array $data , $id )
         {
 
@@ -716,6 +755,16 @@ class Mtt_Models_Bussines_Equipo
 
     public function saveEquipo( array $data )
         {
+        $slug = new Mtt_Filter_Slug( array(
+                    'field' => 'slug' ,
+                    'model' => $this
+                        ) );
+
+        $dataNew = array(
+            'slug' => $slug->filter( $data['nombre'] )
+        );
+
+        $data = array_merge( $dataNew , $data );
 
         $this->insert( $data );
         }

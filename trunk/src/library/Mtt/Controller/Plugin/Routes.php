@@ -5,6 +5,7 @@ class Mtt_Controller_Plugin_Routes
         extends Zend_Controller_Plugin_Abstract
     {
 
+
     public function routeStartup( Zend_Controller_Request_Abstract $request )
         {
 
@@ -16,17 +17,15 @@ class Mtt_Controller_Plugin_Routes
                         'controller' => 'categoria' ,
                         'action' => 'ver' ,
                         'slug' => ':slug'
-
                     )
             ) ,
             'slugEquipment' => new Zend_Controller_Router_Route(
                     'equipment/:slug' ,
                     array(
                         'module' => 'default' ,
-                        'controller' => 'test' ,
-                        'action' => 'slugequipment' ,
+                        'controller' => 'equipo' ,
+                        'action' => 'ver' ,
                         'slug' => ':slug'
-
                     )
             ) ,
             'login' => new Zend_Controller_Router_Route(
@@ -34,6 +33,22 @@ class Mtt_Controller_Plugin_Routes
                     array(
                         'module' => 'default' ,
                         'controller' => 'usuario' ,
+                        'action' => 'index'
+                    )
+            ) ,
+            'emailCheck' => new Zend_Controller_Router_Route(
+                    'emailcheck/:validacion' ,
+                    array(
+                        'module' => 'default' ,
+                        'controller' => 'usuario' ,
+                        'action' => 'emailcheck'
+                    )
+            ),
+            'buyEquipment' => new Zend_Controller_Router_Route(
+                    'buy-equipment' ,
+                    array(
+                        'module' => 'default' ,
+                        'controller' => 'equipo' ,
                         'action' => 'index'
                     )
             )

@@ -32,13 +32,10 @@
 
         <div>
 
-
             <a href="
             <?=
-            $this->url( array( 'module' => 'default' ,
-                'controller' => 'equipo' ,
-                'action' => 'ver' ,
-                'id' => $producto->id ) , 'default' , true )
+            $this->url( array(
+                'slug' => $producto->slug ) , 'slugEquipment' , true )
             ?>
                ">
 
@@ -59,10 +56,8 @@
 
             <a href="
             <?=
-            $this->url( array( 'module' => 'default' ,
-                'controller' => 'equipo' ,
-                'action' => 'ver' ,
-                'id' => $producto->id ) , 'default' , true )
+            $this->url( array(
+                'slug' => $producto->slug ) , 'slugEquipment' , true )
             ?>
                ">
                 <span>
@@ -94,10 +89,8 @@
 
             <a href="
             <?=
-            $this->url( array( 'module' => 'default' ,
-                'controller' => 'equipo' ,
-                'action' => 'ver' ,
-                'id' => $producto->id ) , 'default' , true )
+            $this->url( array(
+                'slug' => $producto->slug ) , 'slugEquipment' , true )
             ?>
                ">
                 <img src="/media/catalog/product/device-00.png" 
@@ -115,13 +108,10 @@
             </span>
             <a href="
             <?=
-            $this->url(
-                    array(
-                'controller' => 'equipo' ,
-                'action' => 'ver' , 'id' => $producto->id
-                    ) , 'default' , true
-            )
-            ?>">
+            $this->url( array(
+                'slug' => $producto->slug ) , 'slugEquipment' , true )
+            ?>
+               ">
                 <span>
                     <?= $this->translate( 'View details' ) ?>
                 </span>
