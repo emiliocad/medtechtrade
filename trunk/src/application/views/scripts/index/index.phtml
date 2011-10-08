@@ -26,11 +26,10 @@
             <?=
             $this->url(
                     array(
-                'controller' => 'equipo' ,
-                'action' => 'ver' , 'id' => $producto->id
-                    ) , 'default' , true
+                'slug' => $producto->slug ) , 'slugEquipment' , true
             )
-            ?>">
+            ?>
+               " title="<?= $producto->slug ?>">
 
                 <img src="/media/catalog/product/device-00.png" 
                      alt="<?= $producto->nombre ?>
@@ -49,11 +48,11 @@
             <?=
             $this->url(
                     array(
-                'controller' => 'equipo' ,
-                'action' => 'ver' , 'id' => $producto->id
-                    ) , 'default' , true
+                'slug' => $producto->slug
+                    ) , 'slugEquipment' , true
             )
-            ?>">
+            ?>
+               " title="<?= $producto->slug ?>">
                 <span>
                     <?= $this->translate( 'View details' ) ?>
                 </span>
