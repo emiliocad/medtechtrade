@@ -16,16 +16,22 @@ class Admin_PreguntaController
 
     public function indexAction()
         {
-        $this->view->jQuery()
-                ->addStylesheet(
-                        $this->view->baseUrl().'/css/reserva.css'
-        );
         $this->view->assign(
                 'preguntas' , $this->_pregunta->listar(
                 )
         );
         }
 
+        
+
+    public function questionunresolvedAction()
+        {
+        $this->view->assign(
+                'preguntas' , $this->_pregunta->listQuestionUnresolved(
+                )
+        );
+        }
+        
 
     public function borrarAction()
         {

@@ -150,7 +150,31 @@ class Mtt_Models_Bussines_Pregunta
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }        
         
-        
+  
+    public function listQuestionUnresolved()
+        {
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from( $this->_name ,
+                        array( 'id' ,
+                        'equipo_id',
+                        'usuario_id',
+                        'asunto',
+                        'formulacion', 
+                        'fechaFormulacion',
+                        'fechaRespuesta', 
+                        'respuesta',
+                        'estado',
+                        'active')
+                )
+                ->where( 'active = ?' , self::ACTIVE )
+                ->where( 'estado = ?' , 
+                        Mtt_Models_Table_Pregunta::PreguntaNoResulta )
+                ->query()
+        ;
+
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }           
 
     public function updatePregunta( array $data , $id )
         {
