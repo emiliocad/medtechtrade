@@ -12,6 +12,7 @@
                 ->appendStylesheet( '/css/grid-960/styles/960.css' )
                 ->appendStylesheet( '/theme/admin/css/styleNew.css' )
                 ->appendStylesheet( '/theme/admin/css/form.css' )
+                ->appendStylesheet( '/css/style-menu.css' )
         ;
         ?>
 
@@ -45,6 +46,9 @@
                 ->appendFile(
                         '/js/CookieJS.js'
                 )
+                ->appendFile(
+                        '/theme/admin/js/menuNew.js'
+                )
         ;
         ?> 
     </head>
@@ -71,10 +75,12 @@
                     <div id="nav" class="container_16">
 
                         <div class="grid_14 alpha">
-                            <ul>
+                            <ul id="jsddm">
                                 <li><a href="">
                                         DESK 
-                                    </a></li>
+                                    </a>
+                                <?= $this->render( 'navegacion/_desk.phtml' ); ?>
+                                </li>
                                 <li><a href="">USER </a></li>
                                 <li><a href="">EQUIPMENT </a></li>
                                 <li><a href="">QUESTIONS </a></li>
