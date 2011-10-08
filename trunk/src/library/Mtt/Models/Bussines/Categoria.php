@@ -105,8 +105,6 @@ class Mtt_Models_Bussines_Categoria
         }
 
 
-    }
-
 
 public function getCategoria( $id )
 {
