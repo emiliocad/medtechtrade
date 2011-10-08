@@ -1,5 +1,5 @@
 <?
-$categorias = array(
+$arrayCategorias = array(
     'others' => $this->translate( 'others' ) ,
     'apparatus-general-lab' => $this->translate( 'apparatus-general-lab' ) ,
     'cardio-devices' => $this->translate( 'cardio-devices' ) ,
@@ -39,7 +39,7 @@ $categorias = array(
             )
             ?>">
                 <span>
-                    <?= $this->escape( $categoria->title ) ?>
+                    <?= $arrayCategorias[$categoria->slug]; ?>
                 </span>
 
             </a>
