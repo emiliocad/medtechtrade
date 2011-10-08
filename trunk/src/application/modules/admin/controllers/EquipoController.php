@@ -43,9 +43,26 @@ class Admin_EquipoController
         //$this->_equipo->get
         }
 
-    public function equipforactiveAction()
+    public function activaequiposAction()
         {
-        
+        $form = new Mtt_Form_ActivarEquipo();
+        $this->view->assign( 'frmActivarEquipo' , $form );
+
+        if ( $this->_request->isPost()
+                &&
+                $form->isValid( $this->_request->getPost() ) )
+            {
+
+            /*$usuarios = $form->getValues();
+            $ids = $usuarios['usuarios'];
+
+            foreach ( $ids as $item )
+                {
+                $this->_user->habilitarUsuario( $item );
+                }
+
+            $this->_redirect( $this->URL );*/
+            }
         }        
         
         
