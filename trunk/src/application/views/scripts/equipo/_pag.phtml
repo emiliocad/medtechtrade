@@ -26,7 +26,7 @@
             <? foreach ( $this->pagesInRange as $page ): ?>
                 <? if ( $page != $this->current ): ?>
                     <a href="<?= $this->url( array( 'page' => $page ) ); ?>">
-                <?= $page; ?>
+                        <?= $page; ?>
                     </a>
                     <?= $this->last == $page
                                         ? '' : '|' ?>
@@ -56,13 +56,13 @@
                 }
             ?>
         </div>
-<?php
-    }
-else
-    {
-    echo "&nbsp;&nbsp; - No hay Resultados -";
-    }
-?>
+        <?php
+        }
+    else
+        {
+        echo "&nbsp;&nbsp; - $this->translate('no hay Resultados') -";
+        }
+    ?>
 </div>
 
 <script type="text/javascript">
