@@ -43,7 +43,10 @@ class Admin_EquipoController
         //$this->_equipo->get
         }
 
+    public function equipforactiveAction()
+        {
         
+        }        
         
         
     public function questionAction()
