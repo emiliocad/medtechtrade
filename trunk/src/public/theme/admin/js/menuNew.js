@@ -1,10 +1,16 @@
-$(function() {
-    if ($.browser.msie && $.browser.version.substr(0,1)<7)
-    {
-        $('li').has('ul').mouseover(function(){
-            $(this).children('ul').show();
-        }).mouseout(function(){
-            $(this).children('ul').hide();
-        })
-    }
+function mainmenu(){
+    $(" .drospdown ul ").css({
+        display: "none"
+    }); // Opera Fix
+    $(" .drospdown li").hover(function(){
+        $(this).find('ul:first').css({
+            visibility: "visible",
+            display: "none"
+        }).slideDown(400);
+    },function(){
+        $(this).find('ul:first').slideUp(400);
+    });
+}
+$(document).ready(function(){ 
+    mainmenu();
 });

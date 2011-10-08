@@ -3,7 +3,7 @@ body{
     font-size: 12px;
     letter-spacing: 0px;
 
-    /*background-image: url(Dashboard.png);*/
+    background-image: url(Dashboard.png);
     background-repeat: no-repeat;
     background-position: center top;
 }
