@@ -7,7 +7,11 @@
     <div>
         <table border="1">
             <tbody>
-
+                <tr>
+                    <td>
+                        <?= $this->escape($result->equipo) ?>
+                    </td>
+                </tr>
                 <tr>
                     <td>
                         <?= $this->escape($result->fabricante) ?>
@@ -52,6 +56,6 @@
 
 <?=
 $this->paginationControl(
-        $this->resultados , 'Sliding' , 'busqueda/_pag.phtml'
+        $this->resultados, 'Sliding', 'busqueda/_pag.phtml'
 );
 ?>

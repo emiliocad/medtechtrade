@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
      var id = readCookie('tabVisible');
      $("#sections-buttons-top #"+id).addClass("selected");
@@ -17,5 +16,4 @@ $(document).ready(function(){
 
 function fnSelected(id){
     createCookie('tabVisible',id,1);
-   
-}
+}   

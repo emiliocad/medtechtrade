@@ -25,4 +25,13 @@
     <?= $this->translate( 'password' ) ?>  - <?= $this->password; ?>
 </p>
 
+<p>
+    <?= $this->translate( 'ingresar a este url para poder validar su correo' ); ?>
+</p>
+<p>
+    <a href="http://medtechtrade.zend.local/emailcheck/<?= $this->enlace ?>" >
+        <?= $this->translate('validar Email') ?>
+    </a>
+</p>
+
 

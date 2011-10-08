@@ -1,0 +1,180 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0px;
+
+    /*background-image: url(Dashboard.png);*/
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+
+
+/*cambios*/
+
+a {
+    font-weight: bold;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+#backHeader {
+    background-color: #E6E6E6;
+}
+
+#backFooter{
+    background-color: #E6E6E6;
+    border-style: solid;
+    border-width: 1px;
+    color: #CCCCCC;
+}
+
+#footer {
+    height: 50px;
+
+
+    margin-top: 15px;
+}
+
+#footer hr {
+    margin-top: -1px;
+    color: #ffffff;
+    height: 1px;
+    background-color: #ffffff;
+}
+#backNav{
+    background-image:url('/theme/admin/images/data/backgroundNav.png');
+}
+#nav li {
+    float: left;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+h2 {
+    font-size: 18px;
+    margin-left: 11px;
+    margin-bottom: 0px;
+    font-weight: normal;
+}
+
+#header #welcome {
+    padding-left: 20px;
+}
+
+#nav {
+    margin-top: 7px;
+    padding-top: 5px;
+    padding-bottom: 1px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#headcontent {
+    margin-top: 13px;
+}
+
+#imgLogo {
+    margin-top: 3px;
+    margin-left: 8px;
+}
+
+#welcome {
+    margin-top: 21px;
+}
+
+#messages {
+    margin-left: 21px;
+}
+
+#contentDetails {
+    margin-top: 16px;
+}
+
+#help {
+    margin-top: 0;
+    margin-left: 8px;
+}
+
+#divLeftTitulo span {
+    display: block;
+    font-size: 13px;
+    padding-left: 5px;
+    padding-top: 3px;
+    color: #ffffff;
+}
+
+#divLeftTitulo {
+    height: 24px;
+    background-color: #177FAE;
+}
+
+#divLeftTituloContent {
+    background-color: #F2F2F2;
+    border-color: #CCCCCC;
+    border-style: solid;
+    border-width: 1px;
+    padding: 10px;
+}
+
+#divInformation {
+    margin-bottom: 10px;
+}
+
+
+
+/*css para los jquerys*/
+
+#newstab li {
+    background-color: #177FAE;
+
+}
+#newstab li a {
+    color: #177FAE;
+
+}
+
+/*************** efecto de menu */
+#jsddm
+{	margin: 0;
+	padding: 0}
+	
+	#jsddm li
+	{	float: left;
+		list-style: none;
+		font: 12px Tahoma, Arial
+        }
+
+	#jsddm li a
+	{	display: block;
+		/*background: #20548E;*/
+		/*padding: 5px 12px;*/
+		text-decoration: none;
+		/*border-right: 1px solid white;*/
+		width: 70px;
+		color: #EAFFED;
+		white-space: nowrap
+        }
+
+	#jsddm li a:hover
+	{	/*background: #85b5d9*/
+        }
+		
+		#jsddm li ul
+		{	margin: 5px;
+			padding: 0;
+			position: absolute;
+			visibility: hidden;
+			border-top: 1px solid white}
+		
+		#jsddm li ul li
+		{	float: none;
+			display: inline}
+		
+		#jsddm li ul li a
+		{	width: auto;
+			background: #167fae}
+		
+		#jsddm li ul li a:hover
+		{	background: #85b5d9}
+
+/*fin de los css*/

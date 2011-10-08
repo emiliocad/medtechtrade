@@ -41,29 +41,29 @@ class Mtt_Models_Bussines_Busqueda
     public function setSearch( array $data )
         {
         //Definiendo variable search
-        $search = new Zend_Session_Namespace( 'Search' );
-        $search->PalabrasBusqueda = $data['palabras_busqueda'];
-        $search->Modelo = $data['modelo'];
-        $search->Fabricante = $data['fabricante'];
-        $search->CategoriaId = $data['categoria_id'];     
-        $search->AnioInicio = $data['anio_inicio']; 
-        $search->AnioFin = $data['anio_fin']; 
-        $search->PrecioInicio = $data['precio_inicio']; 
-        $search->PrecioFin = $data['precio_fin']; 
+        $search = new Zend_Session_Namespace( 'MTT' );
+        $search->Search->palabras_busqueda = $data['palabras_busqueda'];
+        $search->Search->modelo = $data['modelo'];
+        $search->Search->fabricante = $data['fabricante'];
+        $search->Search->categoria_id = $data['categoria_id'];     
+        $search->Search->anio_inicio = $data['anio_inicio']; 
+        $search->Search->anio_fin = $data['anio_fin']; 
+        $search->Search->precio_inicio = $data['precio_inicio']; 
+        $search->Search->precio_fin = $data['precio_fin']; 
+       
                                        
         }
         
 
         
-       
     public function getSearch(  )
         {
         //Definiendo variable search
-        $search = new Zend_Session_Namespace( 'Search' );
-        return $search;
+        $search = new Zend_Session_Namespace( 'MTT' );
+        return $search->Search;
                          
                      
-        }
+        }        
         
 
         

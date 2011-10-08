@@ -160,6 +160,14 @@ class UsuarioController
         }
 
 
+    public function emailcheckAction()
+        {
+        $checkMail = $this->_getParam( 'validacion' , null );
+        $data = $this->_usuario->activeUsuario( $checkMail );
+        $this->view->assign( 'data' , $data );
+        }
+
+
     public function logoutAction()
         {
         Zend_Auth::getInstance()->clearIdentity();
