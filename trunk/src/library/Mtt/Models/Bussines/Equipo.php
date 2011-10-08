@@ -732,7 +732,7 @@ class Mtt_Models_Bussines_Equipo
         );
 
         $data = array_merge( $dataNew , $data );
-        
+
         $this->insert( $data );
         }
 

@@ -16,8 +16,9 @@ class CheckoutController
     public function indexAction()
         {
         $id = ( int ) $this->getRequest()->getParam( 'id' );
-
-        $item = new Mtt_Store_Cart_Item();
+        $equipo = new Mtt_Models_Bussines_Equipo();
+        //$equipo->getFindId( $id )
+        $item = new Mtt_Store_Cart_Item( $equipo );
 
         $this->view->assign( 'equipo' , $id );
         }
