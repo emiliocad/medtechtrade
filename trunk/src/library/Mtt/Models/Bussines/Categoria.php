@@ -140,7 +140,16 @@ class Mtt_Models_Bussines_Categoria
 
     public function saveCategoria( array $data )
         {
+        $slug = new Mtt_Filter_Slug( array(
+                    'field' => 'slug' ,
+                    'model' => $this
+                        ) );
 
+        $dataNew = array(
+            'slug' => $slug->filter( $data['title'] )
+        );
+
+        $data = array_merge( $dataNew , $data );
         $this->insert( $data );
         }
 
