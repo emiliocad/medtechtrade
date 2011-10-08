@@ -43,6 +43,14 @@ class Mtt_Controller_Plugin_Routes
                         'controller' => 'usuario' ,
                         'action' => 'emailcheck'
                     )
+            ),
+            'buyEquipment' => new Zend_Controller_Router_Route(
+                    'buy-equipment' ,
+                    array(
+                        'module' => 'default' ,
+                        'controller' => 'equipo' ,
+                        'action' => 'index'
+                    )
             )
                 )
         ;
