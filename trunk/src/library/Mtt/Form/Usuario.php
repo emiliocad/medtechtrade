@@ -11,6 +11,8 @@ class Mtt_Form_Usuario
         extends Mtt_Formy
     {
 
+    protected $nombre;
+
 
     public function init()
         {
@@ -19,12 +21,11 @@ class Mtt_Form_Usuario
                 ->setAttrib( 'id' , 'frmRegistrar' )
         ;
 
-        $decorator = new Mtt_Form_Decorator_SimpleInput();
-        $nombre = new Zend_Form_Element_Text( 'nombre' );
-        $nombre->setRequired();
+        $this->nombre = new Zend_Form_Element_Text( 'nombre' );
+        $this->nombre->setRequired();
         //$e->setDecorators( array( $decorator ) );
-        $nombre->setLabel( ucwords($this->_translate->translate('nombre')).':' );
-        $nombre->addValidator(
+        $this->nombre->setLabel( ucwords( $this->_translate->translate( 'nombre' ) ) . ':' );
+        $this->nombre->addValidator(
                 new Zend_Validate_StringLength(
                         array( 'min' => 5 , 'max' => 25 )
                 )
@@ -34,7 +35,7 @@ class Mtt_Form_Usuario
         $apellido = new Zend_Form_Element_Text( 'apellido' );
         $apellido->setRequired();
         //$e->setDecorators( array( $decorator ) );
-        $apellido->setLabel( ucwords($this->_translate->translate('apellido')).':' );
+        $apellido->setLabel( ucwords( $this->_translate->translate( 'apellido' ) ) . ':' );
         $apellido->addValidator( new Zend_Validate_StringLength(
                         array( 'min' => 5 , 'max' => 25 )
                 )
@@ -44,14 +45,14 @@ class Mtt_Form_Usuario
         $email = new Zend_Form_Element_Text( 'email' );
         $email->setRequired();
         //$e->setDecorators( array( $decorator ) );
-        $email->setLabel( ucwords($this->_translate->translate('email')).':' );
+        $email->setLabel( ucwords( $this->_translate->translate( 'email' ) ) . ':' );
         $email->addValidator( new Zend_Validate_EmailAddress() );
         //$this->addElement( $e );
 
         $login = new Zend_Form_Element_Text( 'login' );
         $login->setRequired();
         //$e->setDecorators( array( $decorator ) );
-        $login->setLabel( ucwords($this->_translate->translate('login')).':' );
+        $login->setLabel( ucwords( $this->_translate->translate( 'login' ) ) . ':' );
         $login->addValidator( new Zend_Validate_Alnum() );
         $login->addValidator( new Zend_Validate_Db_NoRecordExists( array(
                     'table' => 'usuario' ,
@@ -66,13 +67,13 @@ class Mtt_Form_Usuario
         $clave = new Zend_Form_Element_Password( 'clave' );
         $clave->setRequired();
         //$e->setDecorators( array( $decorator ) );
-        $clave->setLabel( ucwords($this->_translate->translate('password')).':' );
+        $clave->setLabel( ucwords( $this->_translate->translate( 'password' ) ) . ':' );
         //$this->addElement( $e );
 
         $clave2 = new Zend_Form_Element_Password( 'clave_2' );
         $clave2->setRequired();
         //$e->setDecorators( array( $decorator ) );
-        $clave2->setLabel( ucwords($this->_translate->translate('confirmar password')).':' );
+        $clave2->setLabel( ucwords( $this->_translate->translate( 'confirmar password' ) ) . ':' );
         $clave2->addValidator( new Mtt_Validate_PasswordConfirmation() );
         //$this->addElement( $e );
 
@@ -80,27 +81,27 @@ class Mtt_Form_Usuario
         $direccion = new Zend_Form_Element_Text( 'direccion' );
         $direccion->setRequired();
         //$e->setDecorators( array( $decorator ) );
-        $direccion->setLabel( ucwords($this->_translate->translate('direccion')).':' );
+        $direccion->setLabel( ucwords( $this->_translate->translate( 'direccion' ) ) . ':' );
         //$this->addElement( $e );
 
 
         $codPostal = new Zend_Form_Element_Text( 'codpostal' );
         $codPostal->setRequired();
         //$e->setDecorators( array( $decorator ) );
-        $codPostal->setLabel( ucwords($this->_translate->translate('codigo postal')).':' );
+        $codPostal->setLabel( ucwords( $this->_translate->translate( 'codigo postal' ) ) . ':' );
         //$this->addElement( $e );
 
 
         $ciudad = new Zend_Form_Element_Text( 'ciudad' );
         $ciudad->setRequired();
         //$e->setDecorators( array( $decorator ) );
-        $ciudad->setLabel( ucwords($this->_translate->translate('ciudad')).':' );
+        $ciudad->setLabel( ucwords( $this->_translate->translate( 'ciudad' ) ) . ':' );
         //$this->addElement( $e );
 
 
         $paises = new Zend_Form_Element_Select( 'paises_id' );
         $paises->setRequired();
-        $paises->setLabel( '* '.$this->_translate->translate('Escoger pais') );
+        $paises->setLabel( '* ' . $this->_translate->translate( 'Escoger pais' ) );
         $paises->setRequired();
         $_pais = new Mtt_Models_Bussines_Paises();
         $values = $_pais->getComboValues();
@@ -114,7 +115,7 @@ class Mtt_Form_Usuario
 
         $rol = new Zend_Form_Element_Select( 'tipousuario_id' );
         $rol->setRequired();
-        $rol->setLabel( '* :'.$this->_translate->translate('tipo de usuario') );
+        $rol->setLabel( '* :' . $this->_translate->translate( 'tipo de usuario' ) );
         $_tipoUsuario = new Mtt_Models_Bussines_TipoUsuario();
         $values = $_tipoUsuario->getComboValues();
         $rol->addMultiOption( -1 , '--- Rol de Usario ---' );
@@ -130,12 +131,12 @@ class Mtt_Form_Usuario
         $institucion = new Zend_Form_Element_Text( 'institucion' );
         $institucion->setRequired();
         //$e->setDecorators( array( $decorator ) );
-        $institucion->setLabel( ucwords($this->_translate->translate('institucion')).':' );
+        $institucion->setLabel( ucwords( $this->_translate->translate( 'institucion' ) ) . ':' );
         //$this->addElement( $e );
 
         $submit = new Zend_Form_Element_Button( 'submit' );
         $submit->setLabel(
-                        ucwords($this->_translate->translate('save'))
+                        ucwords( $this->_translate->translate( 'save' ) )
                 )
                 ->setAttrib(
                         'class' , 'button'
@@ -146,7 +147,7 @@ class Mtt_Form_Usuario
 
         $this->addElements(
                 array(
-                    $nombre ,
+                    $this->nombre ,
                     $apellido ,
                     $email ,
                     $login ,
