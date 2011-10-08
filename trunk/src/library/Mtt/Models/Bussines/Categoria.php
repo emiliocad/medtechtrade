@@ -27,7 +27,14 @@ class Mtt_Models_Bussines_Categoria
         $db = $this->getAdapter();
 
         $query = $db->select()
-                ->from( 'equipo' , array( 'id' , 'nombre' , 'modelo' ) )
+                ->from(
+                        'equipo' ,
+                        array(
+                    'id' ,
+                    'nombre' ,
+                    'modelo' ,
+                    'slug' )
+                )
                 ->joinInner( $this->_name ,
                              'categoria.id = equipo.categoria_id ' ,
                              array( 'categoria.nombre as categoria' )
