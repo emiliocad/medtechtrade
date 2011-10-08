@@ -15,8 +15,7 @@ $(document).ready(function(){
     
 });
 
-function funcion1(id){
-    alert(id);
+function fnSelected(id){
     createCookie('tabVisible',id,1);
    
 }
