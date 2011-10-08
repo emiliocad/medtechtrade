@@ -34,7 +34,7 @@ class Admin_CategoriaController
 
             $categoria = $form->getValues();
 
-            $this->_categoria->insert( $categoria );
+            $this->_categoria->saveCategoria( $categoria );
 
             $this->_helper->FlashMessenger( 'Se Registro La Categoria' );
             $this->_redirect( $this->URL );
