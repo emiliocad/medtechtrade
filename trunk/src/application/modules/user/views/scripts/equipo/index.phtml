@@ -32,8 +32,11 @@
 <tbody>
     <?php foreach ( $this->equipos as $equipo ): ?>
 
-        <tr class="<?= $equipo->active
-                        ? 'activo' : 'inactivo' ?>">
+        <tr class="<?=
+    strtolower(
+            $equipo->publicacionequipo
+    )
+    ?>">
             <td >
                 <img src="/media/catalog/product/device-00.png" 
                      alt="<?= $equipo->equipo ?>"
@@ -42,32 +45,35 @@
 
 
             <td>
-                <?= $this->escape( $equipo->fabricante ) ?>
+    <?= $this->escape( $equipo->equipo ) ?>
             </td>
 
 
             <td>
-                <?= $this->escape( $equipo->categoria ) ?>
+    <?= $this->escape( $equipo->fabricante ) ?>
             </td>
 
             <td>
-                <?= $this->escape( $equipo->paises ) ?>
+    <?= $this->escape( $equipo->categoria ) ?>
             </td>
 
             <td>
-                <?= $this->escape( $equipo->estadoequipo ) ?>
+    <?= $this->escape( $equipo->paises ) ?>
             </td>
 
             <td>
-                <?= $this->escape( $equipo->calidad ) ?>
+    <?= $this->escape( $equipo->estadoequipo ) ?>
             </td>
 
             <td>
-                <?= $this->escape( $equipo->calidad ) ?>
+    <?= $this->escape( $equipo->calidad ) ?>
+            </td>
+            <td>
+                acciones
             </td>
 
         </tr>
-    <?php endforeach; ?>
+<?php endforeach; ?>
 </tbody>
 </table>
 <?=

@@ -30,12 +30,7 @@ class User_UserController
 
         $id = $this->authData['usuario']->id;
 
-        $form = new Mtt_Form_Usuario();
-        $form->removeElement( 'clave_2' );
-        $form->removeElement( 'clave' );
-        $form->removeElement( 'tipousuario_id' );
-        $form->removeElement( 'login' );
-        $form->submit->setLabel( ucwords($this->_translate->translate('actualizar')) );
+        $form = new Mtt_EditForm_Usuario();
 
         $usuario = $this->_user->getFindId( $id );
 
