@@ -36,7 +36,7 @@
     strtolower(
             $equipo->publicacionequipo
     )
-    ?>">
+        ?>">
             <td >
                 <img src="/media/catalog/product/device-00.png" 
                      alt="<?= $equipo->equipo ?>"
@@ -45,35 +45,44 @@
 
 
             <td>
-    <?= $this->escape( $equipo->equipo ) ?>
+                <?= $this->escape( $equipo->equipo ) ?>
             </td>
 
 
             <td>
-    <?= $this->escape( $equipo->fabricante ) ?>
+                <?= $this->escape( $equipo->fabricante ) ?>
             </td>
 
             <td>
-    <?= $this->escape( $equipo->categoria ) ?>
+                <?= $this->escape( $equipo->categoria ) ?>
             </td>
 
             <td>
-    <?= $this->escape( $equipo->paises ) ?>
+                <?= $this->escape( $equipo->paises ) ?>
             </td>
 
             <td>
-    <?= $this->escape( $equipo->estadoequipo ) ?>
+                <?= $this->escape( $equipo->estadoequipo ) ?>
             </td>
 
             <td>
-    <?= $this->escape( $equipo->calidad ) ?>
+                <?= $this->escape( $equipo->calidad ) ?>
             </td>
             <td>
-                acciones
+                <?php
+                $link = $this->url( array( 'module' => 'user' ,
+                    'controller' => 'imagen' ,
+                    'action' => 'nuevo' ,
+                    'id' => $equipo->id ) )
+                ?>
+                <a href="<?= $link ?>">
+                    <?= $this->translate( 'agregar imagen' ) ?>
+                </a>
+
             </td>
 
         </tr>
-<?php endforeach; ?>
+    <?php endforeach; ?>
 </tbody>
 </table>
 <?=

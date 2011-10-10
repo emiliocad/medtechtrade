@@ -481,6 +481,7 @@ class Mtt_Models_Bussines_Equipo
                 )
                 ->where( 'equipo.active = ?' , self::ACTIVE )
                 ->where( 'usuario.id = ?' , $idUser )
+                ->group( 'equipo.id' )
                 ->query()
         ;
 
