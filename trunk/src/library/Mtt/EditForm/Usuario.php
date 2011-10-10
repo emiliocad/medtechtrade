@@ -20,6 +20,7 @@ class Mtt_EditForm_Usuario
         ;
         $this->removeElement( $this->email->getName() );
         $this->removeElement( $this->login->getName() );
+        $this->removeElement( $this->rol->getName() );
         $this->removeElement( $this->clave->getName() );
         $this->removeElement( $this->clave2->getName() );
 
