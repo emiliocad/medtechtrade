@@ -111,7 +111,6 @@ class UsuarioController
     public function registroAction()
         {
 
-        //TODO Revisar el Jquery
         $this->view->headScript()->appendFile( '/js/user.sigunp.js' );
 
 

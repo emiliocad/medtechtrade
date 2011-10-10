@@ -20,7 +20,7 @@
                 ->setUiVersion( '1.8.16' )
                 ->addStylesheet( '/theme/admin/css/redmond/jquery-ui-1.8.16.custom.css' )
                 ->addStylesheet( '/js/jquery-tooltip/style.css' )
-//                ->addJavascriptFile( '/js/jquery-tooltip/jquery.tooltip.js' )
+                ->addJavascriptFile( '/js/jquery.corner/jquery.corner.js' )
 //                ->addJavascriptFile( '/js/jquery-tooltip/run.js' )
                 ->enable()
                 ->uiEnable();
@@ -41,6 +41,9 @@
                 )
                 ->appendFile(
                         '/js/CookieJS.js'
+                )
+                ->appendFile(
+                        '/js/visitante.js'
                 )
         ;
         ?> 

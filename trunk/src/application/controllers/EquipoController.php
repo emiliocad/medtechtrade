@@ -42,23 +42,24 @@ class EquipoController
 
     public function verAction()
         {
-//$this->_helper->layout->disableLayout();
-//$this->_helper->viewRenderer->setNoRender();
 
-        $slug = ( $this->_getParam( 'slug' , null ) );
+        $slug = $this->_getParam( 'slug' , null );
 
         $id = $this->_equipo->getEquipmentBySlug( $slug )->id;
 
-        $this->view
-                ->headScript()
-                ->appendFile( '/js/fancybox/jquery.fancybox-1.3.4.pack.js' ,
-                              'text/javascript' );
-        $this->view->headLink()
-                ->appendStylesheet( '/js/fancybox/jquery.fancybox-1.3.4.css' );
+        $this->view->jQuery()
+                ->addJavascriptFile(
+                        '/js/jquery.lightbox/jquery.lightbox-0.5.js'
+                )
+                ->addStylesheet(
+                        '/js/jquery.lightbox/jquery.lightbox-0.5.css'
+        );
         $this->view->jQuery()
                 ->addOnLoad(
                         '$(document).ready(function() {
-                            $(".fancy").fancybox();
+                            $("#device-foto-galery a").lightBox(
+                            {fixedNavigation:true}
+                            );
                         });'
         );
 

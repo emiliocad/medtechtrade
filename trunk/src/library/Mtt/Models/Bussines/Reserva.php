@@ -93,6 +93,7 @@ class Mtt_Models_Bussines_Reserva
                         array (
                             'equipo' => 'nombre',
                             'precio' => 'precioventa',
+                            'slug',
                             'modelo',
                             'tag',
                             'categoria_id',
@@ -227,7 +228,7 @@ class Mtt_Models_Bussines_Reserva
     public function pagListFavoritosByUser( $idUser, $tipo )
         {
         $_conf = new Zend_Config_Ini(
-                        APPLICATION_PATH . '/configs/myConfigUser.ini' , 'paginator'
+                        APPLICATION_PATH . '/configs/myConfigUser.ini' , 'favoritos'
         );
         $data = $_conf->toArray();
 

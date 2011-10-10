@@ -69,7 +69,11 @@ class Mtt_Form_Equipo
         $precioCompra = new Zend_Form_Element_Text( 'preciocompra' );
         $precioCompra->setLabel( 'Precio de Compra' );
         $precioCompra->setRequired( true );
-        $v = new Zend_Validate_Between( array( 'min' => 0.1 , 'max' => 9999 ) );
+        $v = new Zend_Validate_Between(
+                        array(
+                            'min' => 0.1 , 'max' => 9999999999
+                        )
+        );
         $precioCompra->addValidator( $v );
         $v = new Zend_Validate_Float( new Zend_Locale( 'US' ) );
         $precioCompra->addValidator( $v );

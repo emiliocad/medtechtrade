@@ -1,0 +1,54 @@
+<h2>
+    <?=$this->translate('favoritos'); ?>
+    
+</h2>
+
+
+<div class="device-horizontal-list">
+    <?php foreach ( $this->favoritos as $favorito ): ?>
+        <div>
+            <a href="
+            <?=
+            $this->url(
+                    array(
+                'slug' => $favorito->slug ) , 'slugEquipment' , true
+            )
+            ?>
+               " title="<?= $favorito->slug ?>">
+
+                <img src="/media/catalog/product/device-00.png" 
+                     alt="<?= $favorito->equipo ?>
+                     ">
+            </a>
+            <span class="manufacturer">
+                <?= $this->translate( 'Manufacturer' ) ?>
+                : <?= $favorito->fabricante ?>
+            </span>
+            <span class="name">
+                <?= $this->translate( 'Product name' ) ?>
+                : 
+                <?= $favorito->equipo ?>
+            </span>
+            <a href="
+            <?=
+            $this->url(
+                    array(
+                'slug' => $favorito->slug
+                    ) , 'slugEquipment' , true
+            )
+            ?>
+               " title="<?= $favorito->slug ?>">
+                <span>
+                    <?= $this->translate( 'View details' ) ?>
+                </span>
+            </a>
+        </div>
+    <?php endforeach; ?>
+
+</div>
+
+<?=
+$this->paginationControl(
+        $this->favoritos , 'Sliding' , 'reserva/_pag.phtml'
+);
+?>

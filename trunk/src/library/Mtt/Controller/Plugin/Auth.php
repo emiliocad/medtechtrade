@@ -74,7 +74,10 @@ class Mtt_controller_Plugin_Auth
             $mtt = new Zend_Session_Namespace( 'MTT' );
 
             $mtt->noAuth = $noAuth;
-
+//            $request->setModuleName('default')
+//					->setControllerName('usuario')
+//					->setActionName('no-autorizado')
+//					->setDispatched(true);
             $redirector->gotoUrl( '/default/usuario/no-autorizado' )
                     ->redirectAndExit();
             }

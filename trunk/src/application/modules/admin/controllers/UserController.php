@@ -21,14 +21,13 @@ class Admin_UserController
                 'usuarios' , $this->_user->listar()
         );
         }
-        
-        
+
 
     public function detalleAction()
         {
-        
+
         $this->_helper->layout->disableLayout();
-        
+
         $id = intval( $this->_getParam( 'id' ) );
         $this->view->jQuery()
                 ->addOnLoad(
@@ -39,35 +38,33 @@ class Admin_UserController
         ;
         //Editar datos del usuario
         $this->editarAction();
-        
+
         //Listar equipos del Usuario
         $equipo = new Mtt_Models_Bussines_Equipo();
-        $equipos_user = $equipo->listEquipByUser($id);
+        $equipos_user = $equipo->listEquipByUser( $id );
         $this->view->assign( 'equipos' , $equipos_user );
-        
+
         //Listar preguntas que el usuario formulo
         $pregunta = new Mtt_Models_Bussines_Pregunta();
-        $preguntas_user = $pregunta->listByUser($id);
+        $preguntas_user = $pregunta->listByUser( $id );
         $this->view->assign( 'preguntas' , $preguntas_user );
-        
+
         //Listar reservas
         $reserva = new Mtt_Models_Bussines_Reserva();
-        $reservas_user = $reserva->getReservaByUser($id, 
-            Mtt_Models_Table_TipoReserva::RESERVED);
+        $reservas_user = $reserva->getReservaByUser( $id ,
+                                                     Mtt_Models_Table_TipoReserva::RESERVED );
         $this->view->assign( 'reservas' , $reservas_user );
-        
+
         //Listar operaciones
         $operacion = new Mtt_Models_Bussines_Operacion();
         $operaciones_user = $operacion->
-                listByUserOperation($id , 
-                    Mtt_Models_Table_EstadoOperacion::SALE
+                listByUserOperation( $id ,
+                                     Mtt_Models_Table_EstadoOperacion::SALE
         );
         $this->view->assign( 'operaciones' , $operaciones_user );
-        
-        
         }
-        
-        
+
+
     public function activausuariosAction()
         {
         $form = new Mtt_Form_ActivarUsuario();
@@ -95,9 +92,9 @@ class Admin_UserController
         {
         $id = intval( $this->_getParam( 'id' ) );
 
-        $form = new Mtt_Form_Usuario();
+        $form = new Mtt_EditForm_Usuario();
         $form->removeElement( 'clave_2' );
-        $form->submit->setLabel( ucwords($this->_translate->translate('actualizar')) );
+        //$form->submit->setLabel( ucwords($this->_translate->translate('actualizar')) );
         $usuario = $this->_user->getFindId( $id );
 
         if ( !is_null( $usuario ) )
@@ -106,7 +103,7 @@ class Admin_UserController
                     &&
                     $form->isValid( $this->_request->getPost() ) )
                 {
-                $this->_fabricante->updateFabricante(
+                $this->_user->updateUsuario(
                         $form->getValues() , $id
                 );
                 $this->_helper->FlashMessenger(
@@ -188,7 +185,7 @@ class Admin_UserController
         {
         $id = intval( $this->_request->getParam( 'id' ) );
         $this->_user->activarUsuario( $id );
-        $this->_helper->FlashMessenger( $this->_translate->translate('Usuario activado') );
+        $this->_helper->FlashMessenger( $this->_translate->translate( 'Usuario activado' ) );
         $this->_redirect( $this->URL );
         }
 
@@ -197,9 +194,10 @@ class Admin_UserController
         {
         $id = intval( $this->_request->getParam( 'id' ) );
         $this->_user->desactivarUsuario( $id );
-        $this->_helper->FlashMessenger( $this->_translate->translate('Usuario desactivado') );
+        $this->_helper->FlashMessenger( $this->_translate->translate( 'Usuario desactivado' ) );
         $this->_redirect( $this->URL );
         }
+
 
     }
 

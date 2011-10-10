@@ -39,10 +39,10 @@ form  dd select {
     font-size: 12px;
     width: 265px;
 }
-
+/*
 form dd select option {
     padding: 10px;
-}
+}*/
 
 .button {
     padding: 8px;
@@ -157,7 +157,6 @@ label.required {
 .listado tbody tr td {
     font-size: 12px;
     padding: 4px;
-    background-color: #fffcff;
     text-align: center;
 }
 
@@ -169,4 +168,16 @@ tr.activo {
     border-color: #CCC;
     border-style: solid;
     border-width: 1px;
+}
+
+table tbody tr:hover {
+    background-color: #2e262e;
+    cursor: pointer;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+
+table .pendiente {
+    background-color: #e9ff8f;
 }
