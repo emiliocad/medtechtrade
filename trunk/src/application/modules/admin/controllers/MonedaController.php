@@ -50,11 +50,13 @@ class Admin_MonedaController extends Mtt_Controller_Action
         
     public function editarAction()
         {
+        
         $id = intval( $this->_getParam( 'id' ) );
 
-        $form = new Mtt_Form_Moneda();
+        $form = new Mtt_EditForm_Moneda();
 
         $moneda = $this->_moneda->getFindId( $id );
+        $this->view->assign( 'moneda' , $moneda );
 
         if ( !is_null( $moneda ) )
             {
@@ -66,14 +68,15 @@ class Admin_MonedaController extends Mtt_Controller_Action
                 $this->_helper->FlashMessenger( 'Se modificó moneda' );
                 $this->_redirect( $this->URL );
                 }
-            $form->setDefaults( $moneda->toArray() );
+             $form->setDefaults( $moneda->toArray() );
             $this->view->assign( 'form' , $form );
             }
         else
             {
             $this->_helper->FlashMessenger( 'No existe esa moneda' );
             $this->_redirect( $this->URL );
-            }    
+            }
+        
         }
         
    

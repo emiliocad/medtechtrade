@@ -15,8 +15,13 @@ class Mtt_EditForm_Moneda
         parent::init();
         $this
                 ->setMethod( 'post' )
-                ->setAttrib( 'id' , 'frmMoneda' )
+                ->setAttrib( 'id' , 'frmActulizarMoneda' )
         ;
+         $this->submit->setLabel(
+                ucwords(
+                        $this->_translate->translate( 'actualizar' )
+                )
+        );
 
         }
         
