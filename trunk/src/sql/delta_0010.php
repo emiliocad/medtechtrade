@@ -17,6 +17,10 @@ class Delta_0010
             CHANGE `alto` `alto` DECIMAL(10,2) NULL ,     
             CHANGE `sizeCaja` `sizeCaja` DECIMAL(10,2) NULL ;";
         $this->_db->query( $sql );
+        
+        $sql = "ALTER TABLE `medtechtrade`.`equipo`     
+            CHANGE `pesoEstimado` `pesoEstimado` DECIMAL(10,2) NULL ;";
+        $this->_db->query( $sql );
        
         return true;
         }

@@ -257,7 +257,7 @@ class Mtt_Form_Equipo extends Mtt_Form {
                 $this->_translate->translate('tamaño ')
         )->setOrder(14);
         $this->size->setRequired(true);
-        $v = new Zend_Validate_Between(array('min' =>1, 'max' => 9999));
+        $v = new Zend_Validate_Between(array('min' =>0.1, 'max' => 9999));
         $this->size->addValidator($v);
         $this->size->setAttrib('maxlength', '7');
         
@@ -267,7 +267,7 @@ class Mtt_Form_Equipo extends Mtt_Form {
                 $this->_translate->translate('ancho')
         )->setOrder(15);
         $this->ancho->setRequired(true);
-        $v = new Zend_Validate_Between(array('min' =>1, 'max' => 9999));
+        $v = new Zend_Validate_Between(array('min' =>0.1, 'max' => 9999));
         $this->ancho->addValidator($v);
         $this->ancho->setAttrib('maxlength', '7');
         
@@ -277,7 +277,7 @@ class Mtt_Form_Equipo extends Mtt_Form {
                 $this->_translate->translate('alto')
         )->setOrder(16);
         $this->alto->setRequired(true);
-        $v = new Zend_Validate_Between(array('min' =>1, 'max' => 9999));
+        $v = new Zend_Validate_Between(array('min' =>0.1, 'max' => 9999));
         $this->alto->addValidator($v);
         $this->alto->setAttrib('maxlength', '7');
         
@@ -285,12 +285,22 @@ class Mtt_Form_Equipo extends Mtt_Form {
         //Elemento : sizeCaja
         $this->sizeCaja =  new Zend_Form_Element_Text('sizeCaja');
         $this->sizeCaja->setLabel(
-                $this->_translate->translate('dimensiones de la caja')
+                $this->_translate->translate('tamaño de la caja')
         )->setOrder(17);
         $this->sizeCaja->setRequired(true);
-        $v = new Zend_Validate_Between(array('min' =>1, 'max' => 9999));
+        $v = new Zend_Validate_Between(array('min' =>0.1, 'max' => 9999));
         $this->sizeCaja->addValidator($v);
         $this->sizeCaja->setAttrib('maxlength', '7');        
+        
+         //Elemento PesoEstimado
+        $this->pesoEstimado =  new Zend_Form_Element_Text('pesoEstimado');
+        $this->pesoEstimado->setLabel(
+                $this->_translate->translate('peso estimado ')
+        )->setOrder(18);
+        $this->pesoEstimado->setRequired(true);
+        $v = new Zend_Validate_Between(array('min' =>0.1, 'max' => 9999));
+        $this->pesoEstimado->addValidator($v);
+        $this->pesoEstimado->setAttrib('maxlength', '7');
         
         
         $this->submit = new Zend_Form_Element_Button('submit');
@@ -301,7 +311,7 @@ class Mtt_Form_Equipo extends Mtt_Form {
                         'class', 'button'
                 )
                 ->setAttrib('type', 'submit')
-                ->setOrder(18)
+                ->setOrder(19)
         ;
 
 
@@ -326,6 +336,7 @@ class Mtt_Form_Equipo extends Mtt_Form {
                     $this->alto,
                     $this->ancho,
                     $this->sizeCaja,
+                    $this->pesoEstimado,
                     $this->submit
                 )
         );
