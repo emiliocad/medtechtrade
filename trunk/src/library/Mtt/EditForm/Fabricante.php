@@ -5,44 +5,25 @@
  * and open the template in the editor.
  */
 
+class Mtt_EditForm_Fabricante extends Mtt_Form_Fabricante {
 
-class Mtt_Form_Fabricante
-        extends Mtt_Formy
-    {
-
-
-    public function init()
-        {
+    public function init() {
+        parent::init();
         $this
-                ->setMethod( 'post' )
-                ->setAttrib( 'id' , 'frmFabricante' )
+                ->setMethod('post')
+                ->setAttrib('id', 'frmActualizarFabricante')
         ;
 
-        // Elemento: Nombre
-        $e = new Zend_Form_Element_Text( 'nombre' );
-        $e->setLabel( 'Nombre :' );
-        $e->setAttrib( 'maxlength' , '50' );
-        $e->setRequired( true );
-        $e->addValidator( new Zend_Validate_Db_NoRecordExists( array(
-                    'table' => 'fabricantes' ,
-                    'field' => 'nombre' ,
-                        ) ) );
-        $e->addValidator( new Zend_Validate_StringLength( array( 'min' => 5 , 'max' => 25 ) ) );
-
-        $this->addElement( $e );
-
-        $submit = new Zend_Form_Element_Button( 'submit' );
-        $submit->setLabel(
-                        $this->_translate->translate( 'Save' )
+        $this->submit->setLabel(
+                ucwords(
+                        $this->_translate->translate('actualizar')
                 )
-                ->setAttrib(
-                        'class' , 'button'
-                )
-                ->setAttrib( 'type' , 'submit' )
-        ;
-
-        $this->addElement( $submit );
-        }
-
-
+        );
     }
+
+    public function __construct($options = null) {
+
+        parent::__construct($options);
+    }
+
+}
