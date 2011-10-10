@@ -8,7 +8,13 @@
 class Mtt_Form_Categoria
         extends Mtt_Formy
     {
-
+    
+    protected $nombre;
+    protected $title;
+    protected $thumbnail;
+    protected $descripcion;
+    protected $published;
+    protected $order;
 
     public function init()
         {

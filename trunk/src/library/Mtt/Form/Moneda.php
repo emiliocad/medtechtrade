@@ -10,6 +10,12 @@ class Mtt_Form_Moneda
         extends Mtt_Formy
     {
 
+        
+    protected $nombre;
+    protected $simbolo;
+    protected $prefijo;
+    protected $submit;
+   
 
     public function init()
         {
@@ -19,10 +25,12 @@ class Mtt_Form_Moneda
         ;
 
         // Elemento: Nombre
-        $nombre = new Zend_Form_Element_Text( 'nombre' );
-        $nombre->setLabel( ucwords( $this->_translate->translate( 'nombre' ) ) );
-        $nombre->setAttrib( 'maxlength' , '50' );
-        $nombre->setRequired( true );
+        $this->nombre = new Zend_Form_Element_Text( 'nombre' );
+        $this->nombre->setLabel( 
+                ucwords( $this->_translate->translate( 'nombre' ) ) 
+        );
+        $this->nombre->setAttrib( 'maxlength' , '50' );
+        $this->nombre->setRequired( true );
         $v = new Zend_Validate_StringLength(
                         array( 'min' => 5 , 'max' => 50 )
         );
@@ -32,22 +40,24 @@ class Mtt_Form_Moneda
                 $this->_translate->translate( 'caracteres' ) ,
                                               Zend_Validate_StringLength::TOO_SHORT
         );
-        $nombre->addValidator( $v );
-        $this->addElement( $nombre );
+        $this->nombre->addValidator( $v );
+        //$this->addElement( $this->nombre );
 
 
         // Elemento: Simbolo
-        $simbolo = new Zend_Form_Element_Text( 'simbolo' );
-        $simbolo->setLabel( ucwords( $this->_translate->translate( 'simbolo' ) ) . ': ' );
-        $simbolo->setRequired( true );
+        $this->simbolo = new Zend_Form_Element_Text( 'simbolo' );
+        $this->simbolo->setLabel( 
+                ucwords( $this->_translate->translate( 'simbolo' ) ) . ': ' 
+        );
+        $this->simbolo->setRequired( true );
         $v = new Zend_Validate_StringLength(
                         array( 'min' => 1 , 'max' => 5 )
         );
-        $simbolo->addValidator( $v );
-        $this->addElement( $simbolo );
+        $this->simbolo->addValidator( $v );
+        //$this->addElement( $simbolo );
 
-        $submit = new Zend_Form_Element_Button( 'submit' );
-        $submit->setLabel(
+        $this->submit = new Zend_Form_Element_Button( 'submit' );
+        $this->submit->setLabel(
                         ucwords($this->_translate->translate('save'))
                 )
                 ->setAttrib(
@@ -56,7 +66,16 @@ class Mtt_Form_Moneda
                 ->setAttrib( 'type' , 'submit' )
         ;
 
-        $this->addElement( $submit );
+        //$this->addElement( $submit );
+        
+        
+        $this->addElements(
+                array(
+                    $this->nombre ,
+                    $this->simbolo,
+                    $this->submit
+                )
+        );
         }
 
 
