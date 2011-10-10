@@ -20,6 +20,7 @@
         $this->jQuery()->setVersion( '1.4.2' )
                 ->setUiVersion( '1.8.16' )
                 ->addStylesheet( '/theme/admin/css/redmond/jquery-ui-1.8.16.custom.css' )
+                ->addJavascriptFile( '/js/jquery.corner/jquery.corner.js' )
                 ->enable()
                 ->uiEnable();
         ?>
@@ -36,6 +37,9 @@
                 )
                 ->appendFile(
                         '/js/CookieJS.js'
+                )
+                ->appendFile(
+                        '/js/user.js'
                 )
         ;
         ?> 

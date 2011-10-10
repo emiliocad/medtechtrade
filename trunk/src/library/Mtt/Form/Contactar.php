@@ -95,30 +95,30 @@ class Mtt_Form_Contactar
         $e->setLabel(
                 ucwords( $this->_translate->translate( 'telefono' ) ) . ':'
         );
-        $e->addValidators(array(
-             array(
-                 'validator'   => 'Regex',
-                 'breakChainOnFailure' => true,
-                 'options'     => array( 
-                 'pattern' => '/^[+]?[-\d() .]*$/i',
-                     'messages' => array(
-                         Zend_Validate_Regex::NOT_MATCH =>
-                            'ingre un numero telefonico correcto'
-                     )
-                 )
-             ),
-             array(
-                 'validator' => 'StringLength',
-                 'breakChainOnFailure' => true,
-                 'options' => array(
-                     'min' => 6
-                 )
-             )
-         ));
+        $e->addValidators( array(
+            array(
+                'validator' => 'Regex' ,
+                'breakChainOnFailure' => true ,
+                'options' => array(
+                    'pattern' => '/^[+]?[-\d() .]*$/i' ,
+                    'messages' => array(
+                        Zend_Validate_Regex::NOT_MATCH =>
+                        'ingre un numero telefonico correcto'
+                    )
+                )
+            ) ,
+            array(
+                'validator' => 'StringLength' ,
+                'breakChainOnFailure' => true ,
+                'options' => array(
+                    'min' => 6
+                )
+            )
+        ) );
         $this->addElement( $e );
 
 
-        $comentario = new Mtt_Form_Element_Ckeditor( 'comentario' );
+        $comentario = new Zend_Form_Element_Textarea( 'comentario' );
         $comentario->setRequired();
         //$e->setDecorators( array( $decorator ) );
         $comentario->setLabel(
@@ -126,11 +126,16 @@ class Mtt_Form_Contactar
         );
         $this->addElement( $comentario );
 
-        $this->addElement( 'submit' ,
-                           $this->_translate->translate(
-                        'Submit'
+        $submit = new Zend_Form_Element_Button( 'submit' );
+        $submit->setAttrib( 'value' ,
+                            ucwords(
+                                $this->_translate->translate( 'enviar' )
+                        )
                 )
-        );
+                ->setAttrib( 'class' , 'button' )
+                ->setAttrib( 'type' , 'submit' )
+        ;
+        $this->addElement( $submit );
         }
 
 

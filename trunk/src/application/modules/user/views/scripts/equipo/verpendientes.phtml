@@ -8,6 +8,7 @@
             <th><?= $this->translate( 'Status' ) ?></th>
             <th><?= $this->translate( 'Factory' ) ?></th>
             <th><?= $this->translate( 'Quality' ) ?></th>
+            <th><?= $this->translate( 'Acciones' ) ?></th>
         </tr>
     </thead>
     <tbody>
@@ -41,7 +42,7 @@
                         'id' => $equipo->id ) )
                     ?>
                     <a href="<?= $link ?>">
-                        Agregar Imagen
+                        <?=$this->translate('agregar imagen')?>
                     </a></td>
                
             </tr>

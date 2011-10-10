@@ -9,18 +9,18 @@
     float: left;
     width: 245px;
     padding: 5px;
-    border-style: solid;
+/*    border-style: solid;
     border-width: 1px;
-    border-color: #1f1c1f;
+    border-color: #1f1c1f;*/
     margin-left: 2px;
     margin-right: 2px;
 }
 
 #user-index-latest-search {
     float: left;
-    border-style: solid;
+/*    border-style: solid;
     border-color: #eb1aeb;
-    border-width: 1px;
+    border-width: 1px;*/
     padding: 5px;
     width: 245px;
 }
@@ -32,4 +32,9 @@
     padding-right: 15px;
     padding-bottom: 10px;
 
+}
+
+.device-horizontal-list	div	{
+    margin: 5px 0 0 50px;
+    
 }

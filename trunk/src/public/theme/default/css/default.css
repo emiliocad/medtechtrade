@@ -191,13 +191,11 @@ a:hover	{
     width: 522px;
     float: left;
     margin-left: 0px;
-    border: solid 1px blue;
 }
 #section-middle-acciones{
     width: 205px;
     float: left;
     margin-left: 9px;
-    border: solid 1px blue;
 }
 
 #section-middle-acciones #listacciones{
@@ -332,11 +330,11 @@ a:hover	{
 
 /* Right "order By" drop down select */
 .order-by	{
-    background-image: url(/theme/default/image/dropdown.png);
-    background-repeat: no-repeat;
+/*    background-image: url(/theme/default/image/dropdown.png);*/
+/*    background-repeat: no-repeat;
     background-position: center;
     border: none;
-    background-color: transparent;
+    background-color: transparent;*/
     width: 162px;
     height: 24px;
     padding: 0 0 0 10px;

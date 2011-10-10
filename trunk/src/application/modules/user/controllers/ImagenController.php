@@ -24,7 +24,6 @@ class User_ImagenController extends Mtt_Controller_Action
 
     public function nuevoAction( )
         {
-        
         $idEquipo = ( int ) ( $this->_getParam( 'id' , null ) );
         
         $form = new Mtt_Form_Imagen();

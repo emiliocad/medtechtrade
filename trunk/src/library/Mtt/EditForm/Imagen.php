@@ -6,7 +6,7 @@
  */
 
 
-class Mtt_Form_Imagen
+class Mtt_EditForm_Imagen
         extends Mtt_Form
     {
 
