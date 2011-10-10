@@ -11,10 +11,25 @@ class Mtt_EditForm_Categoria
         extends Mtt_Form_Categoria
     {
 
-
-    public function init()
+       public function init()
         {
+        parent::init();
+        $this
+                ->setMethod( 'post' )
+                ->setAttrib( 'id' , 'frmActulizarCategoria' )
+        ;
+         $this->submit->setLabel(
+                ucwords(
+                        $this->_translate->translate( 'actualizar' )
+                )
+        );
+
+        }
         
+    public function __construct( $options = null )
+        {
+
+        parent::__construct( $options );
         }
 
 
