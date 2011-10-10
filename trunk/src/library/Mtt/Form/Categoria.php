@@ -8,8 +8,15 @@
 
 //TODO Crear Translate para Zend Form
 class Mtt_Form_Categoria
-        extends Mtt_Formy
+        extends Mtt_Form
     {
+    
+    protected $nombre;
+    protected $title;
+    protected $thumbnail;
+    protected $descripcion;
+    protected $submit;
+    
 
 
     public function init()
@@ -30,73 +37,89 @@ class Mtt_Form_Categoria
         );
         $decorator = new Mtt_Form_Decorator_SimpleInput();
 
-        $nombre = new Zend_Form_Element_Text( 'nombre' );
-        $nombre->setLabel( ucwords( $this->_translate->translate( 'nombre' ) ) . '*:' );
-        $nombre->setRequired();
-        $nombre->addValidator(
+        $this->nombre = new Zend_Form_Element_Text( 'nombre' );
+        $this->nombre->setLabel( 
+                ucwords( $this->_translate->translate( 'nombre' ) ) . '*:' 
+        );
+        $this->nombre->setRequired();
+        $this->nombre->addValidator(
                 new Zend_Validate_StringLength(
                         array( 'min' => 2 ,
                             'max' => 50 ) )
         );
         //$nombre->addValidator( new Zend_Validate_Alnum( true ) );
-        $nombre->addValidator(
+        $this->nombre->addValidator(
                 new Zend_Validate_Db_NoRecordExists(
                         array(
                             'table' => 'categoria' ,
-                            'field' => 'nombre' ,
+                            'field' => 'nombre'
+                            
                         )
                 )
         );
 
         //$e->setDecorators( array( $decorator ) );
-        $this->addElement( $nombre );
+        //$this->addElement( $nombre );
 
-        $title = new Zend_Form_Element_Text( 'title' );
+        $this->title = new Zend_Form_Element_Text( 'title' );
 
-        $title->setLabel(
+        $this->title->setLabel(
                 ucwords( $this->_translate->translate( 'title' ) ) . ':'
         );
 
 
-        $this->addElement( $title );
+        //$this->addElement( $title );
 
-        $thumbnail = new Zend_Form_Element_File( 'thumbnail' );
-        $thumbnail->setValue( 'thumbnail' );
-        $thumbnail->setLabel( $this->_translate->translate( 'Upload an image' ) . ':' );
+        $this->thumbnail = new Zend_Form_Element_File( 'thumbnail' );
+        $this->thumbnail->setValue( 'thumbnail' );
+        $this->thumbnail->setLabel( 
+                $this->_translate->translate( 'Upload an image' ) . ':' 
+        );
 
-        $target = $nombre->getValue();
-        $thumbnail->setDestination(
+        $target = $this->nombre->getValue();
+        $this->thumbnail->setDestination(
                 APPLICATION_PATH . '/../public/media/category/'
         );
-        $thumbnail->addValidator( 'Count' , false , 1 );
-        $thumbnail->addValidator( 'Size' , false , 1024000 )
+        $this->thumbnail->addValidator( 'Count' , false , 1 );
+        $this->thumbnail->addValidator( 'Size' , false , 1024000 )
                 ->setValueDisabled( true );
-        $thumbnail->addValidator(
+        $this->thumbnail->addValidator(
                 'Extension' , false , $data['extension']
         );
 
-        $this->addElement(
-                $thumbnail
-        );
+        //$this->addElement(
+        //        $thumbnail
+        //);
 
 
 
-        $descripcion = new Mtt_Form_Element_Ckeditor(
+        $this->descripcion = new Mtt_Form_Element_Ckeditor(
                         'descripcion'
         );
-        $descripcion->setLabel( ucwords( $this->_translate->translate( 'descripcion' ) ) . '*:' );
+        $this->descripcion->setLabel( 
+                ucwords( $this->_translate->translate( 'descripcion' ) ) . '*:' 
+        );
 
-        $this->addElement( $descripcion );
+        //$this->addElement( $descripcion );
 
 
         //Submit
-        $submit = new Zend_Form_Element_Button( 'submit' );
-        $submit->setAttrib( 'value' ,
-                            ucwords( $this->_translate->translate( 'registrar' ) ) )
+        $this->submit = new Zend_Form_Element_Button( 'submit' );
+        $this->submit->setAttrib( 'value' ,
+                            ucwords( $this->_translate->translate( 'registrar' ) ) 
+        )
                 ->setAttrib( 'class' , 'button' )
                 ->setAttrib( 'type' , 'submit' )
         ;
-        $this->addElement( $submit );
+        //$this->addElement( $submit );
+        $this->addElements(array(
+            $this->nombre,
+            $this->title,
+            $this->thumbnail,
+            $this->descripcion,
+            $this->submit
+            )
+        );
         }
 
 
