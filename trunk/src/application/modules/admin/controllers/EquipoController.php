@@ -53,15 +53,15 @@ class Admin_EquipoController
                 $form->isValid( $this->_request->getPost() ) )
             {
 
-            /*$usuarios = $form->getValues();
-            $ids = $usuarios['usuarios'];
+            $equipos = $form->getValues();
+            $ids = $equipos['equipos'];
 
             foreach ( $ids as $item )
                 {
-                $this->_user->habilitarUsuario( $item );
+                $this->_equipo->publicarEquipo( $item );
                 }
 
-            $this->_redirect( $this->URL );*/
+            $this->_redirect( $this->URL );
             }
         }        
         

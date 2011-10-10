@@ -878,6 +878,17 @@ class Mtt_Models_Bussines_Equipo
 
         $m->sendHtmlTemplate( "request.phtml" );
         }
+        
+        
+    public function publicarEquipo( $id )
+        {
+
+        $this->update( array(
+            "publicacionEquipo_id" => 
+            Mtt_Models_Bussines_PublicacionEquipo::Activada )
+                , 'id = ' . $id );
+        }        
+        
 
 
     public function updateEquipo( array $data , $id )
