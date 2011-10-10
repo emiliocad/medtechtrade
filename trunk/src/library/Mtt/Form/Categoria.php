@@ -5,16 +5,12 @@
  * and open the template in the editor.
  */
 
+
+//TODO Crear Translate para Zend Form
 class Mtt_Form_Categoria
         extends Mtt_Formy
     {
-    
-    protected $nombre;
-    protected $title;
-    protected $thumbnail;
-    protected $descripcion;
-    protected $published;
-    protected $order;
+
 
     public function init()
         {

@@ -28,14 +28,17 @@ class Admin_MonedaController extends Mtt_Controller_Action
     public function nuevoAction()
         {
         $form = new Mtt_Form_Moneda();
-        if ( $this->_request->isPost() && $form->isValid( $this->_request->getPost() ) )
+        if ( $this->_request->isPost() 
+                && $form->isValid( $this->_request->getPost() ) )
             {
 
             $moneda = $form->getValues();
 
             $this->_moneda->saveMoneda( $moneda );
 
-            $this->_helper->FlashMessenger( 'Se Registro La Moneda' );
+            $this->_helper->FlashMessenger( 
+                    $this->_translate->translate ('se registro la moneda' )
+            );
             $this->_redirect( $this->URL );
             }
         $this->view->assign( 'frmRegistrar' , $form );
@@ -65,7 +68,9 @@ class Admin_MonedaController extends Mtt_Controller_Action
             )
                 {
                 $this->_moneda->updateMoneda( $form->getValues() , $id );
-                $this->_helper->FlashMessenger( 'Se modificó moneda' );
+                $this->_helper->FlashMessenger( 
+                        $this->_translate->translate ('se modifico la moneda' ) 
+                );
                 $this->_redirect( $this->URL );
                 }
              $form->setDefaults( $moneda->toArray() );
@@ -73,7 +78,9 @@ class Admin_MonedaController extends Mtt_Controller_Action
             }
         else
             {
-            $this->_helper->FlashMessenger( 'No existe esa moneda' );
+            $this->_helper->FlashMessenger( 
+                    $this->_translate->translate ('no existe esa moneda' ) 
+            );
             $this->_redirect( $this->URL );
             }
         
@@ -84,7 +91,9 @@ class Admin_MonedaController extends Mtt_Controller_Action
         {
         $id = intval( $this->_request->getParam( 'id' ) );
         $this->_moneda->desactivarMoneda( $id );
-        $this->_helper->FlashMessenger( 'Moneda Borrada' );
+        $this->_helper->FlashMessenger( 
+                $this->_translate->translate ('moneda borrada' )
+        );
         $this->_redirect( $this->URL );
         }
 
@@ -93,7 +102,9 @@ class Admin_MonedaController extends Mtt_Controller_Action
         {
         $id = intval( $this->_request->getParam( 'id' ) );
         $this->_moneda->activarMoneda( $id );
-        $this->_helper->FlashMessenger( 'Moneda Activado' );
+        $this->_helper->FlashMessenger( 
+                $this->_translate->translate ('moneda activado' )
+        );
         $this->_redirect( $this->URL );
         }
 
@@ -102,7 +113,9 @@ class Admin_MonedaController extends Mtt_Controller_Action
         {
         $id = intval( $this->_request->getParam( 'id' ) );
         $this->_moneda->desactivarMoneda( $id );
-        $this->_helper->FlashMessenger( 'Moneda desactivado' );
+        $this->_helper->FlashMessenger( 
+                $this->_translate->translate ('moneda desactivada' )
+        );
         $this->_redirect( $this->URL );
         }
 

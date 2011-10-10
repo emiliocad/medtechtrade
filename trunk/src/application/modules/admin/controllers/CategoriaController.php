@@ -23,7 +23,7 @@ class Admin_CategoriaController
         }
 
 
-    public function registrarAction()
+    public function nuevoAction()
         {
         $form = new Mtt_Form_Categoria();
         if ( $this->_request->isPost() && $form->isValid(
