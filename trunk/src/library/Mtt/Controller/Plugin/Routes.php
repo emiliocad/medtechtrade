@@ -51,7 +51,16 @@ class Mtt_Controller_Plugin_Routes
                         'controller' => 'equipo' ,
                         'action' => 'index'
                     )
-            )
+            ),
+             'slugCategoryAllEquip' => new Zend_Controller_Router_Route(
+                    'categoryall/:slug' ,
+                    array(
+                        'module' => 'default' ,
+                        'controller' => 'equipo' ,
+                        'action' => 'equipcategoria' ,
+                        'slug' => ':slug'
+                    )
+            ) ,
                 )
         ;
 

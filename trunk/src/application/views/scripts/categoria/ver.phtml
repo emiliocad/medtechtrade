@@ -1,6 +1,6 @@
 <header>
     <h2>
-        <?= $this->translate( 'Welcome' ) ?>
+        <?= $this->categoria->title ?>
     </h2>
 
     <?= $this->formOrder ?>
@@ -8,22 +8,18 @@
     <br/>
 
     <h3>
-        <?= $this->categoria->title ?>
+        <?= $this->translate('equipos nuevos') ?>
     </h3>
 </header>
 
 <span class="see-more">
-    <a href="<?=
-        $this->url(
-                array(
-            'module' => 'default' ,
-            'controller' => 'equipo' ,
-            'action' => 'index' )
-                , 'default' , true
-        )
-        ?>">
+      <a href="
+            <?=
+            $this->url( array(
+                'slug' =>$this->categoria->slug ) , 'slugCategoryAllEquip' , true )
+            ?>">
            <?=
-           $this->translate( 'Click to see all' )
+           $this->translate( 'click para ver todos' )
            ?>
     </a>
 </span>
@@ -72,8 +68,7 @@
 
 <br/>
 <h3>
-    <?= $this->translate( 'Top Seller in' ) ?> 
-    <?= $this->categoria->title ?>
+    <?= $this->translate( 'equipos mas solicitados' ) ?> 
 </h3>
 <span class="see-more">
     <a href="#">
