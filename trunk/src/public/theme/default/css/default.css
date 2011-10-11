@@ -238,12 +238,14 @@ a:hover	{
 #section-bottom-footer	{
     display: inline-block;
     width: 400px;
-    height: 140px;
-    margin-left: 280px;
-    margin-right: 280px;
+    height: 120px;
+    margin-left: 280px !important;
+    margin-right: 280px !important;
+    
 }
 #section-bottom-buttons	{
     margin: 0 0 0 3px;
+    text-align: center;
 }
 #section-bottom-buttons li	{
     margin: 8px 0 0 0;
@@ -252,6 +254,7 @@ a:hover	{
 }
 #section-botttom-copyright	{
     margin: 12px 0 0 2px;
+    text-align: center;
 }
 
 .bottom-country	{
