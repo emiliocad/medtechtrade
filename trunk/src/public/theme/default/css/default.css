@@ -212,9 +212,16 @@ a:hover	{
     border-style: dotted;
     border-color: #141214;
     border-bottom-width: 1px;
-
-
 }
+
+#section-middle-search	{
+    /*background-color: RGBA(64,64,224,0.3);*/
+    width: 210px;
+    margin: 0 0 30px 0;
+    display: block;
+    float: right;
+}
+
 /*fin del codigo*/
 /*#section-middle-body p,	#section-middle-body h1	{
     margin: 6px 0 0 18px;

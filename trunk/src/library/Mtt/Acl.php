@@ -31,6 +31,7 @@ class Mtt_Acl
         $this->add( new Zend_Acl_Resource( 'default::test' ) );
         $this->add( new Zend_Acl_Resource( 'default::usuario' ) );
         $this->add( new Zend_Acl_Resource( 'default::vender' ) );
+        $this->add( new Zend_Acl_Resource( 'default::busqueda' ) );
         //user
         $this->add( new Zend_Acl_Resource( 'user::busqueda' ) );
         $this->add( new Zend_Acl_Resource( 'user::cuotaspago' ) );
@@ -73,6 +74,7 @@ class Mtt_Acl
         $this->allow( 'invitado' , 'default::test' );
         $this->allow( 'invitado' , 'default::usuario' );
         $this->allow( 'invitado' , 'default::vender' );
+        $this->allow( 'invitado' , 'default::busqueda' );
         //user
         $this->allow( 'user' , 'user::busqueda' );
         $this->allow( 'user' , 'user::cuotaspago' );
