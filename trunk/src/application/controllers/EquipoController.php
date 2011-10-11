@@ -58,6 +58,10 @@ class EquipoController
                             $("#device-foto-galery a").lightBox(
                             {fixedNavigation:true}
                             );
+                            
+                        });
+                        
+                        $("#searchEquipments").click(function() {
                             $( "#search" ).dialog({
                                 height: 350,
                                 width: 369,
