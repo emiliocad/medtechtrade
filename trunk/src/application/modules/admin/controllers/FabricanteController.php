@@ -58,7 +58,7 @@ class Admin_FabricanteController
                 {
                 $this->_fabricante->updateFabricante( $form->getValues() , $id );
                 $this->_helper->FlashMessenger( 
-                        $this->_translate->translate ('se modifico eñ fabricante' )
+                        $this->_translate->translate ('se modifico el fabricante' )
                 );
                 $this->_redirect( $this->URL );
                 }

@@ -107,7 +107,7 @@ class Admin_UserController
                         $form->getValues() , $id
                 );
                 $this->_helper->FlashMessenger(
-                        $this->translate( 'Changed a User' )
+                        $this->_translate->translate( 'Changed a User' )
                 );
                 $this->_redirect( $this->URL );
                 }
@@ -116,7 +116,8 @@ class Admin_UserController
             }
         else
             {
-            $this->_helper->FlashMessenger( $this->translate( 'No User' ) );
+            $this->_helper->FlashMessenger( 
+                    $this->_translate->translate( 'no es usuario' ) );
             $this->_redirect( $this->URL );
             }
         }
@@ -127,7 +128,7 @@ class Admin_UserController
         $id = intval( $this->_request->getParam( 'id' ) );
         $this->_user->deleteUsuario( $id );
         $this->_helper->FlashMessenger(
-                $this->translate( 'Usuario Desactivado' )
+                $this->_translate->translate( 'usuario desactivado' )
         );
         $this->_redirect( $this->URL );
         }
@@ -145,7 +146,7 @@ class Admin_UserController
             $this->_user->saveUsuario( $user );
 
             $this->_helper->FlashMessenger(
-                    $this->translate( 'Se Registro el Usuario' )
+                    $this->_translate->translate( 'se registro el usuario' )
             );
             $this->_redirect( $this->URL );
             }
@@ -185,7 +186,9 @@ class Admin_UserController
         {
         $id = intval( $this->_request->getParam( 'id' ) );
         $this->_user->activarUsuario( $id );
-        $this->_helper->FlashMessenger( $this->_translate->translate( 'Usuario activado' ) );
+        $this->_helper->FlashMessenger( 
+                $this->_translate->translate( 'Usuario activado' ) 
+        );
         $this->_redirect( $this->URL );
         }
 
@@ -194,7 +197,9 @@ class Admin_UserController
         {
         $id = intval( $this->_request->getParam( 'id' ) );
         $this->_user->desactivarUsuario( $id );
-        $this->_helper->FlashMessenger( $this->_translate->translate( 'Usuario desactivado' ) );
+        $this->_helper->FlashMessenger( 
+                $this->_translate->translate( 'Usuario desactivado' ) 
+        );
         $this->_redirect( $this->URL );
         }
 

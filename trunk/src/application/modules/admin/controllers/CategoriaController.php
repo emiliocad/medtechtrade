@@ -37,7 +37,7 @@ class Admin_CategoriaController
             $this->_categoria->saveCategoria( $categoria );
 
             $this->_helper->FlashMessenger( 
-                    $this->_translate->translate( 'Se Registro La Categoria' )
+                    $this->_translate->translate( 'se registro la categoria' )
             );
             $this->_redirect( $this->URL );
             }
@@ -119,7 +119,9 @@ class Admin_CategoriaController
             }
         else
             {
-            $this->_helper->FlashMessenger( 'No existe esa Categoria' );
+            $this->_helper->FlashMessenger( 
+                    $this->_translate->translate('no existe esa categoria' )
+            );
             $this->_redirect( $this->URL );
             }
         }
@@ -137,7 +139,9 @@ class Admin_CategoriaController
         {
         $id = intval( $this->_request->getParam( 'id' ) );
         $this->_categoria->desactivarCategoria( $id );
-        $this->_helper->FlashMessenger( 'Categoria Borrada' );
+        $this->_helper->FlashMessenger( 
+                $this->_translate->translate('categoria borrada' )
+        );
         $this->_redirect( $this->URL );
         }
 
@@ -146,7 +150,9 @@ class Admin_CategoriaController
         {
         $id = intval( $this->_request->getParam( 'id' ) );
         $this->_categoria->activarCategoria( $id );
-        $this->_helper->FlashMessenger( 'Categoria Activado' );
+        $this->_helper->FlashMessenger( 
+                $this->_translate->translate('categoria activado' )
+        );
         $this->_redirect( $this->URL );
         }
 
@@ -155,7 +161,9 @@ class Admin_CategoriaController
         {
         $id = intval( $this->_request->getParam( 'id' ) );
         $this->_categoria->desactivarCategoria( $id );
-        $this->_helper->FlashMessenger( 'Categoria desactivado' );
+        $this->_helper->FlashMessenger( 
+                $this->_translate->translate('categoria desactivado' )
+        );
         $this->_redirect( $this->URL );
         }
 
