@@ -10,7 +10,10 @@ class Mtt_Form_Pais
         extends Mtt_Formy
     {
 
-
+    protected $nombre;
+    protected $code;
+    protected $submit;
+    
     public function init()
         {
         $this
@@ -20,10 +23,12 @@ class Mtt_Form_Pais
 
         //$decorator = new Mtt_Form_Decorator_SimpleInput();
 
-        $nombre = new Zend_Form_Element_Text( 'nombre' );
-        $nombre->setLabel( ucwords( $this->_translate->translate( 'nombre' ) ) . '*:' );
-        $nombre->setRequired();
-        $nombre->addValidator(
+        $this->nombre = new Zend_Form_Element_Text( 'nombre' );
+        $this->nombre->setLabel( 
+                ucwords( $this->_translate->translate( 'nombre' ) ) . '*:' 
+        );
+        $this->nombre->setRequired();
+        $this->nombre->addValidator(
                 new Zend_Validate_StringLength(
                         array(
                             'min' => 2 ,
@@ -31,8 +36,8 @@ class Mtt_Form_Pais
                         )
                 )
         );
-        $nombre->addValidator( new Zend_Validate_Alnum( true ) );
-        $nombre->addValidator(
+        $this->nombre->addValidator( new Zend_Validate_Alnum( true ) );
+        $this->nombre->addValidator(
                 new Zend_Validate_Db_NoRecordExists(
                         array(
                             'table' => 'paises' ,
@@ -41,16 +46,18 @@ class Mtt_Form_Pais
                 )
         );
         //$e->setDecorators( array( $decorator ) );
-        $this->addElement( $nombre );
+        //$this->addElement( $this->nombre );
 
-        $code = new Zend_Form_Element_Text( 'code' );
-        $code->setLabel( ucwords( $this->_translate->translate( 'code' ) ) . ':' );
+        $this->code = new Zend_Form_Element_Text( 'code' );
+        $this->code->setLabel( 
+                ucwords( $this->_translate->translate( 'code' ) ) . ':' 
+        );
         //$e->setDecorators( array( $decorator ) );
-        $this->addElement( $code );
+        //$this->addElement( $this->code );
 
         //Submit
-        $submit = new Zend_Form_Element_Button( 'submit' );
-        $submit->setLabel(
+        $this->submit = new Zend_Form_Element_Button( 'submit' );
+        $this->submit->setLabel(
                         ucwords( $this->_translate->translate( 'save' ) )
                 )
                 ->setAttrib(
@@ -58,7 +65,15 @@ class Mtt_Form_Pais
                 )
                 ->setAttrib( 'type' , 'submit' );
 
-        $this->addElement( $submit );
+        //$this->addElement( $this->submit );
+        
+        $this->addElements(
+                array(
+                    $this->nombre,
+                    $this->code,
+                    $this->submit
+                ));
+        
         }
 
 

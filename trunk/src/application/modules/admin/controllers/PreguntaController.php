@@ -16,10 +16,13 @@ class Admin_PreguntaController
 
     public function indexAction()
         {
-        $this->view->assign(
-                'preguntas' , $this->_pregunta->listar(
-                )
+      
+        $preguntas = $this->_pregunta->pagListQuestionUnresolved();
+        $preguntas->setCurrentPageNumber(
+                $this->_getParam( 'page' , 1 )
         );
+        $this->view->assign(
+                'preguntas' , $preguntas );
         }
 
         

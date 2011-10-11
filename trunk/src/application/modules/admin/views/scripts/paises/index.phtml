@@ -1,26 +1,25 @@
-<h2>Moneda:</h2>
-<h2> <?= $this->translate( 'Coins' ) ?>:</h2>
+<h2> <?= $this->translate( 'paises' ) ?>:</h2>
 
 <table border="1" class="listado">
     <thead>
         <tr>
-            <th><?= $this->translate( 'Name' ) ?></th>
-            <th><?= $this->translate( 'Symbol' ) ?></th>
-
+            <th><?= $this->translate( 'pais' ) ?></th>
+            <th><?= $this->translate( 'codigo' ) ?></th>
+            <th><?= $this->translate( 'operaciones' ) ?></th>
         </tr>
     </thead>
     <tbody>
-        <?php foreach ( $this->monedas as $moneda ): ?>
+        <?php foreach ( $this->paises as $pais ): ?>
 
-            <?php $id = $moneda->id; ?>
-            <tr class="<?= $moneda->active
+            <?php $id = $pais->id; ?>
+            <tr class="<?= $pais->active
                             ? 'activo' : 'inactivo' ?>">
 
                 <td>
-                    <?= $this->escape( $moneda->nombre ) ?>
+                    <?= $this->escape( $pais->nombre ) ?>
                 </td>
                 <td>
-                    <?= $this->escape( $moneda->simbolo ) ?>
+                    <?= $this->escape( $pais->code ) ?>
                 </td>
                 <td>
 
@@ -28,7 +27,7 @@
                     $link = $this->url(
                             array(
                                 'module' => 'admin' ,
-                                'controller' => 'moneda' ,
+                                'controller' => 'paises' ,
                                 'action' => 'editar' ,
                                 'id' => $id ) )
                     ?>
@@ -40,7 +39,7 @@
                     $link = $this->url(
                             array(
                                 'module' => 'admin' ,
-                                'controller' => 'moneda' ,
+                                'controller' => 'paises' ,
                                 'action' => 'borrar' ,
                                 'id' => $id )
                             )
@@ -51,12 +50,12 @@
                            <?= $this->translate( 'Borrar' ); ?>
                     </a>
 
-                    <? if ( $moneda->active ): ?>
+                    <? if ( $pais->active ): ?>
                         <?
                         $link = $this->url(
                                 array(
                                     'module' => 'admin' ,
-                                    'controller' => 'moneda' ,
+                                    'controller' => 'paises' ,
                                     'action' => 'desactivar' ,
                                     'id' => $id ) )
                         ?>
@@ -67,7 +66,7 @@
                         <?
                         $link = $this->url(
                                 array( 'module' => 'admin' ,
-                                    'controller' => 'moneda' ,
+                                    'controller' => 'paises' ,
                                     'action' => 'activar' ,
                                     'id' => $id ) )
                         ?>
@@ -87,8 +86,8 @@
         $this->url(
                 array(
             'module' => 'admin' ,
-            'controller' => 'moneda' ,
+            'controller' => 'paises' ,
             'action' => 'nuevo' ) , null , true
         )
-        ?>">Nuevo</a>
+        ?>"><?= $this->translate('nuevo'); ?></a>
 

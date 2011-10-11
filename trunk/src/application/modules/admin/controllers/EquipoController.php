@@ -10,9 +10,16 @@ class Admin_EquipoController extends Mtt_Controller_Action {
     }
 
     public function indexAction() {
-        $this->view->assign(
-                'equipos', $this->_equipo->listEquip()
+        
+        $equipos = $this->_equipo->pagListEquip();
+        $equipos->setCurrentPageNumber(
+                $this->_getParam( 'page' , 1 )
         );
+        $this->view->assign(
+                'equipos', $equipos);
+        
+
+        
     }
 
     public function detalleAction() {
