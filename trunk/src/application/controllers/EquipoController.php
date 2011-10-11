@@ -31,8 +31,6 @@ class EquipoController
                 $this->_getParam( 'page' , 1 )
         );
 
-
-
         $this->view->assign( 'formOrder' , $formOrder );
         $this->view->assign(
                 'productos' , $productos
@@ -60,7 +58,15 @@ class EquipoController
                             $("#device-foto-galery a").lightBox(
                             {fixedNavigation:true}
                             );
-                        });'
+                            $( "#search" ).dialog({
+                                height: 350,
+                                width: 369,
+                                modal: true
+                            });
+                        });
+                        
+                        '
+                        
         );
 
         $this->_equipo->updateView( $id );
@@ -68,6 +74,10 @@ class EquipoController
         $this->view->assign(
                 'producto' , $this->_equipo->getProduct( $id )
         );
+        
+        $form = new Mtt_Form_SearchGeneral();
+        $this->view->assign( 'formSearch', $form);
+        
         }
 
 

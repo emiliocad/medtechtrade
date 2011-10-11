@@ -130,7 +130,7 @@ label.required {
     padding: 5px;
     font-size: 13px;
     width: 200px
-;
+        ;
 }
 
 .listado thead {
@@ -181,3 +181,4 @@ table tbody tr:hover {
 table .pendiente {
     background-color: #e9ff8f;
 }
+
