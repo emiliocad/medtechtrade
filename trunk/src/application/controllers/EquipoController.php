@@ -71,6 +71,46 @@ class EquipoController
         }
 
 
+
+    public function equipcategoriaAction()
+        {
+
+        $slug = $this->_getParam( 'slug' , null );
+        //$id = $this->_getParam( 'id' , null );
+
+        $id = $this->_equipo->getEquipmentBySlug( $slug )->id;
+
+        $this->view->jQuery()
+                ->addJavascriptFile(
+                        '/js/jquery.lightbox/jquery.lightbox-0.5.js'
+                )
+                ->addStylesheet(
+                        '/js/jquery.lightbox/jquery.lightbox-0.5.css'
+        );
+        $this->view->jQuery()
+                ->addOnLoad(
+                        '$(document).ready(function() {
+                            $("#device-foto-galery a").lightBox(
+                            {fixedNavigation:true}
+                            );
+                        });'
+        );
+
+        //$this->_equipo->updateView( $id );
+        $equipos = $this->_equipo->pagListEquipByCategory( $id, 
+                Mtt_Models_Bussines_PublicacionEquipo::Activada );
+        $equipos->setCurrentPageNumber(
+                $this->_getParam( 'page' , 1 )
+        );
+        $this->view->assign(
+                'productos' , $equipos
+        );
+        }
+
+        
+        
+        
+        
     public function pdfAction()
         {
         $this->_helper->layout->disableLayout();

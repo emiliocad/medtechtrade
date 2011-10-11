@@ -237,8 +237,10 @@ a:hover	{
 }
 #section-bottom-footer	{
     display: inline-block;
-    width: 290px;
+    width: 400px;
     height: 140px;
+    margin-left: 280px;
+    margin-right: 280px;
 }
 #section-bottom-buttons	{
     margin: 0 0 0 3px;
