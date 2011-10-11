@@ -1,5 +1,4 @@
-<h2> <?= $this->translate( 'Equipment' ) ?>:</h2>
-
+<h2> <?= $this->translate( 'equipos' ) ?>:</h2>
 
 <!-- Filtrado -->
 <?= $this->render( 'equipo/comp/_filter.phtml' ); ?>
@@ -12,16 +11,16 @@
 <table border="1" class="listado">
     <thead>
         <tr>
-            <th><?= $this->translate( 'Name' ) ?></th>
-            <th><?= $this->translate( 'Modelo' ) ?></th>
-            <th><?= $this->translate( 'Categoria' ) ?></th>
-            <th><?= $this->translate( 'Estado Equipo' ) ?></th>
-            <th><?= $this->translate( 'Usuario' ) ?></th>
-            <th><?= $this->translate( 'Fecha de Fabricacion' ) ?></th>
-            <th><?= $this->translate( 'Fecha de Publicacion' ) ?></th>
-            <th><?= $this->translate( 'Fabricante' ) ?></th>
-            <th><?= $this->translate( 'Pais' ) ?></th>
-            <th><?= $this->translate( 'Operations' ) ?></th>
+            <th><?= $this->translate( 'nombre' ) ?></th>
+            <th><?= $this->translate( 'modelo' ) ?></th>
+            <th><?= $this->translate( 'categoria' ) ?></th>
+            <th><?= $this->translate( 'estado' ) ?></th>
+            <th><?= $this->translate( 'usuario' ) ?></th>
+            <th><?= $this->translate( 'fabricacion' ) ?></th>
+            <th><?= $this->translate( 'publicacion' ) ?></th>
+            <th><?= $this->translate( 'fabricante' ) ?></th>
+            <th><?= $this->translate( 'pais' ) ?></th>
+            <th><?= $this->translate( 'operaciones' ) ?></th>
 
         </tr>
     </thead>
@@ -54,7 +53,7 @@
                     <?= $this->escape( $equipo->publishdate ) ?>
                 </td>
                 <td>
-                    <?= $this->escape( $equipo->publicacionequipo ) ?>
+                    <?= $this->escape( $equipo->fabricante ) ?>
                 </td>
                 <td>
                     <?= $this->escape( $equipo->paises ) ?>
@@ -158,3 +157,8 @@
         )
         ?>">Nuevo</a>
 
+<?=
+$this->paginationControl(
+        $this->equipos , 'Sliding' , 'equipo/_pag.phtml'
+);
+?>

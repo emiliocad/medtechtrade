@@ -31,11 +31,10 @@ class ContactusController
 
         $form = new Mtt_Form_Contactar();
 
-        if ( $this->_request->isPost() )
+        if ( $this->_request->isPost() && 
+                $form->isValid($this->_request->getPost()))
             {
-            if ( $form->isValid( $this->_request->getPost() ) )
-                {
-
+           
                 $contacto = $form->getValues();
 
                 //obtener datos de pais
@@ -47,7 +46,7 @@ class ContactusController
                         $this->_translate->translate( 'contactenos' )
                 );
 //$this->view->assign('contacto', $contacto);
-                }
+    
             }
         else
             {
