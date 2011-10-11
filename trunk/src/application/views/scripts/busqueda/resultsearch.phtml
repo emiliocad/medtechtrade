@@ -1,61 +1,47 @@
-<h2>Resultados</h2>
-<?php foreach ($this->resultados as $result): ?>
+<h2><?= $this->translate('resultados de la busqueda') ?></h2>
 
-    <div>
-        <img src="/media/catalog/product/device-03-00.png" alt="">
-    </div>
-    <div>
-        <table border="1">
-            <tbody>
-                <tr>
-                    <td>
-                        <?= $this->escape($result->equipo) ?>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <?= $this->escape($result->fabricante) ?>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <?= $this->escape($result->categoria) ?>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <?= $this->escape($result->equipo) ?>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <?= $this->escape($result->modelo) ?>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <?= $this->escape($result->fechafabricacion) ?>
-                    </td>
-                </tr>
-                <tr>
-                    <td><?php
-                    $link = $this->url(array('module' => 'user',
-                        'controller' => 'equipo',
-                        'action' => 'ver',
-                        'id' => $result->id))
-                        ?>
-                        <a href="<?= $link ?>">
-                            ver detalles
-                        </a></td>
+<div class="device-horizontal-list">
+    <?php foreach ( $this->productos as $producto ): ?>
 
-                </tr>
-            </tbody>
-        </table>
-    </div>
-<?php endforeach; ?>
+        <div>
+            <a href="
+            <?=
+            $this->url( array(
+                'slug' => $producto->slug ) , 'slugEquipment' , true )
+            ?>
+               " title="<?= $producto->slug ?>">
+                <img src="/media/catalog/product/device-00.png" 
 
+
+                     alt="<?= $producto->nombre ?>" 
+                     title="<?= $producto->nombre ?>"
+                     />
+            </a>
+
+            <span class="manufacturer">
+                <?= $this->translate( 'Manufacturer' ) ?> : 
+                <?= $producto->fabricante ?>
+            </span>
+            <span class="name">
+                <?= $this->translate( 'Product name' ) ?>: 
+                <?= $producto->nombre ?>
+            </span>
+            <a href="
+            <?=
+            $this->url( array(
+                'slug' => $producto->slug ) , 'slugEquipment' , true )
+            ?>
+               " title="<?= $producto->slug ?>">
+                <span>
+                    <?= $this->translate( 'View details' ) ?>
+                </span>
+            </a>
+        </div>
+
+    <?php endforeach; ?>
+</div>
 <?=
 $this->paginationControl(
-        $this->resultados, 'Sliding', 'busqueda/_pag.phtml'
+        $this->productos, 'Sliding', 'busqueda/_pag.phtml'
 );
 ?>

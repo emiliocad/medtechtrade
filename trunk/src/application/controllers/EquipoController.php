@@ -59,7 +59,7 @@ class EquipoController
                             {fixedNavigation:true}
                             );
                             $( "#search" ).dialog({
-                                height: 286,
+                                height: 350,
                                 width: 369,
                                 modal: true
                             });

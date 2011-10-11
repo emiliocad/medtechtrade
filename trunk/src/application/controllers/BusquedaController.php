@@ -37,7 +37,7 @@ class BusquedaController
             $resultados->setCurrentPageNumber(
                     $this->_getParam('page', 1)
             );
-            $this->view->assign('resultados', $resultados);
+            $this->view->assign('productos', $resultados);
         } else {
 
             //$this->_helper->FlashMessenger('no efectuo la busqueda');
