@@ -1,53 +1,76 @@
-<span class="device-description-field">
-    <?= $this->translate( 'Model' ) ?>
-</span>
-<span>
-    <?= $this->producto->modelo ?>
-</span>
-<span class="device-description-field">
-    <?= $this->translate( 'Origin' ) ?>
-</span>
-<span>
-    <?= $this->producto->pais ?>
-</span>
-<span class="device-description-field">
-    <?= $this->translate( 'Article ID' ) ?>
-</span>
-<span>
-    <?= $this->producto->id ?>
-</span>
-<span class="device-description-field">
-    <?= $this->translate( 'Date/Year of manufacture' ) ?>
-</span>
-<span>
-    <?= $this->producto->fechafabricacion ?>
-</span>
-<span class="device-description-field">
-    <?= $this->translate( 'Estimated weight (KG)' ) ?>
-</span>
-<span>
-    <?= $this->producto->pesoEstimado ?>
-</span>
 
-<span class="device-description-field">
-    <?= $this->translate( 'Price' ) ?>
-</span>
-<span>
-    <?= $this->producto->precioventa ?>
-</span>
+<? if ( !is_null( $this->producto->modelo ) ): ?>
+    <span class="device-description-field">
+        <?= $this->translate( 'Model' ) ?>
+    </span>
+    <span>
+        <?= $this->producto->modelo ?>
+    </span>
+<? endif; ?>
 
-<span class="device-description-field">
-    <?= $this->translate( 'Quality/Condition' ) ?>
-</span>
-<span>
-    <?= $this->producto->calidad ?>
-</span>
-<span class="device-description-field">
-    <?= $this->translate( 'Mode Amount of equipment' ) ?>
-</span>
-<span>
-    <?= $this->producto->cantidad ?>
-</span>
+<? if ( !is_null( $this->producto->pais ) ): ?>
+    <span class="device-description-field">
+        <?= $this->translate( 'Origin' ) ?>
+    </span>
+    <span>
+        <?= $this->producto->pais ?>
+    </span>
+<? endif; ?>
+
+<? if ( !is_null( $this->producto->id ) ): ?>
+    <span class="device-description-field">
+        <?= $this->translate( 'Article ID' ) ?>
+    </span>
+    <span>
+        <?= $this->producto->id ?>
+    </span>
+<? endif; ?>
+
+<? if ( !is_null( $this->producto->fechafabricacion ) ): ?>
+    <span class="device-description-field">
+        <?= $this->translate( 'Date/Year of manufacture' ) ?>
+    </span>
+    <span>
+        <?= $this->producto->fechafabricacion ?>
+    </span>
+<? endif; ?>
+
+<? if ( !is_null( $this->producto->pesoEstimado ) ): ?>
+    <span class="device-description-field">
+        <?= $this->translate( 'Estimated weight (KG)' ) ?>
+    </span>
+    <span>
+        <?= $this->producto->pesoEstimado ?>
+    </span>
+<? endif; ?>
+
+<? if ( !is_null( $this->producto->precioventa ) ): ?>
+    <span class="device-description-field">
+        <?= $this->translate( 'Price' ) ?>
+    </span>
+    <span>
+        <?= $this->producto->precioventa ?>
+    </span>
+<? endif; ?>
+
+<? if ( !is_null( $this->producto->calidad ) ): ?>
+    <span class="device-description-field">
+        <?= $this->translate( 'Quality/Condition' ) ?>
+    </span>
+    <span>
+        <?= $this->producto->calidad ?>
+    </span>
+<? endif; ?>
+
+<? if ( !is_null( $this->producto->cantidad ) ): ?>
+    <span class="device-description-field">
+        <?= $this->translate( 'Mode Amount of equipment' ) ?>
+    </span>
+    <span>
+        <?= $this->producto->cantidad ?>
+    </span>
+<? endif; ?>
+
 <span class="device-description-field">
     <?= $this->translate( 'Description' ) ?>
 </span>
