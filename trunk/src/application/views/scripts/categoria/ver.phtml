@@ -45,9 +45,11 @@
                 <?= $this->translate( 'Manufacturer' ) ?> : 
                 <?= $producto->fabricante ?>
             </span>
-            <span class="name">
+            <?php $nombre = (strlen($producto->nombre)>13)? 
+                    substr($producto->nombre,0,11). '..': $producto->nombre ?>
+            <span class="name" title="<?= $producto->nombre ?>">
                 <?= $this->translate( 'Product name' ) ?>: 
-                <?= $producto->nombre ?>
+                <?= $nombre ?>
             </span>
 
             <a href="
