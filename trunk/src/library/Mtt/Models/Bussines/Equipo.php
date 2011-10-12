@@ -872,6 +872,7 @@ class Mtt_Models_Bussines_Equipo
                     'modelo' ,
                     'fechafabricacion' ,
                     'tag' ,
+                    'slug',
                     'preciocompra' ,
                     'active' )
                 )
