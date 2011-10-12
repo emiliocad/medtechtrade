@@ -140,7 +140,7 @@ class User_ReservaController
         else
             {
             $this->_reserva->activarReserva(
-                    $favorito[0]->id
+                    $reservaEquip->id
             );
             }
         $this->_helper->FlashMessenger( 'Se agrego como la reserva' );

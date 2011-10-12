@@ -48,11 +48,16 @@ class Admin_PreguntaController
 
     public function answerquestionAction()
         {
-         if ( $this->_request->isPost() 
+        //$this->_helper->layout()->disableLayout();
+        $form = new Mtt_Form_AnswerQuestion();
+        if ( $this->_request->isPost() 
                 && $form->isValid( $this->_request->getPost() ) )
             {
-             
+            
             }
+       
+           
+        //$this->_redirect( $this->URL );
         }        
         
 
