@@ -1,4 +1,0 @@
-
-div#page>(div#header>ul#nav>li*4>a)+(div#page>(h1>span)+p*2)+div#footer
-
-html:xt>div#header>div#logo+ul#nav>li.item-$*5>a
