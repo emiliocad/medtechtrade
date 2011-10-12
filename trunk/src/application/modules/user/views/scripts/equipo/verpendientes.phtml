@@ -1,7 +1,9 @@
-<h2>Pendientes</h2>
+<h2>
+    <?= $this->translate( 'equipos pendientes de autorizacion' ) ?>
+</h2>
 <table border="1" class="listado">
     <thead>
-        <tr>
+        
             <th><?= $this->translate( 'Name' ) ?></th>
             <th><?= $this->translate( 'Price' ) ?></th>
             <th><?= $this->translate( 'Category' ) ?></th>
@@ -9,7 +11,7 @@
             <th><?= $this->translate( 'Factory' ) ?></th>
             <th><?= $this->translate( 'Quality' ) ?></th>
             <th><?= $this->translate( 'Acciones' ) ?></th>
-        </tr>
+        
     </thead>
     <tbody>
         <?php foreach ( $this->equipos as $equipo ): ?>
@@ -36,15 +38,16 @@
                     <?= $this->escape( $equipo->calidad ) ?>
                 </td>
                 <td><?php
-                    $link = $this->url( array( 'module' => 'user' ,
-                        'controller' => 'imagen' ,
-                        'action' => 'nuevo' ,
-                        'id' => $equipo->id ) )
+                $link = $this->url( array( 'module' => 'user' ,
+                    'controller' => 'imagen' ,
+                    'action' => 'nuevo' ,
+                    'id' => $equipo->id ) )
                     ?>
                     <a href="<?= $link ?>">
-                        <?=$this->translate('agregar imagen')?>
-                    </a></td>
-               
+                        <?= $this->translate( 'agregar imagen' ) ?>
+                    </a>
+                </td>
+
             </tr>
         <?php endforeach; ?>
     </tbody>

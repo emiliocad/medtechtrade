@@ -18,7 +18,7 @@
  * @since		2.0.0
  */
 
-class My_Image_GD extends My_Image_Abstract 
+class Tsk_Image_GD extends My_Image_Abstract 
 {
 	public function rotate($newFile, $angle) 
 	{

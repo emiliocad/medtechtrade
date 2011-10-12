@@ -19,8 +19,8 @@
  * @version 	$Id: ImageMagick.php 3986 2010-07-25 16:32:46Z huuphuoc $
  * @since		2.0.0
  */
-class My_Image_ImageMagick
-        extends My_Image_Abstract
+class Tsk_Image_ImageMagick
+        extends Tsk_Image_Abstract
     {
 
 

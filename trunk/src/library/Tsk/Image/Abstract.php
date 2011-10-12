@@ -19,7 +19,7 @@
  * @version 	$Id: Abstract.php 3986 2010-07-25 16:32:46Z huuphuoc $
  * @since		2.0.0
  */
-abstract class My_Image_Abstract
+abstract class Tsk_Image_Abstract
     {
 
     /**

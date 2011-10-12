@@ -94,7 +94,8 @@ class Admin_UserController
 
         $form = new Mtt_EditForm_Usuario();
         $form->removeElement( 'clave_2' );
-        //$form->submit->setLabel( ucwords($this->_translate->translate('actualizar')) );
+        //$form->submit->setLabel( 
+        //ucwords($this->_translate->translate('actualizar')) );
         $usuario = $this->_user->getFindId( $id );
 
         if ( !is_null( $usuario ) )

@@ -1,7 +1,7 @@
 <?php
 
 
-class My_Form
+class Tsk_Form
         extends Zend_Form
     {
 

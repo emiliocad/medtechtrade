@@ -31,6 +31,7 @@ class Mtt_EditForm_Usuario
         $this->fax->setOrder(9);
         $this->email->setOrder(10);
         $this->submit->setOrder(11);
+        
         //$this->removeElement( $this->email->getName() );
         $this->removeElement( $this->login->getName() );
         $this->removeElement( $this->rol->getName() );
