@@ -35,6 +35,18 @@ class User_UserController
         $usuario = $this->_user->getFindId( $id );
 
         $this->view->assign( 'usuario' , $usuario );
+        
+         $form->email->addValidator(
+                new Zend_Validate_Db_NoRecordExists(
+                        array(
+                            'table' =>'usuario',
+                            'field' => 'email',
+                            'exclude' => array (
+                                'field' => 'id', 
+                                'value' => $id)
+                        )
+                )
+        );
 
         if ( !is_null( $usuario ) )
             {

@@ -10,11 +10,12 @@
 class Mtt_Form_Usuario
         extends Mtt_Formy
     {
-
+    
+    protected $tratamiento;
     protected $nombre;
     protected $apellido;
-    protected $email;
     protected $login;
+    protected $email;
     protected $clave;
     protected $clave2;
     protected $direccion;
@@ -23,6 +24,8 @@ class Mtt_Form_Usuario
     protected $paises;
     protected $rol;
     protected $institucion;
+    protected $telefono;
+    protected $fax;
     protected $submit;
 
 
@@ -32,6 +35,18 @@ class Mtt_Form_Usuario
                 ->setMethod( 'post' )
                 ->setAttrib( 'id' , 'frmRegistrar' )
         ;
+        
+        $this->tratamiento = new Zend_Form_Element_Select( 'tratamiento' );
+        $this->tratamiento->setRequired();
+
+        $_tratam = new Mtt_Models_Bussines_Usuario();
+        $values = $_tratam->getTratamientosUsuario();
+        $this->tratamiento->addMultiOptions( $values );
+        //$this->addElement( $e );
+        $this->tratamiento->addValidator( new Zend_Validate_InArray(
+                        array_keys( $values )
+                )
+        );
 
         $this->nombre = new Zend_Form_Element_Text( 'nombre' );
         $this->nombre->setRequired();
@@ -72,6 +87,12 @@ class Mtt_Form_Usuario
                 ucwords(
                         $this->_translate->translate( 'email' )
                 ) . ':'
+        );
+        $this->email->addValidator( new Zend_Validate_Db_NoRecordExists(
+                        array(
+                            'table' => 'usuario' ,
+                            'field' => 'email' )
+                )
         );
         $this->email->addValidator(
                 new Zend_Validate_EmailAddress()
@@ -195,7 +216,7 @@ class Mtt_Form_Usuario
 
 
         $this->institucion = new Zend_Form_Element_Text( 'institucion' );
-       $this->institucion->setRequired();
+        $this->institucion->setRequired();
         //$e->setDecorators( array( $decorator ) );
         $this->institucion->setLabel(
                 ucwords(
@@ -203,6 +224,24 @@ class Mtt_Form_Usuario
                 ) . ':'
         );
         //$this->addElement( $e );
+        
+        $this->telefono = new Zend_Form_Element_Text( 'telefono' );
+        //$this->telefono->setRequired();
+        //$e->setDecorators( array( $decorator ) );
+        $this->telefono->setLabel(
+                ucwords(
+                        $this->_translate->translate( 'telefono' )
+                ) . ':'
+        );
+        
+        $this->fax = new Zend_Form_Element_Text( 'fax' );
+        //$this->fax->setRequired();
+        //$e->setDecorators( array( $decorator ) );
+        $this->fax->setLabel(
+                ucwords(
+                        $this->_translate->translate( 'fax' )
+                ) . ':'
+        );
 
         $this->submit = new Zend_Form_Element_Button( 'submit' );
         $this->submit->setLabel(
@@ -219,10 +258,11 @@ class Mtt_Form_Usuario
 
         $this->addElements(
                 array(
+                    $this->tratamiento,
                     $this->nombre ,
                     $this->apellido ,
-                    $this->email ,
                     $this->login ,
+                    $this->email ,
                     $this->clave ,
                     $this->clave2 ,
                     $this->direccion ,
@@ -231,6 +271,8 @@ class Mtt_Form_Usuario
                     $this->paises ,
                     $this->rol ,
                     $this->institucion ,
+                    $this->telefono,
+                    $this->fax,
                     $this->submit
                 )
         );

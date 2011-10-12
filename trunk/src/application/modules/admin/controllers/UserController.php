@@ -150,6 +150,7 @@ class Admin_UserController
             );
             $this->_redirect( $this->URL );
             }
+      
         $this->view->assign( 'frmRegistrar' , $form );
         }
 

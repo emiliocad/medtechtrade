@@ -7,7 +7,7 @@ class Mtt_Models_Bussines_Usuario
 
     const PASSWPRD_SALT = "asdw452112355";
 
-
+    
     public function auth( $login , $pwd )
         {
 
@@ -153,6 +153,15 @@ class Mtt_Models_Bussines_Usuario
         }
 
 
+    public function getTratamientosUsuario()
+        {
+
+        $tratamientos = array('1' => 'Sr', '2' => 'Sra/Srta');
+        return $tratamientos;
+        }
+        
+        
+        
     public function updateUsuario( array $data , $id )
         {
 
