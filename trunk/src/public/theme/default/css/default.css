@@ -212,9 +212,16 @@ a:hover	{
     border-style: dotted;
     border-color: #141214;
     border-bottom-width: 1px;
-
-
 }
+
+#section-middle-search	{
+    /*background-color: RGBA(64,64,224,0.3);*/
+    width: 210px;
+    margin: 0 0 30px 0;
+    display: block;
+    float: right;
+}
+
 /*fin del codigo*/
 /*#section-middle-body p,	#section-middle-body h1	{
     margin: 6px 0 0 18px;
@@ -237,11 +244,15 @@ a:hover	{
 }
 #section-bottom-footer	{
     display: inline-block;
-    width: 290px;
-    height: 140px;
+    width: 400px;
+    height: 80px;
+    margin-left: 280px !important;
+    margin-right: 280px !important;
+    
 }
 #section-bottom-buttons	{
     margin: 0 0 0 3px;
+    text-align: center;
 }
 #section-bottom-buttons li	{
     margin: 8px 0 0 0;
@@ -250,6 +261,7 @@ a:hover	{
 }
 #section-botttom-copyright	{
     margin: 12px 0 0 2px;
+    text-align: center;
 }
 
 .bottom-country	{
@@ -330,11 +342,11 @@ a:hover	{
 
 /* Right "order By" drop down select */
 .order-by	{
-/*    background-image: url(/theme/default/image/dropdown.png);*/
-/*    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-    background-color: transparent;*/
+    /*    background-image: url(/theme/default/image/dropdown.png);*/
+    /*    background-repeat: no-repeat;
+        background-position: center;
+        border: none;
+        background-color: transparent;*/
     width: 162px;
     height: 24px;
     padding: 0 0 0 10px;
@@ -450,7 +462,9 @@ a:hover	{
 }
 
 
-
+#img-logo {
+    margin-left: 23px;
+}
 
 
 

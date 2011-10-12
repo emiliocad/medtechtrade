@@ -1,0 +1,26 @@
+/* 
+    Document   : form
+    Created on : 29/09/2011, 12:36:32 PM
+    Author     : User
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+#frmSearchGeneral {
+    background-color: #167fae;
+    margin: 0px !important;
+    padding: 0px !important;
+
+}
+#frmSearchGeneral div label {
+    color: #ffffff ;
+}
+
+#section-middle-search #frmSearchGeneral input {
+width: 175px !important;
+}

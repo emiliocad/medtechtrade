@@ -57,9 +57,9 @@
 </div>
 
 <div>
-    <?= $this->translate( 'Bienvenido' ) ?>
     <?=
-    Zend_Auth::getInstance()->hasIdentity() ? $this->authUser : $this->translate( 'Visitante' )
+    Zend_Auth::getInstance()->hasIdentity() ? $this->translate( 'Bienvenido' ) .
+        $this->authUser : ''
     ?>
 
     <? if ( Zend_Auth::getInstance()->hasIdentity() ): ?>
@@ -75,6 +75,6 @@
            'module' => 'default' ,
            'controller' => 'usuario' ,
            'action' => 'index' ) , 'default' , true )
-           ?>">Login</a> |
+           ?>">Login</a> 
        <? endif; ?>
 </div>

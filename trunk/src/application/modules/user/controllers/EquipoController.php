@@ -44,10 +44,7 @@ class User_EquipoController
 
     public function verAction()
         {
-        $this->view->jQuery()
-                ->addStylesheet(
-                        $this->view->baseUrl() . '/css/reserva.css'
-        );
+
         $id = intval( $this->_getParam( 'id' , null ) );
         $stmt = $this->_equipo->getProduct( $id );
         $this->view->assign( 'equipo' , $stmt );
@@ -74,10 +71,7 @@ class User_EquipoController
     public function veractivosAction()
         {
         $this->_helper->layout->setLayout( 'layoutListado' );
-//        $this->view->jQuery()
-//                ->addStylesheet(
-//                        $this->view->baseUrl() . '/css/reserva.css'
-//        );
+
         $this->view->assign(
                 'equipos' ,
                 $this->_equipo->listEquipByUserStatus(
@@ -148,17 +142,13 @@ class User_EquipoController
 
                 $cotizacion = $form->getValues();
 
-                //obtener datos de pais
                 $paises = new Mtt_Models_Bussines_Paises();
                 $pais = $paises->getFindId( $cotizacion['paises_id'] );
                 $cotizacion['pais'] = $pais->nombre;
                 $cotizacion['equipo'] = $equipo->nombre;
                 $this->_equipo->sendMailToRequest( $cotizacion , 'cotizar' );
-                //$this->view->assign('cotizacion', $cotizacion);
-                $this->view->assign( 'equipo' , $equipo );
+                //$this->view->assign( 'equipo' , $equipo );
                 }
-
-
             $this->view->assign( 'frmCotizar' , $form );
             }
         else

@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 /*
  * To change this template, choose Tools | Templates
@@ -29,6 +29,80 @@ class Mtt_Models_Bussines_Paises
         $p->setItemCountPerPage( 3 );
         return $p;
         }
+        
+        
+
+    public function listar()
+        {
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from( $this->_name )
+                ->where( 'active = ?' , '1' )
+                ->query()
+        ;
+
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }
+        
+
+
+    public function getFindId( $id )
+        {
+
+        return $this->fetchRow( 'id = ' . $id );
+        }
+
+        
+
+    public function updatePais( array $data , $id )
+        {
+
+        $this->update( $data , 'id = ' . $id );
+        }
+
+
+    public function savePais( array $data )
+        {
+        $slug = new Mtt_Filter_Slug( array(
+                    'field' => 'slug' ,
+                    'model' => $this
+                        ) );
+
+        $dataNew = array(
+            'slug' => $slug->filter( $data['nombre'] )
+        );
+
+        $data = array_merge( $dataNew , $data );
+
+        $this->insert( $data );
+        }
+
+
+    public function deletePais( $id )
+        {
+
+        $this->delete( 'id = ?' , $id );
+        }
+
+
+    public function activarPais( $id )
+        {
+
+        $this->update( array(
+            "active" => self::ACTIVE )
+                , 'id = ' . $id );
+        }
+
+
+    public function desactivarPais( $id )
+        {
+
+        $this->update( array(
+            "active" => self::DESACTIVATE )
+                , 'id = ' . $id );
+        }
+        
+        
 
 
     }

@@ -1,0 +1,71 @@
+<h2>
+    <?= $this->translate( 'Purchase of equipment' ) ?>
+</h2>
+<?= $this->formOrder ?>
+
+<h3>
+    <?= $this->translate( 'Our Equipment' ) ?>
+</h3>
+<span class="see-more">
+    <a href="<?=
+    $this->url(
+            array(
+        'module' => 'default' ,
+        'controller' => 'equipo' ,
+        'action' => 'index' )
+            , 'default' , true
+    )
+    ?>">
+           <?=
+           $this->translate( 'Click to see all' )
+           ?>
+    </a>
+</span>
+
+<div class="device-horizontal-list">
+    <?php foreach ( $this->productos as $producto ): ?>
+
+        <div>
+            <a href="
+            <?=
+            $this->url( array(
+                'slug' => $producto->slug ) , 'slugEquipment' , true )
+            ?>
+               " title="<?= $producto->slug ?>">
+                <img src="/media/catalog/product/device-00.png" 
+
+
+                     alt="<?= $producto->nombre ?>" 
+                     title="<?= $producto->nombre ?>"
+                     />
+            </a>
+
+            <span class="manufacturer">
+                <?= $this->translate( 'Manufacturer' ) ?> : 
+                <?= $producto->fabricante ?>
+            </span>
+            <span class="name">
+                <?= $this->translate( 'Product name' ) ?>: 
+                <?= $producto->nombre ?>
+            </span>
+            <a href="
+            <?=
+            $this->url( array(
+                'slug' => $producto->slug ) , 'slugEquipment' , true )
+            ?>
+               " title="<?= $producto->slug ?>">
+                <span>
+                    <?= $this->translate( 'View details' ) ?>
+                </span>
+            </a>
+        </div>
+
+    <?php endforeach; ?>
+</div>
+
+<?=
+$this->paginationControl(
+        $this->productos , 'Sliding' , 'equipo/_pag.phtml'
+);
+?>
+

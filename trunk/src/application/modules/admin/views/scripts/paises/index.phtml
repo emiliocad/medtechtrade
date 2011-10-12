@@ -1,0 +1,93 @@
+<h2> <?= $this->translate( 'paises' ) ?>:</h2>
+
+<table border="1" class="listado">
+    <thead>
+        <tr>
+            <th><?= $this->translate( 'pais' ) ?></th>
+            <th><?= $this->translate( 'codigo' ) ?></th>
+            <th><?= $this->translate( 'operaciones' ) ?></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ( $this->paises as $pais ): ?>
+
+            <?php $id = $pais->id; ?>
+            <tr class="<?= $pais->active
+                            ? 'activo' : 'inactivo' ?>">
+
+                <td>
+                    <?= $this->escape( $pais->nombre ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $pais->code ) ?>
+                </td>
+                <td>
+
+                    <?php
+                    $link = $this->url(
+                            array(
+                                'module' => 'admin' ,
+                                'controller' => 'paises' ,
+                                'action' => 'editar' ,
+                                'id' => $id ) )
+                    ?>
+                    <a href="<?= $link ?>">
+                        [Editar]
+                    </a>
+
+                    <?php
+                    $link = $this->url(
+                            array(
+                                'module' => 'admin' ,
+                                'controller' => 'paises' ,
+                                'action' => 'borrar' ,
+                                'id' => $id )
+                            )
+                    ?>
+                    <a href="<?= $link ?>" onclick="return confirm(
+                       <?= $this->translate( '¿Estás seguro?' ); ?>
+                           )">
+                           <?= $this->translate( 'Borrar' ); ?>
+                    </a>
+
+                    <? if ( $pais->active ): ?>
+                        <?
+                        $link = $this->url(
+                                array(
+                                    'module' => 'admin' ,
+                                    'controller' => 'paises' ,
+                                    'action' => 'desactivar' ,
+                                    'id' => $id ) )
+                        ?>
+                        <a href="<?= $link ?>">
+                            <?= $this->translate( 'Desactivar' ); ?>
+                        </a>
+                    <? else: ?>
+                        <?
+                        $link = $this->url(
+                                array( 'module' => 'admin' ,
+                                    'controller' => 'paises' ,
+                                    'action' => 'activar' ,
+                                    'id' => $id ) )
+                        ?>
+                        <a href="<?= $link ?>">
+                            <?= $this->translate( 'Activar' ); ?>
+                        </a>
+                    <? endif; ?>
+
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+<br />
+
+<a href="<?=
+        $this->url(
+                array(
+            'module' => 'admin' ,
+            'controller' => 'paises' ,
+            'action' => 'nuevo' ) , null , true
+        )
+        ?>"><?= $this->translate('nuevo'); ?></a>
+

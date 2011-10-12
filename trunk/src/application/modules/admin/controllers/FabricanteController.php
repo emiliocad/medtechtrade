@@ -1,6 +1,7 @@
 <?php
 
-class Admin_FabricanteController extends Mtt_Controller_Action
+class Admin_FabricanteController 
+    extends Mtt_Controller_Action
     {
 
     protected $_fabricante;
@@ -8,7 +9,7 @@ class Admin_FabricanteController extends Mtt_Controller_Action
     public function init()
         {
         parent::init();
-        $this->_fabricante = new Mtt_Models_Bussines_PublicacionEquipo();
+        $this->_fabricante = new Mtt_Models_Bussines_Fabricante();
         }
 
     public function indexAction()
@@ -25,14 +26,17 @@ class Admin_FabricanteController extends Mtt_Controller_Action
     public function nuevoAction()
         {
         $form = new Mtt_Form_Fabricante();
-        if ( $this->_request->isPost() && $form->isValid( $this->_request->getPost() ) )
+        if ( $this->_request->isPost() && 
+                $form->isValid( $this->_request->getPost() ) )
             {
 
             $fabricante = $form->getValues();
 
             $this->_fabricante->saveFabricante( $fabricante );
 
-            $this->_helper->FlashMessenger( 'Se Registro El Fabricante' );
+            $this->_helper->FlashMessenger( 
+                    $this->_translate->translate ('se registro el fabricante' )
+            );
             $this->_redirect( $this->URL );
             }
         $this->view->assign( 'frmRegistrar' , $form );
@@ -43,23 +47,28 @@ class Admin_FabricanteController extends Mtt_Controller_Action
 
         $id = intval( $this->_getParam( 'id' ) );
 
-        $form = new Mtt_Form_Fabricante();
+        $form = new Mtt_EditForm_Fabricante();
 
         $fabricante = $this->_fabricante->getFindId( $id );
 
         if ( !is_null( $fabricante ) )
             {
-            if ( $this->_request->isPost() && $form->isValid( $this->_request->getPost() ) )
+            if ( $this->_request->isPost() 
+                    && $form->isValid( $this->_request->getPost() ) )
                 {
                 $this->_fabricante->updateFabricante( $form->getValues() , $id );
-                $this->_helper->FlashMessenger( 'Se modificó un fabricante' );
+                $this->_helper->FlashMessenger( 
+                        $this->_translate->translate ('se modifico el fabricante' )
+                );
                 $this->_redirect( $this->URL );
                 }
             $form->setDefaults( $fabricante->toArray() );
             $this->view->assign( 'form' , $form );
             } else
             {
-            $this->_helper->FlashMessenger( 'No existe ese fabricante' );
+            $this->_helper->FlashMessenger( 
+                    $this->_translate->translate ('no existe ese fabricante' )
+            );
             $this->_redirect( $this->URL );
             }
         }
@@ -68,7 +77,9 @@ class Admin_FabricanteController extends Mtt_Controller_Action
         {
         $id = intval( $this->_request->getParam( 'id' ) );
         $this->_fabricante->deleteFabricate( $id );
-        $this->_helper->FlashMessenger( 'Fabricante borrado' );
+        $this->_helper->FlashMessenger( 
+                $this->_translate->translate ('fabricante borrado' )
+        );
         $this->_redirect( $this->URL );
         }
 
@@ -76,7 +87,9 @@ class Admin_FabricanteController extends Mtt_Controller_Action
         {
         $id = intval( $this->_request->getParam( 'id' ) );
         $this->_fabricante->update( array( 'active' => 1 ) , 'id=' . $id );
-        $this->_helper->FlashMessenger( 'Fabricante activado' );
+        $this->_helper->FlashMessenger( 
+                $this->_translate->translate ('fabricante activado' )
+        );
         $this->_redirect( $this->URL );
         }
 
@@ -84,7 +97,9 @@ class Admin_FabricanteController extends Mtt_Controller_Action
         {
         $id = intval( $this->_request->getParam( 'id' ) );
         $this->_fabricante->update( array( 'active' => 0 ) , 'id=' . $id );
-        $this->_helper->FlashMessenger( 'Fabricante desactivado' );
+        $this->_helper->FlashMessenger( 
+                $this->_translate->translate ('fabricante desactivado' )
+        );
         $this->_redirect( $this->URL );
         }
 

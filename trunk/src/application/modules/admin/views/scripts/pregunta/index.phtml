@@ -1,4 +1,4 @@
-<h2>Questions</h2>
+<h2><?= $this->translate('preguntas')?></h2>
 <table border="1" class="table-question">
     <tbody>
         <?php foreach ( $this->preguntas as $pregunta ): ?>
@@ -28,9 +28,14 @@
                     <?= $this->escape( $pregunta->respuesta ) ?>
                 </td>
                 <td>
-                    <?= $this->escape( $pregunta->fechaRespuesta ) ?>
+                    <a href="#" onclick="">
+                        <?= $this->translate('responder'); ?>
+                    </a>
                 </td>
-
+                <td>
+                    
+                </td>
+                
             </tr>
         <?php endforeach; ?>
     </tbody>
