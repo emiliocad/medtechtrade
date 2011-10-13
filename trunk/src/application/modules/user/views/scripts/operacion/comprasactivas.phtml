@@ -1,5 +1,5 @@
 <h2>Compras de equipos activos</h2>
-<table border="1" class="listado">
+<table border="1" class="listado-compras">
     <thead>
         <tr>
             <th></th>
@@ -11,11 +11,26 @@
         </tr>
     </thead>
     <tbody>
-        <?php foreach( $this->operaciones as $operacion ): ?>
+        <?php foreach ($this->operaciones as $operacion): ?>
             <tr>
                 <td></td>
-                <td><?= $this->escape( $operacion->nombre ) ?></td>
-                <td><?= $this->escape( $operacion->precio ) ?></td>
+                <td>
+                    <?php
+                    $link =
+                            $this->url(
+                            array(
+                            'slug' => $operacion->slug
+                            ), 'slugEquipment', true)
+                    ?>
+
+                    <a href="<?= $link ?>" >
+                        <?= $this->escape($operacion->nombre) ?>
+                    </a>
+                </td>
+                <td><?= $this->escape($operacion->precio) ?></td>
+                <td><?= $this->escape($operacion->fecha) ?></td>
+                <td><?= $this->escape($operacion->nrocuotas) ?></td>
+                <td><?= $this->escape($operacion->formapago) ?></td>
                 </td>
             </tr>
         <?php endforeach; ?>

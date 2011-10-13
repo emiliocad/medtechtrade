@@ -36,6 +36,12 @@ class User_OperacionController
 
     public function comprasactivasAction()
         {
+        $this->view->jQuery()
+                ->addOnLoad(
+                        ' $(document).ready(function() {
+                         
+                          });'
+                );
         $this->_helper->layout->setLayout( 'layoutListado' );
         //$id = intval( $this->_request->getParam( 'id' ) );
         $this->view->assign(

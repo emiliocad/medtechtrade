@@ -95,7 +95,8 @@ class Mtt_Models_Bussines_Equipo
                              array( 'estadoequipo.nombre as estadoequipo' ) )
                 ->joinInner( 'publicacionequipo' ,
                              'publicacionequipo.id = equipo.publicacionEquipo_id' ,
-                             array( 'publicacionequipo.nombre as publicacionequipo' ) )
+                             array( 'publicacionequipo.nombre as publicacionequipo',
+                                 'publicacionequipo.id as publicacionid') )
                 ->joinInner( 'moneda' , 'moneda.id = equipo.moneda_id' ,
                              array( 'moneda.nombre as moneda' ) )
                 ->joinInner( 'fabricantes' ,

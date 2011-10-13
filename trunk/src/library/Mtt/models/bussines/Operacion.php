@@ -256,12 +256,8 @@ class Mtt_Models_Bussines_Operacion
                     'moraxdia' ,
                     'nrocuotas' => 'operacion_has_equipo.equipo_id' ,
                     'pago_forma' => 'equipo_has_formapago.pago' ,
-                    'totalpago' ,
-                    'dias' ,
-                    'moraxdia' ,
-                    'nrocuotas' => 'equipo_has_formapago.nrocuotas' ,
-                    'pago_forma' => 'equipo_has_formapago.pago' ,
-                    'totalpago'
+                    'totalpago' 
+                    
                         )
                 )
                 ->joinInner( 'formapago' ,
@@ -273,7 +269,8 @@ class Mtt_Models_Bussines_Operacion
                              'operacion_has_equipo.equipo_id = equipo.id' ,
                              array( 'precio' => 'equipo.precioventa' ,
                     'nombre' ,
-                    'modelo'
+                    'modelo' ,
+                    'slug'             
                         )
                 )
                 ->joinInner( 'imagen' ,
