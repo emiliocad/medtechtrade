@@ -1,5 +1,5 @@
 <h2>Compras de equipos activos</h2>
-<table border="1" class="listado-compras">
+<table border="1" class="listado">
     <thead>
         <tr>
             <th></th>
@@ -15,7 +15,14 @@
             <tr>
                 <td></td>
                 <td>
-                    <?php
+                    <?= $this->escape($operacion->nombre) ?>
+                </td>
+                <td><?= $this->escape($operacion->precio) ?></td>
+                <td><?= $this->escape($operacion->fecha) ?></td>
+                <td><?= $this->escape($operacion->nrocuotas) ?></td>
+                <td><?= $this->escape($operacion->formapago) ?></td>
+                <td>
+                     <?php
                     $link =
                             $this->url(
                             array(
@@ -24,13 +31,8 @@
                     ?>
 
                     <a href="<?= $link ?>" >
-                        <?= $this->escape($operacion->nombre) ?>
+                        <?= $this->translate('ver equipo') ?>
                     </a>
-                </td>
-                <td><?= $this->escape($operacion->precio) ?></td>
-                <td><?= $this->escape($operacion->fecha) ?></td>
-                <td><?= $this->escape($operacion->nrocuotas) ?></td>
-                <td><?= $this->escape($operacion->formapago) ?></td>
                 </td>
             </tr>
         <?php endforeach; ?>
