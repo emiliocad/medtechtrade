@@ -58,26 +58,36 @@ class User_EquipoController
     public function verpendientesAction()
         {
         $this->_helper->layout->setLayout( 'layoutListado' );
-        $this->view->assign(
-                'equipos' ,
-                $this->_equipo->listEquipByUserStatus(
+         $equipos = $this->_equipo->pagListEquipByUserStatus(
                         $this->authData['usuario']->id ,
                         Mtt_Models_Bussines_PublicacionEquipo::Pendiente
-                )
+                );
+        
+        $equipos->setCurrentPageNumber(
+                $this->_getParam( 'page' , 1 )
         );
+        $this->view->assign(
+                'equipos' , $equipos
+                
+        );
+        
         }
 
 
     public function veractivosAction()
         {
         $this->_helper->layout->setLayout( 'layoutListado' );
-
-        $this->view->assign(
-                'equipos' ,
-                $this->_equipo->listEquipByUserStatus(
+        $equipos = $this->_equipo->pagListEquipByUserStatus(
                         $this->authData['usuario']->id ,
                         Mtt_Models_Bussines_PublicacionEquipo::Activada
-                )
+                );
+        
+        $equipos->setCurrentPageNumber(
+                $this->_getParam( 'page' , 1 )
+        );
+        $this->view->assign(
+                'equipos' , $equipos
+                
         );
         }
 
@@ -235,6 +245,7 @@ class User_EquipoController
                 }
             $form->setDefaults( $equipo->toArray() );
             $this->view->assign( 'form' , $form );
+       
             }
         else
             {

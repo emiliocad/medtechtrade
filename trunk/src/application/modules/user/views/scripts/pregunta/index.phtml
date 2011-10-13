@@ -21,10 +21,10 @@
                 <?= $this->translate( 'pregunta' ) ?>
             </th>
             <th>
-                <?= $this->translate( 'respuesta' ) ?>
+                <?= $this->translate( 'fecha' ) ?>
             </th>
             <th>
-                <?= $this->translate( 'fecha' ) ?>
+                <?= $this->translate( 'respuesta' ) ?>
             </th>
             <th>
                 <?= $this->translate( 'acciones' ) ?>
@@ -60,16 +60,16 @@
                     <?= $this->escape( $pregunta->asunto ) ?>
                 </td>
                 <td>
-                    <?= $this->escape( $pregunta->formulacion ) ?>
-                </td>
-                <td>
                     <?= $this->escape( $pregunta->fechaformulacion ) ?>
                 </td>
                 <td>
-                    <?= $this->escape( $pregunta->respuesta ) ?>
+                    <?= $this->escape( $pregunta->formulacion ) ?>
                 </td>
                 <td>
                     <?= $this->escape( $pregunta->fecharespuesta ) ?>
+                </td>
+                <td>
+                     <?= $this->escape( $pregunta->respuesta ) ?>
                 </td>
                 <td>
                     [acciones]
@@ -79,3 +79,8 @@
         <?php endforeach; ?>
     </tbody>
 </table>
+<?=
+$this->paginationControl(
+        $this->preguntas , 'Sliding' , 'pregunta/_pag.phtml'
+);
+?>

@@ -288,6 +288,24 @@ class Mtt_Models_Bussines_Operacion
         }
         
         
+    public function paglistByUserSalesActive( $idUser , $status )
+        {
+        $_conf = new Zend_Config_Ini(
+                        APPLICATION_PATH . '/configs/myConfigUser.ini' , 
+                'compras-activas'
+        );
+        $data = $_conf->toArray();
+
+        $object = Zend_Paginator::factory(
+                        $this->listByUserSalesActive( $idUser , $status ) );
+        $object->setItemCountPerPage(
+                $data['ItemCountPerPage']
+        );
+        return $object;
+        }
+        
+        
+        
         
     public function listByUser( $idUser )
         {

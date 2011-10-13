@@ -1,4 +1,4 @@
-<h2>Compras de equipos activos</h2>
+<h2><?= $this->translate( 'compras activas') ?></h2>
 <table border="1" class="listado">
     <thead>
         <tr>
@@ -40,3 +40,8 @@
     </tbody>
 </table>
 <br />
+<?=
+$this->paginationControl(
+        $this->operaciones , 'Sliding' , 'operacion/_pag.phtml'
+);
+?>
