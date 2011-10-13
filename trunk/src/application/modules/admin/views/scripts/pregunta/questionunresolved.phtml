@@ -43,3 +43,11 @@
         <?php endforeach; ?>
     </tbody>
 </table>
+
+<br />
+
+<?=
+$this->paginationControl(
+        $this->preguntas , 'Sliding' , 'equipo/_pag.phtml'
+);
+?>
