@@ -95,7 +95,8 @@ class Mtt_Models_Bussines_Equipo
                              array( 'estadoequipo.nombre as estadoequipo' ) )
                 ->joinInner( 'publicacionequipo' ,
                              'publicacionequipo.id = equipo.publicacionEquipo_id' ,
-                             array( 'publicacionequipo.nombre as publicacionequipo' ) )
+                             array( 'publicacionequipo.nombre as publicacionequipo',
+                                 'publicacionequipo.id as publicacionid') )
                 ->joinInner( 'moneda' , 'moneda.id = equipo.moneda_id' ,
                              array( 'moneda.nombre as moneda' ) )
                 ->joinInner( 'fabricantes' ,
@@ -175,6 +176,8 @@ class Mtt_Models_Bussines_Equipo
                             array( 'imagen.nombre as imagen' )
                 )
                 ->where( 'equipo.active IN (?)' , self::ACTIVE )
+                ->where( 'equipo.publicacionEquipo_id  = ?' , 
+                        Mtt_Models_Table_PublicacionEquipo::Activada )
                 ->query();
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
@@ -341,7 +344,8 @@ class Mtt_Models_Bussines_Equipo
                     'sizeCaja' ,
                     'topofers' ,
                     'publishdate' ,
-                    'active' )
+                    'active',
+                    'slug')
                 )
                 ->joinInner(
                         'categoria' , 'categoria.id = equipo.categoria_id' ,
@@ -381,6 +385,25 @@ class Mtt_Models_Bussines_Equipo
         }
 
 
+    public function pagListEquipByUserStatus( $idUser, $status )
+        {
+        $_conf = new Zend_Config_Ini(
+                        APPLICATION_PATH . '/configs/myConfigUser.ini' , 'paginator'
+        );
+        $data = $_conf->toArray();
+
+        $object = Zend_Paginator::factory( 
+                $this->listEquipByUserStatus( $idUser , $status ) 
+        );
+        $object->setItemCountPerPage(
+                $data['ItemCountPerPage']
+        );
+        return $object;
+        }
+
+        
+        
+        
     public function pagListEquipByUser( $idUser )
         {
         $_conf = new Zend_Config_Ini(
@@ -657,7 +680,8 @@ class Mtt_Models_Bussines_Equipo
                     'sizeCaja' ,
                     'topofers' ,
                     'publishdate' ,
-                    'active' )
+                    'active',
+                    'slug'   )
                 )
                 ->joinInner(
                         'categoria' , 'categoria.id = equipo.categoria_id' ,

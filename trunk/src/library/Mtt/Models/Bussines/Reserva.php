@@ -139,6 +139,7 @@ class Mtt_Models_Bussines_Reserva
         }
 
 
+        
     public function getReservaByType( $tipoReserva )
         {
         $db = $this->getAdapter();

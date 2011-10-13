@@ -58,26 +58,36 @@ class User_EquipoController
     public function verpendientesAction()
         {
         $this->_helper->layout->setLayout( 'layoutListado' );
-        $this->view->assign(
-                'equipos' ,
-                $this->_equipo->listEquipByUserStatus(
+         $equipos = $this->_equipo->pagListEquipByUserStatus(
                         $this->authData['usuario']->id ,
                         Mtt_Models_Bussines_PublicacionEquipo::Pendiente
-                )
+                );
+        
+        $equipos->setCurrentPageNumber(
+                $this->_getParam( 'page' , 1 )
         );
+        $this->view->assign(
+                'equipos' , $equipos
+                
+        );
+        
         }
 
 
     public function veractivosAction()
         {
         $this->_helper->layout->setLayout( 'layoutListado' );
-
-        $this->view->assign(
-                'equipos' ,
-                $this->_equipo->listEquipByUserStatus(
+        $equipos = $this->_equipo->pagListEquipByUserStatus(
                         $this->authData['usuario']->id ,
                         Mtt_Models_Bussines_PublicacionEquipo::Activada
-                )
+                );
+        
+        $equipos->setCurrentPageNumber(
+                $this->_getParam( 'page' , 1 )
+        );
+        $this->view->assign(
+                'equipos' , $equipos
+                
         );
         }
 
@@ -125,7 +135,24 @@ class User_EquipoController
 
     public function cotizarAction()
         {
-
+        
+        $this->view->jQuery()
+                ->addJavascriptFile(
+                        '/js/jwysiwyg/jquery.wysiwyg.js'
+                )
+                ->addJavascriptFile(
+                        '/js/cotizar.js'
+                )
+                ->addStylesheet(
+                        '/js/jwysiwyg/jquery.wysiwyg.css'
+                )
+                ->addOnLoad(
+                        ' $(document).ready(function() {
+                             $("#mensaje").wysiwyg();
+                          });'
+                )
+        ;
+        
         $id = intval( $this->_request->getParam( 'id' ) );
 
         $equipo = $this->_equipo->getFindId( $id );
@@ -202,7 +229,7 @@ class User_EquipoController
 
         $id = intval( $this->_getParam( 'id' ) );
 
-        $form = new Mtt_Form_Equipo();
+        $form = new Mtt_EditForm_Equipo();
 
         $equipo = $this->_equipo->getFindId( $id );
 
@@ -218,6 +245,7 @@ class User_EquipoController
                 }
             $form->setDefaults( $equipo->toArray() );
             $this->view->assign( 'form' , $form );
+       
             }
         else
             {

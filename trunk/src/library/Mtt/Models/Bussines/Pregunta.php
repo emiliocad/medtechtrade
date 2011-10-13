@@ -151,6 +151,7 @@ class Mtt_Models_Bussines_Pregunta
         return $query->fetchAll(Zend_Db::FETCH_OBJ);
     }
 
+    
     public function pagListQuestionUnresolved() {
         $_conf = new Zend_Config_Ini(
                         APPLICATION_PATH . '/configs/myConfigUser.ini',
@@ -175,6 +176,21 @@ class Mtt_Models_Bussines_Pregunta
         $data = $_conf->toArray();
 
         $object = Zend_Paginator::factory($this->listar());
+        $object->setItemCountPerPage(
+                $data['ItemCountPerPage']
+        );
+        return $object;
+    }    
+    
+    
+        public function pagListByUser( $idUser) {
+        $_conf = new Zend_Config_Ini(
+                        APPLICATION_PATH . '/configs/myConfigUser.ini',
+                        'pregunta'
+        );
+        $data = $_conf->toArray();
+
+        $object = Zend_Paginator::factory($this->listByUser( $idUser));
         $object->setItemCountPerPage(
                 $data['ItemCountPerPage']
         );

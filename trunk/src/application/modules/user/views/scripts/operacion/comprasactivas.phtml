@@ -1,25 +1,47 @@
-<h2>Compras de equipos activos</h2>
+<h2><?= $this->translate( 'compras activas') ?></h2>
 <table border="1" class="listado">
     <thead>
         <tr>
             <th></th>
-            <th>Equipo</th>
-            <th>Precio</th>
-            <th>Fecha</th>
-            <th>Cantidad</th>
-            <th>Nro Cuotas</th>
-            <th>Forma de Pago</th>
+            <th><?= $this->translate('nombre de equipo')?></th>
+            <th><?= $this->translate('precio') ?></th>
+            <th><?= $this->translate('fecha') ?></th>
+            <th><?= $this->translate('nro Cuotas') ?></th>
+            <th><?= $this->translate('forma de pago') ?></th>
+            <th><?= $this->translate('operaciones') ?></th>
         </tr>
     </thead>
     <tbody>
-        <?php foreach( $this->operaciones as $operacion ): ?>
+        <?php foreach ($this->operaciones as $operacion): ?>
             <tr>
                 <td></td>
-                <td><?= $this->escape( $operacion->nombre ) ?></td>
-                <td><?= $this->escape( $operacion->precio ) ?></td>
+                <td>
+                    <?= $this->escape($operacion->nombre) ?>
+                </td>
+                <td><?= $this->escape($operacion->precio) ?></td>
+                <td><?= $this->escape($operacion->fecha) ?></td>
+                <td><?= $this->escape($operacion->nrocuotas) ?></td>
+                <td><?= $this->escape($operacion->formapago) ?></td>
+                <td>
+                     <?php
+                    $link =
+                            $this->url(
+                            array(
+                            'slug' => $operacion->slug
+                            ), 'slugEquipment', true)
+                    ?>
+
+                    <a href="<?= $link ?>" >
+                        <?= $this->translate('ver equipo') ?>
+                    </a>
                 </td>
             </tr>
         <?php endforeach; ?>
     </tbody>
 </table>
 <br />
+<?=
+$this->paginationControl(
+        $this->operaciones , 'Sliding' , 'operacion/_pag.phtml'
+);
+?>

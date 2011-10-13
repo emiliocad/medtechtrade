@@ -7,7 +7,7 @@
 
 
 class Mtt_Form_Pregunta
-        extends Mtt_Formy
+        extends Mtt_Form
     {
 
     protected $asunto;
@@ -56,7 +56,7 @@ class Mtt_Form_Pregunta
 
 
         // Elemento: formulacion
-        $this->formulacion = new Mtt_Form_Element_Ckeditor(
+        $this->formulacion = new Zend_Form_Element_TextArea(
                         'formulacion'
         );
         $this->formulacion->setLabel(
@@ -73,6 +73,8 @@ class Mtt_Form_Pregunta
                         )
         );
         $this->formulacion->addValidator( $v );
+        $this->formulacion->setAttrib('COLS' , '50');
+        $this->formulacion->setAttrib('ROWS' , '10');
         $this->addElement( $this->formulacion );
 
         // Elemento: respuesta

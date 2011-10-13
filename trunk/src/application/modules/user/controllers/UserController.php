@@ -44,6 +44,7 @@ class User_UserController
                     &&
                     $form->isValid( $this->_request->getPost() ) )
                 {
+               $this->view->assign( 'valores', $form->getValues());
                 $this->_user->updateUsuario(
                         $form->getValues() , $id
                 );

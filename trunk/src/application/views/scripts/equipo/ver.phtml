@@ -139,8 +139,11 @@
     <?
     if ( Zend_Auth::getInstance()->hasIdentity() )
         {
-
-        echo $this->render( 'equipo/user/deviceActions.phtml' );
+         if($this->producto->publicacionid == 
+            Mtt_Models_Table_PublicacionEquipo::Activada)
+             {
+            echo $this->render( 'equipo/user/deviceActions.phtml' );
+             }
         }
     ?>
     <a href="javascript:history.go(-1)">

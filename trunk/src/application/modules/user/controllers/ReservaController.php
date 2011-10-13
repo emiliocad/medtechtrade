@@ -52,13 +52,15 @@ class User_ReservaController
 
         $this->_helper->layout->setLayout( 'layoutListado' );
         $this->view->jQuery()->addJavascriptFile( '/js/reserva.js' );
-
+        $reserva = $this->_reserva->pagListFavoritosByUser(
+                $this->authData['usuario']->id ,
+                Mtt_Models_Bussines_TipoReserva::RESERVED
+        );
+        $reserva->setCurrentPageNumber(
+                $this->_getParam( 'page' , 1 ) );
         $this->view->assign(
                 'favoritos' ,
-                $this->_reserva->getReservaByUser(
-                        $this->authData['usuario']->id ,
-                        Mtt_Models_Bussines_TipoReserva::RESERVED
-                )
+                $reserva                
         );
         }
 

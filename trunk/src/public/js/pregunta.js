@@ -8,4 +8,9 @@ function myCompleteCallbackJsFunc(data){
     }
     
     
-}
+} 
+$(function()
+  {
+      $('#formulacion').wysiwyg();
+  });
+

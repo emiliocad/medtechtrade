@@ -21,8 +21,7 @@ class Mtt_EditForm_Usuario
                 ->setAttrib( 'id' , 'frmACtualizar' )
         ;
 
-//        $this->id = new Zend_Form_Element_Hidden( 'id' );
-//        $this->addElement( $this->id );
+       
 
         $this->tratamiento->setOrder( 0 );
         $this->institucion->setOrder( 1 );
@@ -37,6 +36,8 @@ class Mtt_EditForm_Usuario
         $this->email->setOrder( 10 );
         $this->submit->setOrder( 11 );
 
+        
+        
         //$this->email->
         //$this->removeElement( $this->email->getName() );
         $this->removeElement( $this->login->getName() );
@@ -45,27 +46,6 @@ class Mtt_EditForm_Usuario
         $this->removeElement( $this->clave2->getName() );
 
         $this->email->removeValidator( 'Db_NoRecordExists' );
-
-//        $this->email->addValidator( 'Db_NoRecordExists' , false ,
-//                                    array(
-//            'table' => 'usuario' ,
-//            'field' => 'email' ,
-//            'exclude' => array(
-//                'field' => 'id' ,
-//                'value' => $this->id->getValue()
-//            )
-//                )
-//        );
-//        $this->email->addValidator(
-//                new Zend_Validate_Db_NoRecordExists(
-//                        'usuario' ,
-//                        'email' ,
-//                        array(
-//                            'field' => 'id' ,
-//                            'value' => $this->id->getValue()
-//                        )
-//                )
-//        );
 
 
 

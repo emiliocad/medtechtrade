@@ -4,13 +4,13 @@
 <table border="1" class="listado">
     <thead>
         
-            <th><?= $this->translate( 'Name' ) ?></th>
-            <th><?= $this->translate( 'Price' ) ?></th>
-            <th><?= $this->translate( 'Category' ) ?></th>
-            <th><?= $this->translate( 'Status' ) ?></th>
-            <th><?= $this->translate( 'Factory' ) ?></th>
-            <th><?= $this->translate( 'Quality' ) ?></th>
-            <th><?= $this->translate( 'Acciones' ) ?></th>
+            <th><?= $this->translate( 'nombre' ) ?></th>
+            <th><?= $this->translate( 'precio' ) ?></th>
+            <th><?= $this->translate( 'categoria' ) ?></th>
+            <th><?= $this->translate( 'estado' ) ?></th>
+            <th><?= $this->translate( 'fabricante' ) ?></th>
+            <th><?= $this->translate( 'calidad' ) ?></th>
+            <th colspan ="3"><?= $this->translate( 'Acciones' ) ?></th>
         
     </thead>
     <tbody>
@@ -47,8 +47,37 @@
                         <?= $this->translate( 'agregar imagen' ) ?>
                     </a>
                 </td>
+                <td>
+                     <?php
+                    $link =
+                            $this->url(
+                            array(
+                            'slug' => $equipo->slug
+                            ), 'slugEquipment', true)
+                    ?>
 
+                    <a href="<?= $link ?>" >
+                        <?= $this->translate('ver equipo') ?>
+                    </a>
+                </td>
+                <td>
+                <?php
+                $link = $this->url( array( 'module' => 'user' ,
+                    'controller' => 'equipo' ,
+                    'action' => 'editar' ,
+                    'id' => $equipo->id ) )
+                ?>
+                <a href="<?= $link ?>">
+                    <?= $this->translate( 'editar' ) ?>
+                </a>
+
+            </td>
             </tr>
         <?php endforeach; ?>
     </tbody>
 </table>
+<?=
+$this->paginationControl(
+        $this->equipos , 'Sliding' , 'equipo/_pag.phtml'
+);
+?>
