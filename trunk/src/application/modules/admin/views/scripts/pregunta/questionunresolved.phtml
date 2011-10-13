@@ -1,10 +1,12 @@
-<h2>Questions</h2>
-<table border="1" class="table-question">
+<h2><?= $this->translate('preguntas')?></h2>
+<div id="dg-rpta" title="<?= $this->translate ('responder a la pregunta') ?>">
+    <?= $this->formAnswer; ?>
+</div>
+<table border="1" >
     <tbody>
         <?php foreach ( $this->preguntas as $pregunta ): ?>
 
-            <tr class="<?= $pregunta->active
-                            ? 'activo' : 'inactivo' ?>">
+            <tr>
 
                  <td>
                     ->
@@ -30,7 +32,13 @@
                 <td>
                     <?= $this->escape( $pregunta->fechaRespuesta ) ?>
                 </td>
-
+                <td>
+                    <?php if ($pregunta->estado == 0): ?>
+                    <a href="#" class="rpta" id="<?= $pregunta->id?>" >
+                        <?= $this->translate('responder'); ?>
+                    </a>
+                    <? endif; ?>
+                </td>
             </tr>
         <?php endforeach; ?>
     </tbody>
