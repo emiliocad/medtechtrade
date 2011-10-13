@@ -1,9 +1,8 @@
 function myCompleteCallbackJsFunc(data){
 
     if ( data.id !== ""){
-        
-        $("#" + data.id).fadeOut("slow");
-        alert(data.sms);
+        $("#dg-rpta").css("display", "none");
+        alert('Actualizado');
     }else{
         alert('vacio');
     }

@@ -163,9 +163,15 @@ class Mtt_Models_Bussines_Pregunta
         );
         return $object;
     }
+    
+    public function responderPregunta(array $data, $id) {
+        $data['fechaRespuesta'] = date('Y-m-d H:m:s');
+        $data['estado'] = Mtt_Models_Table_Pregunta::PreguntaResulta;
+        $this->update($data, 'id = ' . $id);
+    }
 
     public function updatePregunta(array $data, $id) {
-
+        
         $this->update($data, 'id = ' . $id);
     }
 

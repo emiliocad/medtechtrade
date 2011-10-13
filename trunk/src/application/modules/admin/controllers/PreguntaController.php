@@ -22,7 +22,7 @@ class Admin_PreguntaController
                         $("a.rpta").click(function(){ 
                             
                             var id = ($(this).attr("id")); 
-                            $("#id-element").attr("value", id);
+                            $("#id").attr("value", id);
                             $( "#dg-rpta" ).dialog({
                                 height: 320,
                                 width: 580,
@@ -50,14 +50,18 @@ class Admin_PreguntaController
         {
         //$this->_helper->layout()->disableLayout();
         $form = new Mtt_Form_AnswerQuestion();
+        $id = intval( $this->_request->getParam( 'id' ) );
         if ( $this->_request->isPost() 
                 && $form->isValid( $this->_request->getPost() ) )
             {
+           
+            $data = $form->getValues();
+            unset($data['submit']);
+            $this->_pregunta->responderPregunta($data, $id);
             
             }
-       
-           
-        //$this->_redirect( $this->URL );
+          
+        $this->_redirect( $this->URL );
         }        
         
 
