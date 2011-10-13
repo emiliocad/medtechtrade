@@ -17,8 +17,13 @@ class Admin_UserController
 
     public function indexAction()
         {
+        $usuarios = $this->_user->pagList();
+
+        $usuarios->setCurrentPageNumber(
+                $this->_getParam( 'page' , 1 )
+        );
         $this->view->assign(
-                'usuarios' , $this->_user->listar()
+                'usuarios' ,$usuarios
         );
         }
 
