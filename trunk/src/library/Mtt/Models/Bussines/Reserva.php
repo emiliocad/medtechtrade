@@ -283,16 +283,29 @@ class Mtt_Models_Bussines_Reserva
         }
 
 
-    public function getIdByEquipmentUser( $idUser , $idEquipment )
+    /**
+     *
+     * @param type $idUser
+     * @param type $idEquipment
+     * @param type $tipoReserva_id
+     * @return type 
+     */
+    public function getIdByEquipmentUser( $idUser , $idEquipment ,
+                                          $tipoReserva_id )
         {
         $db = $this->getAdapter();
-        $select = $db->select()->from( $this->_name , array( 'id' ) );
-        }
-
-
-    public function deleteReservaByUserEquipment( $idUser , $idEquipment )
-        {
-        $db = $this->getAdapter();
+        $query = $db->select()->from(
+                        $this->_name ,
+                        array( 'id' ,
+                    'equipo_id' ,
+                    'usuario_id' ,
+                    'tipo_reserva_id' )
+                )
+                ->where( 'reserva.usuario_id = ?' , $idUser )
+                ->where( 'reserva.equipo_id = ?' , $idEquipment )
+                ->where( 'reserva.tipo_reserva_id = ?' , $tipoReserva_id )
+                ->query();
+        return $query->fetchObject();
         }
 
 

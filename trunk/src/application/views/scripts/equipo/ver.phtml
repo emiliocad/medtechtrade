@@ -76,8 +76,10 @@
 </div>
 <div id="device-description">
     <a href="#" 
-       <?= Zend_Auth::getInstance()->hasIdentity() ? 
-             'id="searchForUser"'   : 'id="searchEquipments"' ?>>
+    <?=
+    Zend_Auth::getInstance()->hasIdentity() ?
+                    'id="searchForUser"' : 'id="searchEquipments"'
+    ?>>
         <span class="advanced-search-tab">
             <?= $this->translate( 'Advanced Search' ) ?>
         </span>

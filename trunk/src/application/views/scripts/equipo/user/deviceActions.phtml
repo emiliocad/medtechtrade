@@ -1,3 +1,4 @@
+
 <a href="
 <?=
 $this->url(
@@ -23,32 +24,69 @@ $this->url(
         <?= $this->translate( 'Add Cart' ) ?>
     </span>
 </a>
-<a href="
-<?=
-$this->url(
-        array( 'module' => 'user' , 'controller' => 'reserva' ,
-    'action' => 'agregarfavorito' ,
-    'id' => $this->producto->id ) , 'default' , true
- )
-?> 
-   ">
-    <span class="device-action-favorite">
-        <?= $this->translate( 'Add Favorite' ) ?>
-    </span>
-</a>
-<a href="
-<?=
-$this->url(
-        array( 'module' => 'user' , 'controller' => 'reserva' ,
-    'action' => 'agregarreserva' ,
-    'id' => $this->producto->id ) , 'default' , true
- )
-?> 
-   ">
-    <span class="device-action-reserve">
-        <?= $this->translate( 'Add to Reserve' ) ?>
-    </span>
-</a>
+
+<? if ( $this->favorito ): ?>
+    <a href="
+    <?=
+    $this->url(
+            array( 'module' => 'user' , 'controller' => 'reserva' ,
+        'action' => 'quitarfavorito' ,
+        'id' => $this->producto->id ) , 'default' , true
+    )
+    ?> 
+       ">
+        <span class="device-action-favorite">
+            <?= $this->translate( 'quitar de favorito' ) ?>
+        </span>
+    </a>
+<? else: ?>
+    <a href="
+    <?=
+    $this->url(
+            array( 'module' => 'user' , 'controller' => 'reserva' ,
+        'action' => 'agregarfavorito' ,
+        'id' => $this->producto->id ) , 'default' , true
+    )
+    ?> 
+       ">
+        <span class="device-action-favorite">
+            <?= $this->translate( 'Add Favorite' ) ?>
+        </span>
+    </a>
+<? endif; ?>
+
+
+<? if ( $this->reservado ): ?>
+    <a href="
+    <?=
+    $this->url(
+            array( 'module' => 'user' , 'controller' => 'reserva' ,
+        'action' => 'quitarreserva' ,
+        'id' => $this->producto->id ) , 'default' , true
+    )
+    ?> 
+       ">
+        <span class="device-action-reserve">
+            <?= $this->translate( 'quitar de reserva' ) ?>
+        </span>
+    </a>
+<? else: ?>
+    <a href="
+    <?=
+    $this->url(
+            array( 'module' => 'user' , 'controller' => 'reserva' ,
+        'action' => 'agregarreserva' ,
+        'id' => $this->producto->id ) , 'default' , true
+    )
+    ?> 
+       ">
+        <span class="device-action-reserve">
+            <?= $this->translate( 'Add to Reserve' ) ?>
+        </span>
+    </a>
+<? endif; ?>
+
+
 <a href="
 <?=
 $this->url(
