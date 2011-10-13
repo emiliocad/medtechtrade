@@ -50,7 +50,6 @@ class BusquedaController
             }
         else
             {
-
             //$this->_helper->FlashMessenger('no efectuo la busqueda');
             //$this->_redirect('/index');
             }
