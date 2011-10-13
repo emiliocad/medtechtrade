@@ -10,7 +10,7 @@ class Mtt_Form_AnswerQuestion
     {
     
     protected $id;
-    protected $answer;
+    protected $respuesta;
     protected $submit;
     
     public function init()
@@ -25,18 +25,18 @@ class Mtt_Form_AnswerQuestion
         
         $this->id = new Zend_Form_Element_Hidden('id'); 
         
-        $this->answer = new Zend_Form_Element_TextArea( 'answer' );
-        $this->answer->setRequired();
-        $this->answer->setLabel(
+        $this->respuesta = new Zend_Form_Element_TextArea( 'respuesta' );
+        $this->respuesta->setRequired();
+        $this->respuesta->setLabel(
                 $this->_translate->translate(
                         'respuesta'
                 ) );
-        $this->answer->setAttrib( 'COLS' , '40' );
-        $this->answer->setAttrib( 'ROWS' , '4' );
+        $this->respuesta->setAttrib( 'COLS' , '40' );
+        $this->respuesta->setAttrib( 'ROWS' , '4' );
         
         $this->submit = new Zend_Form_Element_Button( 'submit' );
         $this->submit->setLabel(
-                        $this->_translate->translate( 'answer' )
+                        $this->_translate->translate( 'respuesta' )
                 )
                 ->setAttrib(
                         'class' , 'button'
@@ -48,7 +48,7 @@ class Mtt_Form_AnswerQuestion
         $this->addElements( 
                 array(
                     $this->id,
-                    $this->answer,
+                    $this->respuesta,
                     $this->submit
                 )
         );

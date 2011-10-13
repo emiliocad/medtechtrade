@@ -28,6 +28,7 @@ class Mtt_Models_Bussines_Pregunta
         $query = $db->select()
                 ->from($this->_name)
                 ->where('active = ?', '1')
+                ->order( 'fechaFormulacion DESC')
                 ->query()
         ;
 
@@ -163,9 +164,32 @@ class Mtt_Models_Bussines_Pregunta
         );
         return $object;
     }
+    
+    
+
+    public function pagListQuestion() {
+        $_conf = new Zend_Config_Ini(
+                        APPLICATION_PATH . '/configs/myConfigAdmin.ini',
+                        'questions'
+        );
+        $data = $_conf->toArray();
+
+        $object = Zend_Paginator::factory($this->listar());
+        $object->setItemCountPerPage(
+                $data['ItemCountPerPage']
+        );
+        return $object;
+    }    
+    
+    
+    public function responderPregunta(array $data, $id) {
+        $data['fechaRespuesta'] = date('Y-m-d H:m:s');
+        $data['estado'] = Mtt_Models_Table_Pregunta::PreguntaResulta;
+        $this->update($data, 'id = ' . $id);
+    }
 
     public function updatePregunta(array $data, $id) {
-
+        
         $this->update($data, 'id = ' . $id);
     }
 

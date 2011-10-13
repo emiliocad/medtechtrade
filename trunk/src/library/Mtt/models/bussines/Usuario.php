@@ -116,6 +116,22 @@ class Mtt_Models_Bussines_Usuario
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
+        
+        
+   public function pagList()
+        {
+        $_conf = new Zend_Config_Ini(
+                        APPLICATION_PATH . '/configs/myConfigAdmin.ini' , 
+                        'usuario'
+        );
+        $data = $_conf->toArray();
+
+        $object = Zend_Paginator::factory( $this->listar() );
+        $object->setItemCountPerPage(
+                $data['ItemCountPerPage']
+        );
+        return $object;
+        }        
 
 
     public function listarRegistrados()

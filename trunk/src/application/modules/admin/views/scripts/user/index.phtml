@@ -173,4 +173,10 @@
     <?= $this->translate( 'Nuevo' ); ?>
 
 </a>
+<?=
+$this->paginationControl(
+        $this->equipos , 'Sliding' , 'equipo/_pag.phtml'
+);
+?>
+
 

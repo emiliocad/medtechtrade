@@ -31,9 +31,11 @@
                     <?= $this->escape( $pregunta->respuesta ) ?>
                 </td>
                 <td>
+                    <?php if ($pregunta->estado == 0): ?>
                     <a href="#" class="rpta" id="<?= $pregunta->id?>" >
                         <?= $this->translate('responder'); ?>
                     </a>
+                    <? endif; ?>
                 </td>
                 <td>
                     
@@ -43,3 +45,9 @@
         <?php endforeach; ?>
     </tbody>
 </table>
+
+<?=
+$this->paginationControl(
+        $this->preguntas , 'Sliding' , 'equipo/_pag.phtml'
+);
+?>
