@@ -125,7 +125,24 @@ class User_EquipoController
 
     public function cotizarAction()
         {
-
+        
+        $this->view->jQuery()
+                ->addJavascriptFile(
+                        '/js/jwysiwyg/jquery.wysiwyg.js'
+                )
+                ->addJavascriptFile(
+                        '/js/cotizar.js'
+                )
+                ->addStylesheet(
+                        '/js/jwysiwyg/jquery.wysiwyg.css'
+                )
+                ->addOnLoad(
+                        ' $(document).ready(function() {
+                             $("#mensaje").wysiwyg();
+                          });'
+                )
+        ;
+        
         $id = intval( $this->_request->getParam( 'id' ) );
 
         $equipo = $this->_equipo->getFindId( $id );

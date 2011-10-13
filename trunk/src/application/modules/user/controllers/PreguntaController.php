@@ -32,7 +32,17 @@ class User_PreguntaController
 
     public function nuevoAction()
         {
-
+        $this->view->jQuery()
+                ->addJavascriptFile(
+                        '/js/jwysiwyg/jquery.wysiwyg.js'
+                )
+                ->addJavascriptFile(
+                        '/js/pregunta.js'
+                )
+                ->addStylesheet(
+                        '/js/jwysiwyg/jquery.wysiwyg.css'
+        );
+        
         $idEquipo = ( int ) ( $this->_getParam( 'id' , null ) );
 
         $form = new Mtt_Form_Pregunta();
