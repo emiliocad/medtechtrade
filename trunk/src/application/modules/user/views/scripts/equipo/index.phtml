@@ -80,7 +80,18 @@
                 </a>
 
             </td>
+            <td>
+                <?php
+                $link = $this->url( array( 'module' => 'user' ,
+                    'controller' => 'equipo' ,
+                    'action' => 'editar' ,
+                    'id' => $equipo->id ) )
+                ?>
+                <a href="<?= $link ?>">
+                    <?= $this->translate( 'editar' ) ?>
+                </a>
 
+            </td>
         </tr>
     <?php endforeach; ?>
 </tbody>

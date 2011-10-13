@@ -61,7 +61,7 @@ class Mtt_Form_Equipo extends Mtt_Form {
         $this->nombre = new Zend_Form_Element_Text('nombre');
         $this->nombre->setLabel(
                 $this->_translate->translate('nombre')
-        )->setOrder(1);;
+        )->setOrder(2);
         $this->nombre->setAttrib('maxlength', '50');
         $this->nombre->setRequired(true);
         $v = new Zend_Validate_StringLength(
@@ -79,7 +79,7 @@ class Mtt_Form_Equipo extends Mtt_Form {
         $this->precioVenta = new Zend_Form_Element_Text('precioventa');
         $this->precioVenta->setLabel(
                 $this->_translate->translate('precio de venta')
-        )->setOrder(2);
+        )->setOrder(5);
         $this->precioVenta->setRequired(true);
         $v = new Zend_Validate_Between(array('min' => 0.1,
                     'max' => 9999999999));
@@ -88,11 +88,12 @@ class Mtt_Form_Equipo extends Mtt_Form {
         $this->precioVenta->addValidator($v);
         $this->precioVenta->setAttrib('maxlength', '10');
         // $this->addElement($this->precioVenta);
+        // 
         // Elemento: PrecioCompra
         $this->precioCompra = new Zend_Form_Element_Text('preciocompra');
         $this->precioCompra->setLabel(
                 $this->_translate->translate('precio de compra')
-        )->setOrder(3);
+        )->setOrder(6);
         $this->precioCompra->setRequired(true);
         $v = new Zend_Validate_Between(
                         array(
@@ -125,7 +126,7 @@ class Mtt_Form_Equipo extends Mtt_Form {
         $this->publicacionEquipo->setRequired();
         $this->publicacionEquipo->setLabel(
                 $this->_translate->translate('publicacion de equipo')
-        )->setOrder(5);
+        )->setOrder(17);
         $_publicacionEquipo = new Mtt_Models_Bussines_PublicacionEquipo;
         $values = $_publicacionEquipo->getComboValues();
         $this->publicacionEquipo->addMultiOption(
@@ -142,7 +143,7 @@ class Mtt_Form_Equipo extends Mtt_Form {
         $this->fabricantes->setRequired();
         $this->fabricantes->setLabel(
                 $this->_translate->translate('fabricantes')
-        )->setOrder(6);
+        )->setOrder(1);
         $_fabricantes = new Mtt_Models_Bussines_Fabricante();
         $values = $_fabricantes->getComboValues();
         $this->fabricantes->addMultiOption(-1, 
@@ -153,11 +154,11 @@ class Mtt_Form_Equipo extends Mtt_Form {
                 new Zend_Validate_InArray(array_keys($values))
         );
 
-        // Elemento: Nombre
+        // Elemento: Tag
         $this->tag = new Zend_Form_Element_Text('tag');
         $this->tag->setLabel(
                 $this->_translate->translate('tag')
-        )->setOrder(7);
+        )->setOrder(11);
         $this->tag->setAttrib('maxlength', '80');
         $this->tag->setRequired(false);
         //$this->addElement($this->tag);
@@ -166,7 +167,7 @@ class Mtt_Form_Equipo extends Mtt_Form {
         $this->moneda->setRequired();
         $this->moneda->setLabel(
                 $this->_translate->translate('moneda')
-        )->setOrder(8);
+        )->setOrder(4);
         $_moneda = new Mtt_Models_Bussines_Moneda();
         $values = $_moneda->getComboValues();
         $this->moneda->addMultiOption(-1, 
@@ -184,7 +185,7 @@ class Mtt_Form_Equipo extends Mtt_Form {
         $this->pais->setRequired();
         $this->pais->setLabel(
                 $this->_translate->translate('pais')
-        )->setOrder(9);
+        )->setOrder(3);
         $_pais = new Mtt_Models_Bussines_Paises();
         $values = $_pais->getComboValues();
         $this->pais->addMultiOption(-1, 
@@ -199,7 +200,7 @@ class Mtt_Form_Equipo extends Mtt_Form {
         $this->calidad = new Zend_Form_Element_Text('calidad');
         $this->calidad->setLabel(
                 $this->_translate->translate('calidad')
-        )->setOrder(10);
+        )->setOrder(7);
         $this->calidad->setAttrib('maxlength', '50');
         $this->calidad->setRequired(true);
         $v = new Zend_Validate_StringLength(
@@ -213,22 +214,24 @@ class Mtt_Form_Equipo extends Mtt_Form {
         );
         $this->calidad->addValidator($v);
         //$this->addElement($this->calidad);
-        // 
+    
+        
         // Elemento: cantidad
         $this->cantidad = new Zend_Form_Element_Text('cantidad');
         $this->cantidad->setLabel(
                 $this->_translate->translate('cantidad ')
-        )->setOrder(11);
+        )->setOrder(9);
         $this->cantidad->setRequired(true);
         $v = new Zend_Validate_Between(array('min' => 1, 'max' => 9999));
         $this->cantidad->addValidator($v);
         $this->cantidad->setAttrib('maxlength', '7');
         //$this->addElement($this->cantidad);
-        // 
+        
+        
         // Elemento: modelo
         $this->modelo = new Zend_Form_Element_Text('modelo');
         $this->modelo->setLabel($this->_translate->translate('modelo')
-        )->setOrder(12);
+        )->setOrder(8);
         $this->modelo->setAttrib('maxlength', '50');
         $this->modelo->setRequired(true);
         // $this->addElement($this->modelo);
@@ -245,7 +248,7 @@ class Mtt_Form_Equipo extends Mtt_Form {
         );
         $this->fechaFabricacion->setLabel(
                 $this->_translate->translate('fecha de fabricacion')
-        )->setOrder(13);
+        )->setOrder(10);
         $this->fechaFabricacion->loadDefaultDecorators();
         $this->fechaFabricacion->setJQueryParam('dateFormat', 'yy-mm-dd');
         $this->fechaFabricacion->setRequired(true);
@@ -255,7 +258,7 @@ class Mtt_Form_Equipo extends Mtt_Form {
         $this->size =  new Zend_Form_Element_Text('size');
         $this->size->setLabel(
                 $this->_translate->translate('tamaño ')
-        )->setOrder(14);
+        )->setOrder(13);
         $this->size->setRequired(true);
         $v = new Zend_Validate_Between(array('min' =>0.1, 'max' => 9999));
         $this->size->addValidator($v);
@@ -265,7 +268,7 @@ class Mtt_Form_Equipo extends Mtt_Form {
         $this->ancho =  new Zend_Form_Element_Text('ancho');
         $this->ancho->setLabel(
                 $this->_translate->translate('ancho')
-        )->setOrder(15);
+        )->setOrder(14);
         $this->ancho->setRequired(true);
         $v = new Zend_Validate_Between(array('min' =>0.1, 'max' => 9999));
         $this->ancho->addValidator($v);
@@ -275,7 +278,7 @@ class Mtt_Form_Equipo extends Mtt_Form {
         $this->alto =  new Zend_Form_Element_Text('alto');
         $this->alto->setLabel(
                 $this->_translate->translate('alto')
-        )->setOrder(16);
+        )->setOrder(15);
         $this->alto->setRequired(true);
         $v = new Zend_Validate_Between(array('min' =>0.1, 'max' => 9999));
         $this->alto->addValidator($v);
@@ -286,7 +289,7 @@ class Mtt_Form_Equipo extends Mtt_Form {
         $this->sizeCaja =  new Zend_Form_Element_Text('sizeCaja');
         $this->sizeCaja->setLabel(
                 $this->_translate->translate('tamaño de la caja')
-        )->setOrder(17);
+        )->setOrder(16);
         $this->sizeCaja->setRequired(true);
         $v = new Zend_Validate_Between(array('min' =>0.1, 'max' => 9999));
         $this->sizeCaja->addValidator($v);
@@ -296,7 +299,7 @@ class Mtt_Form_Equipo extends Mtt_Form {
         $this->pesoEstimado =  new Zend_Form_Element_Text('pesoEstimado');
         $this->pesoEstimado->setLabel(
                 $this->_translate->translate('peso estimado ')
-        )->setOrder(18);
+        )->setOrder(12);
         $this->pesoEstimado->setRequired(true);
         $v = new Zend_Validate_Between(array('min' =>0.1, 'max' => 9999));
         $this->pesoEstimado->addValidator($v);

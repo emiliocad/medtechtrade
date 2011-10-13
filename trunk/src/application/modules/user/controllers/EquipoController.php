@@ -219,7 +219,7 @@ class User_EquipoController
 
         $id = intval( $this->_getParam( 'id' ) );
 
-        $form = new Mtt_Form_Equipo();
+        $form = new Mtt_EditForm_Equipo();
 
         $equipo = $this->_equipo->getFindId( $id );
 

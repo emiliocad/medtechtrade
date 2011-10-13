@@ -79,6 +79,18 @@
                 'method' => 'POST' ) , array( 'id' => $favorito->id )
                 );
                 ?>
+            </td>
+            <td>
+                <?php
+                    $link =
+                            $this->url(
+                            array(
+                            'slug' => $favorito->slug
+                            ), 'slugEquipment', true)
+                ?>
+                <a href="<?= $link ?>" >
+                        <?= $this->translate('ver equipo') ?>
+                </a>
 
             </td>
 
@@ -86,3 +98,8 @@
     <?php endforeach; ?>
 </tbody>
 </table>
+<?=
+$this->paginationControl(
+        $this->favoritos , 'Sliding' , 'reserva/_pag.phtml'
+);
+?>

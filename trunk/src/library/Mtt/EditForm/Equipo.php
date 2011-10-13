@@ -18,7 +18,10 @@ class Mtt_EditForm_Equipo
                 ->setMethod( 'post' )
                 ->setAttrib( 'id' , 'frmActualizarEquipo' )
         ;
-
+        
+        $this->removeElement( $this->precioVenta->getName() );
+        $this->removeElement( $this->publicacionEquipo->getName() );
+        
         $this->submit->setLabel(
                 ucwords(
                         $this->_translate->translate( 'actualizar' )
