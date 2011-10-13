@@ -59,7 +59,7 @@
 <div>
     <?=
     Zend_Auth::getInstance()->hasIdentity() ? $this->translate( 'Bienvenido' ) .
-        $this->authUser : ''
+                    $this->authUser : ''
     ?>
 
     <? if ( Zend_Auth::getInstance()->hasIdentity() ): ?>
@@ -69,12 +69,6 @@
         'controller' => 'usuario' ,
         'action' => 'logout' ) , 'default' , true )
         ?>">Logout</a>
-       <?php else: ?>
-        <a href="<?=
-       $this->url( array(
-           'module' => 'default' ,
-           'controller' => 'usuario' ,
-           'action' => 'index' ) , 'default' , true )
-           ?>">Login</a> 
-       <? endif; ?>
+       <?php endif; ?>
+
 </div>

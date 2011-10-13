@@ -70,7 +70,6 @@ class EquipoController
                         });
                         
                         '
-                        
         );
 
         $this->_equipo->updateView( $id );
@@ -78,12 +77,10 @@ class EquipoController
         $this->view->assign(
                 'producto' , $this->_equipo->getProduct( $id )
         );
-        
-        $form = new Mtt_Form_SearchGeneral();
-        $this->view->assign( 'formSearch', $form);
-        
-        }
 
+        $form = new Mtt_Form_SearchGeneral();
+        $this->view->assign( 'formSearch' , $form );
+        }
 
 
     public function equipcategoriaAction()
@@ -111,8 +108,8 @@ class EquipoController
         );
 
         //$this->_equipo->updateView( $id );
-        $equipos = $this->_equipo->pagListEquipByCategory( $id, 
-                Mtt_Models_Bussines_PublicacionEquipo::Activada );
+        $equipos = $this->_equipo->pagListEquipByCategory( $id ,
+                                                           Mtt_Models_Bussines_PublicacionEquipo::Activada );
         $equipos->setCurrentPageNumber(
                 $this->_getParam( 'page' , 1 )
         );
@@ -121,10 +118,7 @@ class EquipoController
         );
         }
 
-        
-        
-        
-        
+
     public function pdfAction()
         {
         $this->_helper->layout->disableLayout();

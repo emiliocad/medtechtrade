@@ -1,38 +1,39 @@
 <h2>
-    <?= $this->translate('equipo reservados') ?>
+    <?= $this->translate( 'equipo reservados' ) ?>
 </h2>
 <table border="1" class="listado">
     <thead>
     <th>
-        <?= $this->translate('imagen') ?>
+        <?= $this->translate( 'imagen' ) ?>
     </th>
     <th>
-        <?= $this->translate('equipo') ?>
+        <?= $this->translate( 'equipo' ) ?>
     </th>
     <th>
-        <?= $this->translate('precio') ?>
+        <?= $this->translate( 'precio' ) ?>
     </th>
     <th>
-        <?= $this->translate('categoria') ?>
+        <?= $this->translate( 'categoria' ) ?>
     </th>
     <th>
-        <?= $this->translate('estado equipo') ?>
+        <?= $this->translate( 'estado equipo' ) ?>
     </th>
     <th>
-        <?= $this->translate('fabricante') ?>
+        <?= $this->translate( 'fabricante' ) ?>
     </th>
     <th>
-        <?= $this->translate('calidad') ?>
+        <?= $this->translate( 'calidad' ) ?>
     </th>
     <th>
-        <?= $this->translate('acciones') ?>
+        <?= $this->translate( 'acciones' ) ?>
 
     </th>
 </thead>
 <tbody>
-    <?php foreach ($this->favoritos as $favorito): ?>
+    <?php foreach ( $this->favoritos as $favorito ): ?>
 
-        <tr class="<?= $favorito->active ? 'activo' : 'inactivo' ?>" 
+        <tr class="<?= $favorito->active
+                        ? 'activo' : 'inactivo' ?>" 
             id ="<?= $favorito->id ?>">
             <td >
                 <img src="/media/catalog/product/device-00.png" 
@@ -42,46 +43,43 @@
 
 
             <td>
-                <?= $this->escape($favorito->equipo) ?>
+                <?= $this->escape( $favorito->equipo ) ?>
             </td>
 
 
             <td>
-                <?= $this->escape($favorito->precio) ?>
+                <?= $this->escape( $favorito->precio ) ?>
             </td>
 
             <td>
-                <?= $this->escape($favorito->categoria) ?>
+                <?= $this->escape( $favorito->categoria ) ?>
             </td>
 
             <td>
-                <?= $this->escape($favorito->estadoequipo) ?>
+                <?= $this->escape( $favorito->estadoequipo ) ?>
             </td>
 
             <td>
-                <?= $this->escape($favorito->fabricante) ?>
+                <?= $this->escape( $favorito->fabricante ) ?>
             </td>
 
             <td>
-                <?= $this->escape($favorito->calidad) ?>
+                <?= $this->escape( $favorito->calidad ) ?>
             </td>
 
+
             <td>
-                <?= $this->escape($favorito->imageNombre) ?>
-            </td>
-            <td>
-                
-                    <?php
-                    $link = $this->url( array( 'module' => 'user' ,
-                        'controller' => 'reserva' ,
-                        'action' => 'borrarreserva' ,
-                        'id' => $favorito->id ) );
-                    ?>
-                    <?=$this->ajaxLink( "delete" , $link ,
-                                     array('beforeSend' => '',
-                                           'complete' => '') );
-                    ?>
-                  
+
+                <?=$this->ajaxLink(
+                "delete" , "/user/reserva/borrarreserva/format/json" ,
+                array(
+                'dataType' => 'json',
+                'complete' =>
+                'myCompleteCallbackJsFunc(data);' ,
+                'method' => 'POST' ) , array( 'id' => $favorito->id )
+                );
+                ?>
+
             </td>
 
         </tr>

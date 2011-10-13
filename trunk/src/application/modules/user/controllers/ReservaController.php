@@ -6,13 +6,30 @@ class User_ReservaController
     {
 
     protected $_reserva;
+    public $ajaxable = array(
+        'borrarreserva' => array( 'html' , 'json' )
+    );
 
 
     public function init()
         {
         parent::init();
+
+
         $this->_reserva =
                 new Mtt_Models_Bussines_Reserva();
+
+        $this->_helper->getHelper( 'ajaxContext' )->initContext();
+        }
+
+
+    public function preDispatch()
+        {
+//        $contextSwitch = $this->_helper->getHelper( 'contextSwitch' );
+//        $contextSwitch->addActionContext(
+//                        'borrarreserva' , 'json' , 'html' )
+//                ->initContext();
+        parent::preDispatch();
         }
 
 
@@ -29,24 +46,23 @@ class User_ReservaController
                         $this->view->baseUrl() . '/css/reserva.css'
         );
         $reserva = $this->_reserva->pagListFavoritosByUser(
-                        $this->authData['usuario']->id ,
-                        Mtt_Models_Bussines_TipoReserva::FAVORITE
-                );
+                $this->authData['usuario']->id ,
+                Mtt_Models_Bussines_TipoReserva::FAVORITE
+        );
         $reserva->setCurrentPageNumber(
-                $this->_getParam( 'page' , 1 ));
+                $this->_getParam( 'page' , 1 ) );
         $this->view->assign(
-                'favoritos' ,$reserva
-        
+                'favoritos' , $reserva
         );
         }
-        
-        
 
 
     public function reservasAction()
         {
-        
+
         $this->_helper->layout->setLayout( 'layoutListado' );
+        $this->view->jQuery()->addJavascriptFile( '/js/reserva.js' );
+
         $this->view->assign(
                 'favoritos' ,
                 $this->_reserva->getReservaByUser(
@@ -150,19 +166,34 @@ class User_ReservaController
 
     public function borrarfavoritoAction()
         {
+
         $id = intval( $this->_request->getParam( 'id' ) );
         $this->_reserva->desactivarReserva( $id );
         $this->_helper->FlashMessenger( 'Elemento Borrado' );
         $this->_redirect( $this->URL . "/favoritos" );
         }
-        
+
+
     public function borrarreservaAction()
         {
-        $this->_helper->layout()->disableLayout();
-        $id = intval( $this->_request->getParam( 'id' ) );
-        $this->_reserva->desactivarReserva( $id );
+
+        $id = ( int ) $this->_request->getParam( 'id' , null );
+        //$id = $_GET['id'];
+
+        //$this->_reserva->desactivarReserva( $id );
+        $this->_reserva->deleteReserva( $id );
+        $this->view->assign( 'id' , $id );
+        if ( $this->_request->isXmlHttpRequest() )
+            {
+            
+            $this->view->assign( 'sms' ,
+                                 $this->_translate->translate(
+                            'reserva eliminada'
+                    )
+            );
+            }
         //$this->_helper->FlashMessenger( 'reserva eliminada' );
-        //$this->_redirect( $this->URL . "/favoritos" );
+//        $this->_redirect( $this->URL . "/favoritos" );
         }
 
 

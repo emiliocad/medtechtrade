@@ -23,7 +23,7 @@ p	{
 }	
 
 p, h1, h2, h3	{
-    margin: 6px 0 0 20px;
+    margin: 10px 0 0 20px;
 }
 
 a, p, span, h1, h3 {
@@ -248,7 +248,7 @@ a:hover	{
     height: 80px;
     margin-left: 280px !important;
     margin-right: 280px !important;
-    
+
 }
 #section-bottom-buttons	{
     margin: 0 0 0 3px;
@@ -440,7 +440,7 @@ a:hover	{
     border: 1px solid #999;
 }
 #device-description span	{
-    padding: 3px 5px;
+    padding: 4px 5px;
     font-size: 13px;
     display: block;
 }
@@ -464,6 +464,10 @@ a:hover	{
 
 #img-logo {
     margin-left: 23px;
+}
+
+br{
+    padding :10px;
 }
 
 

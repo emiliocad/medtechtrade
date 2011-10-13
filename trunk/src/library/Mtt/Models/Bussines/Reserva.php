@@ -10,6 +10,7 @@ class Mtt_Models_Bussines_Reserva
         extends Mtt_Models_Table_Reserva
     {
 
+
     public function getFindId( $id )
         {
 //        $db = $this->getAdapter();
@@ -21,7 +22,7 @@ class Mtt_Models_Bussines_Reserva
 //        ;
         return $this->fetchRow( 'id = ' . $id );
         }
-  
+
 
     public function listar()
         {
@@ -29,121 +30,114 @@ class Mtt_Models_Bussines_Reserva
         $query = $db->select()
                 ->from( $this->_name )
                 ->where( 'active = ?' , '1' )
-                ->order( 'fechagrabacion desc')
+                ->order( 'fechagrabacion desc' )
                 ->query()
         ;
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
-        
 
-        
-        
-        
-    public function getReservaByEquipUser( $idUsuario, $idEquipo, $tipoReserva )
+
+    public function getReservaByEquipUser( $idUsuario , $idEquipo , $tipoReserva )
         {
         $db = $this->getAdapter();
         $query = $db->select()
                 ->from(
                         $this->_name ,
                         array(
-                        'id' ,
-                        'equipo_id' ,
-                        'usuario_id' ,
-                        'fechagrabacion' ,
-                        'order' ,
-                        'active' 
+                    'id' ,
+                    'equipo_id' ,
+                    'usuario_id' ,
+                    'fechagrabacion' ,
+                    'order' ,
+                    'active'
                         )
                 )
-                ->joinInner( 'equipo', 
-                        'reserva.equipo_id = equipo.id' , 
-                        array ('nombre',
-                            'precio' => 'precioventa',
-                            'modelo',
-                            'tag'
-                            )
+                ->joinInner( 'equipo' , 'reserva.equipo_id = equipo.id' ,
+                             array( 'nombre' ,
+                    'precio' => 'precioventa' ,
+                    'modelo' ,
+                    'tag'
+                        )
                 )
                 ->where( 'reserva.usuario_id = ?' , $idUsuario )
                 ->where( 'reserva.equipo_id = ?' , $idEquipo )
-                ->where( 'tipo_reserva_id = ?' , $tipoReserva)
+                ->where( 'tipo_reserva_id = ?' , $tipoReserva )
                 ->query()
         ;
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
-        }        
+        }
 
 
-    public function getReservaByUser( $idUsuario, $tipoReserva )
+    public function getReservaByUser( $idUsuario , $tipoReserva )
         {
         $db = $this->getAdapter();
         $query = $db->select()
                 ->from(
                         $this->_name ,
                         array(
-                        'id' ,
-                        'equipo_id' ,
-                        'usuario_id' ,
-                        'fechagrabacion' ,
-                        'order' ,
-                        'active' 
+                    'id' ,
+                    'equipo_id' ,
+                    'usuario_id' ,
+                    'fechagrabacion' ,
+                    'order' ,
+                    'active'
                         )
                 )
-                ->joinInner( 'equipo', 
-                        'reserva.equipo_id = equipo.id' , 
-                        array (
-                            'equipo' => 'nombre',
-                            'precio' => 'precioventa',
-                            'slug',
-                            'modelo',
-                            'tag',
-                            'categoria_id',
-                            'calidad'
+                ->joinInner( 'equipo' , 'reserva.equipo_id = equipo.id' ,
+                             array(
+                    'equipo' => 'nombre' ,
+                    'precio' => 'precioventa' ,
+                    'slug' ,
+                    'modelo' ,
+                    'tag' ,
+                    'categoria_id' ,
+                    'calidad'
                         )
                 )
-                ->joinInner( 'categoria', 
-                        'categoria.id = equipo.categoria_id', 
-                        array (
-                            'categoria' => 'categoria.nombre'
+                ->joinInner( 'categoria' ,
+                             'categoria.id = equipo.categoria_id' ,
+                             array(
+                    'categoria' => 'categoria.nombre'
                         )
                 )
-                ->joinInner( 'estadoequipo' ,     
-                        'estadoequipo.id = equipo.estadoequipo_id' ,
-                        array( 'estadoequipo.nombre as estadoequipo' ) 
+                ->joinInner( 'estadoequipo' ,
+                             'estadoequipo.id = equipo.estadoequipo_id' ,
+                             array( 'estadoequipo.nombre as estadoequipo' )
                 )
-                ->joinInner( 
+                ->joinInner(
                         'publicacionequipo' ,
                         'publicacionequipo.id = equipo.publicacionEquipo_id' ,
-                        array( 
-                            'publicacionequipo.nombre as publicacionequipo' 
-                        ) 
+                        array(
+                    'publicacionequipo.nombre as publicacionequipo'
+                        )
                 )
                 ->joinInner( 'moneda' , 'moneda.id = equipo.moneda_id' ,
-                             array( 'moneda.nombre as moneda' ) 
+                             array( 'moneda.nombre as moneda' )
                 )
                 ->joinInner( 'fabricantes' ,
                              'fabricantes.id = equipo.fabricantes_id' ,
-                             array( 'fabricantes.nombre as fabricante' ) 
+                             array( 'fabricantes.nombre as fabricante' )
                 )
                 ->joinInner( 'paises' , 'paises.id = equipo.paises_id' ,
-                             array( 'paises.nombre as pais' ) 
+                             array( 'paises.nombre as pais' )
                 )
-                ->joinLeft( 'imagen' , 
-                        'reserva.equipo_id = imagen.equipo_id' ,
-                        array( 'imagen.descripcion',
-                            'imagen.imagen', 
-                            'imageNombre' => 'imagen.nombre' ) 
+                ->joinLeft( 'imagen' , 'reserva.equipo_id = imagen.equipo_id' ,
+                            array( 'imagen.descripcion' ,
+                    'imagen.imagen' ,
+                    'imageNombre' => 'imagen.nombre' )
                 )
                 ->where( 'reserva.usuario_id = ?' , $idUsuario )
-                ->where( 'tipo_reserva_id = ?' , $tipoReserva)
-                ->where( 'reserva.active = ?' , self::ACTIVE )    
+                ->where( 'tipo_reserva_id = ?' , $tipoReserva )
+                ->where( 'reserva.active = ?' , self::ACTIVE )
                 ->group( 'equipo.id' )
                 ->query()
         ;
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
-        }             
-    
-        
+        }
+
 
     public function getReservaByType( $tipoReserva )
         {
@@ -152,99 +146,93 @@ class Mtt_Models_Bussines_Reserva
                 ->from(
                         $this->_name ,
                         array(
-                        'id' ,
-                        'equipo_id' ,
-                        'usuario_id' ,
-                        'fechagrabacion' ,
-                        'order' ,
-                        'active' 
+                    'id' ,
+                    'equipo_id' ,
+                    'usuario_id' ,
+                    'fechagrabacion' ,
+                    'order' ,
+                    'active'
                         )
                 )
-                ->joinInner( 'equipo', 
-                        'reserva.equipo_id = equipo.id' , 
-                        array (
-                            'equipo' => 'nombre',
-                            'precio' => 'precioventa',
-                            'modelo',
-                            'tag',
-                            'categoria_id',
-                            'calidad'
+                ->joinInner( 'equipo' , 'reserva.equipo_id = equipo.id' ,
+                             array(
+                    'equipo' => 'nombre' ,
+                    'precio' => 'precioventa' ,
+                    'modelo' ,
+                    'tag' ,
+                    'categoria_id' ,
+                    'calidad'
                         )
                 )
-                ->joinInner( 'categoria', 
-                        'categoria.id = equipo.categoria_id', 
-                        array (
-                            'categoria' => 'categoria.nombre'
+                ->joinInner( 'categoria' ,
+                             'categoria.id = equipo.categoria_id' ,
+                             array(
+                    'categoria' => 'categoria.nombre'
                         )
                 )
-                ->joinInner( 'estadoequipo' ,     
-                        'estadoequipo.id = equipo.estadoequipo_id' ,
-                        array( 'estadoequipo.nombre as estadoequipo' ) 
+                ->joinInner( 'estadoequipo' ,
+                             'estadoequipo.id = equipo.estadoequipo_id' ,
+                             array( 'estadoequipo.nombre as estadoequipo' )
                 )
-                ->joinInner( 
+                ->joinInner(
                         'publicacionequipo' ,
                         'publicacionequipo.id = equipo.publicacionEquipo_id' ,
-                        array( 
-                            'publicacionequipo.nombre as publicacionequipo' 
-                        ) 
+                        array(
+                    'publicacionequipo.nombre as publicacionequipo'
+                        )
                 )
                 ->joinInner( 'moneda' , 'moneda.id = equipo.moneda_id' ,
-                             array( 'moneda.nombre as moneda' ) 
+                             array( 'moneda.nombre as moneda' )
                 )
                 ->joinInner( 'fabricantes' ,
                              'fabricantes.id = equipo.fabricantes_id' ,
-                             array( 'fabricantes.nombre as fabricante' ) 
+                             array( 'fabricantes.nombre as fabricante' )
                 )
                 ->joinInner( 'paises' , 'paises.id = equipo.paises_id' ,
-                             array( 'paises.nombre as pais' ) 
+                             array( 'paises.nombre as pais' )
                 )
-                ->joinLeft( 'imagen' , 
-                        'reserva.equipo_id = imagen.equipo_id' ,
-                        array( 'imagen.descripcion',
-                            'imagen.imagen', 
-                            'imageNombre' => 'imagen.nombre' ) 
+                ->joinLeft( 'imagen' , 'reserva.equipo_id = imagen.equipo_id' ,
+                            array( 'imagen.descripcion' ,
+                    'imagen.imagen' ,
+                    'imageNombre' => 'imagen.nombre' )
                 )
-                ->where( 'tipo_reserva_id = ?' , $tipoReserva)
-                ->where( 'reserva.active = ?' , self::ACTIVE )    
+                ->where( 'tipo_reserva_id = ?' , $tipoReserva )
+                ->where( 'reserva.active = ?' , self::ACTIVE )
                 ->group( 'equipo.id' )
                 ->query()
         ;
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
-        }             
-            
-        
-        
-        
-    public function countReservaByUserTipo( $idUsuario, $idTipoReserva )
+        }
+
+
+    public function countReservaByUserTipo( $idUsuario , $idTipoReserva )
         {
+        
+        }
 
 
-        }      
-        
-        
-        
-
-    public function pagListFavoritosByUser( $idUser, $tipo )
+    public function pagListFavoritosByUser( $idUser , $tipo )
         {
         $_conf = new Zend_Config_Ini(
                         APPLICATION_PATH . '/configs/myConfigUser.ini' , 'favoritos'
         );
         $data = $_conf->toArray();
 
-        $object = Zend_Paginator::factory( 
-                $this->getReservaByUser( $idUser, $tipo) );
+        $object = Zend_Paginator::factory(
+                        $this->getReservaByUser( $idUser , $tipo ) );
         $object->setItemCountPerPage(
                 $data['ItemCountPerPage']
         );
         return $object;
-        }        
-        
- /**
+        }
+
+
+    /**
      * 
      * 
      */
-    public function listEquipMoreReserved( $limit, $tipoReserva )
+    public function listEquipMoreReserved( $limit , $tipoReserva )
         {
 
         $db = $this->getAdapter();
@@ -252,21 +240,19 @@ class Mtt_Models_Bussines_Reserva
                 ->from(
                         $this->_name ,
                         array(
-                        'equipo_id' ,
-                        'cantidad' => 'COUNT(*)'
+                    'equipo_id' ,
+                    'cantidad' => 'COUNT(*)'
                         )
                 )
-                ->joinInner( 'equipo', 
-                        'reserva.equipo_id = equipo.id' , 
-                        array ('equipo' => 'nombre' )
+                ->joinInner( 'equipo' , 'reserva.equipo_id = equipo.id' ,
+                             array( 'equipo' => 'nombre' )
                 )
                 ->where( 'equipo.active = ?' , self::ACTIVE )
                 ->where( 'reserva.active = ?' , self::ACTIVE )
                 ->where( 'reserva.tipo_reserva_id = ?' , $tipoReserva )
-                ->group( 'equipo_id')
+                ->group( 'equipo_id' )
                 ->order( 'cantidad DESC' )
                 ->limit( $limit )
-                
                 ->query()
 
 
@@ -275,7 +261,7 @@ class Mtt_Models_Bussines_Reserva
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
 
-        
+
     public function updateReserva( array $data , $id )
         {
 
@@ -293,7 +279,20 @@ class Mtt_Models_Bussines_Reserva
     public function deleteReserva( $id )
         {
 
-        $this->delete( 'id = ?' , $id );
+        $this->delete( 'id =' . ( int ) $id );
+        }
+
+
+    public function getIdByEquipmentUser( $idUser , $idEquipment )
+        {
+        $db = $this->getAdapter();
+        $select = $db->select()->from( $this->_name , array( 'id' ) );
+        }
+
+
+    public function deleteReservaByUserEquipment( $idUser , $idEquipment )
+        {
+        $db = $this->getAdapter();
         }
 
 
@@ -312,3 +311,4 @@ class Mtt_Models_Bussines_Reserva
 
 
     }
+
