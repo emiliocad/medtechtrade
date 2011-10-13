@@ -87,9 +87,11 @@ class EquipoController
         {
 
         $slug = $this->_getParam( 'slug' , null );
-        //$id = $this->_getParam( 'id' , null );
+        
+        $categoria = new Mtt_Models_Bussines_Categoria();
+        $data = $categoria->getCategoriaBySlug( $slug );
 
-        $id = $this->_equipo->getEquipmentBySlug( $slug )->id;
+        $id = $data->id;
 
         $this->view->jQuery()
                 ->addJavascriptFile(
@@ -109,12 +111,15 @@ class EquipoController
 
         //$this->_equipo->updateView( $id );
         $equipos = $this->_equipo->pagListEquipByCategory( $id ,
-                                                           Mtt_Models_Bussines_PublicacionEquipo::Activada );
+            Mtt_Models_Bussines_PublicacionEquipo::Activada );
         $equipos->setCurrentPageNumber(
                 $this->_getParam( 'page' , 1 )
         );
         $this->view->assign(
                 'productos' , $equipos
+        );
+        $this->view->assign(
+                'slug' , $slug
         );
         }
 

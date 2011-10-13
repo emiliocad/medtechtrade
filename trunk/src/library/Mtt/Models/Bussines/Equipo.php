@@ -176,6 +176,8 @@ class Mtt_Models_Bussines_Equipo
                             array( 'imagen.nombre as imagen' )
                 )
                 ->where( 'equipo.active IN (?)' , self::ACTIVE )
+                ->where( 'equipo.publicacionEquipo_id  = ?' , 
+                        Mtt_Models_Table_PublicacionEquipo::Activada )
                 ->query();
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
@@ -678,7 +680,8 @@ class Mtt_Models_Bussines_Equipo
                     'sizeCaja' ,
                     'topofers' ,
                     'publishdate' ,
-                    'active' )
+                    'active',
+                    'slug'   )
                 )
                 ->joinInner(
                         'categoria' , 'categoria.id = equipo.categoria_id' ,
