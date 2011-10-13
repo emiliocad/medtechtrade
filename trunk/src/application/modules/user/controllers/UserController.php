@@ -35,18 +35,8 @@ class User_UserController
         $usuario = $this->_user->getFindId( $id );
 
         $this->view->assign( 'usuario' , $usuario );
-        
-         $form->email->addValidator(
-                new Zend_Validate_Db_NoRecordExists(
-                        array(
-                            'table' =>'usuario',
-                            'field' => 'email',
-                            'exclude' => array (
-                                'field' => 'id', 
-                                'value' => $id)
-                        )
-                )
-        );
+
+      
 
         if ( !is_null( $usuario ) )
             {
@@ -129,8 +119,6 @@ class User_UserController
             }
         }
 
-        
-        
 
     public function contactaradminAction()
         {
@@ -149,9 +137,9 @@ class User_UserController
                     &&
                     $form->isValid( $this->_request->getPost() ) )
                 {
-                    $contacto = $form->getValues();
-                    $this->_user->sendMailToAdmin($contacto, 'Contactar al Admin');
-                    $this->view->assign( 'contacto' , $contacto );
+                $contacto = $form->getValues();
+                $this->_user->sendMailToAdmin( $contacto , 'Contactar al Admin' );
+                $this->view->assign( 'contacto' , $contacto );
                 }
             $form->setDefaults( $usuario->toArray() );
             $this->view->assign( 'form' , $form );
@@ -163,7 +151,8 @@ class User_UserController
             );
             $this->_redirect( $this->URL );
             }
-        }        
+        }
+
 
     }
 

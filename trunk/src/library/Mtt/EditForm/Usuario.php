@@ -10,6 +10,8 @@ class Mtt_EditForm_Usuario
         extends Mtt_Form_Usuario
     {
 
+    protected $id;
+
 
     public function init()
         {
@@ -18,25 +20,55 @@ class Mtt_EditForm_Usuario
                 ->setMethod( 'post' )
                 ->setAttrib( 'id' , 'frmACtualizar' )
         ;
-        
-        $this->tratamiento->setOrder(0);
-        $this->institucion->setOrder(1);
-        $this->nombre->setOrder(2);
-        $this->apellido->setOrder(3);
-        $this->direccion->setOrder(4);
-        $this->ciudad->setOrder(5);
-        $this->codPostal->setOrder(6);
-        $this->paises->setOrder(7);
-        $this->telefono->setOrder(8);
-        $this->fax->setOrder(9);
-        $this->email->setOrder(10);
-        $this->submit->setOrder(11);
-        
+
+        $this->id = new Zend_Form_Element_Hidden( 'id' );
+        $this->addElement( $this->id );
+
+        $this->tratamiento->setOrder( 0 );
+        $this->institucion->setOrder( 1 );
+        $this->nombre->setOrder( 2 );
+        $this->apellido->setOrder( 3 );
+        $this->direccion->setOrder( 4 );
+        $this->ciudad->setOrder( 5 );
+        $this->codPostal->setOrder( 6 );
+        $this->paises->setOrder( 7 );
+        $this->telefono->setOrder( 8 );
+        $this->fax->setOrder( 9 );
+        $this->email->setOrder( 10 );
+        $this->submit->setOrder( 11 );
+
+        //$this->email->
         //$this->removeElement( $this->email->getName() );
         $this->removeElement( $this->login->getName() );
         $this->removeElement( $this->rol->getName() );
         $this->removeElement( $this->clave->getName() );
         $this->removeElement( $this->clave2->getName() );
+
+        $this->email->removeValidator( 'Db_NoRecordExists' );
+
+        $this->email->addValidator( 'Db_NoRecordExists' , false ,
+                                    array(
+            'table' => 'usuario' ,
+            'field' => 'email' ,
+            'exclude' => array(
+                'field' => 'id' ,
+                'value' => $this->id->getValue()
+            )
+                )
+        );
+//        $this->email->addValidator(
+//                new Zend_Validate_Db_NoRecordExists(
+//                        'usuario' ,
+//                        'email' ,
+//                        array(
+//                            'field' => 'id' ,
+//                            'value' => $this->id->getValue()
+//                        )
+//                )
+//        );
+
+
+
 
         $this->submit->setLabel(
                 ucwords(

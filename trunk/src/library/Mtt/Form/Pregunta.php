@@ -10,6 +10,12 @@ class Mtt_Form_Pregunta
         extends Mtt_Formy
     {
 
+    protected $asunto;
+    protected $formulacion;
+    protected $respuesta;
+    protected $copiaEmail;
+    protected $submit;
+
 
     public function init()
         {
@@ -19,18 +25,18 @@ class Mtt_Form_Pregunta
         ;
 
         // Elemento: Asunto
-        $asunto = new Zend_Form_Element_Text(
+        $this->asunto = new Zend_Form_Element_Text(
                         'asunto'
         );
-        $asunto->setLabel(
+        $this->asunto->setLabel(
                 ucwords(
                         $this->_translate->translate(
                                 'asunto'
                         )
                 )
         );
-        $asunto->setAttrib( 'maxlength' , '120' );
-        $asunto->setRequired( true );
+        $this->asunto->setAttrib( 'maxlength' , '120' );
+        $this->asunto->setRequired( true );
         $v = new Zend_Validate_StringLength(
                         array(
                             'min' => 5 , 'max' => 120
@@ -45,35 +51,35 @@ class Mtt_Form_Pregunta
                         'caracteres'
                 ) , Zend_Validate_StringLength::TOO_SHORT
         );
-        $asunto->addValidator( $v );
-        $this->addElement( $asunto );
+        $this->asunto->addValidator( $v );
+        $this->addElement( $this->asunto );
 
 
         // Elemento: formulacion
-        $formulacion = new Mtt_Form_Element_Ckeditor(
+        $this->formulacion = new Mtt_Form_Element_Ckeditor(
                         'formulacion'
         );
-        $formulacion->setLabel(
+        $this->formulacion->setLabel(
                 ucwords(
                         $this->_translate->translate(
                                 'pregunta'
                         )
                 )
         );
-        $formulacion->setRequired( true );
+        $this->formulacion->setRequired( true );
         $v = new Zend_Validate_StringLength(
                         array(
                             'min' => 20 , 'max' => 255
                         )
         );
-        $formulacion->addValidator( $v );
-        $this->addElement( $formulacion );
+        $this->formulacion->addValidator( $v );
+        $this->addElement( $this->formulacion );
 
         // Elemento: respuesta
-        $respuesta = new Zend_Form_Element_Textarea(
+        $this->respuesta = new Zend_Form_Element_Textarea(
                         'respuesta'
         );
-        $respuesta
+        $this->respuesta
                 ->setLabel(
                         ucwords(
                                 $this->_translate->translate(
@@ -81,28 +87,28 @@ class Mtt_Form_Pregunta
                                 )
                         )
         );
-        $respuesta->setRequired( true );
+        $this->respuesta->setRequired( true );
         $v = new Zend_Validate_StringLength(
                         array( 'min' => 20 , 'max' => 255 )
         );
-        $respuesta->addValidator( $v );
-        $this->addElement( $respuesta );
+        $this->respuesta->addValidator( $v );
+        $this->addElement( $this->respuesta );
 
         // Elemento: copiaEmail
-        $copiaEmail = new Zend_Form_Element_Checkbox(
+        $this->copiaEmail = new Zend_Form_Element_Checkbox(
                         'copiaEmail'
         );
-        $copiaEmail->setLabel(
+        $this->copiaEmail->setLabel(
                         $this->_translate->translate(
                                 'Copy to email'
                         )
                 )
                 ->setAttrib( 'id' , 'copiaEmail' );
-        $this->addElement( $copiaEmail );
+        $this->addElement( $this->copiaEmail );
 
 
-        $submit = new Zend_Form_Element_Button( 'submit' );
-        $submit->setLabel(
+        $this->submit = new Zend_Form_Element_Button( 'submit' );
+        $this->submit->setLabel(
                         ucwords(
                                 $this->_translate->translate( 'save' )
                         )
@@ -112,7 +118,7 @@ class Mtt_Form_Pregunta
                 )
                 ->setAttrib( 'type' , 'submit' );
 
-        $this->addElement( $submit );
+        $this->addElement( $this->submit );
         }
 
 

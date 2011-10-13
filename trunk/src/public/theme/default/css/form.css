@@ -117,6 +117,7 @@ label.required {
 
 
 .zendy_form div label {
+    padding: 5px;
     color: #2D7AA2;
     font-size: 13px;
     width: 130px;
