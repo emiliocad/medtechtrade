@@ -1,0 +1,153 @@
+<span class="breadcrumb">
+    <a href="
+    <?=
+    $this->url( array(
+        'module' => 'default' ,
+        'controller' => 'equipo' ,
+        'action' => 'index'
+            ) , 'default' , true )
+    ?>">
+           <?= $this->translate( 'Home' ) ?>
+    </a>
+
+    >
+    <a href="
+    <?=
+    $this->url( array(
+        'module' => 'default' ,
+        'controller' => 'categoria' ,
+        'action' => 'index' ,
+        'id' => $this->producto->categoria_id
+            ) , 'default' , true )
+    ?>">
+           <?= $this->producto->categoria ?>
+    </a>
+    >
+    <?= $this->producto->nombre ?>
+</span>
+
+<h2>
+    <?= $this->producto->nombre ?>
+</h2>
+
+<div id="dialog" title="An Image!" style="display: none;">
+    <img id="image" src=""/>
+</div>
+
+<div id="search" style="display: none;">
+    <?= $this->formSearch ?>
+</div>
+
+<div id="device-foto-galery">
+    <!--Producto -->
+    <a href="/media/catalog/product/device-03-00.png" 
+       title="<?= $this->producto->nombre ?>" >
+        <img src="/media/catalog/product/device-03-00.png" alt="">
+    </a>
+    <!--Producto-->
+    <!--\media\catalog\product\thumb-->
+    <a href="/media/catalog/product/thumb/device-03-01.png" 
+       title="<?= $this->producto->nombre ?>" >
+        <img src="/media/catalog/product/thumb/device-03-01.png" alt="Device" />
+    </a> 
+    <a href="/media/catalog/product/thumb/device-03-02.png" 
+       title="<?= $this->producto->nombre ?>" >
+        <img src="/media/catalog/product/thumb/device-03-02.png" alt="Device" />
+    </a> 
+    <a href="/media/catalog/product/thumb/device-03-03.png" 
+       title="<?= $this->producto->nombre ?>" >
+        <img src="/media/catalog/product/thumb/device-03-03.png" alt="Device" />
+    </a> 
+    <a href="/media/catalog/product/thumb/device-03-04.png" 
+       title="<?= $this->producto->nombre ?>" >
+        <img src="/media/catalog/product/thumb/device-03-04.png" alt="Device" />
+    </a> 
+
+
+    <!-- Fin de imagenes -->
+    <!-- acciones -->
+    <a href="#">
+        <img src="/images/arrow-left.png" alt="">
+    </a>
+    <a href="#">
+        <img src="/images/arrow-right.png" alt="">
+    </a>
+    <!-- fin de acciones-->
+</div>
+<div id="device-description">
+    <a href="#" 
+    <?=
+    Zend_Auth::getInstance()->hasIdentity() ?
+                    'id="searchForUser"' : 'id="searchEquipments"'
+    ?>>
+        <span class="advanced-search-tab">
+            <?= $this->translate( 'Advanced Search' ) ?>
+        </span>
+    </a>
+
+    <span class="device-description-field">
+        <?= $this->translate( 'Product name' ) ?>
+    </span>
+    <span>
+        <?= $this->producto->nombre ?>
+    </span>
+
+
+    <?
+    if ( Zend_Auth::getInstance()->hasIdentity() )
+        {
+
+        echo $this->render( 'equipo/user/deviceDescription.phtml' );
+        }
+    else
+        {
+        echo $this->render( 'equipo/guest/deviceDescription.phtml' );
+        }
+    ?>
+
+</div>
+<!---->
+
+<div id="device-actions">
+    <a href="<?=
+    $this->url( array(
+        'module' => 'default' ,
+        'controller' => 'equipo' ,
+        'action' => 'pdf' ,
+        'id' => $this->producto->id
+            ) , 'default' , true )
+    ?>">
+        <span class="device-action-pdf">
+            <?= $this->translate( 'Download PDF' ) ?>
+        </span>
+    </a>
+    <a href="#">
+        <span class="device-action-print">
+            <?= $this->translate( 'Print' ) ?>
+        </span>
+    </a>
+    <a href="#">
+        <span class="device-action-help">
+            <?= $this->translate( 'I Need Help' ) ?>
+        </span>
+    </a>
+    <a href="#">
+        <span class="device-action-friend">
+            <?= $this->translate( 'Tell a Friend' ) ?>
+        </span>
+    </a>
+    <?
+    if ( Zend_Auth::getInstance()->hasIdentity() )
+        {
+         if($this->producto->publicacionid == 
+            Mtt_Models_Table_PublicacionEquipo::Activada)
+             {
+            echo $this->render( 'equipo/user/deviceActions.phtml' );
+             }
+        }
+    ?>
+    <a href="javascript:history.go(-1)">
+        <span class="device-action-back">
+            <?= $this->translate( 'Back' ) ?>
+        </span>
+    </a>
