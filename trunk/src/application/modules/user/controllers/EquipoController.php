@@ -221,6 +221,7 @@ class User_EquipoController
             $this->_redirect( $this->URL );
             }
         $this->view->assign( 'frmRegistrar' , $form );
+        $this->view->assign( 'equipo', $form->getValues());
         }
 
 
@@ -243,6 +244,7 @@ class User_EquipoController
                 $this->_helper->FlashMessenger( 'Se modificó un fabricante' );
                 $this->_redirect( $this->URL );
                 }
+  
             $form->setDefaults( $equipo->toArray() );
             $this->view->assign( 'form' , $form );
        

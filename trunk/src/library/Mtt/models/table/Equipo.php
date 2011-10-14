@@ -12,9 +12,6 @@ class Mtt_Models_Table_Equipo
 
     protected $_name = 'equipo';
     protected $_primary = 'id';
-    protected $nombre;
-    protected $precio;
-    protected $calidad;
 
 
     public function __construct()

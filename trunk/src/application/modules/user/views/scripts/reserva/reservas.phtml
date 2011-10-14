@@ -79,8 +79,6 @@
                 'method' => 'POST' ) , array( 'id' => $favorito->id )
                 );
                 ?>
-            </td>
-            <td>
                 <?php
                     $link =
                             $this->url(
@@ -88,8 +86,8 @@
                             'slug' => $favorito->slug
                             ), 'slugEquipment', true)
                 ?>
-                <a href="<?= $link ?>" >
-                        <?= $this->translate('ver equipo') ?>
+                <a href="<?= $link ?>" title="<?= $this->translate('ver equipo') ?>" >
+                   <img class ="imagen-see">
                 </a>
 
             </td>
