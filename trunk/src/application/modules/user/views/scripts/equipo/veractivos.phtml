@@ -3,6 +3,7 @@
 <table border="1" class="listado">
     <thead>
         <tr>
+            <th></th>
             <th><?= $this->translate('nombre') ?></th>
             <th><?= $this->translate('precio') ?></th>
             <th><?= $this->translate('categoria') ?></th>
@@ -16,7 +17,16 @@
         <?php foreach ($this->equipos as $equipo): ?>
 
             <tr class="<?= $equipo->active ? 'activo' : 'inactivo' ?>">
-
+                <td>
+                <?php
+                $url = (is_null($equipo->image)) ?
+                    '/theme/default/image/no_images.png' : 
+                    '/media/catalog/product/'. $equipo->image
+                ?>
+                <img src="<?= $url?>" 
+                     alt="<?= $equipo->equipo ?>"
+                     width="24px" height="24px">
+                </td>
                 <td>
                     <?= $this->escape($equipo->equipo) ?>
                 </td>
@@ -44,8 +54,9 @@
                             ), 'slugEquipment', true)
                     ?>
 
-                    <a href="<?= $link ?>" >
-                        <?= $this->translate('ver equipo') ?>
+                    <a href="<?= $link ?>" 
+                       title="<?= $this->translate('ver equipo') ?>" >
+                   <img class ="imagen-see">
                     </a>
                 </td>
                 <td>
@@ -55,8 +66,9 @@
                         'action' => 'editar',
                         'id' => $equipo->id))
                     ?>
-                    <a href="<?= $link ?>">
-                        <?= $this->translate('editar') ?>
+                    <a href="<?= $link ?>" 
+                       title="<?= $this->translate('editar equipo')?>">
+                        <img class ="imagen-edit">
                     </a>
 
                 </td>

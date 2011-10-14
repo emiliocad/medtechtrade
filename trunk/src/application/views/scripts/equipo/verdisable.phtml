@@ -109,33 +109,6 @@
 <!---->
 
 <div id="device-actions">
-    <a href="<?=
-    $this->url( array(
-        'module' => 'default' ,
-        'controller' => 'equipo' ,
-        'action' => 'pdf' ,
-        'id' => $this->producto->id
-            ) , 'default' , true )
-    ?>">
-        <span class="device-action-pdf">
-            <?= $this->translate( 'Download PDF' ) ?>
-        </span>
-    </a>
-    <a href="#">
-        <span class="device-action-print">
-            <?= $this->translate( 'Print' ) ?>
-        </span>
-    </a>
-    <a href="#">
-        <span class="device-action-help">
-            <?= $this->translate( 'I Need Help' ) ?>
-        </span>
-    </a>
-    <a href="#">
-        <span class="device-action-friend">
-            <?= $this->translate( 'Tell a Friend' ) ?>
-        </span>
-    </a>
     <?
     if ( Zend_Auth::getInstance()->hasIdentity() )
         {

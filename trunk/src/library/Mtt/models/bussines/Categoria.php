@@ -20,7 +20,7 @@ class Mtt_Models_Bussines_Categoria
         parent::__construct();
         }
 
-
+    //Filtro publicado    
     public function getProducts( $id , $order = "modelo" )
         {
         $_producto = new Mtt_Models_Bussines_Equipo();
@@ -48,6 +48,9 @@ class Mtt_Models_Bussines_Categoria
                 )
                 ->where( 'equipo.active IN (?)' , self::ACTIVE )
                 ->where( 'equipo.categoria_id IN (?)' , $id )
+                ->where( 'equipo.publicacionEquipo_id = ?' , 
+                        Mtt_Models_Table_PublicacionEquipo::Activada
+                )
                 ->order( $order )
                 ->query();
 
