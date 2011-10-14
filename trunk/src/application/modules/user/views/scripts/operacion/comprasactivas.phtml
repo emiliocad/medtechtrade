@@ -8,7 +8,7 @@
             <th><?= $this->translate('fecha') ?></th>
             <th><?= $this->translate('nro Cuotas') ?></th>
             <th><?= $this->translate('forma de pago') ?></th>
-            <th><?= $this->translate('operaciones') ?></th>
+            <th><?= $this->translate('acciones') ?></th>
         </tr>
     </thead>
     <tbody>
@@ -31,8 +31,9 @@
                             ), 'slugEquipment', true)
                     ?>
 
-                    <a href="<?= $link ?>" >
-                        <?= $this->translate('ver equipo') ?>
+                    <a href="<?= $link ?>"
+                       title="<?= $this->translate('ver equipo') ?>" >
+                        <img class ="imagen-see">
                     </a>
                 </td>
             </tr>

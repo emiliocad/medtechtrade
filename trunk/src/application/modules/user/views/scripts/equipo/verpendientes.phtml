@@ -43,11 +43,11 @@
                     'action' => 'nuevo' ,
                     'id' => $equipo->id ) )
                     ?>
-                    <a href="<?= $link ?>">
-                        <?= $this->translate( 'agregar imagen' ) ?>
+                    <a href="<?= $link ?>"
+                       title="<?= $this->translate('agregar imagen')?>">
+                        <img class ="imagen-addimage">
                     </a>
-                </td>
-                <td>
+              
                      <?php
                     $link =
                             $this->url(
@@ -56,19 +56,20 @@
                             ), 'slugEquipment', true)
                     ?>
 
-                    <a href="<?= $link ?>" >
-                        <?= $this->translate('ver equipo') ?>
+                    <a href="<?= $link ?>"  
+                       title="<?= $this->translate('ver equipo') ?>" >
+                        <img class ="imagen-see">
                     </a>
-                </td>
-                <td>
+               
                 <?php
                 $link = $this->url( array( 'module' => 'user' ,
                     'controller' => 'equipo' ,
                     'action' => 'editar' ,
                     'id' => $equipo->id ) )
                 ?>
-                <a href="<?= $link ?>">
-                    <?= $this->translate( 'editar' ) ?>
+                <a href="<?= $link ?>"
+                     title="<?= $this->translate('editar equipo')?>">
+                    <img class ="imagen-edit">
                 </a>
 
             </td>

@@ -5,7 +5,8 @@
  * and open the template in the editor.
  */
 
-class Mtt_Form_Equipo extends Mtt_Form {
+class Mtt_Form_Equipo 
+    extends Mtt_Form {
 
     protected $nombre;
     protected $precioVenta;
@@ -314,7 +315,7 @@ class Mtt_Form_Equipo extends Mtt_Form {
                         'class', 'button'
                 )
                 ->setAttrib('type', 'submit')
-                ->setOrder(19)
+                ->setOrder(18)
         ;
 
 
