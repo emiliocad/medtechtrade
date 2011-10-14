@@ -62,7 +62,8 @@ class User_ImagenController extends Mtt_Controller_Action
 
             $upload->addFilter( $f );             
             $imagen_new = array(
-                'equipo_id' => $idEquipo
+                'equipo_id' => $idEquipo,
+                'order' => count($imagenes)+1
             );
         
             if ( $form->imagen->receive() )

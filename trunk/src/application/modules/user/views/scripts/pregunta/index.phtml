@@ -1,5 +1,5 @@
 <h2>
-    <?= $this->translate( 'mis preguntas' ) ?>
+    <?= $this->translate('mis preguntas') ?>
 
 </h2>
 <table border="1" class="listado">
@@ -9,70 +9,83 @@
 
             </th>
             <th>
-                <?= $this->translate( 'equipo' ) ?>
+                <?= $this->translate('equipo') ?>
             </th>
             <th>
-                <?= $this->translate( 'asunto' ) ?>
+                <?= $this->translate('asunto') ?>
             </th>
             <th>
-                <?= $this->translate( 'fecha' ) ?>
+                <?= $this->translate('fecha') ?>
             </th>
             <th>
-                <?= $this->translate( 'pregunta' ) ?>
+                <?= $this->translate('pregunta') ?>
             </th>
             <th>
-                <?= $this->translate( 'fecha' ) ?>
+                <?= $this->translate('fecha') ?>
             </th>
             <th>
-                <?= $this->translate( 'respuesta' ) ?>
+                <?= $this->translate('respuesta') ?>
             </th>
             <th>
-                <?= $this->translate( 'acciones' ) ?>
+                <?= $this->translate('acciones') ?>
             </th>
         </tr>
     </thead>
 
     <tbody>
-        <?php foreach ( $this->preguntas as $pregunta ): ?>
+        <?php foreach ($this->preguntas as $pregunta): ?>
 
-            <tr class="<?= $pregunta->active
-                            ? 'activo' : 'inactivo' ?>">
+            <tr class="<?= $pregunta->active ? 'activo' : 'inactivo' ?>">
 
                 <td>
                     <a href="
                     <?=
                     $this->url(
                             array(
-                        'slug' => $pregunta->slug ) , 'slugEquipment' , true
+                        'slug' => $pregunta->slug), 'slugEquipment', true
                     )
                     ?>
                        " title="<?= $pregunta->slug ?>">
-
-                        <img src="/media/catalog/product/device-00.png" 
+                           <?php
+                           $url = (is_null($pregunta->imagen)) ?
+                                   '/theme/default/image/no_images.png' :
+                                   '/media/catalog/product/' . $pregunta->imagen
+                           ?>
+                        <img src="<?= $url ?>" 
                              alt="<?= $pregunta->slug ?>"
-                             width="24px" height="24px" />
+                             width="24px" height="24px">
                     </a>
                 </td>
                 <td>
-                    <?= $this->escape( $pregunta->equipo ) ?>
+                    <?= $this->escape($pregunta->equipo) ?>
                 </td>
                 <td>
-                    <?= $this->escape( $pregunta->asunto ) ?>
+                    <?= $this->escape($pregunta->asunto) ?>
                 </td>
                 <td>
-                    <?= $this->escape( $pregunta->fechaformulacion ) ?>
+                    <?= $this->escape($pregunta->fechaformulacion) ?>
                 </td>
                 <td>
-                    <?= $this->escape( $pregunta->formulacion ) ?>
+                    <?= $this->escape($pregunta->formulacion) ?>
                 </td>
                 <td>
-                    <?= $this->escape( $pregunta->fecharespuesta ) ?>
+                    <?= $this->escape($pregunta->fecharespuesta) ?>
                 </td>
                 <td>
-                     <?= $this->escape( $pregunta->respuesta ) ?>
+                    <?= $this->escape($pregunta->respuesta) ?>
                 </td>
                 <td>
-                    [acciones]
+                    <?php
+                    $link =
+                            $this->url(
+                            array(
+                        'slug' => $pregunta->slug
+                            ), 'slugEquipment', true)
+                    ?>
+                    <a href="<?= $link ?>" target="_blank"
+                        title="<?= $this->translate('ver equipo') ?>" >
+                        <img class ="imagen-see">
+                    </a>
                 </td>
 
             </tr>
@@ -81,6 +94,6 @@
 </table>
 <?=
 $this->paginationControl(
-        $this->preguntas , 'Sliding' , 'pregunta/_pag.phtml'
+        $this->preguntas, 'Sliding', 'pregunta/_pag.phtml'
 );
 ?>

@@ -28,6 +28,15 @@ class Mtt_Controller_Plugin_Routes
                         'slug' => ':slug'
                     )
             ) ,
+            'slugEquipmentDeactivated' => new Zend_Controller_Router_Route(
+                    'equipmentUnActive/:slug' ,
+                    array(
+                        'module' => 'default' ,
+                        'controller' => 'equipo' ,
+                        'action' => 'verdisable' ,
+                        'slug' => ':slug'
+                    )
+            ) ,
             'login' => new Zend_Controller_Router_Route(
                     'login' ,
                     array(

@@ -31,12 +31,16 @@
 </thead>
 <tbody>
     <?php foreach ( $this->favoritos as $favorito ): ?>
-
         <tr class="<?= $favorito->active
                         ? 'activo' : 'inactivo' ?>" 
             id ="<?= $favorito->id ?>">
             <td >
-                <img src="/media/catalog/product/device-00.png" 
+                <?php
+                $url = (is_null($favorito->imagen)) ?
+                    '/theme/default/image/no_images.png' : 
+                    '/media/catalog/product/'. $favorito->imagen
+                ?>
+                <img src="<?= $url?>" 
                      alt="<?= $favorito->equipo ?>"
                      width="24px" height="24px">
             </td>

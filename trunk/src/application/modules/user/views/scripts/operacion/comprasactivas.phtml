@@ -14,7 +14,16 @@
     <tbody>
         <?php foreach ($this->operaciones as $operacion): ?>
             <tr>
-                <td></td>
+                <td>
+                    <?php
+                    $url = (is_null($operacion->imagen)) ?
+                        '/theme/default/image/no_images.png' : 
+                        '/media/catalog/product/'. $operacion->imagen
+                    ?>
+                    <img src="<?= $url?>" 
+                        alt="<?= $operacion->nombre ?>"
+                        width="24px" height="24px">
+                </td>
                 <td>
                     <?= $this->escape($operacion->nombre) ?>
                 </td>
@@ -28,7 +37,7 @@
                             $this->url(
                             array(
                             'slug' => $operacion->slug
-                            ), 'slugEquipment', true)
+                            ), 'slugEquipmentDeactivated', true)
                     ?>
 
                     <a href="<?= $link ?>"
