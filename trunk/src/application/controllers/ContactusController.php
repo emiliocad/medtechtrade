@@ -31,21 +31,18 @@ class ContactusController
 
         $form = new Mtt_Form_Contactar();
 
-        if ( $this->_request->isPost() && 
-                $form->isValid($this->_request->getPost()))
+        if ( $this->_request->isPost() &&
+                $form->isValid( $this->_request->getPost() ) )
             {
-           
-                $contacto = $form->getValues();
 
-                $paises = new Mtt_Models_Bussines_Paises();
-                $pais = $paises->getFindId( $contacto['paises_id'] );
-                $contacto['pais'] = $pais->nombre;
-                $this->_contactus->sendMail(
-                        $contacto ,
-                        $this->_translate->translate( 'contactenos' )
-                );
-//$this->view->assign('contacto', $contacto);
-    
+            $contacto = $form->getValues();
+
+            $paises = new Mtt_Models_Bussines_Paises();
+            $pais = $paises->getFindId( $contacto['paises_id'] );
+            $contacto['pais'] = $pais->nombre;
+            $this->_contactus->sendMail(
+                    $contacto , $this->_translate->translate( 'contactenos' )
+            );
             }
         else
             {
