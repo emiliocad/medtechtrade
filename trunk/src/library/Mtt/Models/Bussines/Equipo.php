@@ -117,14 +117,17 @@ class Mtt_Models_Bussines_Equipo
         $db = $this->getAdapter();
         $query = $db->select()
                 ->from( $this->_name , array( 'id' , 'nombre' ) )
-                ->joinInner( 'categoria' , 'categoria.id = ' . $id ,
+                ->joinInner( 'categoria' , 'categoria.id = equipo.categoria_id'  ,
                              array( 'categoria.nombre as categoria' ) )
                 ->joinInner( 'fabricantes' ,
                              'fabricantes.id = equipo.fabricantes_id' ,
                              array( 'fabricantes.nombre as fabricante' ) )
                 ->joinLeft( 'imagen' , 'imagen.equipo_id = equipo.id' ,
-                            array( 'imagen.nombre as imagen' ) )
+                            array( 'imagen.nombre as imagen',
+                                'imagen.imagen as imagenurl',
+                                'imagen.descripcion') )
                 ->where( 'equipo.active IN (?)' , self::ACTIVE )
+                ->where( 'equipo.id = ?' , $id )
                 ->query();
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );

@@ -107,7 +107,7 @@ class EquipoController
         {
 
         $slug = $this->_getParam( 'slug' , null );
-        
+
         $categoria = new Mtt_Models_Bussines_Categoria();
         $data = $categoria->getCategoriaBySlug( $slug );
 
@@ -131,7 +131,7 @@ class EquipoController
 
         //$this->_equipo->updateView( $id );
         $equipos = $this->_equipo->pagListEquipByCategory( $id ,
-            Mtt_Models_Bussines_PublicacionEquipo::Activada );
+                                                           Mtt_Models_Bussines_PublicacionEquipo::Activada );
         $equipos->setCurrentPageNumber(
                 $this->_getParam( 'page' , 1 )
         );
@@ -150,88 +150,164 @@ class EquipoController
         $this->_helper->viewRenderer->setNoRender();
 
         $pdf1 = Zend_Pdf::load(
-                        APPLICATION_PATH . '/../templates/template2.pdf'
+                        APPLICATION_PATH . '/../templates/template2-vacio.pdf'
         );
 
-        $page = $pdf->newPage( Zend_Pdf_Page::SIZE_A4 ); // 595 x842
-        $font = Zend_Pdf_Font::fontWithName( Zend_Pdf_Font::FONT_HELVETICA );
+        $page = $pdf1->newPage( Zend_Pdf_Page::SIZE_A4 ); // 595 x842
+        $font = Zend_Pdf_Font::fontWithName( Zend_Pdf_Font::FONT_COURIER );
 //        $pdf->pages[] = $page;
 //        $page->setFont($font, 20);$page->drawText('Zend: PDF', 10, 822);
-//        $page->setFont($font, 12);$page->drawText('Comentarios', 10, 802);
+//        $page->setFont($font, 12);$page->drawText('Comentarios', 10, $pdfY2);
 //        $pdfData = $pdf->render();
 
         $page = $pdf1->pages[0];
 
         /* ficha de equipo */
         $page->setFont( $font , 18 );
-        $page->drawText( $this->_translate->translate( 'ficha del equipo' ) ,
-                                                       116 , 639 );
+        $page->drawText(
+                ucwords( $this->_translate->translate( 'ficha del equipo' ) ) ,
+                                                       85 , 650 );
         /* end ficha de equipo */
 
         /* cuerpo del equipo */
 
+        $pdfX = 635;
+        $aumento = 14;
+        $pdfY = 270;
+        $pdfYCabecera = 80;
         $page->setFont( $font , 12 );
-        /*cabecera*/
-        $page->drawText( $this->translate->translate( 'manufactur' ) , 116 , 639 );
+        /* cabecera */
+
+        $page->drawText( ucwords($this->_translate->translate( 'manufactur' )) ,
+                                                       $pdfYCabecera , $pdfX );
         /* valor del manufacturer */
-        $page->drawText( 'aca va el manufacturer' , 116 , 650 );
-        /**/
-        /*cabecera*/
-        $page->drawText( $this->translate->translate( 'nombre del producto' ) , 116 , 639 );
-        /* valor del manufacturer */
-        $page->drawText( 'aca va el producto' , 116 , 650 );
-        /**/
-        /*cabecera*/
-        $page->drawText( $this->translate->translate( 'modelo' ) , 116 , 639 );
-        /* valor del manufacturer */
-        $page->drawText( 'aca va el modelo' , 116 , 650 );
-        /**/
-        /*cabecera*/
-        $page->drawText( $this->translate->translate( 'origen' ) , 116 , 639 );
-        /* valor del manufacturer */
-        $page->drawText( 'origen' , 116 , 650 );
-        /**/
-        /*cabecera*/
-        $page->drawText( $this->translate->translate( 'manufactur' ) , 116 , 639 );
-        /* valor del manufacturer */
-        $page->drawText( 'aca va el manufacturer' , 116 , 650 );
-        /**/
-        /*cabecera*/
-        $page->drawText( $this->translate->translate( 'manufactur' ) , 116 , 639 );
-        /* valor del manufacturer */
-        $page->drawText( 'aca va el manufacturer' , 116 , 650 );
-        /**/
-        /*cabecera*/
-        $page->drawText( $this->translate->translate( 'manufactur' ) , 116 , 639 );
-        /* valor del manufacturer */
-        $page->drawText( 'aca va el manufacturer' , 116 , 650 );
-        /**/
-        /*cabecera*/
-        $page->drawText( $this->translate->translate( 'manufactur' ) , 116 , 639 );
-        /* valor del manufacturer */
-        $page->drawText( 'aca va el manufacturer' , 116 , 650 );
-        /**/
-        /*cabecera*/
-        $page->drawText( $this->translate->translate( 'manufactur' ) , 116 , 639 );
-        /* valor del manufacturer */
-        $page->drawText( 'aca va el manufacturer' , 116 , 650 );
-        /**/
-        /*cabecera*/
-        $page->drawText( $this->translate->translate( 'manufactur' ) , 116 , 639 );
-        /* valor del manufacturer */
-        $page->drawText( 'aca va el manufacturer' , 116 , 650 );
+        $page->drawText( 'aca va el manufacturer' , $pdfY , $pdfX );
         /**/
 
-        $page->drawText( 'dos' , 116 , 607 );
-        $page->drawText( '3' , 116 , 575 );
-        $page->drawText( '4' , 116 , 543 );
-        $page->drawText( 'zEND' , 200 , 200 );
+        $pdfX -= $aumento;
+        /* cabecera */
+        $page->drawText( ucwords($this->_translate->translate( 'nombre del producto' )) ,
+                                                       $pdfYCabecera , $pdfX );
+        /* valor del manufacturer */
+        $page->drawText( 'aca va el producto' , $pdfY , $pdfX );
+        /**/
+        $pdfX -= $aumento;
+
+        /* cabecera */
+        $page->drawText( ucwords($this->_translate->translate( 'modelo' )) ,
+                                                       $pdfYCabecera , $pdfX );
+        /* valor del manufacturer */
+        $page->drawText( 'aca va el modelo' , $pdfY , $pdfX );
+        /**/
+        $pdfX -= $aumento;
+        /* cabecera */
+        $page->drawText( ucwords($this->_translate->translate( 'origen' )) ,
+                                                       $pdfYCabecera , $pdfX );
+        /* valor del manufacturer */
+        $page->drawText( 'origen' , $pdfY , $pdfX );
+        /**/
+        $pdfX -= $aumento;
+        /* cabecera */
+        $page->drawText( ucwords($this->_translate->translate( 'articulo id' )) ,
+                                                       $pdfYCabecera , $pdfX );
+        /* valor del manufacturer */
+        $page->drawText( 'aca va el manufacturer' , $pdfY , $pdfX );
+        /**/
+        $pdfX -= $aumento - 3;
+        /* cabecera */
+        $page->drawText( ucwords($this->_translate->translate( 'fecha de creacion' )) ,
+                                                       $pdfYCabecera , $pdfX );
+        /* valor del manufacturer */
+        $page->drawText( 'aca va el manufacturer' , $pdfY , $pdfX );
+        /**/
+        $pdfX -= $aumento;
+        /* cabecera */
+        $page->drawText( ucwords($this->_translate->translate( 'peso estimado' )) ,
+                                                       $pdfYCabecera , $pdfX );
+        /* valor del manufacturer */
+        $page->drawText( 'aca va el manufacturer' , $pdfY , $pdfX );
+        /**/
+        $pdfX -= $aumento;
+        /* cabecera */
+        $page->drawText( ucwords($this->_translate->translate( 'lenght' )) ,
+                                                       $pdfYCabecera , $pdfX );
+        /* valor del manufacturer */
+        $page->drawText( 'aca va el manufacturer' , $pdfY , $pdfX );
+        /**/
+        $pdfX -= $aumento;
+        /* cabecera */
+        $page->drawText( ucwords($this->_translate->translate( 'width' )) ,
+                                                       $pdfYCabecera , $pdfX );
+        /* valor del manufacturer */
+        $page->drawText( 'aca va el manufacturer' , $pdfY , $pdfX );
+        /**/
+        $pdfX -= $aumento - 2;
+        /* cabecera */
+        $page->drawText( ucwords($this->_translate->translate( 'height' )) ,
+                                                       $pdfYCabecera , $pdfX );
+        /* valor del manufacturer */
+        $page->drawText( 'aca va el manufacturer' , $pdfY , $pdfX );
+        /**/
+        $pdfX -= $aumento;
+        /* cabecera */
+        $page->drawText( ucwords($this->_translate->translate( 'box size' )) ,
+                                                       $pdfYCabecera , $pdfX );
+        /* valor del manufacturer */
+        $page->drawText( 'aca va el manufacturer' , $pdfY , $pdfX );
+        /**/
+        $pdfX -= $aumento;
+        /* cabecera */
+        $page->drawText( ucwords($this->_translate->translate( 'condicion de calidad' )) ,
+                                                       $pdfYCabecera , $pdfX );
+        /* valor del manufacturer */
+        $page->drawText( 'aca va el manufacturer' , $pdfY , $pdfX );
+        /**/
+        $pdfX -= $aumento;
+        /* cabecera */
+        $page->drawText( ucwords($this->_translate->translate( 'offerer name' )) ,
+                                                       $pdfYCabecera , $pdfX );
+        /* valor del manufacturer */
+        $page->drawText( 'aca va el manufacturer' , $pdfY , $pdfX );
+        /**/
+        $pdfX -= $aumento;
+        /* cabecera */
+        $page->drawText( ucwords($this->_translate->translate( 'offerer city' )) ,
+                                                       $pdfYCabecera , $pdfX );
+        /* valor del manufacturer */
+        $page->drawText( 'aca va el manufacturer' , $pdfY , $pdfX );
+        /**/
+        $pdfX -= $aumento;
+        /* cabecera */
+        $page->drawText( ucwords($this->_translate->translate( 'amount of equipment' )) ,
+                                                       $pdfYCabecera , $pdfX );
+        /* valor del manufacturer */
+        $page->drawText( 'aca va el manufacturer' , $pdfY , $pdfX );
+        /**/
+        $pdfX -= $aumento;
+        /* cabecera */
+        $page->drawText( ucwords( $this->_translate->translate( 'descripcion' ) ) ,
+                                                                $pdfYCabecera ,
+                                                                $pdfX );
+        /* valor del manufacturer */
+        $page->drawText( 'aca va el manufacturer' , $pdfY , $pdfX );
+        /**/
+        $pdfX -= $aumento;
+        /* cabecera */
+        $page->drawText( ucwords( $this->_translate->translate( 'selling price' ) ) ,
+                                                                $pdfYCabecera ,
+                                                                $pdfX );
+        /* valor del manufacturer */
+        $page->drawText( 'aca va el manufacturer' , $pdfY , $pdfX );
+        /**/
+
+
+
 
         /* fin del equipo */
         $pdfData = $pdf1->render();
 
         header( "Content-type: application/x-pdf" );
-        header( "Content-Disposition: inline; filename=result.pdf" );
+        header( "Content-Disposition: inline; filename=informeMedtechtrade.pdf" );
         $this->_response->appendBody( $pdfData );
 
 
