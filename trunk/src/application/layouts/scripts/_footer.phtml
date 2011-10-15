@@ -5,15 +5,21 @@
                 <ul>
                     <li>
                         <span>
-                            <a href="#">
-                                <?= $this->translate('home') ?>
+                            <a href="
+                            <?= $this->url( array( 'controller' => 'index' ,
+                                'action' => 'index' ) , 'default' , true ) ?>"
+                               title="<?= $this->translate( 'home' ) ?>">
+                                   <?= $this->translate( 'home' ) ?>
                             </a>
                         </span>
                     </li>
                     <li><span>|</span></li>
                     <li><span>
-                            <a href="#">
-                                CGC
+                            <a href="
+                            <?= $this->url( array( 'controller' => 'index' ,
+                                'action' => 'index' ) , 'default' , true ) ?>"
+                               title="<?= $this->translate( 'CGC' ) ?>">
+                                <?= $this->translate( 'CGC' ) ?>
                             </a>
                         </span>
                     </li>
@@ -22,8 +28,11 @@
                     </li>
                     <li>
                         <span>
-                            <a href="#">
-                                <?= $this->translate('quienes somos') ?>
+                            <a href="
+                            <?= $this->url( array( 'controller' => 'index' ,
+                                'action' => 'index' ) , 'default' , true ) ?>"
+                               title="<?= $this->translate( 'quienes somos' ) ?>">
+                                   <?= $this->translate( 'quienes somos' ) ?>
                             </a>
                         </span>
                     </li>
@@ -31,8 +40,11 @@
                         <span>|</span>
                     </li>
                     <li><span>
-                            <a href="#">
-                                <?= $this->translate('equipo') ?>
+                            <a href="
+                            <?= $this->url( array( 'controller' => 'index' ,
+                                'action' => 'index' ) , 'default' , true ) ?>"
+                               title="<?= $this->translate( 'equipo' ) ?>">
+                                   <?= $this->translate( 'equipo' ) ?>
                             </a>
                         </span>
                     </li>
@@ -40,8 +52,11 @@
                         <span>|</span>
                     </li>
                     <li><span>
-                            <a href="#">
-                                <?= $this->translate('referencias') ?>
+                            <a href="
+                            <?= $this->url( array( 'controller' => 'index' ,
+                                'action' => 'index' ) , 'default' , true ) ?>"
+                               title="<?= $this->translate( 'referencias' ) ?>">
+                                   <?= $this->translate( 'referencias' ) ?>
                             </a>
                         </span>
                     </li>
@@ -49,8 +64,11 @@
                         <span>|</span>
                     </li>
                     <li><span>
-                            <a href="#">
-                                <?= $this->translate('aviso legal') ?>
+                            <a href="
+                            <?= $this->url( array( 'controller' => 'index' ,
+                                'action' => 'index' ) , 'default' , true ) ?>"
+                               title="<?= $this->translate( 'aviso legal' ) ?>">
+                                   <?= $this->translate( 'aviso legal' ) ?>
                             </a>
                         </span>
                     </li>
@@ -59,15 +77,16 @@
             </div>
         </div>
         <div id="section-contacts">
-            <?= $this->render('_contact.phtml') ?>
+            <?= $this->render( '_contact.phtml' ) ?>
         </div>    
         <div id="section-bottom-footer">
             <div id="section-botttom-copyright">
-                <p>&copy; 2011 MedTechTrade AG, <?= $this->translate('All Rights Reserved') ?></p>
+                <p>&copy; 2011 MedTechTrade AG, <?= $this->translate( 'All Rights Reserved' ) ?></p>
                 <p>
-                    <?= $this->translate('Powered by Stocker Group') ?>
+                    <?= $this->translate( 'Powered by Stocker Group' ) ?>
                 </p>
             </div>
         </div>
     </div>
 </div>
+

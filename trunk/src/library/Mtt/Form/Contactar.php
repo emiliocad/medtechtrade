@@ -89,7 +89,7 @@ class Mtt_Form_Contactar
         $_pais = new Mtt_Models_Bussines_Paises();
         $values = $_pais->getComboValues();
         $this->paises_id->addMultiOption( -1 ,
-                                          ucwords( $this->_translate->translate( 'paises' ) ) . ':'
+                                          ucwords( $this->_translate->translate( 'pais' ) ) . ':'
         );
         $this->paises_id->addMultiOptions( $values );
         $this->addElement( $this->paises_id );
@@ -111,7 +111,7 @@ class Mtt_Form_Contactar
                     'pattern' => '/^[+]?[-\d() .]*$/i' ,
                     'messages' => array(
                         Zend_Validate_Regex::NOT_MATCH =>
-                        'ingre un numero telefonico correcto'
+                        'ingrese un numero telefonico correcto'
                     )
                 )
             ) ,
