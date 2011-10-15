@@ -42,6 +42,7 @@ class Mtt_Acl
         $this->add( new Zend_Acl_Resource( 'user::pregunta' ) );
         $this->add( new Zend_Acl_Resource( 'user::reserva' ) );
         $this->add( new Zend_Acl_Resource( 'user::user' ) );
+        $this->add( new Zend_Acl_Resource( 'user::alerta' ) );
 
         //admin
         $this->add( new Zend_Acl_Resource( 'admin::categoria' ) );
@@ -85,6 +86,7 @@ class Mtt_Acl
         $this->allow( 'user' , 'user::pregunta' );
         $this->allow( 'user' , 'user::reserva' );
         $this->allow( 'user' , 'user::user' );
+        $this->allow( 'user' , 'user::alerta' );
 
         //admin
         $this->allow( 'manager' , 'admin::index' );
