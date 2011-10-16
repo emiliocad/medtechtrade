@@ -1,46 +1,49 @@
-<div class="sub" style="width: 600px; opacity: 0; display: none; ">
-    <ul>
-        <li>
-            <h2>
-                <a href="#">
-                    <?= $this->translate( 'Configuration' ); ?>
-                </a>
-            </h2>
-        </li>
-        <li>
-            <a href="
-            <?=
-            $this->url( array(
-                'module' => 'admin' ,
-                'controller' => 'moneda' ,
-                'action' => 'index' ) , null , true )
-            ?>">
-                   <?= $this->translate( 'Tipo de Monedas' ) ?>
-            </a>
-        </li>
-        <li>
-            <a href="
-            <?=
-            $this->url( array(
-                'module' => 'admin' ,
-                'controller' => 'fabricante' ,
-                'action' => 'index' ) , null , true )
-            ?>">
-                   <?= $this->translate( 'Manufacturer' ) ?>
-            </a>
-        </li>
-        <li>
-            <a href="
-            <?=
-            $this->url( array(
-                'module' => 'admin' ,
-                'controller' => 'categoria' ,
-                'action' => 'index' ) , null , true )
-            ?>">
-                   <?= $this->translate( 'Category' ) ?>
-            </a>
-        </li>
-        
+<ul>
+    <li>
+        <a href="
+        <?=
+        $this->url(array(
+            'module' => 'admin',
+            'controller' => 'moneda',
+            'action' => 'index'), null, true)
+        ?>">
+               <?= $this->translate('Tipo de Monedas') ?>
+        </a>
+    </li>
+    <li>
+        <a href="
+        <?=
+        $this->url(array(
+            'module' => 'admin',
+            'controller' => 'fabricante',
+            'action' => 'index'), null, true)
+        ?>">
+               <?= $this->translate('Manufacturer') ?>
+        </a>
+    </li>
+    <li>
+        <a href="
+        <?=
+        $this->url(array(
+            'module' => 'admin',
+            'controller' => 'categoria',
+            'action' => 'index'), null, true)
+        ?>">
+               <?= $this->translate('Category') ?>
+        </a>
+    </li>
+    <li>
+        <a href="
+        <?=
+        $this->url(array(
+            'module' => 'admin',
+            'controller' => 'paises',
+            'action' => 'index'), null, true)
+        ?>">
+               <?= $this->translate('paises') ?>
+        </a>
+    </li>
 
-    </ul>
-</div>
+
+
+</ul>

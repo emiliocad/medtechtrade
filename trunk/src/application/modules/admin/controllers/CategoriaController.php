@@ -23,7 +23,7 @@ class Admin_CategoriaController
         }
 
 
-    public function registrarAction()
+    public function nuevoAction()
         {
         $form = new Mtt_Form_Categoria();
         if ( $this->_request->isPost() && $form->isValid(
@@ -34,9 +34,11 @@ class Admin_CategoriaController
 
             $categoria = $form->getValues();
 
-            $this->_categoria->insert( $categoria );
+            $this->_categoria->saveCategoria( $categoria );
 
-            $this->_helper->FlashMessenger( 'Se Registro La Categoria' );
+            $this->_helper->FlashMessenger( 
+                    $this->_translate->translate( 'se registro la categoria' )
+            );
             $this->_redirect( $this->URL );
             }
         $this->view->assign( 'frmRegistrar' , $form );
@@ -47,19 +49,34 @@ class Admin_CategoriaController
         {
         $id = intval( $this->_getParam( 'id' ) );
 
-        $form = new Mtt_Form_Categoria();
+        $form = new Mtt_EditForm_Categoria();
 
-        $form->nombre->setAttrib( "readonly" , "readonly" )
+        /*$form->nombre->setAttrib( "readonly" , "readonly" )
                 ->setRequired( false )
-        ;
+        ;*/
+        
+        $form->nombre->addValidator(
+                new Zend_Validate_Db_NoRecordExists(
+                        array(
+                            'table' =>'categoria',
+                            'field' => 'nombre',
+                            'exclude' => array (
+                                'field' => 'id', 
+                                'value' => $id)
+                        )
+                )
+        );
 
         $data = $this->_request->getPost();
         $nombre = ( string ) $this->_request->getParam( 'nombre' );
-        unset( $data["nombre"] );
+       // unset( $data["nombre"] );
+        
         unset( $data["MAX_FILE_SIZE"] );
         unset( $data["submit"] );
 
         $categoria = $this->_categoria->getFindId( $id );
+        
+        $this->view->assign( 'id' , $id );
 
         $upload = $form->thumbnail->getTransferAdapter();
 
@@ -89,9 +106,11 @@ class Admin_CategoriaController
                     $arrayTmp = array( 'thumbnail' => $target );
 
                     $data = array_merge( $data , $arrayTmp );
-
+                    
                     $this->_categoria->updateCategoria( $data , $id );
-                    $this->_helper->FlashMessenger( 'Se modificó La Categoria' );
+                    $this->_helper->FlashMessenger( 
+                            $this->_translate->translate('se modifico la categoria' )
+                    );
                     $this->_redirect( $this->URL );
                     }
                 }
@@ -100,7 +119,9 @@ class Admin_CategoriaController
             }
         else
             {
-            $this->_helper->FlashMessenger( 'No existe esa Categoria' );
+            $this->_helper->FlashMessenger( 
+                    $this->_translate->translate('no existe esa categoria' )
+            );
             $this->_redirect( $this->URL );
             }
         }
@@ -118,7 +139,9 @@ class Admin_CategoriaController
         {
         $id = intval( $this->_request->getParam( 'id' ) );
         $this->_categoria->desactivarCategoria( $id );
-        $this->_helper->FlashMessenger( 'Categoria Borrada' );
+        $this->_helper->FlashMessenger( 
+                $this->_translate->translate('categoria borrada' )
+        );
         $this->_redirect( $this->URL );
         }
 
@@ -127,7 +150,9 @@ class Admin_CategoriaController
         {
         $id = intval( $this->_request->getParam( 'id' ) );
         $this->_categoria->activarCategoria( $id );
-        $this->_helper->FlashMessenger( 'Categoria Activado' );
+        $this->_helper->FlashMessenger( 
+                $this->_translate->translate('categoria activado' )
+        );
         $this->_redirect( $this->URL );
         }
 
@@ -136,7 +161,9 @@ class Admin_CategoriaController
         {
         $id = intval( $this->_request->getParam( 'id' ) );
         $this->_categoria->desactivarCategoria( $id );
-        $this->_helper->FlashMessenger( 'Categoria desactivado' );
+        $this->_helper->FlashMessenger( 
+                $this->_translate->translate('categoria desactivado' )
+        );
         $this->_redirect( $this->URL );
         }
 

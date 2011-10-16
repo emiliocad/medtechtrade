@@ -1,31 +1,99 @@
-<h2>Preguntas</h2>
-<table border="1" class="table-question">
+<h2>
+    <?= $this->translate('mis preguntas') ?>
+
+</h2>
+<table border="1" class="listado">
+    <thead>
+        <tr>
+            <th>
+
+            </th>
+            <th>
+                <?= $this->translate('equipo') ?>
+            </th>
+            <th>
+                <?= $this->translate('asunto') ?>
+            </th>
+            <th>
+                <?= $this->translate('fecha') ?>
+            </th>
+            <th>
+                <?= $this->translate('pregunta') ?>
+            </th>
+            <th>
+                <?= $this->translate('fecha') ?>
+            </th>
+            <th>
+                <?= $this->translate('respuesta') ?>
+            </th>
+            <th>
+                <?= $this->translate('acciones') ?>
+            </th>
+        </tr>
+    </thead>
+
     <tbody>
-        <?php foreach ( $this->preguntas as $pregunta ): ?>
+        <?php foreach ($this->preguntas as $pregunta): ?>
 
-            <tr class="<?= $pregunta->active
-                            ? 'activo' : 'inactivo' ?>">
+            <tr class="<?= $pregunta->active ? 'activo' : 'inactivo' ?>">
 
                 <td>
-                    <?= $this->escape( $pregunta->formulacion ) ?>
+                    <a href="
+                    <?=
+                    $this->url(
+                            array(
+                        'slug' => $pregunta->slug), 'slugEquipment', true
+                    )
+                    ?>
+                       " title="<?= $pregunta->slug ?>">
+                           <?php
+                           $url = (is_null($pregunta->imagen)) ?
+                                   '/theme/default/image/no_images.png' :
+                                   '/media/catalog/product/' . $pregunta->imagen
+                           ?>
+                        <img src="<?= $url ?>" 
+                             alt="<?= $pregunta->slug ?>"
+                             width="24px" height="24px">
+                    </a>
                 </td>
                 <td>
-                    <?= $this->escape( $pregunta->fechaformulacion ) ?>
-                </td>
-
-            </tr>
-
-            <tr class="<?= $pregunta->active
-                                    ? 'activo' : 'inactivo' ?>">
-
-                <td>
-                    <?= $this->escape( $pregunta->respuesta ) ?>
+                    <?= $this->escape($pregunta->equipo) ?>
                 </td>
                 <td>
-                    <?= $this->escape( $pregunta->fecharespuesta ) ?>
+                    <?= $this->escape($pregunta->asunto) ?>
+                </td>
+                <td>
+                    <?= $this->escape($pregunta->fechaformulacion) ?>
+                </td>
+                <td>
+                    <?= $this->escape($pregunta->formulacion) ?>
+                </td>
+                <td>
+                    <?= $this->escape($pregunta->fecharespuesta) ?>
+                </td>
+                <td>
+                    <?= $this->escape($pregunta->respuesta) ?>
+                </td>
+                <td>
+                    <?php
+                    $link =
+                            $this->url(
+                            array(
+                        'slug' => $pregunta->slug
+                            ), 'slugEquipment', true)
+                    ?>
+                    <a href="<?= $link ?>" target="_blank"
+                        title="<?= $this->translate('ver equipo') ?>" >
+                        <img class ="imagen-see">
+                    </a>
                 </td>
 
             </tr>
         <?php endforeach; ?>
     </tbody>
 </table>
+<?=
+$this->paginationControl(
+        $this->preguntas, 'Sliding', 'pregunta/_pag.phtml'
+);
+?>

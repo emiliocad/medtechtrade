@@ -30,16 +30,13 @@ class User_UserController
 
         $id = $this->authData['usuario']->id;
 
-        $form = new Mtt_Form_Usuario();
-        $form->removeElement( 'clave_2' );
-        $form->removeElement( 'clave' );
-        $form->removeElement( 'tipousuario_id' );
-        $form->removeElement( 'login' );
-        $form->submit->setLabel( ucwords($this->_translate->translate('actualizar')) );
+        $form = new Mtt_EditForm_Usuario();
 
         $usuario = $this->_user->getFindId( $id );
 
         $this->view->assign( 'usuario' , $usuario );
+
+      
 
         if ( !is_null( $usuario ) )
             {
@@ -47,6 +44,7 @@ class User_UserController
                     &&
                     $form->isValid( $this->_request->getPost() ) )
                 {
+               $this->view->assign( 'valores', $form->getValues());
                 $this->_user->updateUsuario(
                         $form->getValues() , $id
                 );
@@ -122,8 +120,6 @@ class User_UserController
             }
         }
 
-        
-        
 
     public function contactaradminAction()
         {
@@ -142,9 +138,9 @@ class User_UserController
                     &&
                     $form->isValid( $this->_request->getPost() ) )
                 {
-                    $contacto = $form->getValues();
-                    $this->_user->sendMailToAdmin($contacto, 'Contactar al Admin');
-                    $this->view->assign( 'contacto' , $contacto );
+                $contacto = $form->getValues();
+                $this->_user->sendMailToAdmin( $contacto , 'Contactar al Admin' );
+                $this->view->assign( 'contacto' , $contacto );
                 }
             $form->setDefaults( $usuario->toArray() );
             $this->view->assign( 'form' , $form );
@@ -156,7 +152,9 @@ class User_UserController
             );
             $this->_redirect( $this->URL );
             }
-        }        
-
+        }
+       
+        
+        
     }
 

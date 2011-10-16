@@ -1,19 +1,25 @@
 <div id="wrap-bottom" class="wrapper">
     <div id="section-bottom" class="section">
-        <div id="section-bottom-footer">
+        <div id="section-bottom-footer-butt">
             <div id="section-bottom-buttons">
                 <ul>
                     <li>
                         <span>
-                            <a href="#">
-                                <?= $this->translate( 'home' ) ?>
+                            <a href="
+                            <?= $this->url( array( 'controller' => 'index' ,
+                                'action' => 'index' ) , 'default' , true ) ?>"
+                               title="<?= $this->translate( 'home' ) ?>">
+                                   <?= $this->translate( 'home' ) ?>
                             </a>
                         </span>
                     </li>
                     <li><span>|</span></li>
                     <li><span>
-                            <a href="#">
-                                GTC
+                            <a href="
+                            <?= $this->url( array( 'controller' => 'index' ,
+                                'action' => 'index' ) , 'default' , true ) ?>"
+                               title="<?= $this->translate( 'CGC' ) ?>">
+                                <?= $this->translate( 'CGC' ) ?>
                             </a>
                         </span>
                     </li>
@@ -22,13 +28,58 @@
                     </li>
                     <li>
                         <span>
-                            <a href="#">
-                                <?= $this->translate( 'About Us' ) ?>
+                            <a href="
+                            <?= $this->url( array( 'controller' => 'index' ,
+                                'action' => 'index' ) , 'default' , true ) ?>"
+                               title="<?= $this->translate( 'quienes somos' ) ?>">
+                                   <?= $this->translate( 'quienes somos' ) ?>
                             </a>
                         </span>
                     </li>
+                    <li>
+                        <span>|</span>
+                    </li>
+                    <li><span>
+                            <a href="
+                            <?= $this->url( array( 'controller' => 'index' ,
+                                'action' => 'index' ) , 'default' , true ) ?>"
+                               title="<?= $this->translate( 'equipo' ) ?>">
+                                   <?= $this->translate( 'equipo' ) ?>
+                            </a>
+                        </span>
+                    </li>
+                    <li>
+                        <span>|</span>
+                    </li>
+                    <li><span>
+                            <a href="
+                            <?= $this->url( array( 'controller' => 'index' ,
+                                'action' => 'index' ) , 'default' , true ) ?>"
+                               title="<?= $this->translate( 'referencias' ) ?>">
+                                   <?= $this->translate( 'referencias' ) ?>
+                            </a>
+                        </span>
+                    </li>
+                    <li>
+                        <span>|</span>
+                    </li>
+                    <li><span>
+                            <a href="
+                            <?= $this->url( array( 'controller' => 'index' ,
+                                'action' => 'index' ) , 'default' , true ) ?>"
+                               title="<?= $this->translate( 'aviso legal' ) ?>">
+                                   <?= $this->translate( 'aviso legal' ) ?>
+                            </a>
+                        </span>
+                    </li>
+
                 </ul>
             </div>
+        </div>
+        <div id="section-contacts">
+            <?= $this->render( '_contact.phtml' ) ?>
+        </div>    
+        <div id="section-bottom-footer">
             <div id="section-botttom-copyright">
                 <p>&copy; 2011 MedTechTrade AG, <?= $this->translate( 'All Rights Reserved' ) ?></p>
                 <p>
@@ -36,6 +87,6 @@
                 </p>
             </div>
         </div>
-        <?= $this->render( '_contact.phtml' ) ?>
     </div>
 </div>
+

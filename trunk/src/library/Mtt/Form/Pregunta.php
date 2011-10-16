@@ -7,8 +7,14 @@
 
 
 class Mtt_Form_Pregunta
-        extends Mtt_Formy
+        extends Mtt_Form
     {
+
+    protected $asunto;
+    protected $formulacion;
+    protected $respuesta;
+    protected $copiaEmail;
+    protected $submit;
 
 
     public function init()
@@ -19,60 +25,102 @@ class Mtt_Form_Pregunta
         ;
 
         // Elemento: Asunto
-        $asunto = new Zend_Form_Element_Text( 'asunto' );
-        $asunto->setLabel( ucwords( $this->_translate->translate( 'asunto' ) ) );
-        $asunto->setAttrib( 'maxlength' , '120' );
-        $asunto->setRequired( true );
+        $this->asunto = new Zend_Form_Element_Text(
+                        'asunto'
+        );
+        $this->asunto->setLabel(
+                ucwords(
+                        $this->_translate->translate(
+                                'asunto'
+                        )
+                )
+        );
+        $this->asunto->setAttrib( 'maxlength' , '120' );
+        $this->asunto->setRequired( true );
         $v = new Zend_Validate_StringLength(
-                        array( 'min' => 5 , 'max' => 120 )
+                        array(
+                            'min' => 5 , 'max' => 120
+                        )
         );
         $v->setMessage(
-                $this->_translate->translate( 'Debe tener debe tener al menos' ) .
+                $this->_translate->translate(
+                        'Debe tener debe tener al menos'
+                ) .
                 " %min% " .
-                $this->_translate->translate( 'caracteres' ) ,
-                                              Zend_Validate_StringLength::TOO_SHORT
+                $this->_translate->translate(
+                        'caracteres'
+                ) , Zend_Validate_StringLength::TOO_SHORT
         );
-        $asunto->addValidator( $v );
-        $this->addElement( $asunto );
+        $this->asunto->addValidator( $v );
+        $this->addElement( $this->asunto );
 
 
         // Elemento: formulacion
-        $formulacion = new Mtt_Form_Element_Ckeditor( 'formulacion' );
-        $formulacion->setLabel( ucwords( $this->_translate->translate( 'pregunta' ) ) );
-        $formulacion->setRequired( true );
-        $v = new Zend_Validate_StringLength(
-                        array( 'min' => 20 , 'max' => 255 )
+        $this->formulacion = new Zend_Form_Element_TextArea(
+                        'formulacion'
         );
-        $formulacion->addValidator( $v );
-        $this->addElement( $formulacion );
+        $this->formulacion->setLabel(
+                ucwords(
+                        $this->_translate->translate(
+                                'pregunta'
+                        )
+                )
+        );
+        $this->formulacion->setRequired( true );
+        $v = new Zend_Validate_StringLength(
+                        array(
+                            'min' => 20 , 'max' => 255
+                        )
+        );
+        $this->formulacion->addValidator( $v );
+        $this->formulacion->setAttrib('COLS' , '50');
+        $this->formulacion->setAttrib('ROWS' , '10');
+        $this->addElement( $this->formulacion );
 
         // Elemento: respuesta
-        $respuesta = new Zend_Form_Element_Textarea( 'respuesta' );
-        $respuesta->setLabel( ucwords( $this->_translate->translate( 'respuesta' ) ) );
-        $respuesta->setRequired( true );
+        $this->respuesta = new Zend_Form_Element_Textarea(
+                        'respuesta'
+        );
+        $this->respuesta
+                ->setLabel(
+                        ucwords(
+                                $this->_translate->translate(
+                                        'respuesta'
+                                )
+                        )
+        );
+        $this->respuesta->setRequired( true );
         $v = new Zend_Validate_StringLength(
                         array( 'min' => 20 , 'max' => 255 )
         );
-        $respuesta->addValidator( $v );
-        $this->addElement( $respuesta );
+        $this->respuesta->addValidator( $v );
+        $this->addElement( $this->respuesta );
 
         // Elemento: copiaEmail
-        $copiaEmail = new Zend_Form_Element_Checkbox( 'copiaEmail' );
-        $copiaEmail->setLabel( $this->_translate->translate( 'Copy to email' ) )
+        $this->copiaEmail = new Zend_Form_Element_Checkbox(
+                        'copiaEmail'
+        );
+        $this->copiaEmail->setLabel(
+                        $this->_translate->translate(
+                                'Copy to email'
+                        )
+                )
                 ->setAttrib( 'id' , 'copiaEmail' );
-        $this->addElement( $copiaEmail );
+        $this->addElement( $this->copiaEmail );
 
 
-        $submit = new Zend_Form_Element_Button( 'submit' );
-        $submit->setLabel(
-                    ucwords($this->_translate->translate('save'))
+        $this->submit = new Zend_Form_Element_Button( 'submit' );
+        $this->submit->setLabel(
+                        ucwords(
+                                $this->_translate->translate( 'save' )
+                        )
                 )
                 ->setAttrib(
                         'class' , 'button'
                 )
                 ->setAttrib( 'type' , 'submit' );
 
-        $this->addElement( $submit );
+        $this->addElement( $this->submit );
         }
 
 

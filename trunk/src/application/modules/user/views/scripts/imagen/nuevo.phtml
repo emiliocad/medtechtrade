@@ -1,2 +1,72 @@
-<h2>Agregar Imagen :</h2>
-<?=$this->frmRegistrar;?>
+<p>
+    <span>
+        <?= $this->translate('datos del equipo') ?>
+    </span>
+</p>
+<p>
+    <span class ="campo-ficha">
+        <?= $this->translate('nombre del equipo') ?>
+    </span>
+    <span class ="field-equipo">
+        <?= $this->equipo->nombre ?>
+    </span>
+</p>
+<p>
+    <span class ="campo-ficha">
+        <?= $this->translate('modelo') ?>
+    </span>
+    <span class =field-equipo">
+        <?= $this->equipo->modelo ?>
+    </span>
+</p>
+<p>
+    <span class ="campo-ficha">
+        <?= $this->translate('fabricante') ?>
+    </span>
+    <span class ="field-equipo">
+        <?= $this->equipo->fabricante ?>
+    </span>
+</p>
+<p>
+    <span class ="campo-ficha">
+        <?= $this->translate('categoria') ?>
+    </span>
+    <span class ="field-equipo">
+        <?= $this->equipo->categoria ?>
+    </span>
+</p>
+<p>
+    <span class ="campo-ficha">
+        <?= $this->translate('pais') ?>
+    </span>
+    <span class ="field-equipo">
+        <?= $this->equipo->pais ?>
+    </span>
+</p>
+<h3><?= $this->translate('agregar imagen') ?> :</h3>
+<?= $this->frmRegistrar; ?>
+<table border="1" class="listado">
+    <thead>
+
+    <th></th>
+    <th><?= $this->translate('titulo imagen') ?></th>
+    <th><?= $this->translate('descripcion') ?></th>
+</thead>
+<tbody>
+    <?php foreach ($this->imagenes as $imagen): ?>
+        <tr>
+            <td>
+                <img src="/media/catalog/product/<?= $imagen->imagenurl?>" 
+                     width="24px" height="24px">
+            </td>
+            <td>
+                <?= $this->escape($imagen->nombre) ?>
+            </td>
+            <td>
+                <?= $this->escape($imagen->descripcion) ?>
+            </td>
+
+        </tr>
+    <?php endforeach; ?>
+</tbody>
+</table>

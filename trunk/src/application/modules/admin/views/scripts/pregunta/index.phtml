@@ -1,4 +1,7 @@
-<h2>Questions</h2>
+<h2><?= $this->translate('preguntas')?></h2>
+<div id="dg-rpta" title="<?= $this->translate ('responder a la pregunta') ?>">
+    <?= $this->formAnswer; ?>
+</div>
 <table border="1" class="table-question">
     <tbody>
         <?php foreach ( $this->preguntas as $pregunta ): ?>
@@ -28,10 +31,23 @@
                     <?= $this->escape( $pregunta->respuesta ) ?>
                 </td>
                 <td>
-                    <?= $this->escape( $pregunta->fechaRespuesta ) ?>
+                    <?php if ($pregunta->estado == 0): ?>
+                    <a href="#" class="rpta" id="<?= $pregunta->id?>" >
+                        <?= $this->translate('responder'); ?>
+                    </a>
+                    <? endif; ?>
                 </td>
-
+                <td>
+                    
+                </td>
+                
             </tr>
         <?php endforeach; ?>
     </tbody>
 </table>
+
+<?=
+$this->paginationControl(
+        $this->preguntas , 'Sliding' , 'equipo/_pag.phtml'
+);
+?>

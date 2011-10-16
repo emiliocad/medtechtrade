@@ -191,27 +191,23 @@ class TestController
 
     public function slugequipmentAction()
         {
-//        $_categoria = new Mtt_Models_Catalog_Equipo();
-//        $slugger = new Mtt_Filter_Slug(
-//                        array(
-//                            'field' => 'slug' ,
-//                            'model' => $_categoria
-//                        )
-//        );
-//        $categorias = $_categoria->listar();
-//        $slug = array( );
-//        foreach ( $categorias as $categoria )
-//            {
-//            $slug[$categoria->id] = $slugger->filter( $categoria->nombre );
-//            }
-//
-//        $this->view->assign(
-//                'slug' , $slug
-//        );
+        $_equipo = new Mtt_Models_Catalog_Equipo();
+        $slugger = new Mtt_Filter_Slug(
+                        array(
+                            'field' => 'slug' ,
+                            'model' => $_equipo
+                        )
+        );
+        $equipos = $_equipo->listar();
+        $slug = array( );
+        foreach ( $equipos as $equipo )
+            {
+            $slug[$equipo->id] = $slugger->filter( $equipo->nombre );
+            }
 
-        $slug = $this->_getParam( 'slug' , null );
-
-        $this->view->assign( 'slug' , $slug );
+        $this->view->assign(
+                'slug' , $slug
+        );
         }
 
 
@@ -232,6 +228,21 @@ class TestController
 
 
         $this->view->assign( 'auth' , $auth );
+        }
+
+
+    public function shorturlAction()
+        {
+
+        $short = new Mtt_Service_ShortUrl_BitLy(
+                        'slovacus' ,
+                        'R_7fa5a01a8f6192e8ebe2f56a14868126'
+        );
+        $short->shorten( 'http://www.google.com' );
+        $this->view->assign( 'short' , $short );
+        $this->view->assign(
+                'url' , $short->shorten( 'http://www.google.com' )
+        );
         }
 
 

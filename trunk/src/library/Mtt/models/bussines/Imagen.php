@@ -42,7 +42,7 @@ class Mtt_Models_Bussines_Imagen
 
     public function saveImagen( array $data )
         {
-
+        $data['thumb'] = $data['imagen'];
         $this->insert( $data );
         }
 
@@ -68,3 +68,4 @@ class Mtt_Models_Bussines_Imagen
         }        
 
     }
+

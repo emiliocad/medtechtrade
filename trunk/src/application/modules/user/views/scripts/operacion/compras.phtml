@@ -3,18 +3,19 @@
     <thead>
         <tr>
             <th></th>
-            <th>Equipo</th>
-            <th>Modelo</th>
-            <th>Precio</th>
-            <th>Fecha</th>
-            <th>Cantidad</th>
-            <th>Nro Cuotas</th>
-            <th>Mora Diaria</th>
-            <th>Forma de Pago</th>
+            <th><?= $this->translate( 'equipo' ) ?></th>
+            <th><?= $this->translate( 'modelo' ) ?></th>
+            <th><?= $this->translate( 'precio' ) ?></th>
+            <th><?= $this->translate( 'fecha' ) ?></th>
+            <th><?= $this->translate( 'cantidad' ) ?></th>
+            <th><?= $this->translate( 'nro Cuotas' ) ?></th>
+            <th><?= $this->translate( 'mora Diaria' ) ?></th>
+            <th><?= $this->translate( 'forma de Pago' ) ?></th>
+            <th><?= $this->translate( 'acciones' ) ?></th>
         </tr>
     </thead>
     <tbody>
-        <?php foreach( $this->operaciones as $operacion ): ?>
+        <?php foreach ( $this->operaciones as $operacion ): ?>
             <tr>
                 <td></td>
                 <td><?= $this->escape( $operacion->nombre ) ?></td>
@@ -27,24 +28,19 @@
                 <td><?= $this->escape( $operacion->formapago ) ?></td>
                 <td>
                     <div id="container"></div>
-                    <?php 
-                        $link = $this->url( array( 'module' => 'user' ,
-                                'controller' => 'cuotaspago' ,
-                                'action' => 'listar' ,
-                                'id' => $operacion->id ) );
-                        $this->ajaxLink("uotas",
-                          $link,
-                          array('update' => '#container')); ?>
-                        <?php
-                   
-
+                    <?php
+                    $link = $this->url( array( 'module' => 'user' ,
+                        'controller' => 'cuotaspago' ,
+                        'action' => 'listar' ,
+                        'id' => $operacion->id ) );
+                    $this->ajaxLink( "uotas" , $link ,
+                                     array( 'update' => '#container' ) );
                     ?>
-                    <a href="<?= $link ?>">[Detalle de Pagos]</a></td>
-                <td>
-
-                  
-
+                    <?php
+                    ?>
+                    <a href="<?= $link ?>">[Detalle de Pagos]</a>
                 </td>
+
             </tr>
         <?php endforeach; ?>
     </tbody>

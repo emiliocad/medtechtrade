@@ -6,7 +6,6 @@
  */
 
 
-//TODO Crear Translate para Zend Form
 class Mtt_Form_OrderEquipo
         extends Mtt_Formy
     {
@@ -21,7 +20,9 @@ class Mtt_Form_OrderEquipo
         ;
         $order = new Zend_Form_Element_Select( 'order' );
         $order->setRequired();
-        $order->addMultiOption( -1 , 'Order By' )
+        $order->addMultiOption(
+                        -1 , $this->_translate->translate( 'order by' )
+                )
                 ->addMultiOption( 'fabricante' , 'Manufacturer, A-Z' )
                 ->addMultiOption( 'modelo' , 'Model, A-Z' );
         $order->setAttrib( 'class' , 'order-by' );

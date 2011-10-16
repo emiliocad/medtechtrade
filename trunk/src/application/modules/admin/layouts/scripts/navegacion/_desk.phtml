@@ -1,68 +1,59 @@
-<div class="sub" style="width: 600px; opacity: 0; display: none; ">
-    <ul>
-        <li>
-            <h2>
-                <a href="#">
-                    <?= $this->translate( 'Configuration' ); ?>
-                </a>
-            </h2>
-        </li>
-        <li>
-            <a href="
-            <?=
-            $this->url( array(
-                'module' => 'admin' ,
-                'controller' => 'user' ,
-                'action' => 'activausuarios' ) , null , true )
-            ?>">
-                   <?= $this->translate( 'Activation pending users' ) ?>
-            </a>
-        </li>
-        <li>
-            <a href="
-            <?=
-            $this->url( array(
-                'module' => 'admin' ,
-                'controller' => 'index' ,
-                'action' => 'index' ) , null , true )
-            ?>">
-                   <?= $this->translate( 'yet approved equipment' ) ?>
-            </a>
-        </li>
-        <li>
-            <a href="
-            <?=
-            $this->url( array(
-                'module' => 'admin' ,
-                'controller' => 'index' ,
-                'action' => 'index' ) , null , true )
-            ?>">
-                   <?= $this->translate( 'Questions to answer' ) ?>
-            </a>
-        </li>
-        <li>
-            <a href="
-            <?=
-            $this->url( array(
-                'module' => 'admin' ,
-                'controller' => 'index' ,
-                'action' => 'index' ) , null , true )
-            ?>">
-                   <?= $this->translate( 'Nuevas ventas realizadas' ) ?>
-            </a>
-        </li>
-        <li>
-            <a href="
-            <?=
-            $this->url( array(
-                'module' => 'admin' ,
-                'controller' => 'reserva' ,
-                'action' => 'equiposreservados' ) , null , true )
-            ?>">
-                   <?= $this->translate( 'Equipos reservados' ) ?>
-            </a>
-        </li>
+<ul>
+    <li>
+        <a href="
+        <?=
+        $this->url(array(
+            'module' => 'admin',
+            'controller' => 'user',
+            'action' => 'activausuarios'), null, true)
+        ?>">
+               <?= $this->translate('usuarios pendientes') ?>
+        </a>
+    </li>
+    <li>
+        <a href="
+        <?=
+        $this->url(array(
+            'module' => 'admin',
+            'controller' => 'equipo',
+            'action' => 'activaequipos'), null, true)
+        ?>">
+               <?= $this->translate('equipos pendientes') ?>
+        </a>
+    </li>
+    <li>
+        <a href="
+        <?=
+        $this->url(array(
+            'module' => 'admin',
+            'controller' => 'pregunta',
+            'action' => 'questionunresolved'), null, true)
+        ?>">
+               <?= $this->translate('preguntas por responder') ?>
+        </a>
+    </li>
+    <li>
+        <a href="
+        <?=
+        $this->url(array(
+            'module' => 'admin',
+            'controller' => 'index',
+            'action' => 'index'), null, true)
+        ?>">
+               <?= $this->translate('Nuevas ventas realizadas') ?>
+        </a>
+    </li>
+    <li>
+        <a href="
+        <?=
+        $this->url(array(
+            'module' => 'admin',
+            'controller' => 'reserva',
+            'action' => 'equiposreservados'), null, true)
+        ?>">
+               <?= $this->translate('Equipos reservados') ?>
+        </a>
+    </li>
 
-    </ul>
+</ul>
 
-</div>

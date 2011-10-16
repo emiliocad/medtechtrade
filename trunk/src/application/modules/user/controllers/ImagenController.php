@@ -24,8 +24,16 @@ class User_ImagenController extends Mtt_Controller_Action
 
     public function nuevoAction( )
         {
-        
         $idEquipo = ( int ) ( $this->_getParam( 'id' , null ) );
+        
+        //Traer datos del equipo
+        $equipo = new Mtt_Models_Bussines_Equipo();
+        $equipSelect = $equipo->getProduct($idEquipo);
+        $this->view->assign( 'equipo' , $equipSelect );
+        
+        //Imagenes subidas del equipo
+        $imagenes = $equipo->getImagenes( $idEquipo );
+        $this->view->assign( 'imagenes' , $imagenes );
         
         $form = new Mtt_Form_Imagen();
         
@@ -54,7 +62,8 @@ class User_ImagenController extends Mtt_Controller_Action
 
             $upload->addFilter( $f );             
             $imagen_new = array(
-                'equipo_id' => $idEquipo
+                'equipo_id' => $idEquipo,
+                'order' => count($imagenes)+1
             );
         
             if ( $form->imagen->receive() )
@@ -66,7 +75,7 @@ class User_ImagenController extends Mtt_Controller_Action
 
                     $this->_imagen->saveImagen( $imagen , $id );
                     $this->_helper->FlashMessenger( 'Se inserto nueva imagen' );
-                    $this->_redirect( 'user/equipo/ver/id'.$idEquipo );
+                    $this->_redirect( 'user/equipo/ver/id/'.$idEquipo );
                     }
         
             

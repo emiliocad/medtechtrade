@@ -1,22 +1,28 @@
-<h1>
-    Formulario de Contacto 
-</h1>
+<h2>
+    <?= $this->translate('formulario de contacto') ?>
+</h2>
 
 
-<p style="color: #F00; font-weight: bold; text-align: center">
-    <?= $this->translate( 'el sr/sra/srta ' ) ?> <?= $this->nombre; ?><br/>
+<p style="color: #071e4a; font-weight: bold; ">
+    <?= $this->translate( 'el sr/sra/srta ' ) ?> <?= $this->usuario; ?><br/>
+</p>
+<p style="color: #000000;">
     <?= $this->translate( 'domiciliado en ' ) ?> <?= $this->direccion; ?><br/>
+    <?= $this->translate( 'cuyos datos de contacto, son los siguientes ' ) ?>:
+    <br/>
+    <?= $this->direccion; ?><br/>
     <?= $this->translate( 'email' ) ?> <?= $this->email; ?><br/>
     <?= $this->translate( 'codigo postal' ) ?> <?= $this->codpostal; ?><br/>
     <?= $this->translate( 'ciudad' ) ?> <?= $this->ciudad; ?><br/>
     <?= $this->translate( 'telefono' ) ?> <?= $this->telefono; ?><br/>
+    
 </p>
 <h3>
-    <?= $this->translate( 'cuya consulta es la siguiente' ) ?>
-    : 
+    <?= $this->translate( 'mensaje' ) ?>  : 
 </h3>
 <p>
-    <?= $this->comentario; ?>
+    <?= $this->comentario; ?><br/>
+    <?= $this->translate('enviado el ') ?><?= date('d/m/Y h:i:s') ?>
 </p>
 
 

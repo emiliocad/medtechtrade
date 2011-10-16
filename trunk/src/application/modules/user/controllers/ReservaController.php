@@ -6,13 +6,20 @@ class User_ReservaController
     {
 
     protected $_reserva;
+    public $ajaxable = array(
+        'borrarreserva' => array( 'html' , 'json' )
+    );
 
 
     public function init()
         {
         parent::init();
+
+
         $this->_reserva =
                 new Mtt_Models_Bussines_Reserva();
+
+        $this->_helper->getHelper( 'ajaxContext' )->initContext();
         }
 
 
@@ -29,29 +36,31 @@ class User_ReservaController
                         $this->view->baseUrl() . '/css/reserva.css'
         );
         $reserva = $this->_reserva->pagListFavoritosByUser(
-                        $this->authData['usuario']->id ,
-                        Mtt_Models_Bussines_TipoReserva::FAVORITE
-                );
+                $this->authData['usuario']->id ,
+                Mtt_Models_Bussines_TipoReserva::FAVORITE
+        );
         $reserva->setCurrentPageNumber(
-                $this->_getParam( 'page' , 1 ));
+                $this->_getParam( 'page' , 1 ) );
         $this->view->assign(
-                'favoritos' ,$reserva
-        
+                'favoritos' , $reserva
         );
         }
-        
-        
 
 
     public function reservasAction()
         {
+
         $this->_helper->layout->setLayout( 'layoutListado' );
+        $this->view->jQuery()->addJavascriptFile( '/js/reserva.js' );
+        $reserva = $this->_reserva->pagListFavoritosByUser(
+                $this->authData['usuario']->id ,
+                Mtt_Models_Bussines_TipoReserva::RESERVED
+        );
+        $reserva->setCurrentPageNumber(
+                $this->_getParam( 'page' , 1 ) );
         $this->view->assign(
                 'favoritos' ,
-                $this->_reserva->getReservaByUser(
-                        $this->authData['usuario']->id ,
-                        Mtt_Models_Bussines_TipoReserva::RESERVED
-                )
+                $reserva                
         );
         }
 
@@ -104,14 +113,9 @@ class User_ReservaController
             );
 
             $this->_reserva->saveReserva( $data );
+            $this->_helper->FlashMessenger( 'Se agrego como Favorito' );
             }
-        else
-            {
-            $this->_reserva->activarReserva(
-                    $favorito[0]->id
-            );
-            }
-        $this->_helper->FlashMessenger( 'Se agrego como Favorito' );
+
         $this->_redirect( $_SERVER['HTTP_REFERER'] );
         }
 
@@ -125,7 +129,7 @@ class User_ReservaController
                 $this->authData['usuario']->id , $idEquipo ,
                 Mtt_Models_Table_TipoReserva::RESERVED );
 
-        if ( count( $reservaEquip ) == 0 )
+        if ( count( $reservaEquip ) === 0 )
             {
             $data = array(
                 'equipo_id' => $idEquipo ,
@@ -135,24 +139,75 @@ class User_ReservaController
             );
 
             $this->_reserva->saveReserva( $data );
+            $this->_helper->FlashMessenger( 'Se agrego como la reserva' );
             }
-        else
-            {
-            $this->_reserva->activarReserva(
-                    $favorito[0]->id
-            );
-            }
-        $this->_helper->FlashMessenger( 'Se agrego como la reserva' );
+
+
         $this->_redirect( $_SERVER['HTTP_REFERER'] );
         }
 
 
     public function borrarfavoritoAction()
         {
+
         $id = intval( $this->_request->getParam( 'id' ) );
         $this->_reserva->desactivarReserva( $id );
-        $this->_helper->FlashMessenger( 'Elemento Borrado' );
+        $this->_helper->FlashMessenger( 'se quito de favoritos' );
         $this->_redirect( $this->URL . "/favoritos" );
+        }
+
+
+    public function quitarfavoritoAction()
+        {
+        $idEquipo = ( int ) $this->_getParam( 'id' , null );
+        $data = $this->_reserva->getIdByEquipmentUser(
+                $this->authData['usuario']->id , $idEquipo ,
+                Mtt_Models_Table_TipoReserva::FAVORITE );
+
+        $this->view->assign( 'data' , $data );
+
+        $this->_reserva->deleteReserva(
+                $data->id
+        );
+        $this->_redirect( $_SERVER['HTTP_REFERER'] );
+        }
+
+
+    public function quitarreservaAction()
+        {
+        $idEquipo = ( int ) $this->_getParam( 'id' , null );
+        $data = $this->_reserva->getIdByEquipmentUser(
+                $this->authData['usuario']->id , $idEquipo ,
+                Mtt_Models_Table_TipoReserva::RESERVED );
+
+        $this->view->assign( 'data' , $data );
+
+        $this->_reserva->deleteReserva(
+                $data->id
+        );
+        $this->_redirect( $_SERVER['HTTP_REFERER'] );
+        }
+
+
+    public function borrarreservaAction()
+        {
+
+        $id = ( int ) $this->_request->getParam( 'id' , null );
+        //$id = $_GET['id'];
+        //$this->_reserva->desactivarReserva( $id );
+        $this->_reserva->deleteReserva( $id );
+        $this->view->assign( 'id' , $id );
+        if ( $this->_request->isXmlHttpRequest() )
+            {
+
+            $this->view->assign( 'sms' ,
+                                 $this->_translate->translate(
+                            'reserva eliminada'
+                    )
+            );
+            }
+        //$this->_helper->FlashMessenger( 'reserva eliminada' );
+//        $this->_redirect( $this->URL . "/favoritos" );
         }
 
 

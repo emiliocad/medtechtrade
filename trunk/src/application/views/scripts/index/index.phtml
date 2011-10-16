@@ -1,9 +1,11 @@
-<header>
-    <img src="/theme/default/image/middle-header.png" alt="MedTechTrade"/>
+
+    <img id="img-logo" 
+         src="/theme/default/image/middle-header.png" 
+         alt="MedTechTrade"/>
     <h1>
         <?= $this->translate( 'Welcome to Medtechtrade' ); ?>
     </h1>
-</header>
+
 <?
 //Zend_Debug::dump( $this->country );
 //
@@ -26,11 +28,10 @@
             <?=
             $this->url(
                     array(
-                'controller' => 'equipo' ,
-                'action' => 'ver' , 'id' => $producto->id
-                    ) , 'default' , true
+                'slug' => $producto->slug ) , 'slugEquipment' , true
             )
-            ?>">
+            ?>
+               " title="<?= $producto->slug ?>">
 
                 <img src="/media/catalog/product/device-00.png" 
                      alt="<?= $producto->nombre ?>
@@ -49,11 +50,11 @@
             <?=
             $this->url(
                     array(
-                'controller' => 'equipo' ,
-                'action' => 'ver' , 'id' => $producto->id
-                    ) , 'default' , true
+                'slug' => $producto->slug
+                    ) , 'slugEquipment' , true
             )
-            ?>">
+            ?>
+               " title="<?= $producto->slug ?>">
                 <span>
                     <?= $this->translate( 'View details' ) ?>
                 </span>

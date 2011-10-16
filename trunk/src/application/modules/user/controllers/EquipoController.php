@@ -44,10 +44,7 @@ class User_EquipoController
 
     public function verAction()
         {
-        $this->view->jQuery()
-                ->addStylesheet(
-                        $this->view->baseUrl() . '/css/reserva.css'
-        );
+
         $id = intval( $this->_getParam( 'id' , null ) );
         $stmt = $this->_equipo->getProduct( $id );
         $this->view->assign( 'equipo' , $stmt );
@@ -61,29 +58,36 @@ class User_EquipoController
     public function verpendientesAction()
         {
         $this->_helper->layout->setLayout( 'layoutListado' );
-        $this->view->assign(
-                'equipos' ,
-                $this->_equipo->listEquipByUserStatus(
+         $equipos = $this->_equipo->pagListEquipByUserStatus(
                         $this->authData['usuario']->id ,
                         Mtt_Models_Bussines_PublicacionEquipo::Pendiente
-                )
+                );
+        
+        $equipos->setCurrentPageNumber(
+                $this->_getParam( 'page' , 1 )
         );
+        $this->view->assign(
+                'equipos' , $equipos
+                
+        );
+        
         }
 
 
     public function veractivosAction()
         {
         $this->_helper->layout->setLayout( 'layoutListado' );
-//        $this->view->jQuery()
-//                ->addStylesheet(
-//                        $this->view->baseUrl() . '/css/reserva.css'
-//        );
-        $this->view->assign(
-                'equipos' ,
-                $this->_equipo->listEquipByUserStatus(
+        $equipos = $this->_equipo->pagListEquipByUserStatus(
                         $this->authData['usuario']->id ,
                         Mtt_Models_Bussines_PublicacionEquipo::Activada
-                )
+                );
+        
+        $equipos->setCurrentPageNumber(
+                $this->_getParam( 'page' , 1 )
+        );
+        $this->view->assign(
+                'equipos' , $equipos
+                
         );
         }
 
@@ -131,7 +135,24 @@ class User_EquipoController
 
     public function cotizarAction()
         {
-
+        
+        $this->view->jQuery()
+                ->addJavascriptFile(
+                        '/js/jwysiwyg/jquery.wysiwyg.js'
+                )
+                ->addJavascriptFile(
+                        '/js/cotizar.js'
+                )
+                ->addStylesheet(
+                        '/js/jwysiwyg/jquery.wysiwyg.css'
+                )
+                ->addOnLoad(
+                        ' $(document).ready(function() {
+                             $("#mensaje").wysiwyg();
+                          });'
+                )
+        ;
+        
         $id = intval( $this->_request->getParam( 'id' ) );
 
         $equipo = $this->_equipo->getFindId( $id );
@@ -148,17 +169,13 @@ class User_EquipoController
 
                 $cotizacion = $form->getValues();
 
-                //obtener datos de pais
                 $paises = new Mtt_Models_Bussines_Paises();
                 $pais = $paises->getFindId( $cotizacion['paises_id'] );
                 $cotizacion['pais'] = $pais->nombre;
                 $cotizacion['equipo'] = $equipo->nombre;
                 $this->_equipo->sendMailToRequest( $cotizacion , 'cotizar' );
-                //$this->view->assign('cotizacion', $cotizacion);
-                $this->view->assign( 'equipo' , $equipo );
+                //$this->view->assign( 'equipo' , $equipo );
                 }
-
-
             $this->view->assign( 'frmCotizar' , $form );
             }
         else
@@ -204,6 +221,7 @@ class User_EquipoController
             $this->_redirect( $this->URL );
             }
         $this->view->assign( 'frmRegistrar' , $form );
+        $this->view->assign( 'equipo', $form->getValues());
         }
 
 
@@ -212,7 +230,7 @@ class User_EquipoController
 
         $id = intval( $this->_getParam( 'id' ) );
 
-        $form = new Mtt_Form_Equipo();
+        $form = new Mtt_EditForm_Equipo();
 
         $equipo = $this->_equipo->getFindId( $id );
 
@@ -226,8 +244,10 @@ class User_EquipoController
                 $this->_helper->FlashMessenger( 'Se modificó un fabricante' );
                 $this->_redirect( $this->URL );
                 }
+  
             $form->setDefaults( $equipo->toArray() );
             $this->view->assign( 'form' , $form );
+       
             }
         else
             {

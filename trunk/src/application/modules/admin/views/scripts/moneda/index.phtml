@@ -1,11 +1,10 @@
-<h2>Moneda:</h2>
-<h2> <?= $this->translate( 'Coins' ) ?>:</h2>
+<h2> <?= $this->translate( 'monedas' ) ?>:</h2>
 
 <table border="1" class="listado">
     <thead>
         <tr>
-            <th><?= $this->translate( 'Name' ) ?></th>
-            <th><?= $this->translate( 'Symbol' ) ?></th>
+            <th><?= $this->translate( 'nombre' ) ?></th>
+            <th><?= $this->translate( 'simbolo' ) ?></th>
 
         </tr>
     </thead>
@@ -90,5 +89,5 @@
             'controller' => 'moneda' ,
             'action' => 'nuevo' ) , null , true
         )
-        ?>">Nuevo</a>
+        ?>"><?= $this->translate('nuevo'); ?></a>
 

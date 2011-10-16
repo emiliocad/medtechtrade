@@ -1,3 +1,8 @@
+<script>
+    $(function() {
+        $( "#tabs" ).tabs();
+    });
+</script>
 <div id="tabs">
     <ul>
         <li><a href="#fragment-1"><span>Datos</span></a></li>
@@ -13,19 +18,19 @@
 
     </div>
     <div id="fragment-2">
-        <?= $this->render( 'user/detalle/equipos.phtml' ); ?>
+        <?= $this->render('user/detalle/equipos.phtml'); ?>
 
     </div>
     <div id="fragment-3">
-        <?= $this->render( 'user/detalle/preguntas.phtml' ); ?>    
+        <?= $this->render('user/detalle/preguntas.phtml'); ?>    
 
     </div>
     <div id="fragment-4">
-        <?= $this->render( 'user/detalle/reservas.phtml' ); ?>
+        <?= $this->render('user/detalle/reservas.phtml'); ?>
 
     </div>
     <div id="fragment-5">
-        <?= $this->render( 'user/detalle/operaciones.phtml' ); ?>
+        <?= $this->render('user/detalle/operaciones.phtml'); ?>
 
     </div>
     <div id="fragment-6">

@@ -111,7 +111,6 @@ class UsuarioController
     public function registroAction()
         {
 
-        //TODO Revisar el Jquery
         $this->view->headScript()->appendFile( '/js/user.sigunp.js' );
 
 
@@ -157,6 +156,14 @@ class UsuarioController
         $mtt = new Zend_Session_Namespace( 'MTT' );
 
         $this->view->assign( 'data' , $mtt->noAuth );
+        }
+
+
+    public function emailcheckAction()
+        {
+        $checkMail = $this->_getParam( 'validacion' , null );
+        $data = $this->_usuario->activeUsuario( $checkMail );
+        $this->view->assign( 'data' , $data );
         }
 
 

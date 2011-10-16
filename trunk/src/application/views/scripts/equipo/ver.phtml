@@ -5,7 +5,7 @@
         'module' => 'default' ,
         'controller' => 'equipo' ,
         'action' => 'index'
-            ) , null , true )
+            ) , 'default' , true )
     ?>">
            <?= $this->translate( 'Home' ) ?>
     </a>
@@ -18,7 +18,7 @@
         'controller' => 'categoria' ,
         'action' => 'index' ,
         'id' => $this->producto->categoria_id
-            ) , null , true )
+            ) , 'default' , true )
     ?>">
            <?= $this->producto->categoria ?>
     </a>
@@ -34,40 +34,57 @@
     <img id="image" src=""/>
 </div>
 
+<div id="search" style="display: none;">
+    <?= $this->formSearch ?>
+</div>
+
 <div id="device-foto-galery">
     <!--Producto -->
-
-    <img src="/media/catalog/product/device-03-00.png" alt="">
+    <a href="/media/catalog/product/device-03-00.png" 
+       title="<?= $this->producto->nombre ?>" >
+        <img src="/media/catalog/product/device-03-00.png" alt="">
+    </a>
     <!--Producto-->
     <!--\media\catalog\product\thumb-->
-    <a href="/media/catalog/product/thumb/device-03-01.png" title="" 
-       class="fancy" rel="gallery">
+    <a href="/media/catalog/product/thumb/device-03-01.png" 
+       title="<?= $this->producto->nombre ?>" >
         <img src="/media/catalog/product/thumb/device-03-01.png" alt="Device" />
     </a> 
-    <a href="/media/catalog/product/thumb/device-03-02.png" title="" 
-       class="fancy" rel="gallery">
+    <a href="/media/catalog/product/thumb/device-03-02.png" 
+       title="<?= $this->producto->nombre ?>" >
         <img src="/media/catalog/product/thumb/device-03-02.png" alt="Device" />
     </a> 
-    <a href="/media/catalog/product/thumb/device-03-03.png" title="" 
-       class="fancy" rel="gallery">
+    <a href="/media/catalog/product/thumb/device-03-03.png" 
+       title="<?= $this->producto->nombre ?>" >
         <img src="/media/catalog/product/thumb/device-03-03.png" alt="Device" />
     </a> 
-    <a href="/media/catalog/product/thumb/device-03-04.png" title="" 
-       class="fancy" rel="gallery">
+    <a href="/media/catalog/product/thumb/device-03-04.png" 
+       title="<?= $this->producto->nombre ?>" >
         <img src="/media/catalog/product/thumb/device-03-04.png" alt="Device" />
     </a> 
 
 
     <!-- Fin de imagenes -->
-    <a href="#"><img src="/images/arrow-left.png" alt=""></a>
-    <a href="#"><img src="/images/arrow-right.png" alt=""></a>
+    <!-- acciones -->
+    <a href="#">
+        <img src="/images/arrow-left.png" alt="">
+    </a>
+    <a href="#">
+        <img src="/images/arrow-right.png" alt="">
+    </a>
+    <!-- fin de acciones-->
 </div>
 <div id="device-description">
-    <a href="#">
+    <a href="#" 
+    <?=
+    Zend_Auth::getInstance()->hasIdentity() ?
+                    'id="searchForUser"' : 'id="searchEquipments"'
+    ?>>
         <span class="advanced-search-tab">
             <?= $this->translate( 'Advanced Search' ) ?>
         </span>
     </a>
+
     <span class="device-description-field">
         <?= $this->translate( 'Product name' ) ?>
     </span>
@@ -122,8 +139,11 @@
     <?
     if ( Zend_Auth::getInstance()->hasIdentity() )
         {
-
-        echo $this->render( 'equipo/user/deviceActions.phtml' );
+         if($this->producto->publicacionid === 
+            Mtt_Models_Table_PublicacionEquipo::Activada)
+             {
+            echo $this->render( 'equipo/user/deviceActions.phtml' );
+             }
         }
     ?>
     <a href="javascript:history.go(-1)">

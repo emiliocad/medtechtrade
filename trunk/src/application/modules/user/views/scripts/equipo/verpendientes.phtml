@@ -1,14 +1,17 @@
-<h2>Pendientes</h2>
+<h2>
+    <?= $this->translate( 'equipos pendientes de autorizacion' ) ?>
+</h2>
 <table border="1" class="listado">
     <thead>
-        <tr>
-            <th><?= $this->translate( 'Name' ) ?></th>
-            <th><?= $this->translate( 'Price' ) ?></th>
-            <th><?= $this->translate( 'Category' ) ?></th>
-            <th><?= $this->translate( 'Status' ) ?></th>
-            <th><?= $this->translate( 'Factory' ) ?></th>
-            <th><?= $this->translate( 'Quality' ) ?></th>
-        </tr>
+        
+            <th><?= $this->translate( 'nombre' ) ?></th>
+            <th><?= $this->translate( 'precio' ) ?></th>
+            <th><?= $this->translate( 'categoria' ) ?></th>
+            <th><?= $this->translate( 'estado' ) ?></th>
+            <th><?= $this->translate( 'fabricante' ) ?></th>
+            <th><?= $this->translate( 'calidad' ) ?></th>
+            <th colspan ="3"><?= $this->translate( 'acciones' ) ?></th>
+        
     </thead>
     <tbody>
         <?php foreach ( $this->equipos as $equipo ): ?>
@@ -35,16 +38,47 @@
                     <?= $this->escape( $equipo->calidad ) ?>
                 </td>
                 <td><?php
-                    $link = $this->url( array( 'module' => 'user' ,
-                        'controller' => 'imagen' ,
-                        'action' => 'nuevo' ,
-                        'id' => $equipo->id ) )
+                $link = $this->url( array( 'module' => 'user' ,
+                    'controller' => 'imagen' ,
+                    'action' => 'nuevo' ,
+                    'id' => $equipo->id ) )
                     ?>
-                    <a href="<?= $link ?>">
-                        Agregar Imagen
-                    </a></td>
+                    <a href="<?= $link ?>"
+                       title="<?= $this->translate('agregar imagen')?>">
+                        <img class ="imagen-addimage">
+                    </a>
+              
+                     <?php
+                    $link =
+                            $this->url(
+                            array(
+                            'slug' => $equipo->slug
+                            ), 'slugEquipmentDeactivated', true)
+                    ?>
+
+                    <a href="<?= $link ?>"  
+                       title="<?= $this->translate('ver equipo') ?>" >
+                        <img class ="imagen-see">
+                    </a>
                
+                <?php
+                $link = $this->url( array( 'module' => 'user' ,
+                    'controller' => 'equipo' ,
+                    'action' => 'editar' ,
+                    'id' => $equipo->id ) )
+                ?>
+                <a href="<?= $link ?>"
+                     title="<?= $this->translate('editar equipo')?>">
+                    <img class ="imagen-edit">
+                </a>
+
+            </td>
             </tr>
         <?php endforeach; ?>
     </tbody>
 </table>
+<?=
+$this->paginationControl(
+        $this->equipos , 'Sliding' , 'equipo/_pag.phtml'
+);
+?>

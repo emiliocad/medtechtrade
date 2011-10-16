@@ -15,6 +15,25 @@
             </a>
 
         </li>
+         <li>
+            <a href="
+            <?=
+            $this->url(
+                    array(
+                'module' => 'user' ,
+                'controller' => 'alerta' ,
+                'action' => 'configuration'
+                    )
+                    , null , true
+            );
+            ?>"
+               >
+                <span>
+                    <?= $this->translate( 'Configuracion alertas' ) ?>
+                </span>  
+            </a>
+
+        </li>
         <li>
             <a href="
             <?=
@@ -137,20 +156,20 @@
             </a>
 
         </li>
-        <li>
+<!--        <li>
             <a href="
-            <?=
-            $this->url( array(
-                'module' => 'user' ,
-                'controller' => '' ,
-                'action' => '' ) , null , true )
+            <?
+//            $this->url( array(
+//                'module' => 'user' ,
+//                'controller' => '' ,
+//                'action' => '' ) , null , true )
             ?>">
                 <span>
-                    <?= $this->translate( 'Mis Envios' ) ?>
+                    <? //$this->translate( 'Mis Envios' ) ?>
                 </span>  
             </a>
 
-        </li>
+        </li>-->
         <li>
             <a href="
             <?=

@@ -5,19 +5,20 @@
         $.get('/admin/user/detalle/id/'+id, {}, 
         function(data,textStatus) { 
             $('#dialog_text').html(data); 
-            //alert(data);
             $( "#dialog" ).dialog({
+                height: 386,
+                width: 732,
                 modal: true
             });
-            $('#dialog').fadeIn('normal'); 
+            $('#dialog').fadeIn('l'); 
         }, 'html'); return false
 
-}
+    }
 </script>
-<div class="demo">
+
 
 <div id="dialog" title="Basic dialog">
-	<div id="dialog_text">This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</div>
+    <div id="dialog_text"></div>
 </div>
 
 <table border="1" class="listado">
@@ -69,8 +70,9 @@
                         'action' => 'detalle' ,
                         'id' => $usuario->id ) )
                     ?>
-                    <a href="#" onclick="prueba(<?= $this->escape( $usuario->id ) ?>)">
-                        <?= $this->escape( $usuario->nombre ) ?>
+                    <a href="#" 
+                       onclick="prueba(<?= $this->escape( $usuario->id ) ?>)">
+                           <?= $this->escape( $usuario->nombre ) ?>
                     </a>
 
                 </td>
@@ -171,4 +173,10 @@
     <?= $this->translate( 'Nuevo' ); ?>
 
 </a>
-</div>
+<?=
+$this->paginationControl(
+        $this->usuarios , 'Sliding' , 'user/_pag.phtml'
+);
+?>
+
+

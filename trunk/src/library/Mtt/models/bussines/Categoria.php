@@ -20,14 +20,21 @@ class Mtt_Models_Bussines_Categoria
         parent::__construct();
         }
 
-
+    //Filtro publicado    
     public function getProducts( $id , $order = "modelo" )
         {
         $_producto = new Mtt_Models_Bussines_Equipo();
         $db = $this->getAdapter();
 
         $query = $db->select()
-                ->from( 'equipo' , array( 'id' , 'nombre' , 'modelo' ) )
+                ->from(
+                        'equipo' ,
+                        array(
+                    'id' ,
+                    'nombre' ,
+                    'modelo' ,
+                    'slug' )
+                )
                 ->joinInner( $this->_name ,
                              'categoria.id = equipo.categoria_id ' ,
                              array( 'categoria.nombre as categoria' )
@@ -41,6 +48,9 @@ class Mtt_Models_Bussines_Categoria
                 )
                 ->where( 'equipo.active IN (?)' , self::ACTIVE )
                 ->where( 'equipo.categoria_id IN (?)' , $id )
+                ->where( 'equipo.publicacionEquipo_id = ?' , 
+                        Mtt_Models_Table_PublicacionEquipo::Activada
+                )
                 ->order( $order )
                 ->query();
 
@@ -141,6 +151,16 @@ class Mtt_Models_Bussines_Categoria
     public function saveCategoria( array $data )
         {
 
+        $slug = new Mtt_Filter_Slug( array(
+                    'field' => 'slug' ,
+                    'model' => $this
+                        ) );
+
+        $dataNew = array(
+            'slug' => $slug->filter( $data['title'] )
+        );
+
+        $data = array_merge( $dataNew , $data );
         $this->insert( $data );
         }
 

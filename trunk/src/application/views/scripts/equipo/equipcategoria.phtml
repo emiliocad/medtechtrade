@@ -1,0 +1,55 @@
+<h2>
+    <?= $this->slug ?>
+</h2>
+<?= $this->formOrder ?>
+<h3>
+    <?= $this->translate( 'todos los equipos' ) ?>
+</h3>
+
+<div class="device-horizontal-list">
+    <?php foreach ( $this->productos as $producto ): ?>
+
+        <div>
+            <a href="
+            <?=
+            $this->url( array(
+                'slug' => $producto->slug ) , 'slugEquipment' , true )
+            ?>
+               " title="<?= $producto->slug ?>">
+                <img src="/media/catalog/product/device-00.png" 
+
+
+                     alt="<?= $producto->equipo ?>" 
+                     title="<?= $producto->equipo ?>"
+                     />
+            </a>
+
+            <span class="manufacturer">
+                <?= $this->translate( 'Manufacturer' ) ?> : 
+                <?= $producto->fabricante ?>
+            </span>
+            <span class="name">
+                <?= $this->translate( 'Product name' ) ?>: 
+                <?= $producto->equipo ?>
+            </span>
+            <a href="
+            <?=
+            $this->url( array(
+                'slug' => $producto->slug ) , 'slugEquipment' , true )
+            ?>
+               " title="<?= $producto->slug ?>">
+                <span>
+                    <?= $this->translate( 'View details' ) ?>
+                </span>
+            </a>
+        </div>
+
+    <?php endforeach; ?>
+</div>
+
+<?=
+$this->paginationControl(
+        $this->productos , 'Sliding' , 'equipo/_pag.phtml'
+);
+?>
+

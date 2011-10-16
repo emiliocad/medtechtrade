@@ -11,6 +11,32 @@ class Mtt_Models_Bussines_Equipo
     {
 
 
+    public function getEquipmentBySlug( $slug )
+        {
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from( $this->_name )
+                ->where( 'slug IN (?)' , $slug )
+                ->where( 'active = ?' , self::ACTIVE )
+                ->query()
+        ;
+        return $query->fetchObject();
+        }
+
+
+    public function listar()
+        {
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from( $this->_name )
+                ->where( 'active = ?' , self::ACTIVE )
+                ->query()
+        ;
+
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }
+
+
     /**
      *
      * @param type $id 
@@ -69,7 +95,8 @@ class Mtt_Models_Bussines_Equipo
                              array( 'estadoequipo.nombre as estadoequipo' ) )
                 ->joinInner( 'publicacionequipo' ,
                              'publicacionequipo.id = equipo.publicacionEquipo_id' ,
-                             array( 'publicacionequipo.nombre as publicacionequipo' ) )
+                             array( 'publicacionequipo.nombre as publicacionequipo',
+                                 'publicacionequipo.id as publicacionid') )
                 ->joinInner( 'moneda' , 'moneda.id = equipo.moneda_id' ,
                              array( 'moneda.nombre as moneda' ) )
                 ->joinInner( 'fabricantes' ,
@@ -90,14 +117,17 @@ class Mtt_Models_Bussines_Equipo
         $db = $this->getAdapter();
         $query = $db->select()
                 ->from( $this->_name , array( 'id' , 'nombre' ) )
-                ->joinInner( 'categoria' , 'categoria.id = ' . $id ,
+                ->joinInner( 'categoria' , 'categoria.id = equipo.categoria_id'  ,
                              array( 'categoria.nombre as categoria' ) )
                 ->joinInner( 'fabricantes' ,
                              'fabricantes.id = equipo.fabricantes_id' ,
                              array( 'fabricantes.nombre as fabricante' ) )
                 ->joinLeft( 'imagen' , 'imagen.equipo_id = equipo.id' ,
-                            array( 'imagen.nombre as imagen' ) )
+                            array( 'imagen.nombre as imagen',
+                                'imagen.imagen as imagenurl',
+                                'imagen.descripcion') )
                 ->where( 'equipo.active IN (?)' , self::ACTIVE )
+                ->where( 'equipo.id = ?' , $id )
                 ->query();
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
@@ -136,7 +166,7 @@ class Mtt_Models_Bussines_Equipo
         $db = $this->getAdapter();
 
         $query = $db->select()
-                ->from( $this->_name , array( 'id' , 'nombre' ) )
+                ->from( $this->_name , array( 'id' , 'nombre' , 'slug' ) )
                 ->joinInner( 'categoria' ,
                              'categoria.id = equipo.categoria_id ' ,
                              array( 'categoria.nombre as categoria' )
@@ -149,6 +179,8 @@ class Mtt_Models_Bussines_Equipo
                             array( 'imagen.nombre as imagen' )
                 )
                 ->where( 'equipo.active IN (?)' , self::ACTIVE )
+                ->where( 'equipo.publicacionEquipo_id  = ?' , 
+                        Mtt_Models_Table_PublicacionEquipo::Activada )
                 ->query();
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
@@ -159,13 +191,18 @@ class Mtt_Models_Bussines_Equipo
      *
      * @return type Object
      */
-    public function getProductsOfersAll( $limit = 0  )
+    public function getProductsOfersAll( $limit = 0 )
         {
 
         $db = $this->getAdapter();
 
         $query = $db->select()
-                ->from( $this->_name , array( 'id' , 'nombre' , 'topofers' ) )
+                ->from(
+                        $this->_name ,
+                        array(
+                    'id' , 'nombre' , 'topofers' , 'slug'
+                        )
+                )
                 ->joinInner( 'categoria' ,
                              'categoria.id = equipo.categoria_id ' ,
                              array( 'categoria.nombre as categoria' )
@@ -197,7 +234,14 @@ class Mtt_Models_Bussines_Equipo
         $db = $this->getAdapter();
 
         $query = $db->select()
-                ->from( $this->_name , array( 'id' , 'nombre' , 'topofers' ) )
+                ->from(
+                        $this->_name ,
+                        array(
+                    'id' ,
+                    'nombre' ,
+                    'topofers' ,
+                    'slug' )
+                )
                 ->joinInner( 'categoria' ,
                              'categoria.id = equipo.categoria_id ' ,
                              array( 'categoria.nombre as categoria' )
@@ -303,7 +347,8 @@ class Mtt_Models_Bussines_Equipo
                     'sizeCaja' ,
                     'topofers' ,
                     'publishdate' ,
-                    'active' )
+                    'active',
+                    'slug')
                 )
                 ->joinInner(
                         'categoria' , 'categoria.id = equipo.categoria_id' ,
@@ -343,6 +388,25 @@ class Mtt_Models_Bussines_Equipo
         }
 
 
+    public function pagListEquipByUserStatus( $idUser, $status )
+        {
+        $_conf = new Zend_Config_Ini(
+                        APPLICATION_PATH . '/configs/myConfigUser.ini' , 'paginator'
+        );
+        $data = $_conf->toArray();
+
+        $object = Zend_Paginator::factory( 
+                $this->listEquipByUserStatus( $idUser , $status ) 
+        );
+        $object->setItemCountPerPage(
+                $data['ItemCountPerPage']
+        );
+        return $object;
+        }
+
+        
+        
+        
     public function pagListEquipByUser( $idUser )
         {
         $_conf = new Zend_Config_Ini(
@@ -356,26 +420,50 @@ class Mtt_Models_Bussines_Equipo
         );
         return $object;
         }
-        
-        
-    public function pagListResultSearch(  $keywords , 
-                $modelo , $fabricante , $categoria , $anioInicial , 
-                $anioFinal , $precioInicial , $precioFinal )
+
+
+
+    public function pagListEquip( )
         {
         $_conf = new Zend_Config_Ini(
-                        APPLICATION_PATH . '/configs/myConfigUser.ini' , 
-                'paginator'
+                        APPLICATION_PATH . '/configs/myConfigAdmin.ini' , 'equipo'
         );
         $data = $_conf->toArray();
 
-        $object = Zend_Paginator::factory( $this->searchEquip( $keywords , 
-                $modelo , $fabricante , $categoria , $anioInicial , 
-                $anioFinal , $precioInicial , $precioFinal ) );
+        $object = Zend_Paginator::factory( $this->listEquip() );
         $object->setItemCountPerPage(
                 $data['ItemCountPerPage']
         );
         return $object;
-        }        
+        }
+        
+        
+        
+        
+    public function pagListResultSearch( $keywords , $modelo , $fabricante ,
+                                         $categoria , $anioInicial ,
+                                         $anioFinal , $precioInicial ,
+                                         $precioFinal )
+        {
+        $_conf = new Zend_Config_Ini(
+                        APPLICATION_PATH . '/configs/myConfigUser.ini' ,
+                        'paginator'
+        );
+        $data = $_conf->toArray();
+
+        $object = Zend_Paginator::factory( $this->searchEquip( $keywords ,
+                                                               $modelo ,
+                                                               $fabricante ,
+                                                               $categoria ,
+                                                               $anioInicial ,
+                                                               $anioFinal ,
+                                                               $precioInicial ,
+                                                               $precioFinal ) );
+        $object->setItemCountPerPage(
+                $data['ItemCountPerPage']
+        );
+        return $object;
+        }
 
 
     public function listEquipByUser( $idUser )
@@ -437,6 +525,7 @@ class Mtt_Models_Bussines_Equipo
                 )
                 ->where( 'equipo.active = ?' , self::ACTIVE )
                 ->where( 'usuario.id = ?' , $idUser )
+                ->group( 'equipo.id' )
                 ->query()
         ;
 
@@ -444,6 +533,219 @@ class Mtt_Models_Bussines_Equipo
         }
 
 
+    public function listEquipUnresolved()
+        {
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from(
+                        $this->_name ,
+                        array(
+                    'id' ,
+                    'nombre as equipo' ,
+                    'precioventa' ,
+                    'preciocompra' ,
+                    'calidad' ,
+                    'modelo' ,
+                    'fechafabricacion' ,
+                    'documento' ,
+                    'sourceDocumento' ,
+                    'pesoEstimado' ,
+                    'size' ,
+                    'ancho' ,
+                    'alto' ,
+                    'sizeCaja' ,
+                    'topofers' ,
+                    'publishdate' ,
+                    'active' )
+                )
+                ->joinInner(
+                        'categoria' , 'categoria.id = equipo.categoria_id' ,
+                        array( 'categoria.nombre as categoria' )
+                )
+                ->joinInner(
+                        'publicacionequipo' ,
+                        'publicacionequipo.id = equipo.publicacionEquipo_id' ,
+                        array(
+                    'publicacionequipo.nombre as publicacionequipo'
+                        )
+                )
+                ->joinInner( 'usuario' , 'usuario.id = equipo.usuario_id' ,
+                             array( 'usuario.nombre as usuario' )
+                )
+                ->joinInner( 'fabricantes' ,
+                             'fabricantes.id = equipo.fabricantes_id' ,
+                             array( 'fabricantes.nombre as fabricante' )
+                )
+                ->joinInner( 'moneda' , 'moneda.id = equipo.moneda_id' ,
+                             array( 'moneda.nombre as moneda' )
+                )
+                ->joinInner( 'paises' ,
+                             'paises.id = equipo.paises_id'
+                        , array( 'paises.nombre as paises' ) )
+                ->joinInner( 'estadoequipo' ,
+                             'estadoequipo.id = equipo.estadoequipo_id' ,
+                             array( 'estadoequipo.nombre as estadoequipo' ) )
+                ->joinLeft( 'imagen' , 'imagen.equipo_id = equipo.id' ,
+                            array( 'imagen.nombre as imageNombre' ,
+                    'imagen.thumb as imageThumb' ,
+                    'imagen.imagen as image' )
+                )
+                ->where( 'equipo.publicacionEquipo_id = ?' , 
+                        Mtt_Models_Bussines_PublicacionEquipo::Pendiente )
+                ->where( 'equipo.active = ?' , self::ACTIVE )
+                ->query()
+        ;
+
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }
+
+
+    /**
+     * 
+     * 
+     */
+    public function listEquipByStatus( $status )
+        {
+
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from(
+                        $this->_name ,
+                        array(
+                    'equipo.id' , 'nombre as equipo' , 'precioventa' ,
+                    'preciocompra' , 'calidad' , 'modelo' ,
+                    'fechafabricacion' , 'documento' , 'sourceDocumento' ,
+                    'pesoEstimado' ,
+                    'size' ,
+                    'ancho' ,
+                    'alto' ,
+                    'sizeCaja' ,
+                    'topofers' ,
+                    'publishdate' ,
+                    'active' )
+                )
+                ->joinInner(
+                        'categoria' , 'categoria.id = equipo.categoria_id' ,
+                        array( 'categoria.nombre as categoria' )
+                )
+                ->joinInner(
+                        'publicacionequipo' ,
+                        'publicacionequipo.id = equipo.publicacionEquipo_id' ,
+                        array( 'publicacionequipo.nombre as publicacionequipo' )
+                )
+                ->joinInner( 'fabricantes' ,
+                             'fabricantes.id = equipo.fabricantes_id' ,
+                             array( 'fabricantes.nombre as fabricante' )
+                )
+                ->joinInner( 'moneda' , 'moneda.id = equipo.moneda_id' ,
+                             array( 'moneda.nombre as moneda' )
+                )
+                ->joinInner( 'paises' ,
+                             'paises.id = equipo.paises_id'
+                        , array( 'paises.nombre as paises' ) )
+                ->joinInner( 'estadoequipo' ,
+                             'estadoequipo.id = equipo.estadoequipo_id' ,
+                             array( 'estadoequipo.nombre as estadoequipo' ) )
+                ->joinLeft( 'imagen' , 'imagen.equipo_id = equipo.id' ,
+                            array( 'imagen.nombre as imageNombre' ,
+                    'imagen.thumb as imageThumb' ,
+                    'imagen.imagen as image' )
+                )
+                ->where( 'equipo.active = ?' , self::ACTIVE )
+                ->where( 'equipo.publicacionEquipo_id = ?' , $status )
+                ->group( 'equipo.id' )
+                ->query()
+        ;
+
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }
+
+        
+    /**
+     * 
+     * 
+     */
+    public function listEquipByCategory( $idCategoria, $status )
+        {
+
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from(
+                        $this->_name ,
+                        array(
+                    'equipo.id' , 'nombre as equipo' , 'precioventa' ,
+                    'preciocompra' , 'calidad' , 'modelo' ,
+                    'fechafabricacion' , 'documento' , 'sourceDocumento' ,
+                    'pesoEstimado' ,
+                    'size' ,
+                    'ancho' ,
+                    'alto' ,
+                    'sizeCaja' ,
+                    'topofers' ,
+                    'publishdate' ,
+                    'active',
+                    'slug'   )
+                )
+                ->joinInner(
+                        'categoria' , 'categoria.id = equipo.categoria_id' ,
+                        array( 'categoria.nombre as categoria' )
+                )
+                ->joinInner(
+                        'publicacionequipo' ,
+                        'publicacionequipo.id = equipo.publicacionEquipo_id' ,
+                        array( 'publicacionequipo.nombre as publicacionequipo' )
+                )
+                ->joinInner( 'fabricantes' ,
+                             'fabricantes.id = equipo.fabricantes_id' ,
+                             array( 'fabricantes.nombre as fabricante' )
+                )
+                ->joinInner( 'moneda' , 'moneda.id = equipo.moneda_id' ,
+                             array( 'moneda.nombre as moneda' )
+                )
+                ->joinInner( 'paises' ,
+                             'paises.id = equipo.paises_id'
+                        , array( 'paises.nombre as paises' ) )
+                ->joinInner( 'estadoequipo' ,
+                             'estadoequipo.id = equipo.estadoequipo_id' ,
+                             array( 'estadoequipo.nombre as estadoequipo' ) )
+                ->joinLeft( 'imagen' , 'imagen.equipo_id = equipo.id' ,
+                            array( 'imagen.nombre as imageNombre' ,
+                    'imagen.thumb as imageThumb' ,
+                    'imagen.imagen as image' )
+                )
+                ->where( 'equipo.active = ?' , self::ACTIVE )
+                ->where( 'equipo.categoria_id = ?' , $idCategoria )
+                ->where( 'equipo.publicacionEquipo_id = ?' , $status )
+                ->group( 'equipo.id' )
+                ->query()
+        ;
+
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }        
+        
+            
+
+    public function pagListEquipByCategory( $idCategoria , $status)
+        {
+        $_conf = new Zend_Config_Ini(
+                        APPLICATION_PATH . '/configs/myConfig.ini' , 
+                         'categoria_equipo'
+        );
+        $data = $_conf->toArray();
+
+        $object = Zend_Paginator::factory( 
+                $this->listEquipByCategory( $idCategoria, $status) 
+        );
+        $object->setItemCountPerPage(
+                $data['ItemCountPerPage']
+        );
+        return $object;
+        }
+                
+        
+        
+        
+        
     /**
      * 
      * 
@@ -598,6 +900,7 @@ class Mtt_Models_Bussines_Equipo
                     'modelo' ,
                     'fechafabricacion' ,
                     'tag' ,
+                    'slug',
                     'preciocompra' ,
                     'active' )
                 )
@@ -685,28 +988,39 @@ class Mtt_Models_Bussines_Equipo
         $m = new Mtt_Html_Mail_Mailer();
         $m->setSubject( $data['asunto'] );
 
-        $m->addTo( 'tj.chunga@gmail.com'  );
-        
-        if($data['toemail'] == 1){
-            $m->addTo( $data['email']  );
-        }
+        $m->addTo( 'tj.chunga@gmail.com' );
+
+        if ( $data['toemail'] == 1 )
+            {
+            $m->addTo( $data['email'] );
+            }
 
         $m->setViewParam( 'usuario' , $data['nombre'] )
                 ->setViewParam( 'organizacion' , $data['organizacion'] )
-                ->setViewParam( 'direccion' , $data['direccion'] )                
+                ->setViewParam( 'direccion' , $data['direccion'] )
                 ->setViewParam( 'codpostal' , $data['codpostal'] )
                 ->setViewParam( 'ciudad' , $data['ciudad'] )
                 ->setViewParam( 'pais' , $data['pais'] )
                 ->setViewParam( 'mensaje' , $data['mensaje'] )
-                ->setViewParam('equipo', $data['equipo'])
-                
+                ->setViewParam( 'equipo' , $data['equipo'] )
+
         ;
-        
+
         $m->sendHtmlTemplate( "request.phtml" );
+        }
+        
+        
+    public function publicarEquipo( $id )
+        {
+
+        $this->update( array(
+            "publicacionEquipo_id" => 
+            Mtt_Models_Bussines_PublicacionEquipo::Activada )
+                , 'id = ' . $id );
         }        
         
-        
-         
+
+
     public function updateEquipo( array $data , $id )
         {
 
@@ -716,6 +1030,16 @@ class Mtt_Models_Bussines_Equipo
 
     public function saveEquipo( array $data )
         {
+        $slug = new Mtt_Filter_Slug( array(
+                    'field' => 'slug' ,
+                    'model' => $this
+                        ) );
+
+        $dataNew = array(
+            'slug' => $slug->filter( $data['nombre'] )
+        );
+
+        $data = array_merge( $dataNew , $data );
 
         $this->insert( $data );
         }

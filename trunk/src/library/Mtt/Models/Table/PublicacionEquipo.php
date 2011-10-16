@@ -12,6 +12,8 @@ class Mtt_Models_Table_PublicacionEquipo
     
     const Pendiente = 1;
     const Activada = 2;
+    const Eliminada = 3;
+    const Vendido = 4;
 
     protected $_name = 'publicacionequipo';
     protected $_primary = 'id';

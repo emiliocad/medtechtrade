@@ -27,7 +27,14 @@ class Mtt_Models_Bussines_Categoria
         $db = $this->getAdapter();
 
         $query = $db->select()
-                ->from( 'equipo' , array( 'id' , 'nombre' , 'modelo' ) )
+                ->from(
+                        'equipo' ,
+                        array(
+                    'id' ,
+                    'nombre' ,
+                    'modelo' ,
+                    'slug' )
+                )
                 ->joinInner( $this->_name ,
                              'categoria.id = equipo.categoria_id ' ,
                              array( 'categoria.nombre as categoria' )
@@ -141,6 +148,16 @@ class Mtt_Models_Bussines_Categoria
     public function saveCategoria( array $data )
         {
 
+        $slug = new Mtt_Filter_Slug( array(
+                    'field' => 'slug' ,
+                    'model' => $this
+                        ) );
+
+        $dataNew = array(
+            'slug' => $slug->filter( $data['title'] )
+        );
+
+        $data = array_merge( $dataNew , $data );
         $this->insert( $data );
         }
 
