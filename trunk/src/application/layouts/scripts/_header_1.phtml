@@ -1,0 +1,73 @@
+<div id="logo-top">
+    <a href ="
+    <?=
+    $this->url(
+            array( 'module' => 'default' ,
+        'controller' => 'index' ,
+        'action' => 'index' ) , 'default' , true
+    )
+    ?>
+       ">
+        <img src="/theme/default/image/logo-top.png">
+    </a>
+
+</div>
+<div id="dataUser">
+    <?=
+    Zend_Auth::getInstance()->hasIdentity() ? $this->translate( 'Bienvenido' ) .
+                    $this->authUser : ' '
+    ?>
+
+    <? if ( Zend_Auth::getInstance()->hasIdentity() ): ?>
+        <a href="<?=
+    $this->url( array(
+        'module' => 'default' ,
+        'controller' => 'usuario' ,
+        'action' => 'logout' ) , 'default' , true )
+        ?>">Logout</a>
+       <? endif; ?>
+
+</div>
+<div id="lang-selection-top">
+     Get by PHP function 
+    <a href="
+    <?=
+    $this->url( array(
+        'module' => 'default' ,
+        'controller' => 'idioma' ,
+        'action' => 'english' ) , 'default' , true )
+    ?>
+       ">
+           <?= $this->translate( 'English' ) ?>
+    </a> |
+    <a href="
+    <?=
+    $this->url( array(
+        'module' => 'default' ,
+        'controller' => 'idioma' ,
+        'action' => 'spanish' ) , 'default' , true )
+    ?>
+       ">
+           <?= $this->translate( 'Spanish' ) ?>
+    </a> |
+    <a href="<?=
+           $this->url( array(
+               'module' => 'default' ,
+               'controller' => 'idioma' ,
+               'action' => 'aleman' ) , 'default' , true )
+           ?>
+       ">
+           <?= $this->translate( 'Deutsch' ) ?>
+    </a>
+    |
+    <a href="<?=
+           $this->url( array(
+               'module' => 'default' ,
+               'controller' => 'idioma' ,
+               'action' => 'polonia' ) , 'default' , true )
+           ?>
+       ">
+           <?= $this->translate( 'Polish' ) ?>
+    </a>
+</div>
+

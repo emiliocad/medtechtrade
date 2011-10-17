@@ -19,7 +19,7 @@
         $this->jQuery()->setVersion( '1.4.2' )
                 ->setUiVersion( '1.8.16' )
                 ->addStylesheet( '/theme/admin/css/redmond/jquery-ui-1.8.16.custom.css' )
-                ->addStylesheet( '/js/jquery-tooltip/style.css' )
+                //->addStylesheet( '/js/jquery-tooltip/style.css' )
                 ->addJavascriptFile( '/js/jquery.corner/jquery.corner.js' )
 //                ->addJavascriptFile( '/js/jquery-tooltip/run.js' )
                 ->enable()
@@ -38,6 +38,9 @@
                 )
                 ->appendFile(
                         '/theme/default/js/accionmenu.js'
+                )
+                ->appendFile(
+                        '/theme/default/js/menu/menu.js'
                 )
                 ->appendFile(
                         '/js/CookieJS.js'
@@ -60,12 +63,15 @@
                         <?= $this->render( '_navegacion.phtml' ); ?>
                     </nav>
                 </div>
+
+
             </div>
         </header>
 
         <section>
 
             <div id="wrap-middle" class="wrapper">
+                <?= $this->render( '_userMenu.phtml' ); ?>
                 <div id="section-middle" class="section">
                     <aside>
                         <div id="section-middle-categories">

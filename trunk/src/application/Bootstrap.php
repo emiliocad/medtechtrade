@@ -129,14 +129,6 @@ class Bootstrap
         Zend_Session::start();
         }
 
-
-//TODO Investigar mas De Zend Registry
-    protected function _initMail()
-        {
-        
-        }
-
-
     protected function _initZFDebug()
         {
         if ( 'development' == APPLICATION_ENV )
@@ -178,9 +170,9 @@ class Bootstrap
 //        Zend_Controller_Front::getInstance()->registerPlugin(
 //                new My_Controller_Plugin_Acl() , 50
 //        );
-        Zend_Controller_Front::getInstance()->registerPlugin(
-                new Mtt_Controller_Plugin_Routes() , 80
-        );
+//        Zend_Controller_Front::getInstance()->registerPlugin(
+//                new Mtt_Controller_Plugin_Routes() , 80
+//        );
 
         //var_dump(Zend_Controller_Front::getInstance()->getPlugins());exit;
         }

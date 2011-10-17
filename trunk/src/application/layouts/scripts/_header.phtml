@@ -12,63 +12,34 @@
     </a>
 
 </div>
+<div id="dataUser">
+    <div id="userData">
+        <? if ( Zend_Auth::getInstance()->hasIdentity() ): ?>
+            <?= $this->translate( 'Bienvenido' ) . ' ' . $this->authUser ?>
+            <a href="<?=
+        $this->url( array(
+            'module' => 'default' ,
+            'controller' => 'usuario' ,
+            'action' => 'logout' ) , 'default' , true )
+            ?>">Logout</a>
+           <? endif; ?>
+    </div>
+    <div id="formIdioma">
+        <? $form = new Mtt_Form_IdiomaPais(); ?>
+        <div id="pais">
+            <?= $form->pais; ?>
+        </div>
+        <div id="idioma">
+            <?= $form->idioma; ?>
+        </div>
+        <div id="recordar">
+            <?= $form->recordar; ?>
+        </div>
+        <div id="button">
+            <?= $form->submit; ?>
+        </div>
+    </div>
 
-<div id="lang-selection-top">
-    <!-- Get by PHP function -->
-    <a href="
-    <?=
-    $this->url( array(
-        'module' => 'default' ,
-        'controller' => 'idioma' ,
-        'action' => 'english' ) , 'default' , true )
-    ?>
-       ">
-           <?= $this->translate( 'English' ) ?>
-    </a> |
-    <a href="
-    <?=
-    $this->url( array(
-        'module' => 'default' ,
-        'controller' => 'idioma' ,
-        'action' => 'spanish' ) , 'default' , true )
-    ?>
-       ">
-           <?= $this->translate( 'Spanish' ) ?>
-    </a> |
-    <a href="<?=
-           $this->url( array(
-               'module' => 'default' ,
-               'controller' => 'idioma' ,
-               'action' => 'aleman' ) , 'default' , true )
-           ?>
-       ">
-           <?= $this->translate( 'Deutsch' ) ?>
-    </a>
-    |
-    <a href="<?=
-           $this->url( array(
-               'module' => 'default' ,
-               'controller' => 'idioma' ,
-               'action' => 'polonia' ) , 'default' , true )
-           ?>
-       ">
-           <?= $this->translate( 'Polish' ) ?>
-    </a>
-</div>
-
-<div>
-    <?=
-    Zend_Auth::getInstance()->hasIdentity() ? $this->translate( 'Bienvenido' ) .
-                    $this->authUser : ''
-    ?>
-
-    <? if ( Zend_Auth::getInstance()->hasIdentity() ): ?>
-        <a href="<?=
-    $this->url( array(
-        'module' => 'default' ,
-        'controller' => 'usuario' ,
-        'action' => 'logout' ) , 'default' , true )
-        ?>">Logout</a>
-       <?php endif; ?>
 
 </div>
+
