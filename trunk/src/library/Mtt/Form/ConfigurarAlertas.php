@@ -10,11 +10,11 @@ class Mtt_Form_ConfigurarAlertas
         extends Mtt_Formy
     {
 
+    protected $_alerts;
     protected $tipo;
     protected $detalle;
     protected $active;
     protected $submit;
-    protected $_alerts;
 
 
     public function __construct( $data = null )
@@ -26,10 +26,7 @@ class Mtt_Form_ConfigurarAlertas
             }
         }
 
-
-    public function init()
-        {
-        parent::init();
+    public function init() {
         $this
                 ->setMethod( 'post' )
                 ->setAttrib( 'id' , 'frmConfigurarAlertas' )
@@ -42,9 +39,11 @@ class Mtt_Form_ConfigurarAlertas
                 )
         );
 
-        $alerta1->setChecked( $this->_alerts[1] );
-
-        $this->addElement( $alerta1 );
+        $alerta1->setChecked($this->_alerts[1]);
+        if ($this->_alerts[1]) {
+            $alerta1->setAttrib('checked', 'checked');
+        }
+        $this->addElement($alerta1);
 
         $alerta2 = new Zend_Form_Element_Checkbox( 'alerta2' );
         $alerta2->setLabel(
@@ -58,6 +57,7 @@ class Mtt_Form_ConfigurarAlertas
 
         $categorias = new Zend_Form_Element_MultiCheckbox( 'categorias' );
         $_categorias = new Mtt_Models_Bussines_Categoria();
+
 
         foreach ( $_categorias->listCategory() as $cat )
             {
