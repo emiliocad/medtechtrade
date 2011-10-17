@@ -62,8 +62,18 @@
                     </div>
 
                     <div id="welcome" class="grid_8 omega">
-                        <?= $this->translate( 'bienvenido' ) ?> : 
-                        Luis Alberto Mayta
+                        <? if ( Zend_Auth::getInstance()->hasIdentity() ): ?>
+                            <?= $this->translate( 'bienvenido' ) . ' ' . $this->authUser ?>
+                            <a href="<?=
+                        $this->Url(
+                                array( 'module' => 'admin' ,
+                                    'controller' => 'login' ,
+                                    'action' => 'logout' )
+                        )
+                            ?>">
+                                   <?= $this->translate( 'logout' ) ?>
+                            </a>
+                        <? endif; ?>
                     </div>
                     <div class="clear">
 

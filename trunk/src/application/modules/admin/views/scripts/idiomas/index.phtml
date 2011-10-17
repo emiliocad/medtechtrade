@@ -1,0 +1,76 @@
+<h2>
+    <?= $this->translate( 'Idioma' ) ?>:
+</h2>
+<table border="1" class="listado">
+    <thead>
+        <tr>
+            <th>
+                <?= $this->translate( 'nombre' ) ?>
+            </th>
+            <th>
+                <?= $this->translate( 'prefijo' ) ?>
+            </th>
+            <th>Operaciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ( $this->idiomas as $idioma ): ?>
+            <?php $id = $idioma->id; ?>
+            <tr class="<?= $idioma->active
+                            ? 'activo' : 'inactivo' ?>">
+
+                <td>
+                    <?= $this->escape( $idioma->nombre ) ?>
+                </td>
+                <td>
+
+                    <?php
+                    $link = $this->url(
+                            array(
+                                'module' => 'admin' ,
+                                'controller' => 'idioma' ,
+                                'action' => 'editar' ,
+                                'id' => $id )
+                            )
+                    ?>
+                    <a href="<?= $link ?>">
+                        <?= $this->translate( 'editar' ) ?>
+                    </a>
+
+                    <?php
+                    $link = $this->url(
+                            array( 'module' => 'admin' ,
+                                'controller' => 'idioma' ,
+                                'action' => 'borrar' ,
+                                'id' => $id )
+                            )
+                    ?>
+                    <a href="<?= $link ?>" 
+                       onclick="return confirm('¿Estás seguro?')">
+                           <?= $this->translate( 'eliminar' ) ?>
+                    </a>
+
+                    <?php if ( $idioma->active ): ?>
+                        <?php $link = $this->url( array( 'module' => 'admin' , 'controller' => 'idioma' , 'action' => 'desactivar' , 'id' => $id ) ) ?>
+                        <a href="<?= $link ?>">[Desactivar]</a>
+                    <?php else: ?>
+                        <?php $link = $this->url( array( 'module' => 'admin' , 'controller' => 'idioma' , 'action' => 'activar' , 'id' => $id ) ) ?>
+                        <a href="<?= $link ?>">[Activar]</a>
+                    <?php endif; ?>
+
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+<br />
+
+<a href="<?=
+        $this->url( array(
+            'module' => 'admin' ,
+            'controller' => 'idioma' ,
+            'action' => 'nuevo'
+                ) , 'default' , true )
+        ?>">
+       <? $this->translate( 'nuevo' ) ?>
+</a>

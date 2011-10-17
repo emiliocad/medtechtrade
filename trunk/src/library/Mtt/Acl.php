@@ -1,10 +1,9 @@
 <?php
 
-/* * *
+
+/**
  * 
  */
-
-
 class Mtt_Acl
         extends Zend_Acl
     {
@@ -59,6 +58,7 @@ class Mtt_Acl
         $this->add( new Zend_Acl_Resource( 'admin::tipousuario' ) );
         $this->add( new Zend_Acl_Resource( 'admin::user' ) );
         $this->add( new Zend_Acl_Resource( 'admin::login' ) );
+        $this->add( new Zend_Acl_Resource( 'admin::idiomas' ) );
 
 
 
@@ -103,7 +103,7 @@ class Mtt_Acl
         $this->allow( 'manager' , 'admin::tipousuario' );
         $this->allow( 'manager' , 'admin::user' );
         $this->allow( 'manager' , 'admin::login' );
-       
+        $this->allow( 'manager' , 'admin::idiomas' );
         }
 
 
