@@ -1,11 +1,12 @@
 <div id="sections-buttons-top">
-    <ul>
-        <li  id ="home-visit" >
+<ul>
+        <li  id ="home-visit" onclick="fnSelectedItem(this.id)">
             <span>
                 <a href="
                 <?= $this->url( array( 'controller' => 'index' ,
                     'action' => 'index' ) , 'default' , true ) ?>">
-                       <?= $this->translate( 'Home' ); ?>
+
+                    <?= $this->translate( 'Home' ); ?>
                 </a>  
             </span>
         </li>
@@ -33,7 +34,7 @@
             </span>
 
         </li>
-
+        
         <li  id ="contactus-visit" onclick="fnSelectedItem(this.id)">
             <span>
                 <a href="
