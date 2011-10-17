@@ -2,25 +2,25 @@
     <a id ="desk-admin" onclick="fnSelectedItem(this.id)">
         <span>
 
-            <?= $this->translate('Desk'); ?>
+            <?= $this->translate( 'Desk' ); ?>
 
         </span>
 
     </a>
-    <?= $this->render('navegacion/_desk.phtml'); ?>
+    <?= $this->render( 'navegacion/_desk.phtml' ); ?>
 
 </li>
 <li>
     <a id ="users-admin" onclick="fnSelectedItem(this.id)"  href="
     <?=
-    $this->url(array(
-        'module' => 'admin',
-        'controller' => 'user',
-        'action' => 'index'), null, true)
+    $this->url( array(
+        'module' => 'admin' ,
+        'controller' => 'user' ,
+        'action' => 'index' ) , null , true )
     ?>">
         <span>
 
-            <?= $this->translate('Users'); ?>
+            <?= $this->translate( 'Users' ); ?>
 
         </span>
 
@@ -30,14 +30,14 @@
 <li>
     <a id ="equipment-admin" onclick="fnSelectedItem(this.id)" href="
     <?=
-    $this->url(array(
-        'module' => 'admin',
-        'controller' => 'equipo',
-        'action' => 'index'), null, true)
+    $this->url( array(
+        'module' => 'admin' ,
+        'controller' => 'equipo' ,
+        'action' => 'index' ) , null , true )
     ?>">
         <span>
 
-            <?= $this->translate('Equipment'); ?>
+            <?= $this->translate( 'Equipment' ); ?>
 
         </span>
 
@@ -46,14 +46,14 @@
 <li>
     <a id ="questions-admin" onclick="fnSelectedItem(this.id)" href="
     <?=
-    $this->url(array(
-        'module' => 'admin',
-        'controller' => 'pregunta',
-        'action' => 'index'), null, true)
+    $this->url( array(
+        'module' => 'admin' ,
+        'controller' => 'pregunta' ,
+        'action' => 'index' ) , null , true )
     ?>">
         <span>
 
-            <?= $this->translate('preguntas'); ?>
+            <?= $this->translate( 'preguntas' ); ?>
 
         </span>
 
@@ -62,14 +62,14 @@
 <li>
     <a id ="operations-admin" onclick="fnSelectedItem(this.id)" href="
     <?=
-    $this->url(array(
-        'module' => 'admin',
-        'controller' => 'operacion',
-        'action' => 'index'), null, true)
+    $this->url( array(
+        'module' => 'admin' ,
+        'controller' => 'operacion' ,
+        'action' => 'index' ) , null , true )
     ?>">
         <span>
 
-            <?= $this->translate('operaciones'); ?>
+            <?= $this->translate( 'operaciones' ); ?>
 
         </span>
 
@@ -79,33 +79,33 @@
     <a id ="stadistics-admin" onclick="fnSelectedItem(this.id)">
         <span>
 
-            <?= $this->translate('Statistics'); ?>
+            <?= $this->translate( 'Statistics' ); ?>
 
         </span>
 
     </a>
-    <?= $this->render('navegacion/_statistics.phtml'); ?>
+    <?= $this->render( 'navegacion/_statistics.phtml' ); ?>
 </li>
 <li>
     <a id ="configuration-admin" onclick="fnSelectedItem(this.id)">
         <span>
 
-            <?= $this->translate('Configuration'); ?>
+            <?= $this->translate( 'Configuration' ); ?>
 
         </span>
 
     </a>
-    <?= $this->render('navegacion/_configuration.phtml'); ?>
+    <?= $this->render( 'navegacion/_configuration.phtml' ); ?>
 </li>
 <li>
     <a id ="cms-admin" onclick="fnSelectedItem(this.id)">
         <span>
 
-            <?= $this->translate('CMS'); ?>
+            <?= $this->translate( 'CMS' ); ?>
 
         </span>
 
     </a>
-    <?= $this->render('navegacion/_cms.phtml'); ?>
+    <?= $this->render( 'navegacion/_cms.phtml' ); ?>
 </li>
 

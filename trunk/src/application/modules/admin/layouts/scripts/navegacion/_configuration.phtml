@@ -43,7 +43,18 @@
                <?= $this->translate('paises') ?>
         </a>
     </li>
-
+    <li>
+        <a href="
+        <?=
+        $this->url(array(
+            'module' => 'admin',
+            'controller' => 'idiomas',
+            'action' => 'index'), null, true)
+        ?>">
+               <?= $this->translate('idiomas') ?>
+        </a>
+    </li>
+    
 
 
 </ul>

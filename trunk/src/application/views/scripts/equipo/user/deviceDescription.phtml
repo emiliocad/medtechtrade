@@ -8,12 +8,12 @@
     </span>
 <? endif; ?>
 
-<? if ( !is_null( $this->producto->pais ) ): ?>
+<? if ( !is_null( $this->producto->prefijo ) ): ?>
     <span class="device-description-field">
         <?= $this->translate( 'Origin' ) ?>
     </span>
     <span>
-        <?= $this->producto->pais ?>
+        <?= $this->producto->prefijo ?>
     </span>
 <? endif; ?>
 
