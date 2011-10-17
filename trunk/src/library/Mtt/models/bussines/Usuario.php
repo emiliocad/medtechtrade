@@ -180,7 +180,7 @@ class Mtt_Models_Bussines_Usuario
         
     public function updateUsuario( array $data , $id )
         {
-
+        $data['fechamodificacion'] = date( 'Y-m-d H:i:s');
         $this->update( $data , 'id = ' . $id );
         }
 
