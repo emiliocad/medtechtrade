@@ -27,19 +27,22 @@
            <? endif; ?>
     </div>
     <div id="formIdioma">
-        <? $form = new Mtt_Form_IdiomaPais(); ?>
-        <div id="pais">
-            <?= $form->pais; ?>
-        </div>
-        <div id="idioma">
-            <?= $form->idioma; ?>
-        </div>
-        <div id="recordar">
-            <?= $form->recordar; ?>
-        </div>
-        <div id="button">
-            <?= $form->submit; ?>
-        </div>
+        <form action="<?= $this->escape( $this->formIdiomaPais->getAction() ) ?>"
+              method="<?= $this->escape( $this->formIdiomaPais->getMethod() ) ?>">
+
+            <div id="pais">
+                <?= $this->formIdiomaPais->pais; ?>
+            </div>
+            <div id="idioma">
+                <?= $this->formIdiomaPais->idioma; ?>
+            </div>
+            <div id="recordar">
+                <?= $this->formIdiomaPais->recordar; ?>
+            </div>
+            <div id="button">
+                <?= $this->formIdiomaPais->submit; ?>
+            </div>
+        </form>
     </div>
 
 

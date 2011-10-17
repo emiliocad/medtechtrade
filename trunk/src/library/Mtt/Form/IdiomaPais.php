@@ -1,11 +1,9 @@
 <?php
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+
+/**
+ * 
  */
-
-
 class Mtt_Form_IdiomaPais
         extends Mtt_Form
     {
@@ -23,6 +21,14 @@ class Mtt_Form_IdiomaPais
         $this->_idioma = new Mtt_Models_Bussines_Idioma();
         $this->_pais = new Mtt_Models_Bussines_Paises();
         parent::__construct();
+        }
+
+
+    public function __destruct()
+        {
+
+        $this->_idioma = NULL;
+        $this->_pais = NULL;
         }
 
 
@@ -44,7 +50,7 @@ class Mtt_Form_IdiomaPais
                                   $this->_translate->translate( 'escoger pais' )
                 )
                 ->addMultiOptions(
-                        $this->_pais->getComboValues()
+                        $this->_pais->getComboValuesIntegrate()
                 )
                 ->addValidator(
                         new Zend_Validate_InArray(
