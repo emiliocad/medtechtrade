@@ -45,7 +45,7 @@ class Mtt_Tools_Ip
         }
 
 
-    public function getRealIP()
+    public static function getRealIP()
         {
         if ( !empty( $_SERVER['HTTP_CLIENT_IP'] ) )
                 return $_SERVER['HTTP_CLIENT_IP'];
@@ -67,7 +67,7 @@ class Mtt_Tools_Ip
             }
         else
             {
-            $this->ip = $this->getRealIP();
+            $this->ip = self::getRealIP();
             $this->longIp = $this->IP2LONG( $this->ip );
             }
         }
@@ -78,7 +78,7 @@ class Mtt_Tools_Ip
      * @param type $ip
      * @return type Decimal de Ip
      */
-    public function IP2LONG( $ip )
+    public static function IP2LONG( $ip )
         {
         $d = 0.0;
         $b = explode( "." , $ip , 4 );

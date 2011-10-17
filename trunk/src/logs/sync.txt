@@ -105,3 +105,12 @@
 2011-10-16T12:28:24-05:00 INFO (6): Se Aplico el Delta 14
 2011-10-16T12:28:24-05:00 INFO (6): Se Aplico el Delta 15
 2011-10-16T12:28:24-05:00 INFO (6): ===== Sync Ends =====
+2011-10-17T09:36:18-05:00 INFO (6): ===== Sync Starts =====
+2011-10-17T09:36:18-05:00 INFO (6): Se Aplico el Delta 13
+2011-10-17T09:36:18-05:00 INFO (6): Se Aplico el Delta 14
+2011-10-17T09:36:19-05:00 INFO (6): Se Aplico el Delta 15
+2011-10-17T09:36:19-05:00 INFO (6): Se Aplico el Delta 16
+2011-10-17T09:36:20-05:00 INFO (6): Se Aplico el Delta 17
+2011-10-17T09:36:20-05:00 INFO (6): ===== Sync Ends =====
+2011-10-17T10:03:42-05:00 INFO (6): ===== Sync Starts =====
+2011-10-17T10:03:42-05:00 INFO (6): ===== Sync Ends =====

@@ -30,7 +30,7 @@ class User_OperacionController extends Mtt_Controller_Action {
                          
                           });'
         );
-        $this->_helper->layout->setLayout('layoutListado');
+        //$this->_helper->layout->setLayout('layoutListado');
         //$id = intval( $this->_request->getParam( 'id' ) );
         $operaciones = $this->_operacion->paglistByUserSalesActive(
             $this->authData['usuario']->id,
@@ -45,7 +45,7 @@ class User_OperacionController extends Mtt_Controller_Action {
     }
 
     public function comprasAction() {
-        $this->_helper->layout->setLayout('layoutListado');
+        //$this->_helper->layout->setLayout('layoutListado');
         //$id = intval( $this->_request->getParam( 'id' ) );
         $this->view->assign(
                 'operaciones', $this->_operacion->listByUserOperation(
