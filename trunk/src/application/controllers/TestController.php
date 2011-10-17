@@ -246,5 +246,56 @@ class TestController
         }
 
 
+    public function imagesAction()
+        {
+        $image = new Mtt_Service_Image();
+        $ruta1 = APPLICATION_PUBLIC . '/media/catalog/product/copa-de-vino.jpg';
+        $ruta2 = 'prueba.jpg';
+        $image->processImageAvata( $ruta1
+                , $ruta2 );
+        $image->processImageEquipo( $ruta1
+                , $ruta2 );
+        $image->processImageProduct( $ruta1
+                , $ruta2 );
+        $image->processImageThumb( $ruta1
+                , $ruta2 );
+        $config = new Zend_Config_Ini(
+                        APPLICATION_PATH . '/configs/images.ini' , 'production'
+        );
+        $data = $config->toArray();
+        $this->view->assign( 'config' , $data );
+
+        $dir = APPLICATION_PUBLIC . '/media/catalog';
+        $dir = Mtt_Utility_Convert::DirectorySeparator( $dir );
+        $this->view->assign( 'dir' , $dir );
+        $module = "module";
+        $userName = "username";
+        $path = implode( DS ,
+                         array( $module , $userName , date( 'Y' ) , date( 'm' ) ) );
+        Mtt_Utility_File::createDirs( $dir , $path );
+        }
+
+
+    public function frmimagenAction()
+        {
+        $imagen = new Mtt_Form_Imagen();
+
+        $this->view->assign( 'imagen' , $imagen );
+
+        $_imagen = new Mtt_Models_Bussines_Imagen();
+
+        $slugger = new Mtt_Filter_Slug(
+                        array(
+                            'field' => 'nombre' ,
+                            'model' => $_imagen
+                        )
+        );
+
+        $target = $slugger->filter( $imagen->getValue( 'nombre' ) ) . '.jpg';
+
+        $this->view->assign( 'target' , $target );
+        }
+
+
     }
 

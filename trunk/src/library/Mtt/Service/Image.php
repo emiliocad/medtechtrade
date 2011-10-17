@@ -34,6 +34,47 @@ class Mtt_Service_Image
 
         $this->_resizeImage();
         }
+    /**
+     * Initiates the process of generating an avatar
+     *
+     * @param String $originalFilename
+     * @param String $targetFilename 
+     */
+    public function processImageProduct( $originalFilename , $targetFilename )
+        {
+        $this->_setupConfiguration( 'product' );
+        $this->_targetFilename = $targetFilename;
+        $this->_originalFilename = $originalFilename;
+        $this->_resizeImage();
+        }
+    /**
+     * Initiates the process of generating an avatar
+     *
+     * @param String $originalFilename
+     * @param String $targetFilename 
+     */
+    public function processImageEquipo( $originalFilename , $targetFilename )
+        {
+        $this->_setupConfiguration( 'equipo' );
+        $this->_targetFilename = $targetFilename;
+        $this->_originalFilename = $originalFilename;
+
+        $this->_resizeImage();
+        }
+    /**
+     * Initiates the process of generating an avatar
+     *
+     * @param String $originalFilename
+     * @param String $targetFilename 
+     */
+    public function processImageThumb( $originalFilename , $targetFilename )
+        {
+        $this->_setupConfiguration( 'thumb' );
+        $this->_targetFilename = $targetFilename;
+        $this->_originalFilename = $originalFilename;
+
+        $this->_resizeImage();
+        }
 
 
     /**
@@ -46,12 +87,12 @@ class Mtt_Service_Image
         {
         $this->_configuration = new Zend_Config_Ini(
                         APPLICATION_PATH . $this->_configurationFilePath ,
-                        getenv( 'APPLICATION_ENV' )
+                        APPLICATION_ENV
         );
         $this->_targetHeight = $this->_configuration->$type->height;
         $this->_targetWidth = $this->_configuration->$type->width;
         $this->_targetQuality = $this->_configuration->$type->quality;
-        $this->_imageTargetFilepath = $this->_configuration->$type->path;
+        $this->_imageTargetFilepath = APPLICATION_PUBLIC . $this->_configuration->$type->path;
         $this->_tempFilepath = $this->_configuration->path->uploadTemp;
         }
 
@@ -63,12 +104,12 @@ class Mtt_Service_Image
         {
         if ( !isset( $this->_configuration ) )
             {
-            throw new exception( 'image configuration has not been setup' );
+            throw new Zend_Exception( 'image configuration has not been setup' );
             }
 
         $image = imagecreatefromjpeg(
-                $this->_tempFilepath . $this->_originalFilename 
-                );
+                $this->_originalFilename
+        );
         $imageWidth = imagesx( $image );
         $imageHeight = imagesy( $image );
 

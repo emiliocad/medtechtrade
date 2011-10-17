@@ -1,15 +1,15 @@
 <?php
 
-class Delta_0015 
+class Delta_0016 
     extends Mtt_Migration_Delta {
 
-    protected $_author = "Teresa Chunga Estrada";
-    protected $_desc = "cambiar campo";
+    protected $_author = "Luis Alberto Mayta Mamani";
+    protected $_desc = "Add Avatar";
 
     public function up() {
         $sql = "
-            ALTER TABLE `medtechtrade`.`alerta`     
-                CHANGE `descripcion` `tipo` INT(11) NULL ;
+            ALTER TABLE `medtechtrade`.`imagen`     
+            ADD COLUMN `avatar` VARCHAR(255) NULL AFTER `active`;
             ";
         
         $this->_db->query($sql);

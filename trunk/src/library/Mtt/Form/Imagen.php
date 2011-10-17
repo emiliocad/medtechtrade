@@ -61,11 +61,12 @@ class Mtt_Form_Imagen
         $this->imagen->setLabel(
                 $this->_translate->translate( 'Upload an image' ) . ':'
         );
-
+        $this->imagen->setRequired();
         $target = $this->nombre->getValue();
         $this->imagen->setDestination(
                 APPLICATION_PATH . '/../public/media/catalog/product'
         );
+
         $this->imagen->addValidator( 'Count' , false , 1 );
         $this->imagen->addValidator( 'Size' , false , 1024000 )
                 ->setValueDisabled( true );
