@@ -71,16 +71,26 @@ class Mtt_Models_Bussines_Alerta
             $registro['active'] = $data[$obj];
             $registro['fechamodificacion'] = date( 'Y-m-d H:i:s');
             
-            $registro['detalle'] = ($i ==2)?
-                 implode(',', $data['categorias']) : null;
-            
+            if(isset($data['categorias'])){
+                $registro['detalle'] = ($i == 2)?
+                     implode(',', $data['categorias']) : null;
+            }
             $this->update( $registro , 'id = ' . $alerta[$i]->id );
         }
         
         
         }
+        
+    public function comprobarActivoAlerta( array $dataUsuario )
+        {
 
+        foreach ( $dataUsuario as $fila){
+            $alerta[$fila->tipo]= $fila->active;
+        }
+        return $alerta;
+        }
 
+        
     public function deleteAlerta( $id )
         {
 
