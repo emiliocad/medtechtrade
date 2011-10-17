@@ -22,18 +22,21 @@ class Mtt_Form_IdiomaPais
         {
         $this->_idioma = new Mtt_Models_Bussines_Idioma();
         $this->_pais = new Mtt_Models_Bussines_Paises();
+        parent::__construct();
         }
 
 
     public function init()
         {
-        
+
         $this
                 ->setMethod( 'post' )
                 ->setAttrib( 'id' , 'frmIdiomaPais' )
+                ->setAction( '/default/idioma/index' )
         ;
 
         $this->pais = new Zend_Form_Element_Select( 'pais' );
+
         $this->pais->setLabel(
                         $this->_translate->translate( 'mi pais de residencia' )
                 )
@@ -48,6 +51,7 @@ class Mtt_Form_IdiomaPais
                                 array_keys( $this->_pais->getComboValues() )
                         )
                 )
+                ->setAttrib( 'style' , 'width:100px' )
         ;
         $this->addElement( $this->pais );
 

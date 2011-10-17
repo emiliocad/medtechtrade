@@ -1,4 +1,4 @@
- <?php
+<?php
 
 /*
  * To change this template, choose Tools | Templates
@@ -13,7 +13,15 @@ class Mtt_Models_Bussines_Paises
 
     public function getComboValues()
         {
-        $filas = $this->fetchAll( "active=1" )->toArray();
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from( $this->_name )
+                ->where( 'active = ?' , self::ACTIVE )
+                ->order( 'nombre' )
+                ->query()
+        ;
+        $filas = $query->fetchAll( Zend_Db::FETCH_ASSOC );
+
         $values = array( );
         foreach ( $filas as $fila )
             {
@@ -29,8 +37,7 @@ class Mtt_Models_Bussines_Paises
         $p->setItemCountPerPage( 3 );
         return $p;
         }
-        
-        
+
 
     public function listar()
         {
@@ -43,7 +50,6 @@ class Mtt_Models_Bussines_Paises
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
-        
 
 
     public function getFindId( $id )
@@ -52,7 +58,6 @@ class Mtt_Models_Bussines_Paises
         return $this->fetchRow( 'id = ' . $id );
         }
 
-        
 
     public function updatePais( array $data , $id )
         {
@@ -101,8 +106,6 @@ class Mtt_Models_Bussines_Paises
             "active" => self::DESACTIVATE )
                 , 'id = ' . $id );
         }
-        
-        
 
 
     }

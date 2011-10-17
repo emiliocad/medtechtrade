@@ -207,7 +207,7 @@ class EquipoController
         $this->_helper->viewRenderer->setNoRender();
 
         $pdf1 = Zend_Pdf::load(
-                        APPLICATION_PATH . '/../templates/template2-vacio.pdf'
+                        APPLICATION_PATH . '/../templates/template-2.pdf'
         );
 
         $page = $pdf1->newPage( Zend_Pdf_Page::SIZE_A4 ); // 595 x842

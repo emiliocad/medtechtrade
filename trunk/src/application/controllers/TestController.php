@@ -297,5 +297,12 @@ class TestController
         }
 
 
+    public function frmidiomapaisAction()
+        {
+        $frm = new Mtt_Form_IdiomaPais();
+        $this->view->assign( 'frm' , $frm );
+        }
+
+
     }
 
