@@ -25,22 +25,23 @@ class Admin_IdiomasController
 
     public function newAction()
         {
-        $form = new Mtt_Form_Equipo();
+        $this->view->assign(
+                'titulo' , $this->_translate->translate( 'nuevo idioma' )
+        );
+
+        $form = new Mtt_Form_Idioma();
         if ( $this->_request->isPost()
                 &&
                 $form->isValid( $this->_request->getPost() )
         )
             {
 
-            $equipo = $form->getValues();
-            $equipo_new = array(
-                'usuario_id' => $this->authData['usuario']->id
-            );
-            $equipo = array_merge( $equipo , $equipo_new );
+            $idioma = $form->getValues();
 
-            $this->_idioma->saveEquipo( $equipo );
+            $this->_idioma->saveIdioma( $idioma );
 
-            $this->_helper->FlashMessenger( 'Se Registro El Equipo' );
+            $this->_helper->FlashMessenger(
+                    $this->_translate->translate( 'se registro el idioma' ) );
             $this->_redirect( $this->URL );
             }
         $this->view->assign( 'frmRegistrar' , $form );
@@ -52,26 +53,28 @@ class Admin_IdiomasController
 
         $id = intval( $this->_getParam( 'id' ) );
 
-        $form = new Mtt_Form_Equipo();
+        $form = new Mtt_Form_Idioma();
 
-        $equipo = $this->_idioma->getFindId( $id );
+        $idioma = $this->_idioma->getFindId( $id );
 
-        if ( !is_null( $equipo ) )
+        if ( !is_null( $idioma ) )
             {
             if ( $this->_request->isPost() && $form->isValid(
                             $this->_request->getPost() )
             )
                 {
                 $this->_idioma->updateEquipo( $form->getValues() , $id );
-                $this->_helper->FlashMessenger( 'Se modificó un fabricante' );
+                $this->_helper->FlashMessenger(
+                        $this->_translate( 'Se modificó el idioma' ) );
                 $this->_redirect( $this->URL );
                 }
-            $form->setDefaults( $equipo->toArray() );
+            $form->setDefaults( $idioma->toArray() );
             $this->view->assign( 'form' , $form );
             }
         else
             {
-            $this->_helper->FlashMessenger( 'No existe ese fabricante' );
+            $this->_helper->FlashMessenger(
+                    $this->_translate->translate( 'No existe el idioma' ) );
             $this->_redirect( $this->URL );
             }
         }
@@ -81,7 +84,9 @@ class Admin_IdiomasController
         {
         $id = intval( $this->_request->getParam( 'id' ) );
         $this->_idioma->deleteEquipo( $id );
-        $this->_helper->FlashMessenger( 'Equipo Borrado' );
+        $this->_helper->FlashMessenger(
+                $this->_translate->translate( 'se elimino el idioma' )
+        );
         $this->_redirect( $this->URL );
         }
 
@@ -89,8 +94,10 @@ class Admin_IdiomasController
     public function activarAction()
         {
         $id = intval( $this->_request->getParam( 'id' ) );
-        $this->_idioma->activarEquipo( $id );
-        $this->_helper->FlashMessenger( 'Equipo Activado' );
+        $this->_idioma->activarIdioma( $id );
+        $this->_helper->FlashMessenger(
+                $this->_translate->translate( 'idioma activado' )
+        );
         $this->_redirect( $this->URL );
         }
 
@@ -98,8 +105,10 @@ class Admin_IdiomasController
     public function desactivarAction()
         {
         $id = intval( $this->_request->getParam( 'id' ) );
-        $this->_idioma->desactivarEquipo( $id );
-        $this->_helper->FlashMessenger( 'Equipo desactivado' );
+        $this->_idioma->desactivarIdioma( $id );
+        $this->_helper->FlashMessenger(
+                'Idioma desactivado'
+        );
         $this->_redirect( $this->URL );
         }
 

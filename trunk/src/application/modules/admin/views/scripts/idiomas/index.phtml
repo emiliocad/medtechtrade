@@ -1,5 +1,5 @@
 <h2>
-    <?= $this->translate( 'Idioma' ) ?>:
+    <?= $this->translate( 'idioma' ) ?>:
 </h2>
 <table border="1" class="listado">
     <thead>
@@ -23,12 +23,15 @@
                     <?= $this->escape( $idioma->nombre ) ?>
                 </td>
                 <td>
+                    <?= $this->escape( $idioma->prefijo ) ?>
+                </td>
+                <td>
 
                     <?php
                     $link = $this->url(
                             array(
                                 'module' => 'admin' ,
-                                'controller' => 'idioma' ,
+                                'controller' => 'idiomas' ,
                                 'action' => 'editar' ,
                                 'id' => $id )
                             )
@@ -40,7 +43,7 @@
                     <?php
                     $link = $this->url(
                             array( 'module' => 'admin' ,
-                                'controller' => 'idioma' ,
+                                'controller' => 'idiomas' ,
                                 'action' => 'borrar' ,
                                 'id' => $id )
                             )
@@ -51,10 +54,10 @@
                     </a>
 
                     <?php if ( $idioma->active ): ?>
-                        <?php $link = $this->url( array( 'module' => 'admin' , 'controller' => 'idioma' , 'action' => 'desactivar' , 'id' => $id ) ) ?>
+                        <?php $link = $this->url( array( 'module' => 'admin' , 'controller' => 'idiomas' , 'action' => 'desactivar' , 'id' => $id ) ) ?>
                         <a href="<?= $link ?>">[Desactivar]</a>
                     <?php else: ?>
-                        <?php $link = $this->url( array( 'module' => 'admin' , 'controller' => 'idioma' , 'action' => 'activar' , 'id' => $id ) ) ?>
+                        <?php $link = $this->url( array( 'module' => 'admin' , 'controller' => 'idiomas' , 'action' => 'activar' , 'id' => $id ) ) ?>
                         <a href="<?= $link ?>">[Activar]</a>
                     <?php endif; ?>
 
@@ -68,9 +71,9 @@
 <a href="<?=
         $this->url( array(
             'module' => 'admin' ,
-            'controller' => 'idioma' ,
-            'action' => 'nuevo'
+            'controller' => 'idiomas' ,
+            'action' => 'new'
                 ) , 'default' , true )
         ?>">
-       <? $this->translate( 'nuevo' ) ?>
+       <?= $this->translate( 'nuevo' ) ?>
 </a>
