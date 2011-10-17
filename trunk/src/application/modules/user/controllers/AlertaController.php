@@ -28,13 +28,15 @@ class User_AlertaController
         
         
         $form = new Mtt_Form_ConfigurarAlertas();
+        
+        $alertas = getAlertaByUser($this->authData['usuario']->id);
    
         if ( $this->_request->isPost()
                 &&
                 $form->isValid( $this->_request->getPost() )
         )
             {
-
+            
             }
             $this->view->assign( 'form' , $form );
         }

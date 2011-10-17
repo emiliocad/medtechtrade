@@ -24,6 +24,20 @@ class Mtt_Models_Bussines_Alerta
         }
 
 
+    public function getAlertaByUser( $idUser )
+        {
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from( $this->_name )
+                ->where( 'active = ?' , self::ACTIVE )
+                ->where( 'usuario_id = ?' , $idUser )
+                ->query()
+        ;
+
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }
+        
+        
     public function updateAlerta( array $data , $id )
         {
 
