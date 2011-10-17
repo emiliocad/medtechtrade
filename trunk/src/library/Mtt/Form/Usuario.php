@@ -197,7 +197,6 @@ class Mtt_Form_Usuario
         $values = $_pais->getComboValues();
         $this->paises->addMultiOption( -1 , '--- Paises ---' );
         $this->paises->addMultiOptions( $values );
-        //$this->addElement( $e );
         $this->paises->addValidator( new Zend_Validate_InArray(
                         array_keys( $values )
                 )
@@ -212,7 +211,6 @@ class Mtt_Form_Usuario
         $values = $_tipoUsuario->getComboValues();
         $this->rol->addMultiOption( -1 , '--- Rol de Usario ---' );
         $this->rol->addMultiOptions( $values );
-        //$this->addElement( $e );
         $this->rol->addValidator( new Zend_Validate_InArray(
                         array_keys( $values )
                 )

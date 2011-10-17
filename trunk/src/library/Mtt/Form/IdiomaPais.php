@@ -14,10 +14,20 @@ class Mtt_Form_IdiomaPais
     protected $pais;
     protected $recordar;
     protected $submit;
+    protected $_idioma;
+    protected $_pais;
+
+
+    public function __construct()
+        {
+        $this->_idioma = new Mtt_Models_Bussines_Idioma();
+        $this->_pais = new Mtt_Models_Bussines_Paises();
+        }
 
 
     public function init()
         {
+        
         $this
                 ->setMethod( 'post' )
                 ->setAttrib( 'id' , 'frmIdiomaPais' )
@@ -28,8 +38,17 @@ class Mtt_Form_IdiomaPais
                         $this->_translate->translate( 'mi pais de residencia' )
                 )
                 ->addMultiOption( -1 ,
-                                  $this->_translate->translate( 'escoger pais' ) )
-                ->addMultiOption( 1 , $this->_translate->translate( 'peru' ) );
+                                  $this->_translate->translate( 'escoger pais' )
+                )
+                ->addMultiOptions(
+                        $this->_pais->getComboValues()
+                )
+                ->addValidator(
+                        new Zend_Validate_InArray(
+                                array_keys( $this->_pais->getComboValues() )
+                        )
+                )
+        ;
         $this->addElement( $this->pais );
 
 
@@ -38,12 +57,16 @@ class Mtt_Form_IdiomaPais
                         $this->_translate->translate( 'mi idioma' )
                 )
                 ->addMultiOption( -1 ,
-                                  $this->_translate->translate( 'escoger idioma' ) )
-                ->addMultiOption( 1 , $this->_translate->translate( 'English' ) )
-                ->addMultiOption( 2 , $this->_translate->translate( 'English' ) )
-                ->addMultiOption( 3 , $this->_translate->translate( 'English' ) )
-                ->addMultiOption( 4 , $this->_translate->translate( 'English' ) )
-                ->addMultiOption( 5 , $this->_translate->translate( 'English' ) );
+                                  $this->_translate->translate(
+                                'escoger idioma' )
+                )
+                ->addMultiOptions( $this->_idioma->getComboValues() )
+                ->addValidator(
+                        new Zend_Validate_InArray(
+                                array_keys( $this->_idioma->getComboValues() )
+                        )
+                )
+        ;
         $this->addElement( $this->idioma );
 
 
