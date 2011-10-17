@@ -7,11 +7,11 @@
 
 class Mtt_Form_ConfigurarAlertas extends Mtt_Formy {
 
+    protected $_alerts;
     protected $tipo;
     protected $detalle;
     protected $active;
     protected $submit;
-    protected $_alerts;
 
     public function __construct($data = null) {
         parent::__construct($data);
@@ -20,7 +20,6 @@ class Mtt_Form_ConfigurarAlertas extends Mtt_Formy {
         }
     }
 
-    
     public function init() {
         $this
                 ->setMethod('post')
@@ -33,9 +32,11 @@ class Mtt_Form_ConfigurarAlertas extends Mtt_Formy {
                         'nuevo equipo en busqueda guardada'
                 )
         );
-       
-        $alerta1->setChecked($this->_alerts[1]);
 
+        $alerta1->setChecked($this->_alerts[1]);
+        if ($this->_alerts[1]) {
+            $alerta1->setAttrib('checked', 'checked');
+        }
         $this->addElement($alerta1);
 
         $alerta2 = new Zend_Form_Element_Checkbox('alerta2');
@@ -45,12 +46,12 @@ class Mtt_Form_ConfigurarAlertas extends Mtt_Formy {
                 )
         );
         $alerta2->setChecked($this->_alerts[2]);
-       
+
         $this->addElement($alerta2);
 
         $categorias = new Zend_Form_Element_MultiCheckbox('categorias');
         $_categorias = new Mtt_Models_Bussines_Categoria();
-        
+
         foreach ($_categorias->listCategory() as $cat) {
             $categorias->addMultiOption($cat->id, $cat->nombre);
         }
