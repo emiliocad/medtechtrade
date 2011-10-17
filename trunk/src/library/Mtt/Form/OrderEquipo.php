@@ -21,10 +21,12 @@ class Mtt_Form_OrderEquipo
         $order = new Zend_Form_Element_Select( 'order' );
         $order->setRequired();
         $order->addMultiOption(
-                        -1 , $this->_translate->translate( 'order by' )
+                        -1 , $this->_translate->translate( 'ordenar por' )
                 )
-                ->addMultiOption( 'fabricante' , 'Manufacturer, A-Z' )
-                ->addMultiOption( 'modelo' , 'Model, A-Z' );
+                ->addMultiOption( 'fabricante' , 
+                        $this->_translate->translate('fabricante') .', A-Z' )
+                ->addMultiOption( 'modelo' , 
+                        $this->_translate->translate('modelo') . ', A-Z' );
         $order->setAttrib( 'class' , 'order-by' );
 
         $this->addElement( $order );
