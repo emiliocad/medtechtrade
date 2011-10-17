@@ -19,15 +19,19 @@ class Mtt_Form_ConfigurarAlertas
 
     public function __construct( $data = null )
         {
-        
+
         if ( !is_null( $data ) )
             {
             $this->_alerts = $data;
             }
-            parent::__construct( $data );
+
+        parent::__construct();
         }
 
-    public function init() {
+
+    public function init()
+        {
+
         $this
                 ->setMethod( 'post' )
                 ->setAttrib( 'id' , 'frmConfigurarAlertas' )
@@ -40,11 +44,13 @@ class Mtt_Form_ConfigurarAlertas
                 )
         );
 
-        $alerta1->setChecked($this->_alerts[1]);
-        if ($this->_alerts[1]) {
-            $alerta1->setAttrib('checked', 'checked');
-        }
-        $this->addElement($alerta1);
+        //$alerta1->setChecked($this->_alerts[1]);
+        if ( isset( $this->_alerts[1] ) )
+            {
+            $alerta1->setAttrib( 'checked' , true );
+            }
+
+        $this->addElement( $alerta1 );
 
         $alerta2 = new Zend_Form_Element_Checkbox( 'alerta2' );
         $alerta2->setLabel(
@@ -93,6 +99,8 @@ class Mtt_Form_ConfigurarAlertas
           $this->submit
           )
           ); */
+
+        parent::init();
         }
 
 

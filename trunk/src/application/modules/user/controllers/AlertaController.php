@@ -34,8 +34,10 @@ class User_AlertaController
                 $this->authData['usuario']->id
         );
 
+        $tmpArray = array( 1 , 2 , 3 );
+
         $form = new Mtt_Form_ConfigurarAlertas(
-                        $this->_alerta->comprobarActivoAlerta( $alertasUsuario )
+                        $tmpArray
         );
 
         if ( $this->_request->isPost()
@@ -57,6 +59,7 @@ class User_AlertaController
             }
 
         $this->view->assign( 'form' , $form );
+        $this->view->assign( 'alerta' , isset( $tmpArray[0] ) );
         }
 
 
