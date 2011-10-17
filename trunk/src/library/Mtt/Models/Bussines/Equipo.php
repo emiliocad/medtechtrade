@@ -256,6 +256,7 @@ class Mtt_Models_Bussines_Equipo
                 ->where( 'equipo.topofers IN (?)' , self::ACTIVE )
                 ->where( 'equipo.categoria_id IN (?)' , $category_id )
                 ->where( 'equipo.active IN (?)' , self::ACTIVE )
+                ->group( 'equipo.id' )
                 ->query();
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );

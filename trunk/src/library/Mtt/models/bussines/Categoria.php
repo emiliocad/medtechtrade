@@ -51,6 +51,7 @@ class Mtt_Models_Bussines_Categoria
                 ->where( 'equipo.publicacionEquipo_id = ?' , 
                         Mtt_Models_Table_PublicacionEquipo::Activada
                 )
+                ->group( 'equipo.id' )
                 ->order( $order )
                 ->query();
 
