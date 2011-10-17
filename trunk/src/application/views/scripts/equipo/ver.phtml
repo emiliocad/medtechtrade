@@ -146,6 +146,21 @@
              }
         }
     ?>
+
+    <a href="
+    <?=
+    $this->url(
+            array( 'module' => 'user' , 'controller' => 'equipo' ,
+        'action' => 'cotizar' ,
+        'id' => $this->producto->id ) , 'default' , true
+     )
+    ?> 
+       ">
+        <span class="device-action-tobuy">
+            <?= $this->translate( 'Request Price' ) ?>
+        </span>
+    </a>
+
     <a href="javascript:history.go(-1)">
         <span class="device-action-back">
             <?= $this->translate( 'Back' ) ?>

@@ -44,12 +44,39 @@
     </span>
 <? endif; ?>
 
-<? if ( !is_null( $this->producto->precioventa ) ): ?>
+<? if ( !is_null( $this->producto->size ) ): ?>
     <span class="device-description-field">
-        <?= $this->translate( 'Price' ) ?>
+        <?= $this->translate( 'tamaño' ) ?>
     </span>
     <span>
-        <?= $this->producto->precioventa ?>
+        <?= $this->producto->size ?>
+    </span>
+<? endif; ?>
+
+<? if ( !is_null( $this->producto->ancho ) ): ?>
+    <span class="device-description-field">
+        <?= $this->translate( 'ancho' ) ?>
+    </span>
+    <span>
+        <?= $this->producto->ancho ?>
+    </span>
+<? endif; ?>
+
+<? if ( !is_null( $this->producto->alto ) ): ?>
+    <span class="device-description-field">
+        <?= $this->translate( 'alto' ) ?>
+    </span>
+    <span>
+        <?= $this->producto->alto ?>
+    </span>
+<? endif; ?>
+
+<? if ( !is_null( $this->producto->sizeCaja ) ): ?>
+    <span class="device-description-field">
+        <?= $this->translate( 'tamaño de la caja' ) ?>
+    </span>
+    <span>
+        <?= $this->producto->sizeCaja ?>
     </span>
 <? endif; ?>
 
@@ -91,3 +118,11 @@
     Power Tension 230v freq. 50 Phase: 1<br/>
     <?= $this->translate( 'Amps' ) ?>: 12A
 </span>
+<? if ( !is_null( $this->producto->precioventa ) ): ?>
+    <span class="device-description-field">
+        <?= $this->translate( 'Price' ) ?>
+    </span>
+    <span>
+        <?= $this->producto->precioventa ?>
+    </span>
+<? endif; ?>
