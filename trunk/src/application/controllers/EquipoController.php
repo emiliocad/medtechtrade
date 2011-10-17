@@ -206,12 +206,20 @@ class EquipoController
         $this->_helper->layout->disableLayout();
         $this->_helper->viewRenderer->setNoRender();
 
+        $idEquipo = $this->_request->getParam( 'id' );
+
+        $_equipo = new Mtt_Models_Bussines_Equipo();
+        $dataEquipo = $_equipo->getProduct( $idEquipo );
+
+
+
         $pdf1 = Zend_Pdf::load(
                         APPLICATION_PATH . '/../templates/template-2.pdf'
         );
 
         $page = $pdf1->newPage( Zend_Pdf_Page::SIZE_A4 ); // 595 x842
         $font = Zend_Pdf_Font::fontWithName( Zend_Pdf_Font::FONT_TIMES );
+        Zend_Pdf_Color_Rgb::
 //        $pdf->pages[] = $page;
 //        $page->setFont($font, 20);$page->drawText('Zend: PDF', 10, 822);
 //        $page->setFont($font, 12);$page->drawText('Comentarios', 10, $pdfY2);
@@ -239,7 +247,7 @@ class EquipoController
                                                                 $pdfYCabecera ,
                                                                 $pdfX );
         /* valor del manufacturer */
-        $page->drawText( 'aca va el manufacturer' , $pdfY , $pdfX );
+        $page->drawText( $dataEquipo->fabricante , $pdfY , $pdfX );
         /**/
 
         $pdfX -= $aumento;
@@ -248,7 +256,7 @@ class EquipoController
                                                                 $pdfYCabecera ,
                                                                 $pdfX );
         /* valor del manufacturer */
-        $page->drawText( 'aca va el producto' , $pdfY , $pdfX );
+        $page->drawText( $dataEquipo->nombre , $pdfY , $pdfX );
         /**/
         $pdfX -= $aumento;
 
@@ -257,7 +265,7 @@ class EquipoController
                                                                 $pdfYCabecera ,
                                                                 $pdfX );
         /* valor del manufacturer */
-        $page->drawText( 'aca va el modelo' , $pdfY , $pdfX );
+        $page->drawText( $dataEquipo->modelo , $pdfY , $pdfX );
         /**/
         $pdfX -= $aumento;
         /* cabecera */
@@ -265,7 +273,7 @@ class EquipoController
                                                                 $pdfYCabecera ,
                                                                 $pdfX );
         /* valor del manufacturer */
-        $page->drawText( 'origen' , $pdfY , $pdfX );
+        $page->drawText( $dataEquipo->pais , $pdfY , $pdfX );
         /**/
         $pdfX -= $aumento;
         /* cabecera */
@@ -273,7 +281,7 @@ class EquipoController
                                                                 $pdfYCabecera ,
                                                                 $pdfX );
         /* valor del manufacturer */
-        $page->drawText( 'aca va el manufacturer' , $pdfY , $pdfX );
+        $page->drawText( $dataEquipo->id , $pdfY , $pdfX );
         /**/
         $pdfX -= $aumento - 3;
         /* cabecera */
@@ -281,7 +289,7 @@ class EquipoController
                                                                 $pdfYCabecera ,
                                                                 $pdfX );
         /* valor del manufacturer */
-        $page->drawText( 'aca va el manufacturer' , $pdfY , $pdfX );
+        $page->drawText( $dataEquipo->fechafabricacion , $pdfY , $pdfX );
         /**/
         $pdfX -= $aumento;
         /* cabecera */
@@ -289,7 +297,7 @@ class EquipoController
                                                                 $pdfYCabecera ,
                                                                 $pdfX );
         /* valor del manufacturer */
-        $page->drawText( 'aca va el manufacturer' , $pdfY , $pdfX );
+        $page->drawText( $dataEquipo->pesoEstimado , $pdfY , $pdfX );
         /**/
         $pdfX -= $aumento;
         /* cabecera */
@@ -297,7 +305,7 @@ class EquipoController
                                                                 $pdfYCabecera ,
                                                                 $pdfX );
         /* valor del manufacturer */
-        $page->drawText( 'aca va el manufacturer' , $pdfY , $pdfX );
+        $page->drawText( $dataEquipo->sizeCaja , $pdfY , $pdfX );
         /**/
         $pdfX -= $aumento;
         /* cabecera */
@@ -305,7 +313,7 @@ class EquipoController
                                                                 $pdfYCabecera ,
                                                                 $pdfX );
         /* valor del manufacturer */
-        $page->drawText( 'aca va el manufacturer' , $pdfY , $pdfX );
+        $page->drawText( $dataEquipo->ancho , $pdfY , $pdfX );
         /**/
         $pdfX -= $aumento - 2;
         /* cabecera */
@@ -313,7 +321,7 @@ class EquipoController
                                                                 $pdfYCabecera ,
                                                                 $pdfX );
         /* valor del manufacturer */
-        $page->drawText( 'aca va el manufacturer' , $pdfY , $pdfX );
+        $page->drawText( $dataEquipo->alto , $pdfY , $pdfX );
         /**/
         $pdfX -= $aumento;
         /* cabecera */
@@ -321,47 +329,48 @@ class EquipoController
                                                                 $pdfYCabecera ,
                                                                 $pdfX );
         /* valor del manufacturer */
-        $page->drawText( 'aca va el manufacturer' , $pdfY , $pdfX );
+        $page->drawText( $dataEquipo->sizeCaja , $pdfY , $pdfX );
         /**/
         $pdfX -= $aumento;
         /* cabecera */
         $page->drawText( ucwords( $this->_translate->translate( 'condicion de calidad' ) ) ,
                                                                 $pdfYCabecera ,
-                                                                $pdfX );
+                                                                507 );
         /* valor del manufacturer */
-        $page->drawText( 'aca va el manufacturer' , $pdfY , $pdfX );
+        $page->drawText( $dataEquipo->calidad , $pdfY , 507 );
         /**/
         $pdfX -= $aumento;
         /* cabecera */
         $page->drawText( ucwords( $this->_translate->translate( 'offerer name' ) ) ,
                                                                 $pdfYCabecera ,
-                                                                $pdfX );
+                                                                495 );
         /* valor del manufacturer */
-        $page->drawText( 'aca va el manufacturer' , $pdfY , $pdfX );
+        $page->drawText( '' , $pdfY , 495 );
         /**/
         $pdfX -= $aumento;
         /* cabecera */
         $page->drawText( ucwords( $this->_translate->translate( 'offerer city' ) ) ,
                                                                 $pdfYCabecera ,
-                                                                $pdfX );
+                                                                480 );
         /* valor del manufacturer */
-        $page->drawText( 'aca va el manufacturer' , $pdfY , $pdfX );
+        $page->drawText( '' , $pdfY , 480 );
         /**/
         $pdfX -= $aumento;
         /* cabecera */
         $page->drawText( ucwords( $this->_translate->translate( 'amount of equipment' ) ) ,
                                                                 $pdfYCabecera ,
-                                                                $pdfX );
+                                                                465 );
         /* valor del manufacturer */
-        $page->drawText( 'aca va el manufacturer' , $pdfY , $pdfX );
+        $page->drawText( $dataEquipo->cantidad , $pdfY , 465 );
         /**/
         $pdfX -= $aumento;
         /* cabecera */
         $page->drawText( ucwords( $this->_translate->translate( 'descripcion' ) ) ,
                                                                 $pdfYCabecera ,
                                                                 433 );
-        /* valor del manufacturer */
-        $page->drawText( 'aca va el manufacturer' , $pdfY , $pdfX );
+        /* TODO descripcion */
+        $page->drawText( "dkflksdjflksdjflkjsdlkfjsdlkfjsd <br/>   
+            dskfjsdlkfjlsdkjfsdlkf " , $pdfY , 421 );
         /**/
         $pdfX -= $aumento;
         /* cabecera */
@@ -369,7 +378,7 @@ class EquipoController
                                                                 $pdfYCabecera ,
                                                                 339 );
         /* valor del manufacturer */
-        $page->drawText( 'aca va el manufacturer' , $pdfY , $pdfX );
+        $page->drawText( $dataEquipo->precioventa , $pdfY , 339 );
         /**/
 
 
@@ -382,14 +391,12 @@ class EquipoController
         header( "Content-Disposition: inline; filename=informeMedtechtrade.pdf" );
         $this->_response->appendBody( $pdfData );
 
-
-        $id = $this->_request->getParam( 'id' );
-
-        $this->view->assign(
-                'producto' , $this->_equipo->getProduct( $id )
-        );
-
-
+//
+//        $id = $this->_request->getParam( 'id' );
+//
+//        $this->view->assign(
+//                'producto' , $this->_equipo->getProduct( $id )
+//        );
 //        $html = $this->view->render( 'equipo/ver.phtml' );
 //
 //        require_once(APPLICATION_PATH . "/../library/Dompdf/dompdf_config.inc.php");
