@@ -19,11 +19,12 @@ class Mtt_Form_ConfigurarAlertas
 
     public function __construct( $data = null )
         {
-        parent::__construct( $data );
+        
         if ( !is_null( $data ) )
             {
             $this->_alerts = $data;
             }
+            parent::__construct( $data );
         }
 
     public function init() {
