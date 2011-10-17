@@ -12,6 +12,7 @@ class Delta_0022
     public function up()
         {
         $sql = "
+
              ALTER TABLE `medtechtrade`.`paises`
              ADD COLUMN `integrate` INT NULL AFTER `active`;
             ";
