@@ -81,7 +81,7 @@ class Mtt_Models_Bussines_Equipo
                     'preciocompra' , 'tag' , 'calidad' ,
                     'cantidad' , 'modelo' , 'fechafabricacion' ,
                     'documento' , 'sourceDocumento' , 'pesoEstimado' , 'size' ,
-                    'ancho' , 'alto' , 'sizeCaja' )
+                    'ancho' , 'alto' , 'sizeCaja', 'especificaciones' )
                 )
                 ->joinInner( 'categoria' ,
                              'categoria.id = equipo.categoria_id' ,
