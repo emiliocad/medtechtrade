@@ -219,7 +219,6 @@ class EquipoController
 
         $page = $pdf1->newPage( Zend_Pdf_Page::SIZE_A4 ); // 595 x842
         $font = Zend_Pdf_Font::fontWithName( Zend_Pdf_Font::FONT_TIMES );
-        Zend_Pdf_Color_Rgb::
 //        $pdf->pages[] = $page;
 //        $page->setFont($font, 20);$page->drawText('Zend: PDF', 10, 822);
 //        $page->setFont($font, 12);$page->drawText('Comentarios', 10, $pdfY2);
@@ -229,6 +228,7 @@ class EquipoController
 
         /* ficha de equipo */
         $page->setFont( $font , 14 );
+        $page->setFillColor(new Zend_Pdf_Color_Html('#B91E1D'));
         $page->drawText(
                 ucwords( $this->_translate->translate( 'ficha del equipo' ) ) ,
                                                        23 , 696 );
@@ -241,6 +241,7 @@ class EquipoController
         $pdfY = 175;
         $pdfYCabecera = 33;
         $page->setFont( $font , 11 );
+        $page->setFillColor(new Zend_Pdf_Color_Html('#355F91'));
         /* cabecera */
 
         $page->drawText( ucwords( $this->_translate->translate( 'manufactur' ) ) ,
@@ -370,7 +371,8 @@ class EquipoController
                                                                 433 );
         /* TODO descripcion */
         $page->drawText( "dkflksdjflksdjflkjsdlkfjsdlkfjsd <br/>   
-            dskfjsdlkfjlsdkjfsdlkf " , $pdfY , 421 );
+            dskfjsdlkfjlsdkjfsdlkf " ,
+                         $pdfY , 421 );
         /**/
         $pdfX -= $aumento;
         /* cabecera */
