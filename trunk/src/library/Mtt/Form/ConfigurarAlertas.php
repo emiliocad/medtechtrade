@@ -11,15 +11,16 @@ class Mtt_Form_ConfigurarAlertas extends Mtt_Formy {
     protected $detalle;
     protected $active;
     protected $submit;
-    protected $_data;
+    protected $_alerts;
 
     public function __construct($data = null) {
         parent::__construct($data);
         if (!is_null($data)) {
-            $this->_data = $data;
+            $this->_alerts = $data;
         }
     }
 
+    
     public function init() {
         $this
                 ->setMethod('post')
@@ -33,7 +34,7 @@ class Mtt_Form_ConfigurarAlertas extends Mtt_Formy {
                 )
         );
        
-        $alerta1->setChecked($this->_data[1]);
+        $alerta1->setChecked($this->_alerts[1]);
 
         $this->addElement($alerta1);
 
@@ -43,7 +44,8 @@ class Mtt_Form_ConfigurarAlertas extends Mtt_Formy {
                         'nuevo equipo en categoria seleccionada'
                 )
         );
-
+        $alerta2->setChecked($this->_alerts[2]);
+       
         $this->addElement($alerta2);
 
         $categorias = new Zend_Form_Element_MultiCheckbox('categorias');
@@ -60,7 +62,7 @@ class Mtt_Form_ConfigurarAlertas extends Mtt_Formy {
                         'nuevo equipo en plataforma'
                 )
         );
-
+        $alerta3->setChecked($this->_alerts[3]);
         $this->addElement($alerta3);
 
         $this->submit = new Zend_Form_Element_Button('submit');
