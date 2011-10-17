@@ -31,6 +31,27 @@ class Mtt_Models_Bussines_Paises
         }
 
 
+    public function getComboValuesIntegrate()
+        {
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from( $this->_name )
+                ->where( 'active = ?' , self::ACTIVE )
+                ->where( 'integrate =?' , self::ACTIVE )
+                ->order( 'nombre' )
+                ->query()
+        ;
+        $filas = $query->fetchAll( Zend_Db::FETCH_ASSOC );
+
+        $values = array( );
+        foreach ( $filas as $fila )
+            {
+            $values[$fila['id']] = $fila['nombre'];
+            }
+        return $values;
+        }
+
+
     public function getPaginator()
         {
         $p = Zend_Paginator::factory( $this->fetchAll() );

@@ -1,7 +1,7 @@
 <?php
 
 
-class CheckoutController
+class User_CheckoutController
         extends Mtt_Controller_Action
     {
 
