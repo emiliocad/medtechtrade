@@ -139,7 +139,7 @@
     <?
     if ( Zend_Auth::getInstance()->hasIdentity() )
         {
-         if($this->producto->publicacionid === 
+         if($this->producto->publicacionid == 
             Mtt_Models_Table_PublicacionEquipo::Activada)
              {
             echo $this->render( 'equipo/user/deviceActions.phtml' );
