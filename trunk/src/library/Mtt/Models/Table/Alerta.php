@@ -13,6 +13,7 @@ class Mtt_Models_Table_Alerta
     const Busqueda = 1;
     const Categoria = 2;
     const Plataforma = 3;
+    const NAlertas = 3;
     
     protected $_name = 'alerta';
     protected $_primary = 'id';

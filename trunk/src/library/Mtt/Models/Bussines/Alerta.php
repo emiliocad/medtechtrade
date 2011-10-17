@@ -28,8 +28,11 @@ class Mtt_Models_Bussines_Alerta
         {
         $db = $this->getAdapter();
         $query = $db->select()
-                ->from( $this->_name )
-                ->where( 'active = ?' , self::ACTIVE )
+                ->from( $this->_name ,
+                        array('id',
+                        'tipo',
+                        'detalle',
+                        'active'))
                 ->where( 'usuario_id = ?' , $idUser )
                 ->query()
         ;
@@ -38,17 +41,43 @@ class Mtt_Models_Bussines_Alerta
         }
         
         
-    public function updateAlerta( array $data , $id )
+    public function saveAlerta( array $data)
         {
-
-        $this->update( $data , 'id = ' . $id );
+        for ($i = 1; $i <= Mtt_Models_Table_Alerta::NAlertas; $i++){
+            
+            $obj = "alerta".$i;
+       
+            $registro['usuario_id'] = $data['usuario_id'];
+            $registro['tipo'] = $i;
+            $registro['active'] = $data[$obj];
+            $registro['fecharegistro'] = date( 'Y-m-d H:i:s');
+            
+            $registro['detalle'] = ($i ==2)?
+                 implode(',', $data['categorias']) : null;
+            $this->insert( $registro);
+           
+        }
         }
 
 
-    public function saveAlerta( array $data )
+    public function updateAlerta( array $data, array $dataUsuario )
         {
-
-        $this->insert( $data );
+        foreach ( $dataUsuario as $fila){
+            $alerta[$fila->tipo]= $fila;
+        }
+        for ($i = 1; $i <= Mtt_Models_Table_Alerta::NAlertas; $i++){
+            
+            $obj = "alerta".$i;
+            $registro['active'] = $data[$obj];
+            $registro['fechamodificacion'] = date( 'Y-m-d H:i:s');
+            
+            $registro['detalle'] = ($i ==2)?
+                 implode(',', $data['categorias']) : null;
+            
+            $this->update( $registro , 'id = ' . $alerta[$i]->id );
+        }
+        
+        
         }
 
 
