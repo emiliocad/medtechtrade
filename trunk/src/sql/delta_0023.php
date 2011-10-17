@@ -1,20 +1,18 @@
 <?php
 
 
-class Delta_0022
+class Delta_0023
         extends Mtt_Migration_Delta
     {
 
     protected $_author = "Luis Alberto Mayta Mamani";
-    protected $_desc = "ADD campo Integrate en campo";
+    protected $_desc = "Insertando Integrate a Paises";
 
 
     public function up()
         {
         $sql = "
-
-             ALTER TABLE `medtechtrade`.`paises`
-             ADD COLUMN `integrate` INT NULL AFTER `active`;
+             UPDATE paises SET integrate = 1 WHERE id IN (1,24,79,5,161)
             ";
 
         $this->_db->query( $sql );
