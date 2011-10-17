@@ -6,10 +6,10 @@
         <link href="/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <?=
         $this->headLink()->prependStylesheet( '/theme/default/css/reset.css' )
-                ->headLink()->appendStylesheet( '/theme/default/css/default.css' )
                 ->headLink()->appendStylesheet(
                         '/theme/default/css/form.css'
                 )
+                ->headLink()->appendStylesheet( '/theme/default/css/listado.css' )
                 ->headLink()->appendStylesheet(
                         '/theme/default/css/user.css'
                 )
@@ -20,7 +20,6 @@
         $this->jQuery()->setVersion( '1.4.2' )
                 ->setUiVersion( '1.8.16' )
                 ->addStylesheet( '/theme/admin/css/redmond/jquery-ui-1.8.16.custom.css' )
-                ->addJavascriptFile( '/js/jquery.corner/jquery.corner.js' )
                 ->enable()
                 ->uiEnable();
         ?>
@@ -31,18 +30,6 @@
                 )
                 ->appendFile(
                         '/js/ckeditor/ckeditor.js'
-                )
-                ->appendFile(
-                        '/theme/default/js/accionmenu.js'
-                )
-                ->appendFile(
-                        '/js/CookieJS.js'
-                )
-                ->appendFile(
-                        '/theme/default/js/menu/menu.js'
-                )
-                ->appendFile(
-                        '/js/user.js'
                 )
         ;
         ?> 
@@ -65,32 +52,8 @@
         <section>
 
             <div id="wrap-middle" class="wrapper">
-                <? if ( Zend_Auth::getInstance()->hasIdentity() ): ?>
-                    <?= $this->render( '_userMenu.phtml' ); ?>
-                <? endif; ?>
                 <div id="section-middle" class="section">
-                    <aside>
-                        <div id="section-middle-categories">
 
-
-                            <?= $this->render( '_menucategories.phtml' ); ?>
-                            <div id="section-middle-list">
-                                <span id="section-middle-list-advice">
-                                    We are looking
-                                    <br/>
-                                    for this used
-                                    <br/>
-                                    medical
-                                    <br/>equipment:
-                                    <br/>
-                                </span>
-                                <br/>
-                                <a href="#">
-                                    <span>Link to the list</span>
-                                </a>
-                            </div>
-                        </div>
-                    </aside>
 
                     <article>
 
@@ -102,7 +65,6 @@
                                 <?= $this->layout()->content ?>
 
                             </div>
-                            
                             <div class="clear">
 
                             </div>

@@ -71,7 +71,9 @@
         <section>
 
             <div id="wrap-middle" class="wrapper">
-                <?= $this->render( '_userMenu.phtml' ); ?>
+                <? if ( Zend_Auth::getInstance()->hasIdentity() ): ?>
+                    <?= $this->render( '_userMenu.phtml' ); ?>
+                <? endif; ?>
                 <div id="section-middle" class="section">
                     <aside>
                         <div id="section-middle-categories">

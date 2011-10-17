@@ -17,7 +17,6 @@ class User_EquipoController
 
     public function indexAction()
         {
-        $this->_helper->layout->setLayout( 'layoutListado' );
 
         $equipos = $this->_equipo->pagListEquipByUser(
                 $this->authData['usuario']->id
@@ -57,7 +56,7 @@ class User_EquipoController
 
     public function verpendientesAction()
         {
-        $this->_helper->layout->setLayout( 'layoutListado' );
+
          $equipos = $this->_equipo->pagListEquipByUserStatus(
                         $this->authData['usuario']->id ,
                         Mtt_Models_Bussines_PublicacionEquipo::Pendiente
@@ -76,7 +75,7 @@ class User_EquipoController
 
     public function veractivosAction()
         {
-        $this->_helper->layout->setLayout( 'layoutListado' );
+
         $equipos = $this->_equipo->pagListEquipByUserStatus(
                         $this->authData['usuario']->id ,
                         Mtt_Models_Bussines_PublicacionEquipo::Activada
@@ -104,7 +103,7 @@ class User_EquipoController
 
     public function vernovendidosAction()
         {
-        $this->_helper->layout->setLayout( 'layoutListado' );
+
         $this->view->assign(
                 'equipos' ,
                 $this->_equipo->listEquipNoSalesUser(
