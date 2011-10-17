@@ -1,4 +1,12 @@
 <h2>
-    <?= $this->translate( 'edtar mi informacion' ) ?>:
+    <?= $this->translate('edtar mi informacion') ?>:
 </h2>
 <?= $this->form ?>
+<p>
+    <?= $this->translate('fecha de registro') ?> : 
+    <?= $this->usuario->fecharegistro ?>
+</p>
+<p>
+    <?= $this->translate('fecha de modificacion') ?> :
+    <?= $this->usuario->fechamodificacion ?>
+</p>
