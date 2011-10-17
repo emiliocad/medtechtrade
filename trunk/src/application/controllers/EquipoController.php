@@ -220,19 +220,19 @@ class EquipoController
         $page = $pdf1->pages[0];
 
         /* ficha de equipo */
-        $page->setFont( $font , 18 );
+        $page->setFont( $font , 14 );
         $page->drawText(
                 ucwords( $this->_translate->translate( 'ficha del equipo' ) ) ,
-                                                       85 , 650 );
+                                                       23 , 696 );
         /* end ficha de equipo */
 
         /* cuerpo del equipo */
 
-        $pdfX = 635;
-        $aumento = 14;
-        $pdfY = 270;
-        $pdfYCabecera = 80;
-        $page->setFont( $font , 12 );
+        $pdfX = 675;
+        $aumento = 16;
+        $pdfY = 175;
+        $pdfYCabecera = 33;
+        $page->setFont( $font , 11 );
         /* cabecera */
 
         $page->drawText( ucwords( $this->_translate->translate( 'manufactur' ) ) ,
@@ -359,7 +359,7 @@ class EquipoController
         /* cabecera */
         $page->drawText( ucwords( $this->_translate->translate( 'descripcion' ) ) ,
                                                                 $pdfYCabecera ,
-                                                                $pdfX );
+                                                                433 );
         /* valor del manufacturer */
         $page->drawText( 'aca va el manufacturer' , $pdfY , $pdfX );
         /**/
@@ -367,7 +367,7 @@ class EquipoController
         /* cabecera */
         $page->drawText( ucwords( $this->_translate->translate( 'selling price' ) ) ,
                                                                 $pdfYCabecera ,
-                                                                $pdfX );
+                                                                339 );
         /* valor del manufacturer */
         $page->drawText( 'aca va el manufacturer' , $pdfY , $pdfX );
         /**/
