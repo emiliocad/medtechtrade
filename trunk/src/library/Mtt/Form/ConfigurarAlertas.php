@@ -65,11 +65,18 @@ class Mtt_Form_ConfigurarAlertas
         $categorias = new Zend_Form_Element_MultiCheckbox( 'categorias' );
         $_categorias = new Mtt_Models_Bussines_Categoria();
 
-
+        
+        
         foreach ( $_categorias->listCategory() as $cat )
             {
+            
             $categorias->addMultiOption( $cat->id , $cat->nombre );
             }
+        
+       $categorias->setValue( explode(',', $this->_alerts['categorias']));
+      
+       
+        
         $this->addElement( $categorias );
 
         $alerta3 = new Zend_Form_Element_Checkbox( 'alerta3' );
