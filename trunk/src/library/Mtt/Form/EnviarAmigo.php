@@ -16,14 +16,28 @@ class Mtt_Form_EnviarAmigo
         $this
                 ->setMethod( 'post' )
                 ->setAttrib( 'id' , 'frmEnviarAmigo' )
-        //->setAction( '/categoria/index' )
+                //->setAction( '/equipo/enviaramigo' )
         ;
-        $order = new Zend_Form_Element_Text( 'email' );
-        $order->setRequired();
-        
-        $order->setAttrib( 'class' , 'order-by' );
+        $email= new Zend_Form_Element_Text( 'email' );
+        $email->setLabel( $this->_translate->translate('email'));
+        $email->addValidator( new Zend_Validate_EmailAddress() );
+        $email->setRequired();
 
-        $this->addElement( $order );
+        $this->addElement( $email );
+        
+        $nombre= new Zend_Form_Element_Text( 'nombre' );
+        $nombre->setLabel( 
+                $this->_translate->translate('nombre del que envia')
+        );
+        $nombre->setRequired();
+
+        $this->addElement( $nombre );
+        
+        $this->addElement( 'submit' ,
+                           $this->_translate->translate(
+                        'Submit'
+                )
+        );
         }
 
 

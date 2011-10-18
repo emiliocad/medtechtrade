@@ -69,6 +69,13 @@ class EquipoController
                             });
                         });
                         
+                        $(".device-action-friend").click(function(){
+                            $("#dialogToSendFriend").dialog({
+                                height: 160,
+                                width: 360,
+                                modal: true
+                            });
+                        });
                         '
         );
 
@@ -86,6 +93,9 @@ class EquipoController
             $form = new Mtt_Form_SearchGeneral();
             $this->view->assign( 'formSearch' , $form );
 
+            $formEnviarAmigo = new Mtt_Form_EnviarAmigo();
+            $this->view->assign( 'formEnviarAmigo' , $formEnviarAmigo );
+            
             /*             * * */
 
             if ( Zend_Auth::getInstance()->hasIdentity() )

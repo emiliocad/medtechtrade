@@ -37,7 +37,10 @@
 <div id="search" style="display: none;">
     <?= $this->formSearch ?>
 </div>
-
+<div id="dialogToSendFriend"  style="display: none;"
+     title="<?= $this->translate("enviar a un amigo")?>" >
+    <div id="detalle"><?= $this->formEnviarAmigo ?></div>
+</div>
 <div id="device-foto-galery">
     <!--Producto -->
     <a href="/media/catalog/product/device-03-00.png" 
