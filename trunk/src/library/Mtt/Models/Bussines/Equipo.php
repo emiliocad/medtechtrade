@@ -163,6 +163,7 @@ class Mtt_Models_Bussines_Equipo
                 ->query()
         ;
         return $query->fetchObject();
+        //return $this->fetchRow( 'id = ' . $id );
         }
 
 
@@ -1068,8 +1069,8 @@ class Mtt_Models_Bussines_Equipo
     public function updateView( $id )
         {
         $equipo = $this->getFindId( $id );
-        $equipo = $equipo->toArray();
-        $newView = ( int ) $equipo['views'] + 1;
+        //$equipo = $equipo->toArray();
+        $newView = ( int ) $equipo->views + 1;
         $data = array( 'views' => $newView );
 
         $this->update( $data , 'id = ' . $id );

@@ -91,19 +91,7 @@
                                     </span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="
-            <?=
-            $this->url( array(
-                'module' => 'user' ,
-                'controller' => 'operacion' ,
-                'action' => 'compras' ) , 'default' , true )
-            ?>">
-                                    <span>
-                                        <?= $this->translate( 'pagos' ) ?>
-                                    </span>
-                                </a>
-                            </li>
+                          
                             <li>
                                 <a href="
             <?=
@@ -230,7 +218,16 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="<?=
+            $this->url(
+                    array(
+                'module' => 'user' ,
+                'controller' => 'busqueda' ,
+                'action' => 'listsearch'
+                    )
+                    , 'default' , true
+            );
+            ?>">
                                     <span>
                                         <?= $this->translate( 'mis busquedas guardadas' ) ?>
                                     </span>

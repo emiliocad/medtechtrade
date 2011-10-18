@@ -37,6 +37,16 @@
 <div id="search" style="display: none;">
     <?= $this->formSearch ?>
 </div>
+<div id="dialogToSendFriend"  style="display: none;"
+     title="<?= $this->translate("enviar a un amigo")?>" >
+    <div id="detalle"><?= $this->formEnviarAmigo ?></div>
+</div>
+<div id="dialogHelp"  style="display: none;"
+     title="<?= $this->translate("ayuda")?>" >
+    <div id="detalle">
+        <?= $this->render( 'equipo/_help.phtml' );?>
+    </div>
+</div>
 
 <div id="device-foto-galery">
     <!--Producto -->
