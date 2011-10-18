@@ -97,7 +97,7 @@ class Mtt_Form_IdiomaPais
         );
         if ( isset( $this->_data['idioma'] ) )
             {
-            $this->pais->setValue( $this->_data['idioma'] );
+            $this->idioma->setValue( $this->_data['idioma'] );
             }
 
         ;

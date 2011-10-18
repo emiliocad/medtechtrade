@@ -12,6 +12,7 @@ class Mtt_Controller_Action
 
     protected $URL;
     protected $_translate;
+    protected $mtt;
 
 
     public function __call( $method , $args )
@@ -37,6 +38,7 @@ class Mtt_Controller_Action
         /* agregando traduccion en Controller */
         $this->_translate = Zend_Registry::get( 'Zend_Translate' );
         /* fin de Traduccion */
+        $this->mtt = new Zend_Session_Namespace( 'MTT' );
         }
 
 
@@ -53,7 +55,15 @@ class Mtt_Controller_Action
             $this->view->assign(
                     'authUser' , $this->authData['usuario']->nombre
             );
+            $this->view->assign( 'formIdiomaPais' ,
+                                 new Mtt_Form_IdiomaPais(
+                            array(
+                                'idioma' => $this->mtt->lang
+                            )
+                    )
+            );
             }
+
 
 //        if ( $this->isAuth )
 //            {

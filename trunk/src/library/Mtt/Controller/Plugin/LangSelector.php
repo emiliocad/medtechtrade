@@ -36,7 +36,7 @@ class Mtt_Controller_Plugin_LangSelector
 
         /* formulario idioma */
         /* fixme formulario idiomapais */
-
+        
         $data;
         if ( isset( $mtt->lang ) )
             {
@@ -45,8 +45,7 @@ class Mtt_Controller_Plugin_LangSelector
                 'pais' => $mtt->pais
             );
             }
-        $view = new Zend_View();
-        $view->assign( 'formIdiomaPais' , new Mtt_Form_IdiomaPais( $data ) );
+        
         /**/
         /* formulario idioma */
         }
