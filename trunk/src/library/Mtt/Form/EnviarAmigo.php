@@ -33,7 +33,8 @@ class Mtt_Form_EnviarAmigo
 
         $this->addElement( $nombre );
         
-        $this->addElement( 'submit' ,
+    
+        $this->addElement( 'button' ,
                            $this->_translate->translate(
                         'Submit'
                 )

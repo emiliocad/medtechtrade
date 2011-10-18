@@ -68,11 +68,15 @@ class EquipoController extends Mtt_Controller_Action {
                             });
                         });
                         $(".device-action-help").click(function(){
+                            alert($(this).attr("href"));
                             $("#dialogHelp").dialog({
                                 height: 200,
                                 width: 540,
                                 modal: true
+
+
                             });
+                            
                         });
                         '
         );
@@ -194,6 +198,10 @@ class EquipoController extends Mtt_Controller_Action {
         );
     }
 
+    public function sendtofriendAction() {
+        $this->view->jQuery()->addJavascriptFile( '/js/equipo.js' );
+    }
+    
     public function pdfAction() {
         $this->_helper->layout->disableLayout();
         $this->_helper->viewRenderer->setNoRender();
