@@ -4,77 +4,44 @@
     $this->url(
             array( 'module' => 'default' ,
         'controller' => 'index' ,
-        'action' => 'index' ) , null , true
+        'action' => 'index' ) , 'default' , true
     )
     ?>
        ">
         <img src="/theme/default/image/logo-top.png">
     </a>
-
 </div>
-
-<div id="lang-selection-top">
-    <!-- Get by PHP function -->
-    <a href="
-    <?=
-    $this->url( array(
-        'module' => 'default' ,
-        'controller' => 'idioma' ,
-        'action' => 'english' ) , null , true )
-    ?>
-       ">
-           <?= $this->translate( 'English' ) ?>
-    </a> |
-    <a href="
-    <?=
-    $this->url( array(
-        'module' => 'default' ,
-        'controller' => 'idioma' ,
-        'action' => 'spanish' ) , null , true )
-    ?>
-       ">
-           <?= $this->translate( 'Spanish' ) ?>
-    </a> |
-    <a href="<?=
-           $this->url( array(
-               'module' => 'default' ,
-               'controller' => 'idioma' ,
-               'action' => 'aleman' ) , null , true )
-           ?>
-       ">
-           <?= $this->translate( 'Deutsch' ) ?>
-    </a>
-    |
-    <a href="<?=
-           $this->url( array(
-               'module' => 'default' ,
-               'controller' => 'idioma' ,
-               'action' => 'polonia' ) , null , true )
-           ?>
-       ">
-           <?= $this->translate( 'Polish' ) ?>
-    </a>
-</div>
-
-<div>
-    <?= $this->translate( 'Bienvenido' ) ?> 
-    <?=
-    Zend_Auth::getInstance()->hasIdentity() ? $this->authUser : $this->translate( 'Visitante' )
-    ?>
-
+<div id="dataUser">
     <? if ( Zend_Auth::getInstance()->hasIdentity() ): ?>
-        <a href="<?=
-    $this->url( array(
-        'module' => 'default' ,
-        'controller' => 'usuario' ,
-        'action' => 'logout' ) , null , true )
-        ?>">Logout</a>
-       <?php else: ?>
-        <a href="<?=
-       $this->url( array(
-           'module' => 'default' ,
-           'controller' => 'usuario' ,
-           'action' => 'index' ) , null , true )
-           ?>">Login</a> |
-       <? endif; ?>
+        <div id="userData">
+            <?= $this->translate( 'Bienvenido' ) . ' ' . $this->authUser ?>
+            <a href="<?=
+        $this->url( array(
+            'module' => 'default' ,
+            'controller' => 'usuario' ,
+            'action' => 'logout' ) , 'default' , true )
+            ?>">Logout</a>
+
+        </div>
+        <div id="formIdioma">
+            <form action="<?= $this->escape( $this->formIdiomaPais->getAction() ) ?>"
+                  method="<?= $this->escape( $this->formIdiomaPais->getMethod() ) ?>">
+
+                <div id="pais">
+                    <?= $this->formIdiomaPais->pais; ?>
+                </div>
+                <div id="idioma">
+                    <?= $this->formIdiomaPais->idioma; ?>
+                </div>
+                <div id="recordar">
+                    <?= $this->formIdiomaPais->recordar; ?>
+                </div>
+                <div id="button">
+                    <?= $this->formIdiomaPais->submit; ?>
+                </div>
+            </form>
+        </div>
+    <? endif; ?>
+
 </div>
+

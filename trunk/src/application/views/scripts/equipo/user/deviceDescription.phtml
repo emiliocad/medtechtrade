@@ -44,12 +44,39 @@
     </span>
 <? endif; ?>
 
-<? if ( !is_null( $this->producto->precioventa ) ): ?>
+<? if ( !is_null( $this->producto->size ) ): ?>
     <span class="device-description-field">
-        <?= $this->translate( 'Price' ) ?>
+        <?= $this->translate( 'tamaño' ) ?>
     </span>
     <span>
-        <?= $this->producto->precioventa ?>
+        <?= $this->producto->size ?>
+    </span>
+<? endif; ?>
+
+<? if ( !is_null( $this->producto->ancho ) ): ?>
+    <span class="device-description-field">
+        <?= $this->translate( 'ancho' ) ?>
+    </span>
+    <span>
+        <?= $this->producto->ancho ?>
+    </span>
+<? endif; ?>
+
+<? if ( !is_null( $this->producto->alto ) ): ?>
+    <span class="device-description-field">
+        <?= $this->translate( 'alto' ) ?>
+    </span>
+    <span>
+        <?= $this->producto->alto ?>
+    </span>
+<? endif; ?>
+
+<? if ( !is_null( $this->producto->sizeCaja ) ): ?>
+    <span class="device-description-field">
+        <?= $this->translate( 'tamaño de la caja' ) ?>
+    </span>
+    <span>
+        <?= $this->producto->sizeCaja ?>
     </span>
 <? endif; ?>
 
@@ -71,23 +98,29 @@
     </span>
 <? endif; ?>
 
+<? if ( !is_null( $this->producto->tag ) ): ?>
 <span class="device-description-field">
     <?= $this->translate( 'Description' ) ?>
 </span>
 <span>
-    Thermo Scientifig Revco. Ultima Plus<br/>
-    Placing out of operation: March 2010
+    <?= $this->producto->tag ?>
 </span>
+<? endif; ?>
+
+<? if ( !is_null( $this->producto->especificaciones ) ): ?>
 <span class="device-description-field">
     <?= $this->translate( 'Specifications' ) ?>
 </span>
 <span>
-    <?= $this->translate( 'Temperature Range' ) ?>: from -50&deg; until 86&deg;<br/>
-    <?= $this->translate( 'Capacity Cu.' ) ?>: 691 (L)<br/>
-    Electrical Amps/Breaker 230V/60 Hz 1&empty;<br/>
-    <?= $this->translate( 'Interior dimensions' ) ?>: HxWxD (mm) (1283 x  876 x 616)<br/>
-    <?= $this->translate( 'Exterior dimensions' ) ?>: HxWxD (mm) (1283 x  876 x 616)<br/>
-    <?= $this->translate( 'Shipping weight' ) ?>: 376 Kg.<br/>
-    Power Tension 230v freq. 50 Phase: 1<br/>
-    <?= $this->translate( 'Amps' ) ?>: 12A
+   <?= $this->producto->especificaciones ?>
 </span>
+<? endif; ?>
+
+<? if ( !is_null( $this->producto->precioventa ) ): ?>
+    <span class="device-description-field">
+        <?= $this->translate( 'Price' ) ?>
+    </span>
+    <span>
+        <?= $this->producto->precioventa ?>
+    </span>
+<? endif; ?>

@@ -62,8 +62,18 @@
                     </div>
 
                     <div id="welcome" class="grid_8 omega">
-                        <?= $this->translate( 'bienvenido' ) ?> : 
-                        Luis Alberto Mayta
+                        <? if ( Zend_Auth::getInstance()->hasIdentity() ): ?>
+                            <?= $this->translate( 'bienvenido' ) . ' ' . $this->authUser ?>
+                            <a href="<?=
+                        $this->Url(
+                                array( 'module' => 'admin' ,
+                                    'controller' => 'login' ,
+                                    'action' => 'logout' )
+                        )
+                            ?>">
+                                   <?= $this->translate( 'logout' ) ?>
+                            </a>
+                        <? endif; ?>
                     </div>
                     <div class="clear">
 
@@ -93,10 +103,12 @@
             </div>
             <div id="headcontent" class="container_16">
                 <div id="titulo" class="grid_12 alpha">
-                    <h2>
-                        <?= $this->translate( 'dashboard' ) ?>
+                    <? if ( isset( $this->titulo ) ): ?>
+                        <h2>
+                            <?= $this->titulo ?>
 
-                    </h2>
+                        </h2>
+                    <? endif; ?>
                 </div>
                 <div id="messages" class="grid_4 omega">
                     <?= $this->render( '_messages.phtml' ); ?>

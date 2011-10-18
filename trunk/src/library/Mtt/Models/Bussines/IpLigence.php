@@ -21,7 +21,7 @@ class Mtt_Models_Bussines_IpLigence
      *
      * @param type $ipLong 
      */
-    public function getCountry( $ipLong )
+    public  function getCountry( $ipLong )
         {
         $bd = $this->getAdapter();
         $query = $bd->select()

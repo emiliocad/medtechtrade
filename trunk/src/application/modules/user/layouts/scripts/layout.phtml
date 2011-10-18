@@ -39,6 +39,9 @@
                         '/js/CookieJS.js'
                 )
                 ->appendFile(
+                        '/theme/default/js/menu/menu.js'
+                )
+                ->appendFile(
                         '/js/user.js'
                 )
         ;
@@ -62,6 +65,9 @@
         <section>
 
             <div id="wrap-middle" class="wrapper">
+                <? if ( Zend_Auth::getInstance()->hasIdentity() ): ?>
+                    <?= $this->render( '_userMenu.phtml' ); ?>
+                <? endif; ?>
                 <div id="section-middle" class="section">
                     <aside>
                         <div id="section-middle-categories">
@@ -96,9 +102,7 @@
                                 <?= $this->layout()->content ?>
 
                             </div>
-                            <div id="section-middle-acciones">
-                                <?= $this->render( '_listAcciones.phtml' ) ?>
-                            </div>
+                            
                             <div class="clear">
 
                             </div>

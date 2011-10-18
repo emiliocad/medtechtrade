@@ -1,10 +1,9 @@
 <?php
 
-/* * *
+
+/**
  * 
  */
-
-
 class Mtt_Acl
         extends Zend_Acl
     {
@@ -23,7 +22,6 @@ class Mtt_Acl
         $this->add( new Zend_Acl_Resource( 'default::api' ) );
         $this->add( new Zend_Acl_Resource( 'default::categoria' ) );
         $this->add( new Zend_Acl_Resource( 'default::contactus' ) );
-        $this->add( new Zend_Acl_Resource( 'default::checkout' ) );
         $this->add( new Zend_Acl_Resource( 'default::equipo' ) );
         $this->add( new Zend_Acl_Resource( 'default::error' ) );
         $this->add( new Zend_Acl_Resource( 'default::idioma' ) );
@@ -43,6 +41,7 @@ class Mtt_Acl
         $this->add( new Zend_Acl_Resource( 'user::reserva' ) );
         $this->add( new Zend_Acl_Resource( 'user::user' ) );
         $this->add( new Zend_Acl_Resource( 'user::alerta' ) );
+        $this->add( new Zend_Acl_Resource( 'user::checkout' ) );
 
         //admin
         $this->add( new Zend_Acl_Resource( 'admin::categoria' ) );
@@ -59,6 +58,7 @@ class Mtt_Acl
         $this->add( new Zend_Acl_Resource( 'admin::tipousuario' ) );
         $this->add( new Zend_Acl_Resource( 'admin::user' ) );
         $this->add( new Zend_Acl_Resource( 'admin::login' ) );
+        $this->add( new Zend_Acl_Resource( 'admin::idiomas' ) );
 
 
 
@@ -66,7 +66,6 @@ class Mtt_Acl
 
         $this->allow( 'invitado' , 'default::api' );
         $this->allow( 'invitado' , 'default::categoria' );
-        $this->allow( 'invitado' , 'default::checkout' );
         $this->allow( 'invitado' , 'default::contactus' );
         $this->allow( 'invitado' , 'default::equipo' );
         $this->allow( 'invitado' , 'default::error' );
@@ -87,6 +86,7 @@ class Mtt_Acl
         $this->allow( 'user' , 'user::reserva' );
         $this->allow( 'user' , 'user::user' );
         $this->allow( 'user' , 'user::alerta' );
+        $this->allow( 'user' , 'user::checkout' );
 
         //admin
         $this->allow( 'manager' , 'admin::index' );
@@ -103,7 +103,7 @@ class Mtt_Acl
         $this->allow( 'manager' , 'admin::tipousuario' );
         $this->allow( 'manager' , 'admin::user' );
         $this->allow( 'manager' , 'admin::login' );
-       
+        $this->allow( 'manager' , 'admin::idiomas' );
         }
 
 

@@ -59,7 +59,7 @@ class Mtt_Models_Bussines_Equipo
         }
 
 
-//TODO reparar este codigo
+
     public function getComboValues()
         {
         $filas = $this->fetchAll( 'active=1' )->toArray();
@@ -81,7 +81,7 @@ class Mtt_Models_Bussines_Equipo
                     'preciocompra' , 'tag' , 'calidad' ,
                     'cantidad' , 'modelo' , 'fechafabricacion' ,
                     'documento' , 'sourceDocumento' , 'pesoEstimado' , 'size' ,
-                    'ancho' , 'alto' , 'sizeCaja' )
+                    'ancho' , 'alto' , 'sizeCaja', 'especificaciones' )
                 )
                 ->joinInner( 'categoria' ,
                              'categoria.id = equipo.categoria_id' ,
@@ -155,16 +155,13 @@ class Mtt_Models_Bussines_Equipo
 
     public function getFindId( $id )
         {
-
         return $this->fetchRow( 'id = ' . $id );
         }
 
 
     public function getProducts()
         {
-
         $db = $this->getAdapter();
-
         $query = $db->select()
                 ->from( $this->_name , array( 'id' , 'nombre' , 'slug' ) )
                 ->joinInner( 'categoria' ,
@@ -256,6 +253,7 @@ class Mtt_Models_Bussines_Equipo
                 ->where( 'equipo.topofers IN (?)' , self::ACTIVE )
                 ->where( 'equipo.categoria_id IN (?)' , $category_id )
                 ->where( 'equipo.active IN (?)' , self::ACTIVE )
+                ->group( 'equipo.id' )
                 ->query();
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );

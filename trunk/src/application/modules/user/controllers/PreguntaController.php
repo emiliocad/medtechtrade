@@ -14,7 +14,7 @@ class User_PreguntaController extends Mtt_Controller_Action {
 //                ->addStylesheet(
 //                        $this->view->baseUrl() . '/css/reserva.css'
 //        );
-        $this->_helper->layout->setLayout('layoutListado');
+        //$this->_helper->layout->setLayout('layoutListado');
         $preguntas = $this->_pregunta->pagListByUser(
                 $this->authData['usuario']->id);
         $preguntas->setCurrentPageNumber(

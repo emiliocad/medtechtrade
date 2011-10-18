@@ -1,8 +1,13 @@
 <?php
 
+define('DS', DIRECTORY_SEPARATOR);
+define('PS', PATH_SEPARATOR);
+defined('APPLICATION_PUBLIC')
+    || define('APPLICATION_PUBLIC', realpath(dirname(__FILE__) . DS));
 // Define path to application directory
 defined('APPLICATION_PATH')
     || define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/../application'));
+
 
 // Define application environment
 defined('APPLICATION_ENV')

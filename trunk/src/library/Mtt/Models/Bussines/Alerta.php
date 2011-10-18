@@ -37,10 +37,20 @@ class Mtt_Models_Bussines_Alerta
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
 
-    public function updateAlerta( array $data , $id )
+    public function getAlertaByUser( $idUser )
         {
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from( $this->_name ,
+                        array( 'id' ,
+                    'tipo' ,
+                    'detalle' ,
+                    'active' ) )
+                ->where( 'usuario_id = ?' , $idUser )
+                ->query()
+        ;
 
-        $this->update( $data , 'id = ' . $id );
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
         
         
@@ -50,31 +60,60 @@ class Mtt_Models_Bussines_Alerta
 
     public function saveAlerta( array $data)
         {
-        //categorias como string
-        $ids = $data['categorias'];
-        $listadoCategorias = implode(',', $ids);
+
+        for ( $i = 1; $i <= Mtt_Models_Table_Alerta::NAlertas; $i++ )
+            {
+
+            $obj = "alerta" . $i;
+
+            $registro['usuario_id'] = $data['usuario_id'];
+            $registro['tipo'] = $i;
+            $registro['active'] = $data[$obj];
+            $registro['fecharegistro'] = date( 'Y-m-d H:i:s' );
+
+            $registro['detalle'] = ($i == 2) ?
+                    implode( ',' , $data['categorias'] ) : null;
+            $this->insert( $registro );
+            }
+        }
+
+
+    public function updateAlerta( array $data , array $dataUsuario )
+        {
+        foreach ( $dataUsuario as $fila )
+            {
+            $alerta[$fila->tipo] = $fila;
+            }
+        for ( $i = 1; $i <= Mtt_Models_Table_Alerta::NAlertas; $i++ )
+            {
+
+            $obj = "alerta" . $i;
+            $registro['active'] = $data[$obj];
+            $registro['fechamodificacion'] = date( 'Y-m-d H:i:s' );
+
+            if ( isset( $data['categorias'] ) )
+                {
+                $registro['detalle'] = ($i == 2) ?
+                        implode( ',' , $data['categorias'] ) : null;
+                }
+            $this->update( $registro , 'id = ' . $alerta[$i]->id );
+            }
+        }
+
+
+    public function comprobarActivoAlerta( array $dataUsuario )
+        {
+        $alerta = array( );
+        $alerta['categorias']= null;
         
-        //alerta 1
-        $data1['tipo'] = 1;
-        $data1['usuario_id'] = $data['usuario_id'];
-        $data1['fecharegistro'] = date( 'Y-m-d h:m:s');
-        $data1['active'] = ($data['alerta1']==1)? 1 : 0;
-        $this->insert( $data1 );
-        
-        //alerta 2
-        $data2['tipo'] = 2;
-        $data2['usuario_id'] = $data['usuario_id'];
-        $data2['fecharegistro'] = date( 'Y-m-d h:m:s');
-        $data2['active'] = ($data['alerta2']==1)? 1 : 0;
-        $data2['detalle'] = $listadoCategorias;
-        $this->insert( $data2 );
-        
-        //alerta 3
-        $data3['tipo'] = 3;
-        $data3['usuario_id'] = $data['usuario_id'];
-        $data3['fecharegistro'] = date( 'Y-m-d h:m:s');
-        $data3['active'] = ($data['alerta3']==1)? 1 : 0;
-        $this->insert( $data3 );
+        foreach ( $dataUsuario as $fila )
+            {
+            $alerta[$fila->tipo] = $fila->active;
+            $alerta['categorias'] = ($fila->tipo == 2) ? 
+                    $fila->detalle : $alerta['categorias'];
+            }
+        return $alerta;
+
         }
 
 

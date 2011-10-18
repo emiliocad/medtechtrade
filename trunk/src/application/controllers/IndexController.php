@@ -39,17 +39,15 @@ class IndexController
 //                )
 //        ;
 //
-//        /* proceso */
-//        $objIp = new Mtt_Tools_Ip();
-//        $objIp->setIp( '190.41.129.183' );
-//        $objIp->convIpLonG();
-//
-//        $ipLong = $objIp->getLongIp();
-//        $objIpLigence = new Mtt_Models_Bussines_IpLigence();
-//        $ipligence = $objIpLigence->getCountry( $ipLong );
-//
-//        /* salida */
-//        $this->view->assign( 'country' , $ipligence );
+        /* proceso */
+        $objIp = new Mtt_Tools_Ip( '190.41.129.183' );
+        $objIp->convIpLonG();
+
+        $objIpLigence = new Mtt_Models_Bussines_IpLigence();
+        $ipligence = $objIpLigence->getCountry( $objIp->getLongIp() );
+
+        /* salida */
+        $this->view->assign( 'country' , $ipligence );
 
         $this->view->assign(
                 'oferEquipo' , $this->_equipo->showEquiposOfers( 4 )
