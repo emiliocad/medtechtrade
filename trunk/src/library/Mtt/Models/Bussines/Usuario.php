@@ -7,7 +7,7 @@ class Mtt_Models_Bussines_Usuario
 
     const PASSWPRD_SALT = "asdw452112355";
 
-
+    
     public function auth( $login , $pwd )
         {
 
@@ -116,6 +116,22 @@ class Mtt_Models_Bussines_Usuario
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
+        
+        
+   public function pagList()
+        {
+        $_conf = new Zend_Config_Ini(
+                        APPLICATION_PATH . '/configs/myConfigAdmin.ini' , 
+                        'usuario'
+        );
+        $data = $_conf->toArray();
+
+        $object = Zend_Paginator::factory( $this->listar() );
+        $object->setItemCountPerPage(
+                $data['ItemCountPerPage']
+        );
+        return $object;
+        }        
 
 
     public function listarRegistrados()
@@ -153,9 +169,18 @@ class Mtt_Models_Bussines_Usuario
         }
 
 
-    public function updateUsuario( array $data , $id )
+    public function getTratamientosUsuario()
         {
 
+        $tratamientos = array('1' => 'Sr', '2' => 'Sra/Srta');
+        return $tratamientos;
+        }
+        
+        
+        
+    public function updateUsuario( array $data , $id )
+        {
+        $data['fechamodificacion'] = date( 'Y-m-d H:i:s');
         $this->update( $data , 'id = ' . $id );
         }
 

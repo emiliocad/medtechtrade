@@ -26,16 +26,21 @@
     </th>
     <th>
         <?= $this->translate( 'acciones' ) ?>
-        
+
     </th>
 </thead>
 <tbody>
     <?php foreach ( $this->favoritos as $favorito ): ?>
-
         <tr class="<?= $favorito->active
-                        ? 'activo' : 'inactivo' ?>">
+                        ? 'activo' : 'inactivo' ?>" 
+            id ="<?= $favorito->id ?>">
             <td >
-                <img src="/media/catalog/product/device-00.png" 
+                <?php
+                $url = (is_null($favorito->imagen)) ?
+                    '/theme/default/image/no_images.png' : 
+                    '/media/catalog/product/'. $favorito->imagen
+                ?>
+                <img src="<?= $url?>" 
                      alt="<?= $favorito->equipo ?>"
                      width="24px" height="24px">
             </td>
@@ -66,11 +71,37 @@
                 <?= $this->escape( $favorito->calidad ) ?>
             </td>
 
+
             <td>
-                <?= $this->escape( $favorito->imageNombre ) ?>
+
+                <?=$this->ajaxLink(
+                "<img class ='imagen-delete'>" , "/user/reserva/borrarreserva/format/json" ,
+                array(
+                'dataType' => 'json',
+                'complete' =>
+                'myCompleteCallbackJsFunc(data);' ,
+                'method' => 'POST' ) , array( 'id' => $favorito->id )
+                );
+                ?>
+                <?php
+                    $link =
+                            $this->url(
+                            array(
+                            'slug' => $favorito->slug
+                            ), 'slugEquipment', true)
+                ?>
+                <a href="<?= $link ?>" title="<?= $this->translate('ver equipo') ?>" >
+                   <img class ="imagen-see">
+                </a>
+
             </td>
 
         </tr>
     <?php endforeach; ?>
 </tbody>
 </table>
+<?=
+$this->paginationControl(
+        $this->favoritos , 'Sliding' , 'reserva/_pag.phtml'
+);
+?>
