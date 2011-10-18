@@ -107,7 +107,7 @@ class Mtt_Pdf
      */
     private $_numTables;
 
-    function Zend_Pdf()
+    function Mtt_Pdf()
     {
         // Require the PDF class.
         Zend_Loader::loadClass('Zend_Pdf');
