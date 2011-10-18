@@ -68,11 +68,15 @@ class EquipoController extends Mtt_Controller_Action {
                             });
                         });
                         $(".device-action-help").click(function(){
+                            alert($(this).attr("href"));
                             $("#dialogHelp").dialog({
                                 height: 200,
                                 width: 540,
                                 modal: true
+
+
                             });
+                            
                         });
                         '
         );
@@ -194,6 +198,67 @@ class EquipoController extends Mtt_Controller_Action {
         );
     }
 
+    public function sendtofriendAction() 
+        {
+        $this->view->jQuery()->addJavascriptFile( '/js/equipo.js' );
+        }
+        
+        
+    public function cotizarAction()
+        {
+         $this->view->jQuery()
+                ->addJavascriptFile(
+                        '/js/jwysiwyg/jquery.wysiwyg.js'
+                )
+                ->addJavascriptFile(
+                        '/js/cotizar.js'
+                )
+                ->addStylesheet(
+                        '/js/jwysiwyg/jquery.wysiwyg.css'
+                )
+                ->addOnLoad(
+                        ' $(document).ready(function() {
+                             $("#mensaje").wysiwyg();
+                          });'
+                )
+        ;
+         
+        $id = intval( $this->_request->getParam( 'id' ) );
+
+        $equipo = $this->_equipo->getFindId( $id );
+
+        $form = new Mtt_Form_Cotizar();
+
+        if ( !is_null( $equipo ) )
+            {
+
+            if ( $this->_request->isPost()
+                    &&
+                    $form->isValid( $this->_request->getPost() ) )
+                {
+
+                $cotizacion = $form->getValues();
+
+                $paises = new Mtt_Models_Bussines_Paises();
+                $pais = $paises->getFindId( $cotizacion['paises_id'] );
+                $cotizacion['pais'] = $pais->nombre;
+                $cotizacion['equipo'] = $equipo->nombre;
+                $this->_equipo->sendMailToRequest( $cotizacion , 'cotizar' );
+                //$this->view->assign( 'equipo' , $equipo );
+                }
+            $this->view->assign( 'frmCotizar' , $form );
+            }
+        else
+            {
+
+            $this->_helper->FlashMessenger(
+                    $this->_translate->translate( 'no existe' )
+            );
+            $this->_redirect( $this->URL );
+            }
+        }
+        
+    
     public function pdfAction() {
         $this->_helper->layout->disableLayout();
         $this->_helper->viewRenderer->setNoRender();

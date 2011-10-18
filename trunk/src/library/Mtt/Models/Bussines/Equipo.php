@@ -917,6 +917,9 @@ class Mtt_Models_Bussines_Equipo
                 ->where( 'equipo.active = ?' , self::ACTIVE )
                 ->where( "equipo.nombre LIKE '%$keywords%'" )
                 ->where( "equipo.modelo LIKE '%$modelo%'" )
+                ->where( 'equipo.publicacionEquipo_id = ?', 
+                        Mtt_Models_Table_PublicacionEquipo::Activada
+                )
                 ->where( 'CASE ? WHEN -1 
                     THEN equipo.categoria_id LIKE "%%" 
                     ELSE equipo.categoria_id = ? 
