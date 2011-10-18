@@ -140,3 +140,14 @@
 2011-10-17T19:08:59-05:00 INFO (6): Se Aplico el Delta 23
 2011-10-17T19:08:59-05:00 INFO (6): Se Aplico el Delta 24
 2011-10-17T19:08:59-05:00 INFO (6): ===== Sync Ends =====
+2011-10-17T21:21:44-05:00 INFO (6): ===== Sync Starts =====
+2011-10-17T21:23:26-05:00 INFO (6): ===== Sync Starts =====
+2011-10-17T21:24:02-05:00 INFO (6): ===== Sync Starts =====
+2011-10-17T21:27:25-05:00 INFO (6): ===== Sync Starts =====
+2011-10-17T21:27:25-05:00 INFO (6): Se Aplico el Delta 19
+2011-10-17T21:27:28-05:00 INFO (6): Se Aplico el Delta 20
+2011-10-17T21:27:28-05:00 INFO (6): Se Aplico el Delta 21
+2011-10-17T21:27:28-05:00 INFO (6): Se Aplico el Delta 22
+2011-10-17T21:27:28-05:00 INFO (6): Se Aplico el Delta 23
+2011-10-17T21:27:28-05:00 INFO (6): Se Aplico el Delta 24
+2011-10-17T21:27:29-05:00 INFO (6): ===== Sync Ends =====

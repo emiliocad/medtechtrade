@@ -2,14 +2,24 @@
 <p>
 
 
-    MedTechTrade permite a los usarios registrados vender sus dispositivos médicos usados mediante
-    esta plataforma. Si es un nuevo usuario, <span style="text-decoration: underline;">
-        <a href="/index.php?option=com_chronocontact&amp;chronoformname=registration&amp;lang=es">
-            haga click aqui
-        </a>
+    MedTechTrade permite a los usarios registrados vender sus dispositivos médicos 
+    usados mediante
+    esta plataforma. Si es un nuevo usuario,
+
+    <a href="
+    <?=
+    $this->url
+            ( array(
+        'module' => 'default' ,
+        'controller' => 'usuario' ,
+        'action' => 'registro' ) , 'default' , true )
+    ?>">
+
+        <?= $this->translate( 'haga click aqui' ); ?>
+    </a>  
 
 
-    </span>
+
 </p>
 <p>
     y nuestros administradores le enviarán los datos de acceso a la brevedad.  
