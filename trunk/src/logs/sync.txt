@@ -159,7 +159,6 @@
 2011-10-17T21:27:28-05:00 INFO (6): Se Aplico el Delta 23
 2011-10-17T21:27:28-05:00 INFO (6): Se Aplico el Delta 24
 2011-10-17T21:27:29-05:00 INFO (6): ===== Sync Ends =====
-<<<<<<< HEAD
->>>>>>> 5afd7d2c6c82d76ef1253f34ffb6fbfaf0d2a7ef
-=======
->>>>>>> 5afd7d2c6c82d76ef1253f34ffb6fbfaf0d2a7ef
+
+2011-10-18T10:35:25-05:00 INFO (6): ===== Sync Starts =====
+2011-10-18T10:35:25-05:00 INFO (6): ===== Sync Ends =====
