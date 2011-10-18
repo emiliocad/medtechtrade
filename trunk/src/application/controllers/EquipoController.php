@@ -186,8 +186,8 @@ class EquipoController
         );
 
         //$this->_equipo->updateView( $id );
-        $equipos = $this->_equipo->pagListEquipByCategory( $id ,
-                                                           Mtt_Models_Bussines_PublicacionEquipo::Activada
+        $equipos = $this->_equipo->pagListEquipByCategory(
+                $id , Mtt_Models_Bussines_PublicacionEquipo::Activada
         );
         $equipos->setCurrentPageNumber(
                 $this->_getParam( 'page' , 1 )
@@ -228,7 +228,7 @@ class EquipoController
 
         /* ficha de equipo */
         $page->setFont( $font , 14 );
-        $page->setFillColor(new Zend_Pdf_Color_Html('#B91E1D'));
+        $page->setFillColor( new Zend_Pdf_Color_Html( '#B91E1D' ) );
         $page->drawText(
                 ucwords( $this->_translate->translate( 'ficha del equipo' ) ) ,
                                                        23 , 696 );
@@ -241,7 +241,7 @@ class EquipoController
         $pdfY = 175;
         $pdfYCabecera = 33;
         $page->setFont( $font , 11 );
-        $page->setFillColor(new Zend_Pdf_Color_Html('#355F91'));
+        $page->setFillColor( new Zend_Pdf_Color_Html( '#355F91' ) );
         /* cabecera */
 
         $page->drawText( ucwords( $this->_translate->translate( 'manufactur' ) ) ,

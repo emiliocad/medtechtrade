@@ -22,11 +22,11 @@ class IdiomaController
         )
             {
             $data = $this->_request->getPost();
-            $mtt = new Zend_Session_Namespace( 'MTT' );
-            $mtt->lang = $data['idioma'];
-            $mtt->pais = $data['pais'];
+            //$mtt = new Zend_Session_Namespace( 'MTT' );
+            $this->mtt->lang = $data['idioma'];
+            $this->mtt->pais = $data['pais'];
             $this->view->assign( 'form' , $this->_request->getPost() );
-            $this->view->assign( 'data' , $mtt->lang );
+            $this->view->assign( 'data' , $this->mtt->lang );
 
             $this->_redirect( $_SERVER['HTTP_REFERER'] );
             }
