@@ -86,9 +86,12 @@ class Mtt_Models_Bussines_Alerta
     public function comprobarActivoAlerta( array $dataUsuario )
         {
         $alerta = array( );
+        $alerta['categorias']= null;
+        
         foreach ( $dataUsuario as $fila )
             {
             $alerta[$fila->tipo] = $fila->active;
+            $alerta['categorias'] = ($fila->tipo == 2) ? $fila->detalle : $alerta['categorias'];
             }
         return $alerta;
         }
