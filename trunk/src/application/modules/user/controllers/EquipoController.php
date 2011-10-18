@@ -244,7 +244,8 @@ class User_EquipoController
                 $this->_redirect( $this->URL );
                 }
   
-            $form->setDefaults( $equipo->toArray() );
+            //$form->setDefaults( $equipo->toArray() );
+            $form->setDefaults( $equipo->toArray());
             $this->view->assign( 'form' , $form );
        
             }
