@@ -1,4 +1,4 @@
-/*
+﻿/*
 SQLyog Enterprise - MySQL GUI v8.1 
 MySQL - 5.5.8-log : Database - medtechtrade
 *********************************************************************
@@ -60,7 +60,7 @@ CREATE TABLE `categoria` (
 
 /*Data for the table `categoria` */
 
-insert  into `categoria`(id,nombre,title,thumbnail,descripcion,published,order,active,slug) values (148,'Others','Others',NULL,'',NULL,19,1,'others'),(150,'Apparatus / General Lab','Apparatus / General Lab',NULL,'',NULL,2,1,'apparatus-general-lab'),(151,'Cardio Devices','Cardio Devices',NULL,'',NULL,5,1,'cardio-devices'),(152,'Balances','Balances',NULL,'',NULL,6,1,'balances'),(153,'Centrifugues','Centrifugues',NULL,'',NULL,7,1,'centrifugues'),(154,'Respirators','Respirators',NULL,'',NULL,8,1,'respirators'),(155,'Endoscopy Devices','Endoscopy Devices',NULL,'',NULL,10,1,'endoscopy-devices'),(156,'Microscopes','Microscopes',NULL,'',NULL,17,1,'microscopes'),(157,'Imaging Systems','Imaging Systems',NULL,'',NULL,12,1,'imaging-systems'),(158,'Chirurgical Devices','Chirurgical Devices',NULL,'',NULL,14,1,'chirurgical-devices'),(159,'Monitoring Devices','Monitoring Devices',NULL,'',NULL,9,1,'monitoring-devices'),(160,'Perfusors & Pumps','Perfusors & Pumps',NULL,'',NULL,16,1,'perfusors-pumps'),(161,'Ultrasound','Ultrasound',NULL,'',NULL,18,1,'ultrasound'),(162,'Incubators','Incubators',NULL,'',NULL,13,1,'incubators'),(163,'Autoclaves','Autoclaves',NULL,'',NULL,3,1,'autoclaves'),(164,'Coolers & Freezers','Coolers & Freezers',NULL,'',NULL,11,1,'coolers-freezers'),(165,'Medical Furnitures / Beds','Medical Furnitures / Beds',NULL,'',NULL,15,1,'medical-furnitures-beds'),(168,'X-Ray','X-Ray',NULL,'',NULL,4,1,'x-ray'),(169,'NEU- & Demogeräte','NEU- & Demogeräte',NULL,'',NULL,20,1,'neu-demoger-te'),(170,'prueba','Prueba 2','123.jpg','esto es una vaina',NULL,NULL,0,''),(171,'prueba2','ddsfsd',NULL,'dfsdfdsfs',NULL,NULL,0,'');
+insert  into `categoria`(id,nombre,title,thumbnail,descripcion,published,order,active,slug) values (148,'Others','Others',NULL,'',NULL,19,1,'others'),(150,'Apparatus / General Lab','Apparatus / General Lab',NULL,'',NULL,2,1,'apparatus-general-lab'),(151,'Cardio Devices','Cardio Devices',NULL,'',NULL,5,1,'cardio-devices'),(152,'Balances','Balances',NULL,'',NULL,6,1,'balances'),(153,'Centrifugues','Centrifugues',NULL,'',NULL,7,1,'centrifugues'),(154,'Respirators','Respirators',NULL,'',NULL,8,1,'respirators'),(155,'Endoscopy Devices','Endoscopy Devices',NULL,'',NULL,10,1,'endoscopy-devices'),(156,'Microscopes','Microscopes',NULL,'',NULL,17,1,'microscopes'),(157,'Imaging Systems','Imaging Systems',NULL,'',NULL,12,1,'imaging-systems'),(158,'Chirurgical Devices','Chirurgical Devices',NULL,'',NULL,14,1,'chirurgical-devices'),(159,'Monitoring Devices','Monitoring Devices',NULL,'',NULL,9,1,'monitoring-devices'),(160,'Perfusors & Pumps','Perfusors & Pumps',NULL,'',NULL,16,1,'perfusors-pumps'),(161,'Ultrasound','Ultrasound',NULL,'',NULL,18,1,'ultrasound'),(162,'Incubators','Incubators',NULL,'',NULL,13,1,'incubators'),(163,'Autoclaves','Autoclaves',NULL,'',NULL,3,1,'autoclaves'),(164,'Coolers & Freezers','Coolers & Freezers',NULL,'',NULL,11,1,'coolers-freezers'),(165,'Medical Furnitures / Beds','Medical Furnitures / Beds',NULL,'',NULL,15,1,'medical-furnitures-beds'),(168,'X-Ray','X-Ray',NULL,'',NULL,4,1,'x-ray'),(169,'NEU- & Demogeräte','NEU- & Demogeräte',NULL,'',NULL,20,1,'neu-demoger-te');
 
 /*Table structure for table `categoriapregunta` */
 
@@ -71,7 +71,7 @@ CREATE TABLE `categoriapregunta` (
   `descripcion` varchar(45) DEFAULT NULL,
   `active` int(11) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2;
 
 /*Data for the table `categoriapregunta` */
 

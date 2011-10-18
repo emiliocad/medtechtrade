@@ -6,15 +6,9 @@
  */
 
 
-class Mtt_Models_Bussines_Idioma
-        extends Mtt_Models_Table_Idioma
+class Mtt_Models_Bussines_TipoUsuario
+        extends Mtt_Models_Table_TipoUsuario
     {
-
-
-    public function __construct( $config = array( ) )
-        {
-        parent::__construct( $config );
-        }
 
 
     public function getComboValues()
@@ -24,18 +18,6 @@ class Mtt_Models_Bussines_Idioma
         foreach ( $filas as $fila )
             {
             $values[$fila['id']] = $fila['nombre'];
-            }
-        return $values;
-        }
-
-
-    public function getComboValuesPrefijo()
-        {
-        $filas = $this->fetchAll( 'active=1' )->toArray();
-        $values = array( );
-        foreach ( $filas as $fila )
-            {
-            $values[$fila['prefijo']] = $fila['nombre'];
             }
         return $values;
         }
@@ -67,35 +49,35 @@ class Mtt_Models_Bussines_Idioma
         }
 
 
-    public function updateIdioma( array $data , $id )
+    public function updateTipoUsuario( array $data , $id )
         {
 
         $this->update( $data , 'id = ' . $id );
         }
 
 
-    public function saveIdioma( array $data )
+    public function saveTipoUsuario( array $data )
         {
 
         $this->insert( $data );
         }
 
 
-    public function deleteIdioma( $id )
+    public function deleteTipoUsuario( $id )
         {
 
         $this->delete( 'id = ?' , $id );
         }
 
 
-    public function activarIdioma( $id )
+    public function activarTipoUsuario( $id )
         {
 
         $this->update( array( "active" => self::ACTIVE ) , 'id = ' . $id );
         }
 
 
-    public function desactivarIdioma( $id )
+    public function desactivarTipoUsuario( $id )
         {
 
         $this->update( array( "active" => self::DESACTIVATE ) , 'id = ' . $id );

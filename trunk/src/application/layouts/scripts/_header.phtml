@@ -10,11 +10,10 @@
        ">
         <img src="/theme/default/image/logo-top.png">
     </a>
-
 </div>
 <div id="dataUser">
-    <div id="userData">
-        <? if ( Zend_Auth::getInstance()->hasIdentity() ): ?>
+    <? if ( Zend_Auth::getInstance()->hasIdentity() ): ?>
+        <div id="userData">
             <?= $this->translate( 'Bienvenido' ) . ' ' . $this->authUser ?>
             <a href="<?=
         $this->url( array(
@@ -22,27 +21,27 @@
             'controller' => 'usuario' ,
             'action' => 'logout' ) , 'default' , true )
             ?>">Logout</a>
-           <? endif; ?>
-    </div>
-    <div id="formIdioma">
-        <form action="<?= $this->escape( $this->formIdiomaPais->getAction() ) ?>"
-              method="<?= $this->escape( $this->formIdiomaPais->getMethod() ) ?>">
 
-            <div id="pais">
-                <?= $this->formIdiomaPais->pais; ?>
-            </div>
-            <div id="idioma">
-                <?= $this->formIdiomaPais->idioma; ?>
-            </div>
-            <div id="recordar">
-                <?= $this->formIdiomaPais->recordar; ?>
-            </div>
-            <div id="button">
-                <?= $this->formIdiomaPais->submit; ?>
-            </div>
-        </form>
-    </div>
+        </div>
+        <div id="formIdioma">
+            <form action="<?= $this->escape( $this->formIdiomaPais->getAction() ) ?>"
+                  method="<?= $this->escape( $this->formIdiomaPais->getMethod() ) ?>">
 
+                <div id="pais">
+                    <?= $this->formIdiomaPais->pais; ?>
+                </div>
+                <div id="idioma">
+                    <?= $this->formIdiomaPais->idioma; ?>
+                </div>
+                <div id="recordar">
+                    <?= $this->formIdiomaPais->recordar; ?>
+                </div>
+                <div id="button">
+                    <?= $this->formIdiomaPais->submit; ?>
+                </div>
+            </form>
+        </div>
+    <? endif; ?>
 
 </div>
 

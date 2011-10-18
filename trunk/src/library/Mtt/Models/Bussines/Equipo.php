@@ -59,7 +59,7 @@ class Mtt_Models_Bussines_Equipo
         }
 
 
-//TODO reparar este codigo
+
     public function getComboValues()
         {
         $filas = $this->fetchAll( 'active=1' )->toArray();
@@ -155,16 +155,13 @@ class Mtt_Models_Bussines_Equipo
 
     public function getFindId( $id )
         {
-
         return $this->fetchRow( 'id = ' . $id );
         }
 
 
     public function getProducts()
         {
-
         $db = $this->getAdapter();
-
         $query = $db->select()
                 ->from( $this->_name , array( 'id' , 'nombre' , 'slug' ) )
                 ->joinInner( 'categoria' ,

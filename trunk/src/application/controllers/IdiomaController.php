@@ -18,15 +18,17 @@ class IdiomaController
         $frmIdiomaPais = new Mtt_Form_IdiomaPais();
 
         if ( $this->_request->isPost()
-                &&
-                $frmIdiomaPais->isValid( $this->_request->getPost() )
+                
         )
             {
+            $data = $this->_request->getPost();
+            $mtt = new Zend_Session_Namespace( 'MTT' );
+            $mtt->lang = $data['idioma'];
+            $mtt->pais = $data['pais'];
             $this->view->assign( 'form' , $this->_request->getPost() );
-            }
-        else
-            {
-            
+            $this->view->assign( 'data' , $mtt->lang );
+
+            $this->_redirect( $_SERVER['HTTP_REFERER'] );
             }
         }
 

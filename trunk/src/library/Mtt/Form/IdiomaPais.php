@@ -14,12 +14,21 @@ class Mtt_Form_IdiomaPais
     protected $submit;
     protected $_idioma;
     protected $_pais;
+    protected $_data;
 
 
-    public function __construct()
+    /**
+     *
+     * @param type $data 
+     */
+    public function __construct( $data = null )
         {
         $this->_idioma = new Mtt_Models_Bussines_Idioma();
         $this->_pais = new Mtt_Models_Bussines_Paises();
+        if ( isset( $data ) )
+            {
+            $this->_data = $data;
+            }
         parent::__construct();
         }
 
@@ -57,7 +66,13 @@ class Mtt_Form_IdiomaPais
                                 array_keys( $this->_pais->getComboValues() )
                         )
                 )
-                ->setAttrib( 'style' , 'width:100px' )
+                ->setAttrib( 'style' , 'width:100px' );
+
+        if ( isset( $this->_data['pais'] ) )
+            {
+            $this->pais->setValue( $this->_data['pais'] );
+            }
+
         ;
         $this->addElement( $this->pais );
 
@@ -70,12 +85,21 @@ class Mtt_Form_IdiomaPais
                                   $this->_translate->translate(
                                 'escoger idioma' )
                 )
-                ->addMultiOptions( $this->_idioma->getComboValues() )
+                ->addMultiOptions(
+                        $this->_idioma->getComboValuesPrefijo()
+                )
                 ->addValidator(
                         new Zend_Validate_InArray(
-                                array_keys( $this->_idioma->getComboValues() )
+                                array_keys(
+                                        $this->_idioma->getComboValuesPrefijo()
+                                )
                         )
-                )
+        );
+        if ( isset( $this->_data['idioma'] ) )
+            {
+            $this->idioma->setValue( $this->_data['idioma'] );
+            }
+
         ;
         $this->addElement( $this->idioma );
 

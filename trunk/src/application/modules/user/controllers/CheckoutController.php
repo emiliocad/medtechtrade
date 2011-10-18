@@ -5,13 +5,13 @@ class User_CheckoutController
         extends Mtt_Controller_Action
     {
 
-    protected $mtt;
+    protected $operacionEquipo;
 
 
     public function init()
         {
         parent::init();
-        $this->mtt = new Zend_Session_Namespace( 'MTT' );
+        $this->operacionEquipo = new Mtt_Models_Catalog_OperationEquipo();
         }
 
 
@@ -20,12 +20,14 @@ class User_CheckoutController
         $id = ( int ) $this->getRequest()->getParam( 'id' );
 
         $equipo = new Mtt_Models_Bussines_Equipo();
-        $this->mtt->cart = $equipo->getFindId( $id );
-        //
-        //$item = new Mtt_Store_Cart_Item( $equipo );
-        //$this->view->assign('carro' , $value);
+        $carito = array( $id );
+        //$this->mtt->cart = $equipo->getFindId( $id );
+        $this->operacionEquipo->addOperacionDetalle( $carito );
 
-        $this->view->assign( 'equipo' , $this->mtt->cart );
+
+        $this->view->assign(
+                'equipo' , $this->operacionEquipo->getOperacionDetalles()
+        );
         }
 
 

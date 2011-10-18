@@ -19,6 +19,10 @@ class User_AlertaController
     }
 
     public function configurationAction() {
+        
+        $this->view->jQuery()->addJavascriptFile( '/js/alerta.js' );
+        $this->view->jQuery()->addStylesheet('/css/alerta.css'
+                );
 
         $alertasUsuario = $this->_alerta->getAlertaByUser(
                 $this->authData['usuario']->id
@@ -41,10 +45,12 @@ class User_AlertaController
             } else {
                 $this->_alerta->updateAlerta($alertas, $alertasUsuario);
             }
+
         }
 
         $this->view->assign('form', $form);
-        $this->view->assign('alerta',$this->_alerta->comprobarActivoAlerta($alertasUsuario));
+        $this->view->assign('alerta',
+                $this->_alerta->comprobarActivoAlerta($alertasUsuario));
     }
 
 }

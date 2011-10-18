@@ -8,13 +8,10 @@ body{
     background-position: center top;
 }
 
-
-/*cambios*/
-
 a {
     font-weight: bold;
     text-decoration: none;
-    color: #ffffff;
+    color: #000000;
 }
 
 #backHeader {
@@ -68,6 +65,9 @@ h2 {
     padding-left: 0;
     padding-right: 0;
 }
+#nav a {
+    color: #faf7fa;
+}
 
 #headcontent {
     margin-top: 13px;
@@ -119,8 +119,6 @@ h2 {
 #divInformation {
     margin-bottom: 10px;
 }
-
-
 
 /*css para los jquerys*/
 
