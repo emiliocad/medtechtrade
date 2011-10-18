@@ -22,7 +22,6 @@ class Mtt_Models_Catalog_OperationEquipo
 
     public function addOperacionDetalle( $operacionDetalle )
         {
-        $this->sessionMtt = new Zend_Session_Namespace( 'Mtt' );
         if ( !isset( $this->sessionMtt->operacion->detalles ) )
             {
             $this->sessionMtt->operacion->detalles = array( );

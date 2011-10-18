@@ -23,9 +23,11 @@ class User_CheckoutController
         $carito = array( $id );
         //$this->mtt->cart = $equipo->getFindId( $id );
         $this->operacionEquipo->addOperacionDetalle( $carito );
-       
 
-        $this->view->assign( 'equipo' , $this->mtt->cart );
+
+        $this->view->assign(
+                'equipo' , $this->operacionEquipo->getOperacionDetalles()
+        );
         }
 
 

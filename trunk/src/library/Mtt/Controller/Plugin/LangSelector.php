@@ -12,8 +12,6 @@ class Mtt_Controller_Plugin_LangSelector
 
         $mtt = new Zend_Session_Namespace( 'MTT' );
 
-
-
         if ( !isset( $mtt->lang ) && $mtt->lang === NULL )
             {
             $zl = new Zend_Locale();
@@ -35,6 +33,22 @@ class Mtt_Controller_Plugin_LangSelector
                         $mtt->lang );
 
         Zend_Registry::set( 'Zend_Translate' , $translate );
+
+        /* formulario idioma */
+        /* fixme formulario idiomapais */
+
+        $data;
+        if ( isset( $mtt->lang ) )
+            {
+            $data = array(
+                'idioma' => $mtt->lang ,
+                'pais' => $mtt->pais
+            );
+            }
+        $view = new Zend_View();
+        $view->assign( 'formIdiomaPais' , new Mtt_Form_IdiomaPais( $data ) );
+        /**/
+        /* formulario idioma */
         }
 
 

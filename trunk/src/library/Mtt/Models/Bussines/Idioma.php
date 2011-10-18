@@ -29,6 +29,18 @@ class Mtt_Models_Bussines_Idioma
         }
 
 
+    public function getComboValuesPrefijo()
+        {
+        $filas = $this->fetchAll( 'active=1' )->toArray();
+        $values = array( );
+        foreach ( $filas as $fila )
+            {
+            $values[$fila['prefijo']] = $fila['nombre'];
+            }
+        return $values;
+        }
+
+
     public function getFindId( $id )
         {
 //        $db = $this->getAdapter();

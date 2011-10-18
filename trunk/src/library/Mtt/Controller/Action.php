@@ -42,10 +42,6 @@ class Mtt_Controller_Action
 
     public function preDispatch()
         {
-        /* fixme formulario idiomapais */
-        $this->view->assign( 'formIdiomaPais' , new Mtt_Form_IdiomaPais() );
-        /**/
-
 
         if ( Zend_Auth::getInstance()->hasIdentity() )
             {
