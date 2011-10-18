@@ -104,7 +104,6 @@ class Mtt_Form_ConfigurarAlertas
         /* $this->addElements(
           array(
           $this->submit
-          )
           ); */
 
         parent::init();

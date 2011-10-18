@@ -1,0 +1,8 @@
+.multiCheckbox label {
+    display: block;
+    width: 380px;
+    border: 0px;
+    height: 10px;
+    text-align: left;
+}
+

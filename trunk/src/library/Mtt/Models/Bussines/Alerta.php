@@ -23,6 +23,19 @@ class Mtt_Models_Bussines_Alerta
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
 
+        
+    public function getAlertas($idUsuario)
+        {
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from( $this->_name )
+                ->where( 'active = ?' , '1' )
+                ->where( 'usuario_id = ?', $idUsuario)
+                ->query()
+        ;
+
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }
 
     public function getAlertaByUser( $idUser )
         {
@@ -39,10 +52,15 @@ class Mtt_Models_Bussines_Alerta
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
+        
+        
+    public function updateConfigAlerta(array $data){
+        
+    }
 
-
-    public function saveAlerta( array $data )
+    public function saveAlerta( array $data)
         {
+
         for ( $i = 1; $i <= Mtt_Models_Table_Alerta::NAlertas; $i++ )
             {
 
@@ -91,9 +109,11 @@ class Mtt_Models_Bussines_Alerta
         foreach ( $dataUsuario as $fila )
             {
             $alerta[$fila->tipo] = $fila->active;
-            $alerta['categorias'] = ($fila->tipo == 2) ? $fila->detalle : $alerta['categorias'];
+            $alerta['categorias'] = ($fila->tipo == 2) ? 
+                    $fila->detalle : $alerta['categorias'];
             }
         return $alerta;
+
         }
 
 
