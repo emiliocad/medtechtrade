@@ -44,6 +44,19 @@
                        title="<?= $this->translate('ver equipo') ?>" >
                         <img class ="imagen-see">
                     </a>
+                    <?php
+                    $link = $this->url(array(
+                        'module' => 'user',
+                        'controller' => 'cuotaspago',
+                        'action' => 'listar',
+                        'id' =>  $operacion->id ), null, true)
+       
+                    ?>
+
+                    <a href="<?= $link ?>"
+                       title="<?= $this->translate('ver pagos') ?>" >
+                        <img class ="imagen-dolar">
+                    </a>
                 </td>
             </tr>
         <?php endforeach; ?>
