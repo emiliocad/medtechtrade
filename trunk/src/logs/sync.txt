@@ -167,3 +167,12 @@
 2011-10-18T11:16:31-05:00 INFO (6): ===== Sync Starts =====
 2011-10-18T11:16:31-05:00 INFO (6): Se Aplico el Delta 25
 2011-10-18T11:16:31-05:00 INFO (6): ===== Sync Ends =====
+2011-10-18T11:32:11-05:00 INFO (6): ===== Sync Starts =====
+2011-10-18T11:32:11-05:00 INFO (6): Se Aplico el Delta 26
+2011-10-18T11:32:11-05:00 INFO (6): ===== Sync Ends =====
+2011-10-18T11:57:29-05:00 INFO (6): ===== Sync Starts =====
+2011-10-18T11:58:13-05:00 INFO (6): ===== Sync Starts =====
+2011-10-18T11:58:13-05:00 INFO (6): Se Aplico el Delta 26
+2011-10-18T11:58:13-05:00 INFO (6): Se Aplico el Delta 27
+2011-10-18T11:58:14-05:00 INFO (6): Se Aplico el Delta 28
+2011-10-18T11:58:14-05:00 INFO (6): ===== Sync Ends =====
