@@ -63,7 +63,9 @@ class Mtt_Form_IdiomaPais
                 )
                 ->addValidator(
                         new Zend_Validate_InArray(
-                                array_keys( $this->_pais->getComboValues() )
+                                array_keys(
+                                        $this->_pais->getComboValuesIntegrate()
+                                )
                         )
                 )
                 ->setAttrib( 'style' , 'width:100px' );
@@ -86,12 +88,12 @@ class Mtt_Form_IdiomaPais
                                 'escoger idioma' )
                 )
                 ->addMultiOptions(
-                        $this->_idioma->getComboValuesPrefijo()
+                        $this->_idioma->getComboValues()
                 )
                 ->addValidator(
                         new Zend_Validate_InArray(
                                 array_keys(
-                                        $this->_idioma->getComboValuesPrefijo()
+                                        $this->_idioma->getComboValues()
                                 )
                         )
         );
@@ -119,6 +121,8 @@ class Mtt_Form_IdiomaPais
 
         ;
         $this->addElement( $this->submit );
+        
+        parent::init();
         }
 
 

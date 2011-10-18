@@ -55,7 +55,7 @@ class Mtt_Models_Bussines_Config
 
     public function saveConfig( array $data )
         {
-
+        unset( $data['recordar'] );
         $this->insert( $data );
         }
 

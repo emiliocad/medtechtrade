@@ -19,7 +19,14 @@ class Mtt_Models_Bussines_Idioma
 
     public function getComboValues()
         {
-        $filas = $this->fetchAll( 'active=1' )->toArray();
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from( $this->_name )
+                ->where( 'active = ?' , self::ACTIVE )
+                ->order( 'nombre' )
+                ->query()
+        ;
+        $filas = $query->fetchAll( Zend_Db::FETCH_ASSOC );
         $values = array( );
         foreach ( $filas as $fila )
             {
@@ -31,7 +38,14 @@ class Mtt_Models_Bussines_Idioma
 
     public function getComboValuesPrefijo()
         {
-        $filas = $this->fetchAll( 'active=1' )->toArray();
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from( $this->_name )
+                ->where( 'active = ?' , self::ACTIVE )
+                ->order( 'nombre' )
+                ->query()
+        ;
+        $filas = $query->fetchAll( Zend_Db::FETCH_ASSOC );
         $values = array( );
         foreach ( $filas as $fila )
             {
@@ -43,14 +57,14 @@ class Mtt_Models_Bussines_Idioma
 
     public function getFindId( $id )
         {
-//        $db = $this->getAdapter();
-//        $query = $db->select()
-//                ->from( $this->_name )
-//                ->where( 'id = ?' , $id )
-//                ->where( 'active = ?' , '1' )
-//                ->query()
-//        ;
-        return $this->fetchRow( 'id = ' . $id );
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from( $this->_name )
+                ->where( 'id = ?' , $id )
+                ->where( 'active = ?' , self::ACTIVE )
+                ->query()
+        ;
+        return $query->fetchObject();
         }
 
 

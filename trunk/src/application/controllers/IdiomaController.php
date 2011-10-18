@@ -16,19 +16,30 @@ class IdiomaController
     public function indexAction()
         {
         $frmIdiomaPais = new Mtt_Form_IdiomaPais();
+        $_config = new Mtt_Models_Bussines_Config();
+        $_idioma = new Mtt_Models_Bussines_Idioma();
 
         if ( $this->_request->isPost()
-                
         )
             {
             $data = $this->_request->getPost();
-            //$mtt = new Zend_Session_Namespace( 'MTT' );
-            $this->mtt->lang = $data['idioma'];
-            $this->mtt->pais = $data['pais'];
-            $this->view->assign( 'form' , $this->_request->getPost() );
-            $this->view->assign( 'data' , $this->mtt->lang );
 
-            $this->_redirect( $_SERVER['HTTP_REFERER'] );
+            if ( $data['recordar'] == 1 )
+                {
+
+                $_config->saveConfig( $data );
+                }
+//            if ( isset( $data['idioma'] ) && $data['idioma'] !== '-1' )
+//                {
+                $dataIdioma = $_idioma->getFindId( $data['idioma'] );
+                $this->mtt->config->lang = $dataIdioma->prefijo;
+                $this->mtt->config->idlang = $dataIdioma->id;
+//                }
+
+            $this->view->assign( 'form' , $this->_request->getPost() );
+            $this->view->assign( 'data' , $this->mtt->config );
+
+            //$this->_redirect( $_SERVER['HTTP_REFERER'] );
             }
         }
 

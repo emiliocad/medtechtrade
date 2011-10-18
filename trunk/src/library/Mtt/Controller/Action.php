@@ -44,7 +44,8 @@ class Mtt_Controller_Action
 
     public function preDispatch()
         {
-
+        parent::preDispatch();
+        
         if ( Zend_Auth::getInstance()->hasIdentity() )
             {
             $this->authData = Zend_Auth::getInstance()->getStorage()->read();
@@ -58,7 +59,7 @@ class Mtt_Controller_Action
             $this->view->assign( 'formIdiomaPais' ,
                                  new Mtt_Form_IdiomaPais(
                             array(
-                                'idioma' => $this->mtt->lang
+                                'idioma' => $this->mtt->config->idlang
                             )
                     )
             );
@@ -102,7 +103,6 @@ class Mtt_Controller_Action
 //                    }
 //                }
 //            }
-        parent::preDispatch();
         }
 
 

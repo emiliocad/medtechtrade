@@ -52,6 +52,9 @@ class IndexController
         $this->view->assign(
                 'oferEquipo' , $this->_equipo->showEquiposOfers( 4 )
         );
+        $this->view->assign(
+                'config' , $this->mtt->lang
+        );
 
 
 //        $paginado = new Zend_Paginator_Adapter_Array( range( 1 , 9 ) );
