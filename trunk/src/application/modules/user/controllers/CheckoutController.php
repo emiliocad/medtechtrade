@@ -20,7 +20,9 @@ class User_CheckoutController
         $id = ( int ) $this->getRequest()->getParam( 'id' );
 
         $equipo = new Mtt_Models_Bussines_Equipo();
-        $this->mtt->cart = $equipo->getFindId( $id );
+        $carito += array( $id );
+        //$this->mtt->cart = $equipo->getFindId( $id );
+        $this->mtt->cart = $carito;
         //
         //$item = new Mtt_Store_Cart_Item( $equipo );
         //$this->view->assign('carro' , $value);
