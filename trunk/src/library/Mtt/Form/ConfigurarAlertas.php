@@ -24,21 +24,29 @@ class Mtt_Form_ConfigurarAlertas
                 ->setAttrib( 'id' , 'frmConfigurarAlertas' )
         ;
         
-        $alertas = new Zend_Form_Element_MultiCheckbox( 'alertas' );
+       $alerta1 = new Zend_Form_Element_Checkbox( 'alerta1' );
+       $alerta1->setLabel( 
+               $this->_translate->translate('nuevo equipo en busqueda guardada')
+       );
+       $alerta1->addDecorator('Label', array('class' => 'test'));
+       $this->addElement( $alerta1 );
         
-        $alertas->addMultiOption( Mtt_Models_Table_Alerta::Busqueda, 
-                $this->_translate->translate('nuevo equipo en busqueda guardada')
-        );
-        $alertas->addMultiOption( Mtt_Models_Table_Alerta::Categoria, 
-                $this->_translate->translate('nuevo equipo en categoria seleccionada')
-        );
-        $alertas->addMultiOption( Mtt_Models_Table_Alerta::Plataforma, 
-                $this->_translate->translate('nuevo equipo en plataforma')
-        );
-        
-        $this->addElement( $alertas );
-        
+       $alerta2 = new Zend_Form_Element_Checkbox( 'alerta2' );
+       $alerta2->setLabel( 
+               $this->_translate->translate(
+                       'nuevo equipo en categoria seleccionada'
+               )
+       );
+       $this->addElement( $alerta2 );
        
+       $alerta3 = new Zend_Form_Element_Checkbox( 'alerta3' );
+       $alerta3->setLabel( 
+               $this->_translate->translate(
+                       'nuevo equipo en plataforma'
+               )
+       );
+       $this->addElement( $alerta3 );
+
         $categorias = new Zend_Form_Element_MultiCheckbox( 'categorias' );
         $_categorias = new Mtt_Models_Bussines_Categoria();
 
