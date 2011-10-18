@@ -1,4 +1,17 @@
-<h2> <?= $this->translate('mis busquedas guardadas') ?></h2>
+<h2> 
+    <?= $this->translate('mis busquedas guardadas') ?>
+</h2>
+<div>
+    <?php
+    $link = $this->url(array('module' => 'user',
+        'controller' => 'busqueda',
+        'action' => 'index'))
+    ?>
+    <a href="<?= $link ?>"
+       title="<?= $this->translate('nueva busqueda') ?>">
+        <img class ="imagen-new">
+    </a>
+</div>
 <table>
     <tbody>
         <?php foreach ($this->busquedas as $busqueda): ?>
@@ -42,14 +55,16 @@
             </tr>  
             <tr>
                 <td>
+
                     <?php
                     $link = $this->url(array('module' => 'user',
                         'controller' => 'busqueda',
                         'action' => 'ver',
                         'id' => $busqueda->id))
                     ?>
-                    <a href="<?= $link ?>">
-                        <?= $this->translate("ver") ?>
+                    <a href="<?= $link ?>"
+                       title="<?= $this->translate('ver busqueda') ?>">
+                        <img class ="imagen-see">
                     </a>    
                 </td>
                 <td>
@@ -59,8 +74,9 @@
                         'action' => 'editar',
                         'id' => $busqueda->id))
                     ?>
-                    <a href="<?= $link ?>">
-                        <?= $this->translate("modificar") ?>
+                    <a href="<?= $link ?>"
+                       title="<?= $this->translate('editar busqueda') ?>">
+                        <img class ="imagen-edit">
                     </a>
                 </td>
                 <td>
@@ -71,8 +87,9 @@
                         'id' => $busqueda->id))
                     ?>
                     <a href="<?= $link ?>" 
-                       onclick="return confirm('¿Estás seguro?')">>
-                        <?= $this->translate("borrar") ?>
+                       onclick="return confirm('¿Estás seguro?')"
+                       title="<?= $this->translate('eliminar busqueda') ?>">
+                        <img class ="imagen-delete">
                     </a>
                 </td>
             </tr>
@@ -80,13 +97,3 @@
         <?php endforeach; ?>
     </tbody>
 </table>
-<div>
-    <?php
-    $link = $this->url(array('module' => 'user',
-        'controller' => 'busqueda',
-        'action' => 'index'))
-    ?>
-    <a href="<?= $link ?>">
-        <?= $this->translate("nueva busqueda") ?>
-    </a>
-</div>
