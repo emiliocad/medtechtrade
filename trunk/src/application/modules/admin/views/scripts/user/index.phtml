@@ -1,4 +1,5 @@
-<h2><?= $this->translate( 'Usuario' ) ?></h2>
+<h2><?= $this->translate('Usuario') ?></h2>
+
 
 <script>
     function prueba(id){
@@ -25,136 +26,137 @@
     <thead>
         <tr>
             <th>
-                <?= $this->translate( 'Nombre' ) ?>
+                <?= $this->translate('Nombre') ?>
             </th>
             <th>
-                <?= $this->translate( 'Apellido' ) ?>
+                <?= $this->translate('Apellido') ?>
             </th>
             <th>
-                <?= $this->translate( 'Email' ) ?>
+                <?= $this->translate('Email') ?>
             </th>
             <th>
-                <?= $this->translate( 'Login' ) ?>
+                <?= $this->translate('Login') ?>
             </th>
             <th>
-                <?= $this->translate( 'Rol' ) ?>
+                <?= $this->translate('Rol') ?>
             </th>
             <th>
-                <?= $this->translate( 'Fecha De Registro' ) ?>
+                <?= $this->translate('Fecha De Registro') ?>
             </th>
             <th>
-                <?= $this->translate( 'Ciudad' ) ?>
+                <?= $this->translate('Ciudad') ?>
             </th>
             <th>
-                <?= $this->translate( 'Cod. Postal' ) ?>
+                <?= $this->translate('Cod. Postal') ?>
             </th>
             <th>
-                <?= $this->translate( 'Pais' ) ?>
+                <?= $this->translate('Pais') ?>
             </th>
             <th>
-                <?= $this->translate( 'Operaciones' ) ?>
+                <?= $this->translate('Operaciones') ?>
             </th>
         </tr>
     </thead>
     <tbody>
-        <?php foreach ( $this->usuarios as $usuario ):
+        <?php foreach ($this->usuarios as $usuario):
             ?>
             <?php $id = $usuario->id; ?>
-            <tr class="<?= $usuario->active
-                            ? 'activo' : 'inactivo' ?>">
+            <tr class="<?= $usuario->active ? 'activo' : 'inactivo' ?>">
 
                 <td>
                     <?php
-                    $link = $this->url( array( 'module' => 'admin' ,
-                        'controller' => 'user' ,
-                        'action' => 'detalle' ,
-                        'id' => $usuario->id ) )
+                    $link = $this->url(array('module' => 'admin',
+                        'controller' => 'user',
+                        'action' => 'detalle',
+                        'id' => $usuario->id))
                     ?>
                     <a href="#" 
-                       onclick="prueba(<?= $this->escape( $usuario->id ) ?>)">
-                           <?= $this->escape( $usuario->nombre ) ?>
+                       onclick="prueba(<?= $this->escape($usuario->id) ?>)">
+                           <?= $this->escape($usuario->nombre) ?>
                     </a>
 
                 </td>
-                <td><?= $this->escape( $usuario->apellido ) ?></td>
-                <td><?= $this->escape( $usuario->email ) ?></td>
-                <td><?= $this->escape( $usuario->login ) ?></td>
-                <td><?= $this->escape( $usuario->rol ) ?></td>
-                <td><?= $this->escape( $usuario->fecharegistro ) ?></td>
-                <td><?= $this->escape( $usuario->ciudad ) ?></td>
-                <td><?= $this->escape( $usuario->codpostal ) ?></td>
-                <td><?= $this->escape( $usuario->prefijo ) ?></td>
+                <td><?= $this->escape($usuario->apellido) ?></td>
+                <td><?= $this->escape($usuario->email) ?></td>
+                <td><?= $this->escape($usuario->login) ?></td>
+                <td><?= $this->escape($usuario->rol) ?></td>
+                <td><?= $this->escape($usuario->fecharegistro) ?></td>
+                <td><?= $this->escape($usuario->ciudad) ?></td>
+                <td><?= $this->escape($usuario->codpostal) ?></td>
+                <td><?= $this->escape($usuario->pais) ?></td>
 
                 <!--Operaciones -->
                 <td>
                     <!--Operaciones -->
                     <?php
-                    $link = $this->url( array( 'module' => 'admin' ,
-                        'controller' => 'user' ,
-                        'action' => 'operation' ,
-                        'id' => $id ) )
+                    $link = $this->url(array('module' => 'admin',
+                        'controller' => 'user',
+                        'action' => 'operation',
+                        'id' => $id))
                     ?>
-                    <a href="<?= $link ?>">
-                        <?= $this->translate( 'Operations' ) ?>
+                    <a href="<?= $link ?>" 
+                       title="<?= $this->translate('operaciones') ?>" >
+                        <img class ="imagen-transacciones">
                     </a>
-
                     <!--End operaciones -->
 
                     <!--Operaciones -->
                     <?php
-                    $link = $this->url( array( 'module' => 'admin' ,
-                        'controller' => 'user' ,
-                        'action' => 'equipment' ,
-                        'id' => $id ) )
+                    $link = $this->url(array('module' => 'admin',
+                        'controller' => 'user',
+                        'action' => 'equipment',
+                        'id' => $id))
                     ?>
-                    <a href="<?= $link ?>">
-                        <?= $this->translate( 'Equipment' ) ?>
+                    <a href="<?= $link ?>" 
+                       title="<?= $this->translate('equipos') ?>" >
+                        <img class ="imagen-equipos">
                     </a>
 
                     <!--End Equipos -->
 
 
                     <?php
-                    $link = $this->url( array( 'module' => 'admin' ,
-                        'controller' => 'user' ,
-                        'action' => 'editar' ,
-                        'id' => $id ) )
+                    $link = $this->url(array('module' => 'admin',
+                        'controller' => 'user',
+                        'action' => 'editar',
+                        'id' => $id))
                     ?>
-                    <a href="<?= $link ?>">
-                        [Editar]
+                    <a href="<?= $link ?>" 
+                       title="<?= $this->translate('editar') ?>" >
+                        <img class ="imagen-edit">
                     </a>
 
                     <?php
-                    $link = $this->url( array( 'module' => 'admin' ,
-                        'controller' => 'user' ,
-                        'action' => 'borrar' ,
-                        'id' => $id ) )
+                    $link = $this->url(array('module' => 'admin',
+                        'controller' => 'user',
+                        'action' => 'borrar',
+                        'id' => $id))
                     ?>
-                    <a href="<?= $link ?>" 
-                       onclick="return confirm('¿Estás seguro?')">
-                        [Borrar]
-                    </a>
 
-                    <?php if ( $usuario->active ): ?>
+                    <?php if ($usuario->active): ?>
                         <?php
-                        $link = $this->url( array( 'module' => 'admin' ,
-                            'controller' => 'user' ,
-                            'action' => 'desactivar' ,
-                            'id' => $id ) )
+                        $link = $this->url(array('module' => 'admin',
+                            'controller' => 'user',
+                            'action' => 'desactivar',
+                            'id' => $id))
                         ?>
-                        <a href="<?= $link ?>">
-                            [Desactivar]
+                        <a href="<?= $link ?>" 
+                           title="<?= $this->translate('desactivar') ?>" >
+                            <img class ="imagen-desactivar">
                         </a>
+              
                     <?php else: ?>
                         <?php
-                        $link = $this->url( array( 'module' => 'admin' ,
-                            'controller' => 'user' ,
-                            'action' => 'activar' ,
-                            'id' => $id ) )
+                        $link = $this->url(array('module' => 'admin',
+                            'controller' => 'user',
+                            'action' => 'activar',
+                            'id' => $id))
                         ?>
-                        <a href="<?= $link ?>">
-                            [Activar]
+                        <a href="<?= $link ?>" 
+                           title="<?= $this->translate('activar') ?>" >
+                            <img class ="imagen-activar">
                         </a>
+                      
                     <?php endif; ?>
 
                 </td>
@@ -164,18 +166,20 @@
 </table>
 <br />
 
+
 <a href="<?=
-        $this->url( array( 'module' => 'admin' ,
-            'controller' => 'user' ,
-            'action' => 'nuevo' ) , null , true )
+        $this->url(array('module' => 'admin',
+            'controller' => 'user',
+            'action' => 'nuevo'), null, true)
         ?>">
 
-    <?= $this->translate( 'Nuevo' ); ?>
+    <?= $this->translate('Nuevo'); ?>
 
 </a>
+
 <?=
 $this->paginationControl(
-        $this->usuarios , 'Sliding' , 'user/_pag.phtml'
+        $this->usuarios, 'Sliding', 'user/_pag.phtml'
 );
 ?>
 
