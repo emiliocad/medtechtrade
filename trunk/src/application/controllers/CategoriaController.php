@@ -12,8 +12,10 @@ class CategoriaController
     public function init()
         {
         parent::init();
+        
         $this->_categoria = new Mtt_Models_Bussines_Categoria();
         $this->URL = '/' . $this->getRequest()->getControllerName();
+        
         }
 
 
@@ -33,12 +35,8 @@ class CategoriaController
 
         $this->view->assign( 'productos' , $stmt );
 
-
-
         $stmtCategoria = $this->_categoria->getCategoria( $id );
         $this->view->assign( 'categoria' , $stmtCategoria );
-
-
 
         $formOrder = new Mtt_Form_OrderEquipo();
         $this->view->assign( 'formOrder' , $formOrder );
