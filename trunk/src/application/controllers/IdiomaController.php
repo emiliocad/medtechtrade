@@ -31,8 +31,7 @@ class IdiomaController
                 );
                 if ( is_object( $dataConfig ) )
                     {
-                    $_config->saveConfig( $data , $dataConfig->id );
-                    
+                    $_config->updateConfig( $data , $dataConfig->id );
                     }
                 else
                     {
