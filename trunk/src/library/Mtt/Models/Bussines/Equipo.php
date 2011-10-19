@@ -103,8 +103,12 @@ class Mtt_Models_Bussines_Equipo
                              array( 'fabricantes.nombre as fabricante' ) )
                 ->joinInner( 'paises' , 'paises.id = equipo.paises_id' ,
                              array( 'paises.nombre as pais' ) )
+                ->joinLeft( 'imagen' , 'imagen.equipo_id = equipo.id' ,
+                            array( 'imagen.nombre as nombreimage',
+                                'imagen') )
                 ->where( 'equipo.active IN (?)' , self::ACTIVE )
                 ->where( 'equipo.id IN (?)' , $id )
+                ->group( 'equipo.id')
                 ->query();
 
         return $query->fetchObject();
@@ -218,7 +222,7 @@ class Mtt_Models_Bussines_Equipo
                              array( 'fabricantes.nombre as fabricante' )
                 )
                 ->joinLeft( 'imagen' , 'imagen.equipo_id = equipo.id' ,
-                            array( 'imagen.nombre as imagen' )
+                            array( 'imagen.imagen as imagen' )
                 )
                 ->where( 'equipo.topofers IN (?)' , self::ACTIVE )
                 ->where( 'equipo.active IN (?)' , self::ACTIVE )
@@ -258,7 +262,7 @@ class Mtt_Models_Bussines_Equipo
                              array( 'fabricantes.nombre as fabricante' )
                 )
                 ->joinLeft( 'imagen' , 'imagen.equipo_id = equipo.id' ,
-                            array( 'imagen.nombre as imagen' )
+                            array( 'imagen.imagen as imagen' )
                 )
                 ->where( 'equipo.topofers IN (?)' , self::ACTIVE )
                 ->where( 'equipo.categoria_id IN (?)' , $category_id )

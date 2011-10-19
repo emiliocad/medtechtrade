@@ -20,7 +20,7 @@
                     <?php
                     $url = (is_null($operacion->imagen)) ?
                         '/theme/default/image/no_images.png' : 
-                        '/media/catalog/product/'. $operacion->imagen
+                        '/media/catalog/product/thumb/'. $operacion->imagen
                     ?>
                     <img src="<?= $url?>" 
                         alt="<?= $operacion->nombre ?>"
