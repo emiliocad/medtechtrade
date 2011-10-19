@@ -1,6 +1,7 @@
 <?php
 
-class Admin_EquipoController extends Mtt_Controller_Action {
+class Admin_EquipoController 
+    extends Mtt_Controller_Action {
 
     protected $_equipo;
 

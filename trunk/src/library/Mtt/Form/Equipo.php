@@ -122,8 +122,8 @@ class Mtt_Form_Equipo
         $this->estadoEquipo = new Zend_Form_Element_Select( 'estadoequipo_id' );
         $this->estadoEquipo->setRequired();
         $this->estadoEquipo->setLabel(
-                $this->_translate->translate( 'estado del equipo' )
-        )->setOrder( 4 );
+                $this->_translate->translate('estado del equipo')
+        )->setOrder(18);
         $_estadoEquipo = new Mtt_Models_Bussines_estadoEquipo();
         $values = $_estadoEquipo->getComboValues();
         $this->estadoEquipo->addMultiOption( -1 ,
@@ -321,8 +321,8 @@ class Mtt_Form_Equipo
                 ->setAttrib(
                         'class' , 'button'
                 )
-                ->setAttrib( 'type' , 'submit' )
-                ->setOrder( 18 )
+                ->setAttrib('type', 'submit')
+                ->setOrder(19)
         ;
 
 

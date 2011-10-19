@@ -1,5 +1,49 @@
 <h2>
-    <?= $this->translate( 'Operations of Usuario' ); ?>
+    <?= $this->translate( 'operaciones del usuario' ); ?>
 </h2>
+<table border="1" class="listado">
+    <thead>
+        <tr>
+            <th></th>
+            <th><?= $this->translate('nombre de equipo')?></th>
+            <th><?= $this->translate('precio') ?></th>
+            <th><?= $this->translate('fecha') ?></th>
+            <th><?= $this->translate('numero de  cuotas') ?></th>
+            <th><?= $this->translate('forma de pago') ?></th>
+            <th><?= $this->translate('acciones') ?></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($this->operaciones as $operacion): ?>
+            <tr>
+                <td>
+                    <?php
+                    $url = (is_null($operacion->imagen)) ?
+                        '/theme/default/image/no_images.png' : 
+                        '/media/catalog/product/'. $operacion->imagen
+                    ?>
+                    <img src="<?= $url?>" 
+                        alt="<?= $operacion->nombre ?>"
+                        width="24px" height="24px">
+                </td>
+                <td>
+                    <?= $this->escape($operacion->nombre) ?>
+                </td>
+                <td><?= $this->escape($operacion->precio) ?></td>
+                <td><?= $this->escape($operacion->fecha) ?></td>
+                <td><?= $this->escape($operacion->nrocuotas) ?></td>
+                <td><?= $this->escape($operacion->formapago) ?></td>
+                <td>
 
-<?  Zend_Debug::dump( $this->operaciones );?>
+                   
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+<br />
+<?=
+$this->paginationControl(
+        $this->operaciones , 'Sliding' , 'user/_pag.phtml'
+);
+?>

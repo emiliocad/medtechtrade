@@ -1,6 +1,5 @@
 <h2><?= $this->translate('Usuario') ?></h2>
 
-
 <script>
     function prueba(id){
         $.get('/admin/user/detalle/id/'+id, {}, 
@@ -18,7 +17,7 @@
 </script>
 
 
-<div id="dialog" title="Basic dialog">
+<div id="dialog" title="<?= $this->translate('ver detalles') ?>">
     <div id="dialog_text"></div>
 </div>
 
@@ -144,7 +143,7 @@
                            title="<?= $this->translate('desactivar') ?>" >
                             <img class ="imagen-desactivar">
                         </a>
-              
+
                     <?php else: ?>
                         <?php
                         $link = $this->url(array('module' => 'admin',
@@ -156,7 +155,7 @@
                            title="<?= $this->translate('activar') ?>" >
                             <img class ="imagen-activar">
                         </a>
-                      
+
                     <?php endif; ?>
 
                 </td>
@@ -165,16 +164,14 @@
     </tbody>
 </table>
 <br />
-
-
-<a href="<?=
-        $this->url(array('module' => 'admin',
+<?php 
+    $link = $this->url(array('module' => 'admin',
             'controller' => 'user',
-            'action' => 'nuevo'), null, true)
-        ?>">
-
-    <?= $this->translate('Nuevo'); ?>
-
+            'action' => 'nuevo'), null, true);
+?>
+<a href="<?= $link ?>" 
+   title="<?= $this->translate('nuevo') ?>" >
+    <img class ="imagen-new">
 </a>
 
 <?=

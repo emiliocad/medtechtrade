@@ -125,7 +125,8 @@ class Mtt_Models_Bussines_Equipo
                 ->joinLeft( 'imagen' , 'imagen.equipo_id = equipo.id' ,
                             array( 'imagen.nombre as imagen' ,
                     'imagen.imagen as imagenurl' ,
-                    'imagen.descripcion' ) )
+                    'imagen.descripcion',
+                    'imagen.id as idimagen'            ) )
                 ->where( 'equipo.active IN (?)' , self::ACTIVE )
                 ->where( 'equipo.id = ?' , $id )
                 ->query();
