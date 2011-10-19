@@ -42,10 +42,16 @@ class Mtt_Controller_Action
         }
 
 
+    public function postDispatch()
+        {
+        parent::postDispatch();
+        }
+
+
     public function preDispatch()
         {
         parent::preDispatch();
-        
+
         if ( Zend_Auth::getInstance()->hasIdentity() )
             {
             $this->authData = Zend_Auth::getInstance()->getStorage()->read();
@@ -56,14 +62,21 @@ class Mtt_Controller_Action
             $this->view->assign(
                     'authUser' , $this->authData['usuario']->nombre
             );
-            $this->view->assign( 'formIdiomaPais' ,
-                                 new Mtt_Form_IdiomaPais(
-                            array(
-                                'idioma' => $this->mtt->config->idlang
-                            )
-                    )
-            );
             }
+
+        $idioma = !isset(
+                        $this->mtt->config->idlang
+                ) ? '' : $this->mtt->config->idlang;
+        
+        
+
+        $this->view->assign( 'formIdiomaPais' ,
+                             new Mtt_Form_IdiomaPais(
+                        array(
+                            'idioma' => $idioma
+                        )
+                )
+        );
 
 
 //        if ( $this->isAuth )

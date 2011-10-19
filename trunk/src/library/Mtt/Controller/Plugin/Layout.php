@@ -14,7 +14,6 @@ class Mtt_Controller_Plugin_Layout
 
         if ( isset( $config[$moduleName]['resources']['layout']['layout'] ) )
             {
-
             $layoutScript = $config[$moduleName]['resources']['layout']['layout'];
             Zend_Layout::getMvcInstance()->setLayout( $layoutScript );
             }

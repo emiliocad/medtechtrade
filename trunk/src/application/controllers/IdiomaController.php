@@ -26,15 +26,14 @@ class IdiomaController
 
             if ( $data['recordar'] == 1 )
                 {
-
                 $_config->saveConfig( $data );
                 }
-//            if ( isset( $data['idioma'] ) && $data['idioma'] !== '-1' )
-//                {
+            if ( ( int ) $data['idioma'] > 0 )
+                {
                 $dataIdioma = $_idioma->getFindId( $data['idioma'] );
                 $this->mtt->config->lang = $dataIdioma->prefijo;
                 $this->mtt->config->idlang = $dataIdioma->id;
-//                }
+                }
 
             $this->view->assign( 'form' , $this->_request->getPost() );
             $this->view->assign( 'data' , $this->mtt->config );
