@@ -57,19 +57,17 @@ class User_EquipoController
     public function verpendientesAction()
         {
 
-         $equipos = $this->_equipo->pagListEquipByUserStatus(
-                        $this->authData['usuario']->id ,
-                        Mtt_Models_Bussines_PublicacionEquipo::Pendiente
-                );
-        
+        $equipos = $this->_equipo->pagListEquipByUserStatus(
+                $this->authData['usuario']->id ,
+                Mtt_Models_Bussines_PublicacionEquipo::Pendiente
+        );
+
         $equipos->setCurrentPageNumber(
                 $this->_getParam( 'page' , 1 )
         );
         $this->view->assign(
                 'equipos' , $equipos
-                
         );
-        
         }
 
 
@@ -77,16 +75,15 @@ class User_EquipoController
         {
 
         $equipos = $this->_equipo->pagListEquipByUserStatus(
-                        $this->authData['usuario']->id ,
-                        Mtt_Models_Bussines_PublicacionEquipo::Activada
-                );
-        
+                $this->authData['usuario']->id ,
+                Mtt_Models_Bussines_PublicacionEquipo::Activada
+        );
+
         $equipos->setCurrentPageNumber(
                 $this->_getParam( 'page' , 1 )
         );
         $this->view->assign(
                 'equipos' , $equipos
-                
         );
         }
 
@@ -134,7 +131,7 @@ class User_EquipoController
 
     public function cotizarAction()
         {
-        
+
         $this->view->jQuery()
                 ->addJavascriptFile(
                         '/js/jwysiwyg/jquery.wysiwyg.js'
@@ -151,7 +148,7 @@ class User_EquipoController
                           });'
                 )
         ;
-        
+
         $id = intval( $this->_request->getParam( 'id' ) );
 
         $equipo = $this->_equipo->getFindId( $id );
@@ -196,13 +193,13 @@ class User_EquipoController
         $form->removeElement( 'publicacionEquipo_id' );
         $form->removeElement( 'tag' );
         //$form->preciocompra->setLabel( 'Precio' );
-        if (
+        if ( $this->_request->isPost() &&
                 $form->isValid( $this->_request->getPost() )
         )
             {
 
             $equipo = $form->getValues();
-           
+
             $this->_equipo->saveEquipo( $equipo );
 
             $this->_helper->FlashMessenger(
@@ -213,8 +210,7 @@ class User_EquipoController
             $this->_redirect( $this->URL );
             }
         $this->view->assign( 'frmRegistrar' , $form );
-        $this->view->assign( 'equipo', $form->getValues());
-        $this->view->assign( 'data', $form->getValues());
+        
         }
 
 
@@ -237,11 +233,10 @@ class User_EquipoController
                 $this->_helper->FlashMessenger( 'Se modificó un fabricante' );
                 $this->_redirect( $this->URL );
                 }
-  
+
             //$form->setDefaults( $equipo->toArray() );
-            $form->setDefaults( $equipo->toArray());
+            $form->setDefaults( $equipo->toArray() );
             $this->view->assign( 'form' , $form );
-       
             }
         else
             {

@@ -251,7 +251,8 @@ class Mtt_Form_Equipo
                         array(
                             'jQueryParams' => array(
                                 'defaultDate' => date( 'Y/m/d' , time() ) ,
-                                'changeYear' => 'true'
+                                'changeYear' => 'true',
+                                'changeMonth' => 'true'
                             )
                         )
         );
