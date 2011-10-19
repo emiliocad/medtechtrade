@@ -29,12 +29,12 @@
                " title="<?= $producto->slug ?>">
                    <?php
                    $url = (is_null($producto->imagen)) ?
-                           '/media/catalog/product/no_image.png' :
-                           '/media/catalog/product/' . $producto->imagen
+                           '/media/catalog/product/avatar/no_image.png' :
+                           '/media/catalog/product/avatar/' . $producto->imagen
                    ?>
                 <img src="<?= $url ?>" 
                      alt="<?= $producto->nombre ?>"
-                     width="168px" height="168px">
+                     />
               
             </a>
             <span class="manufacturer">

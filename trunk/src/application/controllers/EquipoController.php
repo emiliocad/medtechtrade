@@ -82,14 +82,22 @@ class EquipoController extends Mtt_Controller_Action {
         );
 
         $producto = $this->_equipo->getProduct($id);
+        
+        $imagen = new Mtt_Models_Bussines_Imagen();
+        $imagenes = $imagen->getImagesByEquip( $id ); 
 
         if ($producto->publicacionid ==
                 Mtt_Models_Table_PublicacionEquipo::Activada) {
             $this->_equipo->updateView($id);
 
+            $producto->imagenes = $imagenes;
+            
             $this->view->assign(
                     'producto', $producto
             );
+            /*$this->view->assign(
+                    'imagenes', $imagenes
+            );*/
 
             $form = new Mtt_Form_SearchGeneral();
             $this->view->assign('formSearch', $form);

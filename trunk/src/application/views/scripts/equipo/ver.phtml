@@ -1,24 +1,24 @@
 <span class="breadcrumb">
     <a href="
     <?=
-    $this->url( array(
-        'module' => 'default' ,
-        'controller' => 'equipo' ,
+    $this->url(array(
+        'module' => 'default',
+        'controller' => 'equipo',
         'action' => 'index'
-            ) , 'default' , true )
+            ), 'default', true)
     ?>">
-           <?= $this->translate( 'Home' ) ?>
+           <?= $this->translate('Home') ?>
     </a>
 
     >
     <a href="
     <?=
-    $this->url( array(
-        'module' => 'default' ,
-        'controller' => 'categoria' ,
-        'action' => 'index' ,
+    $this->url(array(
+        'module' => 'default',
+        'controller' => 'categoria',
+        'action' => 'index',
         'id' => $this->producto->categoria_id
-            ) , 'default' , true )
+            ), 'default', true)
     ?>">
            <?= $this->producto->categoria ?>
     </a>
@@ -38,40 +38,40 @@
     <?= $this->formSearch ?>
 </div>
 <div id="dialogToSendFriend"  style="display: none;"
-     title="<?= $this->translate("enviar a un amigo")?>" >
+     title="<?= $this->translate("enviar a un amigo") ?>" >
     <div id="detalle"><?= $this->formEnviarAmigo ?></div>
 </div>
 <div id="dialogHelp"  style="display: none;"
-     title="<?= $this->translate("ayuda")?>" >
+     title="<?= $this->translate("ayuda") ?>" >
     <div id="detalle">
-        <?= $this->render( 'equipo/_help.phtml' );?>
+        <?= $this->render('equipo/_help.phtml'); ?>
     </div>
 </div>
 
 <div id="device-foto-galery">
     <!--Producto -->
-    <a href="/media/catalog/product/device-03-00.png" 
+    <?php
+    $url = (is_null($this->producto->imagen)) ?
+            '/media/catalog/product/product/no_image.png' :
+            '/media/catalog/product/product/' . $this->producto->imagen
+    ?>
+    
+    <a href="<?= $url ?>" 
        title="<?= $this->producto->nombre ?>" >
-        <img src="/media/catalog/product/device-03-00.png" alt="">
+        <img src="<?= $url ?>" 
+         alt="<?= $this->producto->nombre ?>"
+         title="<?= $this->producto->nombre ?>"
+          />
     </a>
+    <?php foreach($this->producto->imagenes as $imagen) :?>
     <!--Producto-->
     <!--\media\catalog\product\thumb-->
-    <a href="/media/catalog/product/thumb/device-03-01.png" 
+    <a href="/media/catalog/product/thumb/<?= $imagen->imagen ?>" 
        title="<?= $this->producto->nombre ?>" >
-        <img src="/media/catalog/product/thumb/device-03-01.png" alt="Device" />
+        <img src="/media/catalog/product/thumb/<?= $imagen->imagen ?>" alt="Device" />
     </a> 
-    <a href="/media/catalog/product/thumb/device-03-02.png" 
-       title="<?= $this->producto->nombre ?>" >
-        <img src="/media/catalog/product/thumb/device-03-02.png" alt="Device" />
-    </a> 
-    <a href="/media/catalog/product/thumb/device-03-03.png" 
-       title="<?= $this->producto->nombre ?>" >
-        <img src="/media/catalog/product/thumb/device-03-03.png" alt="Device" />
-    </a> 
-    <a href="/media/catalog/product/thumb/device-03-04.png" 
-       title="<?= $this->producto->nombre ?>" >
-        <img src="/media/catalog/product/thumb/device-03-04.png" alt="Device" />
-    </a> 
+    <?php endforeach;?>
+
 
 
     <!-- Fin de imagenes -->
@@ -91,12 +91,12 @@
                     'id="searchForUser"' : 'id="searchEquipments"'
     ?>>
         <span class="advanced-search-tab">
-            <?= $this->translate( 'Advanced Search' ) ?>
+            <?= $this->translate('Advanced Search') ?>
         </span>
     </a>
 
     <span class="device-description-field">
-        <?= $this->translate( 'Product name' ) ?>
+        <?= $this->translate('Product name') ?>
     </span>
     <span>
         <?= $this->producto->nombre ?>
@@ -104,15 +104,12 @@
 
 
     <?
-    if ( Zend_Auth::getInstance()->hasIdentity() )
-        {
+    if (Zend_Auth::getInstance()->hasIdentity()) {
 
-        echo $this->render( 'equipo/user/deviceDescription.phtml' );
-        }
-    else
-        {
-        echo $this->render( 'equipo/guest/deviceDescription.phtml' );
-        }
+        echo $this->render('equipo/user/deviceDescription.phtml');
+    } else {
+        echo $this->render('equipo/guest/deviceDescription.phtml');
+    }
     ?>
 
 </div>
@@ -120,59 +117,57 @@
 
 <div id="device-actions">
     <a href="<?=
-    $this->url( array(
-        'module' => 'default' ,
-        'controller' => 'equipo' ,
-        'action' => 'pdf' ,
+    $this->url(array(
+        'module' => 'default',
+        'controller' => 'equipo',
+        'action' => 'pdf',
         'id' => $this->producto->id
-            ) , 'default' , true )
+            ), 'default', true)
     ?>">
         <span class="device-action-pdf">
-            <?= $this->translate( 'Download PDF' ) ?>
+    <?= $this->translate('Download PDF') ?>
         </span>
     </a>
     <a href="#">
         <span class="device-action-print">
-            <?= $this->translate( 'Print' ) ?>
+<?= $this->translate('Print') ?>
         </span>
     </a>
     <a href="#">
         <span class="device-action-help">
-            <?= $this->translate( 'I Need Help' ) ?>
+<?= $this->translate('I Need Help') ?>
         </span>
     </a>
     <a href="#">
         <span class="device-action-friend">
-            <?= $this->translate( 'Tell a Friend' ) ?>
+<?= $this->translate('Tell a Friend') ?>
         </span>
     </a>
-    <?
-    if ( Zend_Auth::getInstance()->hasIdentity() )
-        {
-         if($this->producto->publicacionid == 
-            Mtt_Models_Table_PublicacionEquipo::Activada)
-             {
-            echo $this->render( 'equipo/user/deviceActions.phtml' );
-             }
-        }
-    ?>
+            <?
+            if (Zend_Auth::getInstance()->hasIdentity()) {
+                if ($this->producto->publicacionid ==
+                        Mtt_Models_Table_PublicacionEquipo::Activada) {
+                    echo $this->render('equipo/user/deviceActions.phtml');
+                }
+            }
+            ?>
 
     <a href="
     <?=
     $this->url(
-            array( 'module' => 'default' , 'controller' => 'equipo' ,
-        'action' => 'cotizar' ,
-        'id' => $this->producto->id ) , 'default' , true
-     )
+            array('module' => 'default', 'controller' => 'equipo',
+        'action' => 'cotizar',
+        'id' => $this->producto->id), 'default', true
+    )
     ?> 
        ">
         <span class="device-action-tobuy">
-            <?= $this->translate( 'Request Price' ) ?>
+    <?= $this->translate('Request Price') ?>
         </span>
     </a>
 
     <a href="javascript:history.go(-1)">
         <span class="device-action-back">
-            <?= $this->translate( 'Back' ) ?>
+<?= $this->translate('Back') ?>
         </span>
     </a>

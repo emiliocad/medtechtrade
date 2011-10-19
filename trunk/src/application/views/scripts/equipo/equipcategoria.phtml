@@ -16,12 +16,16 @@
                 'slug' => $producto->slug ) , 'slugEquipment' , true )
             ?>
                " title="<?= $producto->slug ?>">
-                <img src="/media/catalog/product/device-00.png" 
-
-
-                     alt="<?= $producto->equipo ?>" 
+                <?php
+                   $url = (is_null($producto->image)) ?
+                           '/media/catalog/product/no_image.png' :
+                           '/media/catalog/product/avatar/' . $producto->image
+                   ?>
+                <img src="<?= $url ?>" 
+                     alt="<?= $producto->equipo ?>"
                      title="<?= $producto->equipo ?>"
                      />
+               
             </a>
 
             <span class="manufacturer">
