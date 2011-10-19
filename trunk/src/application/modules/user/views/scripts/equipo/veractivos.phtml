@@ -1,4 +1,4 @@
-<h2><?= $this->translate('equipos activos')?></h2>
+<h2><?= $this->translate('equipos activos') ?></h2>
 <br />
 <table border="1" class="listado">
     <thead>
@@ -18,14 +18,14 @@
 
             <tr class="<?= $equipo->active ? 'activo' : 'inactivo' ?>">
                 <td>
-                <?php
-                $url = (is_null($equipo->image)) ?
-                    '/theme/default/image/no_images.png' : 
-                    '/media/catalog/product/'. $equipo->image
-                ?>
-                <img src="<?= $url?>" 
-                     alt="<?= $equipo->equipo ?>"
-                     width="24px" height="24px">
+                    <?php
+                    $url = (is_null($equipo->image)) ?
+                            '/theme/default/image/no_images.png' :
+                            '/media/catalog/product/' . $equipo->image
+                    ?>
+                    <img src="<?= $url ?>" 
+                         alt="<?= $equipo->equipo ?>"
+                         width="24px" height="24px">
                 </td>
                 <td>
                     <?= $this->escape($equipo->equipo) ?>
@@ -56,7 +56,7 @@
 
                     <a href="<?= $link ?>" 
                        title="<?= $this->translate('ver equipo') ?>" >
-                   <img class ="imagen-see">
+                        <img class ="imagen-see">
                     </a>
                 </td>
                 <td>
@@ -67,7 +67,7 @@
                         'id' => $equipo->id))
                     ?>
                     <a href="<?= $link ?>" 
-                       title="<?= $this->translate('editar equipo')?>">
+                       title="<?= $this->translate('editar equipo') ?>">
                         <img class ="imagen-edit">
                     </a>
 
@@ -79,6 +79,6 @@
 </table>
 <?=
 $this->paginationControl(
-        $this->equipos , 'Sliding' , 'equipo/_pag.phtml'
+        $this->equipos, 'Sliding', 'equipo/_pag.phtml'
 );
 ?>

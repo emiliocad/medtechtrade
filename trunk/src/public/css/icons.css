@@ -58,4 +58,22 @@
     padding: 20px 20px 5px 5px;
     text-decoration: none;
 }
+.imagen-sale{
+    background: url(/images/acciones/24/sale.png) no-repeat 0% 0%;
+    margin: 0px 0 0px 0px;
+    padding: 20px 20px 5px 5px;
+    text-decoration: none;
+}
+.imagen-top{
+    background: url(/images/acciones/24/top.png) no-repeat 0% 0%;
+    margin: 0px 0 0px 0px;
+    padding: 20px 20px 5px 5px;
+    text-decoration: none;
+}
+.imagen-bottom{
+    background: url(/images/acciones/24/bottom.png) no-repeat 0% 0%;
+    margin: 0px 0 0px 0px;
+    padding: 20px 20px 5px 5px;
+    text-decoration: none;
+}
 
