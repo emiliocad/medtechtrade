@@ -242,7 +242,9 @@ class Mtt_Form_Equipo
                         'fechafabricacion',
                         array(
                             'jQueryParams' => array(
-                                'defaultDate' => date('Y/m/d', time()),
+                                'defaultDate' => date('Y-m-d'),
+                                'minDate'    => date('1980-01-01'),
+                                'maxDate'    => date('Y-m-d'),
                                 'changeYear' => 'true'
                             )
                         )
