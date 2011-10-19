@@ -58,7 +58,10 @@ class Mtt_Form_ConfigurarAlertas
                         'nuevo equipo en categoria seleccionada'
                 )
         );
-        $alerta2->setChecked( $this->_alerts[2] );
+        if ( isset( $this->_alerts[2] ) )
+            {
+            $alerta2->setAttrib( 'checked' , true );
+            }
 
         $this->addElement( $alerta2 );
 
@@ -85,7 +88,10 @@ class Mtt_Form_ConfigurarAlertas
                         'nuevo equipo en plataforma'
                 )
         );
-        $alerta3->setChecked( $this->_alerts[3] );
+         if ( isset( $this->_alerts[3] ) )
+            {
+            $alerta3->setAttrib( 'checked' , true );
+            }
         $this->addElement( $alerta3 );
 
         $this->submit = new Zend_Form_Element_Button( 'submit' );

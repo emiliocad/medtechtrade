@@ -246,13 +246,16 @@ class Mtt_Form_Equipo
         // $this->addElement($this->modelo);
         // 
         // Elemento: fecha de Fabricacion
+
         $this->fechaFabricacion = new ZendX_JQuery_Form_Element_DatePicker(
-                        'fechafabricacion' ,
+                        'fechafabricacion',
                         array(
                             'jQueryParams' => array(
-                                'defaultDate' => date( 'Y/m/d' , time() ) ,
-                                'changeYear' => 'true',
-                                'changeMonth' => 'true'
+                                'defaultDate' => date('Y-m-d'),
+                                'minDate'    => '1980-01-01',
+                                'maxDate'    => date('Y-m-d'),
+                                'changeYear' => 'true'
+                              
                             )
                         )
         );

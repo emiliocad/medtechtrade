@@ -2,40 +2,62 @@
 <table border="1" class="listado">
     <thead>
         <tr>
-            <th><?= $this->translate( 'Name' ) ?></th>
-            <th><?= $this->translate( 'Price' ) ?></th>
-            <th><?= $this->translate( 'Category' ) ?></th>
-            <th><?= $this->translate( 'Status' ) ?></th>
-            <th><?= $this->translate( 'Factory' ) ?></th>
-            <th><?= $this->translate( 'Quality' ) ?></th>
+            <th><?= $this->translate('id') ?></th>
+            <th><?= $this->translate('nombre') ?></th>
+            <th><?= $this->translate('usuario') ?></th>
+            <th><?= $this->translate('precio') ?></th>
+            <th><?= $this->translate('categoria') ?></th>
+            <th><?= $this->translate('estado del equipo') ?></th>
+            <th><?= $this->translate('fabricante') ?></th>
+            <th><?= $this->translate('calidad') ?></th>
+            <th><?= $this->translate('acciones') ?></th>
         </tr>
     </thead>
     <tbody>
-        <?php foreach ( $this->equipos as $equipo ): ?>
+        <?php foreach ($this->equipos as $equipo): ?>
 
-            <tr class="<?= $equipo->active
-                            ? 'activo' : 'inactivo' ?>">
+            <tr class="<?= $equipo->active ? 'activo' : 'inactivo' ?>">
+                <td>
+                    <?= $this->escape($equipo->id) ?>
+                </td>
 
                 <td>
-                    <?= $this->escape( $equipo->equipo ) ?>
+                    <?= $this->escape($equipo->equipo) ?>
                 </td>
                 <td>
-                    <?= $this->escape( $equipo->precio ) ?>
+                    <?php $usuario = $equipo->nombre . " " . $equipo->apellido; ?>
+                    <?= $this->escape($usuario) ?>
                 </td>
                 <td>
-                    <?= $this->escape( $equipo->categoria ) ?>
+                    <?= $this->escape($equipo->precio) ?>
                 </td>
                 <td>
-                    <?= $this->escape( $equipo->estadoequipo ) ?>
+                    <?= $this->escape($equipo->categoria) ?>
                 </td>
                 <td>
-                    <?= $this->escape( $equipo->fabricante ) ?>
+                    <?= $this->escape($equipo->estadoequipo) ?>
                 </td>
                 <td>
-                    <?= $this->escape( $equipo->calidad ) ?>
+                    <?= $this->escape($equipo->fabricante) ?>
                 </td>
-                
-               
+                <td>
+                    <?= $this->escape($equipo->calidad) ?>
+                </td>
+                <td>
+                    <?php
+                    $link =
+                            $this->url(
+                            array(
+                        'slug' => $equipo->slug
+                            ), 'slugEquipment', true)
+                    ?>
+
+                    <a href="<?= $link ?>" 
+                       title="<?= $this->translate('ver equipo') ?>" >
+                        <img class ="imagen-see">
+                    </a>
+                </td>
+
             </tr>
         <?php endforeach; ?>
     </tbody>
