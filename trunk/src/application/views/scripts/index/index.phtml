@@ -3,41 +3,46 @@
      src="/theme/default/image/middle-header.png" 
      alt="MedTechTrade"/>
 <h1>
-    <?= $this->translate( 'Welcome to Medtechtrade' ); ?>
+    <?= $this->translate('Welcome to Medtechtrade'); ?>
 </h1>
 <p>
-    <?= $this->translate( 'home-welcome-txt-p1' ) ?>
+    <?= $this->translate('home-welcome-txt-p1') ?>
 </p>
 
 <p>
-    <?= $this->translate( 'home-welcome-txt-p2' ) ?>
+    <?= $this->translate('home-welcome-txt-p2') ?>
 </p>
 
 <header>
-    <h3><?= $this->translate( 'Top Offers' ) ?></h3>
+    <h3><?= $this->translate('Top Offers') ?></h3>
 </header>
 <div class="device-horizontal-list">
-    <?php foreach ( $this->oferEquipo as $producto ): ?>
+    <?php foreach ($this->oferEquipo as $producto): ?>
         <div>
             <a href="
             <?=
             $this->url(
                     array(
-                'slug' => $producto->slug ) , 'slugEquipment' , true
+                'slug' => $producto->slug), 'slugEquipment', true
             )
             ?>
                " title="<?= $producto->slug ?>">
-
-                <img src="/media/catalog/product/device-00.png" 
-                     alt="<?= $producto->nombre ?>
-                     ">
+                   <?php
+                   $url = (is_null($producto->imagen)) ?
+                           '/media/catalog/product/no_image.png' :
+                           '/media/catalog/product/' . $producto->imagen
+                   ?>
+                <img src="<?= $url ?>" 
+                     alt="<?= $producto->nombre ?>"
+                     width="168px" height="168px">
+              
             </a>
             <span class="manufacturer">
-                <?= $this->translate( 'Manufacturer' ) ?>
+                <?= $this->translate('Manufacturer') ?>
                 : <?= $producto->fabricante ?>
             </span>
             <span class="name">
-                <?= $this->translate( 'Product name' ) ?>
+                <?= $this->translate('Product name') ?>
                 : 
                 <?= $producto->nombre ?>
             </span>
@@ -46,12 +51,12 @@
             $this->url(
                     array(
                 'slug' => $producto->slug
-                    ) , 'slugEquipment' , true
+                    ), 'slugEquipment', true
             )
             ?>
                " title="<?= $producto->slug ?>">
                 <span>
-                    <?= $this->translate( 'View details' ) ?>
+                    <?= $this->translate('View details') ?>
                 </span>
             </a>
         </div>
