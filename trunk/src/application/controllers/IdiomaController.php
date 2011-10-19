@@ -26,11 +26,21 @@ class IdiomaController
 
             if ( $data['recordar'] == 1 )
                 {
-                $_config->saveConfig( $data );
+                $dataConfig = $_config->checkUserConfig(
+                        $this->authData['usuario']->id
+                );
+                if ( is_object( $dataConfig ) )
+                    {
+                    $_config->updateConfig( $data , $dataConfig->id );
+                    }
+                else
+                    {
+                    $_config->saveConfig( $data );
+                    }
                 }
-            if ( ( int ) $data['idioma'] > 0 )
+            if ( ( int ) $data['idioma_id'] > 0 )
                 {
-                $dataIdioma = $_idioma->getFindId( $data['idioma'] );
+                $dataIdioma = $_idioma->getFindId( $data['idioma_id'] );
                 $this->mtt->config->lang = $dataIdioma->prefijo;
                 $this->mtt->config->idlang = $dataIdioma->id;
                 }
@@ -38,7 +48,7 @@ class IdiomaController
             $this->view->assign( 'form' , $this->_request->getPost() );
             $this->view->assign( 'data' , $this->mtt->config );
 
-            //$this->_redirect( $_SERVER['HTTP_REFERER'] );
+            $this->_redirect( $_SERVER['HTTP_REFERER'] );
             }
         }
 

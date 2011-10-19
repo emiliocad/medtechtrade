@@ -8,10 +8,13 @@ class Mtt_Models_Bussines_Config
         extends Mtt_Models_Table_Config
     {
 
+    protected $_user;
+
 
     public function __construct()
         {
         parent::__construct();
+        $this->_user = new Mtt_Models_Bussines_Usuario();
         }
 
 
@@ -48,14 +51,33 @@ class Mtt_Models_Bussines_Config
 
     public function updateConfig( array $data , $id )
         {
-
+        unset( $data['recordar'] );
+        unset( $data['submit'] );
         $this->update( $data , 'id = ' . $id );
+        }
+
+
+    public function checkUserConfig( $user_id )
+        {
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from( $this->_name )
+                ->where( 'active = ?' , self::ACTIVE )
+                ->where( 'usuario_id = ?' , $user_id )
+                ->query()
+        ;
+        return $query->fetchObject();
         }
 
 
     public function saveConfig( array $data )
         {
+
+        $usuario = Zend_Auth::getInstance()->getStorage()->read();
         unset( $data['recordar'] );
+        unset( $data['submit'] );
+        $data['usuario_id'] = $usuario['usuario']->id;
+
         $this->insert( $data );
         }
 

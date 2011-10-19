@@ -6,33 +6,33 @@ class Mtt_Controller_Plugin_LangSelector
     {
 
 
-    public function postDispatch( Zend_Controller_Request_Abstract $request )
-        {
-        parent::postDispatch( $request );
-        $mtt = new Zend_Session_Namespace( 'MTT' );
-
-        if ( !isset( $mtt->config->lang ) )
-            {
-            $zl = new Zend_Locale();
-            $mtt->config->lang = $zl->getLanguage();
-            }
-
-        if ( $mtt->config->lang !== 'en' && $mtt->config->lang !== 'de' &&
-                $mtt->config->lang !== 'es' && $mtt->config->lang !== 'pl' )
-            {
-            $mtt->config->lang = 'en';
-            }
-
-
-        $translate = new Zend_Translate(
-                        Zend_Translate::AN_GETTEXT ,
-                        APPLICATION_PATH . '/configs/locale/' ,
-                        $mtt->config->lang ,
-                        array( 'scan' => Zend_Translate::LOCALE_FILENAME ) ,
-                        $mtt->config->lang );
-
-        Zend_Registry::set( 'Zend_Translate' , $translate );
-        }
+//    public function postDispatch( Zend_Controller_Request_Abstract $request )
+//        {
+//        parent::postDispatch( $request );
+//        $mtt = new Zend_Session_Namespace( 'MTT' );
+//
+//        if ( !isset( $mtt->config->lang ) )
+//            {
+//            $zl = new Zend_Locale();
+//            $mtt->config->lang = $zl->getLanguage();
+//            }
+//
+//        if ( $mtt->config->lang !== 'en' && $mtt->config->lang !== 'de' &&
+//                $mtt->config->lang !== 'es' && $mtt->config->lang !== 'pl' )
+//            {
+//            $mtt->config->lang = 'en';
+//            }
+//
+//
+//        $translate = new Zend_Translate(
+//                        Zend_Translate::AN_GETTEXT ,
+//                        APPLICATION_PATH . '/configs/locale/' ,
+//                        $mtt->config->lang ,
+//                        array( 'scan' => Zend_Translate::LOCALE_FILENAME ) ,
+//                        $mtt->config->lang );
+//
+//        Zend_Registry::set( 'Zend_Translate' , $translate );
+//        }
 
 
     public function preDispatch( Zend_Controller_Request_Abstract $request )
