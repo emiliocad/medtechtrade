@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Medtechtrade\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-10-17 15:54-0500\n"
-"PO-Revision-Date: 2011-10-18 12:25-0500\n"
+"PO-Revision-Date: 2011-10-19 11:11-0500\n"
 "Last-Translator: Matias Franci <mfranci@stockergroup.com>\n"
 "Language-Team: StockerGroup <slovacus@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -34,7 +34,7 @@ msgstr "Nazwa sprzętu"
 
 #: application/controllers/EquipoController.php:256
 msgid "modelo"
-msgstr "Model"
+msgstr "model"
 
 #: application/controllers/EquipoController.php:264
 msgid "origen"
@@ -349,7 +349,7 @@ msgstr "język"
 #: library/Mtt/EditForm/Pagina.php:47
 #: library/Mtt/Form/ChangeLanguage.php:113
 msgid "paises"
-msgstr "Spanish"
+msgstr "krajów"
 
 #: library/Mtt/EditForm/Pagina.php:71
 msgid "El nombre del producto debe tener debe tener al menos"
@@ -477,7 +477,7 @@ msgid ""
 "El nombre del Equipo debe \n"
 "                    tener debe tener al menos\n"
 "                    %min% characters. ' % value % ' no cumple ese requisito"
-msgstr "Nazwa urządzenia muszą być co najmniej znaków%% min. '% Wartości% \"nie pasuje"
+msgstr "Nazwa urządzenia muszą być co najmniej znaków%% min. '% value % \"nie pasuje"
 
 #: library/Mtt/Form/Equipo.php:82
 msgid "precio de venta"
@@ -745,19 +745,19 @@ msgstr "Powitanie"
 
 #: application/layouts/scripts/_header_1.phtml:41
 msgid "English"
-msgstr "English"
+msgstr "Angielski"
 
 #: application/layouts/scripts/_header_1.phtml:51
 msgid "Spanish"
-msgstr "Spanish"
+msgstr "Hiszpański"
 
 #: application/layouts/scripts/_header_1.phtml:60
 msgid "Deutsch"
-msgstr "Deutsch"
+msgstr "Niemiecki"
 
 #: application/layouts/scripts/_header_1.phtml:70
 msgid "Polish"
-msgstr "Polish"
+msgstr "Polski"
 
 #: application/layouts/scripts/_menucategories.phtml:3
 msgid "others"

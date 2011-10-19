@@ -15,13 +15,7 @@
     <? if ( Zend_Auth::getInstance()->hasIdentity() ): ?>
         <div id="userData">
             <?= $this->translate( 'Bienvenido' ) . ' ' . $this->authUser ?>
-            <a href="<?=
-        $this->url( array(
-            'module' => 'default' ,
-            'controller' => 'usuario' ,
-            'action' => 'logout' ) , 'default' , true )
-            ?>">Logout</a>
-
+          
         </div>
         <div id="formIdioma">
             <form action="<?= $this->escape( $this->formIdiomaPais->getAction() ) ?>"
