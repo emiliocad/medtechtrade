@@ -50,12 +50,12 @@ class Mtt_Form_IdiomaPais
                 ->setAction( '/default/idioma/index' )
         ;
 
-        $this->pais = new Zend_Form_Element_Select( 'pais' );
+        $this->pais = new Zend_Form_Element_Select( 'pais_id' );
 
         $this->pais->setLabel(
                         $this->_translate->translate( 'mi pais de residencia' )
                 )
-                ->addMultiOption( -1 ,
+                ->addMultiOption( 500 ,
                                   $this->_translate->translate( 'escoger pais' )
                 )
                 ->addMultiOptions(
@@ -79,7 +79,7 @@ class Mtt_Form_IdiomaPais
         $this->addElement( $this->pais );
 
 
-        $this->idioma = new Zend_Form_Element_Select( 'idioma' );
+        $this->idioma = new Zend_Form_Element_Select( 'idioma_id' );
         $this->idioma->setLabel(
                         $this->_translate->translate( 'mi idioma' )
                 )
@@ -121,7 +121,7 @@ class Mtt_Form_IdiomaPais
 
         ;
         $this->addElement( $this->submit );
-        
+
         parent::init();
         }
 

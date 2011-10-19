@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: medtechtrade\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-10-17 16:02-0500\n"
-"PO-Revision-Date: 2011-10-17 16:02-0500\n"
-"Last-Translator: Luis Mayta <slovacus@gmail.com>\n"
+"PO-Revision-Date: 2011-10-18 12:24-0500\n"
+"Last-Translator: Matias Franci <mfranci@stockergroup.com>\n"
 "Language-Team: Stockergroup Peru <slovacus@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,80 +17,72 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 #: application/controllers/ContactusController.php:44
-#, fuzzy
 msgid "contactenos"
-msgstr "Kontakt"
+msgstr "kontaktieren Sie uns"
 
 #: application/controllers/EquipoController.php:225
-#, fuzzy
 msgid "ficha del equipo"
-msgstr "Gerätestatus"
+msgstr "geräte-profile"
 
 #: application/controllers/EquipoController.php:238
-#, fuzzy
 msgid "manufactur"
-msgstr "Hersteller"
+msgstr "hersteller"
 
 #: application/controllers/EquipoController.php:247
 msgid "nombre del producto"
-msgstr ""
+msgstr "ausrüstung der Name"
 
 #: application/controllers/EquipoController.php:256
 msgid "modelo"
 msgstr "Modell"
 
 #: application/controllers/EquipoController.php:264
-#, fuzzy
 msgid "origen"
-msgstr "obraz"
+msgstr "herkunft"
 
 #: application/controllers/EquipoController.php:272
 msgid "articulo id"
-msgstr ""
+msgstr "ausrüstung ist id"
 
 #: application/controllers/EquipoController.php:280
-#, fuzzy
 msgid "fecha de creacion"
-msgstr "Herstelldatum"
+msgstr "erstellungsdatum"
 
 #: application/controllers/EquipoController.php:288
-#, fuzzy
 msgid "peso estimado"
-msgstr "Benutzer deaktiviert"
+msgstr "geschätzten Gewicht"
 
 #: application/controllers/EquipoController.php:296
 msgid "lenght"
-msgstr ""
+msgstr "länge"
 
 #: application/controllers/EquipoController.php:304
 msgid "width"
-msgstr ""
+msgstr "breite"
 
 #: application/controllers/EquipoController.php:312
 msgid "height"
-msgstr ""
+msgstr "höhe"
 
 #: application/controllers/EquipoController.php:320
 msgid "box size"
-msgstr ""
+msgstr "box größe"
 
 #: application/controllers/EquipoController.php:328
 msgid "condicion de calidad"
-msgstr ""
+msgstr "qualität status"
 
 #: application/controllers/EquipoController.php:336
-#, fuzzy
 msgid "offerer name"
-msgstr "Benutzername"
+msgstr "anbieter den namen"
 
 #: application/controllers/EquipoController.php:344
 msgid "offerer city"
-msgstr ""
+msgstr "anbieter auf seine Stadt"
 
 #: application/controllers/EquipoController.php:352
-#, fuzzy
 msgid "amount of equipment"
-msgstr "Anzahl der Geräte"
+msgstr "anzahl der geräte"
 
 #: application/controllers/EquipoController.php:360
 msgid "descripcion"
@@ -98,7 +90,7 @@ msgstr "Beschreibung"
 
 #: application/controllers/EquipoController.php:368
 msgid "selling price"
-msgstr ""
+msgstr "verkaufspreis"
 
 #: application/controllers/UsuarioController.php:100
 msgid "User or Password Invalido"
@@ -113,157 +105,136 @@ msgid "There has been registered a new user"
 msgstr "Es wurde ein neuer Benutzer registriert"
 
 #: application/modules/admin/controllers/CategoriaController.php:40
-#, fuzzy
 msgid "se registro la categoria"
-msgstr "Benutzer wurde registriert"
+msgstr "kategorie wurde registriert"
 
 #: application/modules/admin/controllers/CategoriaController.php:112
 msgid "se modifico la categoria"
-msgstr ""
+msgstr "kategorie wurde geändert"
 
 #: application/modules/admin/controllers/CategoriaController.php:123
 msgid "no existe esa categoria"
-msgstr ""
+msgstr "kategorie existiert nicht"
 
 #: application/modules/admin/controllers/CategoriaController.php:143
-#, fuzzy
 msgid "categoria borrada"
-msgstr "Kategorie"
+msgstr "kategorie gelöscht"
 
 #: application/modules/admin/controllers/CategoriaController.php:154
-#, fuzzy
 msgid "categoria activado"
-msgstr "Aktive Benutzer"
+msgstr "kategorie aktiviert"
 
 #: application/modules/admin/controllers/CategoriaController.php:165
-#, fuzzy
 msgid "categoria desactivado"
-msgstr "Inaktive Benutzer"
+msgstr "kategorie deaktiviert"
 
 #: application/modules/admin/controllers/EquipoController.php:70
 msgid "se agrego como top ofers  "
-msgstr ""
+msgstr "aufgenommen in top-angebote"
 
 #: application/modules/admin/controllers/EquipoController.php:78
 msgid "se a quitado de top ofers  "
-msgstr ""
+msgstr "entfernt vom topangebot"
 
 #: application/modules/admin/controllers/EquipoController.php:126
-#, fuzzy
 msgid "se registro el equipo"
-msgstr "Gerät wurde hochgeladen"
+msgstr "gerät wurde registriert"
 
 #: application/modules/admin/controllers/EquipoController.php:147
 msgid "se modifico el equipo"
-msgstr ""
+msgstr "umrüster wurde geändert"
 
 #: application/modules/admin/controllers/EquipoController.php:155
-#, fuzzy
 msgid "no existe el equipo"
-msgstr "Gerät wurde hochgeladen"
+msgstr "ausrüstung ist nicht vorhanden"
 
 #: application/modules/admin/controllers/EquipoController.php:165
-#, fuzzy
 msgid "equipo borrado"
-msgstr "reservierte Geräte"
+msgstr "geräte gelöscht"
 
 #: application/modules/admin/controllers/EquipoController.php:174
-#, fuzzy
 msgid "equipo activado"
-msgstr "Aktive Benutzer"
+msgstr "geräte aktiviert"
 
 #: application/modules/admin/controllers/EquipoController.php:183
-#, fuzzy
 msgid "equipo desactivado"
-msgstr "Inaktive Benutzer"
+msgstr "geräte deaktiviert"
 
 #: application/modules/admin/controllers/FabricanteController.php:38
-#, fuzzy
 msgid "se registro el fabricante"
-msgstr "Benutzer wurde registriert"
+msgstr "hersteller registriert wurde"
 
 #: application/modules/admin/controllers/FabricanteController.php:61
 msgid "se modifico el fabricante"
-msgstr ""
+msgstr "hersteller wurde geändert"
 
 #: application/modules/admin/controllers/FabricanteController.php:70
 msgid "no existe ese fabricante"
-msgstr ""
+msgstr "hersteller existiert nicht"
 
 #: application/modules/admin/controllers/FabricanteController.php:81
-#, fuzzy
 msgid "fabricante borrado"
-msgstr "Hersteller"
+msgstr "hersteller gelöscht"
 
 #: application/modules/admin/controllers/FabricanteController.php:91
-#, fuzzy
 msgid "fabricante activado"
-msgstr "Hersteller"
+msgstr "hersteller aktiviert"
 
 #: application/modules/admin/controllers/FabricanteController.php:101
-#, fuzzy
 msgid "fabricante desactivado"
-msgstr "Inaktive Benutzer"
+msgstr "hersteller deaktiviert"
 
 #: application/modules/admin/controllers/IdiomasController.php:29
-#, fuzzy
 msgid "nuevo idioma"
-msgstr "neue Geräte"
+msgstr "neue sprache"
 
 #: application/modules/admin/controllers/IdiomasController.php:44
-#, fuzzy
 msgid "se registro el idioma"
-msgstr "Benutzer wurde registriert"
+msgstr "sprache wurde registriert"
 
 #: application/modules/admin/controllers/IdiomasController.php:77
 msgid "No existe el idioma"
-msgstr ""
+msgstr "sprache existiert nicht"
 
 #: application/modules/admin/controllers/IdiomasController.php:88
 msgid "se elimino el idioma"
-msgstr ""
+msgstr "Sprache wurde gelöscht"
 
 #: application/modules/admin/controllers/IdiomasController.php:99
-#, fuzzy
 msgid "idioma activado"
-msgstr "Aktive Benutzer"
+msgstr "sprache aktiviert"
 
 #: application/modules/admin/controllers/MonedaController.php:40
-#, fuzzy
 msgid "se registro la moneda"
-msgstr "Gerät wurde hochgeladen"
+msgstr "währung wurde registriert"
 
 #: application/modules/admin/controllers/MonedaController.php:72
 msgid "se modifico la moneda"
-msgstr ""
+msgstr "währung wurde geändert"
 
 #: application/modules/admin/controllers/MonedaController.php:82
-#, fuzzy
 msgid "no existe esa moneda"
-msgstr "nicht vorhanden"
+msgstr "währung existiert nicht"
 
 #: application/modules/admin/controllers/MonedaController.php:95
 msgid "moneda borrada"
-msgstr ""
+msgstr "währung gelöscht"
 
 #: application/modules/admin/controllers/MonedaController.php:106
-#, fuzzy
 msgid "moneda activado"
-msgstr "Aktive Benutzer"
+msgstr "währung aktiviert"
 
 #: application/modules/admin/controllers/MonedaController.php:117
-#, fuzzy
 msgid "moneda desactivada"
-msgstr "Inaktive Benutzer"
+msgstr "währung deaktiviert"
 
 #: application/modules/admin/controllers/PaisesController.php:35
-#, fuzzy
 msgid "se registro el pais"
-msgstr "Benutzer wurde registriert"
+msgstr "land registriert wurde"
 
 #: application/modules/admin/controllers/PaisesController.php:82
 msgid "se modifico el pais"
-msgstr ""
+msgstr "land wurde geändert"
 
 #: application/modules/admin/controllers/PaisesController.php:92
 #: application/modules/user/controllers/EquipoController.php:184
@@ -271,28 +242,24 @@ msgid "no existe"
 msgstr "nicht vorhanden"
 
 #: application/modules/admin/controllers/PaisesController.php:104
-#, fuzzy
 msgid "pais desactivado"
-msgstr "Inaktive Benutzer"
+msgstr "land deaktiviert"
 
 #: application/modules/admin/controllers/UserController.php:116
 msgid "Changed a User"
 msgstr "Es wurde ein Benutzer modifiziert"
 
 #: application/modules/admin/controllers/UserController.php:126
-#, fuzzy
 msgid "no es usuario"
-msgstr "Art der Benutzer"
+msgstr "noch kein benutzerprofil"
 
 #: application/modules/admin/controllers/UserController.php:137
-#, fuzzy
 msgid "usuario desactivado"
-msgstr "Inaktive Benutzer"
+msgstr "benutzer deaktiviert"
 
 #: application/modules/admin/controllers/UserController.php:155
-#, fuzzy
 msgid "se registro el usuario"
-msgstr "Benutzer wurde registriert"
+msgstr "benutzer registriert wurde"
 
 #: application/modules/admin/controllers/UserController.php:197
 msgid "Usuario activado"
@@ -308,20 +275,19 @@ msgstr "Gerät wurde hochgeladen"
 
 #: application/modules/user/controllers/ImagenController.php:100
 msgid "se agrego la imagen al equipo"
-msgstr ""
+msgstr "ein imagen muss das Gerät hinzugefügt"
 
 #: application/modules/user/controllers/PreguntaController.php:67
-#, fuzzy
 msgid "Se Registro la pregunta"
-msgstr "Benutzer wurde registriert"
+msgstr "frage wurde registriert"
 
 #: application/modules/user/controllers/PreguntaController.php:80
 msgid "Pregunta Borrado"
-msgstr ""
+msgstr "Frage gelöscht"
 
 #: application/modules/user/controllers/ReservaController.php:205
 msgid "reserva eliminada"
-msgstr ""
+msgstr "reservierung gelöscht"
 
 #: application/modules/user/controllers/UserController.php:64
 #: application/modules/user/controllers/UserController.php:151
@@ -347,18 +313,16 @@ msgid "actualizar"
 msgstr "aktualisierung"
 
 #: library/Mtt/EditForm/Idioma.php:27
-#, fuzzy
 msgid "idioma"
-msgstr "Sprache"
+msgstr "sprache"
 
 #: library/Mtt/EditForm/Idioma.php:42
-#, fuzzy
 msgid "prefijo"
-msgstr "Preis"
+msgstr "präfix"
 
 #: library/Mtt/EditForm/Idioma.php:54
 msgid "guardar"
-msgstr ""
+msgstr "sparen"
 
 #: library/Mtt/EditForm/Imagen.php:30
 #: library/Mtt/EditForm/Imagen.php:73
@@ -418,9 +382,8 @@ msgid "registrar"
 msgstr "registrieren"
 
 #: library/Mtt/Form/ChangeLanguage.php:23
-#, fuzzy
 msgid "escoger idioma"
-msgstr "Land wählen"
+msgstr "sprache wählen"
 
 #: library/Mtt/Form/ChangeLanguage.php:53
 msgid "organizacion"
@@ -471,18 +434,16 @@ msgid "password"
 msgstr "Neues Passwort"
 
 #: library/Mtt/Form/ConfigurarAlertas.php:30
-#, fuzzy
 msgid "nuevo equipo en busqueda guardada"
-msgstr "meine gespeicherten Suchanfragen"
+msgstr "neue geräte in gespeicherten suchen"
 
 #: library/Mtt/Form/ConfigurarAlertas.php:33
 msgid "nuevo equipo en categoria seleccionada"
-msgstr ""
+msgstr "neue geräte in der ausgewählten kategorie"
 
 #: library/Mtt/Form/ConfigurarAlertas.php:36
-#, fuzzy
 msgid "nuevo equipo en plataforma"
-msgstr "neue Geräte"
+msgstr "neue Geräte auf der Plattform"
 
 #: library/Mtt/Form/Contactar.php:34
 #: library/Mtt/Form/ContactarAdmin.php:25
@@ -504,7 +465,7 @@ msgstr "kommentar"
 
 #: library/Mtt/Form/Contactar.php:141
 msgid "enviar"
-msgstr ""
+msgstr "senden"
 
 #: library/Mtt/Form/Equipo.php:48
 #: library/Mtt/Form/Equipo.php:53
@@ -516,22 +477,19 @@ msgid ""
 "El nombre del Equipo debe \n"
 "                    tener debe tener al menos\n"
 "                    %min% characters. ' % value % ' no cumple ese requisito"
-msgstr ""
+msgstr "Der Name des Gerätes muss mindestens% min% Zeichen lang sein. '% Value%' passt nicht"
 
 #: library/Mtt/Form/Equipo.php:82
-#, fuzzy
 msgid "precio de venta"
-msgstr "cena od"
+msgstr "verkaufspreis"
 
 #: library/Mtt/Form/Equipo.php:96
-#, fuzzy
 msgid "precio de compra"
-msgstr "cena od"
+msgstr "cena zakupu"
 
 #: library/Mtt/Form/Equipo.php:114
-#, fuzzy
 msgid "estado del equipo"
-msgstr "Gerätestatus"
+msgstr "geräte-status"
 
 #: library/Mtt/Form/Equipo.php:119
 msgid "estado equipo"
@@ -539,32 +497,28 @@ msgstr "Gerätestatus"
 
 #: library/Mtt/Form/Equipo.php:129
 msgid "publicacion de equipo"
-msgstr ""
+msgstr "veröffentlichen ausrüstung"
 
 #: library/Mtt/Form/Equipo.php:134
-#, fuzzy
 msgid "publicacion equipo"
-msgstr "neue Geräte"
+msgstr "veröffentlichen ausrüstung"
 
 #: library/Mtt/Form/Equipo.php:146
 #: library/Mtt/Form/Equipo.php:151
-#, fuzzy
 msgid "fabricantes"
-msgstr "Hersteller"
+msgstr "hersteller"
 
 #: library/Mtt/Form/Equipo.php:161
 msgid "tag"
-msgstr ""
+msgstr "tag"
 
 #: library/Mtt/Form/Equipo.php:170
-#, fuzzy
 msgid "moneda"
-msgstr "Währung"
+msgstr "währung"
 
 #: library/Mtt/Form/Equipo.php:175
-#, fuzzy
 msgid "monedas"
-msgstr "Währung"
+msgstr "währungen"
 
 #: library/Mtt/Form/Equipo.php:203
 msgid "calidad"
@@ -574,62 +528,55 @@ msgstr "qualität"
 msgid ""
 "La Calidad del producto debe tener debe tener al menos\n"
 "            %min% characters. '%value%' no cumple ese requisito"
-msgstr ""
+msgstr "Die Ausrüstung der Qualität muss mindestens% min% Zeichen lang sein. '% value %' passt nicht"
 
 #: library/Mtt/Form/Equipo.php:223
-#, fuzzy
 msgid "cantidad "
-msgstr "qualität"
+msgstr "menge"
 
 #: library/Mtt/Form/Equipo.php:251
-#, fuzzy
 msgid "fecha de fabricacion"
-msgstr "Herstelldatum"
+msgstr "herstelldatum"
 
 #: library/Mtt/Form/Equipo.php:261
 msgid "tamaño "
-msgstr ""
+msgstr "größe"
 
 #: library/Mtt/Form/Equipo.php:271
 msgid "ancho"
-msgstr ""
+msgstr "breite"
 
 #: library/Mtt/Form/Equipo.php:281
-#, fuzzy
 msgid "alto"
-msgstr "Thema"
+msgstr "höhe"
 
 #: library/Mtt/Form/Equipo.php:292
 msgid "tamaño de la caja"
-msgstr ""
+msgstr "box größe"
 
 #: library/Mtt/Form/Equipo.php:302
-#, fuzzy
 msgid "peso estimado "
-msgstr "Benutzer deaktiviert"
+msgstr "geschätzten gewicht"
 
 #: library/Mtt/Form/IdiomaPais.php:41
 msgid "mi pais de residencia"
-msgstr ""
+msgstr "meinem wohnort land"
 
 #: library/Mtt/Form/IdiomaPais.php:44
-#, fuzzy
 msgid "escoger pais"
-msgstr "Land wählen"
+msgstr "land wählen"
 
 #: library/Mtt/Form/IdiomaPais.php:61
-#, fuzzy
 msgid "mi idioma"
-msgstr "Sprache"
+msgstr "meine Sprache"
 
 #: library/Mtt/Form/IdiomaPais.php:79
-#, fuzzy
 msgid "recordar mi configuracion"
-msgstr "Konfiguration"
+msgstr "erinnere mich an meine konfiguration"
 
 #: library/Mtt/Form/IdiomaPais.php:87
 msgid "siguiente"
-msgstr ""
+msgstr "nächste"
 
 #: library/Mtt/Form/Login.php:28
 msgid "username"
@@ -652,9 +599,8 @@ msgid "simbolo"
 msgstr "symbol"
 
 #: library/Mtt/Form/OrderEquipo.php:24
-#, fuzzy
 msgid "ordenar por"
-msgstr "Strafe für Tag"
+msgstr "sortieren nach"
 
 #: library/Mtt/Form/OrderEquipo.php:27
 msgid "fabricante"
@@ -735,7 +681,7 @@ msgstr "zu"
 
 #: library/Mtt/Form/Usuario.php:41
 msgid "tratamiento"
-msgstr ""
+msgstr "behandlung"
 
 #: library/Mtt/Form/Usuario.php:148
 msgid "confirmar password"
@@ -751,7 +697,7 @@ msgstr "Art der Benutzer"
 
 #: library/Mtt/Form/Usuario.php:245
 msgid "fax"
-msgstr ""
+msgstr "fax"
 
 #: application/layouts/scripts/_footer.phtml:11
 #: application/layouts/scripts/_footer.phtml:12
@@ -761,12 +707,12 @@ msgstr "Home"
 #: application/layouts/scripts/_footer.phtml:21
 #: application/layouts/scripts/_footer.phtml:22
 msgid "CGC"
-msgstr ""
+msgstr "CGC"
 
 #: application/layouts/scripts/_footer.phtml:34
 #: application/layouts/scripts/_footer.phtml:35
 msgid "quienes somos"
-msgstr ""
+msgstr "wer wir sind"
 
 #: application/layouts/scripts/_footer.phtml:46
 #: application/layouts/scripts/_footer.phtml:47
@@ -776,12 +722,12 @@ msgstr "gerätestatus"
 #: application/layouts/scripts/_footer.phtml:58
 #: application/layouts/scripts/_footer.phtml:59
 msgid "referencias"
-msgstr ""
+msgstr "verweise"
 
 #: application/layouts/scripts/_footer.phtml:70
 #: application/layouts/scripts/_footer.phtml:71
 msgid "aviso legal"
-msgstr ""
+msgstr "impressum"
 
 #: application/layouts/scripts/_footer.phtml:84
 #: application/layouts/scripts/backup/_footer.phtml:21
@@ -910,110 +856,92 @@ msgid "my account"
 msgstr "Mein Account"
 
 #: application/layouts/scripts/_userMenu.phtml:11
-#, fuzzy
 msgid "perfil"
-msgstr "Mein Profil"
+msgstr "profil"
 
 #: application/layouts/scripts/_userMenu.phtml:22
-#, fuzzy
 msgid "mi perfil"
-msgstr "Mein Profil"
+msgstr "mein profil"
 
 #: application/layouts/scripts/_userMenu.phtml:40
-#, fuzzy
 msgid "configuraciones"
-msgstr "Konfiguration"
+msgstr "konfigurationen"
 
 #: application/layouts/scripts/_userMenu.phtml:56
 msgid "alerta"
-msgstr ""
+msgstr "alarm"
 
 #: application/layouts/scripts/_userMenu.phtml:65
 msgid "compras"
-msgstr ""
+msgstr "einkaufen"
 
 #: application/layouts/scripts/_userMenu.phtml:77
-#, fuzzy
 msgid "reservas"
-msgstr "Meine Reservierungen"
+msgstr "reservierungen"
 
 #: application/layouts/scripts/_userMenu.phtml:90
-#, fuzzy
 msgid "compras activas"
-msgstr "Meine gekauften Geräte"
+msgstr "aktiven Kauf"
 
 #: application/layouts/scripts/_userMenu.phtml:103
-#, fuzzy
 msgid "pagos"
-msgstr "Zahlung"
+msgstr "fragen"
 
 #: application/layouts/scripts/_userMenu.phtml:116
-#, fuzzy
 msgid "preguntas"
 msgstr "frage"
 
 #: application/layouts/scripts/_userMenu.phtml:125
 msgid "ventas"
-msgstr ""
+msgstr "vertrieb"
 
 #: application/layouts/scripts/_userMenu.phtml:137
-#, fuzzy
 msgid "ingresar nuevo equipo"
-msgstr "fügen Sie eine neue Ausrüstung"
+msgstr "geben sie einen neuen geräten"
 
 #: application/layouts/scripts/_userMenu.phtml:150
-#, fuzzy
 msgid "mis equipos"
-msgstr "gerätestatus"
+msgstr "meine ausrüstung"
 
 #: application/layouts/scripts/_userMenu.phtml:163
-#, fuzzy
 msgid "equipos pendientes"
-msgstr "Anzeigen der offenen Geräte"
+msgstr "angemeldete Geräte"
 
 #: application/layouts/scripts/_userMenu.phtml:176
-#, fuzzy
 msgid "equipos activados"
-msgstr "Anzeigen der aktuellen Geräte"
+msgstr "aktiviert Ausrüstungen"
 
 #: application/layouts/scripts/_userMenu.phtml:189
-#, fuzzy
 msgid "equipos vendidos"
-msgstr "Anzeigen der verkauften Geräte"
+msgstr "verkauft geräte"
 
 #: application/layouts/scripts/_userMenu.phtml:202
-#, fuzzy
 msgid "equipos no vendidos"
-msgstr "Anzeigen der nichtverkauften Geräte"
+msgstr "unverkauften geräten"
 
 #: application/layouts/scripts/_userMenu.phtml:211
-#, fuzzy
 msgid "herramientas"
-msgstr "Zahlungen"
+msgstr "werkzeuge"
 
 #: application/layouts/scripts/_userMenu.phtml:228
-#, fuzzy
 msgid "busqueda"
-msgstr "neue Suche"
+msgstr "suche"
 
 #: application/layouts/scripts/_userMenu.phtml:235
 msgid "mis busquedas guardadas"
 msgstr "meine gespeicherten Suchanfragen"
 
 #: application/layouts/scripts/_userMenu.phtml:248
-#, fuzzy
 msgid "favoritos"
-msgstr "Favoriten"
+msgstr "favoriten"
 
 #: application/layouts/scripts/_userMenu.phtml:266
-#, fuzzy
 msgid "contactar al admin"
-msgstr "Administrator kontaktieren"
+msgstr "kontakt mit dem aministrator"
 
 #: application/layouts/scripts/_userMenu.phtml:285
-#, fuzzy
 msgid "salir"
-msgstr "Verlassen"
+msgstr "verlassen"
 
 #: application/layouts/scripts/backup/_header.phtml:7
 msgid "We manage your equipment..."
@@ -1024,14 +952,12 @@ msgid "Most Requested Operations"
 msgstr "Die meisten angeforderten Operationen"
 
 #: application/modules/admin/layouts/scripts/layout.phtml:66
-#, fuzzy
 msgid "bienvenido"
 msgstr "willkommen"
 
 #: application/modules/admin/layouts/scripts/layout.phtml:74
-#, fuzzy
 msgid "logout"
-msgstr "Ausloggen"
+msgstr "ausloggen"
 
 #: application/modules/admin/layouts/scripts/layout.phtml:95
 msgid "obtener ayuda"
@@ -1062,9 +988,8 @@ msgid "Equipment"
 msgstr "Medizintechnik kaufen"
 
 #: application/modules/admin/layouts/scripts/_navegacion.phtml:72
-#, fuzzy
 msgid "operaciones"
-msgstr "Operationen"
+msgstr "aktionen"
 
 #: application/modules/admin/layouts/scripts/_navegacion.phtml:82
 msgid "Statistics"
@@ -1100,13 +1025,12 @@ msgid "Category"
 msgstr "Kategorie"
 
 #: application/modules/admin/layouts/scripts/navegacion/_desk.phtml:10
-#, fuzzy
 msgid "usuarios pendientes"
-msgstr "Anzeigen der offenen Geräte"
+msgstr "angemeldete benutzer"
 
 #: application/modules/admin/layouts/scripts/navegacion/_desk.phtml:32
 msgid "preguntas por responder"
-msgstr ""
+msgstr "fragen beantworten"
 
 #: application/modules/admin/layouts/scripts/navegacion/_desk.phtml:43
 msgid "Nuevas ventas realizadas"
@@ -1189,29 +1113,24 @@ msgid "New"
 msgstr "Neu"
 
 #: application/modules/admin/views/scripts/equipo/index.phtml:1
-#, fuzzy
 msgid "equipos"
-msgstr "gerätestatus"
+msgstr "ausrüstungen"
 
 #: application/modules/admin/views/scripts/equipo/index.phtml:17
-#, fuzzy
 msgid "estado"
-msgstr "Gerätestatus"
+msgstr "status"
 
 #: application/modules/admin/views/scripts/equipo/index.phtml:18
-#, fuzzy
 msgid "usuario"
-msgstr "Benutzer"
+msgstr "benutzer"
 
 #: application/modules/admin/views/scripts/equipo/index.phtml:19
-#, fuzzy
 msgid "fabricacion"
-msgstr "Hersteller"
+msgstr "herstellung"
 
 #: application/modules/admin/views/scripts/equipo/index.phtml:20
-#, fuzzy
 msgid "publicacion"
-msgstr "Publikationsdatum"
+msgstr "publikationsdatum"
 
 #: application/modules/admin/views/scripts/equipo/index.phtml:75
 msgid "Add Ofers"
@@ -1226,13 +1145,12 @@ msgid "Editar"
 msgstr "Bearbeiten"
 
 #: application/modules/admin/views/scripts/idiomas/index.phtml:40
-#, fuzzy
 msgid "editar"
-msgstr "Bearbeiten"
+msgstr "bearbeiten"
 
 #: application/modules/admin/views/scripts/idiomas/index.phtml:53
 msgid "eliminar"
-msgstr ""
+msgstr "löschen"
 
 #: application/modules/admin/views/scripts/operacion/index.phtml:1
 msgid "Operations"
@@ -1247,14 +1165,13 @@ msgid "User"
 msgstr "Benutzer"
 
 #: application/modules/admin/views/scripts/paises/index.phtml:7
-#, fuzzy
 msgid "codigo"
-msgstr "Postleitzahl"
+msgstr "bearbeiten"
 
 #: application/modules/admin/views/scripts/pregunta/index.phtml:2
 #: application/modules/admin/views/scripts/pregunta/questionunresolved.phtml:2
 msgid "responder a la pregunta"
-msgstr ""
+msgstr "antwort auf die frage"
 
 #: application/modules/admin/views/scripts/pregunta/index.phtml:28
 #: application/modules/admin/views/scripts/pregunta/questionunresolved.phtml:27
@@ -1263,9 +1180,8 @@ msgstr "Benutzer"
 
 #: application/modules/admin/views/scripts/pregunta/index.phtml:36
 #: application/modules/admin/views/scripts/pregunta/questionunresolved.phtml:38
-#, fuzzy
 msgid "responder"
-msgstr "Respiratoren"
+msgstr "antwort"
 
 #: application/modules/admin/views/scripts/reserva/equiposreservados.phtml:6
 msgid "Price"
@@ -1486,9 +1402,8 @@ msgid "Mi Perfil"
 msgstr "Mein Profil"
 
 #: application/modules/user/layouts/scripts/_listAcciones.phtml:32
-#, fuzzy
 msgid "Configuracion alertas"
-msgstr "Konfiguration"
+msgstr "alarmkonfiguration"
 
 #: application/modules/user/layouts/scripts/_listAcciones.phtml:51
 msgid "Configuracion"
@@ -1551,9 +1466,8 @@ msgid "Salir"
 msgstr "Verlassen"
 
 #: application/modules/user/views/scripts/alerta/configuration.phtml:2
-#, fuzzy
 msgid "configurar alertas"
-msgstr "Passwort bestätigen"
+msgstr "konfiguration eine warnung"
 
 #: application/modules/user/views/scripts/busqueda/listsearch.phtml:37
 msgid "precio desde"
@@ -1592,14 +1506,12 @@ msgid "acciones"
 msgstr "operationen"
 
 #: application/modules/user/views/scripts/equipo/index.phtml:84
-#, fuzzy
 msgid "agregar imagen"
-msgstr "obraz"
+msgstr "ein bild"
 
 #: application/modules/user/views/scripts/equipo/index.phtml:95
-#, fuzzy
 msgid "editar equipo"
-msgstr "Gerätestatus"
+msgstr "edit ausrüstung"
 
 #: application/modules/user/views/scripts/equipo/nuevo.phtml:2
 msgid "registrar un nuevo equipo"
@@ -1614,17 +1526,15 @@ msgid "State"
 msgstr "Kontakt"
 
 #: application/modules/user/views/scripts/equipo/veractivos.phtml:1
-#, fuzzy
 msgid "equipos activos"
-msgstr "Anzeigen der aktuellen Geräte"
+msgstr "aktive geräte"
 
 #: application/modules/user/views/scripts/equipo/veractivos.phtml:58
 #: application/modules/user/views/scripts/equipo/verpendientes.phtml:60
 #: application/modules/user/views/scripts/operacion/comprasactivas.phtml:44
 #: application/modules/user/views/scripts/pregunta/index.phtml:86
-#, fuzzy
 msgid "ver equipo"
-msgstr "gerätestatus"
+msgstr "blick ausrüstung"
 
 #: application/modules/user/views/scripts/equipo/vernovendidos.phtml:11
 #: application/modules/user/views/scripts/equipo/vervendidos.phtml:11
@@ -1632,24 +1542,20 @@ msgid "Quantity"
 msgstr "Menge"
 
 #: application/modules/user/views/scripts/equipo/verpendientes.phtml:2
-#, fuzzy
 msgid "equipos pendientes de autorizacion"
-msgstr "Anzeigen der offenen Geräte"
+msgstr "angemeldete geräte für die zulassung"
 
 #: application/modules/user/views/scripts/imagen/nuevo.phtml:3
-#, fuzzy
 msgid "datos del equipo"
-msgstr "Gerätestatus"
+msgstr "geräte-profil"
 
 #: application/modules/user/views/scripts/imagen/nuevo.phtml:8
-#, fuzzy
 msgid "nombre del equipo"
-msgstr "neue Geräte"
+msgstr "ausrüstung der name"
 
 #: application/modules/user/views/scripts/imagen/nuevo.phtml:52
-#, fuzzy
 msgid "titulo imagen"
-msgstr "obraz"
+msgstr "bild titel"
 
 #: application/modules/user/views/scripts/index/index.phtml:2
 msgid "Dashboard"
@@ -1668,43 +1574,36 @@ msgstr ""
 #: application/modules/user/views/scripts/pregunta/index.phtml:18
 #: application/modules/user/views/scripts/pregunta/index.phtml:24
 msgid "fecha"
-msgstr ""
+msgstr "datum"
 
 #: application/modules/user/views/scripts/operacion/compras.phtml:10
-#, fuzzy
 msgid "cantidad"
-msgstr "qualität"
+msgstr "höhe"
 
 #: application/modules/user/views/scripts/operacion/compras.phtml:11
 #: application/modules/user/views/scripts/operacion/comprasactivas.phtml:9
-#, fuzzy
 msgid "nro Cuotas"
-msgstr "Teilzahlungen"
+msgstr "zahl der zitate"
 
 #: application/modules/user/views/scripts/operacion/compras.phtml:12
-#, fuzzy
 msgid "mora Diaria"
-msgstr "Strafe für Tag"
+msgstr "zahlungsweise"
 
 #: application/modules/user/views/scripts/operacion/compras.phtml:13
-#, fuzzy
 msgid "forma de Pago"
-msgstr "Kontaktformular"
+msgstr "zahlungsweise"
 
 #: application/modules/user/views/scripts/operacion/comprasactivas.phtml:6
-#, fuzzy
 msgid "nombre de equipo"
-msgstr "neue Geräte"
+msgstr "ausrüstung der name"
 
 #: application/modules/user/views/scripts/operacion/comprasactivas.phtml:10
-#, fuzzy
 msgid "forma de pago"
-msgstr "Kontaktformular"
+msgstr "zahlungen methoden"
 
 #: application/modules/user/views/scripts/pregunta/index.phtml:2
-#, fuzzy
 msgid "mis preguntas"
-msgstr "Meine Fragen"
+msgstr "meine fragen"
 
 #: application/modules/user/views/scripts/Reserva/favoritos.phtml:28
 msgid "Product name"
@@ -1724,22 +1623,19 @@ msgstr "obraz"
 
 #: application/modules/user/views/scripts/user/editar.phtml:2
 msgid "edtar mi informacion"
-msgstr ""
+msgstr "mein profil bearbeiten"
 
 #: application/modules/user/views/scripts/user/editar.phtml:6
-#, fuzzy
 msgid "fecha de registro"
-msgstr "Datum der Registrierung"
+msgstr "datum der registrierung"
 
 #: application/modules/user/views/scripts/user/editar.phtml:10
-#, fuzzy
 msgid "fecha de modificacion"
-msgstr "Herstelldatum"
+msgstr "änderungsdatum"
 
 #: application/views/scripts/busqueda/resultsearch.phtml:1
-#, fuzzy
 msgid "resultados de la busqueda"
-msgstr "neue Suche"
+msgstr "suchergebnisse"
 
 #: application/views/scripts/categoria/index.phtml:26
 #: application/views/scripts/categoria/index.phtml:94
@@ -1753,18 +1649,16 @@ msgid "Top Seller in"
 msgstr "Top Seller in"
 
 #: application/views/scripts/categoria/ver.phtml:11
-#, fuzzy
 msgid "equipos nuevos"
-msgstr "reservierte Geräte"
+msgstr "neue ausrüstungen"
 
 #: application/views/scripts/categoria/ver.phtml:22
 msgid "click para ver todos"
-msgstr ""
+msgstr "klicken, um alle zu sehen"
 
 #: application/views/scripts/categoria/ver.phtml:73
-#, fuzzy
 msgid "equipos mas solicitados"
-msgstr "reservierte Geräte"
+msgstr "am häufigsten nachgefragten Geräte"
 
 #: application/views/scripts/checkout/cart.phtml:2
 msgid "Lo que tienes en tu Carro"
@@ -1775,9 +1669,8 @@ msgid "Contactenos"
 msgstr "Kontakt"
 
 #: application/views/scripts/equipo/equipcategoria.phtml:6
-#, fuzzy
 msgid "todos los equipos"
-msgstr "Gerätestatus"
+msgstr "alle geräte"
 
 #: application/views/scripts/equipo/index.phtml:2
 msgid "Purchase of equipment"
@@ -1839,7 +1732,7 @@ msgstr "Geschätztes Gewicht (kg)"
 
 #: application/views/scripts/equipo/guest/deviceDescription.phtml:77
 msgid "tamaño"
-msgstr ""
+msgstr "größe"
 
 #: application/views/scripts/equipo/guest/deviceDescription.phtml:120
 msgid "Quality/Condition"
@@ -1861,16 +1754,15 @@ msgstr "In den Warenkorb"
 
 #: application/views/scripts/equipo/user/deviceActions.phtml:40
 msgid "quitar de favorito"
-msgstr ""
+msgstr "aus favoriten entfernen"
 
 #: application/views/scripts/equipo/user/deviceActions.phtml:54
 msgid "Add Favorite"
 msgstr "Zu Favoriten hinzufügen"
 
 #: application/views/scripts/equipo/user/deviceActions.phtml:71
-#, fuzzy
 msgid "quitar de reserva"
-msgstr "reservierte Geräte"
+msgstr "entfernen reservierung"
 
 #: application/views/scripts/equipo/user/deviceActions.phtml:85
 msgid "Add to Reserve"
