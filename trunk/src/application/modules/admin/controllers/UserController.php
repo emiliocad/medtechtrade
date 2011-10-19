@@ -184,9 +184,14 @@ class Admin_UserController
 
     public function operationAction()
         {
-        $id = intval( $this->_getParam( 'id' , null ) );
+        $idUser = intval( $this->_getParam( 'id' , null ) );
         $_operacion = new Mtt_Models_Bussines_Operacion();
-        $stmt = $_operacion->listByUser( $id );
+        $stmt = $_operacion->paglistByUser( $idUser );
+
+        $stmt->setCurrentPageNumber(
+                $this->_getParam( 'page' , 1 )
+        );
+
         $this->view->assign( 'operaciones' , $stmt );
         }
 
