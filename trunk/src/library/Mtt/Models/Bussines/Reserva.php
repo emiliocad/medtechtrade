@@ -162,7 +162,8 @@ class Mtt_Models_Bussines_Reserva
                     'modelo' ,
                     'tag' ,
                     'categoria_id' ,
-                    'calidad'
+                    'calidad',
+                    'slug'             
                         )
                 )
                 ->joinInner( 'categoria' ,
@@ -192,6 +193,9 @@ class Mtt_Models_Bussines_Reserva
                 ->joinInner( 'paises' , 'paises.id = equipo.paises_id' ,
                              array( 'paises.nombre as pais' )
                 )
+                ->joinInner( 'usuario', 'equipo.usuario_id = usuario.id',
+                             array('usuario.nombre',
+                                 'usuario.apellido'))
                 ->joinLeft( 'imagen' , 'reserva.equipo_id = imagen.equipo_id' ,
                             array( 'imagen.descripcion' ,
                     'imagen.imagen' ,
