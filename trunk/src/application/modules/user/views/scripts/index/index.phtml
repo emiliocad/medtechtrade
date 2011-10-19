@@ -16,23 +16,57 @@
 <div id="user-index-latest-equipment">
     <a href="#">
         <span>
-            Last uploaded devices  
+            <?= $this->translate( 'Last uploaded devices' ); ?>
         </span>
     </a>
-    <ul>
-        <li>
-            Imagen 1
-        </li>
-        <li>
-            Imagen 2
-        </li>
-    </ul>
+
+    <table>
+        <thead>
+        <td><?= $this->translate( 'imagen' ) ?></td>
+        <td><?= $this->translate( 'manufacturer' ) ?></td>
+        <td><?= $this->translate( 'categoria' ) ?></td>
+        <td><?= $this->translate( 'equipo' ) ?></td>
+        <td><?= $this->translate( 'modelo' ) ?></td>
+        <td><?= $this->translate( 'fecha de manufacturacion' ) ?></td>
+        <td><?= $this->translate( 'acciones' ) ?></td>
+        </thead>
+        <tbody>
+            <? foreach ( $this->lastequipos as $equipo ): ?>
+                <tr>
+                    <td>
+
+                    </td>
+                    <td>
+                        <?= $equipo->fabricante ?>
+                    </td>
+                    <td>
+                        <?= $equipo->categoria ?>
+                    </td>
+                    <td>
+                        <?= $equipo->nombre ?>
+                    </td>
+                    <td>
+                        <?= $equipo->modelo ?>
+                    </td>
+                    <td>
+                        <?= $equipo->fechafabricacion ?>
+                    </td>
+                    <td>
+                        acciones
+                    </td>
+                </tr>
+            <? endforeach; ?>
+
+
+        </tbody>
+    </table> 
+
 </div>
 
 <div id="user-index-favorites" >
     <a href="#">
         <span>
-            My favorites 
+            <? Zend_Debug::dump( $this->favoritos ); ?> 
         </span>
     </a>
 </div>

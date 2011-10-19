@@ -118,7 +118,10 @@ class TestController
 
     public function dateAction()
         {
-        
+//        $date = new Zend_Date( now("Y-M-D") );
+//        $this->view->assign( 'date' , $date->__toString( "yyyy/mm/dd" ) );
+
+        $this->view->assign( 'date1' , date( 'y-m-d' ) );
         }
 
 

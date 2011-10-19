@@ -11,6 +11,44 @@ class Mtt_Models_Bussines_Equipo
     {
 
 
+    public function getLastEquipmentPublished( $usuarioId , $limit = 5 )
+        {
+        $date = new Zend_Date( );
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from( $this->_name ,
+                        array(
+                    'id' , 'nombre' ,
+                    'slug' ,
+                    'publishdate' ,
+                    'modelo' ,
+                    'fechafabricacion'
+                        )
+                )
+                ->joinInner( 'categoria' ,
+                             'categoria.id = equipo.categoria_id ' ,
+                             array( 'categoria.nombre as categoria' )
+                )
+                ->joinInner( 'fabricantes' ,
+                             'fabricantes.id = equipo.fabricantes_id' ,
+                             array( 'fabricantes.nombre as fabricante' )
+                )
+                ->joinLeft( 'imagen' , 'imagen.equipo_id = equipo.id' ,
+                            array( 'imagen.nombre as imagen' )
+                )
+                ->where( 'equipo.active IN (?)' , self::ACTIVE )
+                ->where( 'EXTRACT(MONTH FROM equipo.publishdate) IN (?)' ,
+                         date( 'm' ) )
+                ->where( 'equipo.usuario_id IN (?)' , $usuarioId )
+                ->where( 'equipo.publicacionEquipo_id  = ?' ,
+                         Mtt_Models_Table_PublicacionEquipo::Activada )
+                ->limit( $limit )
+                ->query();
+
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }
+
+
     public function getEquipmentBySlug( $slug )
         {
         $db = $this->getAdapter();
