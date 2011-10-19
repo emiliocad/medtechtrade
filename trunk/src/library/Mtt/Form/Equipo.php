@@ -1,12 +1,9 @@
 <?php
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
-class Mtt_Form_Equipo 
-    extends Mtt_Form {
+class Mtt_Form_Equipo
+        extends Mtt_Form
+    {
 
     protected $nombre;
     protected $precioVenta;
@@ -30,321 +27,334 @@ class Mtt_Form_Equipo
     protected $alto;
     protected $sizeCaja;
 
-    public function init() {
-        $_conf = new Zend_Config_Ini(
-                        APPLICATION_PATH . '/configs/myConfig.ini', 'upload'
-                )
-        ;
-        $data = $_conf->toArray();
+
+    public function __construct()
+        {
+        parent::__construct();
+        }
+
+
+    public function init()
+        {
+
+//        $_conf = new Zend_Config_Ini(
+//                        APPLICATION_PATH . '/configs/myConfig.ini' , 'upload'
+//                )
+//        ;
+//        $data = $_conf->toArray();
 
         $this
-                ->setMethod('post')
-                ->setAttrib('id', 'frmEquipo')
+                ->setMethod( 'post' )
+                ->setAttrib( 'id' , 'frmEquipo' )
         ;
 
-        $this->categoria = new Zend_Form_Element_Select('categoria_id');
+        $this->categoria = new Zend_Form_Element_Select( 'categoria_id' );
         $this->categoria->setRequired();
         $this->categoria->setLabel(
-                $this->_translate->translate('categoria')
-        )->setOrder(0);
+                $this->_translate->translate( 'categoria' )
+        )->setOrder( 0 );
         $_categoria = new Mtt_Models_Bussines_Categoria();
         $values = $_categoria->getComboValues();
-        $this->categoria->addMultiOption(-1, 
-                '--- ' . $this->_translate->translate('categoria') . '---'
+        $this->categoria->addMultiOption( -1 ,
+                                          '--- ' . $this->_translate->translate( 'categoria' ) . '---'
         );
-        $this->categoria->addMultiOptions($values);
+        $this->categoria->addMultiOptions( $values );
         //$this->addElement($this->categoria);
         $this->categoria->addValidator(
-                new Zend_Validate_InArray(array_keys($values))
+                new Zend_Validate_InArray( array_keys( $values ) )
         );
 
         // Elemento: Nombre
-        $this->nombre = new Zend_Form_Element_Text('nombre');
+        $this->nombre = new Zend_Form_Element_Text( 'nombre' );
         $this->nombre->setLabel(
-                $this->_translate->translate('nombre')
-        )->setOrder(2);
-        $this->nombre->setAttrib('maxlength', '50');
-        $this->nombre->setRequired(true);
+                $this->_translate->translate( 'nombre' )
+        )->setOrder( 2 );
+        $this->nombre->setAttrib( 'maxlength' , '50' );
+        $this->nombre->setRequired( true );
         $v = new Zend_Validate_StringLength(
-                        array('min' => 5, 'max' => 50)
+                        array( 'min' => 5 , 'max' => 50 )
         );
         $v->setMessage(
-                $this->_translate->translate("El nombre del Equipo debe 
+                $this->_translate->translate( "El nombre del Equipo debe 
                     tener debe tener al menos
-                    %min% characters. ' % value % ' no cumple ese requisito"), 
-                Zend_Validate_StringLength::TOO_SHORT
+                    %min% characters. ' % value % ' no cumple ese requisito" ) ,
+                                              Zend_Validate_StringLength::TOO_SHORT
         );
-        $this->nombre->addValidator($v);
+        $this->nombre->addValidator( $v );
         //$this->addElement($this->nombre);
         // Elemento: PrecioVenta
-        $this->precioVenta = new Zend_Form_Element_Text('precioventa');
+        $this->precioVenta = new Zend_Form_Element_Text( 'precioventa' );
         $this->precioVenta->setLabel(
-                $this->_translate->translate('precio de venta')
-        )->setOrder(5);
-        $this->precioVenta->setRequired(true);
-        $v = new Zend_Validate_Between(array('min' => 0.1,
-                    'max' => 9999999999));
-        $this->precioVenta->addValidator($v);
-        $v = new Zend_Validate_Float(new Zend_Locale('US'));
-        $this->precioVenta->addValidator($v);
-        $this->precioVenta->setAttrib('maxlength', '10');
+                $this->_translate->translate( 'precio de venta' )
+        )->setOrder( 5 );
+
+        $this->precioVenta->setRequired( true );
+        $this->precioVenta->addValidator(
+                new Zend_Validate_Between( array(
+                    'min' => 0.1 ,
+                    'max' => 9999999999
+                        )
+                )
+        );
+        $v = new Zend_Validate_Float( new Zend_Locale( 'US' ) );
+        $this->precioVenta->addValidator( $v );
+        $this->precioVenta->setAttrib( 'maxlength' , '10' );
         // $this->addElement($this->precioVenta);
         // 
         // Elemento: PrecioCompra
-        $this->precioCompra = new Zend_Form_Element_Text('preciocompra');
+        $this->precioCompra = new Zend_Form_Element_Text( 'preciocompra' );
         $this->precioCompra->setLabel(
-                $this->_translate->translate('precio de compra')
-        )->setOrder(6);
-        $this->precioCompra->setRequired(true);
-        $v = new Zend_Validate_Between(
+                $this->_translate->translate( 'precio de compra' )
+        )->setOrder( 6 );
+        $this->precioCompra->setRequired( true );
+
+        $this->precioCompra->addValidator( new Zend_Validate_Between(
                         array(
-                            'min' => 0.1, 'max' => 9999999999
+                            'min' => 0.1 , 'max' => 9999999999
                         )
-        );
-        $this->precioCompra->addValidator($v);
-        $v = new Zend_Validate_Float(new Zend_Locale('US'));
-        $this->precioCompra->addValidator($v);
-        $this->precioCompra->setAttrib('maxlength', '7');
+        ) );
+        $v = new Zend_Validate_Float( new Zend_Locale( 'US' ) );
+        $this->precioCompra->addValidator( $v );
+        $this->precioCompra->setAttrib( 'maxlength' , '7' );
         //$this->addElement($this->precioCompra);
 
 
-        $this->estadoEquipo = new Zend_Form_Element_Select('estadoequipo_id');
+        $this->estadoEquipo = new Zend_Form_Element_Select( 'estadoequipo_id' );
         $this->estadoEquipo->setRequired();
         $this->estadoEquipo->setLabel(
-                $this->_translate->translate('estado del equipo')
-        )->setOrder(4);
+                $this->_translate->translate( 'estado del equipo' )
+        )->setOrder( 4 );
         $_estadoEquipo = new Mtt_Models_Bussines_estadoEquipo();
         $values = $_estadoEquipo->getComboValues();
-        $this->estadoEquipo->addMultiOption(-1, 
-                '--- ' . $this->_translate->translate('estado equipo') . ' ---');
-        $this->estadoEquipo->addMultiOptions($values);
+        $this->estadoEquipo->addMultiOption( -1 ,
+                                             '--- ' . $this->_translate->translate( 'estado equipo' ) . ' ---' );
+        $this->estadoEquipo->addMultiOptions( $values );
         //$this->addElement($this->estadoEquipo);
         $this->estadoEquipo->addValidator(
-                new Zend_Validate_InArray(array_keys($values))
+                new Zend_Validate_InArray( array_keys( $values ) )
         );
 
-        $this->publicacionEquipo = new Zend_Form_Element_Select('publicacionEquipo_id');
+        $this->publicacionEquipo = new Zend_Form_Element_Select( 'publicacionEquipo_id' );
         $this->publicacionEquipo->setRequired();
         $this->publicacionEquipo->setLabel(
-                $this->_translate->translate('publicacion de equipo')
-        )->setOrder(17);
+                $this->_translate->translate( 'publicacion de equipo' )
+        )->setOrder( 17 );
         $_publicacionEquipo = new Mtt_Models_Bussines_PublicacionEquipo;
         $values = $_publicacionEquipo->getComboValues();
         $this->publicacionEquipo->addMultiOption(
-                -1, '--- ' . $this->_translate->translate('publicacion equipo') .
+                -1 ,
+                '--- ' . $this->_translate->translate( 'publicacion equipo' ) .
                 ' ---'
         );
-        $this->publicacionEquipo->addMultiOptions($values);
+        $this->publicacionEquipo->addMultiOptions( $values );
         //$this->addElement($this->publicacionEquipo);
         $this->publicacionEquipo->addValidator(
-                new Zend_Validate_InArray(array_keys($values))
+                new Zend_Validate_InArray( array_keys( $values ) )
         );
 
-        $this->fabricantes = new Zend_Form_Element_Select('fabricantes_id');
+        $this->fabricantes = new Zend_Form_Element_Select( 'fabricantes_id' );
         $this->fabricantes->setRequired();
         $this->fabricantes->setLabel(
-                $this->_translate->translate('fabricantes')
-        )->setOrder(1);
+                $this->_translate->translate( 'fabricantes' )
+        )->setOrder( 1 );
         $_fabricantes = new Mtt_Models_Bussines_Fabricante();
         $values = $_fabricantes->getComboValues();
-        $this->fabricantes->addMultiOption(-1, 
-                '--- ' . $this->_translate->translate('fabricantes') . ' ---');
-        $this->fabricantes->addMultiOptions($values);
+        $this->fabricantes->addMultiOption( -1 ,
+                                            '--- ' . $this->_translate->translate( 'fabricantes' ) . ' ---' );
+        $this->fabricantes->addMultiOptions( $values );
         //$this->addElement($this->fabricantes);
         $this->fabricantes->addValidator(
-                new Zend_Validate_InArray(array_keys($values))
+                new Zend_Validate_InArray( array_keys( $values ) )
         );
 
         // Elemento: Tag
-        $this->tag = new Zend_Form_Element_Text('tag');
+        $this->tag = new Zend_Form_Element_Text( 'tag' );
         $this->tag->setLabel(
-                $this->_translate->translate('tag')
-        )->setOrder(11);
-        $this->tag->setAttrib('maxlength', '80');
-        $this->tag->setRequired(false);
+                $this->_translate->translate( 'tag' )
+        )->setOrder( 11 );
+        $this->tag->setAttrib( 'maxlength' , '80' );
+        $this->tag->setRequired( false );
         //$this->addElement($this->tag);
 
-        $this->moneda = new Zend_Form_Element_Select('moneda_id');
+        $this->moneda = new Zend_Form_Element_Select( 'moneda_id' );
         $this->moneda->setRequired();
         $this->moneda->setLabel(
-                $this->_translate->translate('moneda')
-        )->setOrder(4);
+                $this->_translate->translate( 'moneda' )
+        )->setOrder( 4 );
         $_moneda = new Mtt_Models_Bussines_Moneda();
         $values = $_moneda->getComboValues();
-        $this->moneda->addMultiOption(-1, 
-                '--- ' . $this->_translate->translate('monedas') . '  ---'
+        $this->moneda->addMultiOption( -1 ,
+                                       '--- ' . $this->_translate->translate( 'monedas' ) . '  ---'
         );
-        $this->moneda->addMultiOptions($values);
+        $this->moneda->addMultiOptions( $values );
         /* $this->addElement(
           $this->moneda
           ); */
         $this->moneda->addValidator(
-                new Zend_Validate_InArray(array_keys($values))
+                new Zend_Validate_InArray( array_keys( $values ) )
         );
 
-        $this->pais = new Zend_Form_Element_Select('paises_id');
+        $this->pais = new Zend_Form_Element_Select( 'paises_id' );
         $this->pais->setRequired();
         $this->pais->setLabel(
-                $this->_translate->translate('pais')
-        )->setOrder(3);
+                $this->_translate->translate( 'pais' )
+        )->setOrder( 3 );
         $_pais = new Mtt_Models_Bussines_Paises();
         $values = $_pais->getComboValues();
-        $this->pais->addMultiOption(-1, 
-                '--- ' . $this->_translate->translate('pais') . ' ---');
-        $this->pais->addMultiOptions($values);
+        $this->pais->addMultiOption( -1 ,
+                                     '--- ' . $this->_translate->translate( 'pais' ) . ' ---' );
+        $this->pais->addMultiOptions( $values );
         //$this->addElement($this->pais);
         $this->pais->addValidator(
-                new Zend_Validate_InArray(array_keys($values))
+                new Zend_Validate_InArray( array_keys( $values ) )
         );
 
         // Elemento: Calidad
-        $this->calidad = new Zend_Form_Element_Text('calidad');
+        $this->calidad = new Zend_Form_Element_Text( 'calidad' );
         $this->calidad->setLabel(
-                $this->_translate->translate('calidad')
-        )->setOrder(7);
-        $this->calidad->setAttrib('maxlength', '50');
-        $this->calidad->setRequired(true);
+                $this->_translate->translate( 'calidad' )
+        )->setOrder( 7 );
+        $this->calidad->setAttrib( 'maxlength' , '50' );
+        $this->calidad->setRequired( true );
         $v = new Zend_Validate_StringLength(
-                        array('min' => 5, 'max' => 50)
+                        array( 'min' => 5 , 'max' => 50 )
         );
         $v->setMessage(
                 $this->_translate->translate(
                         "La Calidad del producto debe tener debe tener al menos
-            %min% characters. '%value%' no cumple ese requisito"), 
-                Zend_Validate_StringLength::TOO_SHORT
+            %min% characters. '%value%' no cumple ese requisito" ) ,
+                        Zend_Validate_StringLength::TOO_SHORT
         );
-        $this->calidad->addValidator($v);
+        $this->calidad->addValidator( $v );
         //$this->addElement($this->calidad);
-    
-        
         // Elemento: cantidad
-        $this->cantidad = new Zend_Form_Element_Text('cantidad');
+        $this->cantidad = new Zend_Form_Element_Text( 'cantidad' );
         $this->cantidad->setLabel(
-                $this->_translate->translate('cantidad ')
-        )->setOrder(9);
-        $this->cantidad->setRequired(true);
-        $v = new Zend_Validate_Between(array('min' => 1, 'max' => 9999));
-        $this->cantidad->addValidator($v);
-        $this->cantidad->setAttrib('maxlength', '7');
+                $this->_translate->translate( 'cantidad ' )
+        )->setOrder( 9 );
+        $this->cantidad->setRequired( true );
+        $v = new Zend_Validate_Between( array( 'min' => 1 , 'max' => 9999 ) );
+        $this->cantidad->addValidator( $v );
+        $this->cantidad->setAttrib( 'maxlength' , '7' );
         //$this->addElement($this->cantidad);
-        
-        
         // Elemento: modelo
-        $this->modelo = new Zend_Form_Element_Text('modelo');
-        $this->modelo->setLabel($this->_translate->translate('modelo')
-        )->setOrder(8);
-        $this->modelo->setAttrib('maxlength', '50');
-        $this->modelo->setRequired(true);
+        $this->modelo = new Zend_Form_Element_Text( 'modelo' );
+        $this->modelo->setLabel( $this->_translate->translate( 'modelo' )
+        )->setOrder( 8 );
+        $this->modelo->setAttrib( 'maxlength' , '50' );
+        $this->modelo->setRequired( true );
         // $this->addElement($this->modelo);
         // 
         // Elemento: fecha de Fabricacion
         $this->fechaFabricacion = new ZendX_JQuery_Form_Element_DatePicker(
-                        'fechafabricacion',
+                        'fechafabricacion' ,
                         array(
                             'jQueryParams' => array(
-                                'defaultDate' => date('Y/m/d', time()),
+                                'defaultDate' => date( 'Y/m/d' , time() ) ,
                                 'changeYear' => 'true'
                             )
                         )
         );
         $this->fechaFabricacion->setLabel(
-                $this->_translate->translate('fecha de fabricacion')
-        )->setOrder(10);
+                $this->_translate->translate( 'fecha de fabricacion' )
+        )->setOrder( 10 );
         $this->fechaFabricacion->loadDefaultDecorators();
-        $this->fechaFabricacion->setJQueryParam('dateFormat', 'yy-mm-dd');
-        $this->fechaFabricacion->setRequired(true);
+        $this->fechaFabricacion->setJQueryParam( 'dateFormat' , 'yy-mm-dd' );
+        $this->fechaFabricacion->setRequired( true );
         // $this->addElement($this->fechaFabricacion);
-        
         //Elemento Size
-        $this->size =  new Zend_Form_Element_Text('size');
+        $this->size = new Zend_Form_Element_Text( 'size' );
         $this->size->setLabel(
-                $this->_translate->translate('tamaño ')
-        )->setOrder(13);
-        $this->size->setRequired(true);
-        $v = new Zend_Validate_Between(array('min' =>0.1, 'max' => 9999));
-        $this->size->addValidator($v);
-        $this->size->setAttrib('maxlength', '7');
-        
+                $this->_translate->translate( 'tamaño ' )
+        )->setOrder( 13 );
+        $this->size->setRequired( true );
+        $v = new Zend_Validate_Between( array( 'min' => 0.1 , 'max' => 9999 ) );
+        $this->size->addValidator( $v );
+        $this->size->setAttrib( 'maxlength' , '7' );
+
         //Elemento : ancho
-        $this->ancho =  new Zend_Form_Element_Text('ancho');
+        $this->ancho = new Zend_Form_Element_Text( 'ancho' );
         $this->ancho->setLabel(
-                $this->_translate->translate('ancho')
-        )->setOrder(14);
-        $this->ancho->setRequired(true);
-        $v = new Zend_Validate_Between(array('min' =>0.1, 'max' => 9999));
-        $this->ancho->addValidator($v);
-        $this->ancho->setAttrib('maxlength', '7');
-        
+                $this->_translate->translate( 'ancho' )
+        )->setOrder( 14 );
+        $this->ancho->setRequired( true );
+        $v = new Zend_Validate_Between( array( 'min' => 0.1 , 'max' => 9999 ) );
+        $this->ancho->addValidator( $v );
+        $this->ancho->setAttrib( 'maxlength' , '7' );
+
         //Elemento : alto
-        $this->alto =  new Zend_Form_Element_Text('alto');
+        $this->alto = new Zend_Form_Element_Text( 'alto' );
         $this->alto->setLabel(
-                $this->_translate->translate('alto')
-        )->setOrder(15);
-        $this->alto->setRequired(true);
-        $v = new Zend_Validate_Between(array('min' =>0.1, 'max' => 9999));
-        $this->alto->addValidator($v);
-        $this->alto->setAttrib('maxlength', '7');
-        
+                $this->_translate->translate( 'alto' )
+        )->setOrder( 15 );
+        $this->alto->setRequired( true );
+        $v = new Zend_Validate_Between( array( 'min' => 0.1 , 'max' => 9999 ) );
+        $this->alto->addValidator( $v );
+        $this->alto->setAttrib( 'maxlength' , '7' );
+
 
         //Elemento : sizeCaja
-        $this->sizeCaja =  new Zend_Form_Element_Text('sizeCaja');
+        $this->sizeCaja = new Zend_Form_Element_Text( 'sizeCaja' );
         $this->sizeCaja->setLabel(
-                $this->_translate->translate('tamaño de la caja')
-        )->setOrder(16);
-        $this->sizeCaja->setRequired(true);
-        $v = new Zend_Validate_Between(array('min' =>0.1, 'max' => 9999));
-        $this->sizeCaja->addValidator($v);
-        $this->sizeCaja->setAttrib('maxlength', '7');        
-        
-         //Elemento PesoEstimado
-        $this->pesoEstimado =  new Zend_Form_Element_Text('pesoEstimado');
+                $this->_translate->translate( 'tamaño de la caja' )
+        )->setOrder( 16 );
+        $this->sizeCaja->setRequired( true );
+//        $v = new Zend_Validate_Between(array('min' =>0.1, 'max' => 9999));
+//        $this->sizeCaja->addValidator($v);
+        $this->sizeCaja->setAttrib( 'maxlength' , '7' );
+
+        //Elemento PesoEstimado
+        $this->pesoEstimado = new Zend_Form_Element_Text( 'pesoEstimado' );
         $this->pesoEstimado->setLabel(
-                $this->_translate->translate('peso estimado ')
-        )->setOrder(12);
-        $this->pesoEstimado->setRequired(true);
-        $v = new Zend_Validate_Between(array('min' =>0.1, 'max' => 9999));
-        $this->pesoEstimado->addValidator($v);
-        $this->pesoEstimado->setAttrib('maxlength', '7');
-        
-        
-        $this->submit = new Zend_Form_Element_Button('submit');
+                $this->_translate->translate( 'peso estimado ' )
+        )->setOrder( 12 );
+        $this->pesoEstimado->setRequired( true );
+        $v = new Zend_Validate_Between( array( 'min' => 0.1 , 'max' => 9999 ) );
+        $this->pesoEstimado->addValidator( $v );
+        $this->pesoEstimado->setAttrib( 'maxlength' , '7' );
+
+
+        $this->submit = new Zend_Form_Element_Button( 'submit' );
         $this->submit->setLabel(
-                        $this->_translate->translate('registrar')
+                        $this->_translate->translate( 'registrar' )
                 )
                 ->setAttrib(
-                        'class', 'button'
+                        'class' , 'button'
                 )
-                ->setAttrib('type', 'submit')
-                ->setOrder(18)
+                ->setAttrib( 'type' , 'submit' )
+                ->setOrder( 18 )
         ;
 
 
 
         $this->addElements(
                 array(
-                    $this->nombre,
-                    $this->categoria,
-                    $this->precioVenta,
-                    $this->precioCompra,
-                    $this->estadoEquipo,
-                    $this->publicacionEquipo,
-                    $this->fabricantes,
-                    $this->tag,
-                    $this->moneda,
-                    $this->pais,
-                    $this->calidad,
-                    $this->cantidad,
-                    $this->fechaFabricacion,
-                    $this->modelo,
-                    $this->size,
-                    $this->alto,
-                    $this->ancho,
-                    $this->sizeCaja,
-                    $this->pesoEstimado,
+                    $this->nombre ,
+                    $this->categoria ,
+                    $this->precioVenta ,
+                    $this->precioCompra ,
+                    $this->estadoEquipo ,
+                    $this->publicacionEquipo ,
+                    $this->fabricantes ,
+                    $this->tag ,
+                    $this->moneda ,
+                    $this->pais ,
+                    $this->calidad ,
+                    $this->cantidad ,
+                    $this->fechaFabricacion ,
+                    $this->modelo ,
+                    $this->size ,
+                    $this->alto ,
+                    $this->ancho ,
+                    $this->sizeCaja ,
+                    $this->pesoEstimado ,
                     $this->submit
                 )
         );
-    }
 
-}
+        parent::init();
+        }
+
+
+    }
 

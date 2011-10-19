@@ -917,8 +917,8 @@ class Mtt_Models_Bussines_Equipo
                 ->where( 'equipo.active = ?' , self::ACTIVE )
                 ->where( "equipo.nombre LIKE '%$keywords%'" )
                 ->where( "equipo.modelo LIKE '%$modelo%'" )
-                ->where( 'equipo.publicacionEquipo_id = ?', 
-                        Mtt_Models_Table_PublicacionEquipo::Activada
+                ->where( 'equipo.publicacionEquipo_id = ?' ,
+                         Mtt_Models_Table_PublicacionEquipo::Activada
                 )
                 ->where( 'CASE ? WHEN -1 
                     THEN equipo.categoria_id LIKE "%%" 
@@ -1029,16 +1029,15 @@ class Mtt_Models_Bussines_Equipo
 
     public function saveEquipo( array $data )
         {
+
         $slug = new Mtt_Filter_Slug( array(
                     'field' => 'slug' ,
                     'model' => $this
                         ) );
 
-        $dataNew = array(
-            'slug' => $slug->filter( $data['nombre'] )
-        );
-
-        $data = array_merge( $dataNew , $data );
+        $data['usuario_id'] = $this->authData['usuario']->id;
+        $data['publicacionEquipo_id'] = Mtt_Models_Table_PublicacionEquipo::Pendiente;
+        $data['slug'] = $slug->filter( $data['nombre'] );
 
         $this->insert( $data );
         }

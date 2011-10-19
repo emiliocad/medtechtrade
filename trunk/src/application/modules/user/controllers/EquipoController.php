@@ -194,10 +194,9 @@ class User_EquipoController
         $form = new Mtt_Form_Equipo();
         $form->removeElement( 'precioventa' );
         $form->removeElement( 'publicacionEquipo_id' );
-        $form->preciocompra->setLabel( 'Precio' );
-
-        if ( $this->_request->isPost()
-                &&
+        $form->removeElement( 'tag' );
+        //$form->preciocompra->setLabel( 'Precio' );
+        if (
                 $form->isValid( $this->_request->getPost() )
         )
             {
@@ -221,6 +220,7 @@ class User_EquipoController
             }
         $this->view->assign( 'frmRegistrar' , $form );
         $this->view->assign( 'equipo', $form->getValues());
+        $this->view->assign( 'data', $form->getValues());
         }
 
 

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: medtechtrade\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-10-17 16:02-0500\n"
-"PO-Revision-Date: 2011-10-18 12:24-0500\n"
+"PO-Revision-Date: 2011-10-19 11:06-0500\n"
 "Last-Translator: Matias Franci <mfranci@stockergroup.com>\n"
 "Language-Team: Stockergroup Peru <slovacus@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -344,12 +344,12 @@ msgstr "sparen"
 
 #: library/Mtt/EditForm/Pagina.php:27
 msgid "idiomas"
-msgstr "Sprache"
+msgstr "sprache"
 
 #: library/Mtt/EditForm/Pagina.php:47
 #: library/Mtt/Form/ChangeLanguage.php:113
 msgid "paises"
-msgstr "Español"
+msgstr "länder"
 
 #: library/Mtt/EditForm/Pagina.php:71
 msgid "El nombre del producto debe tener debe tener al menos"
@@ -668,7 +668,7 @@ msgstr "aus"
 #: library/Mtt/Form/Search.php:106
 #: library/Mtt/Form/Search.php:145
 msgid "hasta"
-msgstr "zu"
+msgstr "von"
 
 #: library/Mtt/Form/Search.php:128
 msgid "precio"
@@ -677,7 +677,7 @@ msgstr "Preis"
 #: library/Mtt/Form/Search.php:156
 #: library/Mtt/Form/SearchGeneral.php:168
 msgid "buscar"
-msgstr "zu"
+msgstr "Suche"
 
 #: library/Mtt/Form/Usuario.php:41
 msgid "tratamiento"
@@ -745,11 +745,11 @@ msgstr "willkommen"
 
 #: application/layouts/scripts/_header_1.phtml:41
 msgid "English"
-msgstr "English"
+msgstr "Englisch"
 
 #: application/layouts/scripts/_header_1.phtml:51
 msgid "Spanish"
-msgstr "Español"
+msgstr "Spanisch"
 
 #: application/layouts/scripts/_header_1.phtml:60
 msgid "Deutsch"
@@ -757,7 +757,7 @@ msgstr "Deutsch"
 
 #: application/layouts/scripts/_header_1.phtml:70
 msgid "Polish"
-msgstr "English"
+msgstr "Polnisch"
 
 #: application/layouts/scripts/_menucategories.phtml:3
 msgid "others"
@@ -1515,7 +1515,7 @@ msgstr "edit ausrüstung"
 
 #: application/modules/user/views/scripts/equipo/nuevo.phtml:2
 msgid "registrar un nuevo equipo"
-msgstr "fügen Sie eine neue Ausrüstung"
+msgstr "fügen Sie eine neue ausrüstung"
 
 #: application/modules/user/views/scripts/equipo/ver.phtml:32
 msgid "Model"
