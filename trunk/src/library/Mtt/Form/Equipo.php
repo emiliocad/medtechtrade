@@ -168,7 +168,7 @@ class Mtt_Form_Equipo
         $this->moneda->setRequired();
         $this->moneda->setLabel(
                 $this->_translate->translate('moneda')
-        )->setOrder(4);
+        )->setOrder(18);
         $_moneda = new Mtt_Models_Bussines_Moneda();
         $values = $_moneda->getComboValues();
         $this->moneda->addMultiOption(-1, 
@@ -315,7 +315,7 @@ class Mtt_Form_Equipo
                         'class', 'button'
                 )
                 ->setAttrib('type', 'submit')
-                ->setOrder(18)
+                ->setOrder(19)
         ;
 
 
