@@ -123,7 +123,18 @@ class User_UserController
 
     public function contactaradminAction()
         {
-
+        
+        $this->view->jQuery()
+                ->addJavascriptFile(
+                        '/js/jwysiwyg/jquery.wysiwyg.js'
+                )
+                ->addJavascriptFile(
+                        '/js/contactus.js'
+                )
+                ->addStylesheet(
+                        '/js/jwysiwyg/jquery.wysiwyg.css'
+        );
+        
         $id = $this->authData['usuario']->id;
 
         $form = new Mtt_Form_ContactarAdmin();

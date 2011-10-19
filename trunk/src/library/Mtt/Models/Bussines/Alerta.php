@@ -156,7 +156,7 @@ class Mtt_Models_Bussines_Alerta
         $m = new Mtt_Html_Mail_Mailer();
         $m->setSubject( $data['asunto'] );
 
-        $m->addTo( 'tj.chunga@gmail.com' );
+        $m->addTo( $confMail['email'] );
 
         $m->setViewParam( 'usuario' , $data['nombre'] )
                 ->setViewParam( 'equipo' , $data['equipo'] )

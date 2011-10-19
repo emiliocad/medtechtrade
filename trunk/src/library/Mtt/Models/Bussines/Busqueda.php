@@ -37,6 +37,21 @@ class Mtt_Models_Bussines_Busqueda
         }
         
         
+    public function pagListSearchByUserId( $idUsuario)
+        {
+        $_conf = new Zend_Config_Ini(
+                        APPLICATION_PATH . '/configs/myConfigUser.ini' , 'busqueda'
+        );
+        $data = $_conf->toArray();
+
+        $object = Zend_Paginator::factory( $this->listSearchByUserId( $idUsuario ) );
+        $object->setItemCountPerPage(
+                $data['ItemCountPerPage']
+        );
+        return $object;
+        }        
+        
+        
        
     public function setSearch( array $data )
         {

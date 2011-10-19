@@ -96,13 +96,20 @@ class User_BusquedaController extends Mtt_Controller_Action {
         
         
 
-    public function listsearchAction() {
-        $listadoBusqueda = $this->_busqueda->listSearchByUserId(
+    public function listsearchAction() 
+        {
+        
+        $busquedas = $this->_busqueda->pagListSearchByUserId( 
                 $this->authData['usuario']->id
         );
-
-        $this->view->assign('busquedas', $listadoBusqueda);
-    }
+        
+        $busquedas->setCurrentPageNumber(
+                $this->_getParam( 'page' , 1 )
+        );
+        $this->view->assign(
+                'busquedas', $busquedas);
+       
+        }
 
     public function verAction() {
 
