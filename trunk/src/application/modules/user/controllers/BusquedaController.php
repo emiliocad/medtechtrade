@@ -127,6 +127,9 @@ class User_BusquedaController extends Mtt_Controller_Action {
                 , $criterio->precio_inicio
                 , $criterio->precio_fin
         );
+        $resultados->setCurrentPageNumber(
+                $this->_getParam( 'page' , 1 )
+        );
         $this->view->assign('resultados', $resultados);
     }
 

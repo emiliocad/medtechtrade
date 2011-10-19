@@ -1,8 +1,15 @@
-<h2>Resultados</h2>
+<h2><?= $this->translate('resultados de la busqueda') ?></h2>
 <?php foreach ($this->resultados as $result): ?>
 
     <div>
-        <img src="/media/catalog/product/device-03-00.png" alt="">
+        <?php
+        $url = (is_null($result->image)) ?
+                '/theme/default/image/no_images.png' :
+                '/media/catalog/product/' . $result->image
+        ?>
+        <img src="<?= $url ?>" 
+             alt="<?= $result->equipo ?>"
+             width="24px" height="24px">
     </div>
     <div>
         <table border="1">
@@ -38,15 +45,19 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><?php
-                    $link = $this->url(array('module' => 'user',
-                        'controller' => 'equipo',
-                        'action' => 'ver',
-                        'id' => $result->id))
+                    <td>
+                        <?php
+                        $link =
+                                $this->url(
+                                array(
+                            'slug' => $result->slug
+                                ), 'slugEquipment', true)
                         ?>
+
                         <a href="<?= $link ?>">
-                            ver detalles
-                        </a></td>
+                            <?= $this->translate('ver detalles') ?>
+                        </a>
+                    </td>
 
                 </tr>
             </tbody>
