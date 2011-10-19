@@ -19,7 +19,6 @@
             <?= $this->translate( 'Last uploaded devices' ); ?>
         </span>
     </a>
-    <? Zend_Debug::dump( $this->lastequipos ); ?>
 
     <table>
         <thead>
@@ -62,21 +61,12 @@
         </tbody>
     </table> 
 
-    <ul>
-
-        <li>
-            Imagen 1
-        </li>
-        <li>
-            Imagen 2
-        </li>
-    </ul>
 </div>
 
 <div id="user-index-favorites" >
     <a href="#">
         <span>
-            My favorites 
+            <? Zend_Debug::dump( $this->favoritos ); ?> 
         </span>
     </a>
 </div>
