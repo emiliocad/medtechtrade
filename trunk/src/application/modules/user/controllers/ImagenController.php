@@ -6,12 +6,17 @@ class User_ImagenController
     {
 
     protected $_imagen;
+    public $ajaxable = array(
+        'borrar' => array( 'html' , 'json' )
+    );
 
 
     public function init()
         {
         parent::init();
         $this->_imagen = new Mtt_Models_Bussines_Imagen();
+        
+        $this->_helper->getHelper( 'ajaxContext' )->initContext();
         }
 
 
@@ -112,13 +117,14 @@ class User_ImagenController
     public function borrarAction() 
         {
         $id = ( int ) $this->_request->getParam( 'id' , null );
-        $this->_imagen->desactivarImagen($id);
+        $this->_imagen->desactivarImagen( $id );
+        $this->view->assign( 'id' , $id );
         if ( $this->_request->isXmlHttpRequest() )
             {
 
             $this->view->assign( 'sms' ,
                                  $this->_translate->translate(
-                            'imagen eliminada'
+                            ' eliminada'
                     )
             );
             }
