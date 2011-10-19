@@ -112,7 +112,7 @@ class Mtt_Form_Equipo
         $this->estadoEquipo->setRequired();
         $this->estadoEquipo->setLabel(
                 $this->_translate->translate('estado del equipo')
-        )->setOrder(4);
+        )->setOrder(18);
         $_estadoEquipo = new Mtt_Models_Bussines_estadoEquipo();
         $values = $_estadoEquipo->getComboValues();
         $this->estadoEquipo->addMultiOption(-1, 
@@ -168,7 +168,7 @@ class Mtt_Form_Equipo
         $this->moneda->setRequired();
         $this->moneda->setLabel(
                 $this->_translate->translate('moneda')
-        )->setOrder(18);
+        )->setOrder(4);
         $_moneda = new Mtt_Models_Bussines_Moneda();
         $values = $_moneda->getComboValues();
         $this->moneda->addMultiOption(-1, 
