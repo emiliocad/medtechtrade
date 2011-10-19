@@ -202,13 +202,7 @@ class User_EquipoController
             {
 
             $equipo = $form->getValues();
-            $equipo_new = array(
-                'usuario_id' => $this->authData['usuario']->id ,
-                'publicacionEquipo_id' => 1
-            );
-
-            $equipo = array_merge( $equipo , $equipo_new );
-
+           
             $this->_equipo->saveEquipo( $equipo );
 
             $this->_helper->FlashMessenger(

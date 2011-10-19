@@ -125,8 +125,8 @@ class Mtt_Models_Bussines_Equipo
                 ->joinLeft( 'imagen' , 'imagen.equipo_id = equipo.id' ,
                             array( 'imagen.nombre as imagen' ,
                     'imagen.imagen as imagenurl' ,
-                    'imagen.descripcion',
-                    'imagen.id as idimagen'            ) )
+                    'imagen.descripcion' ,
+                    'imagen.id as idimagen' ) )
                 ->where( 'equipo.active IN (?)' , self::ACTIVE )
                 ->where( 'equipo.id = ?' , $id )
                 ->query();
@@ -1030,13 +1030,13 @@ class Mtt_Models_Bussines_Equipo
 
     public function saveEquipo( array $data )
         {
-
+        $usuario = Zend_Auth::getInstance()->getStorage()->read();
         $slug = new Mtt_Filter_Slug( array(
                     'field' => 'slug' ,
                     'model' => $this
                         ) );
 
-        $data['usuario_id'] = $this->authData['usuario']->id;
+        $data['usuario_id'] = $usuario['usuario']->id;
         $data['publicacionEquipo_id'] = Mtt_Models_Table_PublicacionEquipo::Pendiente;
         $data['slug'] = $slug->filter( $data['nombre'] );
 
