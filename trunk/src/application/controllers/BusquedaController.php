@@ -27,22 +27,31 @@ class BusquedaController
     public function resultsearchAction()
         {
 
-        if ( $this->_request->isPost() )
+        $search = new Zend_Session_Namespace( 'MTT' );
+        
+        if ($this->_request->isPost() || !($search->Search=== NULL))
             {
 
-            //Obtener busquedas en Session
-            $busqueda = $this->_request->getPost();
-
+            if($this->_request->isPost()){
+                $criterio = $this->_request->getPost();
+                $criterio['anio_fin'] = '-1';
+                $criterio['precio_inicio'] = '-1';
+                $criterio['precio_fin'] = '-1';
+                //asignar valores a Session
+                $this->_busqueda->setSearch($criterio);
+            } 
+            $busqueda = $this->_busqueda->getSearch(); 
+            
             $equipo = new Mtt_Models_Bussines_Equipo();
             $resultados = $equipo->pagListResultSearch(
-                    $busqueda['palabras_busqueda']
-                    , $busqueda['modelo']
-                    , $busqueda['fabricante']
-                    , $busqueda['categoria_id']
-                    , $busqueda['anio_inicio']
-                    , '-1'
-                    , '-1'
-                    , '-1' );
+                    $busqueda->palabras_busqueda
+                    , $busqueda->modelo
+                    , $busqueda->fabricante
+                    , $busqueda->categoria_id
+                    , $busqueda->anio_inicio
+                    , $busqueda->anio_fin
+                    , $busqueda->precio_inicio 
+                    , $busqueda->precio_fin );
             $resultados->setCurrentPageNumber(
                     $this->_getParam( 'page' , 1 )
             );
@@ -50,8 +59,8 @@ class BusquedaController
             }
         else
             {
-            //$this->_helper->FlashMessenger('no efectuo la busqueda');
-            //$this->_redirect('/index');
+            $this->_helper->FlashMessenger('no efectuo la busqueda');
+            $this->_redirect('/index');
             }
         }
 
