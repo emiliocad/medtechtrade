@@ -988,7 +988,7 @@ class Mtt_Models_Bussines_Equipo
         $m = new Mtt_Html_Mail_Mailer();
         $m->setSubject( $data['asunto'] );
 
-        $m->addTo( 'tj.chunga@gmail.com' );
+        $m->addTo( $confMail['email'] );
 
         if ( $data['toemail'] == 1 )
             {
