@@ -24,7 +24,7 @@ class Admin_LoginController extends Mtt_Controller_Action
                 $this->_redirect( '/admin/index' );
                 } else
                 {
-                $this->_helper->FlashMessenger( 'Usuario o contraseña invalido' );
+                $this->_helper->FlashMessenger( $this->_translate->translate('Usuario o contraseña invalido' ));
                 $this->_redirect( '/admin/login/index' );
                 }
             }

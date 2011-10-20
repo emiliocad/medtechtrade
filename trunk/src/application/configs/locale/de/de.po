@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: medtechtrade\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-20 13:15-0500\n"
-"PO-Revision-Date: 2011-10-20 13:16-0500\n"
+"POT-Creation-Date: 2011-10-20 15:30-0500\n"
+"PO-Revision-Date: 2011-10-20 15:41-0500\n"
 "Last-Translator: Matias Franci <mfranci@stockergroup.com>\n"
 "Language-Team: Stockergroup Peru <slovacus@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -15,6 +15,10 @@ msgstr ""
 "X-Poedit-Country: GERMANY\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-SearchPath-0: .\n"
+
+#: application/controllers/BusquedaController.php:62
+msgid "no efectuo la busqueda"
+msgstr "Suche wurde nicht gemacht"
 
 #: application/controllers/ContactusController.php:44
 msgid "contactenos"
@@ -132,6 +136,30 @@ msgstr "kategorie aktiviert"
 msgid "categoria desactivado"
 msgstr "kategorie deaktiviert"
 
+#: application/modules/admin/controllers/CmsController.php:43
+msgid "Se Registro El Equipo"
+msgstr "Gerät wurde hochgeladen"
+
+#: application/modules/admin/controllers/CmsController.php:66
+msgid "Se modificó un fabricante"
+msgstr "Hersteller geändert"
+
+#: application/modules/admin/controllers/CmsController.php:74
+msgid "No existe ese fabricante"
+msgstr "Hersteller existiert nicht"
+
+#: application/modules/admin/controllers/CmsController.php:84
+msgid "Equipo Borrado"
+msgstr "Geräte gelöscht"
+
+#: application/modules/admin/controllers/CmsController.php:93
+msgid "Equipo Activado"
+msgstr "Geräte aktiviert"
+
+#: application/modules/admin/controllers/CmsController.php:102
+msgid "Equipo desactivado"
+msgstr "Geräte deaktiviert"
+
 #: application/modules/admin/controllers/EquipoController.php:71
 msgid "se agrego como top ofers  "
 msgstr "aufgenommen in top-angebote"
@@ -208,6 +236,14 @@ msgstr "Sprache wurde gelöscht"
 msgid "idioma activado"
 msgstr "sprache aktiviert"
 
+#: application/modules/admin/controllers/IdiomasController.php:110
+msgid "Idioma desactivado"
+msgstr "Sprache aktiviert "
+
+#: application/modules/admin/controllers/loginController.php:27
+msgid "Usuario o contraseña invalido"
+msgstr "Benutzer oder Kennwort ungültig"
+
 #: application/modules/admin/controllers/MonedaController.php:40
 msgid "se registro la moneda"
 msgstr "währung wurde registriert"
@@ -244,6 +280,14 @@ msgstr "land wurde geändert"
 msgid "pais desactivado"
 msgstr "land deaktiviert"
 
+#: application/modules/admin/controllers/PreguntaController.php:104
+msgid "Pregunta Borrado"
+msgstr "Frage gelöscht"
+
+#: application/modules/admin/controllers/TipoUsuarioController.php:36
+msgid "Se Registro La Categoria"
+msgstr "kategorie wurde registriert"
+
 #: application/modules/admin/controllers/UserController.php:118
 msgid "Changed a User"
 msgstr "Es wurde ein Benutzer modifiziert"
@@ -268,9 +312,13 @@ msgstr "Aktive Benutzer"
 msgid "Usuario desactivado"
 msgstr "Inaktive Benutzer"
 
-#: application/modules/user/controllers/EquipoController.php:207
-msgid "Se Registro El Equipo"
-msgstr "Gerät wurde hochgeladen"
+#: application/modules/user/controllers/BusquedaController.php:153
+msgid "No existe esa busqueda"
+msgstr "Suche existiert nicht"
+
+#: application/modules/user/controllers/BusquedaController.php:161
+msgid "Busqueda Borrado"
+msgstr "Suche gelöscht"
 
 #: application/modules/user/controllers/ImagenController.php:107
 msgid "se agrego la imagen al equipo"
@@ -284,9 +332,17 @@ msgstr "gelöscht"
 msgid "Se Registro la pregunta"
 msgstr "frage wurde registriert"
 
-#: application/modules/user/controllers/PreguntaController.php:92
-msgid "Pregunta Borrado"
-msgstr "Frage gelöscht"
+#: application/modules/user/controllers/ReservaController.php:116
+msgid "Se agrego como Favorito"
+msgstr "zu den Favoriten hinzugefügt"
+
+#: application/modules/user/controllers/ReservaController.php:142
+msgid "Se agrego como la reserva"
+msgstr "hinzugefügt, um Vorbehalte"
+
+#: application/modules/user/controllers/ReservaController.php:155
+msgid "se quito de favoritos"
+msgstr "Gelöscht Favoriten"
 
 #: application/modules/user/controllers/ReservaController.php:205
 msgid "reserva eliminada"
