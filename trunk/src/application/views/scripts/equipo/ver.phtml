@@ -57,24 +57,28 @@
     ?>
     
     <a href="<?= $url ?>" 
-       title="<?= $this->producto->nombre ?>" >
+       title="<?= $this->producto->nombre ?>" 
+       class ="product">
         <img src="<?= $url ?>" 
          alt="<?= $this->producto->nombre ?>"
          title="<?= $this->producto->nombre ?>"
           />
     </a>
+    <?php if(count($this->producto->imagenes) >1) :?>
+    
     <?php foreach($this->producto->imagenes as $imagen) :?>
     <!--Producto-->
     <!--\media\catalog\product\thumb-->
     <a href="/media/catalog/product/product/<?= $imagen->imagen ?>" 
-       title="<?= $this->producto->nombre ?>" >
+       title="<?= $this->producto->nombre ?>" 
+       class ="img-thumb">
         <img src="/media/catalog/product/thumb/<?= $imagen->imagen ?>" alt="Device" />
     </a> 
     <?php endforeach;?>
 
     <!-- Fin de imagenes -->
     <!-- acciones -->
-    <?php if(count($this->producto->imagenes) >0) :?>
+    
     <a href="#">
         <img src="/images/arrow-left.png" alt="">
     </a>
