@@ -49,7 +49,11 @@ class Mtt_Form_Checkout
              * Add Subform passing in current row number as well as decorate
              * the subform with ul
              */
-            $subform = new Mtt_Form_SubForm_Checkout( array( "RowNumber" => ($i + 1) ) );
+            $subform = new Mtt_Form_SubForm_Checkout(
+            array(
+            "RowNumber" => ($i + 1)
+            )
+            );
             $this->addSubForm( $subform , $key )
                     ->getSubForm( $key )
                     ->clearDecorators()
