@@ -40,7 +40,7 @@ class Admin_CmsController
 
             $this->_pagina->saveEquipo( $equipo );
 
-            $this->_helper->FlashMessenger( 'Se Registro El Equipo' );
+            $this->_helper->FlashMessenger( $this->_translate->translate('Se Registro El Equipo' ));
             $this->_redirect( $this->URL );
             }
         $this->view->assign( 'frmRegistrar' , $form );
@@ -63,7 +63,7 @@ class Admin_CmsController
             )
                 {
                 $this->_pagina->updateEquipo( $form->getValues() , $id );
-                $this->_helper->FlashMessenger( 'Se modificó un fabricante' );
+                $this->_helper->FlashMessenger( $this->_translate->translate('Se modificó un fabricante' ));
                 $this->_redirect( $this->URL );
                 }
             $form->setDefaults( $equipo->toArray() );
@@ -71,7 +71,7 @@ class Admin_CmsController
             }
         else
             {
-            $this->_helper->FlashMessenger( 'No existe ese fabricante' );
+            $this->_helper->FlashMessenger( $this->_translate->translate('No existe ese fabricante' ));
             $this->_redirect( $this->URL );
             }
         }
@@ -81,7 +81,7 @@ class Admin_CmsController
         {
         $id = intval( $this->_request->getParam( 'id' ) );
         $this->_pagina->deleteEquipo( $id );
-        $this->_helper->FlashMessenger( 'Equipo Borrado' );
+        $this->_helper->FlashMessenger( $this->_translate->translate('Equipo Borrado' ));
         $this->_redirect( $this->URL );
         }
 
@@ -90,7 +90,7 @@ class Admin_CmsController
         {
         $id = intval( $this->_request->getParam( 'id' ) );
         $this->_pagina->activarEquipo( $id );
-        $this->_helper->FlashMessenger( 'Equipo Activado' );
+        $this->_helper->FlashMessenger( $this->_translate->translate('Equipo Activado' ));
         $this->_redirect( $this->URL );
         }
 
@@ -99,7 +99,7 @@ class Admin_CmsController
         {
         $id = intval( $this->_request->getParam( 'id' ) );
         $this->_pagina->desactivarEquipo( $id );
-        $this->_helper->FlashMessenger( 'Equipo desactivado' );
+        $this->_helper->FlashMessenger( $this->_translate->translate('Equipo desactivado') );
         $this->_redirect( $this->URL );
         }
 

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Medtchtrade\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-20 13:15-0500\n"
-"PO-Revision-Date: 2011-10-20 13:16-0500\n"
+"POT-Creation-Date: 2011-10-20 15:30-0500\n"
+"PO-Revision-Date: 2011-10-20 15:36-0500\n"
 "Last-Translator: Matias Franci <mfranci@stockergroup.com>\n"
 "Language-Team: Stocker Group Peru <Slovacus@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -15,6 +15,10 @@ msgstr ""
 "X-Poedit-Country: UNITED STATES\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-SearchPath-0: .\n"
+
+#: application/controllers/BusquedaController.php:62
+msgid "no efectuo la busqueda"
+msgstr "search wasn't made"
 
 #: application/controllers/ContactusController.php:44
 msgid "contactenos"
@@ -132,6 +136,30 @@ msgstr "activated category"
 msgid "categoria desactivado"
 msgstr "deactivated category"
 
+#: application/modules/admin/controllers/CmsController.php:43
+msgid "Se Registro El Equipo"
+msgstr "Registered equipment"
+
+#: application/modules/admin/controllers/CmsController.php:66
+msgid "Se modificó un fabricante"
+msgstr "Manufactured modified"
+
+#: application/modules/admin/controllers/CmsController.php:74
+msgid "No existe ese fabricante"
+msgstr "Manufacturer doesn't exists"
+
+#: application/modules/admin/controllers/CmsController.php:84
+msgid "Equipo Borrado"
+msgstr "Equipment Deleted"
+
+#: application/modules/admin/controllers/CmsController.php:93
+msgid "Equipo Activado"
+msgstr "Activated Equipment"
+
+#: application/modules/admin/controllers/CmsController.php:102
+msgid "Equipo desactivado"
+msgstr "Deactivated Equipment"
+
 #: application/modules/admin/controllers/EquipoController.php:71
 msgid "se agrego como top ofers  "
 msgstr "added on Top Offers"
@@ -208,6 +236,14 @@ msgstr "languaje deleted"
 msgid "idioma activado"
 msgstr "languaje activated"
 
+#: application/modules/admin/controllers/IdiomasController.php:110
+msgid "Idioma desactivado"
+msgstr "languaje deactivated"
+
+#: application/modules/admin/controllers/loginController.php:27
+msgid "Usuario o contraseña invalido"
+msgstr "User or password incorrect"
+
 #: application/modules/admin/controllers/MonedaController.php:40
 msgid "se registro la moneda"
 msgstr "currency has been registered"
@@ -244,6 +280,14 @@ msgstr "country modified"
 msgid "pais desactivado"
 msgstr "country deactivated"
 
+#: application/modules/admin/controllers/PreguntaController.php:104
+msgid "Pregunta Borrado"
+msgstr "Question deleted"
+
+#: application/modules/admin/controllers/TipoUsuarioController.php:36
+msgid "Se Registro La Categoria"
+msgstr "category was recorded"
+
 #: application/modules/admin/controllers/UserController.php:118
 msgid "Changed a User"
 msgstr "Changed a User"
@@ -268,9 +312,13 @@ msgstr "Active User"
 msgid "Usuario desactivado"
 msgstr "Disabled User"
 
-#: application/modules/user/controllers/EquipoController.php:207
-msgid "Se Registro El Equipo"
-msgstr "Registered equipment"
+#: application/modules/user/controllers/BusquedaController.php:153
+msgid "No existe esa busqueda"
+msgstr "search doesn't exist"
+
+#: application/modules/user/controllers/BusquedaController.php:161
+msgid "Busqueda Borrado"
+msgstr "Search deleted"
 
 #: application/modules/user/controllers/ImagenController.php:107
 msgid "se agrego la imagen al equipo"
@@ -284,9 +332,17 @@ msgstr "deleted"
 msgid "Se Registro la pregunta"
 msgstr "Registered question"
 
-#: application/modules/user/controllers/PreguntaController.php:92
-msgid "Pregunta Borrado"
-msgstr "Question deleted"
+#: application/modules/user/controllers/ReservaController.php:116
+msgid "Se agrego como Favorito"
+msgstr "added to Favorites"
+
+#: application/modules/user/controllers/ReservaController.php:142
+msgid "Se agrego como la reserva"
+msgstr "added to Reservations"
+
+#: application/modules/user/controllers/ReservaController.php:155
+msgid "se quito de favoritos"
+msgstr "delete from favorites"
 
 #: application/modules/user/controllers/ReservaController.php:205
 msgid "reserva eliminada"

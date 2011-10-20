@@ -19,11 +19,15 @@ class Mtt_Form_SubForm_Checkout
 
     public function __construct( $data )
         {
+
         $this->_formapago = new Mtt_Models_Bussines_FormaPago();
+
         if ( !is_null( $data ) )
             {
             $this->_data = $data;
             }
+
+
         $this->image = new Zend_Form_Element_Image( 'image' );
         $this->equipo_id = new Zend_Form_Element_Image( 'image' );
         $this->equipo = new Zend_Form_Element_Text( 'equipo' );
@@ -38,7 +42,7 @@ class Mtt_Form_SubForm_Checkout
 
     public function init()
         {
-        
+
         $this->setMethod( Zend_Form::METHOD_POST );
 
         $decorators = array(
@@ -46,8 +50,8 @@ class Mtt_Form_SubForm_Checkout
             array( 'HtmlTag' , array( 'tag' => 'li' , 'class' => 'form_field' ) )
         );
 
-        $this->setElementsBelongTo( "member[{$this->_data->id}]" );
-        $this->id_equipo->setValue( $this->_data->id );
+        $this->setElementsBelongTo( "member[{$this->_data->getId()}]" );
+        $this->id_equipo->setValue( $this->_data->getId() );
         $this->addElement( $this->id_equipo );
 
         $this->image->setImage(
@@ -57,14 +61,15 @@ class Mtt_Form_SubForm_Checkout
         ;
         $this->addElement( $this->image );
 
-        $this->equipo->setValue( $this->_data->nombre )
-                ->setAttrib( 'disabled' , "disabled" )
+        $this->equipo->setValue( $this->_data->getNombre() )
+                ->setAttrib( 'readonly' , "readonly" )
                 ->setDecorators( $decorators )
         ;
         $this->addElement( $this->equipo );
 
-        $this->precio->setValue( $this->_data->precioventa )
-                ->setAttrib( 'disabled' , "disabled" );
+        $this->precio->setValue( $this->_data->getPrecio() )
+                ->setAttrib( 'readonly' , "readonly" )
+                ->setDecorators( $decorators );
         $this->addElement( $this->precio );
 
         $dataFormaPago = $this->_formapago->getComboValues();
@@ -89,7 +94,7 @@ class Mtt_Form_SubForm_Checkout
                 ->setDecorators( $decorators );
 
         $this->addElement( $this->eliminar );
-        
+
         parent::init();
         }
 

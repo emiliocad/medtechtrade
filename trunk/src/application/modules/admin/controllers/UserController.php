@@ -115,7 +115,7 @@ class Admin_UserController
                         $form->getValues() , $id
                 );
                 $this->_helper->FlashMessenger(
-                        $this->_translate->translate( 'Changed a User' )
+                        $this->_translate->translate( $this->_translate->translate('Changed a User' ))
                 );
                 $this->_redirect( $this->URL );
                 }
@@ -125,7 +125,7 @@ class Admin_UserController
         else
             {
             $this->_helper->FlashMessenger( 
-                    $this->_translate->translate( 'no es usuario' ) );
+                    $this->_translate->translate( $this->_translate->translate('no es usuario') ) );
             $this->_redirect( $this->URL );
             }
         }

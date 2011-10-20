@@ -6,7 +6,9 @@ class Mtt_Form_Checkout
     {
 
     protected $submit;
+    protected $actualizar;
     protected $_data;
+
 
     public function __construct( $data = null )
         {
@@ -18,11 +20,12 @@ class Mtt_Form_Checkout
         parent::__construct();
         }
 
+
     public function init()
         {
 
         $this->setMethod( Zend_Form::METHOD_POST )
-                //->setAction( '/user/checkout/cart/' )
+        //->setAction( '/user/checkout/cart/' )
         ;
         $this->addMemberForms();
         $this->submit = new Zend_Form_Element_Button( 'submit' );
@@ -30,12 +33,17 @@ class Mtt_Form_Checkout
                 ->setAttrib(
                         'class' , 'button'
                 )
-                ->setAttrib( 'type' , 'submit' )
-                ->setOrder( count( $this->_data ) + 1 );
+                ->setAttrib( 'type' , 'submit' );
 
         $this->addElement( $this->submit );
 
+        $this->actualizar = new Zend_Form_Element_Button( 'actualizar' );
+        $this->actualizar->setLabel( 'actualizar' )
+                ->setAttrib(
+                        'class' , 'button'
+        );
 
+        $this->addElement( $this->actualizar );
         }
 
 
@@ -59,5 +67,6 @@ class Mtt_Form_Checkout
                     ->addDecorator( 'HtmlTag' , array( "tag" => "ul" ) );
             }
         }
+
 
     }

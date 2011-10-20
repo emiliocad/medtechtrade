@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Medtechtrade\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-20 13:15-0500\n"
-"PO-Revision-Date: 2011-10-20 13:16-0500\n"
+"POT-Creation-Date: 2011-10-20 15:30-0500\n"
+"PO-Revision-Date: 2011-10-20 15:44-0500\n"
 "Last-Translator: Matias Franci <mfranci@stockergroup.com>\n"
 "Language-Team: StockerGroup <slovacus@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -15,6 +15,10 @@ msgstr ""
 "X-Poedit-Country: POLAND\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-SearchPath-0: .\n"
+
+#: application/controllers/BusquedaController.php:62
+msgid "no efectuo la busqueda"
+msgstr "wyszukiwania nie został"
 
 #: application/controllers/ContactusController.php:44
 msgid "contactenos"
@@ -132,6 +136,30 @@ msgstr "kategorii aktywowany"
 msgid "categoria desactivado"
 msgstr "kategorii wyłączony"
 
+#: application/modules/admin/controllers/CmsController.php:43
+msgid "Se Registro El Equipo"
+msgstr "Nowy sprzęt został zarejestrowany"
+
+#: application/modules/admin/controllers/CmsController.php:66
+msgid "Se modificó un fabricante"
+msgstr "Producenta modyfikacji"
+
+#: application/modules/admin/controllers/CmsController.php:74
+msgid "No existe ese fabricante"
+msgstr "Producent nie istnieje"
+
+#: application/modules/admin/controllers/CmsController.php:84
+msgid "Equipo Borrado"
+msgstr "sprzęt usunięte"
+
+#: application/modules/admin/controllers/CmsController.php:93
+msgid "Equipo Activado"
+msgstr "sprzęt aktywny"
+
+#: application/modules/admin/controllers/CmsController.php:102
+msgid "Equipo desactivado"
+msgstr "sprzęt wyłączony"
+
 #: application/modules/admin/controllers/EquipoController.php:71
 msgid "se agrego como top ofers  "
 msgstr "dodaje się w górę oferuje"
@@ -208,6 +236,14 @@ msgstr "język został usunięty"
 msgid "idioma activado"
 msgstr "język aktywowany"
 
+#: application/modules/admin/controllers/IdiomasController.php:110
+msgid "Idioma desactivado"
+msgstr "język aktywowany"
+
+#: application/modules/admin/controllers/loginController.php:27
+msgid "Usuario o contraseña invalido"
+msgstr "Nieprawidłowy użytkownik lub hasło"
+
 #: application/modules/admin/controllers/MonedaController.php:40
 msgid "se registro la moneda"
 msgstr "waluty został zarejestrowany"
@@ -244,6 +280,14 @@ msgstr "kraju został zmodyfikowany"
 msgid "pais desactivado"
 msgstr "nie użytkownika"
 
+#: application/modules/admin/controllers/PreguntaController.php:104
+msgid "Pregunta Borrado"
+msgstr "pytanie usunięte"
+
+#: application/modules/admin/controllers/TipoUsuarioController.php:36
+msgid "Se Registro La Categoria"
+msgstr "kategorii został zarejestrowany"
+
 #: application/modules/admin/controllers/UserController.php:118
 msgid "Changed a User"
 msgstr "Zarejestrowany Użytkownik"
@@ -268,9 +312,13 @@ msgstr "aktywacji użytkownika"
 msgid "Usuario desactivado"
 msgstr "wyłączony użytkownika"
 
-#: application/modules/user/controllers/EquipoController.php:207
-msgid "Se Registro El Equipo"
-msgstr "Nowy sprzęt został zarejestrowany"
+#: application/modules/user/controllers/BusquedaController.php:153
+msgid "No existe esa busqueda"
+msgstr "Wyszukiwanie nie istnieje"
+
+#: application/modules/user/controllers/BusquedaController.php:161
+msgid "Busqueda Borrado"
+msgstr "Szukaj usunięte"
 
 #: application/modules/user/controllers/ImagenController.php:107
 msgid "se agrego la imagen al equipo"
@@ -284,9 +332,17 @@ msgstr "usunięte"
 msgid "Se Registro la pregunta"
 msgstr "została zarejestrowana"
 
-#: application/modules/user/controllers/PreguntaController.php:92
-msgid "Pregunta Borrado"
-msgstr "pytanie usunięte"
+#: application/modules/user/controllers/ReservaController.php:116
+msgid "Se agrego como Favorito"
+msgstr "dodane do ulubionych"
+
+#: application/modules/user/controllers/ReservaController.php:142
+msgid "Se agrego como la reserva"
+msgstr "dodaje się do zastrzeżeń"
+
+#: application/modules/user/controllers/ReservaController.php:155
+msgid "se quito de favoritos"
+msgstr "usunięte z ulubionych"
 
 #: application/modules/user/controllers/ReservaController.php:205
 msgid "reserva eliminada"

@@ -6,38 +6,45 @@
  */
 
 
-/**
- * Description of Cart
- *
- * @author User
- */
-class Mtt_Cart
+class Mtt_Store_Cart
     {
 
     protected $id;
+    protected $nombre;
     protected $precio;
     protected $cantidad;
     protected $equipo_has_formaPago;
-    protected $_equipo;
-    protected $equipo;
+    private $_equipo;
+    private $equipo;
 
 
-    function __construct( Mtt_Models_Bussines_Equipo $equipo )
+    public function __construct( $equipo )
         {
         $this->equipo = $equipo;
-        
         $this->_equipo = new Mtt_Models_Bussines_Equipo();
         $this->_addData();
         }
 
 
-    protected function _addData()
+    private function _addData()
         {
         $this->id = $this->equipo->id;
         $this->precio = $this->equipo->precioventa;
+        $this->nombre = $this->equipo->nombre;
         $this->cantidad = 1;
         $this->equipo_has_formaPago = 0;
-        
+        }
+
+
+    public function setNombre( $nombre )
+        {
+        $this->nombre = $nombre;
+        }
+
+
+    public function getNombre()
+        {
+        return $this->nombre;
         }
 
 
@@ -88,8 +95,6 @@ class Mtt_Cart
         $this->equipo_has_formaPago = $equipo_has_formaPago;
         }
 
-
-    //put your code here
 
     }
 
