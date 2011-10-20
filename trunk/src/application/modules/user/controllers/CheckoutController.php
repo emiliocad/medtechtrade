@@ -28,6 +28,13 @@ class User_CheckoutController
         $this->view->assign(
                 'equipo' , $this->operacionEquipo->getOperacionDetalles()
         );
+        $form = new Mtt_Form_Checkout();
+
+        $this->view->assign( 'checkout' , $form );
+        if ( $this->_request->isPost() )
+            {
+            $this->view->assign( 'checkoutValues' , $this->_request->getPost() );
+            }
         }
 
 
