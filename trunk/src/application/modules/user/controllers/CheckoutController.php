@@ -5,13 +5,13 @@ class User_CheckoutController
         extends Mtt_Controller_Action
     {
 
-    protected $operacionEquipo;
+    protected $_operacionEquipo;
 
 
     public function init()
         {
         parent::init();
-        $this->operacionEquipo = new Mtt_Models_Catalog_OperationEquipo();
+        $this->_operacionEquipo = new Mtt_Models_Catalog_OperationEquipo();
         }
 
 
@@ -24,17 +24,17 @@ class User_CheckoutController
         //$this->mtt->cart = $equipo->getFindId( $id );
         //$this->operacionEquipo->clearOperacionDetalles();
         //$this->operacionEquipo->addOperacionDetalle( $carito );
-
-
+        $dataOperacion = $this->_operacionEquipo->getOperacionDetalles();
 
         $this->view->assign(
-                'equipo' , $this->operacionEquipo->getOperacionDetalles()
+                'equipo' , $dataOperacion
         );
         $form = new Mtt_Form_Checkout(
-                        $this->operacionEquipo->getOperacionDetalles()
+                        $dataOperacion
         );
 
         $this->view->assign( 'checkout' , $form );
+
         if ( $this->_request->isPost() )
             {
             $this->view->assign( 'checkoutValues' , $form->getValues() );

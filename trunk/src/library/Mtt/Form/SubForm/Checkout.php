@@ -9,7 +9,8 @@ class Mtt_Form_SubForm_Checkout
     protected $_equipo;
     protected $image;
     protected $equipo;
-    protected $submit;
+    protected $eliminar;
+
 
 
 
@@ -20,11 +21,14 @@ class Mtt_Form_SubForm_Checkout
 
     public function __construct( $data )
         {
-        $this->_data = $data;
+        if ( !is_null( $data ) )
+            {
+            $this->_data = $data;
+            }
 
         $this->image = new Zend_Form_Element_Image( 'image' );
         $this->equipo = new Zend_Form_Element_Text( 'equipo' );
-        $this->submit = new Zend_Form_Element_Button( 'submit' );
+        $this->eliminar = new Zend_Form_Element_Button( 'submit' );
 
         parent::__construct();
         }
@@ -35,6 +39,7 @@ class Mtt_Form_SubForm_Checkout
         parent::init();
 
         $this->setMethod( Zend_Form::METHOD_POST );
+        $this->setElementsBelongTo( "member[{$this->_data->id}]" );
 
         $this->image->setImage(
                 "/media/catalog/product/no_image.png"
@@ -55,23 +60,24 @@ class Mtt_Form_SubForm_Checkout
         /*
          * We want array notation, so we will need to do a belongs to here.
          */
-        $this->setElementsBelongTo( "member[{$this->_data["RowNumber"]}]" );
+
+        $this->eliminar->setLabel( 'Eliminar' );
+        $this->addElement( $this->eliminar );
 
 
 
-
-        $this->addElement( "text" , self::FIRST_NAME ,
-                           array(
-                    "size" => 20 ,
-                    "value" => $this->_data["RowNumber"]
-                        )
-                )
-                ->getElement( self::FIRST_NAME )
-                ->setDecorators( $decorators )
-                ->addValidator( "Alnum" , false , array( true ) )
-                ->addFilter( 'StripTags' )
-                ->addValidator( "StringLength" , false ,
-                                array( "min" => 2 , "max" => 100 ) );
+//        $this->addElement( "text" , self::FIRST_NAME ,
+//                           array(
+//                    "size" => 20 ,
+//                    "value" => $this->_data["RowNumber"]
+//                        )
+//                )
+//                ->getElement( self::FIRST_NAME )
+//                ->setDecorators( $decorators )
+//                ->addValidator( "Alnum" , false , array( true ) )
+//                ->addFilter( 'StripTags' )
+//                ->addValidator( "StringLength" , false ,
+//                                array( "min" => 2 , "max" => 100 ) );
         }
 
 
