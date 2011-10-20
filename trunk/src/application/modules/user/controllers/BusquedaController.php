@@ -62,7 +62,7 @@ class User_BusquedaController extends Mtt_Controller_Action {
         else 
             {
 
-            $this->_helper->FlashMessenger('no efectuo la busqueda');
+            $this->_helper->FlashMessenger($this->_translate->translate('no efectuo la busqueda'));
             $this->_redirect('/user/busqueda');
             }
         
@@ -150,7 +150,7 @@ class User_BusquedaController extends Mtt_Controller_Action {
             } 
         else 
             {
-            $this->_helper->FlashMessenger('No existe esa busqueda');
+            $this->_helper->FlashMessenger($this->_translate->translate('No existe esa busqueda'));
             $this->_redirect($this->URL);
             }
     }
@@ -158,7 +158,7 @@ class User_BusquedaController extends Mtt_Controller_Action {
     public function borrarAction() {
         $id = intval($this->_request->getParam('id'));
         $this->_busqueda->desactivarBusqueda($id);
-        $this->_helper->FlashMessenger('Busqueda Borrado');
+        $this->_helper->FlashMessenger($this->_translate->translate('Busqueda Borrado'));
         $this->_redirect('/user/busqueda/listsearch');
     }
 

@@ -107,7 +107,7 @@ class Admin_IdiomasController
         $id = intval( $this->_request->getParam( 'id' ) );
         $this->_idioma->desactivarIdioma( $id );
         $this->_helper->FlashMessenger(
-                'Idioma desactivado'
+                $this->_translate->translate('Idioma desactivado')
         );
         $this->_redirect( $this->URL );
         }
