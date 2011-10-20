@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Medtechtrade\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-10-17 16:01-0500\n"
-"PO-Revision-Date: 2011-10-17 16:26-0500\n"
+"PO-Revision-Date: 2011-10-19 16:19-0500\n"
 "Last-Translator: Matias Franci <mfranci@stockergroup.com>\n"
 "Language-Team: Stockergroup Peru\n"
 "MIME-Version: 1.0\n"
@@ -50,7 +50,7 @@ msgstr "fecha de creación"
 
 #: application/controllers/EquipoController.php:288
 msgid "peso estimado"
-msgstr "peso estimado"
+msgstr "peso estimado (kg)"
 
 #: application/controllers/EquipoController.php:296
 msgid "lenght"
@@ -330,7 +330,7 @@ msgstr "guardar"
 #: library/Mtt/Form/Categoria.php:42
 #: library/Mtt/Form/ChangeLanguage.php:35
 msgid "nombre"
-msgstr "Inicio"
+msgstr "nombre"
 
 #: library/Mtt/EditForm/Imagen.php:52
 #: library/Mtt/Form/Categoria.php:76
@@ -561,11 +561,11 @@ msgstr "tamaño de la caja"
 
 #: library/Mtt/Form/Equipo.php:302
 msgid "peso estimado "
-msgstr "peso estimado "
+msgstr "peso estimado (kg)"
 
 #: library/Mtt/Form/IdiomaPais.php:41
 msgid "mi pais de residencia"
-msgstr "mi país de residencia"
+msgstr "Mi país de residencia"
 
 #: library/Mtt/Form/IdiomaPais.php:44
 msgid "escoger pais"
@@ -577,7 +577,7 @@ msgstr "mi idioma"
 
 #: library/Mtt/Form/IdiomaPais.php:79
 msgid "recordar mi configuracion"
-msgstr "recordar mi configuración"
+msgstr "Recordar mi configuración"
 
 #: library/Mtt/Form/IdiomaPais.php:87
 msgid "siguiente"
@@ -717,7 +717,7 @@ msgstr "CGC"
 #: application/layouts/scripts/_footer.phtml:34
 #: application/layouts/scripts/_footer.phtml:35
 msgid "quienes somos"
-msgstr "quienes somos"
+msgstr "quiénes somos"
 
 #: application/layouts/scripts/_footer.phtml:46
 #: application/layouts/scripts/_footer.phtml:47

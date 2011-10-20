@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Medtchtrade\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-10-17 16:01-0500\n"
-"PO-Revision-Date: 2011-10-18 09:51-0500\n"
+"PO-Revision-Date: 2011-10-19 16:20-0500\n"
 "Last-Translator: Matias Franci <mfranci@stockergroup.com>\n"
 "Language-Team: Stocker Group Peru <Slovacus@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -50,7 +50,7 @@ msgstr "Creation Date"
 
 #: application/controllers/EquipoController.php:288
 msgid "peso estimado"
-msgstr "estimated weight"
+msgstr "estimated weight (kg)"
 
 #: application/controllers/EquipoController.php:296
 msgid "lenght"
@@ -561,11 +561,11 @@ msgstr "size of the box"
 
 #: library/Mtt/Form/Equipo.php:302
 msgid "peso estimado "
-msgstr "estimated weight"
+msgstr "estimated weight (kg)"
 
 #: library/Mtt/Form/IdiomaPais.php:41
 msgid "mi pais de residencia"
-msgstr "my residence country"
+msgstr "My residence country"
 
 #: library/Mtt/Form/IdiomaPais.php:44
 msgid "escoger pais"
@@ -577,7 +577,7 @@ msgstr "my languages"
 
 #: library/Mtt/Form/IdiomaPais.php:79
 msgid "recordar mi configuracion"
-msgstr "remember my settings"
+msgstr "Remember my settings"
 
 #: library/Mtt/Form/IdiomaPais.php:87
 msgid "siguiente"
