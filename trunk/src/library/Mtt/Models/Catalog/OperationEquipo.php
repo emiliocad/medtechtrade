@@ -20,13 +20,44 @@ class Mtt_Models_Catalog_OperationEquipo
         }
 
 
+    public function getExistDetalle( $operacionDetalle )
+        {
+        
+        
+        if ( count( $this->sessionMtt->operacion->detalles ) > 0 )
+            {
+            for ( $index = 0;
+                        $index < count( $this->sessionMtt->operacion->detalles );
+                        $index++ )
+                {
+                if (
+                        $this->sessionMtt->operacion->detalles[$index]->id
+                        == $operacionDetalle->id
+                )
+                    {
+                    return true;
+                    }
+                }
+            return false;
+            }
+        return false;
+        }
+
+
     public function addOperacionDetalle( $operacionDetalle )
         {
         if ( !isset( $this->sessionMtt->operacion->detalles ) )
             {
             $this->sessionMtt->operacion->detalles = array( );
             }
-        $this->sessionMtt->operacion->detalles[] = $operacionDetalle;
+        else
+            {
+
+            if ( !$this->getExistDetalle( $operacionDetalle ) )
+                {
+                $this->sessionMtt->operacion->detalles[] = $operacionDetalle;
+                }
+            }
         }
 
 
