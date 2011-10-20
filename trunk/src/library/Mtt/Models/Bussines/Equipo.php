@@ -224,7 +224,7 @@ class Mtt_Models_Bussines_Equipo
                              array( 'fabricantes.nombre as fabricante' )
                 )
                 ->joinLeft( 'imagen' , 'imagen.equipo_id = equipo.id' ,
-                            array( 'imagen.nombre as imagen' )
+                            array( 'imagen.imagen as imagen' )
                 )
                 ->where( 'equipo.active IN (?)' , self::ACTIVE )
                 ->where( 'equipo.publicacionEquipo_id  = ?' ,
