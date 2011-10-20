@@ -7,6 +7,10 @@ class Mtt_Form_SubForm_Checkout
 
     protected $_data;
     protected $_equipo;
+    protected $image;
+    protected $equipo;
+    protected $submit;
+
 
 
     const FIRST_NAME = "first_name";
@@ -17,6 +21,11 @@ class Mtt_Form_SubForm_Checkout
     public function __construct( $data )
         {
         $this->_data = $data;
+
+        $this->image = new Zend_Form_Element_Image( 'image' );
+        $this->equipo = new Zend_Form_Element_Text( 'equipo' );
+        $this->submit = new Zend_Form_Element_Button( 'submit' );
+
         parent::__construct();
         }
 
@@ -24,7 +33,19 @@ class Mtt_Form_SubForm_Checkout
     public function init()
         {
         parent::init();
+
         $this->setMethod( Zend_Form::METHOD_POST );
+
+        $this->image->setImage(
+                "/media/catalog/product/no_image.png"
+        )
+        ;
+        $this->addElement( $this->image );
+
+        $this->equipo->setValue( "aca ira el Valor" )
+        ;
+
+        $this->addElement( $this->equipo );
 
         $decorators = array(
             'ViewHelper' ,

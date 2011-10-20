@@ -8,11 +8,13 @@ class Mtt_Form_Checkout
     const SUBMIT_BUTTON = "submit";
     protected $max = 10;
     protected $submit;
+    protected $_data;
 
 
-    public function __construct()
+    public function __construct( $data = null )
         {
         parent::__construct();
+        $this->_data = $data;
         }
 
 
@@ -21,6 +23,8 @@ class Mtt_Form_Checkout
 
         $this->setMethod( Zend_Form::METHOD_POST )
         ;
+        
+        $this->addMemberForms();
         $this->submit = new Zend_Form_Element_Button( 'submit' );
         $this->submit->setLabel( 'Registrar' )
                 ->setAttrib(
@@ -31,7 +35,7 @@ class Mtt_Form_Checkout
 
         $this->addElement( $this->submit );
 
-        $this->addMemberForms();
+        
 
         /*
          * Left out the rest of the class for simplicity
@@ -41,8 +45,8 @@ class Mtt_Form_Checkout
 
     public function addMemberForms()
         {
-
-        for ( $i = 0; $i < $this->max; $i++ )
+        
+        for ( $i = 0; $i < count($this->_data); $i++ )
             {
             $key = "member_" . $i;
             /*
@@ -50,9 +54,9 @@ class Mtt_Form_Checkout
              * the subform with ul
              */
             $subform = new Mtt_Form_SubForm_Checkout(
-            array(
-            "RowNumber" => ($i + 1)
-            )
+                            array(
+                                "RowNumber" => ($i + 1)
+                            )
             );
             $this->addSubForm( $subform , $key )
                     ->getSubForm( $key )

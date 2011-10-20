@@ -24,13 +24,15 @@ class User_CheckoutController
         //$this->mtt->cart = $equipo->getFindId( $id );
         //$this->operacionEquipo->clearOperacionDetalles();
         //$this->operacionEquipo->addOperacionDetalle( $carito );
-        
+
 
 
         $this->view->assign(
                 'equipo' , $this->operacionEquipo->getOperacionDetalles()
         );
-        $form = new Mtt_Form_Checkout();
+        $form = new Mtt_Form_Checkout(
+                        $this->operacionEquipo->getOperacionDetalles()
+        );
 
         $this->view->assign( 'checkout' , $form );
         if ( $this->_request->isPost() )
