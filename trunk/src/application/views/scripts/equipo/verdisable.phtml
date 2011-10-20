@@ -40,32 +40,32 @@
 
 <div id="device-foto-galery">
     <!--Producto -->
-    <a href="/media/catalog/product/device-03-00.png" 
+    <?php
+    $url = (is_null($this->producto->imagen)) ?
+            '/media/catalog/product/product/no_image.png' :
+            '/media/catalog/product/product/' . $this->producto->imagen
+    ?>
+    
+    <a href="<?= $url ?>" 
        title="<?= $this->producto->nombre ?>" >
-        <img src="/media/catalog/product/device-03-00.png" alt="">
+        <img src="<?= $url ?>" 
+         alt="<?= $this->producto->nombre ?>"
+         title="<?= $this->producto->nombre ?>"
+          />
     </a>
+    <?php if(count($this->producto->imagenes) >1) :?>
+    <?php foreach($this->producto->imagenes as $imagen) :?>
     <!--Producto-->
     <!--\media\catalog\product\thumb-->
-    <a href="/media/catalog/product/thumb/device-03-01.png" 
+    <a href="/media/catalog/product/product/<?= $imagen->imagen ?>" 
        title="<?= $this->producto->nombre ?>" >
-        <img src="/media/catalog/product/thumb/device-03-01.png" alt="Device" />
+        <img src="/media/catalog/product/thumb/<?= $imagen->imagen ?>" alt="Device" />
     </a> 
-    <a href="/media/catalog/product/thumb/device-03-02.png" 
-       title="<?= $this->producto->nombre ?>" >
-        <img src="/media/catalog/product/thumb/device-03-02.png" alt="Device" />
-    </a> 
-    <a href="/media/catalog/product/thumb/device-03-03.png" 
-       title="<?= $this->producto->nombre ?>" >
-        <img src="/media/catalog/product/thumb/device-03-03.png" alt="Device" />
-    </a> 
-    <a href="/media/catalog/product/thumb/device-03-04.png" 
-       title="<?= $this->producto->nombre ?>" >
-        <img src="/media/catalog/product/thumb/device-03-04.png" alt="Device" />
-    </a> 
-
+    <?php endforeach;?>
 
     <!-- Fin de imagenes -->
     <!-- acciones -->
+    
     <a href="#">
         <img src="/images/arrow-left.png" alt="">
     </a>
@@ -73,6 +73,7 @@
         <img src="/images/arrow-right.png" alt="">
     </a>
     <!-- fin de acciones-->
+    <?php endif;?>
 </div>
 <div id="device-description">
     <a href="#" 
