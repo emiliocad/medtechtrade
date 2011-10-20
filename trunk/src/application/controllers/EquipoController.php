@@ -46,8 +46,11 @@ class EquipoController extends Mtt_Controller_Action {
         $this->view->jQuery()
                 ->addOnLoad(
                         '$(document).ready(function() {
-                            $("#device-foto-galery a").lightBox(
+                            $("#device-foto-galery .img-thumb").lightBox(
                             {fixedNavigation:true}
+                            );
+                            $("#device-foto-galery .product").lightBox(
+                            {fixedNavigation:false}
                             );
                             
                         });
@@ -141,8 +144,11 @@ class EquipoController extends Mtt_Controller_Action {
         $this->view->jQuery()
                 ->addOnLoad(
                         '$(document).ready(function() {
-                            $("#device-foto-galery a").lightBox(
+                            $("#device-foto-galery .img-thumb").lightBox(
                             {fixedNavigation:true}
+                            );
+                            $("#device-foto-galery .product").lightBox(
+                            {fixedNavigation:false}
                             );
                             
                         });
@@ -159,7 +165,6 @@ class EquipoController extends Mtt_Controller_Action {
             //$this->_equipo->updateView($id);
 
             $producto->imagenes = $imagenes;
-            
             $this->view->assign(
                     'producto', $producto
             );
