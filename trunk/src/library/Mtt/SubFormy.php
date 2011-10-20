@@ -2,39 +2,32 @@
 
 
 class Mtt_Form_SubForm_Checkout
-        extends Mtt_SubForm
+        extends Zend_Form_SubForm
     {
 
     protected $_data;
     protected $_equipo;
-    protected $id_equipo;
     protected $_formapago;
     protected $image;
     protected $equipo;
     protected $equipo_id;
     protected $formaPago;
-    protected $precio;
     protected $eliminar;
 
 
     public function __construct( $data )
         {
-
         $this->_formapago = new Mtt_Models_Bussines_FormaPago();
 
         if ( !is_null( $data ) )
             {
             $this->_data = $data;
             }
-
-
         $this->image = new Zend_Form_Element_Image( 'image' );
         $this->equipo_id = new Zend_Form_Element_Image( 'image' );
         $this->equipo = new Zend_Form_Element_Text( 'equipo' );
-        $this->precio = new Zend_Form_Element_Text( 'precio' );
         $this->eliminar = new Zend_Form_Element_Button( 'submit' );
         $this->formaPago = new Zend_Form_Element_Select( 'equipo_has_formapago_id' );
-        $this->id_equipo = new Zend_Form_Element_Hidden( 'equipo_id' );
 
         parent::__construct();
         }
@@ -42,6 +35,7 @@ class Mtt_Form_SubForm_Checkout
 
     public function init()
         {
+        parent::init();
 
         $this->setMethod( Zend_Form::METHOD_POST );
 
@@ -50,9 +44,7 @@ class Mtt_Form_SubForm_Checkout
             array( 'HtmlTag' , array( 'tag' => 'li' , 'class' => 'form_field' ) )
         );
 
-        $this->setElementsBelongTo( "member[{$this->_data->getId()}]" );
-        $this->id_equipo->setValue( $this->_data->getId() );
-        $this->addElement( $this->id_equipo );
+        $this->setElementsBelongTo( "member[{$this->_data->id}]" );
 
         $this->image->setImage(
                         "/media/catalog/product/no_image.png"
@@ -61,41 +53,33 @@ class Mtt_Form_SubForm_Checkout
         ;
         $this->addElement( $this->image );
 
-        $this->equipo->setValue( $this->_data->getNombre() )
-                ->setAttrib( 'readonly' , "readonly" )
+
+
+        $this->equipo->setValue( $this->_data->nombre )
+                ->setAttrib( 'disabled' , "disabled" )
                 ->setDecorators( $decorators )
         ;
+
         $this->addElement( $this->equipo );
 
-        $this->precio->setValue( $this->_data->getPrecio() )
-                ->setAttrib( 'readonly' , "readonly" )
-                ->setDecorators( $decorators );
-        $this->addElement( $this->precio );
 
-        $dataFormaPago = $this->_formapago->getComboValues();
+        /*
+         * We want array notation, so we will need to do a belongs to here.
+         */
         $this->formaPago->addMultiOption( -1 ,
                                           $this->_translate->translate(
                         'escoger forma de pago'
                 )
         );
-        $this->formaPago->addMultiOptions( $dataFormaPago );
-        $this->addElement( $this->formaPago );
-
-        $this->formaPago->addValidator(
-                new Zend_Validate_InArray(
-                        array_keys(
-                                $dataFormaPago
-                        )
-                )
-        );
+        $this->formaPago->addMultiOptions( $values );
+        $this->addElement( $e );
+        $e->addValidator( new Zend_Validate_InArray( array_keys( $values ) ) );
 
 
         $this->eliminar->setLabel( 'Eliminar' )
                 ->setDecorators( $decorators );
 
         $this->addElement( $this->eliminar );
-
-        parent::init();
         }
 
 

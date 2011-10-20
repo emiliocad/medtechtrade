@@ -101,7 +101,7 @@ class Admin_PreguntaController
         {
         $id = intval( $this->_request->getParam( 'id' ) );
         $this->_pregunta->desactivaPregunta( $id );
-        $this->_helper->FlashMessenger( 'Pregunta Borrado' );
+        $this->_helper->FlashMessenger( $this->_translate->translate('Pregunta Borrado' ));
         $this->_redirect( $this->URL );
         }
 

@@ -33,7 +33,7 @@ class Admin_TipoUsuarioController extends Mtt_Controller_Action
 
             $this->_tipoUsuario->insert( $producto );
 
-            $this->_helper->FlashMessenger( 'Se Registro La Categoria' );
+            $this->_helper->FlashMessenger( $this->_translate->translate('Se Registro La Categoria') );
             $this->_redirect( $this->URL );
             }
         $this->view->assign( 'frmRegistrar' , $form );

@@ -23,7 +23,6 @@ class Mtt_Models_Catalog_OperationEquipo
     public function getExistDetalle( $operacionDetalle )
         {
 
-
         if ( count( $this->sessionMtt->operacion->detalles ) > 0 )
             {
             for ( $index = 0;
@@ -31,8 +30,8 @@ class Mtt_Models_Catalog_OperationEquipo
                         $index++ )
                 {
                 if (
-                        $this->sessionMtt->operacion->detalles[$index]->id
-                        == $operacionDetalle->id
+                        $this->sessionMtt->operacion->detalles[$index]->getId()
+                        == $operacionDetalle->getId()
                 )
                     {
                     return true;
@@ -111,10 +110,23 @@ class Mtt_Models_Catalog_OperationEquipo
         return $detallesVenta;
         }
 
-
-    public function saveOperacionDetalle()
+/*TODO Revisar este cambio*/
+    public function saveOperacionDetalle( $userId , $operacioId , $data  )
         {
-        
+        for ( $index = 0;
+                    $index < count( $this->sessionMtt->operacion->detalles );
+                    $index++ )
+            {
+                        
+                        
+            if (
+                    $this->sessionMtt->operacion->detalles[$index]->getId()
+                    == $operacionDetalle->id
+            )
+                {
+                return true;
+                }
+            }
         }
 
 
