@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: medtechtrade\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-20 11:43-0500\n"
-"PO-Revision-Date: 2011-10-20 12:09-0500\n"
+"POT-Creation-Date: 2011-10-20 13:15-0500\n"
+"PO-Revision-Date: 2011-10-20 13:16-0500\n"
 "Last-Translator: Matias Franci <mfranci@stockergroup.com>\n"
 "Language-Team: Stockergroup Peru <slovacus@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -20,79 +20,79 @@ msgstr ""
 msgid "contactenos"
 msgstr "kontaktieren Sie uns"
 
-#: application/controllers/EquipoController.php:273
+#: application/controllers/EquipoController.php:281
 msgid "no existe"
 msgstr "nicht vorhanden"
 
-#: application/controllers/EquipoController.php:308
+#: application/controllers/EquipoController.php:316
 msgid "ficha del equipo"
 msgstr "geräte-profile"
 
-#: application/controllers/EquipoController.php:321
+#: application/controllers/EquipoController.php:329
 msgid "manufactur"
 msgstr "hersteller"
 
-#: application/controllers/EquipoController.php:328
+#: application/controllers/EquipoController.php:336
 msgid "nombre del producto"
 msgstr "ausrüstung der Name"
 
-#: application/controllers/EquipoController.php:335
+#: application/controllers/EquipoController.php:343
 msgid "modelo"
 msgstr "Modell"
 
-#: application/controllers/EquipoController.php:341
+#: application/controllers/EquipoController.php:349
 msgid "origen"
 msgstr "herkunft"
 
-#: application/controllers/EquipoController.php:347
+#: application/controllers/EquipoController.php:355
 msgid "articulo id"
 msgstr "ausrüstung ist id"
 
-#: application/controllers/EquipoController.php:353
+#: application/controllers/EquipoController.php:361
 msgid "fecha de creacion"
 msgstr "erstellungsdatum"
 
-#: application/controllers/EquipoController.php:359
+#: application/controllers/EquipoController.php:367
 msgid "peso estimado"
 msgstr "geschätzten Gewicht (kg)"
 
-#: application/controllers/EquipoController.php:365
+#: application/controllers/EquipoController.php:373
 msgid "lenght"
 msgstr "länge"
 
-#: application/controllers/EquipoController.php:371
+#: application/controllers/EquipoController.php:379
 msgid "width"
 msgstr "breite"
 
-#: application/controllers/EquipoController.php:377
+#: application/controllers/EquipoController.php:385
 msgid "height"
 msgstr "höhe"
 
-#: application/controllers/EquipoController.php:383
+#: application/controllers/EquipoController.php:391
 msgid "box size"
 msgstr "box größe"
 
-#: application/controllers/EquipoController.php:389
+#: application/controllers/EquipoController.php:397
 msgid "condicion de calidad"
 msgstr "qualität status"
 
-#: application/controllers/EquipoController.php:395
+#: application/controllers/EquipoController.php:403
 msgid "offerer name"
 msgstr "anbieter den namen"
 
-#: application/controllers/EquipoController.php:401
+#: application/controllers/EquipoController.php:409
 msgid "offerer city"
 msgstr "anbieter auf seine Stadt"
 
-#: application/controllers/EquipoController.php:407
+#: application/controllers/EquipoController.php:415
 msgid "amount of equipment"
 msgstr "anzahl der geräte"
 
-#: application/controllers/EquipoController.php:413
+#: application/controllers/EquipoController.php:421
 msgid "descripcion"
 msgstr "Beschreibung"
 
-#: application/controllers/EquipoController.php:420
+#: application/controllers/EquipoController.php:428
 msgid "selling price"
 msgstr "verkaufspreis"
 
@@ -729,6 +729,10 @@ msgstr "Art der Benutzer"
 msgid "fax"
 msgstr "fax"
 
+#: library/Mtt/Form/SubForm/Checkout.php:71
+msgid "escoger forma de pago"
+msgstr "wählen sie zahlungsart"
+
 #: application/layouts/scripts/_footer.phtml:11
 #: application/layouts/scripts/_footer.phtml:12
 msgid "home"
@@ -913,7 +917,6 @@ msgid "compras activas"
 msgstr "aktiven Kauf"
 
 #: application/layouts/scripts/_userMenu.phtml:103
-#: application/modules/admin/layouts/scripts/_navegacion.phtml:56
 msgid "preguntas"
 msgstr "frage"
 
@@ -1169,7 +1172,6 @@ msgid "Quit Ofers"
 msgstr "Angebot beenden"
 
 #: application/modules/admin/views/scripts/equipo/index.phtml:103
-#: application/modules/admin/views/scripts/idiomas/index.phtml:40
 msgid "editar"
 msgstr "bearbeiten"
 
@@ -1213,6 +1215,7 @@ msgid "id"
 msgstr "id"
 
 #: application/modules/admin/views/scripts/reserva/equiposreservados.phtml:13
+#: application/modules/admin/views/scripts/user/operation.phtml:13
 msgid "acciones"
 msgstr "operationen"
 
@@ -1683,8 +1686,6 @@ msgstr "meine fragen"
 #: application/views/scripts/busqueda/resultsearch.phtml:26
 #: application/views/scripts/categoria/index.phtml:56
 #: application/views/scripts/categoria/index.phtml:121
-#: application/views/scripts/categoria/ver.phtml:55
-#: application/views/scripts/categoria/ver.phtml:113
 msgid "Product name"
 msgstr "Produktname"
 
@@ -1692,8 +1693,6 @@ msgstr "Produktname"
 #: application/views/scripts/busqueda/resultsearch.phtml:36
 #: application/views/scripts/categoria/index.phtml:69
 #: application/views/scripts/categoria/index.phtml:135
-#: application/views/scripts/categoria/ver.phtml:66
-#: application/views/scripts/categoria/ver.phtml:124
 msgid "View details"
 msgstr "Details anzeigen"
 
@@ -1715,7 +1714,6 @@ msgstr "änderungsdatum"
 
 #: application/views/scripts/categoria/index.phtml:26
 #: application/views/scripts/categoria/index.phtml:94
-#: application/views/scripts/categoria/ver.phtml:82
 msgid "Click to see all"
 msgstr "Hier klicken, um alle zu sehen"
 
