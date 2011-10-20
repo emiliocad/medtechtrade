@@ -22,14 +22,14 @@ class User_CheckoutController
         $id = ( int ) $this->getRequest()->getParam( 'id' );
 
         $equipo = new Mtt_Models_Bussines_Equipo();
-        $carito = $equipo->getFindId( $id );
 
-        $this->_operacionEquipo->addOperacionDetalle( $carito );
-
-        $dataOperacion = $this->_operacionEquipo->getOperacionDetalles();
+        $carrito = new Mtt_Store_Cart( $equipo->getFindId( $id ) );
+        //$carito = $equipo->getFindId( $id );
+        //$this->_operacionEquipo->clearOperacionDetalles();
+        $this->_operacionEquipo->addOperacionDetalle( $carrito );
 
         $form = new Mtt_Form_Checkout(
-                        $dataOperacion
+                        $this->_operacionEquipo->getOperacionDetalles()
         );
 
         $this->view->assign( 'checkout' , $form );
@@ -45,10 +45,16 @@ class User_CheckoutController
             );
 
             $lastInsertId = $this->_operacion->saveOperacion( $dataOperacion );
+            
             if ( !is_null( $lastInsertId ) )
                 {
-                $this->_operacionEquipo->saveOperacionDetalle();
+                $this->_operacionEquipo->saveOperacionDetalle(
+                        $this->authData['usuario']->id , $lastInsertId
+                );
                 }
+
+            $this->view->assign( 'checkoutdata' ,
+                                 $form->getValues() );
             }
         }
 

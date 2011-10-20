@@ -5,6 +5,7 @@
  * and open the template in the editor.
  */
 
+
 class Mtt_Models_Catalog_OperationEquipo
         extends Mtt_Models_Bussines_OperationEquipo
     {
@@ -29,8 +30,8 @@ class Mtt_Models_Catalog_OperationEquipo
                         $index++ )
                 {
                 if (
-                        $this->sessionMtt->operacion->detalles[$index]->id
-                        == $operacionDetalle->id
+                        $this->sessionMtt->operacion->detalles[$index]->getId()
+                        == $operacionDetalle->getId()
                 )
                     {
                     return true;
@@ -109,15 +110,17 @@ class Mtt_Models_Catalog_OperationEquipo
         return $detallesVenta;
         }
 
-
-    public function saveOperacionDetalle()
+/*TODO Revisar este cambio*/
+    public function saveOperacionDetalle( $userId , $operacioId , $data  )
         {
         for ( $index = 0;
                     $index < count( $this->sessionMtt->operacion->detalles );
                     $index++ )
             {
+                        
+                        
             if (
-                    $this->sessionMtt->operacion->detalles[$index]->id
+                    $this->sessionMtt->operacion->detalles[$index]->getId()
                     == $operacionDetalle->id
             )
                 {
