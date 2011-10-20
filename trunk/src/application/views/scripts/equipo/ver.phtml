@@ -66,7 +66,7 @@
     <?php foreach($this->producto->imagenes as $imagen) :?>
     <!--Producto-->
     <!--\media\catalog\product\thumb-->
-    <a href="/media/catalog/product/thumb/<?= $imagen->imagen ?>" 
+    <a href="/media/catalog/product/product/<?= $imagen->imagen ?>" 
        title="<?= $this->producto->nombre ?>" >
         <img src="/media/catalog/product/thumb/<?= $imagen->imagen ?>" alt="Device" />
     </a> 
@@ -74,6 +74,7 @@
 
     <!-- Fin de imagenes -->
     <!-- acciones -->
+    <?php if(count($this->producto->imagenes) >0) :?>
     <a href="#">
         <img src="/images/arrow-left.png" alt="">
     </a>
@@ -81,6 +82,7 @@
         <img src="/images/arrow-right.png" alt="">
     </a>
     <!-- fin de acciones-->
+    <?php endif;?>
 </div>
 <div id="device-description">
     <a href="#" 
