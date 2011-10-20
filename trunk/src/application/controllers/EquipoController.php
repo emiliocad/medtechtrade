@@ -121,6 +121,14 @@ class EquipoController extends Mtt_Controller_Action {
                 $this->view->assign('reservado', $dataReservado);
 
                 $this->view->assign('favorito', $dataFavorito);
+                
+                /*$url = new Zend_Session_Namespace( 'MTT' );
+                if(!($url->url=== NULL))
+                    {
+                    $this->view->assign('url', $url->url);
+                    }
+                
+                 */
             }
             /**/
         } else {
