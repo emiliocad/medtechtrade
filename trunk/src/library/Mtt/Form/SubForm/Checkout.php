@@ -7,6 +7,7 @@ class Mtt_Form_SubForm_Checkout
 
     protected $_data;
     protected $_equipo;
+    protected $_formapago;
     protected $image;
     protected $equipo;
     protected $equipo_id;
@@ -16,6 +17,8 @@ class Mtt_Form_SubForm_Checkout
 
     public function __construct( $data )
         {
+        $this->_formapago = new Mtt_Models_FormaPago();
+
         if ( !is_null( $data ) )
             {
             $this->_data = $data;
@@ -63,6 +66,15 @@ class Mtt_Form_SubForm_Checkout
         /*
          * We want array notation, so we will need to do a belongs to here.
          */
+        $this->formaPago->addMultiOption( -1 ,
+                                          $this->_translate->translate(
+                        'escoger forma de pago'
+                )
+        );
+        $this->formaPago->addMultiOptions( $values );
+        $this->addElement( $e );
+        $e->addValidator( new Zend_Validate_InArray( array_keys( $values ) ) );
+
 
         $this->eliminar->setLabel( 'Eliminar' )
                 ->setDecorators( $decorators );
