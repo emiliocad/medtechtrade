@@ -1,15 +1,9 @@
 <?php
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 
 class Mtt_Models_Bussines_FormaPago
         extends Mtt_Db_Table_FormaPago
     {
-
 
     public function __construct()
         {
@@ -17,11 +11,16 @@ class Mtt_Models_Bussines_FormaPago
         }
 
 
-  
-
     public function getComboValues()
         {
-        $filas = $this->fetchAll( 'active=1' )->toArray();
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from( $this->_name )
+                ->where( 'active = ?' , self::ACTIVE )
+                ->order( 'nombre' )
+                ->query()
+        ;
+        $filas = $query->fetchAll( Zend_Db::FETCH_ASSOC );
         $values = array( );
         foreach ( $filas as $fila )
             {
@@ -57,6 +56,7 @@ class Mtt_Models_Bussines_FormaPago
         return $query->fetchObject();
         }
 
+
     public function updateFormaPago( array $data , $id )
         {
 
@@ -83,14 +83,12 @@ class Mtt_Models_Bussines_FormaPago
 
     public function deleteFormaPago( $id )
         {
-
         $this->delete( 'id = ?' , $id );
         }
 
 
     public function activarFormaPago( $id )
         {
-
         $this->update( array(
             "active" => self::ACTIVE )
                 , 'id = ' . $id );
@@ -99,7 +97,6 @@ class Mtt_Models_Bussines_FormaPago
 
     public function desactivarFormaPago( $id )
         {
-
         $this->update( array(
             "active" => self::DESACTIVATE )
                 , 'id = ' . $id );

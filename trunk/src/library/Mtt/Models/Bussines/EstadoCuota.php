@@ -13,7 +13,14 @@ class Mtt_Models_Bussines_EstadoCuota
 
     public function getComboValues()
         {
-        $filas = $this->fetchAll( 'active=1' )->toArray();
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from( $this->_name )
+                ->where( 'active = ?' , self::ACTIVE )
+                ->order( 'nombre' )
+                ->query()
+        ;
+        $filas = $query->fetchAll( Zend_Db::FETCH_ASSOC );
         $values = array( );
         foreach ( $filas as $fila )
             {
