@@ -110,22 +110,17 @@ class Mtt_Models_Catalog_OperationEquipo
         return $detallesVenta;
         }
 
-/*TODO Revisar este cambio*/
-    public function saveOperacionDetalle( $userId , $operacioId , $data  )
+
+    /* TODO Revisar este cambio */
+
+
+    public function saveOperacionDetalle( $userId , $operacioId , $data )
         {
-        for ( $index = 0;
-                    $index < count( $this->sessionMtt->operacion->detalles );
-                    $index++ )
+        Zend_Debug::dump( $data );exit;
+        foreach ( $data as $item )
             {
-                        
-                        
-            if (
-                    $this->sessionMtt->operacion->detalles[$index]->getId()
-                    == $operacionDetalle->id
-            )
-                {
-                return true;
-                }
+            $item['operacion_id'] = $operacioId;
+            $this->insert( $item );
             }
         }
 

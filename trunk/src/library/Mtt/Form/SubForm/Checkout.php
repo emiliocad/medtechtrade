@@ -50,7 +50,7 @@ class Mtt_Form_SubForm_Checkout
             array( 'HtmlTag' , array( 'tag' => 'li' , 'class' => 'form_field' ) )
         );
 
-        $this->setElementsBelongTo( "member[{$this->_data->getId()}]" );
+        $this->setElementsBelongTo( "carro[{$this->_data->getId()}]" );
         $this->id_equipo->setValue( $this->_data->getId() );
         $this->addElement( $this->id_equipo );
 

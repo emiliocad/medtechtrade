@@ -45,16 +45,17 @@ class User_CheckoutController
             );
 
             $lastInsertId = $this->_operacion->saveOperacion( $dataOperacion );
-            
+
             if ( !is_null( $lastInsertId ) )
                 {
                 $this->_operacionEquipo->saveOperacionDetalle(
-                        $this->authData['usuario']->id , $lastInsertId
+                        $this->authData['usuario']->id , $lastInsertId ,
+                        $form->getValues()
                 );
+                $this->_operacionEquipo->clearOperationDetalle();
                 }
 
-            $this->view->assign( 'checkoutdata' ,
-                                 $form->getValues() );
+            $this->view->assign( 'checkoutdata' , $form->getValues() );
             }
         }
 
