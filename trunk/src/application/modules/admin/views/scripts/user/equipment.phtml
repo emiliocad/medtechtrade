@@ -1,20 +1,6 @@
 <h2>
-    <?= $this->translate( 'Equipment' ); ?>:
+    <?= $this->translate( 'Equipos' ); ?>:
 </h2>
-
-<?=
-$this->dialogContainer(
-        "dialog1" , "Welcome to the ZendX_JQuery World!" ,
-        array(
-    "draggable" => true ,
-    "height" => "500" ,
-    "modal" => true ,
-    "resizable" => true ,
-    "title" => "Welcome message" ,
-    "closeOnEscape" => true
-        )
-);
-?>
 <!--Equipos-->
 <table border="1" class="listado">
     <thead>
@@ -67,9 +53,6 @@ $this->dialogContainer(
                     <?= $this->escape( $equipo->paises ) ?>
                 </td>
                 <td>
-
-
-
 
                     <? if ( !$equipo->topofers ): ?>
 

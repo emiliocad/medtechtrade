@@ -38,6 +38,9 @@ class EquipoController extends Mtt_Controller_Action {
 
         $this->view->jQuery()
                 ->addJavascriptFile(
+                        '/js/jquery.jPrintArea/jPrintArea.js'
+                )
+                ->addJavascriptFile(
                         '/js/jquery.lightbox/jquery.lightbox-0.5.js'
                 )
                 ->addStylesheet(
@@ -80,6 +83,11 @@ class EquipoController extends Mtt_Controller_Action {
 
                             });
                             
+                        });
+                        $(".device-action-print").click(function(){
+                            $("div#section-middle-body").printArea({
+                                
+                            });
                         });
                         '
         );
