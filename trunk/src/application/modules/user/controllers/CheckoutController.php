@@ -6,12 +6,14 @@ class User_CheckoutController
     {
 
     protected $_operacionEquipo;
+    protected $_operacion;
 
 
     public function init()
         {
         parent::init();
         $this->_operacionEquipo = new Mtt_Models_Catalog_OperationEquipo();
+        $this->_operacion = new Mtt_Models_Bussines_Operacion;
         }
 
 
@@ -34,7 +36,19 @@ class User_CheckoutController
 
         if ( $this->_request->isPost() && $form->isValid( $this->_request->getPost() ) )
             {
-            
+
+            $dataOperacion = array(
+                'usuario_id' => $this->authData['usuario']->id ,
+                'fecha' => date( "Y-m-d" ) ,
+                'fechainicio' => date( "Y-m-d" ) ,
+                'estadooperacion_id' => Mtt_Models_Bussines_EstadoOperacion::SALE
+            );
+
+            $lastInsertId = $this->_operacion->saveOperacion( $dataOperacion );
+            if ( !is_null( $lastInsertId ) )
+                {
+                $this->_operacionEquipo->saveOperacionDetalle();
+                }
             }
         }
 

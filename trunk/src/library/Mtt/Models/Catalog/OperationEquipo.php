@@ -5,7 +5,6 @@
  * and open the template in the editor.
  */
 
-
 class Mtt_Models_Catalog_OperationEquipo
         extends Mtt_Models_Bussines_OperationEquipo
     {
@@ -22,7 +21,6 @@ class Mtt_Models_Catalog_OperationEquipo
 
     public function getExistDetalle( $operacionDetalle )
         {
-
 
         if ( count( $this->sessionMtt->operacion->detalles ) > 0 )
             {
@@ -114,7 +112,18 @@ class Mtt_Models_Catalog_OperationEquipo
 
     public function saveOperacionDetalle()
         {
-        
+        for ( $index = 0;
+                    $index < count( $this->sessionMtt->operacion->detalles );
+                    $index++ )
+            {
+            if (
+                    $this->sessionMtt->operacion->detalles[$index]->id
+                    == $operacionDetalle->id
+            )
+                {
+                return true;
+                }
+            }
         }
 
 

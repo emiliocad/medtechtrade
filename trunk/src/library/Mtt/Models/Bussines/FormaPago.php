@@ -2,7 +2,7 @@
 
 
 class Mtt_Models_Bussines_FormaPago
-        extends Mtt_Db_Table_FormaPago
+        extends Mtt_Models_Table_FormaPago
     {
 
     public function __construct()
