@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: medtechtrade\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-10-17 16:02-0500\n"
-"PO-Revision-Date: 2011-10-19 11:06-0500\n"
+"PO-Revision-Date: 2011-10-19 16:19-0500\n"
 "Last-Translator: Matias Franci <mfranci@stockergroup.com>\n"
 "Language-Team: Stockergroup Peru <slovacus@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -50,7 +50,7 @@ msgstr "erstellungsdatum"
 
 #: application/controllers/EquipoController.php:288
 msgid "peso estimado"
-msgstr "geschätzten Gewicht"
+msgstr "geschätzten Gewicht (kg)"
 
 #: application/controllers/EquipoController.php:296
 msgid "lenght"
@@ -556,11 +556,11 @@ msgstr "box größe"
 
 #: library/Mtt/Form/Equipo.php:302
 msgid "peso estimado "
-msgstr "geschätzten gewicht"
+msgstr "geschätzten gewicht (kg)"
 
 #: library/Mtt/Form/IdiomaPais.php:41
 msgid "mi pais de residencia"
-msgstr "meinem wohnort land"
+msgstr "Meinem wohnort land"
 
 #: library/Mtt/Form/IdiomaPais.php:44
 msgid "escoger pais"
@@ -572,7 +572,7 @@ msgstr "meine Sprache"
 
 #: library/Mtt/Form/IdiomaPais.php:79
 msgid "recordar mi configuracion"
-msgstr "erinnere mich an meine konfiguration"
+msgstr "Erinnere mich an meine konfiguration"
 
 #: library/Mtt/Form/IdiomaPais.php:87
 msgid "siguiente"
@@ -1623,7 +1623,7 @@ msgstr "obraz"
 
 #: application/modules/user/views/scripts/user/editar.phtml:2
 msgid "edtar mi informacion"
-msgstr "mein profil bearbeiten"
+msgstr "Mein profil bearbeiten"
 
 #: application/modules/user/views/scripts/user/editar.phtml:6
 msgid "fecha de registro"

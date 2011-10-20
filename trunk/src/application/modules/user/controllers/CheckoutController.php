@@ -21,23 +21,20 @@ class User_CheckoutController
 
         $equipo = new Mtt_Models_Bussines_Equipo();
         $carito = $equipo->getFindId( $id );
-        $this->view->carro = $carito;
-        //$this->_operacionEquipo->clearOperacionDetalles();
+
         $this->_operacionEquipo->addOperacionDetalle( $carito );
+
         $dataOperacion = $this->_operacionEquipo->getOperacionDetalles();
 
-        $this->view->assign(
-                'equipo' , $dataOperacion
-        );
         $form = new Mtt_Form_Checkout(
                         $dataOperacion
         );
 
         $this->view->assign( 'checkout' , $form );
 
-        if ( $this->_request->isPost() )
+        if ( $this->_request->isPost() && $form->isValid( $this->_request->getPost() ) )
             {
-            $this->view->assign( 'checkoutValues' , $form->getValues() );
+            
             }
         }
 
