@@ -1,3 +1,8 @@
+function myBeforeSendCallbackJsFunc(){
+    var rpta = confirm("Estas seguro");
+    alert(rpta);
+                     
+}
 function myCompleteCallbackJsFunc(data){
 
     if ( data.id !== ""){
