@@ -10,6 +10,7 @@ class EquipoController extends Mtt_Controller_Action {
     public function init() {
         parent::init();
         $this->_equipo = new Mtt_Models_Catalog_Equipo();
+        $this->URL = '/' . $this->getRequest()->getControllerName();
     }
 
     /**
@@ -37,6 +38,9 @@ class EquipoController extends Mtt_Controller_Action {
         $id = $this->_equipo->getEquipmentBySlug($slug)->id;
 
         $this->view->jQuery()
+                ->addJavascriptFile(
+                        '/js/jquery.jPrintArea/jPrintArea.js'
+                )
                 ->addJavascriptFile(
                         '/js/jquery.lightbox/jquery.lightbox-0.5.js'
                 )
@@ -71,7 +75,6 @@ class EquipoController extends Mtt_Controller_Action {
                             });
                         });
                         $(".device-action-help").click(function(){
-                            alert($(this).attr("href"));
                             $("#dialogHelp").dialog({
                                 height: 200,
                                 width: 540,
@@ -81,26 +84,31 @@ class EquipoController extends Mtt_Controller_Action {
                             });
                             
                         });
+                        $(".device-action-print").click(function(){
+                            $("div#section-middle-body").printArea({
+                                
+                            });
+                        });
                         '
         );
 
         $producto = $this->_equipo->getProduct($id);
-        
+
         $imagen = new Mtt_Models_Bussines_Imagen();
-        $imagenes = $imagen->getImagesByEquip( $id ); 
+        $imagenes = $imagen->getImagesByEquip($id);
 
         if ($producto->publicacionid ==
                 Mtt_Models_Table_PublicacionEquipo::Activada) {
             $this->_equipo->updateView($id);
 
             $producto->imagenes = $imagenes;
-            
+
             $this->view->assign(
                     'producto', $producto
             );
-            /*$this->view->assign(
-                    'imagenes', $imagenes
-            );*/
+            /* $this->view->assign(
+              'imagenes', $imagenes
+              ); */
 
             $form = new Mtt_Form_SearchGeneral();
             $this->view->assign('formSearch', $form);
@@ -116,19 +124,21 @@ class EquipoController extends Mtt_Controller_Action {
                         $this->authData['usuario']->id, $id, Mtt_Models_Table_TipoReserva::RESERVED);
 
                 $dataFavorito = $_reserva->getIdByEquipmentUser(
-                        $this->authData['usuario']->id, $id, Mtt_Models_Table_TipoReserva::FAVORITE);
+                        $this->authData['usuario']->id, $id, 
+                        Mtt_Models_Table_TipoReserva::FAVORITE);
 
                 $this->view->assign('reservado', $dataReservado);
 
                 $this->view->assign('favorito', $dataFavorito);
-                
-                /*$url = new Zend_Session_Namespace( 'MTT' );
-                if(!($url->url=== NULL))
-                    {
-                    $this->view->assign('url', $url->url);
-                    }
-                
-                 */
+
+                $url = new Zend_Session_Namespace('MTT');
+
+
+                $link = 
+                        '/equipment/' .
+                        $slug;
+              
+                $url->url = $link;
             }
             /**/
         } else {
@@ -164,9 +174,9 @@ class EquipoController extends Mtt_Controller_Action {
         );
 
         $producto = $this->_equipo->getProduct($id);
-        
+
         $imagen = new Mtt_Models_Bussines_Imagen();
-        $imagenes = $imagen->getImagesByEquip( $id ); 
+        $imagenes = $imagen->getImagesByEquip($id);
 
         if ($producto->publicacionid !=
                 Mtt_Models_Table_PublicacionEquipo::Activada) {
@@ -224,15 +234,8 @@ class EquipoController extends Mtt_Controller_Action {
         );
     }
 
-    public function sendtofriendAction() 
-        {
-        $this->view->jQuery()->addJavascriptFile( '/js/equipo.js' );
-        }
-        
-        
-    public function cotizarAction()
-        {
-         $this->view->jQuery()
+    public function cotizarAction() {
+        $this->view->jQuery()
                 ->addJavascriptFile(
                         '/js/jwysiwyg/jquery.wysiwyg.js'
                 )
@@ -248,43 +251,38 @@ class EquipoController extends Mtt_Controller_Action {
                           });'
                 )
         ;
-         
-        $id = intval( $this->_request->getParam( 'id' ) );
 
-        $equipo = $this->_equipo->getFindId( $id );
+        $id = intval($this->_request->getParam('id'));
+
+        $equipo = $this->_equipo->getFindId($id);
 
         $form = new Mtt_Form_Cotizar();
 
-        if ( !is_null( $equipo ) )
-            {
+        if (!is_null($equipo)) {
 
-            if ( $this->_request->isPost()
+            if ($this->_request->isPost()
                     &&
-                    $form->isValid( $this->_request->getPost() ) )
-                {
+                    $form->isValid($this->_request->getPost())) {
 
                 $cotizacion = $form->getValues();
 
                 $paises = new Mtt_Models_Bussines_Paises();
-                $pais = $paises->getFindId( $cotizacion['paises_id'] );
+                $pais = $paises->getFindId($cotizacion['paises_id']);
                 $cotizacion['pais'] = $pais->nombre;
                 $cotizacion['equipo'] = $equipo->nombre;
-                $this->_equipo->sendMailToRequest( $cotizacion , 'cotizar' );
+                $this->_equipo->sendMailToRequest($cotizacion, 'cotizar');
                 //$this->view->assign( 'equipo' , $equipo );
-                }
-            $this->view->assign( 'frmCotizar' , $form );
             }
-        else
-            {
+            $this->view->assign('frmCotizar', $form);
+        } else {
 
             $this->_helper->FlashMessenger(
-                    $this->_translate->translate( 'no existe' )
+                    $this->_translate->translate('no existe')
             );
-            $this->_redirect( $this->URL );
-            }
+            $this->_redirect($this->URL);
         }
-        
-    
+    }
+
     public function pdfAction() {
         $this->_helper->layout->disableLayout();
         $this->_helper->viewRenderer->setNoRender();
@@ -454,6 +452,23 @@ class EquipoController extends Mtt_Controller_Action {
 //        $informe->load_html( $html );
 //        $informe->render();
 //        $informe->stream( 'Medtechtrade.pdf' ); //->output()
+    }
+
+    public function sendtofriendAction() {
+        $form = new Mtt_Form_EnviarAmigo();
+        $parametros = $this->_request->getPost();
+
+        $url = new Zend_Session_Namespace('MTT');
+
+        $parametros['url'] = $url->url;
+        $parametros['test'] = $this->getRequest();
+        $this->_equipo->sendMail(
+                $parametros, $this->_translate->translate('enviar a un amigo')
+        );
+
+        $this->view->assign('parametros', $parametros);
+
+        $this->_redirect( $url->url);
     }
 
 }
