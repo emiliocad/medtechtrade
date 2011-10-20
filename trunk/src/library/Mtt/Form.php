@@ -7,7 +7,6 @@ class Mtt_Form
 
     protected $_translate;
 
-
     public function __construct( $translator = null )
         {
 
@@ -23,7 +22,6 @@ class Mtt_Form
 
     public function init()
         {
-
         parent::init();
         }
 
