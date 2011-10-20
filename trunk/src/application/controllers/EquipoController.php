@@ -134,9 +134,10 @@ class EquipoController extends Mtt_Controller_Action {
                 $url = new Zend_Session_Namespace('MTT');
 
 
-                $link = $this->URL . '/' .
-                        $this->getRequest()->getActionName() . '/' .
-                        $id;
+                $link = 
+                        '/equipment/' .
+                        $slug;
+              
                 $url->url = $link;
             }
             /**/
@@ -467,7 +468,7 @@ class EquipoController extends Mtt_Controller_Action {
 
         $this->view->assign('parametros', $parametros);
 
-        //$this->_redirect($this->URL);
+        $this->_redirect( $url->url);
     }
 
 }

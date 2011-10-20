@@ -71,9 +71,14 @@ class Mtt_Models_Catalog_Equipo
         $_conf = new Zend_Config_Ini(
                         APPLICATION_PATH . '/configs/mail.ini'
         );
+        $_conf_ini = new Zend_Config_Ini(
+                        APPLICATION_PATH . '/configs/myConfig.ini', 'url_desarrollo'
+        );
 
 
         $confMail = $_conf->toArray();
+        $config_url = $_conf_ini->toArray();
+       
 
         $config = array(
             'auth' => $confMail['auth'] ,
@@ -103,7 +108,7 @@ class Mtt_Models_Catalog_Equipo
         $m->addTo( $data['email'] );
 
         $m->setViewParam( 'email' , $data['email'] )
-                ->setViewParam( 'url' , $data['url'] )
+                ->setViewParam( 'url' , $config_url['Url']. $data['url'] )
                 ->setViewParam( 'nombre' , $data['nombre'] )
         ;
         $m->sendHtmlTemplate( "sendtofriend.phtml" );
