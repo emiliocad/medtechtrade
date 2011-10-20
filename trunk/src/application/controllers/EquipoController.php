@@ -46,8 +46,11 @@ class EquipoController extends Mtt_Controller_Action {
         $this->view->jQuery()
                 ->addOnLoad(
                         '$(document).ready(function() {
-                            $("#device-foto-galery a").lightBox(
+                            $("#device-foto-galery .img-thumb").lightBox(
                             {fixedNavigation:true}
+                            );
+                            $("#device-foto-galery .product").lightBox(
+                            {fixedNavigation:false}
                             );
                             
                         });
@@ -118,6 +121,14 @@ class EquipoController extends Mtt_Controller_Action {
                 $this->view->assign('reservado', $dataReservado);
 
                 $this->view->assign('favorito', $dataFavorito);
+                
+                /*$url = new Zend_Session_Namespace( 'MTT' );
+                if(!($url->url=== NULL))
+                    {
+                    $this->view->assign('url', $url->url);
+                    }
+                
+                 */
             }
             /**/
         } else {
@@ -141,8 +152,11 @@ class EquipoController extends Mtt_Controller_Action {
         $this->view->jQuery()
                 ->addOnLoad(
                         '$(document).ready(function() {
-                            $("#device-foto-galery a").lightBox(
+                            $("#device-foto-galery .img-thumb").lightBox(
                             {fixedNavigation:true}
+                            );
+                            $("#device-foto-galery .product").lightBox(
+                            {fixedNavigation:false}
                             );
                             
                         });
@@ -150,11 +164,15 @@ class EquipoController extends Mtt_Controller_Action {
         );
 
         $producto = $this->_equipo->getProduct($id);
+        
+        $imagen = new Mtt_Models_Bussines_Imagen();
+        $imagenes = $imagen->getImagesByEquip( $id ); 
 
         if ($producto->publicacionid !=
                 Mtt_Models_Table_PublicacionEquipo::Activada) {
             //$this->_equipo->updateView($id);
 
+            $producto->imagenes = $imagenes;
             $this->view->assign(
                     'producto', $producto
             );

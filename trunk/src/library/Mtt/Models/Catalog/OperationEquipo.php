@@ -22,8 +22,8 @@ class Mtt_Models_Catalog_OperationEquipo
 
     public function getExistDetalle( $operacionDetalle )
         {
-        
-        
+
+
         if ( count( $this->sessionMtt->operacion->detalles ) > 0 )
             {
             for ( $index = 0;
@@ -112,6 +112,12 @@ class Mtt_Models_Catalog_OperationEquipo
         }
 
 
+    public function saveOperacionDetalle()
+        {
+        
+        }
+
+
     public function addOperacion( $venta )
         {
         $venta['fechahora'] = date( 'Y-m-d H:i:s' );
@@ -126,7 +132,7 @@ class Mtt_Models_Catalog_OperationEquipo
             $venta_detalle['precio_venta'] = $producto['precio'];
             $_venta_detalle->insert( $venta_detalle );
             }
-        $this->clearVentaDetalles();
+        $this->clearOperacionDetalles();
         }
 
 

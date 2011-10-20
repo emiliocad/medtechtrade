@@ -46,6 +46,10 @@ class CategoriaController
                 'equipoOfert'
                 , $_equipo->showEquiposOfersByCategory( $id )
         );
+        
+        //$url = new Zend_Session_Namespace( 'MTT' );
+        //$url->url= $this->URL .'/'. $slug;
+        
         }
 
 
