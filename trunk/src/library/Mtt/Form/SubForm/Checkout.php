@@ -17,7 +17,7 @@ class Mtt_Form_SubForm_Checkout
 
     public function __construct( $data )
         {
-        $this->_formapago = new Mtt_Models_FormaPago();
+        $this->_formapago = new Mtt_Models_Bussines_FormaPago();
 
         if ( !is_null( $data ) )
             {
