@@ -16,7 +16,7 @@ class Mtt_Form_EnviarAmigo
         $this
                 ->setMethod( 'post' )
                 ->setAttrib( 'id' , 'frmEnviarAmigo' )
-                //->setAction( '/equipo/enviaramigo' )
+                ->setAction( '/equipo/sendtofriend' )
         ;
         $email= new Zend_Form_Element_Text( 'email' );
         $email->setLabel( $this->_translate->translate('email'));
@@ -34,7 +34,7 @@ class Mtt_Form_EnviarAmigo
         $this->addElement( $nombre );
         
     
-        $this->addElement( 'button' ,
+        $this->addElement( 'submit' ,
                            $this->_translate->translate(
                         'Submit'
                 )
