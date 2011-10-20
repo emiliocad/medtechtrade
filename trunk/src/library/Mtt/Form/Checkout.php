@@ -5,15 +5,11 @@ class Mtt_Form_Checkout
         extends Mtt_Form
     {
 
-    const SUBMIT_BUTTON = "submit";
-    protected $max = 10;
     protected $submit;
     protected $_data;
 
-
     public function __construct( $data = null )
         {
-
         if ( !is_null( $data ) )
             {
             $this->_data = $data;
@@ -22,11 +18,11 @@ class Mtt_Form_Checkout
         parent::__construct();
         }
 
-
     public function init()
         {
 
         $this->setMethod( Zend_Form::METHOD_POST )
+                //->setAction( '/user/checkout/cart/' )
         ;
         $this->addMemberForms();
         $this->submit = new Zend_Form_Element_Button( 'submit' );
@@ -35,13 +31,11 @@ class Mtt_Form_Checkout
                         'class' , 'button'
                 )
                 ->setAttrib( 'type' , 'submit' )
-                ->setOrder( $this->max + 1 );
+                ->setOrder( count( $this->_data ) + 1 );
 
         $this->addElement( $this->submit );
 
-        /*
-         * Left out the rest of the class for simplicity
-         */
+
         }
 
 
@@ -65,20 +59,5 @@ class Mtt_Form_Checkout
                     ->addDecorator( 'HtmlTag' , array( "tag" => "ul" ) );
             }
         }
-
-
-    /*
-     * Set the Max fields to show, this value is passed to the form constructor
-     * new form(array('Max' => 10));
-     */
-
-
-    public function setMax( $max )
-        {
-        $this->max = $max;
-
-        return $this;
-        }
-
 
     }
