@@ -350,8 +350,7 @@ class Mtt_Models_Bussines_Operacion
                              'operacion_has_equipo.equipo_id = equipo.id' ,
                              array( 'precio' => 'equipo.precioventa' ,
                     'nombre' ,
-                    'modelo',
-                    'slug'             
+                    'modelo'
                         )
                 )
                 ->joinLeft( 'imagen' ,
@@ -359,30 +358,11 @@ class Mtt_Models_Bussines_Operacion
                             array( 'imagen' )
                 )
                 ->where( 'operacion.usuario_id = ?' , $idUser )
-                ->group( 'equipo.id')
                 ->query()
         ;
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
-
-        
-    public function paglistByUser( $idUser  )
-        {
-        $_conf = new Zend_Config_Ini(
-                        APPLICATION_PATH . '/configs/myConfigUser.ini' , 
-                'compras-activas'
-        );
-        $data = $_conf->toArray();
-
-        $object = Zend_Paginator::factory(
-                        $this->listByUser( $idUser ) );
-        $object->setItemCountPerPage(
-                $data['ItemCountPerPage']
-        );
-        return $object;
-        }
-        
 
 
     /**
