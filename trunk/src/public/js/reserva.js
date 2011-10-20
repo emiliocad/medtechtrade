@@ -1,3 +1,9 @@
+function myBeforeSendCallbackJsFunc(){
+    if (!confirm("desea eliminar la reserva")) {
+        exit;
+    } 
+}
+
 function myCompleteCallbackJsFunc(data){
 
     if ( data.id !== ""){

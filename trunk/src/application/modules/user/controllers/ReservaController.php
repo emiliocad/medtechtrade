@@ -50,7 +50,6 @@ class User_ReservaController
     public function reservasAction()
         {
 
-        
         $this->view->jQuery()->addJavascriptFile( '/js/reserva.js' );
         $reserva = $this->_reserva->pagListFavoritosByUser(
                 $this->authData['usuario']->id ,
