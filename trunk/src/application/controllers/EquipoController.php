@@ -132,12 +132,9 @@ class EquipoController extends Mtt_Controller_Action {
                 $this->view->assign('favorito', $dataFavorito);
 
                 $url = new Zend_Session_Namespace('MTT');
-
-
                 $link = 
                         '/equipment/' .
                         $slug;
-              
                 $url->url = $link;
             }
             /**/
@@ -272,6 +269,13 @@ class EquipoController extends Mtt_Controller_Action {
                 $cotizacion['equipo'] = $equipo->nombre;
                 $this->_equipo->sendMailToRequest($cotizacion, 'cotizar');
                 //$this->view->assign( 'equipo' , $equipo );
+                $this->_helper->FlashMessenger(
+                    $this->_translate->translate('se ha enviado el 
+                        requerimiento para la cotizacion del equipo'
+                    )
+                );
+                $url = new Zend_Session_Namespace('MTT');
+                $this->_redirect($url->url);
             }
             $this->view->assign('frmCotizar', $form);
         } else {
