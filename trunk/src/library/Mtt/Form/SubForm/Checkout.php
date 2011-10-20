@@ -12,8 +12,6 @@ class Mtt_Form_SubForm_Checkout
     protected $eliminar;
 
 
-
-
     const FIRST_NAME = "first_name";
 
     protected $rowNumber = 1;
@@ -47,7 +45,10 @@ class Mtt_Form_SubForm_Checkout
         ;
         $this->addElement( $this->image );
 
-        $this->equipo->setValue( "aca ira el Valor" )
+
+
+        $this->equipo->setValue( $this->_data->nombre )
+                ->setAttrib( 'disabled' , "disabled" )
         ;
 
         $this->addElement( $this->equipo );
@@ -63,21 +64,6 @@ class Mtt_Form_SubForm_Checkout
 
         $this->eliminar->setLabel( 'Eliminar' );
         $this->addElement( $this->eliminar );
-
-
-
-//        $this->addElement( "text" , self::FIRST_NAME ,
-//                           array(
-//                    "size" => 20 ,
-//                    "value" => $this->_data["RowNumber"]
-//                        )
-//                )
-//                ->getElement( self::FIRST_NAME )
-//                ->setDecorators( $decorators )
-//                ->addValidator( "Alnum" , false , array( true ) )
-//                ->addFilter( 'StripTags' )
-//                ->addValidator( "StringLength" , false ,
-//                                array( "min" => 2 , "max" => 100 ) );
         }
 
 

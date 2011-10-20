@@ -21,9 +21,9 @@ class User_CheckoutController
 
         $equipo = new Mtt_Models_Bussines_Equipo();
         $carito = $equipo->getFindId( $id );
-        //$this->mtt->cart = $equipo->getFindId( $id );
-        //$this->operacionEquipo->clearOperacionDetalles();
-        //$this->operacionEquipo->addOperacionDetalle( $carito );
+        $this->view->carro = $carito;
+        //$this->_operacionEquipo->clearOperacionDetalles();
+        $this->_operacionEquipo->addOperacionDetalle( $carito );
         $dataOperacion = $this->_operacionEquipo->getOperacionDetalles();
 
         $this->view->assign(
