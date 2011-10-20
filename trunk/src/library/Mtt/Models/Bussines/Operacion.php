@@ -142,7 +142,7 @@ class Mtt_Models_Bussines_Operacion
                             array( 'imagen' )
                 )
                 ->where( 'operacion.estadooperacion_id = ?' , $status )
-                ->group( 'operacion.id')
+                ->group( 'operacion.id' )
                 ->query()
         ;
 
@@ -219,7 +219,7 @@ class Mtt_Models_Bussines_Operacion
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
 
-        
+
     /**
      *
      * @param type $estado_operacion
@@ -256,8 +256,7 @@ class Mtt_Models_Bussines_Operacion
                     'moraxdia' ,
                     'nrocuotas' => 'operacion_has_equipo.equipo_id' ,
                     'pago_forma' => 'equipo_has_formapago.pago' ,
-                    'totalpago' 
-                    
+                    'totalpago'
                         )
                 )
                 ->joinInner( 'formapago' ,
@@ -270,7 +269,7 @@ class Mtt_Models_Bussines_Operacion
                              array( 'precio' => 'equipo.precioventa' ,
                     'nombre' ,
                     'modelo' ,
-                    'slug'             
+                    'slug'
                         )
                 )
                 ->joinInner( 'imagen' ,
@@ -286,13 +285,13 @@ class Mtt_Models_Bussines_Operacion
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
-        
-        
+
+
     public function paglistByUserSalesActive( $idUser , $status )
         {
         $_conf = new Zend_Config_Ini(
-                        APPLICATION_PATH . '/configs/myConfigUser.ini' , 
-                'compras-activas'
+                        APPLICATION_PATH . '/configs/myConfigUser.ini' ,
+                        'compras-activas'
         );
         $data = $_conf->toArray();
 
@@ -303,10 +302,8 @@ class Mtt_Models_Bussines_Operacion
         );
         return $object;
         }
-        
-        
-        
-        
+
+
     public function listByUser( $idUser )
         {
         $db = $this->getAdapter();
@@ -350,7 +347,8 @@ class Mtt_Models_Bussines_Operacion
                              'operacion_has_equipo.equipo_id = equipo.id' ,
                              array( 'precio' => 'equipo.precioventa' ,
                     'nombre' ,
-                    'modelo'
+                    'modelo' ,
+                    'slug'
                         )
                 )
                 ->joinLeft( 'imagen' ,
@@ -358,6 +356,7 @@ class Mtt_Models_Bussines_Operacion
                             array( 'imagen' )
                 )
                 ->where( 'operacion.usuario_id = ?' , $idUser )
+                ->group( 'equipo.id' )
                 ->query()
         ;
 
@@ -365,11 +364,23 @@ class Mtt_Models_Bussines_Operacion
         }
 
 
-    /**
-     * 
-     * @param type $n
-     * @return type 
-     */
+    public function paglistByUser( $idUser )
+        {
+        $_conf = new Zend_Config_Ini(
+                        APPLICATION_PATH . '/configs/myConfigUser.ini' ,
+                        'compras-activas'
+        );
+        $data = $_conf->toArray();
+
+        $object = Zend_Paginator::factory(
+                        $this->listByUser( $idUser ) );
+        $object->setItemCountPerPage(
+                $data['ItemCountPerPage']
+        );
+        return $object;
+        }
+
+
     public function listarUltimas( $n )
         {
         $db = $this->getAdapter();
@@ -488,6 +499,12 @@ class Mtt_Models_Bussines_Operacion
                 }
             }
         $S->venta->detalles = $nuevo_detalle;
+        }
+
+
+    public function saveOperacion( $data )
+        {
+        return $this->insert( $data );
         }
 
 
