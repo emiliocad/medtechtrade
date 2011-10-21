@@ -347,11 +347,9 @@ class Mtt_Models_Bussines_Operacion
                              'operacion_has_equipo.equipo_id = equipo.id' ,
                              array( 'precio' => 'equipo.precioventa' ,
                     'nombre' ,
-
                     'modelo' ,
                     'slug' )
                 )
-                
                 ->joinLeft( 'imagen' ,
                             'operacion_has_equipo.equipo_id = equipo.id' ,
                             array( 'imagen' )
