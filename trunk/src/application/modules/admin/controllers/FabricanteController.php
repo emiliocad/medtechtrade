@@ -76,7 +76,7 @@ class Admin_FabricanteController
     public function borrarAction()
         {
         $id = intval( $this->_request->getParam( 'id' ) );
-        $this->_fabricante->deleteFabricate( $id );
+        $this->_fabricante->deleteFabricante( $id );
         $this->_helper->FlashMessenger( 
                 $this->_translate->translate ('fabricante borrado' )
         );
