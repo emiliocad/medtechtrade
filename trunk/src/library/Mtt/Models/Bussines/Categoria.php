@@ -102,18 +102,36 @@ class Mtt_Models_Bussines_Categoria
         }
 
 
-    public function listCategory()
+    public function listCategory( $active = null)
         {
-
+        $value = ($active == null) ? array(0, 1) : 1;
+        
         $db = $this->getAdapter();
 
         $query = $db->select()
                 ->from( $this->_name )
-                ->where( 'active IN (?)' , self::ACTIVE )
+                ->where( 'active IN (?)' , $value )
                 ->query();
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
+        
+        
+        
+    public function pagListCategory( $active = null) {
+        $_conf = new Zend_Config_Ini(
+                        APPLICATION_PATH . '/configs/myConfigAdmin.ini'
+                        , 'categoria'
+        );
+        $data = $_conf->toArray();
+
+        $object = Zend_Paginator::factory($this->listCategory($active));
+        $object->setItemCountPerPage(
+                $data['ItemCountPerPage']
+        );
+        return $object;
+    }
+        
 
 
     public function getCategoria( $id )
@@ -169,7 +187,7 @@ class Mtt_Models_Bussines_Categoria
     public function deleteCategoria( $id )
         {
 
-        $this->delete( 'id = ?' , $id );
+        $this->delete('id =' . (int) $id);
         }
 
 
