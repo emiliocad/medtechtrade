@@ -20,10 +20,43 @@ class Mtt_Models_Catalog_OperationEquipo
         }
 
 
+    public function fillDetalle( $operacionDetalle )
+        {
+        if ( count( $this->sessionMtt->operacion->detalles ) )
+            {
+            for ( $index = 0;
+                        $index < count( $this->sessionMtt->operacion->detalles );
+                        $index++ )
+                {
+
+                $id = $this->sessionMtt->operacion->detalles[$index]->getId();
+                if (
+                        $id
+                        == $operacionDetalle[$id]['equipo_id']
+                )
+                    {
+
+                    if ( isset( $operacionDetalle[$id]['equipo'] ) )
+                        {
+
+                        $this->sessionMtt->operacion->detalles[$index]->setNombre(
+                                $operacionDetalle[$id]['equipo']
+                        );
+                        }
+
+                    $this->sessionMtt->operacion->detalles[$index]->setEquipo_has_formaPago(
+                            $operacionDetalle[$id]['equipo_has_formapago_id']
+                    );
+                    }
+                }
+            }
+        }
+
+
     public function getExistDetalle( $operacionDetalle )
         {
 
-        if ( count( $this->sessionMtt->operacion->detalles ) > 0 )
+        if ( count( $this->sessionMtt->operacion->detalles ) )
             {
             for ( $index = 0;
                         $index < count( $this->sessionMtt->operacion->detalles );
@@ -116,7 +149,7 @@ class Mtt_Models_Catalog_OperationEquipo
 
     public function saveOperacionDetalle( $userId , $operacioId , $data )
         {
-        Zend_Debug::dump( $data );exit;
+        //Zend_Debug::dump( $data );exit;
         foreach ( $data as $item )
             {
             $item['operacion_id'] = $operacioId;

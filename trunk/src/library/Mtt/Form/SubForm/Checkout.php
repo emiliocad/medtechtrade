@@ -78,8 +78,10 @@ class Mtt_Form_SubForm_Checkout
                         'escoger forma de pago'
                 )
         );
-        $this->formaPago->addMultiOptions( $dataFormaPago );
-        $this->addElement( $this->formaPago );
+        $this->formaPago->addMultiOptions( $dataFormaPago )
+                ->setValue( $this->_data->getEquipo_has_formaPago() );
+        $this->addElement( $this->formaPago )
+                ;
 
         $this->formaPago->addValidator(
                 new Zend_Validate_InArray(
