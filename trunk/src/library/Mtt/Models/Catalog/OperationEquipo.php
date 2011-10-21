@@ -20,6 +20,32 @@ class Mtt_Models_Catalog_OperationEquipo
         }
 
 
+    /**
+     *
+     * @return type booleano
+     */
+    public function checkFormaPagoExist()
+        {
+        if ( count( $this->sessionMtt->operacion->detalles ) )
+            {
+            for ( $index = 0;
+                        $index < count( $this->sessionMtt->operacion->detalles );
+                        $index++ )
+                {
+                if (
+                        $this->sessionMtt->operacion->detalles[$index]->getId()
+                        == $operacionDetalle->getId()
+                )
+                    {
+                    return true;
+                    }
+                }
+            return false;
+            }
+        return false;
+        }
+
+
     public function fillDetalle( $operacionDetalle )
         {
         if ( count( $this->sessionMtt->operacion->detalles ) )

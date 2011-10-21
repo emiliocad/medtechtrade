@@ -1,16 +1,15 @@
 <?php
 
-
 class Mtt_Form_Checkout
-        extends Mtt_Form
+        extends Mtt_Formy
     {
 
     protected $submit;
     protected $actualizar;
     protected $total;
     protected $_data;
+    
     private $decoratorUser = array( );
-
 
     public function _addDecorators()
         {

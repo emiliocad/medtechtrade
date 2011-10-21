@@ -1,57 +1,21 @@
 <h2>
     <?= $this->translate( 'Bolsa de Compras' ) ?>
 </h2>
-<? if ( isset( $this->checkout ) ): ?>
-    <form id="<?= $this->checkout->getId() ?>"
-          action="<?= $this->escape( $this->checkout->getAction() ) ?>"
-          method="<?= $this->escape( $this->checkout->getMethod() ) ?>">
 
-        <table id="<?= $this->checkout->getId() ?>">
-            <thead>
-
-            <th>imagen</th>
-            <th>equipo</th>
-            <th>precio</th>
-            <th>forma pago</th>
-            <th>acciones</th>
-            
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <?=$this->checkout->carro?>
-                        
-                    </td>
-                    <td>
-                        <?=$this->checkout->carro[3]['image']?>
-                        
-                    </td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>total</td>
-                    <td>
-                        <?= $this->checkout->total->renderViewHelper() ?>
-                        <? //= $this->checkout->total->renderErrors() ?>
-                    </td>
-                </tr>
-            </tfoot>
-        </table>
-        <?= $this->checkout->submit->renderViewHelper() ?>
-        <? //= $this->checkout->submit->renderErrors() ?>
-
-    </form>
-
-<? endif; ?>
-
-
-<? //= $this->checkout; ?>
 <?= $this->checkout; ?>
 
+<button id="checkout-cart" type="submit">
+    <a href="
+    <?=
+    $this->url(
+            array(
+        'module' => 'user' ,
+        'controller' => 'checkout' ,
+        'action' => 'cart' ) , 'default' , true
+    );
+    ?>
+       ">
+
+        <?= $this->translate( 'nuevo equipo' ) ?>
+    </a>
+</button>

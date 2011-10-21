@@ -49,6 +49,9 @@ class User_CheckoutController
         {
 //        if ( $this->_request->isPost() && $form->isValid( $this->_request->getPost() ) )
 //            {
+
+        if ( count( $this->_operacionEquipo->getOperacionDetalles() ) )
+            {
             $dataOperacion = array(
                 'usuario_id' => $this->authData['usuario']->id ,
                 'fecha' => date( "Y-m-d" ) ,
@@ -65,11 +68,31 @@ class User_CheckoutController
                         $this->authData['usuario']->id , $lastInsertId ,
                         $this->_operacionEquipo->getOperacionDetalles()
                 );
-                
+
                 $this->_operacionEquipo->clearOperacionDetalles();
+
+                $this->_helper->FlashMessenger(
+                        $this->_translate->translate( 'se realizo la compra' )
+                );
                 }
             }
+        else
+            {
+            $this->_helper->flashMessenger(
+                    'debe de agregar productos al carro de compra'
+            );
+            $this->_redirect( '/equipo/' );
+            }
+        }
+
+
 //        }
+
+
+    public function deleteAction()
+        {
+        $this->view->assign( 'data' , $this->_request->getPost() );
+        }
 
 
     }

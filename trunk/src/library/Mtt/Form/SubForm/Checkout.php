@@ -2,7 +2,7 @@
 
 
 class Mtt_Form_SubForm_Checkout
-        extends Mtt_SubForm
+        extends Mtt_SubFormy
     {
 
     protected $_data;
@@ -19,14 +19,12 @@ class Mtt_Form_SubForm_Checkout
 
     public function __construct( $data )
         {
-
         $this->_formapago = new Mtt_Models_Bussines_FormaPago();
 
         if ( !is_null( $data ) )
             {
             $this->_data = $data;
             }
-
 
         $this->image = new Zend_Form_Element_Image( 'image' );
         $this->equipo_id = new Zend_Form_Element_Image( 'image' );
@@ -42,8 +40,9 @@ class Mtt_Form_SubForm_Checkout
 
     public function init()
         {
-
-        $this->setMethod( Zend_Form::METHOD_POST );
+        parent::init();
+        $this->setMethod( Zend_Form::METHOD_POST )
+                ->setAction( '/user/checkout/delete/' );
 
         $decorators = array(
             'ViewHelper' ,
@@ -52,6 +51,7 @@ class Mtt_Form_SubForm_Checkout
 
         $this->setElementsBelongTo( "carro[{$this->_data->getId()}]" );
         $this->id_equipo->setValue( $this->_data->getId() );
+
         $this->addElement( $this->id_equipo );
 
         $this->image->setImage(
@@ -81,7 +81,7 @@ class Mtt_Form_SubForm_Checkout
         $this->formaPago->addMultiOptions( $dataFormaPago )
                 ->setValue( $this->_data->getEquipo_has_formaPago() );
         $this->addElement( $this->formaPago )
-                ;
+        ;
 
         $this->formaPago->addValidator(
                 new Zend_Validate_InArray(
@@ -93,11 +93,10 @@ class Mtt_Form_SubForm_Checkout
 
 
         $this->eliminar->setLabel( 'Eliminar' )
-                ->setDecorators( $decorators );
+                ->setAttrib( 'type' , 'submit' );
+
 
         $this->addElement( $this->eliminar );
-
-        parent::init();
         }
 
 
