@@ -40,7 +40,7 @@ class Mtt_Models_Bussines_Fabricante
         $db = $this->getAdapter();
         $query = $db->select()
                 ->from( $this->_name )
-                ->where( 'active = ?' , '1' )
+                //->where( 'active = ?' , '1' )
                 ->query()
         ;
 
@@ -65,7 +65,7 @@ class Mtt_Models_Bussines_Fabricante
     public function deleteFabricante( $id )
         {
 
-        $this->delete( 'id = ?' , $id );
+        $this->delete( 'id =' . ( int ) $id );
         }
 
 
