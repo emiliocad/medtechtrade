@@ -36,7 +36,6 @@ class User_CheckoutController
 
         if ( $this->_request->isPost() && $form->isValid( $this->_request->getPost() ) )
             {
-
             $dataOperacion = array(
                 'usuario_id' => $this->authData['usuario']->id ,
                 'fecha' => date( "Y-m-d" ) ,
@@ -44,17 +43,24 @@ class User_CheckoutController
                 'estadooperacion_id' => Mtt_Models_Bussines_EstadoOperacion::SALE
             );
 
-            $lastInsertId = $this->_operacion->saveOperacion( $dataOperacion );
-            
-            if ( !is_null( $lastInsertId ) )
-                {
-                $this->_operacionEquipo->saveOperacionDetalle(
-                        $this->authData['usuario']->id , $lastInsertId
-                );
-                }
+//            Zend_Debug::dump( $this->_operacionEquipo->getOperacionDetalles() );
+//            exit;
+//            $lastInsertId = $this->_operacion->saveOperacion( $dataOperacion );
+//            if ( !is_null( $lastInsertId ) )
+//                {
+//                
+//                
+            $data = $form->getValues();
+            $this->_operacionEquipo->fillDetalle( $data['carro'] );
+//                $this->_operacionEquipo->saveOperacionDetalle(
+//                        $this->authData['usuario']->id , $lastInsertId ,
+//                        $form->getValues()
+//                );
+//                $this->_operacionEquipo->clearOperationDetalle();
+//                }
 
-            $this->view->assign( 'checkoutdata' ,
-                                 $form->getValues() );
+            $data = $form->getValues();
+            $this->view->assign( 'checkoutdata' , $this->_operacionEquipo->getOperacionDetalles() );
             }
         }
 

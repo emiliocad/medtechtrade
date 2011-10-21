@@ -112,7 +112,7 @@ class User_ReservaController
             );
 
             $this->_reserva->saveReserva( $data );
-            $this->_helper->FlashMessenger( 'Se agrego como Favorito' );
+            $this->_helper->FlashMessenger( $this->_translate->translate('Se agrego como Favorito' ));
             }
 
         $this->_redirect( $_SERVER['HTTP_REFERER'] );
@@ -138,7 +138,7 @@ class User_ReservaController
             );
 
             $this->_reserva->saveReserva( $data );
-            $this->_helper->FlashMessenger( 'Se agrego como la reserva' );
+            $this->_helper->FlashMessenger( $this->_translate->translate('Se agrego como la reserva' ));
             }
 
 
@@ -151,7 +151,7 @@ class User_ReservaController
 
         $id = intval( $this->_request->getParam( 'id' ) );
         $this->_reserva->desactivarReserva( $id );
-        $this->_helper->FlashMessenger( 'se quito de favoritos' );
+        $this->_helper->FlashMessenger( $this->_translate->translate('se quito de favoritos' ));
         $this->_redirect( $this->URL . "/favoritos" );
         }
 
@@ -205,7 +205,7 @@ class User_ReservaController
                     )
             );
             }
-        //$this->_helper->FlashMessenger( 'reserva eliminada' );
+        //$this->_helper->FlashMessenger( $this->_translate->translate('reserva eliminada') );
 //        $this->_redirect( $this->URL . "/favoritos" );
         }
 

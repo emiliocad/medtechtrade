@@ -50,7 +50,7 @@ class Mtt_Form_SubForm_Checkout
             array( 'HtmlTag' , array( 'tag' => 'li' , 'class' => 'form_field' ) )
         );
 
-        $this->setElementsBelongTo( "member[{$this->_data->getId()}]" );
+        $this->setElementsBelongTo( "carro[{$this->_data->getId()}]" );
         $this->id_equipo->setValue( $this->_data->getId() );
         $this->addElement( $this->id_equipo );
 
@@ -78,8 +78,10 @@ class Mtt_Form_SubForm_Checkout
                         'escoger forma de pago'
                 )
         );
-        $this->formaPago->addMultiOptions( $dataFormaPago );
-        $this->addElement( $this->formaPago );
+        $this->formaPago->addMultiOptions( $dataFormaPago )
+                ->setValue( $this->_data->getEquipo_has_formaPago() );
+        $this->addElement( $this->formaPago )
+                ;
 
         $this->formaPago->addValidator(
                 new Zend_Validate_InArray(

@@ -29,7 +29,7 @@ class Mtt_Form_Checkout
         ;
         $this->addMemberForms();
         $this->submit = new Zend_Form_Element_Button( 'submit' );
-        $this->submit->setLabel( 'Registrar' )
+        $this->submit->setLabel( $this->_translate->translate( 'actualizar' ) )
                 ->setAttrib(
                         'class' , 'button'
                 )
