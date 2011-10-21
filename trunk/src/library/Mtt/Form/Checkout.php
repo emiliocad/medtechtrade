@@ -18,7 +18,7 @@ class Mtt_Form_Checkout
             'ViewHelper' ,
             'Errors' ,
             array( 'ViewScript' , array(
-                    'viewScript' => '/decoratorUser.phtml' , 'placement' => false
+                    'viewScript' => '/decorators/decoratorUser.phtml' , 'placement' => false
                 )
             ) ,
         );
@@ -43,13 +43,13 @@ class Mtt_Form_Checkout
                 ->setAttrib( 'id' , 'frmCheckout' )
         //->setAction( '/user/checkout/cart/' )
         ;
-        $this->_addDecorators();
+        //$this->_addDecorators();
 
         $this->addMemberForms();
 
         $this->total = new Zend_Form_Element_Text( 'total' );
         $this->total->setLabel( $this->_translate->translate( 'Total' ) );
-        $this->total->setDecorators( $this->decoratorUser );
+
         $this->addElement( $this->total );
 
 
@@ -81,7 +81,7 @@ class Mtt_Form_Checkout
                     ->getSubForm( $key )
                     ->clearDecorators()
                     ->addDecorator( 'FormElements' )
-                    ->addDecorator( 'HtmlTag' , array( "tag" => "ul" ) );
+                    ->addDecorator( 'HtmlTag' , array( "tag" => "tr" ) );
             }
         }
 

@@ -47,7 +47,7 @@ class Mtt_Form_SubForm_Checkout
 
         $decorators = array(
             'ViewHelper' ,
-            array( 'HtmlTag' , array( 'tag' => 'li' , 'class' => 'form_field' ) )
+            array( 'HtmlTag' , array( 'tag' => 'td' , 'class' => 'form_field' ) )
         );
 
         $this->setElementsBelongTo( "carro[{$this->_data->getId()}]" );
