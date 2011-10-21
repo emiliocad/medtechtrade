@@ -14,8 +14,12 @@ class Admin_PaisesController
 
     public function indexAction()
         {
+        $paises = $this->_pais->pagListar();
+        $paises->setCurrentPageNumber(
+                $this->_getParam('page', 1)
+        );
         $this->view->assign(
-                'paises' , $this->_pais->listar()
+                'paises' , $paises
         );
         }
 
@@ -99,9 +103,9 @@ class Admin_PaisesController
     public function borrarAction()
         {
         $id = intval( $this->_request->getParam( 'id' ) );
-        $this->_pais->desactivarPais( $id );
+        $this->_pais->deletePais( $id );
         $this->_helper->FlashMessenger(
-                $this->_translate->translate( 'pais desactivado' )
+                $this->_translate->translate( 'pais eliminado' )
         );
         $this->_redirect( $this->URL );
         }        

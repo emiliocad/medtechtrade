@@ -5,26 +5,19 @@
  * and open the template in the editor.
  */
 
+class Mtt_Models_Bussines_Moneda 
+    extends Mtt_Models_Table_Moneda {
 
-class Mtt_Models_Bussines_Moneda
-        extends Mtt_Models_Table_Moneda
-    {
-
-
-    public function getComboValues()
-        {
-        $filas = $this->fetchAll( 'active=1' )->toArray();
-        $values = array( );
-        foreach ( $filas as $fila )
-            {
+    public function getComboValues() {
+        $filas = $this->fetchAll('active=1')->toArray();
+        $values = array();
+        foreach ($filas as $fila) {
             $values[$fila['id']] = $fila['nombre'];
-            }
-        return $values;
         }
+        return $values;
+    }
 
-
-    public function getFindId( $id )
-        {
+    public function getFindId($id) {
 //        $db = $this->getAdapter();
 //        $query = $db->select()
 //                ->from( $this->_name )
@@ -32,56 +25,59 @@ class Mtt_Models_Bussines_Moneda
 //                ->where( 'active = ?' , '1' )
 //                ->query()
 //        ;
-        return $this->fetchRow( 'id = ' . $id );
-        }
+        return $this->fetchRow('id = ' . $id);
+    }
 
-
-    public function listar()
-        {
+    public function listar( $active ) {
         $db = $this->getAdapter();
         $query = $db->select()
-                ->from( $this->_name )
-                //->where( 'active = ?' , '1' )
+                ->from($this->_name)
+                ->where( 'active in (?)' , $active )
                 ->query()
         ;
 
-        return $query->fetchAll( Zend_Db::FETCH_OBJ );
-        }
-
-
-    public function updateMoneda( array $data , $id )
-        {
-
-        $this->update( $data , 'id = ' . $id );
-        }
-
-
-    public function saveMoneda( array $data )
-        {
-
-        $this->insert( $data );
-        }
-
-
-    public function deleteMoneda( $id )
-        {
-
-        $this->delete( 'id =' . ( int ) $id );
-        }
-
-
-    public function activarMoneda( $id )
-        {
-
-        $this->update( array( "active" => self::ACTIVE ) , 'id = ' . $id );
-        }
-
-
-    public function desactivarMoneda( $id )
-        {
-
-        $this->update( array( "active" => self::DESACTIVATE ) , 'id = ' . $id );
-        }
-
-
+        return $query->fetchAll(Zend_Db::FETCH_OBJ);
     }
+
+    public function pagListMoneda($active = null) {
+        $_conf = new Zend_Config_Ini(
+                        APPLICATION_PATH . '/configs/myConfigAdmin.ini'
+                        , 'moneda'
+        );
+        $data = $_conf->toArray();
+
+        $value = ($active == null) ? array(0, 1) : 1;
+
+        $object = Zend_Paginator::factory($this->listar($value));
+        $object->setItemCountPerPage(
+                $data['ItemCountPerPage']
+        );
+        return $object;
+    }
+
+    public function updateMoneda(array $data, $id) {
+
+        $this->update($data, 'id = ' . $id);
+    }
+
+    public function saveMoneda(array $data) {
+
+        $this->insert($data);
+    }
+
+    public function deleteMoneda($id) {
+
+        $this->delete('id =' . (int) $id);
+    }
+
+    public function activarMoneda($id) {
+
+        $this->update(array("active" => self::ACTIVE), 'id = ' . $id);
+    }
+
+    public function desactivarMoneda($id) {
+
+        $this->update(array("active" => self::DESACTIVATE), 'id = ' . $id);
+    }
+
+}

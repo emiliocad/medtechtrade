@@ -13,8 +13,12 @@ class Admin_MonedaController extends Mtt_Controller_Action
 
     public function indexAction()
         {
+        $monedas = $this->_moneda->pagListMoneda();
+        $monedas->setCurrentPageNumber(
+                $this->_getParam('page', 1)
+        );
         $this->view->assign(
-                'monedas', $this->_moneda->listar()
+                'monedas', $monedas
         );
         }
 

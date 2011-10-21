@@ -70,7 +70,7 @@ class Mtt_Form_ConfigurarAlertas
 
         
         
-        foreach ( $_categorias->listCategory() as $cat )
+        foreach ( $_categorias->listCategory(1) as $cat )
             {
             
             $categorias->addMultiOption( $cat->id , $cat->nombre );

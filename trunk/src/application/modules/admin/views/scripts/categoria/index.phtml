@@ -89,7 +89,7 @@ $this->url(
                         <a href="<?= $link ?>"
                            title="<?= $this->translate('Desactivar'); ?>">
                             
-                            <img class ="imagen-inactive" />
+                            <img class ="imagen-desactivar" />
                         </a>
                     <? else: ?>
                         <?
@@ -97,7 +97,7 @@ $this->url(
                                 array('module' => 'admin',
                                     'controller' => 'categoria',
                                     'action' => 'activar',
-                                    'id' => $id))
+                                    'id' => $categoria->id))
                         ?>
                         <a href="<?= $link ?>"
                            title="<?= $this->translate('activar'); ?>">
@@ -112,3 +112,7 @@ $this->url(
     </tbody>
 </table>
 <br />
+<?=
+$this->paginationControl(
+        $this->categorias, 'Sliding', 'categoria/_pag.phtml'
+);?>

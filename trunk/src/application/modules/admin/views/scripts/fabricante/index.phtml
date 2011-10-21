@@ -59,7 +59,7 @@ title="<?= $this->translate('nuevo')?>">
                         ?>
                         <a href="<?= $link ?>" 
                            title="<?= $this->translate('desactivar') ?>" 
-                           ><img class ="imagen-inactive" /></a>
+                           ><img class ="imagen-desactivar" /></a>
 
                     <?php else: ?>
                         <?php
@@ -72,7 +72,7 @@ title="<?= $this->translate('nuevo')?>">
 
                         <a href="<?= $link ?>" 
                            title="<?= $this->translate('activar') ?>" 
-                           ><img class ="imagen-active" /></a>
+                           ><img class ="imagen-activar" /></a>
     <?php endif; ?>
 
                 </td>
@@ -81,5 +81,9 @@ title="<?= $this->translate('nuevo')?>">
     </tbody>
 </table>
 <br />
+<?=
+$this->paginationControl(
+        $this->fabricantes, 'Sliding', 'fabricante/_pag.phtml'
+);?>
 
 

@@ -47,7 +47,7 @@
     text-decoration: none;
 }
 .imagen-desactivar{
-    background: url(/images/acciones/24/delete.png) no-repeat 0% 0%;
+    background: url(/images/acciones/24/cancel.png) no-repeat 0% 0%;
     margin: 0px 0 0px 0px;
     padding: 20px 20px 5px 5px;
     text-decoration: none;
@@ -76,14 +76,8 @@
     padding: 20px 20px 5px 5px;
     text-decoration: none;
 }
-.imagen-active{
-    background: url(/images/acciones/24/active.png) no-repeat 0% 0%;
-    margin: 0px 0 0px 0px;
-    padding: 20px 20px 5px 5px;
-    text-decoration: none;
-}
-.imagen-inactive{
-    background: url(/images/acciones/24/cancel.png) no-repeat 0% 0%;
+.imagen-basket{
+    background: url(/images/acciones/24/basket.png) no-repeat 0% 0%;
     margin: 0px 0 0px 0px;
     padding: 20px 20px 5px 5px;
     text-decoration: none;

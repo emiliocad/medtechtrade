@@ -17,8 +17,12 @@ class Admin_CategoriaController
 
     public function indexAction()
         {
+        $categorias = $this->_categoria->pagListCategory();
+        $categorias->setCurrentPageNumber(
+                $this->_getParam('page', 1)
+        );
         $this->view->assign(
-                'categorias' , $this->_categoria->listCategory()
+                'categorias' , $categorias
         );
         }
 

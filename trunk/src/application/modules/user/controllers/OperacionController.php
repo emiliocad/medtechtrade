@@ -10,10 +10,7 @@ class User_OperacionController extends Mtt_Controller_Action {
     }
 
     public function indexAction() {
-        $this->view->assign(
-                'operaciones', $this->_operacion->listByOperation(
-                        Mtt_Models_Bussines_EstadoOperacion::SALE)
-        );
+
     }
 
     public function verAction() {
@@ -22,6 +19,7 @@ class User_OperacionController extends Mtt_Controller_Action {
                 'operacion', $this->_operacion->verDetalle($id)
         );
     }
+   
 
     public function comprasactivasAction() {
         $this->view->jQuery()
@@ -49,7 +47,8 @@ class User_OperacionController extends Mtt_Controller_Action {
         //$id = intval( $this->_request->getParam( 'id' ) );
         $this->view->assign(
                 'operaciones', $this->_operacion->listByUserOperation(
-                        $this->authData['usuario']->id, Mtt_Models_Bussines_EstadoOperacion::SALE
+                        $this->authData['usuario']->id
+                        , Mtt_Models_Bussines_EstadoOperacion::SALE
                 )
         );
     }

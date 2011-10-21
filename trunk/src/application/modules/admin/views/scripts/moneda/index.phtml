@@ -75,7 +75,7 @@
                         ?>
                         <a href="<?= $link ?>"
                            title="<?= $this->translate('desactivar') ?>">
-                            <img class ="imagen-inactive" />
+                            <img class ="imagen-desactivar" />
                         </a>
                     <? else: ?>
                         <?
@@ -88,7 +88,7 @@
                         <a href="<?= $link ?>"
                            title="<?= $this->translate('activar'); ?>">
 
-                            <img class ="imagen-active" />
+                            <img class ="imagen-activar" />
                         </a>
                     <? endif; ?>
 
@@ -98,6 +98,10 @@
     </tbody>
 </table>
 <br />
+<?=
+$this->paginationControl(
+        $this->monedas, 'Sliding', 'moneda/_pag.phtml'
+);?>
 
 
 

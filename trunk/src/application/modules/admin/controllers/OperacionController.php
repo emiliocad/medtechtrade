@@ -26,7 +26,17 @@ class Admin_OperacionController extends Mtt_Controller_Action
         $this->view->assign(
                 'operacion' , $this->_operacion->verDetalle($id)
         );
-        }        
+        }    
+        
+        
+    public function detallaroperacionAction() {
+        $id = intval($this->_request->getParam('id'));
+        $operationEquipo = new Mtt_Models_Bussines_OperationEquipo;
+        $detalles =  $operationEquipo->getEquipmentsByOperation($id);
+        $this->view->assign(
+                'operaciones', $detalles
+        );
+    }        
 
 
     }

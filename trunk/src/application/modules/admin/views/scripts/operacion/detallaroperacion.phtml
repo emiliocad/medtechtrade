@@ -1,0 +1,58 @@
+<h2> <?= $this->translate( 'detalle  de operacion' ) ?>:</h2>
+
+<table border="1" class="listado">
+    <thead>
+        <tr>
+            <th><?= $this->translate( 'id' ) ?></th>
+            <th><?= $this->translate( 'equipo' ) ?></th>
+            <th><?= $this->translate( 'modelo' ) ?></th>
+            <th><?= $this->translate( 'fabricante' ) ?></th>
+            <th><?= $this->translate( 'forma de pago' ) ?></th>
+            <th><?= $this->translate( 'numero cuotas' ) ?></th>
+            <th><?= $this->translate( 'pago' ) ?></th>
+            <th><?= $this->translate( 'dias' ) ?></th>
+            <th><?= $this->translate( 'mora' ) ?></th>
+            <th><?= $this->translate( 'acciones' ) ?></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ( $this->operaciones as $operacion ): ?>
+
+            <?php $id = $operacion->id; ?>
+            <tr>
+                <td>
+                    <?= $this->escape( $operacion->idequipo) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $operacion->equipo) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $operacion->modelo ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $operacion->fabricante ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $operacion->formapago ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $operacion->nrocuotas ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $operacion->pago ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $operacion->dias ) ?>
+                </td>
+                <td>
+                    <?= $this->escape( $operacion->moraxdia ) ?>
+                </td>
+
+                <td>
+
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+<br />
