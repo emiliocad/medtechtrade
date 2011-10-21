@@ -7,7 +7,22 @@ class Mtt_Form_Checkout
 
     protected $submit;
     protected $actualizar;
+    protected $total;
     protected $_data;
+    private $decoratorUser = array( );
+
+
+    public function _addDecorators()
+        {
+        $this->decoratorUser = array(
+            'ViewHelper' ,
+            'Errors' ,
+            array( 'ViewScript' , array(
+                    'viewScript' => '/decoratorUser.phtml' , 'placement' => false
+                )
+            ) ,
+        );
+        }
 
 
     public function __construct( $data = null )
@@ -25,9 +40,19 @@ class Mtt_Form_Checkout
         {
 
         $this->setMethod( Zend_Form::METHOD_POST )
+                ->setAttrib( 'id' , 'frmCheckout' )
         //->setAction( '/user/checkout/cart/' )
         ;
+        $this->_addDecorators();
+
         $this->addMemberForms();
+
+        $this->total = new Zend_Form_Element_Text( 'total' );
+        $this->total->setLabel( $this->_translate->translate( 'Total' ) );
+        $this->total->setDecorators( $this->decoratorUser );
+        $this->addElement( $this->total );
+
+
         $this->submit = new Zend_Form_Element_Button( 'submit' );
         $this->submit->setLabel( $this->_translate->translate( 'actualizar' ) )
                 ->setAttrib(
@@ -36,14 +61,6 @@ class Mtt_Form_Checkout
                 ->setAttrib( 'type' , 'submit' );
 
         $this->addElement( $this->submit );
-
-        $this->actualizar = new Zend_Form_Element_Button( 'actualizar' );
-        $this->actualizar->setLabel( 'actualizar' )
-                ->setAttrib(
-                        'class' , 'button'
-        );
-
-        $this->addElement( $this->actualizar );
         }
 
 
