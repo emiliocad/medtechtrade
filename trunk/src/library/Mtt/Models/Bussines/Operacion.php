@@ -82,7 +82,8 @@ class Mtt_Models_Bussines_Operacion
                     'operacion.id' ,
                     'fecha' ,
                     'fechainicio' ,
-                    'fechapago'
+                    'fechapago',
+                    'total'
                         )
                 )
                 ->joinInner(
@@ -91,7 +92,8 @@ class Mtt_Models_Bussines_Operacion
                         array(
                     'precio' ,
                     'cantidad' => 'operacion_has_equipo.cantidad' ,
-                    'equipo_id' => 'operacion_has_equipo.equipo_id'
+                    'equipo_id' => 'operacion_has_equipo.equipo_id',
+                    'nequipos' => 'COUNT(operacion_has_equipo.id)'       
                         )
                 )
                 ->joinInner(
@@ -105,7 +107,10 @@ class Mtt_Models_Bussines_Operacion
                         'usuario' , 'usuario.id = operacion.usuario_id' ,
                         array(
                     'usuario' => 'usuario.login' ,
-                    'usuario_id' => 'usuario.id'
+                    'usuario_id' => 'usuario.id',
+                    'usuario_nombreCompleto' => 
+                            'CONCAT(usuario.nombre, " ", usuario.apellido )',
+                       
                         )
                 )
                 ->joinInner(
@@ -113,11 +118,6 @@ class Mtt_Models_Bussines_Operacion
                         'operacion_has_equipo.equipo_has_formapago_id = 
                             equipo_has_formapago.id' ,
                         array(
-                    'dias' ,
-                    'moraxdia' ,
-                    'nrocuotas' => 'operacion_has_equipo.equipo_id' ,
-                    'pago_forma' => 'equipo_has_formapago.pago' ,
-                    'totalpago' ,
                     'dias' ,
                     'moraxdia' ,
                     'nrocuotas' => 'equipo_has_formapago.nrocuotas' ,
@@ -129,17 +129,6 @@ class Mtt_Models_Bussines_Operacion
                              'equipo_has_formapago.formapago_id = formapago.id' ,
                              array( 'formapago' => 'formapago.nombre'
                         )
-                )
-                ->joinInner( 'equipo' ,
-                             'operacion_has_equipo.equipo_id = equipo.id' ,
-                             array( 'precio' => 'equipo.precioventa' ,
-                    'nombre' ,
-                    'modelo'
-                        )
-                )
-                ->joinLeft( 'imagen' ,
-                            'operacion_has_equipo.equipo_id = equipo.id' ,
-                            array( 'imagen' )
                 )
                 ->where( 'operacion.estadooperacion_id = ?' , $status )
                 ->group( 'operacion.id' )
@@ -184,11 +173,6 @@ class Mtt_Models_Bussines_Operacion
                         array(
                     'dias' ,
                     'moraxdia' ,
-                    'nrocuotas' => 'operacion_has_equipo.equipo_id' ,
-                    'pago_forma' => 'equipo_has_formapago.pago' ,
-                    'totalpago' ,
-                    'dias' ,
-                    'moraxdia' ,
                     'nrocuotas' => 'equipo_has_formapago.nrocuotas' ,
                     'pago_forma' => 'equipo_has_formapago.pago' ,
                     'totalpago'
@@ -203,7 +187,8 @@ class Mtt_Models_Bussines_Operacion
                              'operacion_has_equipo.equipo_id = equipo.id' ,
                              array( 'precio' => 'equipo.precioventa' ,
                     'nombre' ,
-                    'modelo'
+                    'modelo',
+                    'slug'
                         )
                 )
                 ->joinInner( 'imagen' ,
