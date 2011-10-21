@@ -20,6 +20,32 @@ class Mtt_Models_Catalog_OperationEquipo
         }
 
 
+    /**
+     *
+     * @return type booleano
+     */
+    public function checkFormaPagoExist()
+        {
+        if ( count( $this->sessionMtt->operacion->detalles ) )
+            {
+            for ( $index = 0;
+                        $index < count( $this->sessionMtt->operacion->detalles );
+                        $index++ )
+                {
+                if (
+                        $this->sessionMtt->operacion->detalles[$index]->getId()
+                        == $operacionDetalle->getId()
+                )
+                    {
+                    return true;
+                    }
+                }
+            return false;
+            }
+        return false;
+        }
+
+
     public function fillDetalle( $operacionDetalle )
         {
         if ( count( $this->sessionMtt->operacion->detalles ) )
@@ -147,13 +173,19 @@ class Mtt_Models_Catalog_OperationEquipo
     /* TODO Revisar este cambio */
 
 
-    public function saveOperacionDetalle( $userId , $operacioId , $data )
+    public function saveOperacionDetalle( $userId , $operacionId , $data )
         {
-        //Zend_Debug::dump( $data );exit;
+
         foreach ( $data as $item )
             {
-            $item['operacion_id'] = $operacioId;
-            $this->insert( $item );
+            $detalle = array( );
+            $detalle = array(
+                'operacion_id' => $operacionId ,
+                'equipo_id' => $item->getId() ,
+                'precio' => $item->getPrecio() ,
+                'equipo_has_formapago_id' => $item->getEquipo_has_formaPago()
+            );
+            $this->insert( $detalle );
             }
         }
 

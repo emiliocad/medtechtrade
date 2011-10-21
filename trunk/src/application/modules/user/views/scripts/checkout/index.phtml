@@ -1,6 +1,21 @@
 <h2>
     <?= $this->translate( 'Bolsa de Compras' ) ?>
 </h2>
-<?= $this->checkout; ?>
-<? Zend_Debug::dump( $this->checkoutdata ); ?>
 
+<?= $this->checkout; ?>
+
+<button id="checkout-cart" type="submit">
+    <a href="
+    <?=
+    $this->url(
+            array(
+        'module' => 'user' ,
+        'controller' => 'checkout' ,
+        'action' => 'cart' ) , 'default' , true
+    );
+    ?>
+       ">
+
+        <?= $this->translate( 'nuevo equipo' ) ?>
+    </a>
+</button>
