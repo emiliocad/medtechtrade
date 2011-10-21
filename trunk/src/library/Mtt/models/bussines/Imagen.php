@@ -31,6 +31,19 @@ class Mtt_Models_Bussines_Imagen
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
 
+
+    public function getImagesByEquip( $idEquipo )
+        {
+        $db = $this->getAdapter();
+        $query = $db->select()
+                ->from( $this->_name )
+                ->where( 'active = ?' , self::ACTIVE )
+                ->where( 'equipo_id = ?' , $idEquipo )
+                ->query()
+        ;
+
+        return $query->fetchAll( Zend_Db::FETCH_OBJ );
+        }
         
 
     public function updateImagen( array $data , $id )

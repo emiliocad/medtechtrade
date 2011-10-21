@@ -1,3 +1,9 @@
+function myBeforeSendCallbackJsFunc(){
+    if (!confirm("desea eliminar la imagen")) {
+        exit;
+    } 
+}
+
 function myCompleteCallbackJsFunc(data){
 
     if ( data.id !== ""){

@@ -69,13 +69,11 @@
             <td>
                 <?= $this->escape($favorito->calidad) ?>
             </td>
-
-
             <td>
-
                 <?=
                 $this->ajaxLink(
-                        "<img class ='imagen-delete'>", "/user/reserva/borrarreserva/format/json", array(
+                        "<img class ='imagen-delete'>", 
+                        "/user/reserva/borrarreserva/format/json", array(
                     'dataType' => 'json',
                     'beforeSend' =>
                     'myBeforeSendCallbackJsFunc();',

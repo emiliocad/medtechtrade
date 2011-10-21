@@ -24,8 +24,7 @@ class User_CheckoutController
         $equipo = new Mtt_Models_Bussines_Equipo();
 
         $carrito = new Mtt_Store_Cart( $equipo->getFindId( $id ) );
-        //$carito = $equipo->getFindId( $id );
-        //$this->_operacionEquipo->clearOperacionDetalles();
+
         $this->_operacionEquipo->addOperacionDetalle( $carrito );
 
         $form = new Mtt_Form_Checkout(
@@ -36,7 +35,20 @@ class User_CheckoutController
 
         if ( $this->_request->isPost() && $form->isValid( $this->_request->getPost() ) )
             {
+            $data = $form->getValues();
+            $this->_operacionEquipo->fillDetalle( $data['carro'] );
 
+            $data = $form->getValues();
+            $this->view->assign( 'checkoutdata' ,
+                                 $this->_operacionEquipo->getOperacionDetalles() );
+            }
+        }
+
+
+    public function cartAction()
+        {
+//        if ( $this->_request->isPost() && $form->isValid( $this->_request->getPost() ) )
+//            {
             $dataOperacion = array(
                 'usuario_id' => $this->authData['usuario']->id ,
                 'fecha' => date( "Y-m-d" ) ,
@@ -45,24 +57,19 @@ class User_CheckoutController
             );
 
             $lastInsertId = $this->_operacion->saveOperacion( $dataOperacion );
-            
+
             if ( !is_null( $lastInsertId ) )
                 {
+
                 $this->_operacionEquipo->saveOperacionDetalle(
-                        $this->authData['usuario']->id , $lastInsertId
+                        $this->authData['usuario']->id , $lastInsertId ,
+                        $this->_operacionEquipo->getOperacionDetalles()
                 );
+                
+                $this->_operacionEquipo->clearOperacionDetalles();
                 }
-
-            $this->view->assign( 'checkoutdata' ,
-                                 $form->getValues() );
             }
-        }
-
-
-    public function cartAction()
-        {
-        
-        }
+//        }
 
 
     }

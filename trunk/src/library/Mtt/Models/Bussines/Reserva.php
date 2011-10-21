@@ -285,6 +285,7 @@ class Mtt_Models_Bussines_Reserva
         {
 
         $this->delete( 'id =' . ( int ) $id );
+        
         }
 
 

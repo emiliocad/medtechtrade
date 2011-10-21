@@ -10,6 +10,12 @@ class Mtt_Models_Bussines_TipoUsuario
         extends Mtt_Models_Table_TipoUsuario
     {
 
+   
+    public function __construct( $config = array( ) )
+        {
+        parent::__construct( $config );
+        }
+
 
     public function getComboValues()
         {

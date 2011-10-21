@@ -110,7 +110,10 @@ class Mtt_Models_Bussines_Usuario
                              array( 'tipousuario.nombre as rol' ) )
                 ->joinInner( 'paises' , 'paises.id = usuario.paises_id' ,
                              array( 'paises.nombre as pais' ) )
-                ->where( 'usuario.active = ?' , self::ACTIVE )
+                ->where( 'usuario.tipousuario_id = ?' ,
+                         Mtt_Models_Bussines_TipoUsuario::USER
+                )
+                //->where( 'usuario.active = ?' , self::ACTIVE )
                 ->query()
         ;
 

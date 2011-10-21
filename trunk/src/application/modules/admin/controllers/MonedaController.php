@@ -67,7 +67,7 @@ class Admin_MonedaController extends Mtt_Controller_Action
                             $this->_request->getPost() )
             )
                 {
-                $this->_moneda->updateIdioma( $form->getValues() , $id );
+                $this->_moneda->updateMoneda( $form->getValues() , $id );
                 $this->_helper->FlashMessenger( 
                         $this->_translate->translate ('se modifico la moneda' ) 
                 );
@@ -90,7 +90,7 @@ class Admin_MonedaController extends Mtt_Controller_Action
     public function borrarAction()
         {
         $id = intval( $this->_request->getParam( 'id' ) );
-        $this->_moneda->desactivarMoneda( $id );
+        $this->_moneda->deleteMoneda( $id );
         $this->_helper->FlashMessenger( 
                 $this->_translate->translate ('moneda borrada' )
         );
