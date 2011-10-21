@@ -186,3 +186,6 @@
 2011-10-19T08:52:43-05:00 INFO (6): Se Aplico el Delta 29
 2011-10-19T08:52:43-05:00 INFO (6): Se Aplico el Delta 30
 2011-10-19T08:52:43-05:00 INFO (6): ===== Sync Ends =====
+2011-10-21T09:54:03-05:00 INFO (6): ===== Sync Starts =====
+2011-10-21T09:54:03-05:00 INFO (6): Se Aplico el Delta 31
+2011-10-21T09:54:03-05:00 INFO (6): ===== Sync Ends =====
