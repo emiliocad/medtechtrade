@@ -1,0 +1,31 @@
+<div>
+
+    <?php
+    $attribs = $this->element->getAttribs();
+    $label = $this->element->getLabel();
+
+    $attribs['escape'] = false;
+    $attribs['class'] = '';
+    $label = $this->escape( $label );
+
+    if ( $this->element->isRequired() )
+        {
+        echo "<div id='labelform' name='labelform' >" .
+        $this->formLabel(
+                $this->element->getName() , $label , $attribs
+        ) . " <span class='required'>*</span> </div>";
+        }
+    else
+        {
+        echo "<div id='labelform' name='labelform' >" .
+        $this->formLabel(
+                $this->element->getName() , $label , $attribs
+        ) . "</div>";
+        }
+    echo "<td id='inputform' name='inputform' >" . $this->content . "</td>
+        <div id='val" . $this->element->getName() . "' name='val" . $this->element->getName() . "' class='validarform' ></div>";
+    ?>
+</div>
+<br>
+<span class="Apple-style-span" style="font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; font-size: 13px; line-height: 19px; white-space: normal;">
+</span>

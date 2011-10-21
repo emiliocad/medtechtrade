@@ -6,7 +6,7 @@ class Delta_0030
     {
 
     protected $_author = self::SLOVACUS;
-    protected $_desc = "add un registro a la tabla de paises ";
+    protected $_desc = "add un registro a la tabla de paises";
 
 
     public function up()

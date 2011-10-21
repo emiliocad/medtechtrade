@@ -45,43 +45,46 @@
 </p>
 <h3><?= $this->translate('agregar imagen') ?> :</h3>
 <?= $this->frmRegistrar; ?>
-<?php if(count($this->imagenes)>0) :?>
-<table border="1" class="listado">
-    <thead>
+<?php if (count($this->imagenes) > 0) : ?>
+    <table border="1" class="listado">
+        <thead>
 
-    <th></th>
-    <th><?= $this->translate('titulo imagen') ?></th>
-    <th><?= $this->translate('descripcion') ?></th>
-    <th><?= $this->translate('acciones') ?></th>
-</thead>
-<tbody>
-    <?php foreach ($this->imagenes as $imagen): ?>
-        <tr class="<?= $imagen->active
-                        ? 'activo' : 'inactivo' ?>"  id ="<?= $imagen->id ?>">
-            <td>
-                <img src="/media/catalog/product/<?= $imagen->imagen ?>" 
-                     width="24px" height="24px">
-            </td>
-            <td>
-                <?= $this->escape($imagen->nombre) ?>
-            </td>
-            <td>
-                <?= $this->escape($imagen->descripcion) ?>
-            </td>
-            <td>
-                <?=$this->ajaxLink(
-                "<img class ='imagen-delete'>" , "/user/imagen/borrar/format/json" ,
-                array(
-                'dataType' => 'json',
-                'complete' =>
-                'myCompleteCallbackJsFunc(data);' ,
-                'method' => 'POST' ) , array( 'id' => $imagen->id )
-                );
-                ?>
-                
-            </td>
-        </tr>
-    <?php endforeach; ?>
-</tbody>
-</table>
-<?php endif;?>
+        <th></th>
+        <th><?= $this->translate('titulo imagen') ?></th>
+        <th><?= $this->translate('descripcion') ?></th>
+        <th><?= $this->translate('acciones') ?></th>
+    </thead>
+    <tbody>
+        <?php foreach ($this->imagenes as $imagen): ?>
+            <tr class="<?= $imagen->active ? 'activo' : 'inactivo' ?>"  
+                id ="<?= $imagen->id ?>">
+                <td>
+                    <img src="/media/catalog/product/<?= $imagen->imagen ?>" 
+                         width="24px" height="24px">
+                </td>
+                <td>
+                    <?= $this->escape($imagen->nombre) ?>
+                </td>
+                <td>
+                    <?= $this->escape($imagen->descripcion) ?>
+                </td>
+                <td>
+                    <?=
+                    $this->ajaxLink(
+                            "<img class ='imagen-delete'>", 
+                            "/user/imagen/borrar/format/json", array(
+                        'dataType' => 'json',
+                        'beforeSend' =>
+                        'myBeforeSendCallbackJsFunc();',
+                        'complete' =>
+                        'myCompleteCallbackJsFunc(data);',
+                        'method' => 'POST'), array('id' => $imagen->id)
+                    );
+                    ?>
+
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+    </table>
+<?php endif; ?>

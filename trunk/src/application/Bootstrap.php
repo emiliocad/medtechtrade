@@ -18,7 +18,10 @@ class Bootstrap
                               'ZendX_JQuery_View_Helper' );
         $view->addHelperPath( 'ZendX/JQuery/View/Helper/JQuery' ,
                               'ZendX_JQuery_View_Helper_JQuery' );
+        
         $view->addHelperPath( 'Mtt/View/Helper/' , 'Mtt_View_Helper' );
+        
+        
 
 
         $view->headTitle( 'Medtechtrade' )

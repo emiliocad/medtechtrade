@@ -1,8 +1,9 @@
 function myBeforeSendCallbackJsFunc(){
-    var rpta = confirm("Estas seguro");
-    alert(rpta);
-                     
+    if (!confirm("desea eliminar la reserva")) {
+        exit;
+    } 
 }
+
 function myCompleteCallbackJsFunc(data){
 
     if ( data.id !== ""){

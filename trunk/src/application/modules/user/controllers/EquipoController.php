@@ -12,6 +12,8 @@ class User_EquipoController
         {
         parent::init();
         $this->_equipo = new Mtt_Models_Bussines_Equipo();
+        $this->URL = $this->getRequest()->getModuleName(). '/' . 
+                $this->getRequest()->getControllerName();
         }
 
 
@@ -26,6 +28,10 @@ class User_EquipoController
         );
 
         $this->view->assign( 'equipos' , $equipos );
+        
+        $url = new Zend_Session_Namespace( 'MTT' );            
+        $url->url = $this->URL. '/'. $this->getRequest()->getActionName();
+        
         }
 
 
@@ -68,6 +74,9 @@ class User_EquipoController
         $this->view->assign(
                 'equipos' , $equipos
         );
+        
+        $url = new Zend_Session_Namespace( 'MTT' );            
+        $url->url = $this->URL. '/'. $this->getRequest()->getActionName();
         }
 
 
@@ -85,6 +94,8 @@ class User_EquipoController
         $this->view->assign(
                 'equipos' , $equipos
         );
+        $url = new Zend_Session_Namespace( 'MTT' );            
+        $url->url = $this->URL. '/'. $this->getRequest()->getActionName();
         }
 
 
@@ -95,6 +106,8 @@ class User_EquipoController
                 $this->_equipo->listEquipSalesUser(
                         $this->authData['usuario']->id )
         );
+        $url = new Zend_Session_Namespace( 'MTT' );            
+        $url->url = $this->URL. '/'. $this->getRequest()->getActionName();     
         }
 
 
@@ -230,17 +243,23 @@ class User_EquipoController
             )
                 {
                 $this->_equipo->updateEquipo( $form->getValues() , $id );
-                $this->_helper->FlashMessenger( 'Se modificó un fabricante' );
-                $this->_redirect( $this->URL );
+                $this->_helper->FlashMessenger( 
+                        $this->_translate->translate('se modifico el equipo')
+                );
+                $url = new Zend_Session_Namespace( 'MTT' );            
+                 
+                $this->_redirect( $url->url );
                 }
 
             //$form->setDefaults( $equipo->toArray() );
-            $form->setDefaults( $equipo->toArray() );
+            $form->setDefaults( (array) $equipo);
             $this->view->assign( 'form' , $form );
             }
         else
             {
-            $this->_helper->FlashMessenger( 'No existe ese fabricante' );
+            $this->_helper->FlashMessenger( 
+                    $this->_translate->translate('no se encuentra el equipo ') 
+            );
             $this->_redirect( $this->URL );
             }
         }
@@ -250,7 +269,10 @@ class User_EquipoController
         {
         $id = intval( $this->_request->getParam( 'id' ) );
         $this->_equipo->desactivarReserva( $id );
-        $this->_helper->FlashMessenger( 'Equipo Borrado' );
+        $this->_helper->FlashMessenger( 
+                $this->_translate->translate( 'Equipo Borrado' ) 
+        );
+        $this->getRequest()->
         $this->_redirect( $this->URL );
         }
 

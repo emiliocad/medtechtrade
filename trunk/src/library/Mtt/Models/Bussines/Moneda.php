@@ -41,7 +41,7 @@ class Mtt_Models_Bussines_Moneda
         $db = $this->getAdapter();
         $query = $db->select()
                 ->from( $this->_name )
-                ->where( 'active = ?' , '1' )
+                //->where( 'active = ?' , '1' )
                 ->query()
         ;
 
@@ -66,7 +66,7 @@ class Mtt_Models_Bussines_Moneda
     public function deleteMoneda( $id )
         {
 
-        $this->delete( 'id = ?' , $id );
+        $this->delete( 'id =' . ( int ) $id );
         }
 
 
