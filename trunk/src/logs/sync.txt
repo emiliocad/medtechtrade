@@ -1,3 +1,195 @@
+
+2011-10-03T17:33:38-05:00 INFO (6): ===== Sync Starts =====
+2011-10-03T17:36:46-05:00 INFO (6): ===== Sync Starts =====
+2011-10-03T17:41:03-05:00 INFO (6): ===== Sync Starts =====
+2011-10-03T17:41:04-05:00 INFO (6): Se Aplico el Delta 2
+2011-10-03T17:41:04-05:00 INFO (6): ===== Sync Ends =====
+2011-10-03T17:43:39-05:00 INFO (6): ===== Sync Starts =====
+2011-10-03T17:43:40-05:00 INFO (6): Se Aplico el Delta 2
+2011-10-03T17:43:40-05:00 INFO (6): ===== Sync Ends =====
+2011-10-03T17:43:55-05:00 INFO (6): ===== Sync Starts =====
+2011-10-03T17:43:55-05:00 INFO (6): ===== Sync Ends =====
+2011-10-03T19:43:25-05:00 INFO (6): ===== Sync Starts =====
+2011-10-03T19:43:26-05:00 INFO (6): Se Aplico el Delta 3
+2011-10-03T19:43:26-05:00 INFO (6): ===== Sync Ends =====
+2011-10-03T19:48:00-05:00 INFO (6): ===== Sync Starts =====
+2011-10-03T19:48:00-05:00 INFO (6): ===== Sync Ends =====
+2011-10-03T16:08:37-05:00 INFO (6): ===== Sync Starts =====
+2011-10-03T16:10:16-05:00 INFO (6): ===== Sync Starts =====
+2011-10-03T16:10:17-05:00 INFO (6): Se Aplico el Delta 1
+2011-10-03T16:10:17-05:00 INFO (6): Se Aplico el Delta 2
+2011-10-03T16:10:18-05:00 INFO (6): Se Aplico el Delta 3
+2011-10-03T16:10:18-05:00 INFO (6): ===== Sync Ends =====
+2011-10-04T12:01:31-05:00 INFO (6): ===== Sync Starts =====
+2011-10-04T12:01:31-05:00 INFO (6): Se Aplico el Delta 1
+2011-10-04T12:01:31-05:00 INFO (6): Se Aplico el Delta 2
+2011-10-04T12:01:32-05:00 INFO (6): Se Aplico el Delta 3
+2011-10-04T12:01:32-05:00 INFO (6): ===== Sync Ends =====
+2011-10-04T12:51:13-05:00 INFO (6): ===== Sync Starts =====
+2011-10-04T12:52:23-05:00 INFO (6): ===== Sync Starts =====
+2011-10-04T12:52:23-05:00 INFO (6): Se Aplico el Delta 1
+2011-10-04T12:52:24-05:00 INFO (6): Se Aplico el Delta 2
+2011-10-04T12:52:24-05:00 INFO (6): Se Aplico el Delta 3
+2011-10-04T12:52:24-05:00 INFO (6): ===== Sync Ends =====
+2011-10-04T12:43:38-05:00 INFO (6): ===== Sync Starts =====
+2011-10-04T12:43:38-05:00 INFO (6): ===== Sync Ends =====
+2011-10-04T12:43:38-05:00 INFO (6): ===== Sync Starts =====
+2011-10-04T12:43:38-05:00 INFO (6): ===== Sync Ends =====
+<<<<<<< HEAD
+2011-10-05T09:59:21-05:00 INFO (6): ===== Sync Starts =====
+2011-10-05T09:59:21-05:00 INFO (6): ===== Sync Ends =====
+2011-10-05T10:00:42-05:00 INFO (6): ===== Sync Starts =====
+2011-10-05T10:00:42-05:00 INFO (6): ===== Sync Ends =====
+2011-10-05T10:01:05-05:00 INFO (6): ===== Sync Starts =====
+2011-10-05T10:01:05-05:00 INFO (6): Se Aplico el Delta 1
+=======
+>>>>>>> 8c53208cb6c40928421e33e7f022c730d17c3510
+<<<<<<< HEAD
+<<<<<<< HEAD
+2011-10-04T18:19:15-05:00 INFO (6): ===== Sync Starts =====
+2011-10-04T18:19:16-05:00 INFO (6): Se Aplico el Delta 1
+2011-10-04T18:19:16-05:00 INFO (6): Se Aplico el Delta 2
+2011-10-04T18:19:18-05:00 INFO (6): Se Aplico el Delta 3
+2011-10-04T18:20:15-05:00 INFO (6): ===== Sync Starts =====
+2011-10-04T18:20:16-05:00 INFO (6): Se Aplico el Delta 4
+2011-10-04T18:20:16-05:00 INFO (6): Se Aplico el Delta 5
+2011-10-04T18:20:16-05:00 INFO (6): ===== Sync Ends =====
+>>>>>>> c23673ab85b17a5510b5bfd65d56ba248ffc8602
+2011-10-05T10:43:55-05:00 INFO (6): ===== Sync Starts =====
+2011-10-05T10:43:55-05:00 INFO (6): Se Aplico el Delta 6
+2011-10-05T10:43:56-05:00 INFO (6): Se Aplico el Delta 7
+2011-10-05T10:43:56-05:00 INFO (6): ===== Sync Ends =====
+2011-10-07T17:25:26-05:00 INFO (6): ===== Sync Starts =====
+2011-10-07T17:25:26-05:00 INFO (6): ===== Sync Ends =====
+2011-10-07T17:25:37-05:00 INFO (6): ===== Sync Starts =====
+2011-10-07T17:25:37-05:00 INFO (6): ===== Sync Ends =====
+2011-10-07T17:27:22-05:00 INFO (6): ===== Sync Starts =====
+2011-10-07T17:27:23-05:00 INFO (6): Se Aplico el Delta 7
+2011-10-07T17:27:23-05:00 INFO (6): ===== Sync Ends =====
+2011-10-08T07:19:14-05:00 INFO (6): ===== Sync Starts =====
+2011-10-08T07:19:14-05:00 INFO (6): Se Aplico el Delta 1
+2011-10-08T07:20:43-05:00 INFO (6): ===== Sync Starts =====
+2011-10-08T07:20:44-05:00 INFO (6): Se Aplico el Delta 3
+2011-10-08T07:20:44-05:00 INFO (6): Se Aplico el Delta 4
+2011-10-08T07:20:45-05:00 INFO (6): Se Aplico el Delta 5
+2011-10-08T07:20:45-05:00 INFO (6): Se Aplico el Delta 6
+2011-10-08T07:20:45-05:00 INFO (6): Se Aplico el Delta 7
+2011-10-08T07:20:46-05:00 INFO (6): Se Aplico el Delta 8
+2011-10-08T07:20:46-05:00 INFO (6): ===== Sync Ends =====
+2011-10-08T07:35:12-05:00 INFO (6): ===== Sync Starts =====
+2011-10-08T07:35:12-05:00 INFO (6): Se Aplico el Delta 9
+2011-10-08T07:35:12-05:00 INFO (6): ===== Sync Ends =====
+2011-10-08T10:39:20-05:00 INFO (6): ===== Sync Starts =====
+2011-10-08T10:39:22-05:00 INFO (6): Se Aplico el Delta 8
+2011-10-08T10:39:23-05:00 INFO (6): Se Aplico el Delta 9
+2011-10-08T10:39:24-05:00 INFO (6): ===== Sync Ends =====
+2011-10-09T09:29:03-05:00 INFO (6): ===== Sync Starts =====
+2011-10-09T09:29:03-05:00 INFO (6): ===== Sync Ends =====
+2011-10-10T09:31:57-05:00 INFO (6): ===== Sync Starts =====
+2011-10-10T09:37:19-05:00 INFO (6): ===== Sync Starts =====
+2011-10-10T09:37:19-05:00 INFO (6): Se Aplico el Delta 9
+2011-10-10T09:37:19-05:00 INFO (6): ===== Sync Ends =====
+2011-10-11T13:06:29-05:00 INFO (6): ===== Sync Starts =====
+2011-10-11T13:06:32-05:00 INFO (6): Se Aplico el Delta 10
+2011-10-11T13:06:33-05:00 INFO (6): Se Aplico el Delta 11
+2011-10-11T13:06:33-05:00 INFO (6): ===== Sync Ends =====
+2011-10-12T21:28:05-05:00 INFO (6): ===== Sync Starts =====
+2011-10-12T21:28:06-05:00 INFO (6): Se Aplico el Delta 10
+2011-10-12T21:28:06-05:00 INFO (6): Se Aplico el Delta 11
+2011-10-12T21:28:07-05:00 INFO (6): Se Aplico el Delta 12
+2011-10-12T21:28:07-05:00 INFO (6): ===== Sync Ends =====
+2011-10-13T09:26:36-05:00 INFO (6): ===== Sync Starts =====
+2011-10-13T09:26:37-05:00 INFO (6): Se Aplico el Delta 12
+2011-10-13T09:26:37-05:00 INFO (6): ===== Sync Ends =====
+2011-10-16T12:28:23-05:00 INFO (6): ===== Sync Starts =====
+2011-10-16T12:28:23-05:00 INFO (6): Se Aplico el Delta 13
+2011-10-16T12:28:24-05:00 INFO (6): Se Aplico el Delta 14
+2011-10-16T12:28:24-05:00 INFO (6): Se Aplico el Delta 15
+2011-10-16T12:28:24-05:00 INFO (6): ===== Sync Ends =====
+2011-10-17T09:36:18-05:00 INFO (6): ===== Sync Starts =====
+2011-10-17T09:36:18-05:00 INFO (6): Se Aplico el Delta 13
+2011-10-17T09:36:18-05:00 INFO (6): Se Aplico el Delta 14
+2011-10-17T09:36:19-05:00 INFO (6): Se Aplico el Delta 15
+2011-10-17T09:36:19-05:00 INFO (6): Se Aplico el Delta 16
+2011-10-17T09:36:20-05:00 INFO (6): Se Aplico el Delta 17
+2011-10-17T09:36:20-05:00 INFO (6): ===== Sync Ends =====
+2011-10-17T10:03:42-05:00 INFO (6): ===== Sync Starts =====
+2011-10-17T10:03:42-05:00 INFO (6): ===== Sync Ends =====
+2011-10-17T12:15:03-05:00 INFO (6): ===== Sync Starts =====
+2011-10-17T12:15:03-05:00 INFO (6): Se Aplico el Delta 10
+2011-10-17T12:15:03-05:00 INFO (6): Se Aplico el Delta 11
+2011-10-17T12:16:00-05:00 INFO (6): ===== Sync Starts =====
+2011-10-17T12:16:00-05:00 INFO (6): Se Aplico el Delta 16
+2011-10-17T12:16:00-05:00 INFO (6): Se Aplico el Delta 17
+2011-10-17T12:16:39-05:00 INFO (6): ===== Sync Starts =====
+2011-10-17T12:16:39-05:00 INFO (6): Se Aplico el Delta 19
+2011-10-17T12:16:39-05:00 INFO (6): Se Aplico el Delta 20
+2011-10-17T12:16:40-05:00 INFO (6): ===== Sync Ends =====
+2011-10-17T15:13:37-05:00 INFO (6): ===== Sync Starts =====
+2011-10-17T15:14:25-05:00 INFO (6): ===== Sync Starts =====
+2011-10-17T15:14:25-05:00 INFO (6): Se Aplico el Delta 19
+2011-10-17T15:14:27-05:00 INFO (6): Se Aplico el Delta 20
+2011-10-17T15:14:28-05:00 INFO (6): Se Aplico el Delta 21
+2011-10-17T15:14:28-05:00 INFO (6): ===== Sync Ends =====
+2011-10-17T17:11:41-05:00 INFO (6): ===== Sync Starts =====
+2011-10-17T17:12:17-05:00 INFO (6): ===== Sync Starts =====
+2011-10-17T17:12:17-05:00 INFO (6): Se Aplico el Delta 23
+2011-10-17T17:12:17-05:00 INFO (6): ===== Sync Ends =====
+<<<<<<< HEAD
+<<<<<<< HEAD
+2011-10-17T19:07:18-05:00 INFO (6): ===== Sync Starts =====
+2011-10-17T19:07:19-05:00 INFO (6): Se Aplico el Delta 24
+2011-10-17T19:07:19-05:00 INFO (6): ===== Sync Ends =====
+=======
+=======
+>>>>>>> 5afd7d2c6c82d76ef1253f34ffb6fbfaf0d2a7ef
+2011-10-17T19:07:46-05:00 INFO (6): ===== Sync Starts =====
+2011-10-17T19:08:59-05:00 INFO (6): ===== Sync Starts =====
+2011-10-17T19:08:59-05:00 INFO (6): Se Aplico el Delta 22
+2011-10-17T19:08:59-05:00 INFO (6): Se Aplico el Delta 23
+2011-10-17T19:08:59-05:00 INFO (6): Se Aplico el Delta 24
+2011-10-17T19:08:59-05:00 INFO (6): ===== Sync Ends =====
+2011-10-17T21:21:44-05:00 INFO (6): ===== Sync Starts =====
+2011-10-17T21:23:26-05:00 INFO (6): ===== Sync Starts =====
+2011-10-17T21:24:02-05:00 INFO (6): ===== Sync Starts =====
+2011-10-17T21:27:25-05:00 INFO (6): ===== Sync Starts =====
+2011-10-17T21:27:25-05:00 INFO (6): Se Aplico el Delta 19
+2011-10-17T21:27:28-05:00 INFO (6): Se Aplico el Delta 20
+2011-10-17T21:27:28-05:00 INFO (6): Se Aplico el Delta 21
+2011-10-17T21:27:28-05:00 INFO (6): Se Aplico el Delta 22
+2011-10-17T21:27:28-05:00 INFO (6): Se Aplico el Delta 23
+2011-10-17T21:27:28-05:00 INFO (6): Se Aplico el Delta 24
+2011-10-17T21:27:29-05:00 INFO (6): ===== Sync Ends =====
+
+2011-10-18T10:35:25-05:00 INFO (6): ===== Sync Starts =====
+2011-10-18T10:35:25-05:00 INFO (6): ===== Sync Ends =====
+2011-10-18T11:04:05-05:00 INFO (6): ===== Sync Starts =====
+2011-10-18T11:04:05-05:00 INFO (6): ===== Sync Ends =====
+2011-10-18T11:16:31-05:00 INFO (6): ===== Sync Starts =====
+2011-10-18T11:16:31-05:00 INFO (6): Se Aplico el Delta 25
+2011-10-18T11:16:31-05:00 INFO (6): ===== Sync Ends =====
+2011-10-18T11:32:11-05:00 INFO (6): ===== Sync Starts =====
+2011-10-18T11:32:11-05:00 INFO (6): Se Aplico el Delta 26
+2011-10-18T11:32:11-05:00 INFO (6): ===== Sync Ends =====
+2011-10-18T11:57:29-05:00 INFO (6): ===== Sync Starts =====
+2011-10-18T11:58:13-05:00 INFO (6): ===== Sync Starts =====
+2011-10-18T11:58:13-05:00 INFO (6): Se Aplico el Delta 26
+2011-10-18T11:58:13-05:00 INFO (6): Se Aplico el Delta 27
+2011-10-18T11:58:14-05:00 INFO (6): Se Aplico el Delta 28
+2011-10-18T11:58:14-05:00 INFO (6): ===== Sync Ends =====
+2011-10-18T12:46:30-05:00 INFO (6): ===== Sync Starts =====
+2011-10-18T12:46:30-05:00 INFO (6): Se Aplico el Delta 29
+2011-10-18T12:46:31-05:00 INFO (6): ===== Sync Ends =====
+2011-10-18T18:38:07-05:00 INFO (6): ===== Sync Starts =====
+2011-10-18T18:38:07-05:00 INFO (6): Se Aplico el Delta 30
+2011-10-18T18:38:07-05:00 INFO (6): ===== Sync Ends =====
+2011-10-19T08:52:43-05:00 INFO (6): ===== Sync Starts =====
+2011-10-19T08:52:43-05:00 INFO (6): Se Aplico el Delta 29
+2011-10-19T08:52:43-05:00 INFO (6): Se Aplico el Delta 30
+2011-10-19T08:52:43-05:00 INFO (6): ===== Sync Ends =====
+2011-10-20T11:58:20-05:00 INFO (6): ===== Sync Starts =====
+2011-10-20T11:58:20-05:00 INFO (6): ===== Sync Ends =====
+=======
 2011-10-03T17:33:38-05:00 INFO (6): ===== Sync Starts =====
 2011-10-03T17:36:46-05:00 INFO (6): ===== Sync Starts =====
 2011-10-03T17:41:03-05:00 INFO (6): ===== Sync Starts =====
@@ -189,3 +381,4 @@
 2011-10-21T09:54:03-05:00 INFO (6): ===== Sync Starts =====
 2011-10-21T09:54:03-05:00 INFO (6): Se Aplico el Delta 31
 2011-10-21T09:54:03-05:00 INFO (6): ===== Sync Ends =====
+

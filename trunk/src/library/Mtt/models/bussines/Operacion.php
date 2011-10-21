@@ -257,7 +257,7 @@ class Mtt_Models_Bussines_Operacion
                     'nrocuotas' => 'operacion_has_equipo.equipo_id' ,
                     'pago_forma' => 'equipo_has_formapago.pago' ,
                     'totalpago'
-                        )
+                            )
                 )
                 ->joinInner( 'formapago' ,
                              'equipo_has_formapago.formapago_id = formapago.id' ,
@@ -355,12 +355,30 @@ class Mtt_Models_Bussines_Operacion
                             array( 'imagen' )
                 )
                 ->where( 'operacion.usuario_id = ?' , $idUser )
-                ->group( 'equipo.id' )
+                ->group( 'equipo.id')
                 ->query()
         ;
 
         return $query->fetchAll( Zend_Db::FETCH_OBJ );
         }
+
+        
+    public function paglistByUser( $idUser  )
+        {
+        $_conf = new Zend_Config_Ini(
+                        APPLICATION_PATH . '/configs/myConfigUser.ini' , 
+                'compras-activas'
+        );
+        $data = $_conf->toArray();
+
+        $object = Zend_Paginator::factory(
+                        $this->listByUser( $idUser ) );
+        $object->setItemCountPerPage(
+                $data['ItemCountPerPage']
+        );
+        return $object;
+        }
+        
 
 
     public function paglistByUser( $idUser )
