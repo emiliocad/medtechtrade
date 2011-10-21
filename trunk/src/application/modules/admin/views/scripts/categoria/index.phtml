@@ -1,91 +1,108 @@
-<h2> <?= $this->translate( 'Category' ) ?>:</h2>
+<h2> <?= $this->translate('categorias') ?>:
+
+    <a href="<?=
+$this->url(
+        array(
+    'module' => 'admin',
+    'controller' => 'categoria',
+    'action' => 'nuevo'), null, true
+)
+?>"><img class ="imagen-new" /></a>
+
+</h2>
 <table border="1" class="listado">
     <thead>
         <tr>
-            <th><?= $this->translate( 'Name' ) ?></th>
-            <th><?= $this->translate( 'Title' ) ?></th>
-            <th><?= $this->translate( 'Thumbnail' ) ?></th>
-            <th><?= $this->translate( 'Description' ) ?></th>
-            <th><?= $this->translate( 'Published' ) ?></th>
-            <th><?= $this->translate( 'Order' ) ?></th>
+            <th><?= $this->translate('Name') ?></th>
+            <th><?= $this->translate('Title') ?></th>
+            <th><?= $this->translate('Thumbnail') ?></th>
+            <th><?= $this->translate('Description') ?></th>
+            <th><?= $this->translate('Published') ?></th>
+            <th><?= $this->translate('Order') ?></th>
+            <th><?= $this->translate('acciones') ?></th>
         </tr>
     </thead>
     <tbody>
-        <?php foreach ( $this->categorias as $categoria ): ?>
+        <?php foreach ($this->categorias as $categoria): ?>
 
-            <tr class="<?= $categoria->active
-                            ? 'activo' : 'inactivo' ?>">
+            <tr class="<?= $categoria->active ? 'activo' : 'inactivo' ?>">
 
                 <td>
-                    <?= $this->escape( $categoria->nombre ) ?>
+                    <?= $this->escape($categoria->nombre) ?>
                 </td>
                 <td>
-                    <?= $this->escape( $categoria->title ) ?>
+                    <?= $this->escape($categoria->title) ?>
                 </td>
                 <td>
-                    <?= $this->escape( $categoria->descripcion ) ?>
+                    <?= $this->escape($categoria->descripcion) ?>
                 </td>
                 <td>
-                    <?= $this->escape( $categoria->thumbnail ) ?>
+                    <?= $this->escape($categoria->thumbnail) ?>
                 </td>
                 <td>
-                    <?= $this->escape( $categoria->published ) ?>
+                    <?= $this->escape($categoria->published) ?>
                 </td>
                 <td>
-                    <?= $this->escape( $categoria->order ) ?>
+                    <?= $this->escape($categoria->order) ?>
                 </td>
-                
+
                 <td>
 
                     <?php
                     $link = $this->url(
                             array(
-                                'module' => 'admin' ,
-                                'controller' => 'categoria' ,
-                                'action' => 'editar' ,
-                                'id' => $categoria->id ) )
+                                'module' => 'admin',
+                                'controller' => 'categoria',
+                                'action' => 'editar',
+                                'id' => $categoria->id))
                     ?>
-                    <a href="<?= $link ?>">
-                        [Editar]
+                    <a href="<?= $link ?>"
+                       title="<?= $this->translate('editar') ?>">
+                        <img class ="imagen-edit" />
                     </a>
 
                     <?php
                     $link = $this->url(
                             array(
-                                'module' => 'admin' ,
-                                'controller' => 'categoria' ,
-                                'action' => 'borrar' ,
-                                'id' => $categoria->id )
+                                'module' => 'admin',
+                                'controller' => 'categoria',
+                                'action' => 'borrar',
+                                'id' => $categoria->id)
                             )
                     ?>
                     <a href="<?= $link ?>" onclick="return confirm(
-                       <?= $this->translate( '¿Estás seguro?' ); ?>
-                           )">
-                           <?= $this->translate( 'Borrar' ); ?>
+                    <?= $this->translate('¿Estás seguro?'); ?>
+                           )" 
+                           title="<?= $this->translate('eliminar'); ?>">
+                        <img class ="imagen-delete" />
                     </a>
 
-                    <? if ( $categoria->active ): ?>
+                    <? if ($categoria->active): ?>
                         <?
                         $link = $this->url(
                                 array(
-                                    'module' => 'admin' ,
-                                    'controller' => 'categoria' ,
-                                    'action' => 'desactivar' ,
-                                    'id' => $categoria->id ) )
+                                    'module' => 'admin',
+                                    'controller' => 'categoria',
+                                    'action' => 'desactivar',
+                                    'id' => $categoria->id))
                         ?>
-                        <a href="<?= $link ?>">
-                            <?= $this->translate( 'Desactivar' ); ?>
+                        <a href="<?= $link ?>"
+                           title="<?= $this->translate('Desactivar'); ?>">
+                            
+                            <img class ="imagen-inactive" />
                         </a>
                     <? else: ?>
                         <?
                         $link = $this->url(
-                                array( 'module' => 'admin' ,
-                                    'controller' => 'categoria' ,
-                                    'action' => 'activar' ,
-                                    'id' => $id ) )
+                                array('module' => 'admin',
+                                    'controller' => 'categoria',
+                                    'action' => 'activar',
+                                    'id' => $id))
                         ?>
-                        <a href="<?= $link ?>">
-                            <?= $this->translate( 'Activar' ); ?>
+                        <a href="<?= $link ?>"
+                           title="<?= $this->translate('activar'); ?>">
+                            
+                            <img class ="imagen-activar" />
                         </a>
                     <? endif; ?>
 
@@ -95,12 +112,3 @@
     </tbody>
 </table>
 <br />
-
-<a href="<?=
-        $this->url(
-                array(
-            'module' => 'admin' ,
-            'controller' => 'categoria' ,
-            'action' => 'nuevo' ) , null , true
-        )
-        ?>">Nuevo</a>

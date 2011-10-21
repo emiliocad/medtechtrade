@@ -25,6 +25,16 @@ class Admin_CategoriaController
 
     public function nuevoAction()
         {
+         $this->view->jQuery()
+                ->addJavascriptFile(
+                        '/js/jwysiwyg/jquery.wysiwyg.js'
+                )
+                ->addJavascriptFile(
+                        '/js/categoria.js'
+                )
+                ->addStylesheet(
+                        '/js/jwysiwyg/jquery.wysiwyg.css'
+        );
         $form = new Mtt_Form_Categoria();
         if ( $this->_request->isPost() && $form->isValid(
                         $this->_request->getPost()
