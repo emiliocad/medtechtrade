@@ -107,3 +107,113 @@ $this->paginationControl(
         $this->favoritos, 'Sliding', 'reserva/_pag.phtml'
 );
 ?>
+=======
+<h2>
+    <?= $this->translate('equipo reservados') ?>
+</h2>
+<table border="1" class="listado">
+    <thead>
+    <th>
+        <?= $this->translate('imagen') ?>
+    </th>
+    <th>
+        <?= $this->translate('equipo') ?>
+    </th>
+    <th>
+        <?= $this->translate('precio') ?>
+    </th>
+    <th>
+        <?= $this->translate('categoria') ?>
+    </th>
+    <th>
+        <?= $this->translate('estado equipo') ?>
+    </th>
+    <th>
+        <?= $this->translate('fabricante') ?>
+    </th>
+    <th>
+        <?= $this->translate('calidad') ?>
+    </th>
+    <th>
+        <?= $this->translate('acciones') ?>
+
+    </th>
+</thead>
+<tbody>
+    <?php foreach ($this->favoritos as $favorito): ?>
+        <tr class="<?= $favorito->active ? 'activo' : 'inactivo' ?>" 
+            id ="<?= $favorito->id ?>">
+            <td >
+                <?php
+                $url = (is_null($favorito->imagen)) ?
+                        '/theme/default/image/no_images.png' :
+                        '/media/catalog/product/' . $favorito->imagen
+                ?>
+                <img src="<?= $url ?>" 
+                     alt="<?= $favorito->equipo ?>"
+                     width="24px" height="24px">
+            </td>
+
+
+            <td>
+                <?= $this->escape($favorito->equipo) ?>
+            </td>
+
+
+            <td>
+                <?= $this->escape($favorito->precio) ?>
+            </td>
+
+            <td>
+                <?= $this->escape($favorito->categoria) ?>
+            </td>
+
+            <td>
+                <?= $this->escape($favorito->estadoequipo) ?>
+            </td>
+
+            <td>
+                <?= $this->escape($favorito->fabricante) ?>
+            </td>
+
+            <td>
+                <?= $this->escape($favorito->calidad) ?>
+            </td>
+
+
+            <td>
+
+                <?=
+                $this->ajaxLink(
+                        "<img class ='imagen-delete'>", 
+                        "/user/reserva/borrarreserva/format/json", array(
+                    'dataType' => 'json',
+                    'beforeSend' =>
+                    'myBeforeSendCallbackJsFunc();',
+                    'complete' =>
+                    'myCompleteCallbackJsFunc(data);',
+                    'method' => 'POST'), array('id' => $favorito->id)
+                );
+                ?>
+                <?php
+                $link =
+                        $this->url(
+                        array(
+                    'slug' => $favorito->slug
+                        ), 'slugEquipment', true)
+                ?>
+                <a href="<?= $link ?>" title="<?= $this->translate('ver equipo') ?>" >
+                    <img class ="imagen-see">
+                </a>
+
+            </td>
+
+        </tr>
+    <?php endforeach; ?>
+</tbody>
+</table>
+<?=
+$this->paginationControl(
+        $this->favoritos, 'Sliding', 'reserva/_pag.phtml'
+);
+>>>>>>> 209e3bf66a52f5d2a99e14bcf2896efa026d3e2e

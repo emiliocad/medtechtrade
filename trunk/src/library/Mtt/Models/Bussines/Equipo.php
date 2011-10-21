@@ -265,6 +265,9 @@ class Mtt_Models_Bussines_Equipo
                 )
                 ->where( 'equipo.topofers IN (?)' , self::ACTIVE )
                 ->where( 'equipo.active IN (?)' , self::ACTIVE )
+                ->where( 'equipo.publicacionEquipo_id = ?', 
+                        Mtt_Models_Table_PublicacionEquipo::Activada
+                )
                 ->group( 'equipo.id')
                 ->limit( $limit )
                 ->query();
