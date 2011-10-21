@@ -523,16 +523,27 @@ br{
     margin-left: auto;
 }
 
-#wrap #userMenu {
-    padding-top: 2px;
-}
 
-#userMenu {
+
+#wrap #userMenu {
+     padding-top: 2px;
     width: 700px;
     padding-left: 18px;
 }
 
-#userMenu #nav-user li span {
+#wrap #userMenu #nav-user li {
+    display: inline-block;
+    margin-right: 10px;
+    position: relative;
+}
+#wrap #userMenu #nav-user li a {
+    width: 100px;
+    display:block;
+    text-decoration: none;
+    font-weight: bold;
+}
+#wrap #userMenu #nav-user li span {
+    width: 100px;
     display: block;
     font-weight: bold;
     text-decoration: none;
@@ -540,110 +551,43 @@ br{
     padding-bottom: 5px;
 }
 
-#nav-user li a {
-    display:block;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-#userMenu #nav-user li {
-    display: inline-block;
-    margin-right: 42px;
-    position: relative;
-}
-
-
-#nav-user ul {
+#wrap #userMenu #nav-user ul {
     position: absolute;
     display: none;
     width:12em;
     /*top:1.5em;*/
 }
 
-#nav-user span:link, #nav-user span:active, #nav-user span:visited {
+#wrap #userMenu #nav-user li span:link, 
+#wrap #userMenu #nav-user li span:active, 
+#wrap #userMenu #nav-user li span:visited {
     display: block;
     padding: 0px 5px;
     border: 1px solid #333;
     color: #fff;
     text-decoration: none;
-    background-color: #333;
-}
-
-/*menu*/
-/*
-#nav-user #nav-user ul{
-margin:0;
-padding:0;
-list-style-type:none;
-list-style-position:outside;
-position:relative;
-line-height:1.5em; 
-}
-
-#nav-user a{
-display:block;
-padding:0px 5px;
-border:1px solid #333;
-color:#fff;
-text-decoration:none;
-background-color:#333;
-}
-
-#nav-user a:hover{
-background-color:#fff;
-color:#333;
-}
-
-#nav-user li{
-float:left;
-position:relative;
-}
-
-#nav-user ul {
-position:absolute;
-display:none;
-width:12em;
-top:1.5em;
-}
-
-#nav-user li ul a{
-width:12em;
-height:auto;
-float:left;
-}
-
-#nav-user ul ul{
-top:auto;
-}   
-
-#nav-user li ul ul {
-left:12em;
-margin:0px 0 0 10px;
-}
-
-#nav-user li:hover ul ul, #nav-user li:hover ul ul ul, #nav-user li:hover ul ul ul ul{
-display:none;
-}*/
-
-#userMenu #nav-user li span:hover {
-    font-weight: normal;
 
 }
 
 
-#userMenu #nav-user li ul li {
+#wrap #userMenu #nav-user li ul li span {
+    width:220px;
     background-color: #177FAD;
-    padding: 4px;
+    padding: 10px;
     color: #ffffff;
 }
-#userMenu #nav-user li ul li span:hover {
+#wrap #userMenu #nav-user li span:hover {
     font-weight: normal;
     display: block;
     background-color: #1FA1D1;
 
 }
 
-#nav-user li span:hover ul, #nav-user li li span:hover ul, #nav-user li li li span:hover ul, #nav-user li li li li span:hover ul{
+
+#wrap #userMenu #nav-user li span:hover ul, 
+#wrap #userMenu #nav-user li li span:hover ul, 
+#wrap #userMenu #nav-user li li li span:hover ul,
+#wrap #userMenu #nav-user li li li li span:hover ul{
     display:block;
 }
 
